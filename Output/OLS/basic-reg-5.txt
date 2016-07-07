@@ -1,0 +1,48 @@
+	(1)
+VARIABLES	binSatisFamily
+	
+2.maternaType	-0.0145
+	(0.107)
+3.maternaType	0.0128
+	(0.0682)
+4.maternaType	0.232
+	(0.186)
+5.maternaType	-0.0392
+	(0.0656)
+CAPI	-0.0519
+	(0.0532)
+Age	0.00331
+	(0.0451)
+momMaxEdu_middle	-0.333**
+	(0.158)
+momMaxEdu_HS	-0.231
+	(0.149)
+momMaxEdu_Uni	-0.195
+	(0.151)
+o.momAgeBirth	-
+	
+momBornProvince	0.00238
+	(0.0669)
+cgRelig	-0.0335
+	(0.0511)
+o.houseOwn	-
+	
+o.cgReddito_2	-
+	
+o.cgReddito_3	-
+	
+o.cgReddito_4	-
+	
+o.cgReddito_5	-
+	
+o.cgReddito_6	-
+	
+o.cgReddito_7	-
+	
+Constant	0.938
+	(1.962)
+	
+Observations	281
+R-squared	0.030
+Standard errors in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	

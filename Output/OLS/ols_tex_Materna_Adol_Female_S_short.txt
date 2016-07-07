@@ -1,0 +1,26 @@
+		(1)	(2)	(3)
+VARIABLES	LABELS			
+				
+xmReggioNone	Reggio None Preschool	-1.042	-1.659	0.260
+		[2.419]	[2.464]	[2.313]
+xmReggioSome	Reggio other preschool	1.625*	1.856**	2.354**
+		[0.829]	[0.890]	[1.010]
+xmParmaMuni	Parma Muni Preschool	-0.625	-0.227	-52.344
+		[0.813]	[1.235]	[1,508.046]
+xmPadovaMuni	Padova Muni Preschool	-0.225	2.705*	-392.660
+		[0.866]	[1.597]	[1,675.604]
+xmParmaSome	Parma other preschool	-0.315	-0.381	-51.941
+		[0.886]	[1.237]	[1,508.160]
+xmPadovaSome	Padova other preschool	0.390	3.155**	-391.844
+		[0.775]	[1.571]	[1,675.706]
+xmParmaNone	Parma None Preschool	1.625***	1.584	-51.855
+		[0.569]	[2.176]	[1,508.678]
+Constant	Constant	9.375***	463.353	654.627
+		[0.569]	[615.164]	[1,145.090]
+				
+Observations		363	363	363
+R-squared		0.025	0.173	0.328
+Controls		None	All	Inter
+Robust standard errors in brackets				
+*** p<0.01, ** p<0.05, * p<0.1				
+Dependent variable: SDQ score (self rep.).				

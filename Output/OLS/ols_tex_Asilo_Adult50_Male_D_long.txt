@@ -1,0 +1,24 @@
+		(1)	(2)	(3)
+VARIABLES	LABELS			
+				
+xaReggioNone	Reggio None ITC	6.489**	11.253***	
+		[3.263]	[3.910]	
+xaParmaMuni	Parma Muni ITC	-0.750	1.393	-1,593.167
+		[3.339]	[5.126]	[1,240.548]
+xaPadovaReli	Padova Reli ITC	5.167	10.126*	
+		[3.451]	[5.143]	
+xaParmaNone	Parma None ITC	7.600**	7.365**	-1,587.498
+		[3.323]	[3.651]	[1,240.350]
+xaPadovaNone	Padova None ITC	7.741**	12.518***	3.949
+		[3.316]	[4.758]	[3.217]
+xaParmaReli	Parma Reli ITC			-1,598.174
+				[1,240.847]
+Constant	Constant	15.500***	-96.414	325.941
+		[3.233]	[373.289]	[964.557]
+				
+Observations		190	190	190
+R-squared		0.093	0.379	0.467
+Controls		None	All	Inter
+Robust standard errors in brackets				
+*** p<0.01, ** p<0.05, * p<0.1				
+Dependent variable: Depression score (CESD).				

@@ -1,0 +1,48 @@
+	(1)
+VARIABLES	Depression_score
+	
+2.maternaType	-1.286
+	(1.533)
+3.maternaType	1.483*
+	(0.878)
+4.maternaType	1.698
+	(2.691)
+5.maternaType	-2.863
+	(2.523)
+CAPI	0.499
+	(0.788)
+Age	2.403**
+	(1.140)
+momMaxEdu_middle	-2.431
+	(1.606)
+momMaxEdu_HS	-0.491
+	(1.171)
+momMaxEdu_Uni	-0.901
+	(1.308)
+momAgeBirth	0.0611
+	(0.0877)
+momBornProvince	-0.107
+	(0.874)
+cgRelig	0.937
+	(0.995)
+houseOwn	0.826
+	(1.119)
+cgReddito_2	10.16***
+	(3.843)
+cgReddito_3	2.485*
+	(1.273)
+cgReddito_4	3.576***
+	(1.125)
+cgReddito_5	3.122**
+	(1.208)
+cgReddito_6	2.359
+	(2.004)
+cgReddito_7	7.134
+	(6.486)
+Constant	-27.90
+	(21.59)
+	
+Observations	283
+R-squared	0.113
+Standard errors in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	

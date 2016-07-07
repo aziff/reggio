@@ -1,0 +1,28 @@
+		(1)	(2)	(3)
+VARIABLES	LABELS			
+				
+xaReggioNone	Reggio None ITC	-0.090	-0.112	-0.093
+		[0.086]	[0.095]	[0.103]
+xaReggioSome	Reggio other ITC	0.005	0.031	0.073
+		[0.203]	[0.230]	[0.251]
+xaParmaMuni	Parma Muni ITC	-0.281***	-0.273*	228.900
+		[0.096]	[0.139]	[171.888]
+xaPadovaMuni	Padova Muni ITC	-0.069	-0.046	53.402
+		[0.112]	[0.180]	[168.319]
+xaParmaSome	Parma other ITC	0.088	-0.007	229.138
+		[0.166]	[0.216]	[171.862]
+xaPadovaSome	Padova other ITC	0.338***	0.335*	53.837
+		[0.058]	[0.174]	[168.317]
+xaParmaNone	Parma None ITC	-0.076	-0.023	229.111
+		[0.088]	[0.134]	[171.879]
+xaPadovaNone	Padova None ITC	0.059	0.071	53.530
+		[0.075]	[0.157]	[168.322]
+Constant	Constant	0.662***	12.116	-55.736
+		[0.058]	[72.817]	[122.544]
+				
+Observations		367	367	367
+R-squared		0.047	0.181	0.293
+Controls		None	All	Inter
+Robust standard errors in brackets				
+*** p<0.01, ** p<0.05, * p<0.1				
+Dependent variable: Child health is good (%) - mom report.				

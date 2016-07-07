@@ -1,0 +1,26 @@
+		(1)	(2)	(3)
+VARIABLES	LABELS			
+				
+xaReggioNone	Reggio None ITC	0.020	-0.055	-0.012
+		[0.124]	[0.150]	[0.154]
+xaParmaMuni	Parma Muni ITC	-0.658***	-0.393*	-0.358**
+		[0.159]	[0.234]	[0.151]
+xaPadovaMuni	Padova Muni ITC	0.064	0.426	425.998
+		[0.194]	[0.310]	[362.884]
+xaParmaSome	Parma other ITC	-0.269	-0.009	
+		[0.377]	[0.196]	
+xaPadovaSome	Padova other ITC	-0.769***	-0.412	425.023
+		[0.118]	[0.311]	[362.857]
+xaParmaNone	Parma None ITC	-0.202	-0.060	0.040
+		[0.128]	[0.188]	[0.098]
+xaPadovaNone	Padova None ITC	-0.269**	0.170	425.637
+		[0.127]	[0.270]	[362.872]
+Constant	Constant	0.769***	-256.199**	-653.166**
+		[0.118]	[115.804]	[273.866]
+				
+Observations		365	365	365
+R-squared		0.107	0.299	0.341
+Controls		None	All	Inter
+Robust standard errors in brackets				
+*** p<0.01, ** p<0.05, * p<0.1				
+Dependent variable: Respondent health is good (%).				

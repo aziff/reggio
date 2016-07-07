@@ -1,0 +1,376 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage{datetime}
+\usepackage{float}
+\usepackage[margin=0.5in,includefoot]{geometry}
+\usepackage{hyperref}
+\usepackage{morefloats}
+\usepackage{rotating}
+
+\usepackage{setspace}
+
+\usepackage{caption} 
+\captionsetup[table]{skip=2pt}
+
+
+\settimeformat{hhmmsstime}
+
+\begin{document}
+
+\title{Preliminary Aggregated Model}
+\author{Reggio Team}
+\date{Original version: Thursday  9$^{\text{th}}$ June, 2016 \\ Current version: \today \\ \vspace{1em} Time: \currenttime}
+\maketitle
+
+\listoftables
+
+\doublespacing
+
+\section*{Overview}
+
+
+In the Reggio sample, there are different ways to cluster the data along the dimensions listed in Table \ref{dimensions}.This document records experimentation with different forms of aggregation to compare across and between these groups. The goal of this aggregation is to understand what can be considered the treatment and control groups, considering the possible spillover of the ``Reggio approach" in the younger cohorts. 
+
+\begin{table}
+\caption{Dimensions of Sample} \label{dimensions}
+\begin{center}
+\begin{tabular}{l l l l}
+\toprule
+City 			& Cohort 			&	Age Group 	&	School Type \\
+\midrule
+Reggio Emilia 	& Children 		&	Asilo			&	Municipal \\
+Parma		& Migrants 		&	Materna		&	State   \\
+Padova		& Adolescents 		&				&	Religious \\
+			& Adults (30s) 		&				&	Private \\
+			& Adults (40s) 		&				&	None  \\
+			& Adults (50s) 		&				& \\
+\bottomrule
+\end{tabular}
+\end{center}
+\raggedright
+\footnotesize
+Note: Asilo is equivalent to infant-toddler centers, while materna refers to preschools. The motivating program of interest is the municipal asilo and materna in Reggio Emilia that was available for all cohorts except the oldest cohort of adults. The state schools are only available for materna.
+\end{table}
+
+We start by only examining materna schools. We justify this by showing that the number of individuals enrolled in asilo across the cohorts is low compared to the number enrolled in materna (Table \ref{asilo-materna}). 
+
+
+\begin{table}[htbp]\centering
+\caption{Percent of Group that Attended Asilo and Materna by Cohort} \label{asilo-materna}
+\begin{center}
+\begin{tabular} {l c c c c c} \\ 
+\toprule
+			 (1) & (2) & (3) & (4) & (5) & (6) \\
+Cohort 		&  No Asilo & Other Asilo & Asilo & No Materna & Materna  \\
+\midrule
+Children		&    38	&        3&       59&    1&       99 \\
+Migrants		&    51	&        1&       47&     5&       95 \\
+Adolescents	&    53	&        4&       44&    1&       99 \\
+Adult (30s)	&	   77 &        3&       20&    19&       81 \\
+Adult (40s)	&     85	&        3&       12&   34&       66 \\
+Adult (50s)	&     94	&	  0&      6&   62&       38 \\
+\midrule
+Total			&        32	&        3&       65&   18&       82 \\
+\bottomrule
+\end{tabular}
+\end{center}
+\raggedright
+\footnotesize
+Note: ``Other Asilo" refers to programs for children from birth to age 3 that do not include center-based care. Examples include family education or a nanny. For each cohort, the percentages reported in columns (2) through (4) add to 100\%, and the percentages reported in columns (5) and (6) add to 100\%. From this table, it is evident that enrollment in materna was much higher than enrollment in asilo across all cohorts.
+\end{table}
+
+
+Once restricting the sample to only those with information on the type of materna they attended, we first broadly compare the baseline characteristics and outcomes of individuals in the different cities. This shows the differences between the cities as captured by the sample. This regression pools all schools in each of the cities. It can be written as
+
+\begin{equation} \label{pooling-schools}
+	Y_{i} = \alpha + \beta R_{i} + \sum_{k \in \kappa} \gamma {X}_{i}^k  + \varepsilon_{i}, i \in I := \{ \text{all individuals}\},
+\end{equation}
+
+\noindent where $i$ indexes over all individuals in the three cities, $Y_{i}$ is an outcome of interest, each $X_{i}^k$ represents an individual-level control, $\varepsilon_{i}$ is an individual disturbance that we assume to be independent from the outcome variable conditioned on the control variables, and $R_{i}$ is an indicator of living in Reggio. To be explicit:
+
+\begin{equation}\label{explain-R}
+	R_i = 
+	\begin{cases}
+		0 & \text{ if individual } i \text{ lives in Parma or Padova} \\
+		1 & \text{ if individual } i \text{ lives in Reggio Emilia}.
+	\end{cases}
+\end{equation}
+
+We control for different variables for different cohorts. Table \ref{covariates} lists these variables by cohort.
+
+\begin{table}
+	\caption{Covariates by Cohort} \label{covariates}
+	\begin{center}
+		\begin{tabular}{l cccccc}
+		\toprule
+		& Children & Migrants & Adolescents & Adults (30s) & Adults (40s) & Adults (50s) \\
+		\midrule
+		Male & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$  \\
+		CAPI & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$  \\
+		Low birthweight & $\checkmark$ & $\checkmark$ & $\checkmark$ &  &  &  \\
+		Premature birth & $\checkmark$ & $\checkmark$ & $\checkmark$ &  &  &  \\
+		Mother age at birth & $\checkmark$ & $\checkmark$ & $\checkmark$ &  &  &  \\
+		Mother born in province & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$  \\
+		Mother max. education level & $\checkmark$ & $\checkmark$ & $\checkmark$ &  &  &  \\
+		Father age at birth & $\checkmark$ & $\checkmark$ & $\checkmark$ &  &  &  \\
+		Father born in province & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$  \\
+		Father max. education level & $\checkmark$ & $\checkmark$ & $\checkmark$ &  &  &  \\
+		Religious household & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$ & $\checkmark$  \\
+		Household income & $\checkmark$ & $\checkmark$ & $\checkmark$ &  &  &  \\
+		House is owned & $\checkmark$ & $\checkmark$ & $\checkmark$ &  &  &  \\
+		Year migrated to city &  & $\checkmark$ & &  &  &  \\
+		Age migrated to city & & $\checkmark$ & & & & \\
+		Caregiver is an immigrant & $\checkmark$ & $\checkmark$ & $\checkmark$ & & & \\
+		\bottomrule
+		\end{tabular}
+	\end{center}
+\raggedright
+\footnotesize
+Note: This table shows which covariates are used for which cohorts.
+\end{table}
+
+While the estimates from this regression give a broad idea of the differences between the cities based on the individuals in the sample, we are grouping those who attended preschool with those who did not. To understand the difference between Reggio Emilia preschools and preschools in Parma and Padova, we present estimates from the following regression:
+
+\begin{equation} \label{compare-preschool}
+	Y_{i} = \alpha' + \beta' R_{i} Q_{i} + \sum_{k \in \kappa} \gamma' {X}_{i}^k  + \varepsilon_{i}', i \in I' := \{\text{all individuals who attended materna}\}.
+\end{equation}
+
+In this case, the individuals are only those who attended materna. $Q_{i}$ indicates enrollment in materna (any type). The estimates from this regression allow us to compare the outcomes of those who went to any type of preschool in Reggio Emilia, with those who went to any type of preschool in Parma and Padova.
+
+While the regressions above help us understand differences between the cities, we would also like to understand the differences between the different preschool types \textit{within} each city, especially in Reggio Emilia where the ``Reggio approach" exists in the municipal schools:
+
+\begin{equation} \label{within-Reggio}
+	Y_{i} = \alpha'' + \sum_{t \in \tau} \beta''_{t} Q^{t}_i + \sum_{k \in \kappa} \gamma'' {X}_{i}^k  + \varepsilon_{i}'', i \in I'' := \{\text{individuals in Reggio}\}.
+\end{equation}
+
+In this case, the individuals are restricted to those in the city of Reggio Emilia. The set $\tau$ includes municipal, state, religious, and private materna centers with attending no materna as the omitted group.
+
+We present the estimates from each of these regressions by cohort. Although all regressions include the covariates listed in Table \ref{covariates}, we omit their estimated coefficients for simplicity.
+
+
+\section{Children}
+The patterns of the estimated effects on the outcomes are similar when comparing all Reggio children with all Parma and padova cihldren and when comparing only the children who attended materna in Reggio to those who attended materna in Parma and Padova. Those in Reggio (materna) had significantly lower IQ scores. Although not significant, for both exercises, children in Reggio (materna) disliked school less, had lower BMIs, and fewer problems as reported in the SDQ score. The estimated effects of each school type on the child outcomes within Reggio give similar results.
+
+\begin{table}[H]
+\begin{center}
+	\caption{Children, Reggio vs. Parma and Padova, Pooling School Types}
+		\input{../../Output/Basic_Regression/basicreg_allChild}
+\end{center}
+\raggedright
+\footnotesize
+Note: These estimates correspond to Equation \ref{pooling-schools}, and compares all Reggio individuals with all Parma and Padova individuals. Standard errors are in parentheses. A bold number means the estimate is significantly different from 0 at the 10\% level. 
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Children, Reggio vs. Parma and Padova, Pooling Individuals who Attended Materna}
+		\input{../../Output/Basic_Regression/basicreg_preChild}
+\end{center}
+\raggedright
+\footnotesize
+Note: These estimates correspond to Equation \ref{compare-preschool}, and compares all Reggio children who attended materna with all Parma and Padova individuals who attended materna. Standard errors are in parentheses. A bold number means the estimate is significantly different from 0 at the 10\% level. 
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Children, Reggio Municipal vs. Other Reggio Materna Types, Including Only Reggio Individuals}
+		\input{../../Output/Basic_Regression/basicreg_reggioChild}
+\end{center}
+\raggedright
+\footnotesize
+Note: These estimates correspond to Equation \ref{within-Reggio}, and compares children in Reggio with the different types of materna (municipal, state, religious, and private) with respect to children in Reggio with no materna. Standard errors are in parentheses. A bold number means the estimate is significantly different from 0 at the 10\% level. 
+\end{table}
+
+% --------------------------------------------------------------------------------- %
+
+\section{Migrants}
+For migrants, the directions and magnitudes are similar as those for the children regressions except SDQ score has a larger magnitude and BMI is positively affected by Reggio (materna) instead of negatively affected. The private schools in Reggio had substantial effects on IQ factor (-2.18) and the SDQ score (8.14) compared to no preschool in Reggio. Migrants are more strongly affected in the SDQ domain than Italian children.
+
+\begin{table}[H]
+\begin{center}
+	\caption{Migrants, Reggio vs. Parma and Padova, Pooling All School Types}
+		\input{../../Output/Basic_Regression/basicreg_allMigrant}
+\end{center}
+\raggedright
+\footnotesize
+Note: These estimates correspond to Equation \ref{pooling-schools}, and compares all Reggio migrants with all Parma and Padova migrants. Standard errors are in parentheses. A bold number means the estimate is significantly different from 0 at the 10\% level. 
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Migrants, Reggio vs. Parma and Padova, Pooling Individuals who Attended Materna}
+		\input{../../Output/Basic_Regression/basicreg_preMigrant}
+\end{center}
+\raggedright
+\footnotesize
+Note: These estimates correspond to Equation \ref{compare-preschool}, and compares all Reggio migrants who attended materna with all Parma and Padova migrants who attended materna. Standard errors are in parentheses. A bold number means the estimate is significantly different from 0 at the 10\% level. 
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Migrants, Reggio Municipal vs. Other Reggio Materna Types, Including Only Reggio Individuals}
+		\input{../../Output/Basic_Regression/basicreg_reggioMigrant}
+\end{center}
+\raggedright
+\footnotesize
+Note: These estimates correspond to Equation \ref{within-Reggio}, and compares migrants in Reggio with the different types of materna (municipal, state, religious, and private) with respect to migrants in Reggio with no materna. Standard errors are in parentheses. A bold number means the estimate is significantly different from 0 at the 10\% level. 
+\end{table}
+
+
+% ---------------------------------------------------------------------------------- %
+
+\section{Adolescents}
+Similarly to the patterns seen in children and migrants, the patterns are consistent across the first two regressions. An interesting effect is seen in smoking and number of cigarettes smoked per day. Reggio (materna) is associated with more cigarettes per week and more smoking. However, when comparing between the schools within Reggio, all the school types contribute to fewer cigarettes per day compared to no preschool. For private schools, however, this difference is almost twice as large as the difference for the other school types. This indicates that those in Reggio who did not attend materna smoked many cigarettes.
+
+\begin{table}[H]
+\begin{center}
+	\caption{Adolescents, Reggio vs. Parma and Padova, Pooling All School Types}
+		\input{../../Output/Basic_Regression/basicreg_allAdolescent}
+\end{center}
+\raggedright
+\footnotesize
+Note: These estimates correspond to Equation \ref{pooling-schools}, and compares all Reggio adolescents with all Parma and Padova adolescents. Standard errors are in parentheses. A bold number means the estimate is significantly different from 0 at the 10\% level. 
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Adolescents, Reggio vs. Parma and Padova, Pooling Individuals who Attended Materna}
+		\input{../../Output/Basic_Regression/basicreg_preAdolescent}
+\end{center}
+\raggedright
+\footnotesize
+Note: These estimates correspond to Equation \ref{compare-preschool}, and compares all Reggio adolescents who attended materna with all Parma and Padova adolescents who attended materna. Standard errors are in parentheses. A bold number means the estimate is significantly different from 0 at the 10\% level. 
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Adolescents, Reggio Municipal vs. Other Reggio Materna Types, Including Only Reggio Individuals}
+		\input{../../Output/Basic_Regression/basicreg_reggioAdolescent}
+\end{center}
+\raggedright
+\footnotesize
+Note: These estimates correspond to Equation \ref{within-Reggio}, and compares adolescents in Reggio with the different types of materna (municipal, state, religious, and private) with respect to adolescents in Reggio with no materna. Standard errors are in parentheses. A bold number means the estimate is significantly different from 0 at the 10\% level. 
+\end{table}
+
+% ------------------------------------------------------------------------------------ %
+\section{Adults (30s)}
+For adults in their 30s who live in Reggio and attend materna have better health and smoke less, although those who smoke, smoke more cigarettes than those in Parma and Padova. Those in Reggio (materna) work more hours per week and are slightly, but significantly, more likely to be employed. At this cohort, we begin to see a difference between the school types within Reggio. Those in the private materna worked 14.55 hours per week compared to those who attended no materna, which is much higher than those who attended other school types and worked about 5 hours more per week. Those in the religious materna had an increase of 0.36 in the IQ factor compared with those who did not attend any materna, while those in the other materna types had decreases in IQ factors or non-significant estimates.
+
+
+\begin{table}[H]
+\begin{center}
+	\caption{Adults (30s), Reggio vs. Parma and Padova, Pooling All School Types}
+	\scalebox{0.9}{
+		\input{../../Output/Basic_Regression/basicreg_allAdult30}		
+		}
+\end{center}
+\raggedright
+\footnotesize
+Note: These estimates correspond to Equation \ref{pooling-schools}, and compares all Reggio adults (30s) with all Parma and Padova adults (30s). Standard errors are in parentheses. A bold number means the estimate is significantly different from 0 at the 10\% level. 
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Adults (30s), Reggio vs. Parma and Padova, Pooling Individuals who Attended Materna}
+	\scalebox{0.9}{
+		\input{../../Output/Basic_Regression/basicreg_preAdult30}		
+		}
+\end{center}
+\raggedright
+\footnotesize
+Note: These estimates correspond to Equation \ref{compare-preschool}, and compares all Reggio adults (30s) who attended materna with all Parma and Padova adults (30s) who attended materna. Standard errors are in parentheses. A bold number means the estimate is significantly different from 0 at the 10\% level. 
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Adults (30s), Reggio Municipal vs. Other Reggio Materna Types, Including Only Reggio Individuals}
+		\input{../../Output/Basic_Regression/basicreg_reggioAdult30}
+\end{center}
+\raggedright
+\footnotesize
+Note: These estimates correspond to Equation \ref{within-Reggio}, and compares adults (30s) in Reggio with the different types of materna (municipal, state, religious, and private) with respect to adults (30s) in Reggio with no materna. Standard errors are in parentheses. A bold number means the estimate is significantly different from 0 at the 10\% level. 
+\end{table}
+
+% --------------------------------------------------------------------------------- %
+
+\section{Adults (40s)}
+One striking estimate for this cohort is seen in the estimates comparing the different materna types within Reggio. Those who attended private materna were more likely to be self-employed. Those who attended municipal and religious materna worked 5-7 more hours than those who attended no materna. It seems that those who attend different materna types have different employment patterns, although more investigation is needed to understand the employment trajectory.
+
+\begin{table}[H]
+\begin{center}
+	\caption{Adults (40s), Reggio vs. Parma and Padova, Pooling All School Types}
+	\scalebox{0.9}{
+		\input{../../Output/Basic_Regression/basicreg_allAdult40}
+		}
+\end{center}
+\raggedright
+\footnotesize
+Note: These estimates correspond to Equation \ref{pooling-schools}, and compares all Reggio adults (40s) with all Parma and Padova adults (40s). Standard errors are in parentheses. A bold number means the estimate is significantly different from 0 at the 10\% level. 
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Adults (40s), Reggio vs. Parma and Padova, Pooling Individuals who Attended Materna}
+	\scalebox{0.9}{
+		\input{../../Output/Basic_Regression/basicreg_preAdult40}
+		}
+\end{center}
+\raggedright
+\footnotesize
+Note: These estimates correspond to Equation \ref{compare-preschool}, and compares all Reggio adults (40s) who attended materna with all Parma and Padova adults (40s) who attended materna. Standard errors are in parentheses. A bold number means the estimate is significantly different from 0 at the 10\% level. 
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Adults (40s), Reggio Municipal vs. Other Reggio Materna Types, Including Only Reggio Individuals}
+		\input{../../Output/Basic_Regression/basicreg_reggioAdult40}
+\end{center}
+\raggedright
+\footnotesize
+Note: These estimates correspond to Equation \ref{within-Reggio}, and compares adults (40s) in Reggio with the different types of materna (municipal, state, religious, and private) with respect to adults (40s) in Reggio with no materna. Standard errors are in parentheses. A bold number means the estimate is significantly different from 0 at the 10\% level. 
+\end{table}
+
+% ------------------------------------------------------------------------------- %
+
+\section{Adults (50s)}
+Those who attended the private materna were much less likely to be employed (0.43). However, they report much lower satisfaction with their income compared to those who attended the private materna. Similar to the cohort of adults in their 40s, there seems to be some interesting interaction between the type of materna and employment dynamics. 
+
+\begin{table}[H]
+\begin{center}
+	\caption{Adults (50s), Reggio vs. Parma and Padova, Pooling All School Types}
+	\scalebox{0.9}{
+		\input{../../Output/Basic_Regression/basicreg_allAdult50}
+		}
+\end{center}
+\raggedright
+\footnotesize
+Note: These estimates correspond to Equation \ref{pooling-schools}, and compares all Reggio adults (50s) with all Parma and Padova adults (50s). Standard errors are in parentheses. A bold number means the estimate is significantly different from 0 at the 10\% level. 
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Adults (50s), Reggio vs. Parma and Padova, Pooling Individuals who Attended Materna}
+	\scalebox{0.9}{
+		\input{../../Output/Basic_Regression/basicreg_preAdult50}
+		}
+\end{center}
+\raggedright
+\footnotesize
+Note: These estimates correspond to Equation \ref{compare-preschool}, and compares all Reggio adults (50s) who attended materna with all Parma and Padova adults (50s) who attended materna. Standard errors are in parentheses. A bold number means the estimate is significantly different from 0 at the 10\% level. 
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Adults (50s), Reggio Municipal vs. Other Reggio Materna Types, Including Only Reggio Individuals}
+		\input{../../Output/Basic_Regression/basicreg_reggioAdult50}
+\end{center}
+\raggedright
+\footnotesize
+Note: These estimates correspond to Equation \ref{within-Reggio}, and compares adults (50s) in Reggio with the different types of materna (municipal, state, religious, and private) with respect to adults (50s) in Reggio with no materna. Standard errors are in parentheses. A bold number means the estimate is significantly different from 0 at the 10\% level. 
+\end{table}
+
+
+\end{document}

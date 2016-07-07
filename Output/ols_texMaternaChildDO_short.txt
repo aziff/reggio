@@ -1,0 +1,28 @@
+		(1)
+VARIABLES	LABELS	
+		
+xmReggioSome	Reggio other preschool	-0.045
+		[0.045]
+xmParmaMuni	Parma Muni Preschool	-0.040
+		[0.047]
+xmPadovaMuni	Padova Muni Preschool	-0.026
+		[0.059]
+xmParmaSome	Parma other preschool	0.038
+		[0.062]
+xmPadovaSome	Padova other preschool	-0.045
+		[0.043]
+xmParmaNone	Parma None Preschool	-0.092**
+		[0.036]
+xmPadovaNone	Padova None Preschool	-0.092**
+		[0.036]
+xmReggioNone	Reggio None Preschool	0.908***
+		[0.036]
+Constant	Constant	0.092**
+		[0.036]
+		
+Observations		349
+R-squared		0.050
+Controls		None
+Robust standard errors in brackets		
+*** p<0.01, ** p<0.05, * p<0.1		
+Dependent variable: Ability to obey rules and directions (difficulties in primary school).		

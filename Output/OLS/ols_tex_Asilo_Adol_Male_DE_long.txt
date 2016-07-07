@@ -1,0 +1,32 @@
+		(1)	(2)	(3)
+VARIABLES	LABELS			
+				
+xaReggioNone	Reggio None ITC	-0.013	-0.012	-0.046
+		[0.051]	[0.059]	[0.069]
+xaReggioReli	Reggio Reli ITC	-0.075**	-0.036	-0.076
+		[0.037]	[0.064]	[0.126]
+xaParmaMuni	Parma Muni ITC	0.058	0.021	-246.241*
+		[0.073]	[0.095]	[140.760]
+xaPadovaMuni	Padova Muni ITC	0.015	-0.002	-171.574
+		[0.073]	[0.118]	[122.837]
+xaParmaReli	Parma Reli ITC	0.091	0.050	-246.137*
+		[0.159]	[0.139]	[140.765]
+xaPadovaReli	Padova Reli ITC	-0.075**	-0.009	-171.682
+		[0.037]	[0.097]	[122.868]
+xaParmaPriv	Parma Priv ITC	-0.075**	-0.077	-246.401*
+		[0.037]	[0.079]	[140.785]
+xaReggioPriv	Reggio Priv ITC	-0.075**	-0.089	-0.044
+		[0.037]	[0.109]	[0.162]
+xaParmaNone	Parma None ITC	-0.000	-0.005	-246.281*
+		[0.056]	[0.073]	[140.792]
+xaPadovaNone	Padova None ITC	-0.038	-0.026	-171.604
+		[0.043]	[0.081]	[122.847]
+Constant	Constant	0.075**	-39.354	67.332
+		[0.037]	[44.086]	[105.272]
+				
+Observations		292	292	292
+R-squared		0.018	0.145	0.297
+Controls		None	All	Inter
+Robust standard errors in brackets				
+*** p<0.01, ** p<0.05, * p<0.1				
+Dependent variable: Fussy eater (difficulties in primary school).				

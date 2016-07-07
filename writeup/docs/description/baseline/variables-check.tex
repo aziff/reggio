@@ -1,0 +1,197 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\parindent 22pt
+
+\usepackage{adjustbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{datetime}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,anchorcolor=blue,citecolor=blue]{hyperref}
+\usepackage{lscape}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage[colorinlistoftodos,linecolor=black]{todonotes}
+\usepackage{appendix}
+\usepackage{pgffor}
+\usepackage{caption} 
+\usepackage{threeparttable}
+\captionsetup[table]{skip=3pt}
+
+\settimeformat{hhmmsstime}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+\begin{document}
+
+
+\title{Description of Variables}
+\author{Reggio Team}
+\date{Original version: Monday 13$^{\text{th}}$ June, 2016 \\ Current version: \today \\ \vspace{1em} Time: \currenttime}
+\maketitle
+
+\tableofcontents
+
+\doublespacing
+
+\section{Overview}
+
+This document presents detailed information on variables used in the Reggio analyses. The information includes the construction of variables and basic statistics. The categories of variables included in this document are (1) migrant variables, (2) baseline variables, and (3) outcome variables. 
+
+\section{Background of Migrant Children}
+The Reggio dataset contains 281 migrant children in total. Among those children, 110 live in Reggio, 58 in Parma, and 113 in Padova. The nationalities and religions of caregivers of those migrant children vary. Since the nationalities and religions might play a role in selecting into different types of preschools, it is important to identify them in the data. Tables \ref{tab:nationality-reggio}-\ref{tab:nationality-padova} show the list of the nationalities and religions of caregivers of migrant children in Reggio, Parma, and Padova, respectively. The tables lose some observations for which either the nationality or religion of caregivers are not observed. There are 10 countries that are not identified in the data.
+
+A noticeable statistic of the migrants in Reggio is that about 40\% of migrant children are from Islamic families. Moreover, more than 30\% of migrant children in Reggio are from families of African origin. Parma has the least number of migrants in our data: about 35\% of migrant children are from Catholic families and about 18\% are from Islamic families. In Padova, a noticeable number of migrant families are from Nigeria, Romania, and Morocco, and about 29\% of migrant families are Catholic, 29\% are Orthodox, and 32\% are Islamic. 
+
+\begin{table}[H]
+\centering
+\caption{Nationality and Religion of Caregivers of Migrant Children, Reggio} \label{tab:nationality-reggio}
+\scalebox{0.75}{
+\begin{tabular}{L{3.5cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} | C{1.8cm}}
+\toprule
+\input{../../../../Output/check_variables/cgNationality_religion_reggio}
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Nationality and Religion of Caregivers of Migrant Children, Parma} \label{tab:nationality-parma}
+\scalebox{0.75}{
+\begin{tabular}{L{3.5cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} | C{1.8cm}}
+\toprule
+\input{../../../../Output/check_variables/cgNationality_religion_parma}
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Nationality and Religion of Caregivers of Migrant Children, Padova} \label{tab:nationality-padova}
+\scalebox{0.75}{
+\begin{tabular}{L{3.5cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} | C{1.8cm}}
+\toprule
+\input{../../../../Output/check_variables/cgNationality_religion_padova}
+\bottomrule
+\end{tabular}}
+\end{table}
+
+How income differs across different nationality can be informative for migrant families. Table \ref{tab:Mincome-reggio} - \ref{tab:Mincome-padova} show the interaction between nationality of migrant families and income categories. We miss observations where income category is missing. According to the tables, there are almost no migrant families whose income is more than 50,000 Euros. It can be assumed that most migrant families in our data has low income.
+
+\begin{table}[H]
+\centering
+\caption{Nationality and Income of Caregivers of Migrant Children, Reggio} \label{tab:Mincome-reggio}
+\scalebox{0.75}{
+\begin{tabular}{L{3.5cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} | C{1.8cm}}
+\toprule
+\input{../../../../Output/check_variables/cgNationality_income_reggio}
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Nationality and Income of Caregivers of Migrant Children, Parma} \label{tab:Mincome-parma}
+\scalebox{0.75}{
+\begin{tabular}{L{3.5cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} | C{1.8cm}}
+\toprule
+\input{../../../../Output/check_variables/cgNationality_income_parma}
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\begin{table}[H]
+\centering
+\caption{Nationality and Income of Caregivers of Migrant Children, Padova} \label{tab:Mincome-padova}
+\scalebox{0.75}{
+\begin{tabular}{L{3.5cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} | C{1.8cm}}
+\toprule
+\input{../../../../Output/check_variables/cgNationality_income_padova}
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\section{Baseline Variables}
+In this section, we document the availability of baseline variables across each cohort. The following list shows the main baseline household background variables we use in our analyses. We describe the construction and the availability of these variables. Summary statistics for these variables for each cohort and each city are shown in ``Disaggregated Description of Baseline Variables" document.
+
+\subsection{Family Variables}
+
+\subsubsection{Parental Age at Birth} 
+We computed parental age at birth variables, for both mother and father, by subtracting subject's age at interview from mother's or father's age at interview. Parental age variables are only available for the child, adolescent, and migrant cohorts. Hence, we \underline{do not} have parental age at birth variables for all adult cohorts.
+
+\subsubsection{Parental Education} 
+Maximum education levels for both parents are available for \underline{all cohorts.} These variables are originally categorical variables, and we derived 5 indicator variables for mother's and father's maximum levels of education. These indicators are: (1) less than middle school, (2) middle school, (3) high school, (4) university, and (5) masters or PhD. 
+
+\subsubsection{Siblings} 
+Number of siblings are available across \underline{all cohorts.} Along with the number of sibling variables, many other sibling-related variables exist in our data; these other variables \underline{do not} exist for adult cohorts. We have (1) number of older sibling living in the household, (2) number of younger sibling living in the household, (3) indicator for younger sibling that required attention that might have been motive for attending Asilo, and (4) indicator for younger sibling that required attention that might have been motive for attending Asilo. Although both (3) and (4) are useful for us to investigate into the motive for selecting into preschools, (3) is not too reliable as more than half of observations are missing for each cohorot. (4), on the other hand, has more than 90\% of non-missing observations.
+
+\subsection{Economic Variables}
+\subsubsection{Home Ownership of Parents} This variable is an indicator for whether parents of children, migrants, or adolescents own house. This variable is \underline{not available} for adult cohorts. According to the basic statistics, \textbf{64.7\%} of child families, \textbf{22.4\%} of migrant families, and \textbf{80.9\%} of adolescent families own house.
+
+\subsection{Household Income} 
+Household income variables are only available for child, migrant, and adolescent cohorts. This variable is a categorical variable with following 7 categories: (1) 5,000 Euros or less, (2) 5,001-10,000 Euros, (3) 10,001-25,000 Euros, (4) 25,001-50,000 Euros, (5) 50,001-100,000 Euros, (6) 100,001-250,000 Euros, and (7) more than 250,000 Euros. 
+
+\section{Outcome Variables}
+
+In this section, we discuss the construction and the meaning of potentially confusing outcome variables used in basic regression analysis. Table \ref{tab:outcomes} shows outcomes used for each cohort.
+
+\begin{table}[H]
+\centering
+	\caption{Outcome variables Used for Each Cohort}  \label{tab:outcomes}
+	\scalebox{0.9}{
+	\begin{tabular}{L{4cm}|L{9cm}}
+	\toprule
+	\textbf{Cohort} & \textbf{Outcomes} \\ \midrule
+	Child & IQ factor, Child dislikes school, Child BMI, SDQ score (reported by mother) \\ \midrule
+	Migrant & IQ factor, Child dislikes school, Child BMI, SDQ score (reported by mother) \\ \midrule
+	Adolescent & IQ factor, ever suspended, smokes, number of cigarettes per day, days of sports per week, BMI, locus of control, SDQ score (self-reported), SDQ score (reported by mother), depression score \\ \midrule
+	Adults (All) & IQ factor, graduation grade, university grade, graduate from high school, employed, self-employed, hours worked per week, indicators for each income category, tried marijuana, smokes, number of cigarettes per day, BMI, bad health, number of days sick past month, locus of control factor score, depression score, satisfied with income, satisfied with work, satisfied with health, satisfied with family \\
+	\bottomrule
+	\end{tabular}}
+
+\end{table}
+
+\subsection{Family Variables}
+
+\subsubsection{Marital Status} 
+We construct an indicator for being married or cohabiting with someone. This variable is derived from a variable that asks about marital status and has the following categories: (1) married, (2) separated, (3) divorced, (4) widowed, (5) never married, and (6) cohabiting. All of the adolescents report never being married. In the adult cohorts, about 913 individuals report being married and 233 report cohabiting. These two categories are combined into one to construct this indicator.
+
+\subsection{Academic and Cognitive Variables}
+
+\subsubsection{IQ} 
+Our data has item-level information about Raven IQ test, and IQ score (percentage of correct answers) and time spent on Raven test are available. The IQ factor is derived from using structural equation modeling command from STATA. This needs more investigation. 
+
+\subsection{Child Dislikes School} 
+This variable is originally ``how much child like school." However, the values for this variable is reverse-coded as following: very much (1), okay (2), little bit (3). Hence, we relabelled this variable as ``how much child dislikes school."
+
+\subsubsection{Grades} 
+Graduation grade (which is for high school) variable ranges from 0 to 100, and university grade variable ranges from 80 to 110.
+
+\subsection{Non-cognitive Variables}
+
+\subsubsection{SDQ Score} 
+The Strength and Difficulties Questionnaire is a brief behavioral screening questionnaire for children and adolescents. It is composed of 25 items with scoring scales from 0 to 2. Higher score means worse symptom. There are 5 symptom scales, all of which are available in our data: (1) emotional symptoms, (2) conduct problems, (3) hyperactivity/inattention, (4) peer relationship problems, and (5) prosocial behavior. For all child, migrant, and adolescent cohorts, the SDQ scores reported by mothers are available. For adolescent cohort, self-reported SDQ score is available in addition.
+
+\subsubsection{Locus of Control:} A short version of Rotter Locus of Control Scale was given to the respondents. We have 4 items of Locus of Control Scale. Factor score is derived from from using structural equation modeling command from STATA. This needs more investigation.
+
+\subsubsection{Satisfaction}
+ Four satisfied variables (income, work, health, family) are 5-scale variables with following scales: unsatisfied (1), somewhat unsatisfied (2), neither satisfied nor unsatisfied (3), quite satisfied (4), and very satisfied (5).
+
+\subsection{Health}
+
+\subsubsection{Depression Score} 
+Depression score is from the 10-item Center for Epidemiologic Studies Depression (CES-D) Scale. Both Depression score and factor score are available in the data. The factor score is derived from using structural equation modeling command from STATA. This needs more investigation.
+
+\subsubsection{Bad Health} 
+This variable is originally "how good your health is." However, the values for this variable is reverse-coded as following: excellent (1), very good (2), good (3), moderate (4), and poor (5). Hence, we relabelled this variable as ``how bad your health is."
+
+
+\end{document}

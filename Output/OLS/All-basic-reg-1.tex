@@ -1,0 +1,20 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+            &\multicolumn{1}{c}{IQ\_factor}&\multicolumn{1}{c}{likeSchool\_child}&\multicolumn{1}{c}{childBMI}&\multicolumn{1}{c}{childSDQ\_score}\\
+\midrule
+allReggio   &      -0.220\sym{***}&     -0.0528         &     -0.0380         &    -0.00859         \\
+            &    (0.0655)         &    (0.0459)         &     (0.236)         &     (0.304)         \\
+\addlinespace
+\_cons      &      -2.692\sym{***}&       1.716\sym{***}&       21.70\sym{***}&       12.48\sym{***}\\
+            &     (0.645)         &     (0.455)         &     (2.345)         &     (3.002)         \\
+\midrule
+\(N\)       &         875         &         871         &         754         &         873         \\
+\(R^{2}\)   &       0.147         &       0.024         &       0.030         &       0.054         \\
+\bottomrule
+\multicolumn{5}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{5}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+}

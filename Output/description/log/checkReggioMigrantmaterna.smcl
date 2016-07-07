@@ -1,0 +1,845 @@
+{smcl}
+{txt}{sf}{ul off}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/annaziff/Desktop/work/repos/gitreggiocode/Output/description/log/checkReggioMigrantmaterna.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}11 Jun 2016, 17:57:29
+school: Municipal
+city: Reggio
+cohort: Migrant
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}IQ_factor {c |}{res}        52   -.2791304    1.017902  -2.802974   .9429615
+{txt}(3738 observations deleted)
+(171 observations deleted)
+(58 observations deleted)
+
+maternaTyp {c |}    City
+         e {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        52 {txt}{c |}{res}        52 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        52 {txt}{c |}{res}        52 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Migrants {c |}{res}         52      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         52      100.00
+{txt}(52 missing values generated)
+(52 real changes made)
+(52 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         52      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         52      100.00
+school: State
+city: Reggio
+cohort: Migrant
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}IQ_factor {c |}{res}        37   -.5262948    1.093412  -2.967783   .8750919
+{txt}(3738 observations deleted)
+(171 observations deleted)
+(21 observations deleted)
+
+maternaTyp {c |}    City
+         e {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        52 {txt}{c |}{res}        52 
+{txt}     State {c |}{res}        37 {txt}{c |}{res}        37 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        89 {txt}{c |}{res}        89 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Migrants {c |}{res}         89      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         89      100.00
+{txt}(89 missing values generated)
+(52 real changes made)
+(37 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         37       41.57       41.57
+{txt}          1 {c |}{res}         52       58.43      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         89      100.00
+school: Religious
+city: Reggio
+cohort: Migrant
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}IQ_factor {c |}{res}        14     .048945     .954014  -2.545078   .9429615
+{txt}(3738 observations deleted)
+(171 observations deleted)
+(44 observations deleted)
+
+maternaTyp {c |}    City
+         e {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        52 {txt}{c |}{res}        52 
+{txt} Religious {c |}{res}        14 {txt}{c |}{res}        14 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        66 {txt}{c |}{res}        66 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Migrants {c |}{res}         66      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         66      100.00
+{txt}(66 missing values generated)
+(52 real changes made)
+(14 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         14       21.21       21.21
+{txt}          1 {c |}{res}         52       78.79      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         66      100.00
+school: Private
+city: Reggio
+cohort: Migrant
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}IQ_factor {c |}{res}         1   -.1372645           .  -.1372645  -.1372645
+{txt}(3738 observations deleted)
+(171 observations deleted)
+(57 observations deleted)
+
+maternaTyp {c |}    City
+         e {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        52 {txt}{c |}{res}        52 
+{txt}   Private {c |}{res}         1 {txt}{c |}{res}         1 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        53 {txt}{c |}{res}        53 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Migrants {c |}{res}         53      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         53      100.00
+{txt}(53 missing values generated)
+(52 real changes made)
+(1 real change made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          1        1.89        1.89
+{txt}          1 {c |}{res}         52       98.11      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         53      100.00
+school: None
+city: Reggio
+cohort: Migrant
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}IQ_factor {c |}{res}         4   -.1574976    .9265755  -1.425409   .8005005
+{txt}(3738 observations deleted)
+(171 observations deleted)
+(54 observations deleted)
+
+maternaTyp {c |}    City
+         e {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        52 {txt}{c |}{res}        52 
+{txt}      None {c |}{res}         4 {txt}{c |}{res}         4 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        56 {txt}{c |}{res}        56 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Migrants {c |}{res}         56      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         56      100.00
+{txt}(56 missing values generated)
+(52 real changes made)
+(4 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          4        7.14        7.14
+{txt}          1 {c |}{res}         52       92.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         56      100.00
+school: Municipal
+city: Reggio
+cohort: Migrant
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+likeSchool~d {c |}{res}        52         1.5      .70014          1          3
+{txt}(3738 observations deleted)
+(171 observations deleted)
+(58 observations deleted)
+
+maternaTyp {c |}    City
+         e {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        52 {txt}{c |}{res}        52 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        52 {txt}{c |}{res}        52 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Migrants {c |}{res}         52      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         52      100.00
+{txt}(52 missing values generated)
+(52 real changes made)
+(52 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         52      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         52      100.00
+school: State
+city: Reggio
+cohort: Migrant
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+likeSchool~d {c |}{res}        37    1.162162    .5007502          1          3
+{txt}(3738 observations deleted)
+(171 observations deleted)
+(21 observations deleted)
+
+maternaTyp {c |}    City
+         e {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        52 {txt}{c |}{res}        52 
+{txt}     State {c |}{res}        37 {txt}{c |}{res}        37 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        89 {txt}{c |}{res}        89 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Migrants {c |}{res}         89      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         89      100.00
+{txt}(89 missing values generated)
+(52 real changes made)
+(37 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         37       41.57       41.57
+{txt}          1 {c |}{res}         52       58.43      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         89      100.00
+school: Religious
+city: Reggio
+cohort: Migrant
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+likeSchool~d {c |}{res}        14    1.071429    .2672612          1          2
+{txt}(3738 observations deleted)
+(171 observations deleted)
+(44 observations deleted)
+
+maternaTyp {c |}    City
+         e {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        52 {txt}{c |}{res}        52 
+{txt} Religious {c |}{res}        14 {txt}{c |}{res}        14 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        66 {txt}{c |}{res}        66 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Migrants {c |}{res}         66      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         66      100.00
+{txt}(66 missing values generated)
+(52 real changes made)
+(14 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         14       21.21       21.21
+{txt}          1 {c |}{res}         52       78.79      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         66      100.00
+school: Private
+city: Reggio
+cohort: Migrant
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+likeSchool~d {c |}{res}         1           2           .          2          2
+{txt}(3738 observations deleted)
+(171 observations deleted)
+(57 observations deleted)
+
+maternaTyp {c |}    City
+         e {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        52 {txt}{c |}{res}        52 
+{txt}   Private {c |}{res}         1 {txt}{c |}{res}         1 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        53 {txt}{c |}{res}        53 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Migrants {c |}{res}         53      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         53      100.00
+{txt}(53 missing values generated)
+(52 real changes made)
+(1 real change made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          1        1.89        1.89
+{txt}          1 {c |}{res}         52       98.11      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         53      100.00
+school: None
+city: Reggio
+cohort: Migrant
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+likeSchool~d {c |}{res}         4        1.25          .5          1          2
+{txt}(3738 observations deleted)
+(171 observations deleted)
+(54 observations deleted)
+
+maternaTyp {c |}    City
+         e {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        52 {txt}{c |}{res}        52 
+{txt}      None {c |}{res}         4 {txt}{c |}{res}         4 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        56 {txt}{c |}{res}        56 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Migrants {c |}{res}         56      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         56      100.00
+{txt}(56 missing values generated)
+(52 real changes made)
+(4 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          4        7.14        7.14
+{txt}          1 {c |}{res}         52       92.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         56      100.00
+school: Municipal
+city: Reggio
+cohort: Migrant
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}childBMI {c |}{res}        46    17.67044    3.371259       12.8   25.69444
+{txt}(3738 observations deleted)
+(171 observations deleted)
+(58 observations deleted)
+
+maternaTyp {c |}    City
+         e {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        52 {txt}{c |}{res}        52 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        52 {txt}{c |}{res}        52 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Migrants {c |}{res}         52      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         52      100.00
+{txt}(52 missing values generated)
+(52 real changes made)
+(52 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         52      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         52      100.00
+school: State
+city: Reggio
+cohort: Migrant
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}childBMI {c |}{res}        34    17.56902    3.876808   11.89768   25.39683
+{txt}(3738 observations deleted)
+(171 observations deleted)
+(21 observations deleted)
+
+maternaTyp {c |}    City
+         e {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        52 {txt}{c |}{res}        52 
+{txt}     State {c |}{res}        37 {txt}{c |}{res}        37 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        89 {txt}{c |}{res}        89 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Migrants {c |}{res}         89      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         89      100.00
+{txt}(89 missing values generated)
+(52 real changes made)
+(37 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         37       41.57       41.57
+{txt}          1 {c |}{res}         52       58.43      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         89      100.00
+school: Religious
+city: Reggio
+cohort: Migrant
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}childBMI {c |}{res}        14     18.5495    4.550338   12.07133   27.21088
+{txt}(3738 observations deleted)
+(171 observations deleted)
+(44 observations deleted)
+
+maternaTyp {c |}    City
+         e {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        52 {txt}{c |}{res}        52 
+{txt} Religious {c |}{res}        14 {txt}{c |}{res}        14 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        66 {txt}{c |}{res}        66 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Migrants {c |}{res}         66      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         66      100.00
+{txt}(66 missing values generated)
+(52 real changes made)
+(14 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         14       21.21       21.21
+{txt}          1 {c |}{res}         52       78.79      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         66      100.00
+school: Private
+city: Reggio
+cohort: Migrant
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}childBMI {c |}{res}         1          16           .         16         16
+{txt}(3738 observations deleted)
+(171 observations deleted)
+(57 observations deleted)
+
+maternaTyp {c |}    City
+         e {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        52 {txt}{c |}{res}        52 
+{txt}   Private {c |}{res}         1 {txt}{c |}{res}         1 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        53 {txt}{c |}{res}        53 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Migrants {c |}{res}         53      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         53      100.00
+{txt}(53 missing values generated)
+(52 real changes made)
+(1 real change made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          1        1.89        1.89
+{txt}          1 {c |}{res}         52       98.11      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         53      100.00
+school: None
+city: Reggio
+cohort: Migrant
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}childBMI {c |}{res}         4    16.03739    1.439473   14.87603   18.05556
+{txt}(3738 observations deleted)
+(171 observations deleted)
+(54 observations deleted)
+
+maternaTyp {c |}    City
+         e {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        52 {txt}{c |}{res}        52 
+{txt}      None {c |}{res}         4 {txt}{c |}{res}         4 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        56 {txt}{c |}{res}        56 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Migrants {c |}{res}         56      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         56      100.00
+{txt}(56 missing values generated)
+(52 real changes made)
+(4 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          4        7.14        7.14
+{txt}          1 {c |}{res}         52       92.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         56      100.00
+school: Municipal
+city: Reggio
+cohort: Migrant
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+childSDQ_s~e {c |}{res}        52        8.75     4.10583          3         22
+{txt}(3738 observations deleted)
+(171 observations deleted)
+(58 observations deleted)
+
+maternaTyp {c |}    City
+         e {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        52 {txt}{c |}{res}        52 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        52 {txt}{c |}{res}        52 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Migrants {c |}{res}         52      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         52      100.00
+{txt}(52 missing values generated)
+(52 real changes made)
+(52 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         52      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         52      100.00
+school: State
+city: Reggio
+cohort: Migrant
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+childSDQ_s~e {c |}{res}        37    7.891892    3.885756          2         18
+{txt}(3738 observations deleted)
+(171 observations deleted)
+(21 observations deleted)
+
+maternaTyp {c |}    City
+         e {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        52 {txt}{c |}{res}        52 
+{txt}     State {c |}{res}        37 {txt}{c |}{res}        37 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        89 {txt}{c |}{res}        89 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Migrants {c |}{res}         89      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         89      100.00
+{txt}(89 missing values generated)
+(52 real changes made)
+(37 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         37       41.57       41.57
+{txt}          1 {c |}{res}         52       58.43      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         89      100.00
+school: Religious
+city: Reggio
+cohort: Migrant
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+childSDQ_s~e {c |}{res}        14    7.142857    2.824539          3         12
+{txt}(3738 observations deleted)
+(171 observations deleted)
+(44 observations deleted)
+
+maternaTyp {c |}    City
+         e {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        52 {txt}{c |}{res}        52 
+{txt} Religious {c |}{res}        14 {txt}{c |}{res}        14 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        66 {txt}{c |}{res}        66 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Migrants {c |}{res}         66      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         66      100.00
+{txt}(66 missing values generated)
+(52 real changes made)
+(14 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         14       21.21       21.21
+{txt}          1 {c |}{res}         52       78.79      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         66      100.00
+school: Private
+city: Reggio
+cohort: Migrant
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+childSDQ_s~e {c |}{res}         1          12           .         12         12
+{txt}(3738 observations deleted)
+(171 observations deleted)
+(57 observations deleted)
+
+maternaTyp {c |}    City
+         e {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        52 {txt}{c |}{res}        52 
+{txt}   Private {c |}{res}         1 {txt}{c |}{res}         1 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        53 {txt}{c |}{res}        53 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Migrants {c |}{res}         53      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         53      100.00
+{txt}(53 missing values generated)
+(52 real changes made)
+(1 real change made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          1        1.89        1.89
+{txt}          1 {c |}{res}         52       98.11      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         53      100.00
+school: None
+city: Reggio
+cohort: Migrant
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+childSDQ_s~e {c |}{res}         4        7.75    3.685557          3         12
+{txt}(3738 observations deleted)
+(171 observations deleted)
+(54 observations deleted)
+
+maternaTyp {c |}    City
+         e {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        52 {txt}{c |}{res}        52 
+{txt}      None {c |}{res}         4 {txt}{c |}{res}         4 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        56 {txt}{c |}{res}        56 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Migrants {c |}{res}         56      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         56      100.00
+{txt}(56 missing values generated)
+(52 real changes made)
+(4 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          4        7.14        7.14
+{txt}          1 {c |}{res}         52       92.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         56      100.00
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/annaziff/Desktop/work/repos/gitreggiocode/Output/description/log/checkReggioMigrantmaterna.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}11 Jun 2016, 17:57:32
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

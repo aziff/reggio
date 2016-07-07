@@ -1,0 +1,2103 @@
+{smcl}
+{txt}{sf}{ul off}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/annaziff/Desktop/work/repos/gitreggiocode/Output/description/log/checkPadovaAdolescentmaterna.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}11 Jun 2016, 17:57:47
+school: Municipal
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}IQ_factor {c |}{res}        93   -.1155348    1.105459  -2.646702    .706594
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(323 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       166         93 {txt}{c |}{res}       259 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        259      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        259      100.00
+{txt}(259 missing values generated)
+(166 real changes made)
+(93 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         93       35.91       35.91
+{txt}          1 {c |}{res}        166       64.09      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        259      100.00
+school: State
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}IQ_factor {c |}{res}        47   -.9213754    1.356911  -2.646702    .706594
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(254 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}     State {c |}{res}        22         47 {txt}{c |}{res}        69 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       188        140 {txt}{c |}{res}       328 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        328      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        328      100.00
+{txt}(328 missing values generated)
+(166 real changes made)
+(47 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         47       22.07       22.07
+{txt}          1 {c |}{res}        166       77.93      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        213      100.00
+school: Religious
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}IQ_factor {c |}{res}       131   -.2074497    1.112281  -2.646702    .706594
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(96 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt} Religious {c |}{res}        96        131 {txt}{c |}{res}       227 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       262        224 {txt}{c |}{res}       486 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        486      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        486      100.00
+{txt}(486 missing values generated)
+(166 real changes made)
+(131 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        131       44.11       44.11
+{txt}          1 {c |}{res}        166       55.89      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        297      100.00
+school: Private
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}IQ_factor {c |}{res}         6   -.4828254    1.382091  -2.247321    .706594
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(311 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}   Private {c |}{res}         6          6 {txt}{c |}{res}        12 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       172         99 {txt}{c |}{res}       271 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        271      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        271      100.00
+{txt}(271 missing values generated)
+(166 real changes made)
+(6 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          6        3.49        3.49
+{txt}          1 {c |}{res}        166       96.51      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        172      100.00
+school: None
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}IQ_factor {c |}{res}         1   -2.312391           .  -2.312391  -2.312391
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(315 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}      None {c |}{res}         7          1 {txt}{c |}{res}         8 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       173         94 {txt}{c |}{res}       267 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        267      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        267      100.00
+{txt}(267 missing values generated)
+(166 real changes made)
+(1 real change made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          1        0.60        0.60
+{txt}          1 {c |}{res}        166       99.40      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        167      100.00
+school: Municipal
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+RiskSuspen~d {c |}{res}        93    .0322581    .1776423          0          1
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(323 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       166         93 {txt}{c |}{res}       259 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        259      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        259      100.00
+{txt}(259 missing values generated)
+(166 real changes made)
+(93 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         93       35.91       35.91
+{txt}          1 {c |}{res}        166       64.09      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        259      100.00
+school: State
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+RiskSuspen~d {c |}{res}        47    .0425532    .2040297          0          1
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(254 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}     State {c |}{res}        22         47 {txt}{c |}{res}        69 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       188        140 {txt}{c |}{res}       328 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        328      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        328      100.00
+{txt}(328 missing values generated)
+(166 real changes made)
+(47 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         47       22.07       22.07
+{txt}          1 {c |}{res}        166       77.93      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        213      100.00
+school: Religious
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+RiskSuspen~d {c |}{res}       131           0           0          0          0
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(96 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt} Religious {c |}{res}        96        131 {txt}{c |}{res}       227 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       262        224 {txt}{c |}{res}       486 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        486      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        486      100.00
+{txt}(486 missing values generated)
+(166 real changes made)
+(131 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        131       44.11       44.11
+{txt}          1 {c |}{res}        166       55.89      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        297      100.00
+school: Private
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+RiskSuspen~d {c |}{res}         6    .1666667    .4082483          0          1
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(311 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}   Private {c |}{res}         6          6 {txt}{c |}{res}        12 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       172         99 {txt}{c |}{res}       271 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        271      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        271      100.00
+{txt}(271 missing values generated)
+(166 real changes made)
+(6 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          6        3.49        3.49
+{txt}          1 {c |}{res}        166       96.51      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        172      100.00
+school: None
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+RiskSuspen~d {c |}{res}         1           0           .          0          0
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(315 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}      None {c |}{res}         7          1 {txt}{c |}{res}         8 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       173         94 {txt}{c |}{res}       267 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        267      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        267      100.00
+{txt}(267 missing values generated)
+(166 real changes made)
+(1 real change made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          1        0.60        0.60
+{txt}          1 {c |}{res}        166       99.40      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        167      100.00
+school: Municipal
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}Smoke {c |}{res}        33    .3030303    .4666937          0          1
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(323 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       166         93 {txt}{c |}{res}       259 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        259      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        259      100.00
+{txt}(259 missing values generated)
+(166 real changes made)
+(93 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         93       35.91       35.91
+{txt}          1 {c |}{res}        166       64.09      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        259      100.00
+school: State
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}Smoke {c |}{res}        22    .3181818    .4767313          0          1
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(254 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}     State {c |}{res}        22         47 {txt}{c |}{res}        69 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       188        140 {txt}{c |}{res}       328 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        328      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        328      100.00
+{txt}(328 missing values generated)
+(166 real changes made)
+(47 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         47       22.07       22.07
+{txt}          1 {c |}{res}        166       77.93      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        213      100.00
+school: Religious
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}Smoke {c |}{res}        62    .2258065    .4215255          0          1
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(96 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt} Religious {c |}{res}        96        131 {txt}{c |}{res}       227 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       262        224 {txt}{c |}{res}       486 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        486      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        486      100.00
+{txt}(486 missing values generated)
+(166 real changes made)
+(131 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        131       44.11       44.11
+{txt}          1 {c |}{res}        166       55.89      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        297      100.00
+school: Private
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}Smoke {c |}{res}         5          .4    .5477226          0          1
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(311 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}   Private {c |}{res}         6          6 {txt}{c |}{res}        12 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       172         99 {txt}{c |}{res}       271 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        271      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        271      100.00
+{txt}(271 missing values generated)
+(166 real changes made)
+(6 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          6        3.49        3.49
+{txt}          1 {c |}{res}        166       96.51      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        172      100.00
+school: None
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}Smoke {c |}{res}         0
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(315 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}      None {c |}{res}         7          1 {txt}{c |}{res}         8 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       173         94 {txt}{c |}{res}       267 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        267      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        267      100.00
+{txt}(267 missing values generated)
+(166 real changes made)
+(1 real change made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          1        0.60        0.60
+{txt}          1 {c |}{res}        166       99.40      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        167      100.00
+school: Municipal
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}Cig {c |}{res}        10           9    5.617433          3         20
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(323 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       166         93 {txt}{c |}{res}       259 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        259      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        259      100.00
+{txt}(259 missing values generated)
+(166 real changes made)
+(93 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         93       35.91       35.91
+{txt}          1 {c |}{res}        166       64.09      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        259      100.00
+school: State
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}Cig {c |}{res}         7    6.571429    3.359422          2         13
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(254 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}     State {c |}{res}        22         47 {txt}{c |}{res}        69 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       188        140 {txt}{c |}{res}       328 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        328      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        328      100.00
+{txt}(328 missing values generated)
+(166 real changes made)
+(47 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         47       22.07       22.07
+{txt}          1 {c |}{res}        166       77.93      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        213      100.00
+school: Religious
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}Cig {c |}{res}        12           6    2.662876          3         10
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(96 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt} Religious {c |}{res}        96        131 {txt}{c |}{res}       227 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       262        224 {txt}{c |}{res}       486 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        486      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        486      100.00
+{txt}(486 missing values generated)
+(166 real changes made)
+(131 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        131       44.11       44.11
+{txt}          1 {c |}{res}        166       55.89      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        297      100.00
+school: Private
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}Cig {c |}{res}         2         6.5    4.949747          3         10
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(311 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}   Private {c |}{res}         6          6 {txt}{c |}{res}        12 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       172         99 {txt}{c |}{res}       271 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        271      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        271      100.00
+{txt}(271 missing values generated)
+(166 real changes made)
+(6 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          6        3.49        3.49
+{txt}          1 {c |}{res}        166       96.51      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        172      100.00
+school: None
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}Cig {c |}{res}         0
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(315 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}      None {c |}{res}         7          1 {txt}{c |}{res}         8 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       173         94 {txt}{c |}{res}       267 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        267      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        267      100.00
+{txt}(267 missing values generated)
+(166 real changes made)
+(1 real change made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          1        0.60        0.60
+{txt}          1 {c |}{res}        166       99.40      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        167      100.00
+school: Municipal
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}sport {c |}{res}        86    3.267442    1.899996          0          7
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(323 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       166         93 {txt}{c |}{res}       259 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        259      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        259      100.00
+{txt}(259 missing values generated)
+(166 real changes made)
+(93 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         93       35.91       35.91
+{txt}          1 {c |}{res}        166       64.09      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        259      100.00
+school: State
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}sport {c |}{res}        41    3.195122    1.926389          0          7
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(254 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}     State {c |}{res}        22         47 {txt}{c |}{res}        69 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       188        140 {txt}{c |}{res}       328 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        328      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        328      100.00
+{txt}(328 missing values generated)
+(166 real changes made)
+(47 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         47       22.07       22.07
+{txt}          1 {c |}{res}        166       77.93      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        213      100.00
+school: Religious
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}sport {c |}{res}       125       3.088    1.831692          0          7
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(96 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt} Religious {c |}{res}        96        131 {txt}{c |}{res}       227 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       262        224 {txt}{c |}{res}       486 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        486      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        486      100.00
+{txt}(486 missing values generated)
+(166 real changes made)
+(131 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        131       44.11       44.11
+{txt}          1 {c |}{res}        166       55.89      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        297      100.00
+school: Private
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}sport {c |}{res}         5           3    1.581139          1          5
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(311 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}   Private {c |}{res}         6          6 {txt}{c |}{res}        12 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       172         99 {txt}{c |}{res}       271 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        271      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        271      100.00
+{txt}(271 missing values generated)
+(166 real changes made)
+(6 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          6        3.49        3.49
+{txt}          1 {c |}{res}        166       96.51      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        172      100.00
+school: None
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}sport {c |}{res}         1           0           .          0          0
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(315 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}      None {c |}{res}         7          1 {txt}{c |}{res}         8 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       173         94 {txt}{c |}{res}       267 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        267      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        267      100.00
+{txt}(267 missing values generated)
+(166 real changes made)
+(1 real change made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          1        0.60        0.60
+{txt}          1 {c |}{res}        166       99.40      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        167      100.00
+school: Municipal
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}BMI {c |}{res}        76    21.40731    2.532881   16.82423   29.01745
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(323 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       166         93 {txt}{c |}{res}       259 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        259      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        259      100.00
+{txt}(259 missing values generated)
+(166 real changes made)
+(93 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         93       35.91       35.91
+{txt}          1 {c |}{res}        166       64.09      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        259      100.00
+school: State
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}BMI {c |}{res}        27    20.86704    3.255549   15.94388   29.53686
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(254 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}     State {c |}{res}        22         47 {txt}{c |}{res}        69 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       188        140 {txt}{c |}{res}       328 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        328      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        328      100.00
+{txt}(328 missing values generated)
+(166 real changes made)
+(47 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         47       22.07       22.07
+{txt}          1 {c |}{res}        166       77.93      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        213      100.00
+school: Religious
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}BMI {c |}{res}       103    21.45734    2.426621   16.32653   29.96161
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(96 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt} Religious {c |}{res}        96        131 {txt}{c |}{res}       227 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       262        224 {txt}{c |}{res}       486 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        486      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        486      100.00
+{txt}(486 missing values generated)
+(166 real changes made)
+(131 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        131       44.11       44.11
+{txt}          1 {c |}{res}        166       55.89      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        297      100.00
+school: Private
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}BMI {c |}{res}         4    22.07072    1.379243   20.57613   23.33412
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(311 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}   Private {c |}{res}         6          6 {txt}{c |}{res}        12 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       172         99 {txt}{c |}{res}       271 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        271      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        271      100.00
+{txt}(271 missing values generated)
+(166 real changes made)
+(6 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          6        3.49        3.49
+{txt}          1 {c |}{res}        166       96.51      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        172      100.00
+school: None
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}BMI {c |}{res}         0
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(315 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}      None {c |}{res}         7          1 {txt}{c |}{res}         8 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       173         94 {txt}{c |}{res}       267 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        267      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        267      100.00
+{txt}(267 missing values generated)
+(166 real changes made)
+(1 real change made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          1        0.60        0.60
+{txt}          1 {c |}{res}        166       99.40      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        167      100.00
+school: Municipal
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+LocusControl {c |}{res}        91    -.043414    .6736716  -1.307107   1.519756
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(323 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       166         93 {txt}{c |}{res}       259 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        259      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        259      100.00
+{txt}(259 missing values generated)
+(166 real changes made)
+(93 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         93       35.91       35.91
+{txt}          1 {c |}{res}        166       64.09      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        259      100.00
+school: State
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+LocusControl {c |}{res}        46   -.0230319    .7435902  -1.340119    1.75359
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(254 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}     State {c |}{res}        22         47 {txt}{c |}{res}        69 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       188        140 {txt}{c |}{res}       328 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        328      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        328      100.00
+{txt}(328 missing values generated)
+(166 real changes made)
+(47 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         47       22.07       22.07
+{txt}          1 {c |}{res}        166       77.93      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        213      100.00
+school: Religious
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+LocusControl {c |}{res}       131   -.1075392    .7595281  -1.340119   2.385016
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(96 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt} Religious {c |}{res}        96        131 {txt}{c |}{res}       227 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       262        224 {txt}{c |}{res}       486 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        486      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        486      100.00
+{txt}(486 missing values generated)
+(166 real changes made)
+(131 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        131       44.11       44.11
+{txt}          1 {c |}{res}        166       55.89      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        297      100.00
+school: Private
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+LocusControl {c |}{res}         6   -.1791982    .4272401   -.798883   .3216264
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(311 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}   Private {c |}{res}         6          6 {txt}{c |}{res}        12 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       172         99 {txt}{c |}{res}       271 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        271      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        271      100.00
+{txt}(271 missing values generated)
+(166 real changes made)
+(6 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          6        3.49        3.49
+{txt}          1 {c |}{res}        166       96.51      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        172      100.00
+school: None
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+LocusControl {c |}{res}         1    1.783317           .   1.783317   1.783317
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(315 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}      None {c |}{res}         7          1 {txt}{c |}{res}         8 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       173         94 {txt}{c |}{res}       267 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        267      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        267      100.00
+{txt}(267 missing values generated)
+(166 real changes made)
+(1 real change made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          1        0.60        0.60
+{txt}          1 {c |}{res}        166       99.40      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        167      100.00
+school: Municipal
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}SDQ_score {c |}{res}        91     9.56044    4.529432          3         21
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(323 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       166         93 {txt}{c |}{res}       259 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        259      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        259      100.00
+{txt}(259 missing values generated)
+(166 real changes made)
+(93 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         93       35.91       35.91
+{txt}          1 {c |}{res}        166       64.09      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        259      100.00
+school: State
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}SDQ_score {c |}{res}        46           9     3.72976          2         19
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(254 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}     State {c |}{res}        22         47 {txt}{c |}{res}        69 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       188        140 {txt}{c |}{res}       328 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        328      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        328      100.00
+{txt}(328 missing values generated)
+(166 real changes made)
+(47 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         47       22.07       22.07
+{txt}          1 {c |}{res}        166       77.93      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        213      100.00
+school: Religious
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}SDQ_score {c |}{res}       131    10.18321    4.895526          2         26
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(96 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt} Religious {c |}{res}        96        131 {txt}{c |}{res}       227 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       262        224 {txt}{c |}{res}       486 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        486      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        486      100.00
+{txt}(486 missing values generated)
+(166 real changes made)
+(131 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        131       44.11       44.11
+{txt}          1 {c |}{res}        166       55.89      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        297      100.00
+school: Private
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}SDQ_score {c |}{res}         6         7.5    3.082207          4         12
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(311 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}   Private {c |}{res}         6          6 {txt}{c |}{res}        12 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       172         99 {txt}{c |}{res}       271 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        271      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        271      100.00
+{txt}(271 missing values generated)
+(166 real changes made)
+(6 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          6        3.49        3.49
+{txt}          1 {c |}{res}        166       96.51      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        172      100.00
+school: None
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}SDQ_score {c |}{res}         1          13           .         13         13
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(315 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}      None {c |}{res}         7          1 {txt}{c |}{res}         8 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       173         94 {txt}{c |}{res}       267 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        267      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        267      100.00
+{txt}(267 missing values generated)
+(166 real changes made)
+(1 real change made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          1        0.60        0.60
+{txt}          1 {c |}{res}        166       99.40      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        167      100.00
+school: Municipal
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+childSDQ_s~e {c |}{res}        91    7.681319    3.248518          2         16
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(323 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       166         93 {txt}{c |}{res}       259 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        259      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        259      100.00
+{txt}(259 missing values generated)
+(166 real changes made)
+(93 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         93       35.91       35.91
+{txt}          1 {c |}{res}        166       64.09      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        259      100.00
+school: State
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+childSDQ_s~e {c |}{res}        46    9.021739    4.068793          3         21
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(254 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}     State {c |}{res}        22         47 {txt}{c |}{res}        69 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       188        140 {txt}{c |}{res}       328 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        328      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        328      100.00
+{txt}(328 missing values generated)
+(166 real changes made)
+(47 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         47       22.07       22.07
+{txt}          1 {c |}{res}        166       77.93      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        213      100.00
+school: Religious
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+childSDQ_s~e {c |}{res}       129    8.317829    4.238928          2         26
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(96 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt} Religious {c |}{res}        96        131 {txt}{c |}{res}       227 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       262        224 {txt}{c |}{res}       486 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        486      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        486      100.00
+{txt}(486 missing values generated)
+(166 real changes made)
+(131 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        131       44.11       44.11
+{txt}          1 {c |}{res}        166       55.89      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        297      100.00
+school: Private
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+childSDQ_s~e {c |}{res}         6    8.166667    3.544949          4         14
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(311 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}   Private {c |}{res}         6          6 {txt}{c |}{res}        12 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       172         99 {txt}{c |}{res}       271 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        271      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        271      100.00
+{txt}(271 missing values generated)
+(166 real changes made)
+(6 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          6        3.49        3.49
+{txt}          1 {c |}{res}        166       96.51      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        172      100.00
+school: None
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+childSDQ_s~e {c |}{res}         1          14           .         14         14
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(315 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}      None {c |}{res}         7          1 {txt}{c |}{res}         8 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       173         94 {txt}{c |}{res}       267 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        267      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        267      100.00
+{txt}(267 missing values generated)
+(166 real changes made)
+(1 real change made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          1        0.60        0.60
+{txt}          1 {c |}{res}        166       99.40      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        167      100.00
+school: Municipal
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+Depression~e {c |}{res}        92       21.75    5.845304         12         38
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(323 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       166         93 {txt}{c |}{res}       259 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        259      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        259      100.00
+{txt}(259 missing values generated)
+(166 real changes made)
+(93 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         93       35.91       35.91
+{txt}          1 {c |}{res}        166       64.09      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        259      100.00
+school: State
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+Depression~e {c |}{res}        44    19.31818    5.174952         12         33
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(254 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}     State {c |}{res}        22         47 {txt}{c |}{res}        69 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       188        140 {txt}{c |}{res}       328 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        328      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        328      100.00
+{txt}(328 missing values generated)
+(166 real changes made)
+(47 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         47       22.07       22.07
+{txt}          1 {c |}{res}        166       77.93      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        213      100.00
+school: Religious
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+Depression~e {c |}{res}       130    21.76923    6.263637         10         37
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(96 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt} Religious {c |}{res}        96        131 {txt}{c |}{res}       227 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       262        224 {txt}{c |}{res}       486 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        486      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        486      100.00
+{txt}(486 missing values generated)
+(166 real changes made)
+(131 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        131       44.11       44.11
+{txt}          1 {c |}{res}        166       55.89      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        297      100.00
+school: Private
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+Depression~e {c |}{res}         6    19.66667    4.844241         12         25
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(311 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}   Private {c |}{res}         6          6 {txt}{c |}{res}        12 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       172         99 {txt}{c |}{res}       271 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        271      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        271      100.00
+{txt}(271 missing values generated)
+(166 real changes made)
+(6 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          6        3.49        3.49
+{txt}          1 {c |}{res}        166       96.51      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        172      100.00
+school: None
+city: Padova
+cohort: Adolescent
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+Depression~e {c |}{res}         1          30           .         30         30
+{txt}(3183 observations deleted)
+(254 observations deleted)
+(315 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio     Padova {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166         93 {txt}{c |}{res}       259 
+{txt}      None {c |}{res}         7          1 {txt}{c |}{res}         8 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       173         94 {txt}{c |}{res}       267 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        267      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        267      100.00
+{txt}(267 missing values generated)
+(166 real changes made)
+(1 real change made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          1        0.60        0.60
+{txt}          1 {c |}{res}        166       99.40      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        167      100.00
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/annaziff/Desktop/work/repos/gitreggiocode/Output/description/log/checkPadovaAdolescentmaterna.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}11 Jun 2016, 17:57:53
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

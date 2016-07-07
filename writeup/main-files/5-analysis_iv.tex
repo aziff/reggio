@@ -1,0 +1,376 @@
+\section{Analysis}
+\label{sec:analysis}
+This section reports the preliminary results of the analysis. 
+Section \ref{sec:balance} provides information across cities and school types about the balance of characteristics that can be observed at baseline, before the child attends any type of child care.
+Section \ref{sec:OLS} reports evidence of the difference in the relevant outcomes once these initial characteristics are controlled for.
+%Section \ref{sec:PSM} takes a different approach and compares the children who had a similar probability of attending the RA school system. 
+%Finally, section \ref{sec:IV} leverages information about distance from the different centers as an instrument for participation in the RA.
+\todo[backgroundcolor=orange!30,size=\tiny]{Propensity score matching and IV}
+\subsection{Balance of observable characteristics}
+\label{sec:balance}
+Given the non experimental nature of the analysis, selection of the proper control group is crucial. The following tables describe the characteristics of the family and child before going to the different types of child care. 
+
+%\todo[backgroundcolor=orange!30,size=\tiny]{Insert here all the tables of balance of background characteristics.}
+\singlespacing
+
+%% children, infant-toddler
+\begin{table}[H]
+\caption{Baseline characteristics by infant-toddler-center type, children (age 6)}
+\input{tables/sumX-asilo-pre.tex}
+\input{tables/children_PREasilo.tex}
+\input{tables/sumX-post.tex}  
+%\end{table}
+
+%% adolescents, infant-toddler
+\begin{table}[H]
+\caption{Baseline characteristics by infant-toddler-center type, adolescents (age 18)}
+\input{tables/sumX-asilo-pre.tex}  
+\input{tables/adolescents_PREasilo.tex}
+\input{tables/sumX-post.tex}  
+%\end{table}
+
+%% adults, infant-toddler
+\begin{table}[H]
+\caption{Baseline characteristics by infant-toddler-center type, adults (age 30-50)}
+\input{tables/sumX-asilo-pre.tex}  
+\input{tables/adults_PREasilo.tex}
+\input{tables/sumX-post.tex}  
+%\end{table}
+
+%%% children, preschool
+\begin{table}[H]
+\caption{Baseline characteristics by preschool type, children (age 6)}
+\input{./tables/sumX-materna-pre.tex}  
+\input{./tables/children_PREmaterna.tex}
+\input{./tables/sumX-post.tex}  
+%\end{table}
+%
+%%% adolescents, preschool
+\begin{table}[H]
+\caption{Baseline characteristics by preschool type, adolescents (age 18)}
+\input{./tables/sumX-materna-pre.tex}  
+\input{./tables/adolescent_PREmaterna.tex}
+\input{./tables/sumX-post.tex}  
+%\end{table}
+%
+%%% adults, preschool
+\begin{table}[H]
+\caption{Baseline characteristics by preschool type, adults (age 30-50)}
+\input{./tables/sumX-materna-pre.tex}  
+\input{./tables/adults_PREmaterna.tex}
+\input{./tables/sumX-post.tex}  
+%\end{table}
+
+\doublespacing
+
+\subsection{Regression Results}
+\label{sec:OLS}
+
+In this section, we systematically display the relation between participation in different types of early education and four important outcomes of interest: a measure of behavioral problems from the Strength and Difficulties Questionnaire (SDQ), a measure of depression from the CESD scale, the probability of reporting being in good or excellent health, and a measure of negative attitude towards migration.
+
+Separately for each city and age group we run the following regression:
+
+Pooling all three cities, and running the model separately for infant-toddler centers (age 0-3) and preschools (age 3-6), we consider the following:
+\[ Y_{iac} = \sum_{s} \delta_{c,s} D^{s}_{iac} + \beta_{X}X_{iac} + \alpha_{c} + \varepsilon_{iac} \]
+
+where $Y_{iac}$ is the outcome of individual $i$, of age $a$ in city $c$; 
+$D^{s}_{iac}$ is a dummy for attendance of school type $s$, $s \in Mun, Rel, Priv, Stat, None$. In some specifications, private, state and religious child-cares were pooled together in a single group, defined ``other''.\footnote{Note that there are no state infant-toddler centers, and virtually every child and adolescent attended some form of preschool. See results in the appendix for the disaggregated effect of each type of preschool.};
+$X_{iac}$ are baseline family characteristics of individual $i$, of age $a$ in city $c$ 
+$\alpha_{c}$ are city zip-code dummies.
+
+The treated group are the children who attended a municipal child-care in Reggio.
+As mentioned before, the age groups considered are 0-3, regarding attendance to infant-toddler center, and age 3-6, for attendance to preschool. 
+
+The following tables show the results of the estimated $\delta_{c,s}$, using first Ordinary Least Squares with an incremental set of controls (columns 1 to 3), and then using an instrumental variable approach (column 4 to 6). The first column of each table only controls for school types $D_{sc}$ and city dummies, effectively showing raw differences in means; the second column introduces controls for baseline characteristics\footnote{Zip-code fixed effects, interview mode (computer or paper), gender, age and age$^2$ of respondent, dummies for mother and father maximum level of education (middle school, high school, university), mother and father age at birth, dummies for mother and father born in the region (province), dummy for religious mother, dummy for house ownership (only for the families of children and adolescents), dummies for family income bracket of children and adolescents, dummies for low-birth weight or premature birth of children and adolescents.}; the third column interacts all of these controls with city dummies, allowing the effect of controls to vary by city.
+The fourth column uses the distances to the closest municipal child-care center, the closest religious center, the closest state center, and the closest private center as instruments for participation in the Reggio Children Approach child-care; the fifth column interacts these distances with the number of siblings; the sixth column uses as IV both the distances and the estimated score from the application to the Reggio Children Approach child-care.\todo{describe score}
+
+The coefficients in column 1 to 3 report the difference between the child-care type (state, religious, private, and none in the three cities) and the Reggio Children Approach, which is the omitted category. The coefficients in column 4 to 6 instead report the difference with respect to other child-care (state, religious or private) in Reggio Emilia.\footnote{This is done in order to instrument directly for attending the Reggio Children Approach child-care.}
+
+\singlespacing
+\setlength\tabcolsep{0.25em}
+\subsubsection{Children Results: OLS and IV}
+%------------------------------------------------------%
+%-------------------   Children  ----------------------%
+%------------------------------------------------------%
+\begin{small}
+%------------------- Health ----------------------%
+\begin{table}[H]
+\caption{Pooled: Child Health - Infant-toddler center, Child}
+\input{../Output/iv_texAsiloChildCH_short.tex}  
+\end{table}
+\begin{table}[H]
+\caption{Pooled: Child Health - Preschool, Child}
+\input{../Output/iv_texMaternaChildCH_short.tex}
+\end{table}
+
+%------------------- SDQ ----------------------%
+\begin{table}[H]
+\caption{Pooled: Child SDQ Score - Infant-toddler center, Child}
+\input{../Output/iv_texAsiloChildCS_short.tex}  
+\end{table}
+\begin{table}[H]
+\caption{Pooled: Child SDQ Score - Preschool, Child}
+\input{../Output/iv_texMaternaChildCS_short.tex}
+\end{table}
+
+%%------------------- Like School ----------------------%
+%\begin{table}[H]
+%\caption{Pooled: Child likes school - Infant-toddler center, Child}
+%\input{../Output/iv_texAsiloChildLS_short.tex}  
+%\end{table}
+%\begin{table}[H]
+%\caption{Pooled: Child likes school - Preschool, Child}
+%\input{../Output/iv_texMaternaChildLS_short.tex}
+%\end{table}
+%%------------------- Like Math ----------------------%
+%\begin{table}[H]
+%\caption{Pooled: Child likes math - Infant-toddler center, Child}
+%\input{../Output/iv_texAsiloChildLM_short.tex}  
+%\end{table}
+%\begin{table}[H]
+%\caption{Pooled: Child likes math - Preschool, Child}
+%\input{../Output/iv_texMaternaChildLM_short.tex}
+%\end{table}
+%%------------------- Like Reading  ----------------------%
+%\begin{table}[H]
+%\caption{Pooled: Child likes reading - Infant-toddler center, Child}
+%\input{../Output/iv_texAsiloChildLL_short.tex}  
+%\end{table}
+%\begin{table}[H]
+%\caption{Pooled: Child likes reading - Preschool, Child}
+%\input{../Output/iv_texMaternaChildLL_short.tex}
+%\end{table}
+%%------------------- Difficulties ----------------------%
+%\begin{table}[H]
+%\caption{Pooled: difficulties at school entrance - Infant-toddler center, Child}
+%\input{../Output/iv_texAsiloChildDIFF_short.tex}  
+%\end{table}
+%\begin{table}[H]
+%\caption{Pooled: difficulties at school entrance - Preschool, Child}
+%\input{../Output/iv_texMaternaChildDIFF_short.tex}
+%\end{table}
+%%------------------- Difficulties Seated ----------------------%
+%\begin{table}[H]
+%\caption{Pooled: difficulties staying seated - Infant-toddler center, Child}
+%\input{../Output/iv_texAsiloChildDS_short.tex}  
+%\end{table}
+%\begin{table}[H]
+%\caption{Pooled: difficulties staying seated - Preschool, Child}
+%\input{../Output/iv_texMaternaChildDS_short.tex}
+%\end{table}
+%%------------------- Difficulties Obey ----------------------%
+%\begin{table}[H]
+%\caption{Pooled: difficulties obeying - Infant-toddler center, Child}
+%\input{../Output/iv_texAsiloChildDO_short.tex}  
+%\end{table}
+%\begin{table}[H]
+%\caption{Pooled: difficulties obeying - Preschool, Child}
+%\input{../Output/iv_texMaternaChildDO_short.tex}
+%\end{table}
+%%------------------- Difficulties Eat ----------------------%
+%\begin{table}[H]
+%\caption{Pooled: difficulties eating - Infant-toddler center, Child}
+%\input{../Output/iv_texAsiloChildDE_short.tex}  
+%\end{table}
+%\begin{table}[H]
+%\caption{Pooled: difficulties eating - Preschool, Child}
+%\input{../Output/iv_texMaternaChildDE_short.tex}
+%\end{table}
+%%------------------- Difficulties Interest ----------------------%
+%\begin{table}[H]
+%\caption{Pooled: difficulties staying interested - Infant-toddler center, Child}
+%\input{../Output/iv_texAsiloChildDI_short.tex}  
+%\end{table}
+%\begin{table}[H]
+%\caption{Pooled: difficulties staying interested - Preschool, Child}
+%\input{../Output/iv_texMaternaChildDI_short.tex}
+%\end{table}
+
+\end{small}
+
+\pagebreak
+\subsubsection{Children Results: Propensity Score Matching}
+These are the results created by Chiara using different types of propensity score matching
+\begin{small}
+\input{tables/PSM.tex}
+\end{small}
+
+%------------------------------------------------------% 
+%------------------- Adolescents ----------------------%
+%------------------------------------------------------% 
+\pagebreak
+\subsubsection{Adolescents Results}
+%------------------- Health ----------------------%
+\begin{table}[H]
+\caption{Pooled: Child Health - Infant-toddler center, Adolescent}
+\input{../Output/iv_texAsiloAdolCH_short.tex}  
+\end{table}
+\begin{table}[H]
+\caption{Pooled: Child Health - Preschool, Adolescent}
+\input{../Output/iv_texMaternaAdolCH_short.tex}
+\end{table}
+
+%\begin{table}[H]
+%\caption{Pooled: Health - Infant-toddler center, Adolescent}
+%\input{../Output/iv_texAsiloAdolH_short.tex}
+%\end{table}
+%\begin{table}[H]
+%\caption{Pooled: Health - Preschool, Adolescent}
+%\input{../Output/iv_texMaternaAdolH_short.tex}
+%\end{table}
+
+%------------------- SDQ ----------------------%
+\begin{table}[H]
+\caption{Pooled: Child SDQ Score - Infant-toddler center, Adolescent}
+\input{../Output/iv_texAsiloAdolCS_short.tex}
+\end{table}
+\begin{table}[H]
+\caption{Pooled: Child SDQ Score - Preschool, Adolescent}
+\input{../Output/iv_texMaternaAdolCS_short.tex}
+\end{table}
+
+%\begin{table}[H]
+%\caption{Pooled: SDQ Score - Infant-toddler center, Adolescent}
+%\input{../Output/iv_texAsiloAdolS_short.tex}
+%\end{table}
+%\begin{table}[H]
+%\caption{Pooled: SDQ Score - Preschool, Adolescent}
+%\input{../Output/iv_texMaternaAdolS_short.tex}
+%\end{table}
+%
+%------------------- Depression ----------------------%
+\begin{table}[H]
+\caption{Pooled: Depression - Infant-toddler center, Adolescent}
+\input{../Output/iv_texAsiloAdolD_short.tex}
+\end{table}
+\begin{table}[H]
+\caption{Pooled: Depression - Preschool, Adolescent}
+\input{../Output/iv_texMaternaAdolD_short.tex}
+\end{table}
+
+%------------------- Migrant Taste ----------------------%
+\begin{table}[H]
+\caption{Pooled: Bothered by immigrants - Infant-toddler center, Adolescent}
+\input{../Output/iv_texAsiloAdolM_short.tex}
+\end{table}
+\begin{table}[H]
+\caption{Pooled: Bothered by immigrants - Preschool, Adolescent}
+\input{../Output/iv_texMaternaAdolM_short.tex}
+\end{table}
+
+%%------------------- Like School ----------------------%
+%\begin{table}[H]
+%\caption{Pooled: Adol likes school - Infant-toddler center, Adolescent}
+%\input{../Output/iv_texAsiloAdolLS_short.tex}  
+%\end{table}
+%\begin{table}[H]
+%\caption{Pooled: Adol likes school - Preschool, Adolescent}
+%\input{../Output/iv_texMaternaAdolLS_short.tex}
+%\end{table}
+%%------------------- Like Math ----------------------%
+%\begin{table}[H]
+%\caption{Pooled: Adol likes math - Infant-toddler center, Adolescent}
+%\input{../Output/iv_texAsiloAdolLM_short.tex}  
+%\end{table}
+%\begin{table}[H]
+%\caption{Pooled: Adol likes math - Preschool, Adolescent}
+%\input{../Output/iv_texMaternaAdolLM_short.tex}
+%\end{table}
+%%------------------- Like Reading  ----------------------%
+%\begin{table}[H]
+%\caption{Pooled: Adol likes reading - Infant-toddler center, Adolescent}
+%\input{../Output/iv_texAsiloAdolLL_short.tex}  
+%\end{table}
+%\begin{table}[H]
+%\caption{Pooled: Adol likes reading - Preschool, Adolescent}
+%\input{../Output/iv_texMaternaAdolLL_short.tex}
+%\end{table}
+%%------------------- Difficulties ----------------------%
+%\begin{table}[H]
+%\caption{Pooled: difficulties at school entrance - Infant-toddler center, Adolescent}
+%\input{../Output/iv_texAsiloAdolDIFF_short.tex}  
+%\end{table}
+%\begin{table}[H]
+%\caption{Pooled: difficulties at school entrance - Preschool, Adolescent}
+%\input{../Output/iv_texMaternaAdolDIFF_short.tex}
+%\end{table}
+%%------------------- Difficulties Seated ----------------------%
+%\begin{table}[H]
+%\caption{Pooled: difficulties staying seated - Infant-toddler center, Adolescent}
+%\input{../Output/iv_texAsiloAdolDS_short.tex}  
+%\end{table}
+%\begin{table}[H]
+%\caption{Pooled: difficulties staying seated - Preschool, Adolescent}
+%\input{../Output/iv_texMaternaAdolDS_short.tex}
+%\end{table}
+%%------------------- Difficulties Obey ----------------------%
+%\begin{table}[H]
+%\caption{Pooled: difficulties obeying - Infant-toddler center, Adolescent}
+%\input{../Output/iv_texAsiloAdolDO_short.tex}  
+%\end{table}
+%\begin{table}[H]
+%\caption{Pooled: difficulties obeying - Preschool, Adolescent}
+%\input{../Output/iv_texMaternaAdolDO_short.tex}
+%\end{table}
+%%------------------- Difficulties Eat ----------------------%
+%\begin{table}[H]
+%\caption{Pooled: difficulties eating - Infant-toddler center, Adolescent}
+%\input{../Output/iv_texAsiloAdolDE_short.tex}  
+%\end{table}
+%\begin{table}[H]
+%\caption{Pooled: difficulties eating - Preschool, Adolescent}
+%\input{../Output/iv_texMaternaAdolDE_short.tex}
+%\end{table}
+%%------------------- Difficulties Interest ----------------------%
+%\begin{table}[H]
+%\caption{Pooled: difficulties staying interested - Infant-toddler center, Adolescent}
+%\input{../Output/iv_texAsiloAdolDI_short.tex}  
+%\end{table}
+%\begin{table}[H]
+%\caption{Pooled: difficulties staying interested - Preschool, Adolescent}
+%\input{../Output/iv_texMaternaAdolDI_short.tex}
+%\end{table}
+
+%------------------------------------------------------% 
+%-------------------   Adults    ----------------------%
+%------------------------------------------------------% 
+\pagebreak
+\subsubsection{Adults Results}
+%------------------- Health ----------------------%
+\begin{table}[H]
+\caption{Pooled: Health - Infant-toddler center, Adult}
+\input{../Output/iv_texAsiloAdultH_short.tex}
+\end{table}
+\begin{table}[H]
+\caption{Pooled: Health - Preschool, Adult}
+\input{../Output/iv_texMaternaAdultH_short.tex}
+\end{table}
+
+%------------------- Depression ----------------------%
+\begin{table}[H]
+\caption{Pooled: Depression - Infant-toddler center, Adult}
+\input{../Output/iv_texAsiloAdultD_short.tex}
+\end{table}
+\begin{table}[H]
+\caption{Pooled: Depression - Preschool, Adult}
+\input{../Output/iv_texMaternaAdultD_short.tex}
+\end{table}
+
+
+%------------------- Migrant Taste ----------------------%
+\begin{table}[H]
+\caption{Pooled: Bothered by immigrants - Infant-toddler center, Adult}
+\input{../Output/iv_texAsiloAdultM_short.tex}
+\end{table}
+\begin{table}[H]
+\caption{Pooled: Bothered by immigrants - Preschool, Adult}
+\input{../Output/iv_texMaternaAdultM_short.tex}
+\end{table}
+
+\todo[backgroundcolor=orange!30,size=\tiny]{Insert here the p-values of the differences in coefficients}
+
+\normalsize
+
+%\subsection{Propensity Score Matching Results}
+%\label{sec:PSM}
+%Another approach considered was to do a propensity score matching.

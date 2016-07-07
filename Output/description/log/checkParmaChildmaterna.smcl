@@ -1,0 +1,849 @@
+{smcl}
+{txt}{sf}{ul off}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/annaziff/Desktop/work/repos/gitreggiocode/Output/description/log/checkParmaChildmaterna.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}11 Jun 2016, 17:57:25
+school: Municipal
+city: Parma
+cohort: Child
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}IQ_factor {c |}{res}       154    .2172354    .8051666  -2.288471   .9429615
+{txt}(3139 observations deleted)
+(278 observations deleted)
+(282 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166        154 {txt}{c |}{res}       320 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       166        154 {txt}{c |}{res}       320 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Children {c |}{res}        320      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        320      100.00
+{txt}(320 missing values generated)
+(166 real changes made)
+(154 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        154       48.12       48.12
+{txt}          1 {c |}{res}        166       51.88      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        320      100.00
+school: State
+city: Parma
+cohort: Child
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}IQ_factor {c |}{res}        43    .4797065    .5213183  -1.403931   .9429615
+{txt}(3139 observations deleted)
+(278 observations deleted)
+(194 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166        154 {txt}{c |}{res}       320 
+{txt}     State {c |}{res}        45         43 {txt}{c |}{res}        88 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       211        197 {txt}{c |}{res}       408 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Children {c |}{res}        408      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        408      100.00
+{txt}(408 missing values generated)
+(166 real changes made)
+(43 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         43       20.57       20.57
+{txt}          1 {c |}{res}        166       79.43      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        209      100.00
+school: Religious
+city: Parma
+cohort: Child
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}IQ_factor {c |}{res}        77    .2717708    .8530974  -2.545078   .9429615
+{txt}(3139 observations deleted)
+(278 observations deleted)
+(113 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166        154 {txt}{c |}{res}       320 
+{txt} Religious {c |}{res}        92         77 {txt}{c |}{res}       169 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       258        231 {txt}{c |}{res}       489 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Children {c |}{res}        489      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        489      100.00
+{txt}(489 missing values generated)
+(166 real changes made)
+(77 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         77       31.69       31.69
+{txt}          1 {c |}{res}        166       68.31      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        243      100.00
+school: Private
+city: Parma
+cohort: Child
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}IQ_factor {c |}{res}         9   -.0639598    1.259629  -2.382122   .8750919
+{txt}(3139 observations deleted)
+(278 observations deleted)
+(268 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166        154 {txt}{c |}{res}       320 
+{txt}   Private {c |}{res}         5          9 {txt}{c |}{res}        14 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       171        163 {txt}{c |}{res}       334 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Children {c |}{res}        334      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        334      100.00
+{txt}(334 missing values generated)
+(166 real changes made)
+(9 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          9        5.14        5.14
+{txt}          1 {c |}{res}        166       94.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        175      100.00
+school: None
+city: Parma
+cohort: Child
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}IQ_factor {c |}{res}         6     .153732    .4062214  -.3360944   .7386485
+{txt}(3139 observations deleted)
+(278 observations deleted)
+(274 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166        154 {txt}{c |}{res}       320 
+{txt}      None {c |}{res}         2          6 {txt}{c |}{res}         8 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       168        160 {txt}{c |}{res}       328 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Children {c |}{res}        328      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        328      100.00
+{txt}(328 missing values generated)
+(166 real changes made)
+(6 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          6        3.49        3.49
+{txt}          1 {c |}{res}        166       96.51      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        172      100.00
+school: Municipal
+city: Parma
+cohort: Child
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+likeSchool~d {c |}{res}       152    1.322368    .5591144          1          3
+{txt}(3139 observations deleted)
+(278 observations deleted)
+(282 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166        154 {txt}{c |}{res}       320 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       166        154 {txt}{c |}{res}       320 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Children {c |}{res}        320      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        320      100.00
+{txt}(320 missing values generated)
+(166 real changes made)
+(154 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        154       48.12       48.12
+{txt}          1 {c |}{res}        166       51.88      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        320      100.00
+school: State
+city: Parma
+cohort: Child
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+likeSchool~d {c |}{res}        43    1.302326    .5990025          1          3
+{txt}(3139 observations deleted)
+(278 observations deleted)
+(194 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166        154 {txt}{c |}{res}       320 
+{txt}     State {c |}{res}        45         43 {txt}{c |}{res}        88 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       211        197 {txt}{c |}{res}       408 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Children {c |}{res}        408      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        408      100.00
+{txt}(408 missing values generated)
+(166 real changes made)
+(43 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         43       20.57       20.57
+{txt}          1 {c |}{res}        166       79.43      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        209      100.00
+school: Religious
+city: Parma
+cohort: Child
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+likeSchool~d {c |}{res}        77    1.246753     .463279          1          3
+{txt}(3139 observations deleted)
+(278 observations deleted)
+(113 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166        154 {txt}{c |}{res}       320 
+{txt} Religious {c |}{res}        92         77 {txt}{c |}{res}       169 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       258        231 {txt}{c |}{res}       489 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Children {c |}{res}        489      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        489      100.00
+{txt}(489 missing values generated)
+(166 real changes made)
+(77 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         77       31.69       31.69
+{txt}          1 {c |}{res}        166       68.31      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        243      100.00
+school: Private
+city: Parma
+cohort: Child
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+likeSchool~d {c |}{res}         9    1.333333          .5          1          2
+{txt}(3139 observations deleted)
+(278 observations deleted)
+(268 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166        154 {txt}{c |}{res}       320 
+{txt}   Private {c |}{res}         5          9 {txt}{c |}{res}        14 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       171        163 {txt}{c |}{res}       334 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Children {c |}{res}        334      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        334      100.00
+{txt}(334 missing values generated)
+(166 real changes made)
+(9 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          9        5.14        5.14
+{txt}          1 {c |}{res}        166       94.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        175      100.00
+school: None
+city: Parma
+cohort: Child
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+likeSchool~d {c |}{res}         6         1.5    .5477226          1          2
+{txt}(3139 observations deleted)
+(278 observations deleted)
+(274 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166        154 {txt}{c |}{res}       320 
+{txt}      None {c |}{res}         2          6 {txt}{c |}{res}         8 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       168        160 {txt}{c |}{res}       328 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Children {c |}{res}        328      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        328      100.00
+{txt}(328 missing values generated)
+(166 real changes made)
+(6 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          6        3.49        3.49
+{txt}          1 {c |}{res}        166       96.51      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        172      100.00
+school: Municipal
+city: Parma
+cohort: Child
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}childBMI {c |}{res}       150    16.65872    3.781186    11.2426    44.6163
+{txt}(3139 observations deleted)
+(278 observations deleted)
+(282 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166        154 {txt}{c |}{res}       320 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       166        154 {txt}{c |}{res}       320 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Children {c |}{res}        320      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        320      100.00
+{txt}(320 missing values generated)
+(166 real changes made)
+(154 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        154       48.12       48.12
+{txt}          1 {c |}{res}        166       51.88      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        320      100.00
+school: State
+city: Parma
+cohort: Child
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}childBMI {c |}{res}        39    15.41682    1.674776      11.52   18.02776
+{txt}(3139 observations deleted)
+(278 observations deleted)
+(194 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166        154 {txt}{c |}{res}       320 
+{txt}     State {c |}{res}        45         43 {txt}{c |}{res}        88 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       211        197 {txt}{c |}{res}       408 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Children {c |}{res}        408      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        408      100.00
+{txt}(408 missing values generated)
+(166 real changes made)
+(43 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         43       20.57       20.57
+{txt}          1 {c |}{res}        166       79.43      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        209      100.00
+school: Religious
+city: Parma
+cohort: Child
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}childBMI {c |}{res}        69    16.12643    2.264586    11.7472   25.61983
+{txt}(3139 observations deleted)
+(278 observations deleted)
+(113 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166        154 {txt}{c |}{res}       320 
+{txt} Religious {c |}{res}        92         77 {txt}{c |}{res}       169 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       258        231 {txt}{c |}{res}       489 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Children {c |}{res}        489      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        489      100.00
+{txt}(489 missing values generated)
+(166 real changes made)
+(77 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         77       31.69       31.69
+{txt}          1 {c |}{res}        166       68.31      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        243      100.00
+school: Private
+city: Parma
+cohort: Child
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}childBMI {c |}{res}         8    15.12657    2.766341   12.07133   20.11834
+{txt}(3139 observations deleted)
+(278 observations deleted)
+(268 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166        154 {txt}{c |}{res}       320 
+{txt}   Private {c |}{res}         5          9 {txt}{c |}{res}        14 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       171        163 {txt}{c |}{res}       334 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Children {c |}{res}        334      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        334      100.00
+{txt}(334 missing values generated)
+(166 real changes made)
+(9 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          9        5.14        5.14
+{txt}          1 {c |}{res}        166       94.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        175      100.00
+school: None
+city: Parma
+cohort: Child
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}childBMI {c |}{res}         5    17.11175    3.602117   14.10911   22.95918
+{txt}(3139 observations deleted)
+(278 observations deleted)
+(274 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166        154 {txt}{c |}{res}       320 
+{txt}      None {c |}{res}         2          6 {txt}{c |}{res}         8 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       168        160 {txt}{c |}{res}       328 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Children {c |}{res}        328      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        328      100.00
+{txt}(328 missing values generated)
+(166 real changes made)
+(6 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          6        3.49        3.49
+{txt}          1 {c |}{res}        166       96.51      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        172      100.00
+school: Municipal
+city: Parma
+cohort: Child
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+childSDQ_s~e {c |}{res}       154    7.798701    3.911404          2         20
+{txt}(3139 observations deleted)
+(278 observations deleted)
+(282 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166        154 {txt}{c |}{res}       320 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       166        154 {txt}{c |}{res}       320 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Children {c |}{res}        320      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        320      100.00
+{txt}(320 missing values generated)
+(166 real changes made)
+(154 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        154       48.12       48.12
+{txt}          1 {c |}{res}        166       51.88      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        320      100.00
+school: State
+city: Parma
+cohort: Child
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+childSDQ_s~e {c |}{res}        43    7.186047    3.825079          2         17
+{txt}(3139 observations deleted)
+(278 observations deleted)
+(194 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166        154 {txt}{c |}{res}       320 
+{txt}     State {c |}{res}        45         43 {txt}{c |}{res}        88 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       211        197 {txt}{c |}{res}       408 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Children {c |}{res}        408      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        408      100.00
+{txt}(408 missing values generated)
+(166 real changes made)
+(43 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         43       20.57       20.57
+{txt}          1 {c |}{res}        166       79.43      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        209      100.00
+school: Religious
+city: Parma
+cohort: Child
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+childSDQ_s~e {c |}{res}        77    8.662338    4.247632          2         21
+{txt}(3139 observations deleted)
+(278 observations deleted)
+(113 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166        154 {txt}{c |}{res}       320 
+{txt} Religious {c |}{res}        92         77 {txt}{c |}{res}       169 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       258        231 {txt}{c |}{res}       489 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Children {c |}{res}        489      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        489      100.00
+{txt}(489 missing values generated)
+(166 real changes made)
+(77 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         77       31.69       31.69
+{txt}          1 {c |}{res}        166       68.31      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        243      100.00
+school: Private
+city: Parma
+cohort: Child
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+childSDQ_s~e {c |}{res}         9    8.555556    2.877113          4         13
+{txt}(3139 observations deleted)
+(278 observations deleted)
+(268 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166        154 {txt}{c |}{res}       320 
+{txt}   Private {c |}{res}         5          9 {txt}{c |}{res}        14 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       171        163 {txt}{c |}{res}       334 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Children {c |}{res}        334      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        334      100.00
+{txt}(334 missing values generated)
+(166 real changes made)
+(9 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          9        5.14        5.14
+{txt}          1 {c |}{res}        166       94.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        175      100.00
+school: None
+city: Parma
+cohort: Child
+type: materna
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+childSDQ_s~e {c |}{res}         6    8.666667    3.669696          4         13
+{txt}(3139 observations deleted)
+(278 observations deleted)
+(274 observations deleted)
+
+maternaTyp {c |}         City
+         e {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       166        154 {txt}{c |}{res}       320 
+{txt}      None {c |}{res}         2          6 {txt}{c |}{res}         8 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       168        160 {txt}{c |}{res}       328 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Children {c |}{res}        328      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        328      100.00
+{txt}(328 missing values generated)
+(166 real changes made)
+(6 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}          6        3.49        3.49
+{txt}          1 {c |}{res}        166       96.51      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        172      100.00
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/annaziff/Desktop/work/repos/gitreggiocode/Output/description/log/checkParmaChildmaterna.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}11 Jun 2016, 17:57:27
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

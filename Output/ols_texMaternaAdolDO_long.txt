@@ -1,0 +1,38 @@
+		(1)
+VARIABLES	LABELS	
+		
+xmReggioReli	Reggio Reli Preschool	-0.021
+		[0.031]
+xmParmaMuni	Parma Muni Preschool	0.066
+		[0.048]
+xmPadovaMuni	Padova Muni Preschool	-0.016
+		[0.035]
+xmParmaStat	Parma Stat Preschool	-0.041*
+		[0.024]
+xmPadovaStat	Padova Stat Preschool	0.004
+		[0.051]
+xmReggioStat	Reggio Stat Preschool	-0.041*
+		[0.024]
+xmParmaReli	Parma Reli Preschool	0.097
+		[0.069]
+xmPadovaReli	Padova Reli Preschool	-0.041*
+		[0.024]
+xmParmaPriv	Parma Priv Preschool	-0.041*
+		[0.024]
+xmPadovaPriv	Padova Priv Preschool	-0.041*
+		[0.024]
+xmReggioPriv	Reggio Priv Preschool	-0.041*
+		[0.024]
+xmParmaNone	Parma None Preschool	-0.041*
+		[0.024]
+xmReggioNone	Reggio None Preschool	-0.041*
+		[0.024]
+Constant	Constant	0.041*
+		[0.024]
+		
+Observations		366
+R-squared		0.046
+Controls		None
+Robust standard errors in brackets		
+*** p<0.01, ** p<0.05, * p<0.1		
+Dependent variable: Ability to obey rules and directions (difficulties in primary school).		

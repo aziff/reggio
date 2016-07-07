@@ -1,0 +1,1683 @@
+{smcl}
+{txt}{sf}{ul off}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/annaziff/Desktop/work/repos/gitreggiocode/Output/description/log/checkParmaAdolescentasilo.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}11 Jun 2016, 17:55:33
+school: Municipal
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}IQ_factor {c |}{res}        97    .1348811    .6414766  -2.646702    .706594
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(304 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       153         97 {txt}{c |}{res}       250 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        250      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        250      100.00
+{txt}(250 missing values generated)
+(153 real changes made)
+(97 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         97       38.80       38.80
+{txt}          1 {c |}{res}        153       61.20      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        250      100.00
+school: Religious
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}IQ_factor {c |}{res}        10    .3900159    .2681542  -.1574429    .706594
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(285 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt} Religious {c |}{res}         9         10 {txt}{c |}{res}        19 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       162        107 {txt}{c |}{res}       269 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        269      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        269      100.00
+{txt}(269 missing values generated)
+(153 real changes made)
+(10 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         10        6.13        6.13
+{txt}          1 {c |}{res}        153       93.87      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        163      100.00
+school: Private
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}IQ_factor {c |}{res}        13    .1469306    .5146862  -.8084148    .706594
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(288 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}   Private {c |}{res}         3         13 {txt}{c |}{res}        16 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       156        110 {txt}{c |}{res}       266 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        266      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        266      100.00
+{txt}(266 missing values generated)
+(153 real changes made)
+(13 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         13        7.83        7.83
+{txt}          1 {c |}{res}        153       92.17      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        166      100.00
+school: None
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}IQ_factor {c |}{res}       130     .157503    .7295148  -2.646702    .706594
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(44 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}      None {c |}{res}       130        130 {txt}{c |}{res}       260 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       283        227 {txt}{c |}{res}       510 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        510      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        510      100.00
+{txt}(510 missing values generated)
+(153 real changes made)
+(130 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        130       45.94       45.94
+{txt}          1 {c |}{res}        153       54.06      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        283      100.00
+school: Municipal
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+RiskSuspen~d {c |}{res}        97    .0618557    .2421446          0          1
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(304 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       153         97 {txt}{c |}{res}       250 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        250      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        250      100.00
+{txt}(250 missing values generated)
+(153 real changes made)
+(97 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         97       38.80       38.80
+{txt}          1 {c |}{res}        153       61.20      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        250      100.00
+school: Religious
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+RiskSuspen~d {c |}{res}        10          .1    .3162278          0          1
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(285 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt} Religious {c |}{res}         9         10 {txt}{c |}{res}        19 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       162        107 {txt}{c |}{res}       269 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        269      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        269      100.00
+{txt}(269 missing values generated)
+(153 real changes made)
+(10 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         10        6.13        6.13
+{txt}          1 {c |}{res}        153       93.87      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        163      100.00
+school: Private
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+RiskSuspen~d {c |}{res}        13           0           0          0          0
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(288 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}   Private {c |}{res}         3         13 {txt}{c |}{res}        16 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       156        110 {txt}{c |}{res}       266 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        266      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        266      100.00
+{txt}(266 missing values generated)
+(153 real changes made)
+(13 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         13        7.83        7.83
+{txt}          1 {c |}{res}        153       92.17      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        166      100.00
+school: None
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+RiskSuspen~d {c |}{res}       130    .0230769    .1507287          0          1
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(44 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}      None {c |}{res}       130        130 {txt}{c |}{res}       260 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       283        227 {txt}{c |}{res}       510 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        510      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        510      100.00
+{txt}(510 missing values generated)
+(153 real changes made)
+(130 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        130       45.94       45.94
+{txt}          1 {c |}{res}        153       54.06      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        283      100.00
+school: Municipal
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}Smoke {c |}{res}        58    .2931034     .459161          0          1
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(304 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       153         97 {txt}{c |}{res}       250 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        250      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        250      100.00
+{txt}(250 missing values generated)
+(153 real changes made)
+(97 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         97       38.80       38.80
+{txt}          1 {c |}{res}        153       61.20      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        250      100.00
+school: Religious
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}Smoke {c |}{res}         5          .4    .5477226          0          1
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(285 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt} Religious {c |}{res}         9         10 {txt}{c |}{res}        19 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       162        107 {txt}{c |}{res}       269 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        269      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        269      100.00
+{txt}(269 missing values generated)
+(153 real changes made)
+(10 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         10        6.13        6.13
+{txt}          1 {c |}{res}        153       93.87      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        163      100.00
+school: Private
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}Smoke {c |}{res}         9    .4444444    .5270463          0          1
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(288 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}   Private {c |}{res}         3         13 {txt}{c |}{res}        16 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       156        110 {txt}{c |}{res}       266 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        266      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        266      100.00
+{txt}(266 missing values generated)
+(153 real changes made)
+(13 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         13        7.83        7.83
+{txt}          1 {c |}{res}        153       92.17      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        166      100.00
+school: None
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}Smoke {c |}{res}        66    .3030303    .4630899          0          1
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(44 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}      None {c |}{res}       130        130 {txt}{c |}{res}       260 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       283        227 {txt}{c |}{res}       510 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        510      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        510      100.00
+{txt}(510 missing values generated)
+(153 real changes made)
+(130 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        130       45.94       45.94
+{txt}          1 {c |}{res}        153       54.06      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        283      100.00
+school: Municipal
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}Cig {c |}{res}        16      5.5625    3.224257          1         12
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(304 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       153         97 {txt}{c |}{res}       250 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        250      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        250      100.00
+{txt}(250 missing values generated)
+(153 real changes made)
+(97 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         97       38.80       38.80
+{txt}          1 {c |}{res}        153       61.20      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        250      100.00
+school: Religious
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}Cig {c |}{res}         2           5           0          5          5
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(285 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt} Religious {c |}{res}         9         10 {txt}{c |}{res}        19 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       162        107 {txt}{c |}{res}       269 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        269      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        269      100.00
+{txt}(269 missing values generated)
+(153 real changes made)
+(10 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         10        6.13        6.13
+{txt}          1 {c |}{res}        153       93.87      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        163      100.00
+school: Private
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}Cig {c |}{res}         4           6    2.708013          4         10
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(288 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}   Private {c |}{res}         3         13 {txt}{c |}{res}        16 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       156        110 {txt}{c |}{res}       266 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        266      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        266      100.00
+{txt}(266 missing values generated)
+(153 real changes made)
+(13 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         13        7.83        7.83
+{txt}          1 {c |}{res}        153       92.17      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        166      100.00
+school: None
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}Cig {c |}{res}        20         4.9    2.971797          1         10
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(44 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}      None {c |}{res}       130        130 {txt}{c |}{res}       260 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       283        227 {txt}{c |}{res}       510 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        510      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        510      100.00
+{txt}(510 missing values generated)
+(153 real changes made)
+(130 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        130       45.94       45.94
+{txt}          1 {c |}{res}        153       54.06      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        283      100.00
+school: Municipal
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}sport {c |}{res}        94    3.265957    1.785097          0          7
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(304 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       153         97 {txt}{c |}{res}       250 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        250      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        250      100.00
+{txt}(250 missing values generated)
+(153 real changes made)
+(97 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         97       38.80       38.80
+{txt}          1 {c |}{res}        153       61.20      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        250      100.00
+school: Religious
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}sport {c |}{res}        10         3.3    1.888562          1          7
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(285 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt} Religious {c |}{res}         9         10 {txt}{c |}{res}        19 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       162        107 {txt}{c |}{res}       269 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        269      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        269      100.00
+{txt}(269 missing values generated)
+(153 real changes made)
+(10 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         10        6.13        6.13
+{txt}          1 {c |}{res}        153       93.87      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        163      100.00
+school: Private
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}sport {c |}{res}        13    3.846154    1.951331          1          7
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(288 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}   Private {c |}{res}         3         13 {txt}{c |}{res}        16 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       156        110 {txt}{c |}{res}       266 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        266      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        266      100.00
+{txt}(266 missing values generated)
+(153 real changes made)
+(13 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         13        7.83        7.83
+{txt}          1 {c |}{res}        153       92.17      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        166      100.00
+school: None
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}sport {c |}{res}       124    2.895161    1.576342          0          7
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(44 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}      None {c |}{res}       130        130 {txt}{c |}{res}       260 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       283        227 {txt}{c |}{res}       510 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        510      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        510      100.00
+{txt}(510 missing values generated)
+(153 real changes made)
+(130 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        130       45.94       45.94
+{txt}          1 {c |}{res}        153       54.06      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        283      100.00
+school: Municipal
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}BMI {c |}{res}        88    21.54097    3.080465   15.94388   31.45643
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(304 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       153         97 {txt}{c |}{res}       250 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        250      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        250      100.00
+{txt}(250 missing values generated)
+(153 real changes made)
+(97 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         97       38.80       38.80
+{txt}          1 {c |}{res}        153       61.20      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        250      100.00
+school: Religious
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}BMI {c |}{res}        10    20.85087    1.556378   19.04507   24.22145
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(285 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt} Religious {c |}{res}         9         10 {txt}{c |}{res}        19 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       162        107 {txt}{c |}{res}       269 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        269      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        269      100.00
+{txt}(269 missing values generated)
+(153 real changes made)
+(10 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         10        6.13        6.13
+{txt}          1 {c |}{res}        153       93.87      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        163      100.00
+school: Private
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}BMI {c |}{res}        11    20.88224    2.808925   14.34257    23.5102
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(288 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}   Private {c |}{res}         3         13 {txt}{c |}{res}        16 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       156        110 {txt}{c |}{res}       266 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        266      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        266      100.00
+{txt}(266 missing values generated)
+(153 real changes made)
+(13 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         13        7.83        7.83
+{txt}          1 {c |}{res}        153       92.17      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        166      100.00
+school: None
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}BMI {c |}{res}       114    21.30179    3.267281   15.75575   42.44002
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(44 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}      None {c |}{res}       130        130 {txt}{c |}{res}       260 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       283        227 {txt}{c |}{res}       510 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        510      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        510      100.00
+{txt}(510 missing values generated)
+(153 real changes made)
+(130 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        130       45.94       45.94
+{txt}          1 {c |}{res}        153       54.06      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        283      100.00
+school: Municipal
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+LocusControl {c |}{res}        94    .2101971    .8387191  -1.340119   1.552768
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(304 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       153         97 {txt}{c |}{res}       250 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        250      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        250      100.00
+{txt}(250 missing values generated)
+(153 real changes made)
+(97 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         97       38.80       38.80
+{txt}          1 {c |}{res}        153       61.20      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        250      100.00
+school: Religious
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+LocusControl {c |}{res}        10    .1512309    .8891776  -1.274095   1.011532
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(285 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt} Religious {c |}{res}         9         10 {txt}{c |}{res}        19 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       162        107 {txt}{c |}{res}       269 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        269      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        269      100.00
+{txt}(269 missing values generated)
+(153 real changes made)
+(10 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         10        6.13        6.13
+{txt}          1 {c |}{res}        153       93.87      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        163      100.00
+school: Private
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+LocusControl {c |}{res}        13    -.100629    .7655577  -1.241083   1.209069
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(288 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}   Private {c |}{res}         3         13 {txt}{c |}{res}        16 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       156        110 {txt}{c |}{res}       266 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        266      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        266      100.00
+{txt}(266 missing values generated)
+(153 real changes made)
+(13 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         13        7.83        7.83
+{txt}          1 {c |}{res}        153       92.17      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        166      100.00
+school: None
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+LocusControl {c |}{res}       128    .1283986    .8010048  -1.340119   1.909804
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(44 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}      None {c |}{res}       130        130 {txt}{c |}{res}       260 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       283        227 {txt}{c |}{res}       510 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        510      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        510      100.00
+{txt}(510 missing values generated)
+(153 real changes made)
+(130 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        130       45.94       45.94
+{txt}          1 {c |}{res}        153       54.06      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        283      100.00
+school: Municipal
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}SDQ_score {c |}{res}        96    9.114583    4.281834          3         23
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(304 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       153         97 {txt}{c |}{res}       250 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        250      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        250      100.00
+{txt}(250 missing values generated)
+(153 real changes made)
+(97 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         97       38.80       38.80
+{txt}          1 {c |}{res}        153       61.20      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        250      100.00
+school: Religious
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}SDQ_score {c |}{res}        10         9.1    5.971227          3         24
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(285 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt} Religious {c |}{res}         9         10 {txt}{c |}{res}        19 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       162        107 {txt}{c |}{res}       269 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        269      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        269      100.00
+{txt}(269 missing values generated)
+(153 real changes made)
+(10 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         10        6.13        6.13
+{txt}          1 {c |}{res}        153       93.87      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        163      100.00
+school: Private
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}SDQ_score {c |}{res}        13    9.461538    3.843076          4         14
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(288 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}   Private {c |}{res}         3         13 {txt}{c |}{res}        16 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       156        110 {txt}{c |}{res}       266 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        266      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        266      100.00
+{txt}(266 missing values generated)
+(153 real changes made)
+(13 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         13        7.83        7.83
+{txt}          1 {c |}{res}        153       92.17      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        166      100.00
+school: None
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}SDQ_score {c |}{res}       129    8.953488    4.166197          3         22
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(44 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}      None {c |}{res}       130        130 {txt}{c |}{res}       260 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       283        227 {txt}{c |}{res}       510 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        510      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        510      100.00
+{txt}(510 missing values generated)
+(153 real changes made)
+(130 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        130       45.94       45.94
+{txt}          1 {c |}{res}        153       54.06      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        283      100.00
+school: Municipal
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+childSDQ_s~e {c |}{res}        97    8.020619    4.102792          2         20
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(304 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       153         97 {txt}{c |}{res}       250 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        250      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        250      100.00
+{txt}(250 missing values generated)
+(153 real changes made)
+(97 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         97       38.80       38.80
+{txt}          1 {c |}{res}        153       61.20      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        250      100.00
+school: Religious
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+childSDQ_s~e {c |}{res}        10         9.7    7.557924          4         30
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(285 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt} Religious {c |}{res}         9         10 {txt}{c |}{res}        19 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       162        107 {txt}{c |}{res}       269 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        269      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        269      100.00
+{txt}(269 missing values generated)
+(153 real changes made)
+(10 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         10        6.13        6.13
+{txt}          1 {c |}{res}        153       93.87      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        163      100.00
+school: Private
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+childSDQ_s~e {c |}{res}        13    9.384615    5.236705          2         19
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(288 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}   Private {c |}{res}         3         13 {txt}{c |}{res}        16 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       156        110 {txt}{c |}{res}       266 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        266      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        266      100.00
+{txt}(266 missing values generated)
+(153 real changes made)
+(13 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         13        7.83        7.83
+{txt}          1 {c |}{res}        153       92.17      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        166      100.00
+school: None
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+childSDQ_s~e {c |}{res}       130    8.007692    4.330344          2         24
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(44 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}      None {c |}{res}       130        130 {txt}{c |}{res}       260 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       283        227 {txt}{c |}{res}       510 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        510      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        510      100.00
+{txt}(510 missing values generated)
+(153 real changes made)
+(130 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        130       45.94       45.94
+{txt}          1 {c |}{res}        153       54.06      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        283      100.00
+school: Municipal
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+Depression~e {c |}{res}        92    22.07609    5.195589         12         37
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(304 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       153         97 {txt}{c |}{res}       250 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        250      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        250      100.00
+{txt}(250 missing values generated)
+(153 real changes made)
+(97 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         97       38.80       38.80
+{txt}          1 {c |}{res}        153       61.20      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        250      100.00
+school: Religious
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+Depression~e {c |}{res}        10        21.2    4.157991         13         29
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(285 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt} Religious {c |}{res}         9         10 {txt}{c |}{res}        19 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       162        107 {txt}{c |}{res}       269 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        269      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        269      100.00
+{txt}(269 missing values generated)
+(153 real changes made)
+(10 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         10        6.13        6.13
+{txt}          1 {c |}{res}        153       93.87      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        163      100.00
+school: Private
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+Depression~e {c |}{res}        13    21.15385    4.879313         14         31
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(288 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}   Private {c |}{res}         3         13 {txt}{c |}{res}        16 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       156        110 {txt}{c |}{res}       266 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        266      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        266      100.00
+{txt}(266 missing values generated)
+(153 real changes made)
+(13 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         13        7.83        7.83
+{txt}          1 {c |}{res}        153       92.17      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        166      100.00
+school: None
+city: Parma
+cohort: Adolescent
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+Depression~e {c |}{res}       124    22.34677     5.06068         13         36
+{txt}(3183 observations deleted)
+(282 observations deleted)
+(44 observations deleted)
+
+           {c |}         City
+ asiloType {c |}    Reggio      Parma {c |}     Total
+{hline 11}{c +}{hline 22}{c +}{hline 10}
+ Municipal {c |}{res}       153         97 {txt}{c |}{res}       250 
+{txt}      None {c |}{res}       130        130 {txt}{c |}{res}       260 
+{txt}{hline 11}{c +}{hline 22}{c +}{hline 10}
+     Total {c |}{res}       283        227 {txt}{c |}{res}       510 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+Adolescents {c |}{res}        510      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        510      100.00
+{txt}(510 missing values generated)
+(153 real changes made)
+(130 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        130       45.94       45.94
+{txt}          1 {c |}{res}        153       54.06      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        283      100.00
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/annaziff/Desktop/work/repos/gitreggiocode/Output/description/log/checkParmaAdolescentasilo.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}11 Jun 2016, 17:55:39
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

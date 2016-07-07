@@ -1,0 +1,28 @@
+		(1)	(2)	(3)
+VARIABLES	LABELS			
+				
+xaReggioNone	Reggio None ITC	0.046	0.054	0.043
+		[0.048]	[0.050]	[0.057]
+xaReggioSome	Reggio other ITC	-0.038	0.001	-0.166
+		[0.027]	[0.063]	[0.102]
+xaParmaMuni	Parma Muni ITC	0.029	0.079	-35.140
+		[0.053]	[0.081]	[82.021]
+xaPadovaMuni	Padova Muni ITC	0.099	0.156	1.981
+		[0.079]	[0.125]	[92.850]
+xaParmaSome	Parma other ITC	-0.038	-0.000	-35.119
+		[0.027]	[0.052]	[82.016]
+xaPadovaSome	Padova other ITC	-0.038	-0.052	1.709
+		[0.027]	[0.115]	[92.829]
+xaParmaNone	Parma None ITC	-0.038	-0.005	-35.166
+		[0.027]	[0.053]	[82.023]
+xaPadovaNone	Padova None ITC	0.025	0.072	1.889
+		[0.038]	[0.114]	[92.838]
+Constant	Constant	0.038	-15.100	13.958
+		[0.027]	[30.009]	[74.108]
+				
+Observations		292	292	292
+R-squared		0.026	0.199	0.382
+Controls		None	All	Inter
+Robust standard errors in brackets				
+*** p<0.01, ** p<0.05, * p<0.1				
+Dependent variable: Lack of excitement to learn (difficulties in primary school).				

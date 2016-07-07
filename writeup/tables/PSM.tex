@@ -1,0 +1,50 @@
+\begin{table}[H]
+\caption{Propensity Score Matching, Children (Age 6)}
+\label{tab:PSM_children}
+\vspace{-5mm}
+\begin{center}
+\begin{tabular}{ c c c c }
+\hline\hline
+                       & & \textbf{Child} & \textbf{Child} \\
+\textbf{Specification} & & \textbf{SDQ}   & \textbf{Health} \\
+\hline 
+\multicolumn{4}{c}{\emph{Infant Toddler Center }}\\ [0.2em]
+\hline 
+OLS   & coeff.  & -0.919 & -0.328\\ [0.2em]
+      & s.e.    & (0.637)  & (0.070) \\ [0.2em]
+      & obs.    &  \emph{824} & \emph{824} \\ [0.2em]
+PSM 1 & coeff.  & -3.304{*} & 0.012\\ [0.2em]
+      & s.e.    & (1.696)  & (0.149) \\ [0.2em]
+      & obs.    &  \emph{274} & \emph{274} \\ [0.2em]
+ PSM 2 & coeff.  & -0.520 & 0.053\\ [0.2em]
+  & s.e.  & (0.731)  & (0.093) \\ [0.2em]
+  & obs.  &  \emph{277} & \emph{277} \\ [0.2em]
+ PSM 3 & coeff.  & 2.006{*}{*} & -0.079\\ [0.2em]
+  & s.e.  & (0.816)  & (0.082) \\ [0.2em]
+  & obs.  &  \emph{277} & \emph{277} \\ [0.2em]
+ PSM 4 & coeff.  & 1.094 & 0.087\\ [0.2em]
+  & s.e.  & (0.758)  & (0.091) \\ [0.2em]
+  & obs.  &  \emph{277} & \emph{277} \\ [0.2em]
+\hline 
+\multicolumn{4}{c}{\emph{Preschool}}\\ [0.2em]
+\hline 
+OLS  & coeff.  & -1.478{*}{*}{*} & 0.026\\ [0.2em]
+  & s.e.  & (0.529)  & (0.059) \\ [0.2em]
+  & obs.  &  \emph{822} & \emph{821} \\ [0.2em]
+ PSM 1 & coeff.  & -0.375 & -0.054\\ [0.2em]
+  & s.e.  & (1.172)  & (0.101) \\ [0.2em]
+  & obs.  &  288 & \emph{288} \\ [0.2em]
+ PSM 2 & coeff.  & -2.113{*}{*}{*} & 0.106\\ [0.2em]
+  & s.e.  & (0.647)  & (0.080) \\ [0.2em]
+  & obs.  &  \emph{304} & \emph{304} \\ [0.2em]
+ PSM 3 & coeff.  & -2.407{*}{*}{*} & 0.063\\ [0.2em]
+  & s.e.  & (0.719)  & (0.074) \\ [0.2em]
+  & obs.  &  \emph{304} & \emph{304} \\ [0.2em]
+ PSM 4 & coeff.  & -2.490{*}{*}{*} & 0.084\\ [0.2em]
+  & s.e.  & (0.761)  & (0.079) \\ [0.2em]
+  & obs.  &  \emph{304} & \emph{304} \\ [0.2em]
+\hline 
+\end{tabular}
+\end{center}
+\footnotesize{{\bfseries Notes:} Source: authors' calculations from the administrative data on the universe of applications to the municipal preschools of Reggio Emilia. The cells display the percentages of applicants who were 3, 4 and 5 years-old when applying to each school year. The age is calculated based on the year of birth of the child, so that for example children born any time in 2005 are considered 3-year-old if applying to the 2008-2009 School Year.}
+\end{table}

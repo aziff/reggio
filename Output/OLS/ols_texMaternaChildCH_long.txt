@@ -1,0 +1,40 @@
+		(1)
+VARIABLES	LABELS	
+		
+xmReggioReli	Reggio Reli Preschool	0.033
+		[0.089]
+xmParmaMuni	Parma Muni Preschool	-0.109
+		[0.087]
+xmPadovaMuni	Padova Muni Preschool	0.110
+		[0.090]
+xmParmaStat	Parma Stat Preschool	-0.135
+		[0.135]
+xmPadovaStat	Padova Stat Preschool	-0.056
+		[0.150]
+xmReggioStat	Reggio Stat Preschool	0.027
+		[0.114]
+xmParmaReli	Parma Reli Preschool	0.046
+		[0.102]
+xmPadovaReli	Padova Reli Preschool	-0.004
+		[0.081]
+xmParmaPriv	Parma Priv Preschool	0.277***
+		[0.057]
+xmPadovaPriv	Padova Priv Preschool	0.134
+		[0.147]
+xmReggioPriv	Reggio Priv Preschool	0.277***
+		[0.057]
+xmParmaNone	Parma None Preschool	-0.223
+		[0.366]
+xmPadovaNone	Padova None Preschool	0.277***
+		[0.057]
+xmReggioNone	Reggio None Preschool	0.277***
+		[0.057]
+Constant	Constant	0.723***
+		[0.057]
+		
+Observations		348
+R-squared		0.032
+Controls		None
+Robust standard errors in brackets		
+*** p<0.01, ** p<0.05, * p<0.1		
+Dependent variable: Child health is good (%) - mom report.		

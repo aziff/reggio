@@ -1,0 +1,28 @@
+		(1)	(2)	(3)
+VARIABLES	LABELS			
+				
+xmReggioNone	Reggio None Preschool	-0.067	-0.325	-0.149
+		[0.365]	[0.460]	[0.594]
+xmReggioSome	Reggio other preschool	0.039	0.166	0.252*
+		[0.104]	[0.114]	[0.132]
+xmParmaMuni	Parma Muni Preschool	0.100	0.153	-376.422
+		[0.109]	[0.144]	[234.022]
+xmPadovaMuni	Padova Muni Preschool	0.067	-0.081	-66.350
+		[0.111]	[0.180]	[228.030]
+xmParmaSome	Parma other preschool	0.114	0.099	-376.445
+		[0.095]	[0.132]	[234.024]
+xmPadovaSome	Padova other preschool	-0.010	-0.282*	-66.510
+		[0.089]	[0.171]	[228.057]
+xmParmaNone	Parma None Preschool	0.433***	0.436*	-376.327
+		[0.065]	[0.231]	[234.003]
+xmPadovaNone	Padova None Preschool	-0.567***	-0.648***	-66.864
+		[0.065]	[0.245]	[228.045]
+Constant	Constant	0.567***	-41.100	86.306
+		[0.065]	[82.358]	[157.107]
+				
+Observations		279	279	279
+R-squared		0.018	0.195	0.293
+Controls		None	All	Inter
+Robust standard errors in brackets				
+*** p<0.01, ** p<0.05, * p<0.1				
+Dependent variable: Child likes math (%).				

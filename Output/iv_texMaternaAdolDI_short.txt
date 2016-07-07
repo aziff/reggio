@@ -1,0 +1,33 @@
+		(1)	(2)	(3)	(4)	(5)	(6)
+VARIABLES	LABELS						
+							
+ReggioMaterna	RCH preschool				-0.017	-0.068	-0.034
+					[0.070]	[0.074]	[0.075]
+xmReggioNone	Reggio None Preschool	0.256	0.246	0.281	0.253	0.226	0.244
+		[0.173]	[0.173]	[0.171]	[0.166]	[0.165]	[0.162]
+xmReggioSome	Reggio other preschool	0.009	0.026	0.039			
+		[0.024]	[0.026]	[0.029]			
+xmParmaMuni	Parma Muni Preschool	0.004	0.016	-32.602	-37.681	-38.084	-34.975
+		[0.024]	[0.035]	[37.201]	[37.072]	[51.018]	[44.520]
+xmPadovaMuni	Padova Muni Preschool	-0.016	-0.015	23.288	18.101	21.977	20.432
+		[0.020]	[0.045]	[52.873]	[38.971]	[70.639]	[55.981]
+Male	Male dummy		0.024	0.002	0.002	0.002	0.002
+			[0.015]	[0.030]	[0.027]	[0.027]	[0.027]
+xmParmaSome	Parma other preschool	-0.030**	-0.034	-32.649	-37.728	-38.131	-35.022
+		[0.015]	[0.030]	[37.207]	[37.078]	[51.023]	[44.525]
+xmPadovaSome	Padova other preschool	0.029	0.043	23.347	18.160	22.036	20.491
+		[0.024]	[0.057]	[52.878]	[38.975]	[70.644]	[55.985]
+xmParmaNone	Parma None Preschool	0.470	0.497	-32.163	-37.244	-37.646	-34.537
+		[0.356]	[0.366]	[37.215]	[37.087]	[51.032]	[44.534]
+xmPadovaNone	Padova None Preschool	-0.030**	0.019	23.280	18.093	21.969	20.423
+		[0.015]	[0.054]	[52.884]	[38.980]	[70.649]	[55.989]
+Constant	Constant	0.030**	9.515	10.611	12.914	13.599	12.000
+		[0.015]	[18.402]	[33.327]	[30.034]	[41.980]	[36.516]
+							
+Observations		661	661	661	661	661	661
+R-squared		0.048	0.135	0.216	0.215	0.213	0.215
+Controls		None	All	Inter			
+IV					distance	distXsib	dist score
+Robust standard errors in brackets							
+*** p<0.01, ** p<0.05, * p<0.1							
+Dependent variable: Lack of excitement to learn (difficulties in primary school).							

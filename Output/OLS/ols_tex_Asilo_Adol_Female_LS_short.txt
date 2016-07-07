@@ -1,0 +1,28 @@
+		(1)	(2)	(3)
+VARIABLES	LABELS			
+				
+xaReggioNone	Reggio None ITC	-0.109	-0.028	-0.021
+		[0.078]	[0.082]	[0.084]
+xaReggioSome	Reggio other ITC	-0.291	-0.204	-0.163
+		[0.213]	[0.182]	[0.177]
+xaParmaMuni	Parma Muni ITC	0.038	0.120	-93.013
+		[0.078]	[0.125]	[144.882]
+xaPadovaMuni	Padova Muni ITC	-0.022	0.047	46.094
+		[0.098]	[0.153]	[164.142]
+xaParmaSome	Parma other ITC	-0.077	-0.076	-93.128
+		[0.180]	[0.259]	[144.879]
+xaPadovaSome	Padova other ITC	0.209***	0.377*	46.459
+		[0.050]	[0.195]	[164.146]
+xaParmaNone	Parma None ITC	-0.067	-0.016	-93.140
+		[0.078]	[0.114]	[144.880]
+xaPadovaNone	Padova None ITC	0.026	0.102	46.263
+		[0.065]	[0.133]	[164.156]
+Constant	Constant	0.791***	79.862	112.714
+		[0.050]	[54.647]	[104.315]
+				
+Observations		363	363	363
+R-squared		0.024	0.168	0.287
+Controls		None	All	Inter
+Robust standard errors in brackets				
+*** p<0.01, ** p<0.05, * p<0.1				
+Dependent variable: Child likes school (%).				

@@ -1,0 +1,28 @@
+		(1)	(2)	(3)
+VARIABLES	LABELS			
+				
+xmReggioNone	Reggio None Preschool	-0.049**	-0.121	-0.028
+		[0.024]	[0.085]	[0.133]
+xmReggioSome	Reggio other preschool	0.023	0.017	0.034
+		[0.039]	[0.043]	[0.043]
+xmParmaMuni	Parma Muni Preschool	0.030	0.047	23.566
+		[0.039]	[0.056]	[14.374]
+xmPadovaMuni	Padova Muni Preschool	0.073	0.047	-10.186
+		[0.057]	[0.060]	[11.569]
+xmParmaSome	Parma other preschool	0.088*	0.090	23.623
+		[0.049]	[0.065]	[14.384]
+xmPadovaSome	Padova other preschool	0.015	-0.059	-10.223
+		[0.037]	[0.049]	[11.572]
+xmParmaNone	Parma None Preschool	0.201	0.215	23.694
+		[0.220]	[0.184]	[14.380]
+xmPadovaNone	Padova None Preschool	-0.049**	0.003	-10.442
+		[0.024]	[0.147]	[11.573]
+Constant	Constant	0.049**	8.761	4.764
+		[0.024]	[5.562]	[6.991]
+				
+Observations		420	420	420
+R-squared		0.016	0.124	0.226
+Controls		None	All	Inter
+Robust standard errors in brackets				
+*** p<0.01, ** p<0.05, * p<0.1				
+Dependent variable: Fussy eater (difficulties in primary school).				

@@ -1,0 +1,4063 @@
+{smcl}
+{txt}{sf}{ul off}{.-}
+      name:  {res}<unnamed>
+       {txt}log:  {res}/Users/annaziff/Desktop/work/repos/gitreggiocode/Output/description/log/checkReggioAdult2asilo.smcl
+  {txt}log type:  {res}smcl
+ {txt}opened on:  {res}11 Jun 2016, 17:56:17
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}IQ_factor {c |}{res}        36   -.3086895    .6248949  -1.945532   .8398777
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}IQ_factor {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}IQ_factor {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}IQ_factor {c |}{res}       244    .1457368    .8121648  -1.945532   .8398777
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+votoMaturita {c |}{res}        19    84.10526    5.943201         75         97
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+votoMaturita {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+votoMaturita {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+votoMaturita {c |}{res}       187    83.25134    8.436093         60        100
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}votoUni {c |}{res}         4       93.25    3.947573         90         98
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}votoUni {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}votoUni {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}votoUni {c |}{res}        37    97.59459    6.601597         88        110
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+highschool~d {c |}{res}        36    .5555556    .5039526          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+highschool~d {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+highschool~d {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+highschool~d {c |}{res}       244    .8319672    .3746639          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}PA_Empl {c |}{res}        36           1           0          1          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}PA_Empl {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}PA_Empl {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 5}PA_Empl {c |}{res}       243    .9465021    .2254887          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_1 {c |}{res}        36           0           0          0          0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_1 {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_1 {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_1 {c |}{res}       244    .0081967    .0903493          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_2 {c |}{res}        36           0           0          0          0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_2 {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_2 {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_2 {c |}{res}       244    .0040984    .0640184          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_3 {c |}{res}        36    .4444444    .5039526          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_3 {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_3 {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_3 {c |}{res}       244    .2827869    .4512794          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_4 {c |}{res}        36    .5277778    .5063094          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_4 {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_4 {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_4 {c |}{res}       244    .5819672    .4942495          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_5 {c |}{res}        36    .0277778    .1666667          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_5 {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_5 {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_5 {c |}{res}       244    .0737705    .2619343          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_6 {c |}{res}        36           0           0          0          0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_6 {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_6 {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_6 {c |}{res}       244    .0491803    .2166889          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_7 {c |}{res}        36           0           0          0          0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_7 {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_7 {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}Reddito_7 {c |}{res}       244           0           0          0          0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}Maria {c |}{res}        36    .0555556    .2323107          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}Maria {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}Maria {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}Maria {c |}{res}       244    .1106557    .3143502          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}Smoke {c |}{res}        23    .0869565    .2881041          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}Smoke {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}Smoke {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 7}Smoke {c |}{res}       117    .2735043    .4476747          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}Cig {c |}{res}        21    15.47619    4.154745         10         25
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}Cig {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}Cig {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}Cig {c |}{res}        84    16.02381    6.341632          3         35
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}BMI {c |}{res}        35    23.79169    3.446827   19.10009   35.91837
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}BMI {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}BMI {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 9}BMI {c |}{res}       170    24.30321    2.811654   17.30104   35.37981
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 6}Health {c |}{res}        36    2.111111    .5225092          1          3
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 6}Health {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 6}Health {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 6}Health {c |}{res}       243    2.090535    .5749891          1          5
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}SickDays {c |}{res}        36    1.166667    .7367884          1          5
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}SickDays {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}SickDays {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 4}SickDays {c |}{res}       227    1.096916    .3249768          1          3
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+LocusControl {c |}{res}        36   -.3879039    .6591348  -1.285312   1.231707
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+LocusControl {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+LocusControl {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+LocusControl {c |}{res}       238   -.1036371    .8353799  -1.285312   2.294432
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}SDQ_score {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}SDQ_score {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}SDQ_score {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+{space 3}SDQ_score {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+Depression~e {c |}{res}        36    19.66667    5.918494         13         37
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+Depression~e {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+Depression~e {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+Depression~e {c |}{res}       239    21.41841    5.896217         10         42
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+binSatisIn~e {c |}{res}        36    .7222222    .4542568          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+binSatisIn~e {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+binSatisIn~e {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+binSatisIn~e {c |}{res}       244    .5983607    .4912374          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+binSatisWork {c |}{res}        36    .9722222    .1666667          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+binSatisWork {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+binSatisWork {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+binSatisWork {c |}{res}       244    .8114754    .3919345          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+binSatisHe~h {c |}{res}        36    .9722222    .1666667          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+binSatisHe~h {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+binSatisHe~h {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+binSatisHe~h {c |}{res}       244    .9508197    .2166889          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+school: Municipal
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+binSatisFa~y {c |}{res}        35    .7428571    .4434396          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(36 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Religious
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+binSatisFa~y {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: Private
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+binSatisFa~y {c |}{res}         0
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(249 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}        36 {txt}{c |}{res}        36 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+{txt}(36 missing values generated)
+(36 real changes made)
+(0 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          1 {c |}{res}         36      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}         36      100.00
+school: None
+city: Reggio
+cohort: Adult2
+type: asilo
+
+{txt}    Variable {c |}       Obs        Mean    Std. Dev.       Min        Max
+{hline 13}{c +}{hline 56}
+binSatisFa~y {c |}{res}       244    .8032787     .398337          0          1
+{txt}(3228 observations deleted)
+(506 observations deleted)
+(5 observations deleted)
+
+           {c |}    City
+ asiloType {c |}    Reggio {c |}     Total
+{hline 11}{c +}{hline 11}{c +}{hline 10}
+ Municipal {c |}{res}        36 {txt}{c |}{res}        36 
+{txt}      None {c |}{res}       244 {txt}{c |}{res}       244 
+{txt}{hline 11}{c +}{hline 11}{c +}{hline 10}
+     Total {c |}{res}       280 {txt}{c |}{res}       280 
+
+
+    {txt}Cohort: {c |}
+   I=child, {c |}
+   II=migr, {c |}
+   III=ado, {c |}
+     IV-VI: {c |}
+      adult {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+   Adult 40 {c |}{res}        280      100.00      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+{txt}(280 missing values generated)
+(36 real changes made)
+(244 real changes made)
+
+compare_gro {c |}
+         up {c |}      Freq.     Percent        Cum.
+{hline 12}{c +}{hline 35}
+          0 {c |}{res}        244       87.14       87.14
+{txt}          1 {c |}{res}         36       12.86      100.00
+{txt}{hline 12}{c +}{hline 35}
+      Total {c |}{res}        280      100.00
+      {txt}name:  {res}<unnamed>
+       {txt}log:  {res}/Users/annaziff/Desktop/work/repos/gitreggiocode/Output/description/log/checkReggioAdult2asilo.smcl
+  {txt}log type:  {res}smcl
+ {txt}closed on:  {res}11 Jun 2016, 17:56:28
+{txt}{.-}
+{smcl}
+{txt}{sf}{ul off}

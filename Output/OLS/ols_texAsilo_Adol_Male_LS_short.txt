@@ -1,0 +1,27 @@
+		(1)
+VARIABLES	LABELS	
+		
+xaReggioSome	Reggio other ITC	-0.163
+		[0.177]
+xaParmaMuni	Parma Muni ITC	-93.013
+		[144.882]
+xaPadovaMuni	Padova Muni ITC	46.094
+		[164.142]
+xaParmaSome	Parma other ITC	-93.128
+		[144.879]
+xaPadovaSome	Padova other ITC	46.459
+		[164.146]
+xaParmaNone	Parma None ITC	-93.140
+		[144.880]
+xaPadovaNone	Padova None ITC	46.263
+		[164.156]
+xaReggioNone	Reggio None ITC	-0.021
+		[0.084]
+Constant	Constant	112.714
+		[104.315]
+		
+Observations		363
+R-squared		0.287
+Controls		Inter
+Robust standard errors in brackets		
+*** p<0.01, ** p<0.05, * p<0.1		

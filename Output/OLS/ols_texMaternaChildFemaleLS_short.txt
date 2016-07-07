@@ -1,0 +1,27 @@
+		(1)	(2)	(3)	(4)	(5)	(6)
+VARIABLES	LABELS						
+							
+xmReggioNone	Reggio None Preschool	0.105	0.351	0.105	0.351	0.105	0.351
+		[0.176]	[0.289]	[0.176]	[0.289]	[0.176]	[0.289]
+xmReggioSome	Reggio other preschool	-0.050	-0.076	-0.050	-0.076	-0.050	-0.076
+		[0.085]	[0.092]	[0.085]	[0.092]	[0.085]	[0.092]
+xmParmaMuni	Parma Muni Preschool	0.002	12.767	0.002	12.767	0.002	12.767
+		[0.122]	[17.738]	[0.122]	[17.738]	[0.122]	[17.738]
+xmPadovaMuni	Padova Muni Preschool	-0.388**	1.515	-0.388**	1.515	-0.388**	1.515
+		[0.184]	[23.467]	[0.184]	[23.467]	[0.184]	[23.467]
+xmParmaSome	Parma other preschool	0.019	12.807	0.019	12.807	0.019	12.807
+		[0.118]	[17.754]	[0.118]	[17.754]	[0.118]	[17.754]
+xmPadovaSome	Padova other preschool	-0.303*	1.543	-0.303*	1.543	-0.303*	1.543
+		[0.183]	[23.448]	[0.183]	[23.448]	[0.183]	[23.448]
+xmParmaNone	Parma None Preschool	-0.341	12.202	-0.341	12.202	-0.341	12.202
+		[0.275]	[17.755]	[0.275]	[17.755]	[0.275]	[17.755]
+xmPadovaNone	Padova None Preschool	0.079	1.852	0.079	1.852	0.079	1.852
+		[0.311]	[23.484]	[0.311]	[23.484]	[0.311]	[23.484]
+Constant	Constant	2.287	0.050	2.287	0.050	2.287	0.050
+		[8.549]	[13.705]	[8.549]	[13.705]	[8.549]	[13.705]
+							
+Observations		346	346	346	346	346	346
+R-squared		0.184	0.280	0.184	0.280	0.184	0.280
+Controls		All	Inter	All	Inter	All	Inter
+Robust standard errors in brackets							
+*** p<0.01, ** p<0.05, * p<0.1							

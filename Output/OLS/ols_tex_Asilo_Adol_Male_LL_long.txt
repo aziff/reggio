@@ -1,0 +1,32 @@
+		(1)	(2)	(3)
+VARIABLES	LABELS			
+				
+xaReggioNone	Reggio None ITC	0.156	0.194	0.186
+		[0.103]	[0.119]	[0.128]
+xaReggioReli	Reggio Reli ITC	0.147	0.270	0.192
+		[0.287]	[0.274]	[0.377]
+xaParmaMuni	Parma Muni ITC	0.073	-0.004	-156.383
+		[0.120]	[0.162]	[237.544]
+xaPadovaMuni	Padova Muni ITC	-0.019	-0.241	-56.367
+		[0.130]	[0.193]	[243.071]
+xaParmaReli	Parma Reli ITC	-0.353**	-0.573**	-156.893
+		[0.171]	[0.277]	[237.461]
+xaPadovaReli	Padova Reli ITC	-0.519***	-0.803***	-56.913
+		[0.071]	[0.239]	[243.033]
+xaParmaPriv	Parma Priv ITC	0.081	-0.065	-156.481
+		[0.235]	[0.257]	[237.530]
+xaReggioPriv	Reggio Priv ITC	-0.019	0.137	0.082
+		[0.368]	[0.491]	[0.468]
+xaParmaNone	Parma None ITC	0.173*	-0.061	-156.425
+		[0.103]	[0.146]	[237.531]
+xaPadovaNone	Padova None ITC	0.026	-0.201	-56.392
+		[0.091]	[0.183]	[243.043]
+Constant	Constant	0.519***	-190.115**	-131.956
+		[0.071]	[84.516]	[177.001]
+				
+Observations		276	276	276
+R-squared		0.049	0.233	0.354
+Controls		None	All	Inter
+Robust standard errors in brackets				
+*** p<0.01, ** p<0.05, * p<0.1				
+Dependent variable: Child likes reading/italian (%).				

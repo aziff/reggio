@@ -1,0 +1,18 @@
+	(1)
+VARIABLES	Depression_score
+	
+2.maternaType	-1.286
+	(1.533)
+3.maternaType	1.483*
+	(0.878)
+4.maternaType	1.698
+	(2.691)
+5.maternaType	-2.863
+	(2.523)
+Constant	-27.90
+	(21.59)
+	
+Observations	283
+R-squared	0.113
+Standard errors in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	
