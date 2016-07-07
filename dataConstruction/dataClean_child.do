@@ -31,13 +31,13 @@ Note: The variable names are related to the number of the questions
 
 packages used: dummieslab, mvpatterns, zanthro, mdesc, logout
 */
-
-/*-*-* directory: keep global directory from dataClean_all.do unless otherwise needed
+/*
+/*-*-* directory: keep global directory from dataClean_all.do unless otherwise needed*/
+ */
  local dir : env klmReggio
- local datadir `dir'/SURVEY_DATA_COLLECTION/data"
-cd "`datadir'"
-*/
-
+ local datadir "`dir'/SURVEY_DATA_COLLECTION/data"
+cd `datadir'
+ */
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* 
 *-* Integrating the names and addresses 
 *-* of the schools 
@@ -1501,7 +1501,7 @@ egen nprosoc=rownonmiss(childSDQPsoc1 childSDQPsoc2 childSDQPsoc3 childSDQPsoc4 
 egen pprosoc=rmean(childSDQPsoc1 childSDQPsoc2 childSDQPsoc3 childSDQPsoc4 childSDQPsoc5) if nprosoc>2
 replace pprosoc=15-round(pprosoc*5)
 
-drop qobeys qreflect qattends qfriend qpopular nemotion nconduct nhyper npeer nprosoc
+*drop qobeys qreflect qattends qfriend qpopular nemotion nconduct nhyper npeer nprosoc
 
 gen pebdtot=pemotion+pconduct+phyper+ppeer
 
@@ -1527,6 +1527,93 @@ foreach var of varlist childSDQ*_*{
 
 sum childSDQ*_score
 
+**Sidharth's edit --6/22/2016-- SDQ scores changed so that higher values correspond with positive outcomes**
+*--------------------------------------------------------------------------------------------------------*
+recode qreflect (1=3) (2=2) (3=1) , gen(pos_childSDQHype4)
+recode qattends (1=3) (2=2) (3=1), gen(pos_childSDQHype5)
+recode qfriend (1=3) (2=2) (3=1) , gen(pos_childSDQPeer2)
+recode qpopular (1=3) (2=2) (3=1), gen(pos_childSDQPeer3)
+
+recode childSDQCond1 (1=3) (2=2) (3=1) (else=.), gen(pos_childSDQCond1)
+recode childSDQPsoc1 (1=3) (2=2) (3=1) (else=.), gen(pos_childSDQPsoc1)
+recode childSDQHype1 (1=3) (2=2) (3=1) (else=.), gen(pos_childSDQHype1)
+recode childSDQEmot1 (1=3) (2=2) (3=1) (else=.), gen(pos_childSDQEmot1)
+recode childSDQPeer1 (1=3) (2=2) (3=1) (else=.), gen(pos_childSDQPeer1)
+
+recode childSDQPsoc2 (1=3) (2=2) (3=1) (else=.), gen(pos_childSDQPsoc2)
+*recode childSDQCond2 (1=3) (2=2) (3=1) (else=.), gen(pos_childSDQCond2)
+recode childSDQEmot2 (1=3) (2=2) (3=1) (else=.), gen(pos_childSDQEmot2)
+recode childSDQHype2 (1=3) (2=2) (3=1) (else=.), gen(pos_childSDQHype2)
+
+recode childSDQPsoc3 (1=3) (2=2) (3=1) (else=.), gen(pos_childSDQPsoc3)
+recode childSDQCond3 (1=3) (2=2) (3=1) (else=.), gen(pos_childSDQCond3)
+recode childSDQEmot3 (1=3) (2=2) (3=1) (else=.), gen(pos_childSDQEmot3)
+recode childSDQHype3 (1=3) (2=2) (3=1) (else=.), gen(pos_childSDQHype3)
+
+recode childSDQEmot4 (1=3) (2=2) (3=1) (else=.), gen(pos_childSDQEmot4)
+recode childSDQPsoc4 (1=3) (2=2) (3=1) (else=.), gen(pos_childSDQPsoc4)
+recode childSDQCond4 (1=3) (2=2) (3=1) (else=.), gen(pos_childSDQCond4)
+recode childSDQPeer4 (1=3) (2=2) (3=1) (else=.), gen(pos_childSDQPeer4)
+
+recode childSDQPsoc5 (1=3) (2=2) (3=1) (else=.), gen(pos_childSDQPsoc5)
+recode childSDQCond5 (1=3) (2=2) (3=1) (else=.), gen(pos_childSDQCond5)
+recode childSDQPeer5 (1=3) (2=2) (3=1) (else=.), gen(pos_childSDQPeer5)
+recode childSDQEmot5 (1=3) (2=2) (3=1) (else=.), gen(pos_childSDQEmot5)
+
+egen pos_nemotion=rownonmiss(pos_childSDQEmot1 pos_childSDQEmot2 pos_childSDQEmot3 pos_childSDQEmot4 pos_childSDQEmot5)
+egen pos_pemotion=rmean(pos_childSDQEmot1 pos_childSDQEmot2 pos_childSDQEmot3 pos_childSDQEmot4 pos_childSDQEmot5) if pos_nemotion>2
+replace pos_pemotion=15-round(pos_pemotion*5)
+
+egen pos_nconduct=rownonmiss(pos_childSDQCond1 childSDQCond2 pos_childSDQCond3 pos_childSDQCond4 pos_childSDQCond5)
+egen pos_pconduct=rmean(pos_childSDQCond1 childSDQCond2 pos_childSDQCond3 pos_childSDQCond4 pos_childSDQCond5) if pos_nconduct>2
+replace pos_pconduct=15-round(pos_pconduct*5)
+
+egen pos_nhyper=rownonmiss(pos_childSDQHype1 pos_childSDQHype2 pos_childSDQHype3 pos_childSDQHype4 pos_childSDQHype5)
+egen pos_phyper=rmean(pos_childSDQHype1 pos_childSDQHype2 pos_childSDQHype3 pos_childSDQHype4 pos_childSDQHype5) if pos_nhyper>2
+replace pos_phyper=15-round(pos_phyper*5)
+
+egen pos_npeer=rownonmiss(pos_childSDQPeer1 pos_childSDQPeer2 pos_childSDQPeer3 pos_childSDQPeer4 pos_childSDQPeer5)
+egen pos_ppeer=rmean(pos_childSDQPeer1 pos_childSDQPeer2 pos_childSDQPeer3 pos_childSDQPeer4 pos_childSDQPeer5) if pos_npeer>2
+replace pos_ppeer=15-round(pos_ppeer*5)
+
+egen pos_nprosoc=rownonmiss(pos_childSDQPsoc1 pos_childSDQPsoc2 pos_childSDQPsoc3 pos_childSDQPsoc4 pos_childSDQPsoc5)
+egen pos_pprosoc=rmean(pos_childSDQPsoc1 pos_childSDQPsoc2 pos_childSDQPsoc3 pos_childSDQPsoc4 pos_childSDQPsoc5) if pos_nprosoc>2
+replace pos_pprosoc=15-round(pos_pprosoc*5)
+
+gen pos_pebdtot=pos_pemotion+pos_pconduct+pos_phyper+pos_ppeer
+
+rename pos_pemotion pos_childSDQEmot_score
+rename pos_pconduct pos_childSDQCond_score
+rename pos_phyper   pos_childSDQHype_score
+rename pos_ppeer    pos_childSDQPeer_score
+rename pos_pprosoc  pos_childSDQPsoc_score
+rename pos_pebdtot  pos_childSDQ_score
+
+foreach suff in score {
+	label var pos_childSDQEmot_`suff' "dv: Modified SDQ emotional symptoms `suff' - Mother reports"
+	label var pos_childSDQCond_`suff' "dv: Modified SDQ conduct problems `suff' - Mother reports"
+	label var pos_childSDQHype_`suff' "dv: Modified SDQ hperactivity/inattention `suff' - Mother reports"
+	label var pos_childSDQPeer_`suff' "dv: Modified SDQ peer problems `suff' - Mother reports"
+	label var pos_childSDQPsoc_`suff' "dv: Modified SDQ prosocial `suff' - Mother reports"
+	label var pos_childSDQ_`suff' "dv: Modified SDQ Total difficulties `suff' - Mother reports"
+}
+
+** Recreating ChildSDQCond_score and ChildSDQ_score to correct for wrong definition of qobeys in original code
+recode childSDQCond2 (1=3) (2=2) (3=1), gen(mod_qobeys)
+
+egen mod_nconduct=rownonmiss(childSDQCond1 mod_qobeys childSDQCond3 childSDQCond4 childSDQCond5)
+egen mod_pconduct=rmean(childSDQCond1 mod_qobeys childSDQCond3 childSDQCond4 childSDQCond5) if mod_nconduct>2
+replace mod_pconduct=15-round(mod_pconduct*5)
+
+gen mod_pebdtot=childSDQEmot_score+mod_pconduct+childSDQHype_score+childSDQPeer_score
+
+rename mod_pconduct mod_childSDQCond_score
+rename mod_pebdtot  mod_childSDQ_score
+
+drop qobeys qreflect qattends qfriend qpopular nemotion nconduct nhyper npeer nprosoc
+drop pos_nemotion pos_nconduct pos_nhyper pos_npeer pos_nprosoc mod_nconduct mod_qobeys
+
+*--------------------------------------------------------------------------------------------------------*
 * (I) Caregiver and Child/Adolescent Health
 rename V39110 cgHealth
 rename V38110 childHealth

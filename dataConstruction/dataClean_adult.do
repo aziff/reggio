@@ -1281,6 +1281,20 @@ sem (X -> Locus?), latent(X) var(X@1) method(mlmv)
 predict LocusControl if e(sample), latent(X)
 label var LocusControl "dv: Respondet Locus of Control - factor"
 
+**Sidharth's edit --6/22/2016-- Locus variables reversed**
+*--------------------------------------------------------------------------------------------------------*
+recode Locus1 (1=5) (2=4) (3=3) (4=2) (5=1), gen(pos_Locus1)
+recode Locus2 (1=5) (2=4) (3=3) (4=2) (5=1), gen(pos_Locus2)
+recode Locus3 (1=5) (2=4) (3=3) (4=2) (5=1), gen(pos_Locus3)
+recode Locus4 (1=5) (2=4) (3=3) (4=2) (5=1), gen(pos_Locus4)
+
+factor pos_Locus?
+sem (X -> pos_Locus?), latent(X) var(X@1) method(mlmv)
+predict pos_LocusControl if e(sample), latent(X)
+label var pos_LocusControl "dv: Modified Adolescent Locus of Control - factor"
+*--------------------------------------------------------------------------------------------------------*
+
+
 foreach var of varlist Locus? {
 	quietly replace `var'= .w if `var'_Wmiss==1 //change back to .w missing
 	quietly drop `var'_Wmiss
@@ -1360,6 +1374,14 @@ foreach var of varlist Depress?? {
 	quietly replace `var'= .w if `var'_Wmiss==1 //change back to .w missing
 	quietly drop `var'_Wmiss
 }
+
+**Sidharth's edit --6/22/2016-- Depression scores reversed**
+*--------------------------------------------------------------------------------------------------------*
+gen pos_Depression_score = (6-Depress01)+(6-Depress02)+(6-Depress03)+(6-Depress04)+Depress05+ ///
+                       (6-Depress06)+(6-Depress07)+Depress08+(6-Depress09)+(6-Depress10)
+label var pos_Depression_score "dv: Modified Respondet Depression - score"
+*--------------------------------------------------------------------------------------------------------*
+
 
 * (N-c) Risky/unhealthy
 * smoke

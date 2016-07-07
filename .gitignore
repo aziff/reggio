@@ -1,3 +1,11 @@
+
+
+
+*.snm
+*.nav
+*.synctex.gz
+*.smcl
+
 *.DS_Store
 
 *.xlsx

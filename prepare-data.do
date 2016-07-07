@@ -36,7 +36,7 @@ cd ${klmReggio}/Analysis/Output/
 local cities                          Reggio Parma Padova
 local school_types                    None Muni Stat Reli Priv
 local school_age_types                Asilo Materna
-local cohorts                         Child Adol Adult Adult30 Adult40 Adult50 
+local cohorts                         Child Migrants Adol Adult30 Adult40 Adult50 
 
 local Asilo_name                      Infant-Toddler Center
 local Materna_name                    Preschool
@@ -468,5 +468,8 @@ gen cgFaithful = (cgFaith > 3)
 gen int_cgCatFaith = cgFaithful * cgCatholic
 label var int_cgCatFaith "Caregiver is Catholic AND more faithful than the average."
 
-// Recode health to make it more positive
-recode Health (1 = 5) (2 = 4) (3 = 3) (4 = 2) (5 = 1)
+// Recode Health
+gen goodHealth = 6 - Health
+
+// Relabel parental education variables
+label define maxedu_lab 1 "Junior high school" 2 "Two years high school" 3 "Four or five years high school" 4 "University degree" 5 "Bachelor's degree" 6 "Five year degree" 7 "Master degree" 8 "Master postgraduate" 9 "PhD"

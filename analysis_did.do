@@ -13,7 +13,7 @@ global klmReggio   : env klmReggio
 global data_reggio : env data_reggio
 global git_reggio  : env git_reggio
 
-include ${klmReggio}/Analysis/prepare-data
+include "${klmReggio}/Analysis/prepare-data"
 
 * ---------------------------------------------------------------------------- *
 * 							Create locals									   *
@@ -22,14 +22,14 @@ include ${klmReggio}/Analysis/prepare-data
 
 ** Baseline variables for each category
 foreach cat in E L H N {
-	local adult_baseline_vars_`cat'		Male CAPI numSiblings dadMaxEdu_HS dadMaxEdu_Uni numSibling_1
+	local adult_baseline_vars_`cat'		Male CAPI numSiblings dadMaxEdu_Uni dadMaxEdu_Grad momMaxEdu_Grad
 }
 
 
-local adult_baseline_vars_W			Male CAPI numSiblings dadMaxEdu_HS dadMaxEdu_Uni numSibling_1 i.SES	
+local adult_baseline_vars_W			Male CAPI numSiblings dadMaxEdu_Uni dadMaxEdu_Grad momMaxEdu_Grad i.SES	
 									
 ** BIC-selected baseline variables
-local bic_baseline_vars		    	Male momMaxEdu_Grad dadMaxEdu_Uni dadMaxEdu_Grad CAPI
+local bic_baseline_vars		    	Male CAPI numSiblings dadMaxEdu_Uni dadMaxEdu_Grad momMaxEdu_Grad
 											
 ** Outcomes for each category
 local adult_outcome_E				IQ_factor votoMaturita votoUni ///
@@ -40,7 +40,7 @@ local adult_outcome_W				PA_Empl SES_self HrsTot WageMonth ///
 
 local adult_outcome_L				mStatus_married_cohab childrenResp all_houseOwn live_parent 
 									
-local adult_outcome_H				Maria Smoke Cig BMI Health SickDays ///
+local adult_outcome_H				Maria Smoke Cig BMI goodHealth SickDays ///
 									i_RiskFight i_RiskDUI RiskSuspended Drink1Age									
 									
 local adult_outcome_N				LocusControl Depression_score ///
@@ -84,7 +84,7 @@ local Maria_lab					Tried Marijuana
 local Smoke_lab					Smokes
 local Cig_lab					Num. of Cigarettes Per Day
 local BMI_lab					BMI
-local Health_lab				Good Health
+local goodHealth_lab			Good Health
 local SickDays_lab				Num. of Days Sick Past Month
 local i_RiskDUI_lab				Drove Under Influence 
 local i_RiskFight_lab			Engaged in A Fight 
@@ -135,7 +135,7 @@ local Maria_short				MAR
 local Smoke_short				SMO
 local Cig_short					CIG
 local BMI_short					BMI
-local Health_short				BHEL
+local goodHealth_short				BHEL
 local SickDays_short			SICK
 local i_RiskDUI_short			DUI
 local i_RiskFight_short			FIG
@@ -185,15 +185,15 @@ generate maternaReli = (maternaType == 3)
 generate maternaPriv = (maternaType == 4)
 
 ** Create interaction terms between school type and adult age cohort (except maternaMuni and age 50)
-foreach type in None Stat Reli Priv {
-	foreach age in Adult30 Adult40 {
+foreach type in None Muni Stat Reli Priv {
+	foreach age in Adult30 Adult40 Adult50 {
 		generate xm`type'`age' = materna`type' * Cohort_`age'
 	}
 }
 
 ** Create interaction terms between school type and city (except Reggio and maternaMuni)
-foreach type in None Stat Reli Priv {
-	foreach city in Parma Padova {
+foreach type in None Muni Stat Reli Priv {
+	foreach city in Parma Padova Reggio {
 		generate xm`type'`city' = materna`type' * `city'
 	}
 }
@@ -202,21 +202,21 @@ foreach type in None Stat Reli Priv {
 * ---------------------------------------------------------------------------- *
 * 							Regression: Fix City							   *
 * ---------------------------------------------------------------------------- *
-local X		Cohort_Adult30 Cohort_Adult40 maternaNone maternaStat maternaReli maternaPriv ///
-			xmNoneAdult30 xmStatAdult30 xmReliAdult30 xmPrivAdult30 ///
-			xmNoneAdult40 xmStatAdult40 xmReliAdult40 xmPrivAdult40 
+local X		Cohort_Adult30 Cohort_Adult40 maternaMuni maternaStat maternaReli maternaPriv ///
+			xmMuniAdult30 xmStatAdult30 xmReliAdult30 xmPrivAdult30 ///
+			xmMuniAdult40 xmStatAdult40 xmReliAdult40 xmPrivAdult40 
 
 local 30_l 		Cohort_Adult30 
 local 40_l		Cohort_Adult40 
-local N_l		maternaNone 
+local M_l		maternaMuni 
 local S_l		maternaStat 
 local R_l		maternaReli 
 local P_l		maternaPriv 
-local 30N_l		xmNoneAdult30 
+local 30M_l		xmMuniAdult30 
 local 30S_l		xmStatAdult30 
 local 30R_l		xmReliAdult30 
 local 30P_l		xmPrivAdult30 
-local 40N_l		xmNoneAdult40 
+local 40M_l		xmMuniAdult40 
 local 40S_l		xmStatAdult40 
 local 40R_l		xmReliAdult40 
 local 40P_l		xmPrivAdult40 	
@@ -246,7 +246,7 @@ foreach g in p m f  {
 					local R2_R``var'_short'`o'_`g'`city': di %9.2f `R2_R``var'_short'`o'_`g'`city''
 					
 					** Generate locals for the output values (1st row: Beta, 2nd row: Standard Error, 4th row: P-value)
-					foreach i in 30 40 N S R P 30N 30S 30R 30P 40N 40S 40R 40P {
+					foreach i in 30 40 M S R P 30M 30S 30R 30P 40M 40S 40R 40P {
 						matrix matb_R``var'_short'`o'_`g'`city'_`i' = rslt["b","``i'_l'"]
 						local b_R``var'_short'`o'_`g'`city'_`i' = matb_R``var'_short'`o'_`g'`city'_`i'[1,1]
 						local b_R``var'_short'`o'_`g'`city'_`i': di %9.2f `b_R``var'_short'`o'_`g'`city'_`i''
@@ -269,14 +269,14 @@ foreach g in p m f  {
 			}
 			
 		* Make LaTeX table for Single Dummies
-		file open d_`type'_`o'`g' using "${git_reggio}/Output/DiD/`folder'/single`city'_`o'`g'.tex", write replace
+		file open d_`type'_`o'`g' using "${klmReggio}/Analysis/Output/DiD/`folder'/single`city'_`o'`g'.tex", write replace
 		file write d_`type'_`o'`g' "\begin{tabular}{L{6.2cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{0.3cm} C{0.3cm}}" _n
 		file write d_`type'_`o'`g' "\toprule" _n
 		file write d_`type'_`o'`g' " \textbf{Outcome} & \textbf{Age 30 Muni} & \textbf{Age 40 Muni} & \textbf{Age 50 None} & \textbf{Age 50 Stat} & \textbf{Age 50 Reli} & \textbf{N} & \textbf{$ R^2$} \\" _n
 		file write d_`type'_`o'`g' "\midrule" _n	
 		foreach var in `adult_outcome_`o'' {
-			file write d_`type'_`o'`g' "``var'_lab' & `b_R``var'_short'`o'_`g'`city'_30' & `b_R``var'_short'`o'_`g'`city'_40' & `b_R``var'_short'`o'_`g'`city'_N' & `b_R``var'_short'`o'_`g'`city'_S' & `b_R``var'_short'`o'_`g'`city'_R'  & `N_R``var'_short'`o'_`g'`city'' &  `R2_R``var'_short'`o'_`g'`city'' \\ " _n
-			file write d_`type'_`o'`g' " & `se_R``var'_short'`o'_`g'`city'_30' & `se_R``var'_short'`o'_`g'`city'_40' & `se_R``var'_short'`o'_`g'`city'_N' & `se_R``var'_short'`o'_`g'`city'_S' & `se_R``var'_short'`o'_`g'`city'_R'  & \\" _n
+			file write d_`type'_`o'`g' "``var'_lab' & `b_R``var'_short'`o'_`g'`city'_30' & `b_R``var'_short'`o'_`g'`city'_40' & `b_R``var'_short'`o'_`g'`city'_M' & `b_R``var'_short'`o'_`g'`city'_S' & `b_R``var'_short'`o'_`g'`city'_R'  & `N_R``var'_short'`o'_`g'`city'' &  `R2_R``var'_short'`o'_`g'`city'' \\ " _n
+			file write d_`type'_`o'`g' " & `se_R``var'_short'`o'_`g'`city'_30' & `se_R``var'_short'`o'_`g'`city'_40' & `se_R``var'_short'`o'_`g'`city'_M' & `se_R``var'_short'`o'_`g'`city'_S' & `se_R``var'_short'`o'_`g'`city'_R'  & \\" _n
 		}
 		file write d_`type'_`o'`g' "\bottomrule" _n
 		file write d_`type'_`o'`g' "\end{tabular}" _n
@@ -284,14 +284,14 @@ foreach g in p m f  {
 		
 		
 		* Make LaTeX table for Diff-in-Diff
-	    file open did_`type'_`o'`g' using "${git_reggio}/Output/DiD/`folder'/did`city'_`o'`g'.tex", write replace
+	    file open did_`type'_`o'`g' using "${klmReggio}/Analysis/Output/DiD/`folder'/did`city'_`o'`g'.tex", write replace
 		file write did_`type'_`o'`g' "\begin{tabular}{lcccccccc}" _n
 		file write did_`type'_`o'`g' "\toprule" _n
 		file write did_`type'_`o'`g' " \textbf{Outcome} & \textbf{(1)} & \textbf{(2)} & \textbf{(3)} & \textbf{(4)} & \textbf{(5)} & \textbf{(6)} & \textbf{N} & \textbf{$ R^2$} \\" _n
 		file write did_`type'_`o'`g' "\midrule" _n	
 		foreach var in `adult_outcome_`o'' {
-			file write did_`type'_`o'`g' "``var'_lab' & `b_R``var'_short'`o'_`g'`city'_30N' & `b_R``var'_short'`o'_`g'`city'_30S' & `b_R``var'_short'`o'_`g'`city'_30R' & `b_R``var'_short'`o'_`g'`city'_40N' & `b_R``var'_short'`o'_`g'`city'_40S' & `b_R``var'_short'`o'_`g'`city'_40R' & `N_R``var'_short'`o'_`g'`city'' &  `R2_R``var'_short'`o'_`g'`city'' \\ " _n
-			file write did_`type'_`o'`g' " & `se_R``var'_short'`o'_`g'`city'_30N' & `se_R``var'_short'`o'_`g'`city'_30S' & `se_R``var'_short'`o'_`g'`city'_30R' & `se_R``var'_short'`o'_`g'`city'_40N' & `se_R``var'_short'`o'_`g'`city'_40S' & `se_R``var'_short'`o'_`g'`city'_40R' & \\" _n
+			file write did_`type'_`o'`g' "``var'_lab' & `b_R``var'_short'`o'_`g'`city'_30M' & `b_R``var'_short'`o'_`g'`city'_30S' & `b_R``var'_short'`o'_`g'`city'_30R' & `b_R``var'_short'`o'_`g'`city'_40M' & `b_R``var'_short'`o'_`g'`city'_40S' & `b_R``var'_short'`o'_`g'`city'_40R' & `N_R``var'_short'`o'_`g'`city'' &  `R2_R``var'_short'`o'_`g'`city'' \\ " _n
+			file write did_`type'_`o'`g' " & `se_R``var'_short'`o'_`g'`city'_30M' & `se_R``var'_short'`o'_`g'`city'_30S' & `se_R``var'_short'`o'_`g'`city'_30R' & `se_R``var'_short'`o'_`g'`city'_40M' & `se_R``var'_short'`o'_`g'`city'_40S' & `se_R``var'_short'`o'_`g'`city'_40R' & \\" _n
 		}
 		file write did_`type'_`o'`g' "\bottomrule" _n
 		file write did_`type'_`o'`g' "\end{tabular}" _n
@@ -370,7 +370,7 @@ foreach g in p m f  {
 			}
 			
 		* Make LaTeX table for Single Dummies
-		file open d_`type'_`o'`g' using "${git_reggio}/Output/DiD/`folder'/single`cohort'_`o'`g'.tex", write replace
+		file open d_`type'_`o'`g' using "${klmReggio}/Analysis/Output/DiD/`folder'/single`cohort'_`o'`g'.tex", write replace
 		file write d_`type'_`o'`g' "\begin{tabular}{L{6.2cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{0.3cm} C{0.3cm}}" _n
 		file write d_`type'_`o'`g' "\toprule" _n
 		file write d_`type'_`o'`g' " \textbf{Outcome} & \textbf{Parma Muni} & \textbf{Padova Muni} & \textbf{Reggio None} & \textbf{Reggio Stat} & \textbf{Reggio Reli} & \textbf{N} & \textbf{$ R^2$} \\" _n
@@ -385,7 +385,7 @@ foreach g in p m f  {
 		
 		
 		* Make LaTeX table for Diff-in-Diff
-	    file open did_`type'_`o'`g' using "${git_reggio}/Output/DiD/`folder'/did`cohort'_`o'`g'.tex", write replace
+	    file open did_`type'_`o'`g' using "${klmReggio}/Analysis/Output/DiD/`folder'/did`cohort'_`o'`g'.tex", write replace
 		file write did_`type'_`o'`g' "\begin{tabular}{lcccccccc}" _n
 		file write did_`type'_`o'`g' "\toprule" _n
 		file write did_`type'_`o'`g' " \textbf{Outcome} & \textbf{(1)} & \textbf{(2)} & \textbf{(3)} & \textbf{(4)} & \textbf{(5)} & \textbf{(6)} & \textbf{N} & \textbf{$ R^2$} \\" _n
