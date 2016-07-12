@@ -142,7 +142,7 @@ Outcomes that show consistently significant difference between individuals who w
 For employment and earnings outcomes, we also control for the occupation of each individual. Outcomes that show consistently significant difference between individuals who went to the Reggio Approach schools and individuals who did not attend the Reggio Approach schools are: (1) hours worked per week, (2) household income range: 50,001- 100,000 Euros.
 
 \begin{itemize}
-\item \textbf{Hours worked per week:} Reggio Approach individuals consistently work more than people who did not go to any preschool in Reggio. Tables \ref{table:OLS-R30-W} and \ref{table:OLS-R40-W} all show that the mean hours of work among the Reggio Approach people are significantly higher than many other groups. Diff-in-diff results show similar trends. Column (1) of Table \ref{table:WC-Reggio} show that the Reggio Approach individuals in age-30 cohort work 5.8 hours more per week than age-30 people in Reggio who did not attend any preschool. Column (4) of the same table also shows that the Reggio Approach individuals in age-40 cohort work 4.22 hours more per week than age-40 people in Reggio who did not attend any preschool. Column (1) and (4) of Table \ref{table:WCh-30} also show that the hours Reggio approach people work more than people who did not attend any preschool is higher than the corresponding relative difference in Parma and Padova among age-30 cohorts.  
+\item \textbf{Hours worked per week:} Reggio Approach individuals consistently work more than people who did not go to any preschool in Reggio. Tables \ref{table:OLS-W} shows that the mean hours of work among the Reggio Approach people are significantly higher than many other groups. Diff-in-diff results show similar trends. Column (1) of Table \ref{table:WC-Reggio} show that the Reggio Approach individuals in age-30 cohort work 5.8 hours more per week than age-30 people in Reggio who did not attend any preschool. Column (4) of the same table also shows that the Reggio Approach individuals in age-40 cohort work 4.22 hours more per week than age-40 people in Reggio who did not attend any preschool. Column (1) and (4) of Table \ref{table:WCh-30} also show that the hours Reggio approach people work more than people who did not attend any preschool is higher than the corresponding relative difference in Parma and Padova among age-30 cohorts.  
 \end{itemize}  
 
 \subsection{Household Information}
@@ -161,134 +161,28 @@ Outcomes that show consistently significant difference between individuals who w
 \begin{itemize}
 \item \textbf{Health:} Reggio Approach people are more likely to report good health when compared with people who did not attend any preschool. Table \ref{table:OLS-R30-H} shows that the Reggio Approach people are significantly more like to report good health than people who did not attend any preschool. Diff-in-diff results are also consistent. Columns (1) and (4) of Table \ref{table:HC-Reggio} support that. Columns (1) and (4) of Table \ref{table:HCh-30} also show that the difference in reporting good health between people who did not attend any preschools and people who attended municipal schools is lower in Parma and Padova than in Reggio. 
 
-\item \textbf{Suspended from school:} Reggio Approach people are less likely to be ever suspended from school when compared with people who did not attend any preschool. Table \ref{table:OLS-R30-H} shows that the people who did not attend any type of preschool have much higher suspension rate than any other groups. Table \ref{table:HC-Reggio} also shows this consistent trend within people in Reggio. Table \ref{table:HCh-30} shows that relative difference in suspension from school between people who did not attend any preschools and people who attended municipal schools is lower in Parma and Padova than in Reggio. 
+\item \textbf{Suspended from school:} Reggio Approach people are less likely to be ever suspended from school when compared with people who did not attend any preschool. Table \ref{table:OLS-H} shows that the people who did not attend any type of preschool have much higher suspension rate than any other groups. Table \ref{table:HC-Reggio} also shows this consistent trend within people in Reggio. Table \ref{table:HCh-30} shows that relative difference in suspension from school between people who did not attend any preschools and people who attended municipal schools is lower in Parma and Padova than in Reggio. 
 \end{itemize}
 
 \appendix
 
-\section{Appendix: Difference-in-Difference Results}
+\section{Results}
 \subsection{Education}
 
-\subsubsection{OLS results}
+\subsubsection{OLS Results}
 \begin{table}[H]
 \begin{center}
-	\caption{OLS Results, Restricting to Reggio and Age-30 Cohort} \label{table:OLS-R30-E}
+	\caption{OLS Results, Restricting to Reggio and Age-30 Cohort} \label{table:OLS-E}
 	\scalebox{0.75}{
-		\input{../../Output/description/OLSReggioAdult30E.tex}
+		\begin{tabular}{cccccccccccccc}
+		\input{../../Trial_output/meanOutcome_E}
+		\end{tabular}
 	}
 	\end{center}
 \footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-30 people living in Reggio across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
+\underline{Note:} This table shows both unconditional and conditional OLS results across different materna types, cities, and cohorts. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. 
 
 \end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Reggio and Age-40 Cohort} \label{table:OLS-R40-E}
-	\scalebox{0.75}{
-		\input{../../Output/description/OLSReggioAdult40E.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-40 people living in Reggio across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Reggio and Age-50 Cohort} \label{table:OLS-R50-E}
-	\scalebox{0.75}{
-		\input{../../Output/description/OLSReggioAdult50E.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-50 people living in Reggio across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Parma and Age-30 Cohort} \label{table:OLS-P30-E}
-	\scalebox{0.72}{
-		\input{../../Output/description/OLSParmaAdult30E.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-30 people living in Parma across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Parma and Age-40 Cohort} \label{table:OLS-P40-E}
-	\scalebox{0.72}{
-		\input{../../Output/description/OLSParmaAdult40E.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-40 people living in Parma across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Parma and Age-50 Cohort} \label{table:OLS-P50-E}
-	\scalebox{0.75}{
-		\input{../../Output/description/OLSParmaAdult50E.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-50 people living in Parma across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Padova and Age-30 Cohort} \label{table:OLS-V30-E}
-	\scalebox{0.73}{
-		\input{../../Output/description/OLSPadovaAdult30E.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-30 people living in Padova across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Padova and Age-40 Cohort} \label{table:OLS-V40-E}
-	\scalebox{0.73}{
-		\input{../../Output/description/OLSPadovaAdult40E.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-40 people living in Padova across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Padova and Age-50 Cohort} \label{table:OLS-V50-E}
-	\scalebox{0.75}{
-		\input{../../Output/description/OLSPadovaAdult50E.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-50 people living in Padova across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\subsubsection{Difference-in-Difference Results}
-%\begin{table}[H] 
-%\begin{center}
-%	\caption{Difference-in-Difference Across School Types and Cohorts, Restricting to Reggio} \label{table:EC-Reggio}
-%	\scalebox{0.80}{
-%		\input{../../Output/DiD/bic/didReggio_Ep}}
-%\end{center}
-%\footnotesize
-%\underline{Note:} This table shows difference in difference across school types and cohorts with the sample restricted to individuals of adult cohorts living in Reggio. For convenience, we denote "Age 30 None" as individuals in the age-30 cohort who did not attend any materna school. Notations are analogous across cohort and school type. Each column shows the following diff-in-diff estimate. \textbf{(1)} (Age 30 Muni - Age 30 None) - (Age 50 Muni - Age 50 None), \textbf{(2)} (Age 30 State - Age 30 None) - (Age 50 State - Age 50 None), \textbf{(3)}  (Age 30 Reli - Age 30 None) - (Age 50 Reli - Age 50 None),\textbf{(4)} (Age 40 Muni - Age 40 None) - (Age 50 Muni - Age 50 None), \textbf{(5)} (Age 40 State - Age 40 None) - (Age 50 State - Age 50 None), \textbf{(6)}  (Age 40 Reli - Age 40 None) - (Age 50 Reli - Age 50 None). Bold numbers indicate statistical significance at the 10\% level. Standard errors are reported in parentheses. 
-%\end{table}
-
 
 \begin{table}[H]
 \begin{center}
@@ -321,115 +215,19 @@ Outcomes that show consistently significant difference between individuals who w
 \end{table}
 
 
-
-
 \subsection{Employment and Earnings}
-\subsubsection{OLS results}
+\subsubsection{OLS Results}
 \begin{table}[H]
 \begin{center}
-	\caption{OLS Results, Restricting to Reggio and Age-30 Cohort} \label{table:OLS-R30-W}
+	\caption{OLS Results} \label{table:OLS-W}
 	\scalebox{0.68}{
-		\input{../../Output/description/OLSReggioAdult30W.tex}
+	\begin{tabular}{cccccccccccccc}
+		\input{../../Trial_output/meanOutcome_W}
+		\end{tabular}
 	}
 	\end{center}
 	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-30 people living in Reggio across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Reggio and Age-40 Cohort} \label{table:OLS-R40-W}
-	\scalebox{0.68}{
-		\input{../../Output/description/OLSReggioAdult40W.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-40 people living in Reggio across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Reggio and Age-50 Cohort} \label{table:OLS-R50-W}
-	\scalebox{0.68}{
-		\input{../../Output/description/OLSReggioAdult50W.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-50 people living in Reggio across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Parma and Age-30 Cohort} \label{table:OLS-P30-W}
-	\scalebox{0.68}{
-		\input{../../Output/description/OLSParmaAdult30W.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-30 people living in Parma across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Parma and Age-40 Cohort} \label{table:OLS-P40-W}
-	\scalebox{0.68}{
-		\input{../../Output/description/OLSParmaAdult40W.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-40 people living in Parma across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Parma and Age-50 Cohort} \label{table:OLS-P50-W}
-	\scalebox{0.68}{
-		\input{../../Output/description/OLSParmaAdult50W.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-50 people living in Parma across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Padova and Age-30 Cohort} \label{table:OLS-V30-W}
-	\scalebox{0.68}{
-		\input{../../Output/description/OLSPadovaAdult30W.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-30 people living in Padova across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Padova and Age-40 Cohort} \label{table:OLS-V40-W}
-	\scalebox{0.68}{
-		\input{../../Output/description/OLSPadovaAdult40W.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-40 people living in Padova across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Padova and Age-50 Cohort} \label{table:OLS-V50-W}
-	\scalebox{0.68}{
-		\input{../../Output/description/OLSPadovaAdult50W.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-50 people living in Padova across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
+\underline{Note:} This table shows both unconditional and conditional OLS results across different materna types, cities, and cohorts. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. 
 
 \end{table}
 
@@ -475,123 +273,21 @@ Outcomes that show consistently significant difference between individuals who w
 \fnDID
 \end{table}
 
-
-
-
-
-
 \subsection{Household Information}
 
-\subsubsection{OLS results}
+\subsubsection{OLS Results}
 \begin{table}[H]
 \begin{center}
-	\caption{OLS Results, Restricting to Reggio and Age-30 Cohort} \label{table:OLS-R30-L}
+	\caption{OLS Results} \label{table:OLS-L}
 	\scalebox{0.76}{
-		\input{../../Output/description/OLSReggioAdult30L.tex}
+		\begin{tabular}{}
+		\input{../../Trial_output/meanOutcome_L}
+		\end{tabular}
 	}
 	\end{center}
 	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-30 people living in Reggio across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
+\underline{Note:} This table shows both unconditional and conditional OLS different materna types, cities, and cohorts. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. 
 \end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Reggio and Age-40 Cohort} \label{table:OLS-R40-L}
-	\scalebox{0.76}{
-		\input{../../Output/description/OLSReggioAdult40L.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-40 people living in Reggio across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Reggio and Age-50 Cohort} \label{table:OLS-R50-L}
-	\scalebox{0.76}{
-		\input{../../Output/description/OLSReggioAdult50L.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-50 people living in Reggio across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Parma and Age-30 Cohort} \label{table:OLS-P30-L}
-	\scalebox{0.76}{
-		\input{../../Output/description/OLSParmaAdult30L.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-30 people living in Parma across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Parma and Age-40 Cohort} \label{table:OLS-P40-L}
-	\scalebox{0.76}{
-		\input{../../Output/description/OLSParmaAdult40L.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-40 people living in Parma across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Parma and Age-50 Cohort} \label{table:OLS-P50-L}
-	\scalebox{0.76}{
-		\input{../../Output/description/OLSParmaAdult50L.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-50 people living in Parma across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Padova and Age-30 Cohort} \label{table:OLS-V30-L}
-	\scalebox{0.76}{
-		\input{../../Output/description/OLSPadovaAdult30L.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-30 people living in Padova across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Padova and Age-40 Cohort} \label{table:OLS-V40-L}
-	\scalebox{0.76}{
-		\input{../../Output/description/OLSPadovaAdult40L.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-40 people living in Padova across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Padova and Age-50 Cohort} \label{table:OLS-V50-L}
-	\scalebox{0.76}{
-		\input{../../Output/description/OLSPadovaAdult50L.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-50 people living in Padova across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-
 
 
 \subsubsection{Difference-in-Difference Results}
@@ -641,112 +337,18 @@ Outcomes that show consistently significant difference between individuals who w
 
 \subsection{Health and Risk Behaviors}
 
-\subsubsection{OLS results}
+\subsubsection{OLS Results}
 \begin{table}[H]
 \begin{center}
-	\caption{OLS Results, Restricting to Reggio and Age-30 Cohort} \label{table:OLS-R30-H}
+	\caption{OLS Results} \label{table:OLS-H}
 	\scalebox{0.73}{
-		\input{../../Output/description/OLSReggioAdult30H.tex}
+		\begin{tabular}{cccccccccccccc}
+		\input{../../Trial_output/meanOutcome_H.tex}
+		\end{tabular}
 	}
 	\end{center}
 	\footnotesize
 \underline{Note:} This table shows both unconditional and conditional OLS results for age-30 people living in Reggio across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Reggio and Age-40 Cohort} \label{table:OLS-R40-H}
-	\scalebox{0.73}{
-		\input{../../Output/description/OLSReggioAdult40H.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-40 people living in Reggio across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Reggio and Age-50 Cohort} \label{table:OLS-R50-H}
-	\scalebox{0.73}{
-		\input{../../Output/description/OLSReggioAdult50H.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-50 people living in Reggio across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Parma and Age-30 Cohort} \label{table:OLS-P30-H}
-	\scalebox{0.73}{
-		\input{../../Output/description/OLSParmaAdult30H.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-30 people living in Parma across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Parma and Age-40 Cohort} \label{table:OLS-P40-H}
-	\scalebox{0.73}{
-		\input{../../Output/description/OLSParmaAdult40H.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-40 people living in Parma across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Parma and Age-50 Cohort} \label{table:OLS-P50-H}
-	\scalebox{0.73}{
-		\input{../../Output/description/OLSParmaAdult50H.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-50 people living in Parma across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Padova and Age-30 Cohort} \label{table:OLS-V30-H}
-	\scalebox{0.73}{
-		\input{../../Output/description/OLSPadovaAdult30H.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-30 people living in Padova across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Padova and Age-40 Cohort} \label{table:OLS-V40-H}
-	\scalebox{0.73}{
-		\input{../../Output/description/OLSPadovaAdult40H.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-40 people living in Padova across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Padova and Age-50 Cohort} \label{table:OLS-V50-H}
-	\scalebox{0.73}{
-		\input{../../Output/description/OLSPadovaAdult50H.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-50 people living in Padova across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
 
 \end{table}
 
@@ -798,109 +400,15 @@ Outcomes that show consistently significant difference between individuals who w
 \subsubsection{OLS results}
 \begin{table}[H]
 \begin{center}
-	\caption{OLS Results, Restricting to Reggio and Age-30 Cohort} \label{table:OLS-R30-N}
+	\caption{OLS Results} \label{table:OLS-N}
 	\scalebox{0.80}{
-		\input{../../Output/description/OLSReggioAdult30N.tex}
+		\begin{tabular}{cccccccccccccc}
+		\input{../../Trial_output/meanOutcome_N.tex}
+		\end{tabular}
 	}
 	\end{center}
 	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-30 people living in Reggio across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Reggio and Age-40 Cohort} \label{table:OLS-R40-N}
-	\scalebox{0.80}{
-		\input{../../Output/description/OLSReggioAdult40N.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-40 people living in Reggio across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Reggio and Age-50 Cohort} \label{table:OLS-R50-N}
-	\scalebox{0.80}{
-		\input{../../Output/description/OLSReggioAdult50N.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-50 people living in Reggio across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Parma and Age-30 Cohort} \label{table:OLS-P30-N}
-	\scalebox{0.80}{
-		\input{../../Output/description/OLSParmaAdult30N.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-30 people living in Parma across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Parma and Age-40 Cohort} \label{table:OLS-P40-N}
-	\scalebox{0.80}{
-		\input{../../Output/description/OLSParmaAdult40N.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-40 people living in Parma across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Parma and Age-50 Cohort} \label{table:OLS-P50-N}
-	\scalebox{0.80}{
-		\input{../../Output/description/OLSParmaAdult50N.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-50 people living in Parma across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Padova and Age-30 Cohort} \label{table:OLS-V30-N}
-	\scalebox{0.80}{
-		\input{../../Output/description/OLSPadovaAdult30N.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-30 people living in Padova across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Padova and Age-40 Cohort} \label{table:OLS-V40-N}
-	\scalebox{0.80}{
-		\input{../../Output/description/OLSPadovaAdult40N.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-40 people living in Padova across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
-
-\end{table}
-
-\begin{table}[H]
-\begin{center}
-	\caption{OLS Results, Restricting to Padova and Age-50 Cohort} \label{table:OLS-V50-N}
-	\scalebox{0.80}{
-		\input{../../Output/description/OLSPadovaAdult50N.tex}
-	}
-	\end{center}
-	\footnotesize
-\underline{Note:} This table shows both unconditional and conditional OLS results for age-50 people living in Padova across different materna types. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. Bold number indicates that the corresponding mean is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools.
+\underline{Note:} This table shows both unconditional and conditional OLS results across different materna types, cities, and cohorts. For each school type, ``Mean" column shows the unconditional mean and ``C. Mean" column shows the conditional mean. 
 
 \end{table}
 
