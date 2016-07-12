@@ -1,7 +1,8 @@
 * ---------------------------------------------------------------------------- *
 * Labeling and Renaming Variables (Preparation Step for Estimation)
+* Helpful for beautiful tables
 * Authors: Anna Ziff, Jessica Yu Kyung Koh
-* Date Modified: 07/05/2016
+* Date Modified: 07/12/2016
 * ---------------------------------------------------------------------------- *
 
 * ---------------------------------------------------------------------------- *

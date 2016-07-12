@@ -26,7 +26,8 @@ global klmReggio    :    env klmReggio
 global data_reggio  :    env data_reggio
 global git_reggio   :    env git_reggio
 
-cd $data_reggio
+//cd $data_reggio
+cd ~/Desktop
 use Reggio, clear
 
 cd ${klmReggio}/Analysis/Output/
