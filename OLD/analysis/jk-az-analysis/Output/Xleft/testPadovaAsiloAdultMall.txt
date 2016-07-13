@@ -1,0 +1,47 @@
+	(1)
+VARIABLES	MigrTaste_cat
+	
+PadovaAsilo	-0.383**
+	[0.157]
+xaPadovaPriv	-0.016
+	[0.322]
+xaPadovaNone	-0.262**
+	[0.127]
+Male	0.036
+	[0.038]
+momMaxEdu_low	-0.711**
+	[0.283]
+momMaxEdu_middle	-0.484**
+	[0.246]
+momMaxEdu_HS	-0.546**
+	[0.251]
+momMaxEdu_Uni	-0.593**
+	[0.250]
+dadMaxEdu_low	0.073
+	[0.283]
+dadMaxEdu_middle	-0.023
+	[0.239]
+dadMaxEdu_HS	-0.103
+	[0.240]
+dadMaxEdu_Uni	-0.013
+	[0.240]
+CAPI	-0.198***
+	[0.064]
+momBornProvince	0.068*
+	[0.041]
+dadBornProvince	0.002
+	[0.045]
+houseOwn	0.012
+	[0.041]
+Age	0.004
+	[0.025]
+Age_sq	0.000
+	[0.000]
+Constant	0.659
+	[0.567]
+	
+Observations	633
+R-squared	0.167
+Controls	all
+Robust standard errors in brackets	
+*** p<0.01, ** p<0.05, * p<0.1	

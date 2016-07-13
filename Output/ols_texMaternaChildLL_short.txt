@@ -1,0 +1,28 @@
+		(1)
+VARIABLES	LABELS	
+		
+xmReggioSome	Reggio other preschool	-0.099
+		[0.089]
+xmParmaMuni	Parma Muni Preschool	0.076
+		[0.088]
+xmPadovaMuni	Padova Muni Preschool	-0.015
+		[0.109]
+xmParmaSome	Parma other preschool	0.167*
+		[0.087]
+xmPadovaSome	Padova other preschool	0.004
+		[0.081]
+xmParmaNone	Parma None Preschool	0.385***
+		[0.061]
+xmPadovaNone	Padova None Preschool	-0.615***
+		[0.061]
+xmReggioNone	Reggio None Preschool	-0.615***
+		[0.061]
+Constant	Constant	0.615***
+		[0.061]
+		
+Observations		345
+R-squared		0.038
+Controls		None
+Robust standard errors in brackets		
+*** p<0.01, ** p<0.05, * p<0.1		
+Dependent variable: Child likes reading/italian (%).		

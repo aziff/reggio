@@ -1,0 +1,17 @@
+	(1)	(2)	(3)
+VARIABLES	Children	Adolescents	Adults
+			
+ParmaAsilo	0.077	0.141***	0.000
+	[0.062]	[0.053]	[0.000]
+xaParmaPriv	0.031	0.068	0.000
+	[0.058]	[0.050]	[0.000]
+xaParmaNone	0.139**	0.083*	0.000
+	[0.067]	[0.044]	[0.000]
+Constant	3.830	83.874	0.000
+	[5.338]	[51.936]	[0.000]
+			
+Observations	290	250	607
+R-squared	0.168	0.263	
+Controls	Yes	Yes	Yes
+Robust standard errors in brackets			
+*** p<0.01, ** p<0.05, * p<0.1			

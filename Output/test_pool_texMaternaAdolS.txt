@@ -1,0 +1,37 @@
+		(1)	(2)	(3)	(4)	(5)
+VARIABLES	LABELS	SDQ (self rep.)	SDQ (self rep.)	SDQ (self rep.)	SDQ (self rep.)	SDQ (self rep.)
+						
+ReggioMaterna	RCH preschool	-1.016*	-0.556	-0.651	-0.681	-0.484
+		[0.603]	[0.635]	[0.655]	[0.653]	[0.681]
+xmReggioNone	Reggio None Preschool	-3.378**	-3.851***	-3.643**	-3.633**	-2.224
+		[1.594]	[1.408]	[1.461]	[1.519]	[1.622]
+xmReggioStat	Reggio Stat Preschool	-3.079***	-2.683***	-2.861***	-2.840***	-2.375**
+		[0.911]	[0.967]	[1.014]	[1.026]	[1.078]
+xmReggioPriv	Reggio Priv Preschool	0.194	-0.327	0.052	0.088	-0.468
+		[1.300]	[1.629]	[1.730]	[1.701]	[1.901]
+xmParmaNone	Parma None Preschool	-0.781	-0.923	-0.886	-0.891	-0.824
+		[0.885]	[0.901]	[1.148]	[1.245]	[1.159]
+xmParmaMuni	Parma Muni Preschool	-0.418	-0.431	-0.661	-0.679	-0.545
+		[0.619]	[0.581]	[0.581]	[0.578]	[0.592]
+xmParmaStat	Parma Stat Preschool	-1.531*	0.006	-0.400	-0.403	-0.614
+		[0.832]	[0.817]	[0.861]	[0.861]	[0.941]
+xmParmaPriv	Parma Priv Preschool	-0.864	-1.492	-1.369	-1.490	-1.437
+		[1.460]	[1.535]	[1.605]	[1.606]	[1.679]
+xmPadovaNone	Padova None Preschool	2.817***	2.833***	3.155***	3.665***	4.780***
+		[0.430]	[0.911]	[0.895]	[1.126]	[1.629]
+xmPadovaMuni	Padova Muni Preschool	-0.623	-1.226*	-1.223*	-1.224*	-1.200*
+		[0.642]	[0.665]	[0.666]	[0.668]	[0.708]
+xmPadovaStat	Padova Stat Preschool	-1.183*	-1.014	-1.226	-1.213	-1.020
+		[0.697]	[0.746]	[0.779]	[0.781]	[0.837]
+xmPadovaPriv	Padova Priv Preschool	-2.683**	-2.876**	-2.691**	-2.695**	-2.872**
+		[1.237]	[1.226]	[1.349]	[1.344]	[1.359]
+Male	Male dummy			-0.416	-0.433	-0.183
+				[0.316]	[0.317]	[0.541]
+Constant	Constant	10.806***	13.187***	233.648	243.158	323.121
+		[0.468]	[1.126]	[388.462]	[388.648]	[667.919]
+						
+Observations		819	819	819	819	819
+R-squared		0.031	0.168	0.190	0.192	0.254
+Controls		None	Yes	Yes	All	Inter
+Robust standard errors in brackets						
+*** p<0.01, ** p<0.05, * p<0.1						

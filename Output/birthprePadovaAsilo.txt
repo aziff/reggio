@@ -1,0 +1,17 @@
+	(1)	(2)
+VARIABLES	Children	Adolescents
+		
+PadovaAsilo	0.065	0.031
+	[0.073]	[0.074]
+xaPadovaPriv	-0.072	
+	[0.069]	
+xaPadovaNone	-0.045	0.015
+	[0.074]	[0.062]
+Constant	0.775	-42.463
+	[5.348]	[33.106]
+		
+Observations	278	279
+R-squared	0.198	0.307
+Controls	Yes	Yes
+Robust standard errors in brackets		
+*** p<0.01, ** p<0.05, * p<0.1		

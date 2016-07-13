@@ -1,0 +1,19 @@
+	(1)	(2)	(3)
+VARIABLES	Children	Adolescents	Adults
+			
+ParmaMaterna	-0.038	0.002	0.000
+	[0.040]	[0.038]	[0.000]
+xmParmaPriv	0.014	-0.006	0.000
+	[0.119]	[0.052]	[0.000]
+xmParmaStat	0.035	-0.007	0.000
+	[0.064]	[0.039]	[0.000]
+xmParmaNone	-0.073	0.160	0.000
+	[0.059]	[0.193]	[0.000]
+Constant	4.421	78.197	0.000
+	[5.404]	[51.862]	[0.000]
+			
+Observations	289	251	600
+R-squared	0.158	0.252	
+Controls	Yes	Yes	Yes
+Robust standard errors in brackets			
+*** p<0.01, ** p<0.05, * p<0.1			

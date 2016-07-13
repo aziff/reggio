@@ -1,0 +1,28 @@
+		(1)	(2)	(3)
+VARIABLES	LABELS			
+				
+xmReggioNone	Reggio None Preschool	2.797	1.956	1.694
+		[4.087]	[3.635]	[3.930]
+xmReggioSome	Reggio other preschool	1.928	1.814	2.416
+		[4.238]	[3.696]	[3.845]
+xmParmaMuni	Parma Muni Preschool	-1.889	4.163	
+		[4.245]	[3.964]	
+xmPadovaMuni	Padova Muni Preschool	7.917	10.008*	-2,123.086
+		[5.593]	[5.196]	[1,534.864]
+xmParmaSome	Parma other preschool	0.444	5.751	1.689
+		[4.217]	[3.654]	[1.665]
+xmPadovaSome	Padova other preschool	3.430	6.643	-2,128.416
+		[4.126]	[4.271]	[1,535.059]
+xmParmaNone	Parma None Preschool	2.456	5.816	0.867
+		[4.092]	[3.785]	[1.455]
+xmPadovaNone	Padova None Preschool	4.917	7.201	-2,129.060
+		[4.271]	[4.448]	[1,534.804]
+Constant	Constant	20.333***	-210.129	411.192
+		[4.033]	[446.818]	[758.909]
+				
+Observations		229	229	229
+R-squared		0.070	0.306	0.376
+Controls		None	All	Inter
+Robust standard errors in brackets				
+*** p<0.01, ** p<0.05, * p<0.1				
+Dependent variable: Depression score (CESD).				

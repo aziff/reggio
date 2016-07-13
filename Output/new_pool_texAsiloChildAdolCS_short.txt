@@ -1,0 +1,30 @@
+		(1)	(2)	(3)	(4)	(5)	(6)	(7)
+VARIABLES	LABELS							
+								
+xaReggioNoneChild	Reggio None ITC, Child	1.350**	1.487***	1.295**	1.287**	1.247**		1.256**
+		[0.554]	[0.563]	[0.590]	[0.599]	[0.585]		[0.592]
+xaReggioNoneAdol	Reggio None ITC, Adol	0.575	0.506	0.312	0.312	0.315	0.613	0.351
+		[0.520]	[0.535]	[0.560]	[0.569]	[0.558]	[0.606]	[0.558]
+xaReggioSomeChild	Reggio other ITC, Child	0.023	0.102	0.601	0.597	0.538		0.550
+		[0.775]	[0.778]	[0.747]	[0.758]	[0.740]		[0.750]
+xaReggioSomeAdol	Reggio other ITC, Adol	1.384	1.315	1.847	1.847	1.842	1.225	2.011
+		[1.973]	[1.985]	[2.080]	[2.109]	[2.051]	[2.064]	[2.104]
+xaParmaMuniChild	Parma Muni ITC, Child	0.128	2.438	6.150	152.522			148.808
+		[0.467]	[1.957]	[9.709]	[98.004]			[96.521]
+xaParmaMuniAdol	Parma Muni ITC, Adol	-0.054	2.105	22.467	804.796		1,323.336	815.957
+		[0.578]	[1.964]	[16.542]	[758.609]		[983.027]	[743.407]
+xaPadovaMuniChild	Padova Muni ITC, Child	0.930	3.185	21.666**	119.994			135.960
+		[0.677]	[2.025]	[10.086]	[86.985]			[86.285]
+xaPadovaMuniAdol	Padova Muni ITC, Adol	0.458	2.226	36.310**	-198.538		863.551	-100.239
+		[0.698]	[2.006]	[16.959]	[607.477]		[891.579]	[596.568]
+Male	Male dummy			0.073	0.069	0.031	-0.239	0.052
+				[0.383]	[0.389]	[0.379]	[0.616]	[0.384]
+Constant	Constant	7.699***	5.335***	1.900	1.869	1.448	-825.163	3.879
+		[0.346]	[1.836]	[6.321]	[6.415]	[6.267]	[623.041]	[6.079]
+								
+Observations		1,497	1,497	1,497	1,497	529	696	1,497
+R-squared		0.015	0.048	0.127	0.152	0.107	0.193	0.128
+Controls		None	F.E.	All	Inter	Reggio	Adol	no FE
+Robust standard errors in brackets								
+*** p<0.01, ** p<0.05, * p<0.1								
+Dependent variable: SDQ score (mom rep.).								

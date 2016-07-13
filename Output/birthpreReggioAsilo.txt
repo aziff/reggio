@@ -1,0 +1,17 @@
+	(1)	(2)
+VARIABLES	Children	Adolescents
+		
+ReggioAsilo	0.035	-0.059
+	[0.063]	[0.103]
+xaReggioPriv	0.204	-0.111
+	[0.151]	[0.128]
+xaReggioNone	-0.058	-0.035
+	[0.059]	[0.102]
+Constant	0.960	-32.376
+	[4.630]	[36.997]
+		
+Observations	310	295
+R-squared	0.174	0.193
+Controls	Yes	Yes
+Robust standard errors in brackets		
+*** p<0.01, ** p<0.05, * p<0.1		

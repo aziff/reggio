@@ -1,0 +1,46 @@
+\begin{table}[H]		
+\caption{Reggio Children Approach compared to Parma and Padova; Children}					
+\label{tab:resultsChild-parmapadova}					
+ \begin{centering}		
+\vspace{1ex}					
+\begin{tabular}{ r c ccc}		
+\hline \hline		
+ & \textbf{\textit{Outcome}} & \textbf{SDQ}  & \textbf{Depression} & \textbf{Health}  \\		
+\textbf{Specification}  &  &  &  &  \\		
+\hline		
+\multicolumn{5}{c}{\textit{Infant Toddler Center }} \\		
+\hline		
+					
+OLS	 & coeff.	 & -0.079	 & 0.239	 & 0.008	\\
+	 & s.e.	 & [0.403]	 & [0.157]	 & [0.049]	\\
+	 & \textit{obs.}	 & \textit{727}	 & \textit{728}	 & \textit{727}	\\
+PSM 1	 & coeff.	 & 1.625***	 & 0.123	 & 0.001	\\
+	 & s.e.	 & [0.516]	 & [0.188]	 & [0.066]	\\
+	 & \textit{obs.}	 & \textit{320}	 & \textit{320}	 & \textit{320}	\\
+PSM 2	 & coeff.	 & 0.390	 & 0.420*	 & 0.100	\\
+	 & s.e.	 & [0.588]	 & [0.224]	 & [0.074]	\\
+	 & \textit{obs.}	 & \textit{319}	 & \textit{320}	 & \textit{320}	\\
+%IV	 & coeff.	 & 	 & 	 & 	\\
+%	 & s.e.	 & []	 & []	 & []	\\
+%	 & \textit{obs.}	 & \textit{}	 & \textit{}	 & \textit{}	\\
+\hline \multicolumn{5}{c}{\textit{Preschool }} \\ \hline					
+OLS	 & coeff.	 & -0.054	 & 0.306**	 & 0.027	\\
+	 & s.e.	 & [0.391]	 & [0.155]	 & [0.047]	\\
+	 & \textit{obs.}	 & \textit{732}	 & \textit{732}	 & \textit{731}	\\
+PSM 1	 & coeff.	 & 0.152	 & 0.656***	 & 0.107	\\
+	 & s.e.	 & [0.547]	 & [0.198]	 & [0.066]	\\
+	 & \textit{obs.}	 & \textit{332}	 & \textit{332}	 & \textit{332}	\\
+PSM 2	 & coeff.	 & 0.123	 & 0.764***	 & 0.094	\\
+	 & s.e.	 & [0.525]	 & [0.260]	 & [0.068]	\\
+	 & \textit{obs.}	 & \textit{332}	 & \textit{332}	 & \textit{331}	\\
+\hline		
+\end{tabular}		
+\par\end{centering}		
+\vspace{2ex}					
+\begin{footnotesize}
+\textbf{Notes:} Each cell in the table reports the coefficient associated to a dummy for participation in the Reggio Children Approach infant-toddler or preschool, estimated according to the four different methods explained in section  \ref{sec:identification}.
+The control group is represented by any child-care option in Parma or Padova.
+Outcomes considered: Strength and Difficulties Questionnaire (SDQ), raw score; depression, raw score; dummy for excellent or good self-reported health. Controls considered: adolescent age and gender, poor baseline health (either low-birth weight or premature birth), number of older siblings, mother with college education, father with college education, family with income higher than 25,000 euros, family owns home, distance from the center, religious caregiver, dummy for interview mode (computer vs paper). 
+Instruments for infant-toddler center (ITC): caregiver attended ITC as a child, median score in application to RA, cubic polynomial of distance from closest municipal ITC, distance $\times$ mother born in the province, father born in the province.	Instruments for preschool (PS): caregiver attended PS as a child, below median score in application to RA, distance from closest municipal PS, mother born in the province, father born in the province.				
+\end{footnotesize}					
+\end{table}					

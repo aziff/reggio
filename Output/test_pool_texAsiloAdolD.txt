@@ -1,0 +1,29 @@
+		(1)	(2)	(3)	(4)	(5)
+VARIABLES	LABELS	Depression	Depression	Depression	Depression	Depression
+						
+ReggioAsilo	RCH infant-toddler	-0.698	-0.278	-0.741	-0.722	-1.172
+		[2.859]	[3.258]	[3.073]	[3.079]	[2.960]
+xaReggioNone	Reggio None ITC	-1.032	-0.554	-1.002	-0.983	-1.063
+		[2.871]	[3.293]	[3.099]	[3.106]	[2.989]
+xaReggioPriv	Reggio Priv ITC	-3.778	-1.697	-1.770	-1.719	-1.887
+		[4.701]	[3.909]	[3.860]	[3.867]	[4.541]
+xaParmaNone	Parma None ITC	1.147	0.850	1.007	1.001	-0.328
+		[1.336]	[1.379]	[1.334]	[1.334]	[1.525]
+xaParmaMuni	Parma Muni ITC	0.876	0.846	0.974	0.952	-0.064
+		[1.368]	[1.399]	[1.360]	[1.367]	[1.571]
+xaParmaPriv	Parma Priv ITC	-0.046	-0.137	0.298	0.288	-0.691
+		[1.814]	[1.884]	[1.906]	[1.908]	[2.170]
+xaPadovaNone	Padova None ITC	0.028	0.782	0.722	0.707	1.313
+		[1.977]	[2.044]	[2.209]	[2.215]	[2.185]
+xaPadovaMuni	Padova Muni ITC	1.994	1.800	1.807	1.790	2.005
+		[2.116]	[2.197]	[2.353]	[2.360]	[2.352]
+Male	Male dummy			-1.231***	-1.226***	-1.087
+				[0.409]	[0.410]	[0.764]
+Constant	Constant	23.778***	28.153***	68.645	73.559	-696.945
+		[2.812]	[4.057]	[548.944]	[549.206]	[982.611]
+						
+Observations		802	802	802	802	802
+R-squared		0.022	0.197	0.224	0.224	0.293
+Controls		None	Yes	Yes	All	Inter
+Robust standard errors in brackets						
+*** p<0.01, ** p<0.05, * p<0.1						

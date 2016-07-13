@@ -1,0 +1,279 @@
+\documentclass[11pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\parindent 22pt
+
+\usepackage{adjustbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,anchorcolor=blue,citecolor=blue]{hyperref}
+\usepackage{lscape}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage[colorinlistoftodos,linecolor=black]{todonotes}
+\usepackage{appendix}
+\usepackage{pgffor}
+\usepackage{caption} 
+\usepackage{threeparttable}
+\usepackage{datetime}
+\captionsetup[table]{skip = 2pt}
+
+
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+
+\settimeformat{hhmmsstime}
+
+\begin{document}
+
+\title{Preliminary Results for Difference-in-Difference Model: BIC Controls}
+\author{Reggio Team}
+\date{Original version: Thursday  16$^{\text{th}}$ June, 2016 \\ Current version: \today \\ \vspace{1em} Time: \currenttime}
+\maketitle
+
+\listoftables
+
+\doublespacing
+
+\section{Education}
+\subsection{Restriction on Cohort}
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-30 Cohort}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult30_Ep}}
+\end{center}
+\footnotesize
+\underline{Note:} This table shows difference in difference across school types and cities with the sample restricted to individuals in age-30 cohort. For convenience, we denote "Reggio None" as individuals in Reggio who did not attend any materna school. Notations are analogous across city and school type. Each column shows the following diff-in-diff estimate. \textbf{(1)} (Parma None - Reggio None) - (Parma Muni - Reggio Muni), \textbf{(2)} (Parma State - Reggio State) - (Parma Muni - Reggio Muni), \textbf{(3)} (Parma Reli - Reggio Reli) - (Parma Muni - Reggio Muni), \textbf{(4)} (Padova None - Reggio None) - (Padova Muni - Reggio Muni),  \textbf{(5)} (Padova State - Reggio State) - (Padova Muni - Reggio Muni), \textbf{(6)} (Padova Reli - Reggio Reli) - (Padova Muni - Reggio Muni)). 
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-40 Cohort}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult40_Ep}}
+\end{center}
+\footnotesize
+\underline{Note:} This table shows difference in difference across school types and cities with the sample restricted to individuals in age-40 cohort. For convenience, we denote "Reggio None" as individuals in Reggio who did not attend any materna school. Notations are analogous across city and school type. Each column shows the following diff-in-diff estimate.\textbf{(1)} (Parma None - Reggio None) - (Parma Muni - Reggio Muni), \textbf{(2)} (Parma State - Reggio State) - (Parma Muni - Reggio Muni), \textbf{(3)} (Parma Reli - Reggio Reli) - (Parma Muni - Reggio Muni), \textbf{(4)} (Padova None - Reggio None) - (Padova Muni - Reggio Muni),  \textbf{(5)} (Padova State - Reggio State) - (Padova Muni - Reggio Muni), \textbf{(6)} (Padova Reli - Reggio Reli) - (Padova Muni - Reggio Muni)). 
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-50 Cohort}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult50_Ep}}
+\end{center}
+\footnotesize
+\underline{Note:} This table shows difference in difference across school types and cities with the sample restricted to individuals in age-50 cohort. For convenience, we denote "Reggio None" as individuals in Reggio who did not attend any materna school. Notations are analogous across city and school type. Each column shows the following diff-in-diff estimate. \textbf{(1)} (Parma None - Reggio None) - (Parma Muni - Reggio Muni), \textbf{(2)} (Parma State - Reggio State) - (Parma Muni - Reggio Muni), \textbf{(3)} (Parma Reli - Reggio Reli) - (Parma Muni - Reggio Muni), \textbf{(4)} (Padova None - Reggio None) - (Padova Muni - Reggio Muni),  \textbf{(5)} (Padova State - Reggio State) - (Padova Muni - Reggio Muni), \textbf{(6)} (Padova Reli - Reggio Reli) - (Padova Muni - Reggio Muni)). 
+\end{table}
+
+
+\subsection{Restriction on City}
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cohorts, Restricting to Reggio}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didReggio_Ep}}
+\end{center}
+\footnotesize
+\underline{Note:} This table shows difference in difference across school types and cohorts with the sample restricted to individuals of adult cohorts living in Reggio. For convenience, we denote "Age 30 None" as individuals in the age-30 cohort who did not attend any materna school. Notations are analogous across cohort and school type. Each column shows the following diff-in-diff estimate. \textbf{(1)} (Age 30 None - Age 50 None) - (Age 30 Muni - Age 50 Muni), \textbf{(2)} (Age 30 State - Age 50 State) - (Age 30 Muni - Age 50 Muni), \textbf{(3)} (Age 30 Reli - Age 50 Reli) - (Age 30 Muni - Age 50 Muni), \textbf{(4)} (Age 40 None - Age 40 None) - (Age 30 Muni - Age 50 Muni),  \textbf{(5)} (Age 40 State - Age 50 State) - (Age 40 Muni - Age 50 Muni), \textbf{(6)} (Age 40 Reli - Age 50 Reli) - (Age 40 Muni - Age 50 Muni). 
+\end{table}
+
+
+\section{Employment and Earnings}
+\subsection{Restriction on Cohort}
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-30 Cohort}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult30_Wp}}
+\end{center}
+\footnotesize
+\underline{Note:} This table shows difference in difference across school types and cities with the sample restricted to individuals in age-30 cohort. For convenience, we denote "Reggio None" as individuals in Reggio who did not attend any materna school. Notations are analogous across city and school type. Each column shows the following diff-in-diff estimate. \textbf{(1)} (Parma None - Reggio None) - (Parma Muni - Reggio Muni), \textbf{(2)} (Parma State - Reggio State) - (Parma Muni - Reggio Muni), \textbf{(3)} (Parma Reli - Reggio Reli) - (Parma Muni - Reggio Muni), \textbf{(4)} (Padova None - Reggio None) - (Padova Muni - Reggio Muni),  \textbf{(5)} (Padova State - Reggio State) - (Padova Muni - Reggio Muni), \textbf{(6)} (Padova Reli - Reggio Reli) - (Padova Muni - Reggio Muni)). 
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-40 Cohort}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult40_Wp}}
+\end{center}
+\footnotesize
+\underline{Note:} This table shows difference in difference across school types and cities with the sample restricted to individuals in age-40 cohort. For convenience, we denote "Reggio None" as individuals in Reggio who did not attend any materna school. Notations are analogous across city and school type. Each column shows the following diff-in-diff estimate.\textbf{(1)} (Parma None - Reggio None) - (Parma Muni - Reggio Muni), \textbf{(2)} (Parma State - Reggio State) - (Parma Muni - Reggio Muni), \textbf{(3)} (Parma Reli - Reggio Reli) - (Parma Muni - Reggio Muni), \textbf{(4)} (Padova None - Reggio None) - (Padova Muni - Reggio Muni),  \textbf{(5)} (Padova State - Reggio State) - (Padova Muni - Reggio Muni), \textbf{(6)} (Padova Reli - Reggio Reli) - (Padova Muni - Reggio Muni)). 
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-50 Cohort}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult50_Wp}}
+\end{center}
+\footnotesize
+\underline{Note:} This table shows difference in difference across school types and cities with the sample restricted to individuals in age-50 cohort. For convenience, we denote "Reggio None" as individuals in Reggio who did not attend any materna school. Notations are analogous across city and school type. Each column shows the following diff-in-diff estimate. \textbf{(1)} (Parma None - Reggio None) - (Parma Muni - Reggio Muni), \textbf{(2)} (Parma State - Reggio State) - (Parma Muni - Reggio Muni), \textbf{(3)} (Parma Reli - Reggio Reli) - (Parma Muni - Reggio Muni), \textbf{(4)} (Padova None - Reggio None) - (Padova Muni - Reggio Muni),  \textbf{(5)} (Padova State - Reggio State) - (Padova Muni - Reggio Muni), \textbf{(6)} (Padova Reli - Reggio Reli) - (Padova Muni - Reggio Muni)). 
+\end{table}
+
+
+\subsection{Restriction on City}
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cohorts, Restricting to Reggio}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didReggio_Wp}}
+\end{center}
+\footnotesize
+\underline{Note:} This table shows difference in difference across school types and cohorts with the sample restricted to individuals of adult cohorts living in Reggio. For convenience, we denote "Age 30 None" as individuals in the age-30 cohort who did not attend any materna school. Notations are analogous across cohort and school type. Each column shows the following diff-in-diff estimate. \textbf{(1)} (Age 30 None - Age 50 None) - (Age 30 Muni - Age 50 Muni), \textbf{(2)} (Age 30 State - Age 50 State) - (Age 30 Muni - Age 50 Muni), \textbf{(3)} (Age 30 Reli - Age 50 Reli) - (Age 30 Muni - Age 50 Muni), \textbf{(4)} (Age 40 None - Age 40 None) - (Age 30 Muni - Age 50 Muni),  \textbf{(5)} (Age 40 State - Age 50 State) - (Age 40 Muni - Age 50 Muni), \textbf{(6)} (Age 40 Reli - Age 50 Reli) - (Age 40 Muni - Age 50 Muni). 
+\end{table}
+
+
+
+
+\section{Household Information}
+\subsection{Restriction on Cohort}
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-30 Cohort}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult30_Lp}}
+\end{center}
+\footnotesize
+\underline{Note:} This table shows difference in difference across school types and cities with the sample restricted to individuals in age-30 cohort. For convenience, we denote "Reggio None" as individuals in Reggio who did not attend any materna school. Notations are analogous across city and school type. Each column shows the following diff-in-diff estimate. \textbf{(1)} (Parma None - Reggio None) - (Parma Muni - Reggio Muni), \textbf{(2)} (Parma State - Reggio State) - (Parma Muni - Reggio Muni), \textbf{(3)} (Parma Reli - Reggio Reli) - (Parma Muni - Reggio Muni), \textbf{(4)} (Padova None - Reggio None) - (Padova Muni - Reggio Muni),  \textbf{(5)} (Padova State - Reggio State) - (Padova Muni - Reggio Muni), \textbf{(6)} (Padova Reli - Reggio Reli) - (Padova Muni - Reggio Muni)). 
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-40 Cohort}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult40_Lp}}
+\end{center}
+\footnotesize
+\underline{Note:} This table shows difference in difference across school types and cities with the sample restricted to individuals in age-40 cohort. For convenience, we denote "Reggio None" as individuals in Reggio who did not attend any materna school. Notations are analogous across city and school type. Each column shows the following diff-in-diff estimate.\textbf{(1)} (Parma None - Reggio None) - (Parma Muni - Reggio Muni), \textbf{(2)} (Parma State - Reggio State) - (Parma Muni - Reggio Muni), \textbf{(3)} (Parma Reli - Reggio Reli) - (Parma Muni - Reggio Muni), \textbf{(4)} (Padova None - Reggio None) - (Padova Muni - Reggio Muni),  \textbf{(5)} (Padova State - Reggio State) - (Padova Muni - Reggio Muni), \textbf{(6)} (Padova Reli - Reggio Reli) - (Padova Muni - Reggio Muni)). 
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-50 Cohort}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult50_Lp}}
+\end{center}
+\footnotesize
+\underline{Note:} This table shows difference in difference across school types and cities with the sample restricted to individuals in age-50 cohort. For convenience, we denote "Reggio None" as individuals in Reggio who did not attend any materna school. Notations are analogous across city and school type. Each column shows the following diff-in-diff estimate. \textbf{(1)} (Parma None - Reggio None) - (Parma Muni - Reggio Muni), \textbf{(2)} (Parma State - Reggio State) - (Parma Muni - Reggio Muni), \textbf{(3)} (Parma Reli - Reggio Reli) - (Parma Muni - Reggio Muni), \textbf{(4)} (Padova None - Reggio None) - (Padova Muni - Reggio Muni),  \textbf{(5)} (Padova State - Reggio State) - (Padova Muni - Reggio Muni), \textbf{(6)} (Padova Reli - Reggio Reli) - (Padova Muni - Reggio Muni)). 
+\end{table}
+
+
+\subsection{Restriction on City}
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cohorts, Restricting to Reggio}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didReggio_Lp}}
+\end{center}
+\footnotesize
+\underline{Note:} This table shows difference in difference across school types and cohorts with the sample restricted to individuals of adult cohorts living in Reggio. For convenience, we denote "Age 30 None" as individuals in the age-30 cohort who did not attend any materna school. Notations are analogous across cohort and school type. Each column shows the following diff-in-diff estimate. \textbf{(1)} (Age 30 None - Age 50 None) - (Age 30 Muni - Age 50 Muni), \textbf{(2)} (Age 30 State - Age 50 State) - (Age 30 Muni - Age 50 Muni), \textbf{(3)} (Age 30 Reli - Age 50 Reli) - (Age 30 Muni - Age 50 Muni), \textbf{(4)} (Age 40 None - Age 40 None) - (Age 30 Muni - Age 50 Muni),  \textbf{(5)} (Age 40 State - Age 50 State) - (Age 40 Muni - Age 50 Muni), \textbf{(6)} (Age 40 Reli - Age 50 Reli) - (Age 40 Muni - Age 50 Muni). 
+\end{table}
+
+
+
+\section{Health and Risk Behaviors}
+\subsection{Restriction on Cohort}
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-30 Cohort}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult30_Hp}}
+\end{center}
+\footnotesize
+\underline{Note:} This table shows difference in difference across school types and cities with the sample restricted to individuals in age-30 cohort. For convenience, we denote "Reggio None" as individuals in Reggio who did not attend any materna school. Notations are analogous across city and school type. Each column shows the following diff-in-diff estimate. \textbf{(1)} (Parma None - Reggio None) - (Parma Muni - Reggio Muni), \textbf{(2)} (Parma State - Reggio State) - (Parma Muni - Reggio Muni), \textbf{(3)} (Parma Reli - Reggio Reli) - (Parma Muni - Reggio Muni), \textbf{(4)} (Padova None - Reggio None) - (Padova Muni - Reggio Muni),  \textbf{(5)} (Padova State - Reggio State) - (Padova Muni - Reggio Muni), \textbf{(6)} (Padova Reli - Reggio Reli) - (Padova Muni - Reggio Muni)). 
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-40 Cohort}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult40_Hp}}
+\end{center}
+\footnotesize
+\underline{Note:} This table shows difference in difference across school types and cities with the sample restricted to individuals in age-40 cohort. For convenience, we denote "Reggio None" as individuals in Reggio who did not attend any materna school. Notations are analogous across city and school type. Each column shows the following diff-in-diff estimate.\textbf{(1)} (Parma None - Reggio None) - (Parma Muni - Reggio Muni), \textbf{(2)} (Parma State - Reggio State) - (Parma Muni - Reggio Muni), \textbf{(3)} (Parma Reli - Reggio Reli) - (Parma Muni - Reggio Muni), \textbf{(4)} (Padova None - Reggio None) - (Padova Muni - Reggio Muni),  \textbf{(5)} (Padova State - Reggio State) - (Padova Muni - Reggio Muni), \textbf{(6)} (Padova Reli - Reggio Reli) - (Padova Muni - Reggio Muni)). 
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-50 Cohort}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult50_Hp}}
+\end{center}
+\footnotesize
+\underline{Note:} This table shows difference in difference across school types and cities with the sample restricted to individuals in age-50 cohort. For convenience, we denote "Reggio None" as individuals in Reggio who did not attend any materna school. Notations are analogous across city and school type. Each column shows the following diff-in-diff estimate. \textbf{(1)} (Parma None - Reggio None) - (Parma Muni - Reggio Muni), \textbf{(2)} (Parma State - Reggio State) - (Parma Muni - Reggio Muni), \textbf{(3)} (Parma Reli - Reggio Reli) - (Parma Muni - Reggio Muni), \textbf{(4)} (Padova None - Reggio None) - (Padova Muni - Reggio Muni),  \textbf{(5)} (Padova State - Reggio State) - (Padova Muni - Reggio Muni), \textbf{(6)} (Padova Reli - Reggio Reli) - (Padova Muni - Reggio Muni)). 
+\end{table}
+
+
+\subsection{Restriction on City}
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cohorts, Restricting to Reggio}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didReggio_Hp}}
+\end{center}
+\footnotesize
+\underline{Note:} This table shows difference in difference across school types and cohorts with the sample restricted to individuals of adult cohorts living in Reggio. For convenience, we denote "Age 30 None" as individuals in the age-30 cohort who did not attend any materna school. Notations are analogous across cohort and school type. Each column shows the following diff-in-diff estimate. \textbf{(1)} (Age 30 None - Age 50 None) - (Age 30 Muni - Age 50 Muni), \textbf{(2)} (Age 30 State - Age 50 State) - (Age 30 Muni - Age 50 Muni), \textbf{(3)} (Age 30 Reli - Age 50 Reli) - (Age 30 Muni - Age 50 Muni), \textbf{(4)} (Age 40 None - Age 40 None) - (Age 30 Muni - Age 50 Muni),  \textbf{(5)} (Age 40 State - Age 50 State) - (Age 40 Muni - Age 50 Muni), \textbf{(6)} (Age 40 Reli - Age 50 Reli) - (Age 40 Muni - Age 50 Muni). 
+\end{table}
+
+
+
+
+
+
+\section{Noncognitive Outcomes}
+\subsection{Restriction on Cohort}
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-30 Cohort}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult30_Np}}
+\end{center}
+\footnotesize
+\underline{Note:} This table shows difference in difference across school types and cities with the sample restricted to individuals in age-30 cohort. For convenience, we denote "Reggio None" as individuals in Reggio who did not attend any materna school. Notations are analogous across city and school type. Each column shows the following diff-in-diff estimate. \textbf{(1)} (Parma None - Reggio None) - (Parma Muni - Reggio Muni), \textbf{(2)} (Parma State - Reggio State) - (Parma Muni - Reggio Muni), \textbf{(3)} (Parma Reli - Reggio Reli) - (Parma Muni - Reggio Muni), \textbf{(4)} (Padova None - Reggio None) - (Padova Muni - Reggio Muni),  \textbf{(5)} (Padova State - Reggio State) - (Padova Muni - Reggio Muni), \textbf{(6)} (Padova Reli - Reggio Reli) - (Padova Muni - Reggio Muni)). 
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-40 Cohort}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult40_Np}}
+\end{center}
+\footnotesize
+\underline{Note:} This table shows difference in difference across school types and cities with the sample restricted to individuals in age-40 cohort. For convenience, we denote "Reggio None" as individuals in Reggio who did not attend any materna school. Notations are analogous across city and school type. Each column shows the following diff-in-diff estimate.\textbf{(1)} (Parma None - Reggio None) - (Parma Muni - Reggio Muni), \textbf{(2)} (Parma State - Reggio State) - (Parma Muni - Reggio Muni), \textbf{(3)} (Parma Reli - Reggio Reli) - (Parma Muni - Reggio Muni), \textbf{(4)} (Padova None - Reggio None) - (Padova Muni - Reggio Muni),  \textbf{(5)} (Padova State - Reggio State) - (Padova Muni - Reggio Muni), \textbf{(6)} (Padova Reli - Reggio Reli) - (Padova Muni - Reggio Muni)). 
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-50 Cohort}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult50_Np}}
+\end{center}
+\footnotesize
+\underline{Note:} This table shows difference in difference across school types and cities with the sample restricted to individuals in age-50 cohort. For convenience, we denote "Reggio None" as individuals in Reggio who did not attend any materna school. Notations are analogous across city and school type. Each column shows the following diff-in-diff estimate. \textbf{(1)} (Parma None - Reggio None) - (Parma Muni - Reggio Muni), \textbf{(2)} (Parma State - Reggio State) - (Parma Muni - Reggio Muni), \textbf{(3)} (Parma Reli - Reggio Reli) - (Parma Muni - Reggio Muni), \textbf{(4)} (Padova None - Reggio None) - (Padova Muni - Reggio Muni),  \textbf{(5)} (Padova State - Reggio State) - (Padova Muni - Reggio Muni), \textbf{(6)} (Padova Reli - Reggio Reli) - (Padova Muni - Reggio Muni)). 
+\end{table}
+
+
+\subsection{Restriction on City}
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cohorts, Restricting to Reggio}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didReggio_Np}}
+\end{center}
+\footnotesize
+\underline{Note:} This table shows difference in difference across school types and cohorts with the sample restricted to individuals of adult cohorts living in Reggio. For convenience, we denote "Age 30 None" as individuals in the age-30 cohort who did not attend any materna school. Notations are analogous across cohort and school type. Each column shows the following diff-in-diff estimate. \textbf{(1)} (Age 30 None - Age 50 None) - (Age 30 Muni - Age 50 Muni), \textbf{(2)} (Age 30 State - Age 50 State) - (Age 30 Muni - Age 50 Muni), \textbf{(3)} (Age 30 Reli - Age 50 Reli) - (Age 30 Muni - Age 50 Muni), \textbf{(4)} (Age 40 None - Age 40 None) - (Age 30 Muni - Age 50 Muni),  \textbf{(5)} (Age 40 State - Age 50 State) - (Age 40 Muni - Age 50 Muni), \textbf{(6)} (Age 40 Reli - Age 50 Reli) - (Age 40 Muni - Age 50 Muni). 
+\end{table}
+
+
+\end{document}

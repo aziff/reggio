@@ -1,0 +1,26 @@
+		(1)	(2)	(3)
+VARIABLES	LABELS			
+				
+xaReggioNone	Reggio None ITC	-0.721***	-0.686***	12.630
+		[0.045]	[0.122]	[117.135]
+xaReggioReli	Reggio Reli ITC	-0.000		13.469
+		[0.000]		[117.070]
+xaParmaMuni	Parma Muni ITC	-0.889***	-1.046***	-84.546
+		[0.106]	[0.132]	[113.651]
+xaParmaReli	Parma Reli ITC	-1.000***	-1.138***	-84.572
+		[0.000]	[0.164]	[113.630]
+xaParmaNone	Parma None ITC	-0.787***	-1.057***	-84.466
+		[0.061]	[0.212]	[113.588]
+xaPadovaNone	Padova None ITC	-0.586***	-0.541***	
+		[0.060]	[0.169]	
+xaPadovaReli	Padova Reli ITC		-0.083	0.393
+			[0.332]	[0.475]
+Constant	Constant	1.000***	87.975**	86.812
+		[0.000]	[42.680]	[92.013]
+				
+Observations		234	234	234
+R-squared		0.057	0.194	0.293
+Controls		None	All	Inter
+Robust standard errors in brackets				
+*** p<0.01, ** p<0.05, * p<0.1				
+Dependent variable: Bothered by migrants (%).				

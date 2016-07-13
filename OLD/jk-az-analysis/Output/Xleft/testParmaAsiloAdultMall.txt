@@ -1,0 +1,47 @@
+	(1)
+VARIABLES	MigrTaste_cat
+	
+ParmaAsilo	-0.022
+	[0.132]
+xaParmaPriv	-0.099
+	[0.197]
+xaParmaNone	0.038
+	[0.129]
+Male	-0.032
+	[0.033]
+momMaxEdu_low	-0.701***
+	[0.166]
+momMaxEdu_middle	-1.335***
+	[0.183]
+momMaxEdu_HS	-1.511***
+	[0.181]
+momMaxEdu_Uni	-1.532***
+	[0.185]
+dadMaxEdu_low	0.596***
+	[0.172]
+dadMaxEdu_middle	0.818***
+	[0.159]
+dadMaxEdu_HS	0.944***
+	[0.154]
+dadMaxEdu_Uni	0.934***
+	[0.161]
+CAPI	-0.063
+	[0.044]
+momBornProvince	-0.001
+	[0.041]
+dadBornProvince	0.064
+	[0.043]
+houseOwn	0.040
+	[0.036]
+Age	-0.027
+	[0.021]
+Age_sq	0.000
+	[0.000]
+Constant	1.188**
+	[0.500]
+	
+Observations	604
+R-squared	0.170
+Controls	all
+Robust standard errors in brackets	
+*** p<0.01, ** p<0.05, * p<0.1	

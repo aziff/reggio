@@ -1,0 +1,191 @@
+	(1)	(2)	(3)	(4)
+VARIABLES	HealthPerc	HealthPerc	HealthPerc	HealthPerc
+				
+asilo_Muni	0.090	0.064	0.143	0.141
+	[0.162]	[0.169]	[0.185]	[0.187]
+xa_Parma_Muni	-0.061	0.019	0.110	0.111
+	[0.118]	[0.140]	[0.166]	[0.167]
+xa_Padova_Muni			-1.072	-1.105
+			[1.329]	[1.329]
+asilo_Priv	0.333**	0.293	0.338	0.331
+	[0.158]	[0.179]	[0.207]	[0.210]
+asilo_None	-0.005	-0.032	0.051	0.050
+	[0.164]	[0.170]	[0.186]	[0.188]
+xa_Parma_None	0.097	0.154	0.194	0.188
+	[0.117]	[0.138]	[0.164]	[0.164]
+xa_Padova_None	0.147*	0.085	-0.986	-1.025
+	[0.086]	[0.088]	[1.329]	[1.328]
+xa_Parma_Reli	-0.013	-0.025	0.079	0.065
+	[0.246]	[0.240]	[0.277]	[0.280]
+xa_Padova_Reli	-0.044	-0.210	-1.239	-1.273
+	[0.255]	[0.227]	[1.361]	[1.361]
+Male			0.088	0.086
+			[0.057]	[0.057]
+momMaxEdu_low			0.168	0.166
+			[0.221]	[0.223]
+momMaxEdu_middle			0.183	0.181
+			[0.235]	[0.237]
+momMaxEdu_HS			0.143	0.145
+			[0.209]	[0.211]
+momMaxEdu_Uni			0.162	0.164
+			[0.212]	[0.214]
+momMaxEdu_Grad			-0.434**	-0.434**
+			[0.220]	[0.221]
+momMaxEdu_low_Padova			-0.179	-0.215
+			[0.320]	[0.325]
+momMaxEdu_HS_Parma			-0.059	-0.050
+			[0.369]	[0.376]
+momMaxEdu_HS_Padova			-0.158	-0.187
+			[0.304]	[0.310]
+momMaxEdu_Uni_Parma			0.014	0.011
+			[0.373]	[0.380]
+momMaxEdu_Uni_Padova			-0.137	-0.170
+			[0.311]	[0.317]
+momMaxEdu_Grad_Padova			0.233	0.224
+			[0.302]	[0.303]
+dadMaxEdu_low			-0.017	-0.020
+			[0.123]	[0.123]
+dadMaxEdu_middle			-0.008	-0.004
+			[0.153]	[0.155]
+dadMaxEdu_HS			0.101	0.102
+			[0.110]	[0.111]
+dadMaxEdu_Uni			0.041	0.041
+			[0.133]	[0.133]
+dadMaxEdu_Grad			0.292*	0.288*
+			[0.156]	[0.157]
+dadMaxEdu_low_Parma			0.095	0.105
+			[0.172]	[0.174]
+dadMaxEdu_middle_Parma			-0.183	-0.196
+			[0.228]	[0.230]
+dadMaxEdu_middle_Padova			0.051	0.018
+			[0.219]	[0.220]
+dadMaxEdu_HS_Parma			-0.137	-0.139
+			[0.162]	[0.163]
+dadMaxEdu_Uni_Parma			-0.117	-0.118
+			[0.181]	[0.182]
+dadMaxEdu_Grad_Parma			-0.148	-0.126
+			[0.199]	[0.202]
+dadMaxEdu_Grad_Padova			-0.277	-0.187
+			[0.236]	[0.249]
+CAPI			-0.065	-0.067
+			[0.071]	[0.071]
+momBornProvince			0.053	0.054
+			[0.069]	[0.069]
+dadBornProvince			0.030	0.030
+			[0.075]	[0.076]
+cgRelig			0.017	0.015
+			[0.068]	[0.068]
+houseOwn			-0.007	-0.010
+			[0.087]	[0.089]
+cgReddito_1			0.309	0.312
+			[0.239]	[0.241]
+cgReddito_2			1.210***	1.244***
+			[0.157]	[0.175]
+cgReddito_3			0.937***	0.940***
+			[0.138]	[0.139]
+cgReddito_4			0.811***	0.818***
+			[0.111]	[0.113]
+cgReddito_5			0.840***	0.841***
+			[0.111]	[0.112]
+cgReddito_6			0.975***	0.978***
+			[0.157]	[0.158]
+cgReddito_miss			0.842***	0.848***
+			[0.119]	[0.120]
+cgReddito_1_Parma			105.515	121.676
+			[91.085]	[91.303]
+cgReddito_1_Padova			1.102***	1.181***
+			[0.342]	[0.344]
+cgReddito_3_Parma			104.501	120.657
+			[91.061]	[91.280]
+cgReddito_3_Padova			0.877***	0.972***
+			[0.280]	[0.283]
+cgReddito_4_Parma			104.711	120.863
+			[91.058]	[91.278]
+cgReddito_5_Parma			104.668	120.825
+			[91.061]	[91.281]
+cgReddito_6_Parma			104.606	120.756
+			[91.084]	[91.300]
+cgReddito_miss_Parma			104.770	120.917
+			[91.061]	[91.280]
+cgReddito_miss_Padova			1.006***	1.110***
+			[0.281]	[0.287]
+Age			0.197	1.126
+			[5.925]	[5.922]
+Age_sq			-0.005	-0.030
+			[0.159]	[0.159]
+lowbirthweight				-0.026
+				[0.136]
+birthpremature				-0.036
+				[0.146]
+Male_Parma			0.021	0.021
+			[0.082]	[0.083]
+momMaxEdu_low_Parma			-0.290	-0.279
+			[0.385]	[0.392]
+momMaxEdu_middle_Parma			-0.221	-0.217
+			[0.383]	[0.389]
+momMaxEdu_Grad_Parma			0.481*	0.466*
+			[0.249]	[0.252]
+CAPI_Parma		-0.024	0.084	0.085
+		[0.061]	[0.095]	[0.096]
+momBornProvince_Parma			-0.032	-0.028
+			[0.097]	[0.098]
+dadBornProvince_Parma			0.017	0.016
+			[0.100]	[0.100]
+cgRelig_Parma			0.093	0.096
+			[0.110]	[0.111]
+houseOwn_Parma			0.059	0.065
+			[0.125]	[0.128]
+cgReddito_2_Parma			104.289	120.416
+			[91.057]	[91.276]
+Age_sq_Parma			0.285	0.331
+			[0.261]	[0.261]
+Male_Padova			-0.069	-0.070
+			[0.079]	[0.079]
+momMaxEdu_middle_Padova			-0.043	-0.080
+			[0.338]	[0.343]
+dadMaxEdu_low_Padova			-0.009	-0.037
+			[0.191]	[0.190]
+dadMaxEdu_HS_Padova			-0.047	-0.066
+			[0.171]	[0.170]
+dadMaxEdu_Uni_Padova			-0.049	-0.059
+			[0.184]	[0.184]
+CAPI_Padova		0.172***	0.259**	0.255**
+		[0.064]	[0.101]	[0.101]
+momBornProvince_Padova			-0.190*	-0.186*
+			[0.109]	[0.108]
+dadBornProvince_Padova			-0.059	-0.050
+			[0.117]	[0.117]
+cgRelig_Padova			0.018	0.036
+			[0.092]	[0.092]
+houseOwn_Padova			0.086	0.067
+			[0.106]	[0.108]
+cgReddito_4_Padova			0.858***	0.940***
+			[0.267]	[0.270]
+cgReddito_5_Padova			0.852***	0.924***
+			[0.285]	[0.290]
+cgReddito_6_Padova			0.903***	0.958***
+			[0.335]	[0.345]
+Age_Parma			-10.924	-12.654
+			[9.743]	[9.765]
+Age_sq_Padova			0.001	0.001
+			[0.003]	[0.003]
+lowbirthweight_Parma				-0.098
+				[0.205]
+birthpremature_Parma				0.077
+				[0.190]
+lowbirthweight_Padova				-0.071
+				[0.212]
+birthpremature_Padova				-0.181
+				[0.214]
+Parma	-0.154	0.034		
+	[0.101]	[0.148]		
+Padova	-0.052	-0.070		
+	[0.068]	[0.126]		
+Constant	0.667***	0.845***	-1.874	-10.468
+	[0.158]	[0.192]	[55.306]	[55.269]
+				
+Observations	820	820	820	820
+R-squared	0.033	0.200	0.284	0.289
+Controls	None	Yes	Yes	all
+Robust standard errors in brackets				
+*** p<0.01, ** p<0.05, * p<0.1				

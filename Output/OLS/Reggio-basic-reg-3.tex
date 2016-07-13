@@ -1,0 +1,32 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{10}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}&\multicolumn{1}{c}{(8)}&\multicolumn{1}{c}{(9)}&\multicolumn{1}{c}{(10)}\\
+            &\multicolumn{1}{c}{IQ\_factor}&\multicolumn{1}{c}{RiskSuspended}&\multicolumn{1}{c}{Smoke}&\multicolumn{1}{c}{Cig}&\multicolumn{1}{c}{sport}&\multicolumn{1}{c}{BMI}&\multicolumn{1}{c}{LocusControl}&\multicolumn{1}{c}{SDQ\_score}&\multicolumn{1}{c}{childSDQ\_score}&\multicolumn{1}{c}{Depression\_score}\\
+\midrule
+0.maternaType&           0         &           0         &           0         &           0         &           0         &           0         &           0         &           0         &           0         &           0         \\
+            &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         \\
+\addlinespace
+1.maternaType&       0.115         &     -0.0224         &       0.209         &      -5.396         &    -0.00191         &       0.508         &      -0.410         &       2.113         &      -0.672         &       2.863         \\
+            &     (0.304)         &    (0.0972)         &     (0.316)         &     (5.875)         &     (0.773)         &     (1.137)         &     (0.281)         &     (1.844)         &     (1.751)         &     (2.523)         \\
+\addlinespace
+2.maternaType&      0.0497         &     -0.0560         &      0.0985         &      -6.386         &       0.731         &       1.087         &      -0.713\sym{*}  &      0.0832         &      -2.304         &       1.577         \\
+            &     (0.339)         &     (0.108)         &     (0.376)         &     (7.421)         &     (0.870)         &     (1.287)         &     (0.313)         &     (2.055)         &     (1.952)         &     (2.828)         \\
+\addlinespace
+3.maternaType&       0.123         &     -0.0253         &       0.200         &      -8.699         &      0.0950         &     -0.0924         &      -0.343         &       2.971         &      0.0917         &       4.347         \\
+            &     (0.310)         &    (0.0989)         &     (0.319)         &     (6.286)         &     (0.788)         &     (1.157)         &     (0.286)         &     (1.876)         &     (1.782)         &     (2.570)         \\
+\addlinespace
+4.maternaType&       0.541         &      0.0974         &       0.238         &      -10.06         &       1.154         &      -1.803         &      -0.241         &       3.379         &       0.866         &       4.562         \\
+            &     (0.434)         &     (0.139)         &     (0.488)         &     (7.470)         &     (1.102)         &     (1.554)         &     (0.400)         &     (2.628)         &     (2.497)         &     (3.593)         \\
+\addlinespace
+\_cons      &       2.665         &       1.035         &       2.903         &      -1.053         &       3.477         &       39.47\sym{***}&      -1.327         &      -3.659         &       7.099         &      -30.76         \\
+            &     (2.566)         &     (0.819)         &     (2.816)         &     (50.46)         &     (6.642)         &     (9.310)         &     (2.385)         &     (15.66)         &     (14.76)         &     (21.65)         \\
+\midrule
+\(N\)       &         290         &         290         &         129         &          52         &         284         &         254         &         287         &         288         &         290         &         283         \\
+\(R^{2}\)   &       0.213         &       0.089         &       0.106         &       0.284         &       0.047         &       0.138         &       0.084         &       0.086         &       0.077         &       0.113         \\
+\bottomrule
+\multicolumn{11}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{11}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+}

@@ -1,0 +1,20 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{10}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}&\multicolumn{1}{c}{(8)}&\multicolumn{1}{c}{(9)}&\multicolumn{1}{c}{(10)}\\
+            &\multicolumn{1}{c}{IQ\_factor}&\multicolumn{1}{c}{RiskSuspended}&\multicolumn{1}{c}{Smoke}&\multicolumn{1}{c}{Cig}&\multicolumn{1}{c}{sport}&\multicolumn{1}{c}{BMI}&\multicolumn{1}{c}{LocusControl}&\multicolumn{1}{c}{SDQ\_score}&\multicolumn{1}{c}{childSDQ\_score}&\multicolumn{1}{c}{Depression\_score}\\
+\midrule
+allReggio   &      0.0797         &      0.0301\sym{*}  &       0.136\sym{**} &       1.489         &      -0.112         &     0.00164         &      -0.111         &       0.507         &      0.0484         &       0.718         \\
+            &    (0.0631)         &    (0.0149)         &    (0.0521)         &     (0.769)         &     (0.140)         &     (0.231)         &    (0.0573)         &     (0.342)         &     (0.321)         &     (0.444)         \\
+\addlinespace
+\_cons      &      -2.456         &       0.481         &       0.926         &       13.83         &      -1.748         &       19.69\sym{**} &       0.746         &       1.397         &       20.75\sym{*}  &      -0.272         \\
+            &     (1.641)         &     (0.387)         &     (1.388)         &     (21.71)         &     (3.674)         &     (6.003)         &     (1.491)         &     (8.904)         &     (8.372)         &     (11.57)         \\
+\midrule
+\(N\)       &         815         &         815         &         390         &         126         &         780         &         684         &         804         &         808         &         810         &         792         \\
+\(R^{2}\)   &       0.259         &       0.059         &       0.055         &       0.117         &       0.028         &       0.034         &       0.028         &       0.025         &       0.043         &       0.058         \\
+\bottomrule
+\multicolumn{11}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{11}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+}

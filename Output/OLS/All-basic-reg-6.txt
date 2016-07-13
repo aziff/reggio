@@ -1,0 +1,34 @@
+	(1)
+VARIABLES	binSatisFamily
+	
+2.maternaType	0.194
+	(0.209)
+3.maternaType	0.227
+	(0.180)
+4.maternaType	0.437
+	(0.351)
+5.maternaType	0.200
+	(0.167)
+o.momAgeBirth	-
+	
+o.houseOwn	-
+	
+o.cgReddito_2	-
+	
+o.cgReddito_3	-
+	
+o.cgReddito_4	-
+	
+o.cgReddito_5	-
+	
+o.cgReddito_6	-
+	
+o.cgReddito_7	-
+	
+Constant	0.233
+	(1.228)
+	
+Observations	185
+R-squared	0.116
+Standard errors in parentheses	
+*** p<0.01, ** p<0.05, * p<0.1	

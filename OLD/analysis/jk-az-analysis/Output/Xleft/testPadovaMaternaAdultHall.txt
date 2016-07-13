@@ -1,0 +1,49 @@
+	(1)
+VARIABLES	HealthPerc
+	
+PadovaMaterna	0.049
+	[0.065]
+xmPadovaPriv	0.181
+	[0.150]
+xmPadovaStat	0.109
+	[0.073]
+xmPadovaNone	-0.064
+	[0.045]
+Male	0.046
+	[0.038]
+momMaxEdu_low	1.209***
+	[0.203]
+momMaxEdu_middle	0.417**
+	[0.208]
+momMaxEdu_HS	0.468**
+	[0.214]
+momMaxEdu_Uni	0.431**
+	[0.214]
+dadMaxEdu_low	0.223
+	[0.224]
+dadMaxEdu_middle	0.212
+	[0.237]
+dadMaxEdu_HS	0.201
+	[0.231]
+dadMaxEdu_Uni	0.301
+	[0.233]
+CAPI	0.051
+	[0.067]
+momBornProvince	0.046
+	[0.042]
+dadBornProvince	0.040
+	[0.045]
+houseOwn	-0.015
+	[0.043]
+Age	-0.062**
+	[0.024]
+Age_sq	0.001**
+	[0.000]
+Constant	1.486***
+	[0.567]
+	
+Observations	628
+R-squared	0.237
+Controls	all
+Robust standard errors in brackets	
+*** p<0.01, ** p<0.05, * p<0.1	

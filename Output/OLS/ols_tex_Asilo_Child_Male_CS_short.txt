@@ -1,0 +1,28 @@
+		(1)	(2)	(3)
+VARIABLES	LABELS			
+				
+xaReggioNone	Reggio None ITC	1.321*	1.498*	1.130
+		[0.750]	[0.825]	[0.937]
+xaReggioSome	Reggio other ITC	-0.860	-0.438	-0.238
+		[0.960]	[0.918]	[0.918]
+xaParmaMuni	Parma Muni ITC	-0.132	0.780	251.403
+		[0.614]	[0.856]	[173.322]
+xaPadovaMuni	Padova Muni ITC	1.328	4.062**	16.831
+		[0.979]	[1.604]	[162.396]
+xaParmaSome	Parma other ITC	-0.798	0.174	251.201
+		[0.872]	[0.977]	[173.275]
+xaPadovaSome	Padova other ITC	1.166	4.148***	17.595
+		[0.978]	[1.431]	[162.247]
+xaParmaNone	Parma None ITC	0.606	1.375	252.085
+		[0.706]	[0.945]	[173.315]
+xaPadovaNone	Padova None ITC	0.712	2.615**	15.479
+		[0.672]	[1.314]	[162.349]
+Constant	Constant	8.272***	103.780	15.748
+		[0.432]	[63.953]	[114.264]
+				
+Observations		421	421	421
+R-squared		0.026	0.209	0.301
+Controls		None	All	Inter
+Robust standard errors in brackets				
+*** p<0.01, ** p<0.05, * p<0.1				
+Dependent variable: SDQ score (mom rep.).				

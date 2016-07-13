@@ -1,0 +1,40 @@
+		(1)
+VARIABLES	LABELS	
+		
+xmReggioReli	Reggio Reli Preschool	0.048
+		[0.073]
+xmParmaMuni	Parma Muni Preschool	0.052
+		[0.066]
+xmPadovaMuni	Padova Muni Preschool	0.044
+		[0.081]
+xmParmaStat	Parma Stat Preschool	-0.123***
+		[0.042]
+xmPadovaStat	Padova Stat Preschool	-0.123***
+		[0.042]
+xmReggioStat	Reggio Stat Preschool	-0.073
+		[0.065]
+xmParmaReli	Parma Reli Preschool	-0.046
+		[0.068]
+xmPadovaReli	Padova Reli Preschool	-0.062
+		[0.052]
+xmParmaPriv	Parma Priv Preschool	-0.123***
+		[0.042]
+xmPadovaPriv	Padova Priv Preschool	-0.123***
+		[0.042]
+xmReggioPriv	Reggio Priv Preschool	-0.123***
+		[0.042]
+xmParmaNone	Parma None Preschool	-0.123***
+		[0.042]
+xmPadovaNone	Padova None Preschool	-0.123***
+		[0.042]
+xmReggioNone	Reggio None Preschool	-0.123***
+		[0.042]
+Constant	Constant	0.123***
+		[0.042]
+		
+Observations		349
+R-squared		0.039
+Controls		None
+Robust standard errors in brackets		
+*** p<0.01, ** p<0.05, * p<0.1		
+Dependent variable: Ability to sit still in a group when asked (difficulties in primary school).		

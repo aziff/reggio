@@ -1,0 +1,47 @@
+	(1)
+VARIABLES	Depression_score
+	
+ReggioAsilo	3.668*
+	[2.012]
+xaReggioPriv	4.705
+	[3.549]
+xaReggioNone	3.319
+	[2.018]
+Male	-0.443
+	[0.366]
+momMaxEdu_low	-0.312
+	[4.615]
+momMaxEdu_middle	0.787
+	[4.248]
+momMaxEdu_HS	0.045
+	[4.238]
+momMaxEdu_Uni	-0.131
+	[4.242]
+dadMaxEdu_low	-1.427
+	[2.619]
+dadMaxEdu_middle	3.367***
+	[0.996]
+dadMaxEdu_HS	3.294***
+	[0.907]
+dadMaxEdu_Uni	3.137***
+	[0.947]
+CAPI	-0.732
+	[0.503]
+momBornProvince	-0.852
+	[0.549]
+dadBornProvince	-0.283
+	[0.476]
+houseOwn	-0.516
+	[0.409]
+Age	-0.496**
+	[0.232]
+Age_sq	0.006**
+	[0.003]
+Constant	28.238***
+	[7.222]
+	
+Observations	746
+R-squared	0.346
+Controls	all
+Robust standard errors in brackets	
+*** p<0.01, ** p<0.05, * p<0.1	

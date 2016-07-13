@@ -1,0 +1,26 @@
+		(1)
+VARIABLES	LABELS	
+		
+xmReggioSome	Reggio other preschool	0.592
+		[0.731]
+xmParmaMuni	Parma Muni Preschool	-0.255
+		[0.732]
+xmPadovaMuni	Padova Muni Preschool	-0.558
+		[0.648]
+xmParmaSome	Parma other preschool	-0.024
+		[0.843]
+xmPadovaSome	Padova other preschool	-0.049
+		[0.604]
+xmParmaNone	Parma None Preschool	5.192***
+		[0.442]
+xmReggioNone	Reggio None Preschool	-0.808
+		[1.051]
+Constant	Constant	7.808***
+		[0.442]
+		
+Observations		363
+R-squared		0.011
+Controls		None
+Robust standard errors in brackets		
+*** p<0.01, ** p<0.05, * p<0.1		
+Dependent variable: SDQ score (mom rep.).		

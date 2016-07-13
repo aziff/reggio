@@ -1,0 +1,38 @@
+		(1)
+VARIABLES	LABELS	
+		
+xmReggioReli	Reggio Reli Preschool	0.124
+		[0.086]
+xmParmaMuni	Parma Muni Preschool	-0.029
+		[0.076]
+xmPadovaMuni	Padova Muni Preschool	-0.026
+		[0.085]
+xmParmaStat	Parma Stat Preschool	-0.093
+		[0.093]
+xmPadovaStat	Padova Stat Preschool	-0.136
+		[0.085]
+xmReggioStat	Reggio Stat Preschool	-0.093
+		[0.144]
+xmParmaReli	Parma Reli Preschool	0.033
+		[0.102]
+xmPadovaReli	Padova Reli Preschool	0.085
+		[0.082]
+xmParmaPriv	Parma Priv Preschool	-0.236***
+		[0.051]
+xmPadovaPriv	Padova Priv Preschool	0.097
+		[0.282]
+xmReggioPriv	Reggio Priv Preschool	0.431
+		[0.282]
+xmParmaNone	Parma None Preschool	0.764***
+		[0.051]
+xmReggioNone	Reggio None Preschool	-0.236***
+		[0.051]
+Constant	Constant	0.236***
+		[0.051]
+		
+Observations		354
+R-squared		0.048
+Controls		None
+Robust standard errors in brackets		
+*** p<0.01, ** p<0.05, * p<0.1		
+Dependent variable: Bothered by migrants (%).		

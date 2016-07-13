@@ -1,0 +1,29 @@
+		(1)	(2)	(3)	(4)	(5)
+VARIABLES	LABELS	Respondent health is good (%)	Respondent health is good (%)	Respondent health is good (%)	Respondent health is good (%)	Respondent health is good (%)
+						
+ReggioAsilo	RCH infant-toddler	0.090	0.064	0.141	0.135	0.098
+		[0.162]	[0.169]	[0.172]	[0.175]	[0.185]
+xaReggioNone	Reggio None ITC	-0.005	-0.032	0.047	0.042	0.011
+		[0.164]	[0.170]	[0.174]	[0.177]	[0.187]
+xaReggioPriv	Reggio Priv ITC	0.333**	0.293	0.294	0.278	0.287
+		[0.158]	[0.179]	[0.182]	[0.186]	[0.204]
+xaParmaNone	Parma None ITC	0.105	0.147	0.127	0.133	0.150
+		[0.165]	[0.133]	[0.139]	[0.139]	[0.156]
+xaParmaMuni	Parma Muni ITC	0.042	0.107	0.104	0.114	0.172
+		[0.167]	[0.136]	[0.141]	[0.142]	[0.156]
+xaParmaPriv	Parma Priv ITC	0.346*	0.318**	0.273	0.274	0.251
+		[0.188]	[0.159]	[0.166]	[0.167]	[0.184]
+xaPadovaNone	Padova None ITC	0.186	0.263*	0.274**	0.278**	0.266*
+		[0.191]	[0.142]	[0.134]	[0.134]	[0.155]
+xaPadovaMuni	Padova Muni ITC	0.133	0.273*	0.286**	0.291**	0.262
+		[0.197]	[0.152]	[0.145]	[0.145]	[0.166]
+Male	Male dummy			0.091***	0.089***	0.097*
+				[0.032]	[0.032]	[0.057]
+Constant	Constant	0.667***	0.845***	13.274	12.814	56.602
+		[0.158]	[0.192]	[43.065]	[42.902]	[77.528]
+						
+Observations		820	820	820	820	820
+R-squared		0.033	0.200	0.223	0.225	0.271
+Controls		None	Yes	Yes	All	Inter
+Robust standard errors in brackets						
+*** p<0.01, ** p<0.05, * p<0.1						
