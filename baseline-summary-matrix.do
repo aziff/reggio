@@ -2,8 +2,9 @@ global klmReggio   : env klmReggio
 global data_reggio : env data_reggio
 *global git_reggio  : env git_reggio
 
-include "${klmReggio}/Analysis/prepare-data"
-include "${klmReggio}/Analysis/baseline-rename"
+//include "${klmReggio}/Analysis/prepare-data"
+include "~/Desktop/work/repos/reggio/prepare-data"
+include "~/Desktop/work/repos/reggio/baseline-rename"
 
 *-* Adjust variables and statistics of interest
 #delimit ;
@@ -87,14 +88,14 @@ label value maternaType 	materna_type
 local materna_name			Materna
 
 local header1				"\textbf{Outcome} & \multicolumn{6}{c}{\textbf{C. Mean}} & & \multicolumn{6}{c}{\textbf{Mean}} \\"
-local header2				"\quad \quad Sample & Muni & State & Reli & Priv & None & R-Sq & & Muni & State & Reli & Priv & None & R-Sq \\"
-local header3				"\quad \quad Restrictions & \tiny{$\boldsymbol{\gamma_0}$}& \tiny{$\boldsymbol{\gamma_0+\gamma_1}$}& \tiny{$\boldsymbol{\gamma_0+\gamma_2}$}& \tiny{$\boldsymbol{\gamma_0+\gamma_3}$}& \tiny{$\boldsymbol{\gamma_0+\gamma_4}$} \\"
+local header2				"\quad \quad Sample & Muni & State & Reli & Priv & None & $ R^2$ & & Muni & State & Reli & Priv & None & $ R^2$ \\"
+local header3				"\quad \quad Restriction & \tiny{$\boldsymbol{\gamma_0}$}& \tiny{$\boldsymbol{\gamma_0+\gamma_1}$}& \tiny{$\boldsymbol{\gamma_0+\gamma_2}$}& \tiny{$\boldsymbol{\gamma_0+\gamma_3}$}& \tiny{$\boldsymbol{\gamma_0+\gamma_4}$} & & & \tiny{$\boldsymbol{\gamma_0}$}& \tiny{$\boldsymbol{\gamma_0+\gamma_1}$}& \tiny{$\boldsymbol{\gamma_0+\gamma_2}$}& \tiny{$\boldsymbol{\gamma_0+\gamma_3}$}& \tiny{$\boldsymbol{\gamma_0+\gamma_4}$} \\"
 
-cd "${klmReggio}/Analysis/"
+cd "~/Desktop/work/repos/reggio"
 
 		
 foreach out_type in E W L H N S{
-	file open baseline using "Trial_output/meanOutcome_`out_type'.tex", write replace
+	file open baseline using "Output/meanOutcome_`out_type'.tex", write replace
 	file write baseline "`header1'" _n
 	file write baseline "`header2'" _n
 	file write baseline "`header3'" _n
@@ -107,132 +108,133 @@ foreach out_type in E W L H N S{
 		file write baseline "\textbf{``v'_lab'} \\*[.1cm]" _n
 		local cohort_i = 4
 		foreach cohort in Adult30 Adult40 Adult50{
-
+			
+			
 			sum `v' if maternaType == 1 & City == 1 & Cohort == `cohort_i'
 			local mean_s = r(mean)
 			local mean_s: di %9.2f `mean_s'
 		
 			file write baseline "\quad \quad `cohort' & & & & & & & & \multicolumn{6}{c}{\highlight{Reference mean = \textbf{`mean_s'}}} \\*[.1cm]" _n
-		
+			
 			local city_i = 1
 			foreach city in `cities' {
 		
 				file write baseline "\quad \quad \quad \quad `city'"
-			
+				
 				* Conditional mean
 				cap reg `v' ib1.maternaType `adult_baseline_vars_`out_type'' if `city' == 1 & Cohort_`cohort' == 1
 				if _rc {
 					continue
 				}
+				
 				cap matrix drop cond
 				matrix cond = r(table)
 				cap matrix drop cons
 				matrix cons = cond[1,"_cons"]
+				cap matrix drop V
+				matrix V = e(V)
+				cap matrix drop B
+				matrix B = e(b)
+				
 				local constant = cons[1,1]
 				local cond_r_squared = e(r2)
 				local cond_N = e(N)
 				
-*----------------------------------------------------------------------------------------------------------------------------------
-* Begin Sid edit
-*----------------------------------------------------------------------------------------------------------------------------------	
+				local cons_colNum = colnumb(V,"_cons")
+				local se_cons = V[`cons_colNum',`cons_colNum']
 			
 				local cond_r_squared: di %9.2f `cond_r_squared'
 				
 				local colName 1b.maternaType 2.maternaType 3.maternaType 4.maternaType 5.maternaType
 				
 				local num = 1
-				foreach tmp_type of local colName{
+				foreach tmp_type of local colName {
 					local colNum = colnumb(cond,"`tmp_type'")  		// Identifying column # in matrix for each maternaType
 					
-					local var`num' = cond[1,`colNum']
+					local var`num' = B[1,`colNum']
 					local cond_mean_var`num' = `constant' + `var`num''
-					local p_var`num' = cond[4,`colNum']
+					
+					local se`num' = V[`colNum',`colNum'] + `se_cons' + 2*V[`cons_colNum',`colNum']
+					local t`num' = `cond_mean_var`num''/sqrt(`se`num'')
 					
 					local cond_mean_var`num': di %9.2f `cond_mean_var`num''
 					
-					if `p_var`num'' <= 0.1{
+					/*
+					if 2*(1-normal(abs(`t`num''))) <= 0.1 {
 						local cond_mean_var`num' \textbf{`cond_mean_var`num''}
 					}
+					*/
 					
 					local num=`num'+1
 				}
 						
-				local cond_meanMunicipal `cond_mean_var1'
-				local cond_meanState `cond_mean_var2'
-				local cond_meanReligious  `cond_mean_var3'
-				local cond_meanPrivate  `cond_mean_var4'
-				local cond_meanNone  `cond_mean_var5'
-
-
-*----------------------------------------------------------------------------------------------------------------------------------				
-* End Sid edit			
-*-------------------------------------------------------------------------------------------------------------------------------------
+				local cond_meanMunicipal 	`cond_mean_var1'
+				local cond_meanState 		`cond_mean_var2'
+				local cond_meanReligious  	`cond_mean_var3'
+				local cond_meanPrivate  	`cond_mean_var4'
+				local cond_meanNone  		`cond_mean_var5'
+	
 				local row
+					
+				* Unconditional mean
+				reg `v' i.maternaType if `city' == 1 & Cohort_`cohort' == 1
+				local r_squared = e(r2)
+				local N_save 	= e(N)
+
+				local r_squared : di %9.2f `r_squared'
+					
+				cap matrix drop un_cond
+				matrix un_cond = r(table)
+				cap matrix drop un_cons
+				matrix un_cons = un_cond[1,"_cons"]
+				cap matrix drop un_V
+				matrix un_V = e(V)
+				cap matrix drop un_B
+				matrix un_B = e(b)
 				
-				local school_i = 1
-				foreach s in `schools' {
+				local un_constant = un_cons[1,1]
+				local un_cond_r_squared = e(r2)
+				local un_cond_N = e(N)
 				
-					sum `v' if maternaType == `school_i' & `city' == 1 & Cohort_`cohort' == 1
+				local un_cons_colNum = colnumb(un_V,"_cons")
+				local un_se_cons = un_V[`un_cons_colNum',`un_cons_colNum']
 			
-					local mean_save_`s' = r(mean)
-					
-					* Unconditional mean
-					reg `v' i.maternaType if `city' == 1 & Cohort_`cohort' == 1
-					local r_squared = e(r2)
-					local N_save 	= e(N)
-
-					
-					local mean_save_`s': di %9.2f `mean_save_`s''
-					local r_squared : di %9.2f `r_squared'
-					
-					local p_save = 999 // in case the ttest doesn't go through
-					preserve 
-						
-						keep if Cohort_`cohort' == 1
-						keep if City == 1 | `city' == 1
-						keep if maternaType == 1 | maternaType == `school_i' 
-						tab maternaType City
-						tab Cohort
-						
-						gen compare_group = .
-						replace compare_group = 1 if maternaType == 1 & City == 1 
-						replace compare_group = 0 if maternaType == `school_i' & `city' == 1
-						
-						tab compare_group
-						if r(r) == 2 & `N_save' > 0 & `N_save' != . {
-							capture ttest `v', by(compare_group) unequal welch
-							if _rc {
-								restore
-								local school_i = `school_i' + 1 
-								continue
-							}
-							local p_save = r(p)
-						}
-					
-					restore 
-					
-					// reformat statistics
-					foreach l in min max p50 sd p {
-						local `l'_save : di %9.2f ``l'_save'
-					}	
-
+				local un_r_squared: di %9.2f `un_r_squared'
 				
-					local N_save : di %9.0f `N_save'
-					local cond_N : di %9.0f `cond_N'
-						
-					if `N_save' == 0 {
-						local N_save .
-					}
-						
-					if `p_save' <= 0.1 {
-						local mean_save_`s' \textbf{`mean_save_`s''}
-					}
-
-													
-				local school_i = `school_i' + 1
-				}
+				local colName 1b.maternaType 2.maternaType 3.maternaType 4.maternaType 5.maternaType
+				
+					local num = 1
+					foreach tmp_type of local colName {
+						local colNum = colnumb(un_cond,"`tmp_type'")  		// Identifying column # in matrix for each maternaType
 					
-			local umean `mean_save_Municipal' & `mean_save_State' & `mean_save_Religious' & `mean_save_Private' & `mean_save_None'
+						local un_var`num' = un_B[1,`colNum']
+						local un_cond_mean_var`num' = `un_constant' + `un_var`num''
+						
+						local un_se`num' = un_V[`colNum',`colNum'] + `un_se_cons' + 2*V[`un_cons_colNum',`colNum']
+						local un_t`num' = `un_cond_mean_var`num''/sqrt(`un_se`num'')
+						
+						local un_cond_mean_var`num': di %9.2f `un_cond_mean_var`num''
+					
+						/*
+						if 2*(1-normal(abs(`un_t`num''))) <= 0.1  {
+							local un_cond_mean_var`num' \textbf{`un_cond_mean_var`num''}
+						}
+						*/
+						local num=`num'+1
+					}
+						
+					local un_cond_meanMunicipal 	`un_cond_mean_var1'
+					local un_cond_meanState 		`un_cond_mean_var2'
+					local un_cond_meanReligious  	`un_cond_mean_var3'
+					local un_cond_meanPrivate  		`un_cond_mean_var4'
+					local un_cond_meanNone  		`un_cond_mean_var5'
+
+					//local N_save : di %9.0f `N_save'
+					//local cond_N : di %9.0f `cond_N'
+	
+						
+					
+			local umean `un_cond_meanMunicipal' & `un_cond_meanState' & `un_cond_meanReligious' & `un_cond_meanPrivate' & `un_cond_meanNone'
 			local cmean `cond_meanMunicipal' & `cond_meanState' & `cond_meanReligious' & `cond_meanPrivate' & `cond_meanNone'
 			
 			file write baseline "& `cmean' & `cond_r_squared' & & `umean' & `r_squared' \\*" _n
