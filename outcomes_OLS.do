@@ -79,6 +79,20 @@ local m_condition					keep if Male == 1
 local f_condition					keep if Male == 0
 local p_condition
 
+local m_name						Males
+local f_name						Females
+local p_name						Pooled
+local S_name						Social 
+local N_name						Non-cognitive
+local H_name						Health
+local L_name						Household and Family
+local W_name						Employment
+local E_name						Education
+
+local Adult30_name	 				Adult 30
+local Adult40_name					Adult 40
+local Adult50_name					Adult 50
+
 
 *-* To ease display of table
 
@@ -110,6 +124,17 @@ foreach sex in m f p {
 		file write baseline "`header2'" _n
 		file write baseline "`header3'" _n
 		file write baseline "\hline \endhead" _n
+		
+		file open ols using "Output/OLS/OLStable_`out_type'`sex'.tex", write replace
+		file write ols "\begin{longtable}{L{7em} c c c c c c c c c c c c c c c}" _n
+		file write ols "\caption{OLS Estimated Coefficients, ``out_type'_name' Outcomes, ``sex'_name'}\label{OLS-`out_type'-`sex'} \\" _n
+		file write ols "\toprule" _n
+		file write ols " & \multicolumn{7}{c}{\textbf{Conditional}} & & \multicolumn{7}{c}{\textbf{Unconditional}} \\" _n
+		file write ols " & Muni$ ^*$ & State & Reli & Priv & None & $ R^2$ & $ N$ & & Muni$ ^*$ & State & Reli & Priv & None & $ R^2$ & $ N$ \\" _n
+		file write ols "\midrule \endhead" _n
+		file write ols "\bottomrule \\" _n
+		file write ols "\multicolumn{16}{L{21.5cm}}{\textbf{Note:} \OLS}" _n
+		file write ols "\endfoot" _n
 
 		foreach v in `adult_outcome_`out_type'' {
 	
@@ -117,6 +142,8 @@ foreach sex in m f p {
 		
 			file write baseline "~\\*[.05cm]" _n
 			file write baseline "\textbf{``v'_lab'} \\*[.1cm]" _n
+			
+			file write ols "\textbf{``v'_lab'} \\" _n
 		
 			local cohort_i = 4
 			foreach cohort in Adult30 Adult40 Adult50 {
@@ -126,12 +153,14 @@ foreach sex in m f p {
 				local mean_s = r(mean)
 				local mean_s: di %9.2f `mean_s'
 		
-				file write baseline "\quad \quad `cohort' & & & & & & & & \multicolumn{6}{c}{\highlight{Reference mean = \textbf{`mean_s'}}} \\*[.1cm]" _n
+				file write baseline "\quad \quad \textbf{``cohort'_name'} & & & & & & & & \multicolumn{6}{c}{\highlight{Reference mean = \textbf{`mean_s'}}} \\*[.1cm]" _n
+				file write ols 		"\quad \quad \textbf{``cohort'_name'} & & & & & & & & & & & & & & & \\ " _n
 				
 				local city_i = 1
 				foreach city in `cities' {
 		
-					file write baseline "\quad \quad \quad \quad `city'"
+					file write baseline "\quad \quad \quad `city'"
+					file write ols 		"\quad \quad \quad `city'"
 						
 					foreach mean_type in cond un_cond {
 				
@@ -145,7 +174,7 @@ foreach sex in m f p {
 						}
 						* Unconditional mean
 						else {
-							reg `v' i.maternaType if `city' == 1 & Cohort_`cohort' == 1
+							reg `v' ib1.maternaType if `city' == 1 & Cohort_`cohort' == 1
 							matrix list r(table)
 						}
 					
@@ -174,6 +203,9 @@ foreach sex in m f p {
 						local `mean_type'_cons_colNum 	= colnumb(`mean_type'_V,"_cons")
 					
 						local `mean_type'_se_cons 		= `mean_type'_V[``mean_type'_cons_colNum',``mean_type'_cons_colNum']
+						local `mean_type'_p_cons		= `mean_type'[4,``mean_type'_cons_colNum']
+						
+						
 			
 						// compute estimated coefficients
 						local colName 1b.maternaType 2.maternaType 3.maternaType 4.maternaType 5.maternaType
@@ -192,6 +224,7 @@ foreach sex in m f p {
 							local `mean_type'_variance`num' = `mean_type'_V[`colNum',`colNum'] + ``mean_type'_se_cons' + 2*`mean_type'_V[``mean_type'_cons_colNum',`colNum']
 							local `mean_type'_se`num' 		= sqrt(``mean_type'_variance`num'')
 							local `mean_type'_t`num' 		= ``mean_type'_mean_var`num''/``mean_type'_se`num''
+							local `mean_type'_p`num'		= `mean_type'[4,`colNum']
 						
 							// significance comparing to municipal
 							if "`city'" == "Reggio" & `num' == 1 {
@@ -200,9 +233,17 @@ foreach sex in m f p {
 								local Reggio_`mean_type'_N 			= ``mean_type'_N'
 							}
 						
-							local `mean_type'_mean_var`num': di %9.2f ``mean_type'_mean_var`num''
+							local `mean_type'_mean_var`num'	: di %9.2f ``mean_type'_mean_var`num''
+							local `mean_type'_var`num'		: di %9.3f ``mean_type'_var`num''
+							local `mean_type'_p`num'		: di %9.3f ``mean_type'_p`num''
+							local `mean_type'_se`num'		: di %9.3f ``mean_type'_se`num''
+							
 							if ``mean_type'_mean_var`num'' == -0.00 {
 								local `mean_type'_mean_var`num' = 0.00
+							}
+							
+							if ``mean_type'_p`num'' <= 0.1 {
+								local `mean_type'_var`num' $ \mathbf{``mean_type'_var`num''}$
 							}
 						
 							else {
@@ -231,6 +272,10 @@ foreach sex in m f p {
 					
 							local num=`num'+1
 						}
+					
+					
+					local `mean_type'_se_cons 	: di %9.2f ``mean_type'_se_cons'
+					local `mean_type'_p_cons 	: di %9.2f ``mean_type'_p_cons'
 						
 					local `mean_type'_meanMunicipal 	``mean_type'_mean_var1'
 					local `mean_type'_meanState 		``mean_type'_mean_var2'
@@ -244,15 +289,34 @@ foreach sex in m f p {
 					
 				local umean `un_cond_meanMunicipal' & `un_cond_meanState' & `un_cond_meanReligious' & `un_cond_meanPrivate' & `un_cond_meanNone'
 				local cmean `cond_meanMunicipal' & `cond_meanState' & `cond_meanReligious' & `cond_meanPrivate' & `cond_meanNone'
+				
+				local u_coeff `un_cond_meanMunicipal' & `un_cond_var2' & `un_cond_var3' & `un_cond_var4' & `un_cond_var5'
+				local c_coeff `cond_meanMunicipal' & `cond_var2' & `cond_var3' & `cond_var4' & `cond_var5'
+				
+				local u_se $ (`un_cond_se_cons')$ & $ (`un_cond_se2')$ & $ (`un_cond_se3')$ & $ (`un_cond_se4')$ & $ (`un_cond_se5')$
+				local c_se $ (`cond_se_cons')$ & $ (`cond_se2')$ & $ (`cond_se3')$ & $ (`cond_se4')$ & $ (`cond_se5')$
+				
+				local u_p [`un_cond_p_cons'] & [`un_cond_p2'] & [`un_cond_p3'] & [`un_cond_p4'] & [`un_cond_p5']
+				local c_p [`cond_p_cons']  & [`cond_p2'] & [`cond_p3'] & [`cond_p4'] & [`cond_p5']
 			
-				file write baseline "& `cmean' & `cond_r_squared' & & `umean' & `un_cond_r_squared' \\*" _n
+				file write baseline "& `cmean' & `cond_r_squared' & & `umean' & & `un_cond_r_squared' \\*" _n
+				file write ols		"& `c_coeff' & `cond_r_squared' & `cond_N' & & `u_coeff' & `un_cond_r_squared' & `un_cond_N'  \\" _n
+				file write ols		"\quad \quad \quad \quad s.e.& `c_se' & & & & `u_se' & &  \\" _n
+				file write ols		"\quad \quad \quad \quad $ p$ & `c_p' & & & & `u_p' & &  \\" _n
 				local city_i = `city_i' + 1
 				}
 			file write baseline "\\" _n
+			file write ols "\\" _n
 			local cohort_i = `cohort_i' + 1
 			}
+			
+			file write ols "\midrule" _n
 		}
+	
 	file close baseline
+	file write ols "\bottomrule" _n
+	file write ols "\end{longtable}"
+	file close ols
 	}
 restore
 }
