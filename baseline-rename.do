@@ -1,8 +1,7 @@
 * ---------------------------------------------------------------------------- *
 * Labeling and Renaming Variables (Preparation Step for Estimation)
-* Helpful for beautiful tables
 * Authors: Anna Ziff, Jessica Yu Kyung Koh
-* Date Modified: 07/12/2016
+* Date Modified: 07/05/2016
 * ---------------------------------------------------------------------------- *
 
 * ---------------------------------------------------------------------------- *
@@ -55,6 +54,8 @@ label var Drink1Age				"Age At First Drink"
 
 label var LocusControl			"Locus of Control"
 label var Depression_score		"Depression Score"
+label var pos_LocusControl		"Locus of Control - Positive"
+label var pos_Depression_score	"Depression Score - Positive"
 label var binSatisIncome		"Satisfied with Income"
 label var binSatisWork			"Satisfied with Work"
 label var binSatisHealth 		"Satisfied with Health"
@@ -109,6 +110,10 @@ local Drink1Age_lab				Age At First Drink
 
 local LocusControl_lab			Locus of Control
 local Depression_score_lab		Depression Score
+
+local pos_LocusControl_lab		Locus of Control - positive
+local pos_Depression_score_lab	Depression Score - positive
+
 local binSatisIncome_lab		Satisfied with Income
 local binSatisWork_lab			Satisfied with Work
 local binSatisHealth_lab 		Satisfied with Health 

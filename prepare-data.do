@@ -30,7 +30,7 @@ global git_reggio   :    env git_reggio
 cd ~/Desktop
 use Reggio, clear
 
-cd ${klmReggio}/Analysis/Output/
+//cd ${klmReggio}/Analysis/Output/
 * ---------------------------------------------------------------------------- *
 * Create locals and label variables
 ** Categories
