@@ -101,7 +101,7 @@ local binSatisIncome_lab		Satisfied with Income
 local binSatisWork_lab			Satisfied with Work
 local binSatisHealth_lab 		Satisfied with Health 
 local binSatisFamily_lab		Satisfied with Family
-local optimist_lab				Optimistic Look on Life
+local optimist_lab				Optimistic Look in Life
 local reciprocity1bin_lab		Return Favor 
 local reciprocity2bin_lab		Put Someone in Difficulty
 local reciprocity3bin_lab		Help Someone Kind To Me
@@ -148,6 +148,10 @@ local Drink1Age_short			DAG
 
 local LocusControl_short		LC
 local Depression_score_short	DS
+
+local pos_LocusControl_short		PLC
+local pos_Depression_score_short	PDS
+
 local binSatisIncome_short		SI
 local binSatisWork_short		SW
 local binSatisHealth_short 		SH 
@@ -225,7 +229,7 @@ local 40S_l		xmStatAdult40
 local 40R_l		xmReliAdult40 
 local 40P_l		xmPrivAdult40 	
 			
-			
+/*			
 foreach g in p m f  {
 	foreach o in E W L H N {
 	
@@ -303,7 +307,7 @@ foreach g in p m f  {
 		}
 	}
 }
-
+*/
 * ---------------------------------------------------------------------------- *
 * Regression: Fix Cohort
 * ---------------------------------------------------------------------------- *
@@ -328,8 +332,7 @@ local VP_l		xmPrivPadova
 			
 			
 foreach g in p m f  {
-	foreach o in E W L H N {
-	
+	foreach o in N E W L H {
 		if `full_switch' == 1 {
 			local controls `adult_baseline_vars_`o''
 			local folder	full
@@ -339,7 +342,7 @@ foreach g in p m f  {
 			local folder 	bic
 		}
 	
-		foreach cohort in Adult30 Adult40 Adult50 {
+		foreach cohort in Adult30 Adult40 Adult50{
 			foreach var in `adult_outcome_`o'' {
 				* Estimate
 				sum `var' if Cohort_`cohort' == 1 ``g'_con'
@@ -374,7 +377,7 @@ foreach g in p m f  {
 			}
 			
 		* Make LaTeX table for Single Dummies
-		file open d_`type'_`o'`g' using "${klmReggio}/Analysis/Output/DiD/`folder'/single`cohort'_`o'`g'.tex", write replace
+		file open d_`type'_`o'`g' using "${git_reggio}/Analysis/Output/DiD/`folder'/single`cohort'_`o'`g'.tex", write replace
 		file write d_`type'_`o'`g' "\begin{tabular}{L{6.2cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{0.3cm} C{0.3cm}}" _n
 		file write d_`type'_`o'`g' "\toprule" _n
 		file write d_`type'_`o'`g' " \textbf{Outcome} & \textbf{Parma Muni} & \textbf{Padova Muni} & \textbf{Reggio None} & \textbf{Reggio Stat} & \textbf{Reggio Reli} & \textbf{N} & \textbf{$ R^2$} \\" _n
@@ -389,7 +392,7 @@ foreach g in p m f  {
 		
 		
 		* Make LaTeX table for Diff-in-Diff
-	    file open did_`type'_`o'`g' using "${klmReggio}/Analysis/Output/DiD/`folder'/did`cohort'_`o'`g'.tex", write replace
+	    file open did_`type'_`o'`g' using "${git_reggio}/Analysis/Output/DiD/`folder'/did`cohort'_`o'`g'.tex", write replace
 		file write did_`type'_`o'`g' "\begin{tabular}{lcccccccc}" _n
 		file write did_`type'_`o'`g' "\toprule" _n
 		file write did_`type'_`o'`g' " \textbf{Outcome} & \textbf{(1)} & \textbf{(2)} & \textbf{(3)} & \textbf{(4)} & \textbf{(5)} & \textbf{(6)} & \textbf{N} & \textbf{$ R^2$} \\" _n
