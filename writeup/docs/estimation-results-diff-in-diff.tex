@@ -1,0 +1,654 @@
+\documentclass[11pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\parindent 22pt
+
+\usepackage{adjustbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{appendix}
+\usepackage{array}
+\usepackage{authblk}
+\usepackage{booktabs}
+\usepackage{caption} 
+\usepackage{color}
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,anchorcolor=blue,citecolor=blue]{hyperref}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{pdfpages}
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage{pdflscape}
+\usepackage{pgffor}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage{threeparttable}
+\usepackage[colorinlistoftodos,linecolor=black]{todonotes}
+\usepackage{enumitem}
+
+\setlist{  
+  listparindent=\parindent,
+  parsep=0pt,}
+  
+\captionsetup[table]{skip = 2pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+\newcommand{\highlight}[1]{\colorbox{lightgray}{#1}}
+
+\newcommand{\fnDID}{\underline{Note:} This table shows difference in difference across school types and cities with the sample restricted to a specific age cohort. For convenience, we denote "Reggio None" as individuals in Reggio who did not attend any materna school. Notations are analogous across city and school type. Each column shows the following diff-in-diff estimate. \textbf{(1)} (Reggio Muni - Reggio None) - (Parma Muni - Parma None), \textbf{(2)} (Reggio Muni - Reggio State) - (Parma Muni -  Parma State), \textbf{(3)} (Reggio Muni - Reggio Reli) - (Parma Muni - Parma Reli), \textbf{(4)}(Reggio Muni - Reggio None) - (Padova Muni - Padova None),  \textbf{(5)}  (Reggio Muni - Reggio State) - (Padova Muni - Padova State), \textbf{(6)}  (Reggio Muni - Reggio Reli) - (Padova Muni - Padova Reli). Bold number indicates statistical significance at the 10\% level. Standard errors are reported in parentheses.}
+
+
+\newcommand{\fnOLS}{This table presents conditional and unconditional OLS results for our outcomes of interest. For each school type, the ``C. Mean" section shows the conditional means and the ``Mean" section shows the unconditional means.}
+
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+
+\settimeformat{hhmmsstime}
+
+%--------------------------------------------------------------------------------------
+\begin{document}
+
+\title{Effects of the Reggio Approach on Adult Cohorts: Estimation Strategy and Results}
+\author{Reggio Team}
+\date{Original version: Thursday  16$^{\text{th}}$ June, 2016 \\ Current version: \today \\ \vspace{1em} Time: \currenttime}
+\maketitle
+
+\doublespacing
+
+\section{Introduction}
+
+This document presents the estimation strategies and summarizes estimation results across different methodologies. This document focuses on adult cohorts and how their materna decisions might have affected their adult outcomes. We use the following two different approaches in comparing the outcomes across people who attended different types of preschool: (1) OLS with and without controls, (2) difference-in-difference with controls. For the summary of outcomes, we focus on outcomes that show consistently significant differences between the Reggio Approach materna schools and non-Reggio Approach childcare options. Tables with the full estimation results are included in the appendix. 
+
+\section{Methodology}
+We begin by specifying a basic single-outcome OLS model. In the following sections, we expand this model to include $j$ possible outcomes, city, cohort and preschool-type fixed effects, and estimators of difference-in-difference effects.
+
+Consider the determinants for individual, $i$'s, lifecycle outcomes which might include labor market participation, social participation, civic engagement, health and mental health, and non-cognitive skills. Each outcome is considered to be determined by the individual's baseline characteristics, $X$, which includes family background, household income, ethnic and religious identity, and other individual characteristics. For this simplest  case, considering only one possible outcome, $y_1$, we specify the following relationship  where $\varepsilon_{i}$ is an individual-specific disturbance that we assume to be independent from the outcome after conditioning on the controls, and $c_{i,1} = \mathbf{1}(C_i = c_1)$ is a dummy indicator for person, $i$, living in city 1.
+
+\begin{equation} \label{ols}
+y_{i,1} =  X_i \beta' + \gamma_1 c_{i,1} + \varepsilon_{i}
+\end{equation}
+
+Consider the simple example of two cities, cohorts, and preschool types. The baseline OLS model ignores effects from cohort or type of preschool. We define a reference city, and estimate the effect of not attending preschool in that city, which assumes that all preschool types are perfect substitutes within the respective cities.  The estimated $\tilde{\beta}$ can be interpreted as the differences in $Y_i$ that are explained by observed characteristics, and  $\tilde{\gamma_1}$ is the estimated effect of not living in the reference city. 
+
+
+\subsection{Preschool's Effect on Lifecycle Outcomes -- Fixed Effect Model}
+Starting from this baseline specification, we consider the set of $j$ possible outcomes, $\{y_1, \dots, y_j\}$, and account for the possibility of city, $c$, cohort, $k$, and preschool-type, $s$ fixed-effects. %, along with all possible two-way\footnote{i.e., The difference-in-difference effects} and all possible three way effects\footnote{i.e., The triple difference (or diff-in-diff-in-diff effects)}. This system is represented below:
+
+%\begin{subequations}
+%\begin{align}
+%y_{i,1} & = \beta_{1}x_i  + \gamma^c_{1} c_i + \gamma^k_{1} k_i + \gamma^s_{1} s_i + \gamma^k_{1} k_i + \gamma^{c,k}_{1} (c_i \times k_i) + \gamma^{k,s}_{1} (k_i \times s_i) + \gamma^{c,s}_{1} (c_i \times s_i) + \\
+%&\qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad +\gamma^{c,k,s}_{1} (c_i \times k_i \times s_i) + \varepsilon_{i,c,k,s,1}  \nonumber \\
+%y_{i,2} & = \beta_{2}x_i  + \gamma^c_{2} c_i + \gamma^k_{2} k_i + \gamma^s_{2} s_i + \gamma^k_{2} k_i + \gamma^{c,k}_{2} (c_i \times k_i) + \gamma^{k,s}_{2} (k_i \times s_i) + \gamma^{c,s}_{2} (c_i \times s_i) + \\
+%\vdots & \qquad \qquad \qquad \qquad \qquad \qquad \vdots \qquad \qquad \qquad \qquad \qquad \qquad +\gamma^{c,k,s}_{2} (c_i \times k_i \times s_i) + \varepsilon_{i,c,k,s,2}  \nonumber \\
+%\vdots & \qquad \qquad \qquad \qquad \qquad \qquad \vdots \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \vdots  \nonumber \\
+%y_{i,j} & = \beta_{j}x_i + \gamma^c_{j} c_i + \gamma^k_{j} k_i + \gamma^s_{j} s_i + \gamma^k_{j} k_i + \gamma^{c,k}_{j} (c_i \times k_i) + \gamma^{k,s}_{j} (k_i \times s_i) + \gamma^{c,s}_{j} (c_i \times s_i) + \\
+%& \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad \qquad +\gamma^{c,k,s}_{j} (c_i \times k_i \times s_i) + \varepsilon_{i,c,k,s,j}  \nonumber
+%\end{align}
+%\end{subequations}
+
+Defining $Y_i = [y_1, \dots , y_j]'$ as the vector of outcomes, $C_i$ as a $\ell \times 1$ vector indicating city where $c_{a} = \mathbf{1}(C_i = c_a)\; \forall a \in \{1, \dots, {\ell} \}$, $K_i$ as a $m \times 1$ vector indicating the individual's cohort where $k_a = \mathbf{1}(K_i = k_a)\; \forall a \in \{1, \dots, m\}$, and  $S_i$ as a $n \times 1$ vector indicating school type where $s_a = \mathbf{1}(S_i = s_a)\; \forall a \in \{1, \dots, n \}$, we can write a fixed-effects model as follows:
+
+%.  Ignoring the interaction terms for now, we can rewrite the system of equations for $\{y_{i,1}, \dots, y_{i,j}\}$ in terms of $Y_i,\ \mathbf{c},\ \mathbf{k}, \text{ and, } \mathbf{s}$ as: 
+
+\begin{equation} \label{eq:fixed}
+Y_i = X_i \boldsymbol{\beta}' + \boldsymbol{C_i} \boldsymbol{\gamma}_c' + \boldsymbol{K_i} \boldsymbol{\gamma}_k' + \boldsymbol{S_i} \boldsymbol{\gamma}_s'  + \boldsymbol{\varepsilon}_{i}
+\end{equation}
+
+Note that this is a standard OLS regression model that includes city-specific fixed effects, $ \boldsymbol{C_i \gamma}_c$, cohort-specific fixed effects,  $ \boldsymbol{K_i \gamma}_k$, and preschool-type fixed effects, $ \boldsymbol{S_i \gamma}_s$. Again for the case where $\ell = m = n = 2$, the coeffcients on $C, K, S$ can be interpreted as the specific effects from an individual not being part of the respective reference group. To illustrate, we restrict our sample to only those individuals from city 1. In this case,  $\tilde{\gamma}_c = 0$	 as there is no variation in city when the city is fixed. However, $ \tilde{\gamma}_s, \tilde{\gamma}_k \neq 0$ and can be interpreted as the effect on an individual for being different from the reference school and cohort. 
+
+\subsection{Preschool's Effect on Lifecycle Outcomes -- Difference-in-difference Model}
+
+We also expand this model to include two-way interactions between, $C_i,$ $K_i,$ and $S_i$ and define the respective coefficients as the difference-in-difference estimator, and finally, the three-way interaction, $C_i \times K_i \times S_i$, and define the coefficients as the difference-in-difference-in-differences estimator.  We now define the two-- and three-way interaction terms. Let $M_i = C_i \otimes K_i$,  $N_i = C_i \otimes S_i$, $Q_i = K_i \otimes S_i$, and let $T_i = C_i \otimes K_i \otimes S_i$:\footnote{The kronecker product of three $\ell \times 1$, $m \times 1$, and $n \times 1$ yields a $(\ell \times m \times n) \times 1$ long column vector of the desired interactions. (Turkington 2002, 2013)}  : where the vectors of interaction terms are given as:
+
+\begin{equation*}
+\underset{\begin{bmatrix} m_1 = c_1 k_1 \\
+\vdots  \\
+m_m = c_1 k_m  \\
+\vdots  \\
+m_{\ell m} = c_{\ell} k_m 
+\end{bmatrix}}{M_i = C_i \otimes K_i  } \qquad \qquad
+ \underset{\begin{bmatrix} n_1 = c_1 s_1 \\
+\vdots  \\
+n_n = c_1 s_n  \\
+\vdots  \\
+n_{\ell n} = c_{\ell} s_n 
+\end{bmatrix}}{N_i = C_i \otimes S_i} \qquad \qquad
+\underset{\begin{bmatrix} q_1 = k_1 s_1 \\
+\vdots  \\
+q_m = k_1 s_n  \\
+\vdots  \\
+q_{m n} = k_{m} s_n 
+\end{bmatrix}}{Q_i = K_i \otimes S_i } \qquad \qquad
+\underset{\begin{bmatrix} t_1 = c_1 k_1 s_1  \\
+\vdots  \\
+t_{\ell n} = c_{\ell} k_1 s_n  \\
+\vdots  \\
+t_{\ell n m} = c_{\ell} k_m s_n  \\
+\end{bmatrix}}{T_i = C_i \otimes Q_i \\
+= C_i \otimes K_i \otimes S_i }
+\end{equation*}
+
+
+Specifying our model in terms of the $j \times 1$ vector of outcomes, $Y_i$, the vector of City types, the vector of Cohort identifiers, the vector of preschool types, the $M,N,Q$ vectors of two way interaction terms, and the $T$ vector of three way interactions, we get:
+
+\begin{equation} \label{eq:diffs}
+Y_i = \underbrace{X_i \boldsymbol{\beta}'}_{\text{Individual Covariates}} + \underbrace{C_i \boldsymbol{\gamma}_c' + K_i \boldsymbol{\gamma}_k' + S_i \boldsymbol{\gamma}_s'}_{\text{City, Cohort, School F.E.}}  +\; \underbrace{M_i \boldsymbol{\gamma}_m' + N_i \boldsymbol{\gamma}_n' + Q_i \boldsymbol{\gamma}_q'}_{\text{Diff-in-Diff}} + \underbrace{T_i \boldsymbol{\gamma}_t'}_{\text{Triple difference}} \; + \; \boldsymbol{\varepsilon}_{i}
+\end{equation}
+
+For notational convenience, we stack the vectors $C_i, K_i, S_i, M_i, N_i, Q_i, \text{ and } T_i$ into the long column vector, $D_i$, and similarly stack $\gamma_c, \gamma_k, \gamma_s, \gamma_m, \gamma_n, \gamma_q, \gamma_t $ into a vector of equal length composed of all the dummy variable coefficients, which is defined  as $\gamma_d$. Rewriting \ref{eq:diffs} in this simplified notation gives:
+
+\begin{equation}
+Y_i = X_i \boldsymbol{\beta}' + D_i \boldsymbol{\gamma}_d' + \boldsymbol{\varepsilon}_{i}
+\end{equation}
+
+The full specification which includes the difference-in-differences (and difference-in-difference-in-differences) estimators addresses concerns that \ref{eq:fixed} does not reflect the difference in cohort structure or in preschool categories that may exist in different cities, or that $(S_i = 1 \mid C_i = 0) \neq (S_i = 1 \mid C_1 =1)$. Again considering the simple case of $\ell = m = n = 2$, the estimated model can be written as:
+\begin{eqnarray*}  \label{eq:specific2}
+Y_i & = & \alpha_0  + \gamma_c (C_i = 1) + \gamma_k (K_i = 1) + \gamma_s (S_i = 1) \nonumber \\
+& &\ + \gamma_{c,k} (C_i = 1 \times K_i = 1) + \gamma_{k,s} (K_i = 1 \times S_i = 1)  + \gamma_{c,s} (C_i = 1 \times S_i = 1)   \nonumber \\
+ & &\ + \gamma_{c,k,s}(C_i = 1 \times K_i = 1 \times S_i = 1) + X_i \boldsymbol{\beta} + \varepsilon_i  
+\end{eqnarray*}
+
+Where $\alpha_0$ is the intercept corresponding to being a member of the reference group, i.e. -- $(C_i = 0, K_i = 0, S_i = 0)$   The interpretation for the coefficients on each indicator is best understood in terms of the expected outcomes implied by \ref{eq:diffs}. We consider the interpretation of $\gamma_c, \gamma_{c,k}, \text{ and }, \gamma_{c,k,s}$ explicitly. 
+\begin{eqnarray*}  
+    \mathbb{E}[Y_i \mid C_i = 0, K_i = 0, S_i = 0] & = & \alpha_0 + X_i \boldsymbol{\beta} + \varepsilon_i \\
+    \mathbb{E}[Y_i \mid C_i = 1, K_i = 0, S_i = 0] & = & \alpha_0 +  \gamma_c + X_i \boldsymbol{\beta} + \varepsilon_i \\
+    \mathbb{E}[Y_i \mid C_i = 1, K_i = 1, S_i = 0] & = & \alpha_0 + \gamma_c + \gamma_k + \gamma_{c,k} + X_i \boldsymbol{\beta} + \varepsilon_i \\
+    \mathbb{E}[Y_i \mid C_i = 1, K_i = 1, S_i = 1] & = & \alpha_0 + \gamma_c + \gamma_k + \gamma_s + \gamma_{c,k} + \gamma_{c,s} + \gamma_{k,s} + \gamma_{c,k,s} + X_i \boldsymbol{\beta} + \varepsilon_i
+\end{eqnarray*}
+Thus, $\gamma_c$ can be interpreted as ``the mean difference in outcomes'' for individuals attending a comparable reference preschool type in the ``treatment" city compared to those in the reference city.  Interpretation for coefficients on other city and school type dummies are analogous. Likewise, $\gamma_{c,k}$ compares how effects on outcomes are different between the two city categories, when moving across cohorts. $\gamma_{c,k} > 0$ would imply that the improvement in outcomes between the two cohorts increased, on average, for the ``treatment city" more so than it did for the reference category. Consider an example where, $C_i = 0$ if the individual attended no preschool and  $C_i = 1$ if they attended any preschool. Then $\gamma_{c,k,s} > 0$ can be understood as the comparison city, $C_i = 1$, having larger growth in the average difference in outcomes between younger and older cohorts, for those attending preschool compared to those with none.
+
+\begin{eqnarray*}  
+\boldsymbol{\gamma_c} & = &  \Big(\overline{Y}_i \mid C_i = 1\Big) - \Big(\overline{Y}_i \mid C_i = 0\Big) \\ [0.4em]
+%& = & (\mathbb{E}[Y_i \mid C_i = 1, K_i = 0, S_i = 0]  - \mathbb{E}[Y_i \mid C_i = 0, K_i = 0, S_i = 0]) & \\
+\boldsymbol{\gamma_{c,k}} & = & \Bigg[\Big(\overline{Y_i} \mid K_i = 1\Big) - \Big(\overline{Y_i} \mid K_i = 0\Big) \Big| C_i =1 \Bigg] - \Bigg[\Big(\overline{Y_i} \mid K_i = 1) - \Big(\overline{Y_i} \mid K_i = 0\Big) \Big| C_i = 0 \Bigg] \\[0.6em]
+% & = & (\mathbb{E}[Y_i \mid C_i = 1, K_i = 1, S_i = 0]  - \mathbb{E}[Y_i \mid C_i = 1, K_i = 0, S_i = 0] ) & \\
+%& & - (\mathbb{E}[Y_i \mid C_i = 0, K_i = 1, S_i = 0]  -  \mathbb{E}[Y_i \mid C_i = 0, K_i = 0, S_i = 0]) & \\
+\boldsymbol{\gamma_{c,k,s}} & = & \Bigg(\Big[\Big(\overline{Y_i} \mid S_i = 1\Big) - \Big(\overline{Y_i} \mid S_i = 0\Big)\Big| C_i =1, K_i = 1 \Big] - \Big[\Big(\overline{Y_i} \mid S_i = 1\Big) - \Big(\overline{Y_i} \mid S_i = 0\Big)\Big| C_i =1, K_i = 0 \Big]\Bigg) \\
+&  - & \Bigg(\Big[\Big(\overline{Y_i} \mid S_i = 1\Big) - \Big(\overline{Y_i} \mid S_i = 0\Big)\Big| C_i =0, K_i = 1 \Big] - \Big[\Big(\overline{Y_i} \mid S_i = 1\Big) - \Big(\overline{Y_i} \mid S_i = 0\Big)\Big| C_i =0, K_i = 0 \Big]\Bigg)
+ %& = &(\mathbb{E}[Y_i \mid C_i = 1, K_i = 1, S_i = 1]  - \mathbb{E}[Y_i \mid C_i = 1, K_i = 1, S_i = 0]) & \\
+%& & - (\mathbb{E}[Y_i \mid C_i = 0, K_i = 1, S_i = 1]  - \mathbb{E}[Y_i \mid C_i = 0, K_i = 1, S_i = 0]) & \\
+%& & - (\mathbb{E}[Y_i \mid C_i = 1, K_i = 0, S_i = 1]  - \mathbb{E}[Y_i \mid C_i = 1, K_i = 0, S_i = 0]) &
+\end{eqnarray*}
+
+
+\section{Estimation Strategy}
+\subsection{OLS Model}
+The purpose of the OLS model is to compare outcomes of individuals in the different cities. We estimate the OLS model in two channels. We first estimate the OLS model without including controls to capture the uncontrolled mean differences in outcomes among groups of people who attended different types of alternative preschools for each city and each age cohort. Formally written,
+\begin{equation} \label{OLS-nocontrol}
+	y_{i} = \gamma_0 + \gamma_1 s_{i,2} + \gamma_2 s_{i,3} + \gamma_3 s_{i,4} + \gamma_4 s_{i,5} + \varepsilon_{i}, i \in I := \{ \text{individuals in city $j$ and age cohort $h$}\}
+\end{equation}
+\noindent where $i$ indexes over all individuals in the three cities, $y_{i}$ is an outcome of interest, $s$ is a type of materna school as shown in its subscript, $\varepsilon_{i}$ is an individual disturbance that we assume to be independent from the outcome variable. An indicator for attending municipal school type for individual $i$, $s_{i,1}$, is dropped due to collinearity. 
+
+We also estimate the above OLS model controlling for baseline characteristics to capture the controlled mean differences in outcomes among different groups. It is written as:
+\begin{equation} \label{OLS-control}
+	y_{i} = \gamma_0 + \gamma_1 s_{i,2} + \gamma_2 s_{i,3} + \gamma_3 s_{i,4} + \gamma_4 s_{i,5} + \mathbf{X}\beta + \varepsilon_{i}, i \in I := \{ \text{individuals in city $j$ and age cohort $h$}\}	
+\end{equation}
+where $\mathbf{X}$ is a set of five control variables that have the lowest BIC score among all possible sets out of the baseline variables. 
+
+
+\subsection{Difference in Difference Model}
+For difference-in-difference estimation, we consider the following route of analysis. We shut down the effects of different cohorts, and compare differences in outcomes across cities for different preschool types after fixing the cohort. We focus this document only on the adult cohorts because outcomes and baseline control variables are different for younger cohorts (children, migrants, and adolescents). 
+
+\subsubsection{Estimation Model: Fixing Cohort}
+
+Let's consider a case with 3 cities, denoted by the number in subscript of $c$, and 4 school types, denoted by the number in subscript for $s$. Assuming that we restrict our sample to only the age 50 cohort, we can write our model for a certain outcome $y$ as:
+\begin{eqnarray}  \label{eq:specific2}
+y_i & = \gamma_0 + \gamma_1 c_{i,2} + \gamma_2 c_{i,3} + \gamma_3 s_{i,2} + \gamma_4 s_{i,3} + \gamma_5 s_{i,4}  + \gamma_6 ({c_{i,2}}\cdot{s_{i,2}}) + \gamma_7 ({c_{i,2}}\cdot{s_{i,3}})  \nonumber \\
+ & \gamma_8 ({c_{i,2}}\cdot{s_{i,4}}) + \gamma_9 ({c_{i,3}}\cdot{s_{i,2}}) + \gamma_{10} ({c_{i,3}}\cdot{s_{i,3}}) +  + \gamma_{11} ({c_{i,3}}\cdot{s_{i,4}}) + \mathbf{X}\beta + \varepsilon_i  
+\end{eqnarray}
+We drop $c_1$ and $s_1$ from the above equation to avoid perfect multicollinearity. Our $\mathbf{X}$, which is a vector of controls, is the selected set of 5 variables that has the lowest BIC score. For the employment and income category, however, we additionally control for each person's occupation.
+
+\subsubsection{Interpreting the difference estimator}
+
+We provide an interpretation of $\gamma_1$ to demonstrate how the simple difference estimators in our model should be interpreted. Assume two cases: (1) an individual lives in Reggio and attended a municipal school and (2) an individual lives in Parma and attended municipal school. The expected outcomes for those individuals are:
+\begin{eqnarray*}  
+    \mathbb{E}[y \mid c_1 = 1, s_1 = 1] & = & \gamma_0 + \mathbf{X}\beta + \varepsilon_i \\
+    \mathbb{E}[y \mid c_2 = 1, s_1 = 1] & = & \gamma_0 + \gamma_1 + \mathbf{X}\beta + \varepsilon_i      
+\end{eqnarray*}
+This shows that $\gamma_1 = \mathbb{E}[y \mid c_2 = 1, s_1 = 1] - \mathbb{E}[y \mid c_1 = 1, s_1 = 1]$, which can be interpreted as ``the mean difference in outcomes between people in Parma who attended municipal schools and people in Reggio who attended municipal schools." While the simple difference estimator is informative, we cannot use it to interpret the treatment effect of attending municipal school in Reggio because it includes confounding effects from permanent average differences in baseline characteristics between individuals of Reggio and Parma. Interpretation for coefficients on other city and school type dummies are analogous.
+
+\subsubsection{Interpreting the difference-in-difference estimator}
+We now provide an interpretation of $\gamma_6$ to illustrate how the diff-in-diff estimators should be interpreted in our model. Assume four cases: (1) an individual lives in Reggio and attended a municipal preschool, (2) an individual lives in Reggio and didn't attend preschool, (3) an individual lives in Parma and attended municipal preschool, and (4) an individual lives in Parma and did not attend preschool. The expected outcomes for these individuals can be arranged in the following manner to yield $\gamma_6$:
+\begin{eqnarray*}
+\gamma_6 & = & \Big( \mathbb{E}[y \mid c_1 = 1, s_1 = 1]  - \mathbb{E}[y \mid c_1 = 1, s_2 = 1] \Big) - \Big(\mathbb{E}[y \mid c_2 = 1, s_1 = 1] - \mathbb{E}[y \mid c_2 = 1, s_2 = 1] \Big) \\
+& = & \Big( (\gamma_0)  - (\gamma_0 + \gamma_3)\Big) - \Big((\gamma_0 + \gamma_1) - (\gamma_0 + \gamma_1 + \gamma_3 + \gamma_6)\Big) \\
+& = & (\gamma_3) - ( \gamma_3 - \gamma_6) \\
+& = & \gamma_6
+\end{eqnarray*}
+Hence, $\gamma_6$ is the difference between \Big((Reggio Muni) - (Reggio None)\Big) and \Big((Parma Muni) - (Parma None)\Big). The first difference captures the degree by which Municipal educated students underperform or outperform those who did not attend any preschool in Reggio. The second difference captures this same effect in Parma. We can thus, interpret $\gamma_6$ as a comparison of the treatment effects of attending Municipal school over not attending any preschool  between Reggio and Parma.
+
+\section{Summary of Estimation Results}
+\subsection{Education}
+
+Compared to other individuals, Municipal educated individuals from Reggio generally have lower IQ, higher high school grades, mixed results for University grades, and lower likelihood of graduation.
+\begin{itemize}
+\item \textbf{IQ Factor:} 
+	\begin{itemize}
+	\item \textbf{OLS results:} Comparing different materna types within Reggio, the conditional mean (C.Mean) estimates of Table \ref{table:OLS_E} show that individuals who attended Municipal preschools attained lower IQ scores than those who attended Religious preschools in the age 30 and 40 cohorts.
+	
+	Comparing across cities, the mean estimates of Table \ref{table:OLS_E} show that individuals from all materna types in Parma and Padova, except those from private preschools in Padova, outpeform Municipal educated individuals from Reggio in the age 30 cohort. A similar relationship persists in the age 40 cohort.
+	
+	\item \textbf{Diff-in-Diff results:} Table \ref{table:ECh-30} shows that the degree by which Municipal preschools underperform Religious preschools in Reggio is larger than the degree of this underperformance in Parma and Padova for the age 30 cohort. Table \ref{table:ECh-40} shows that this relationship continues to persist between Reggio and Parma at age 40, but becomes insignificant for Padova at this age level.
+	
+	Table \ref{table:ECh-40} shows two more significant diff-in-diff effects for the age 40 cohort. Firstly, the degree by which Municipal educated individuals underperform those who haven't attended preschool is lower in Reggio than in Padova. Secondly, the degree by which Municipal educated individuals outperform those who attended state school is higher in Reggio than in Padova.
+	\end{itemize}
+	
+\item \textbf{High school and University grades:} 
+	\begin{itemize}
+	\item \textbf{OLS results:} Looking at the Reggio age 30 cohort, Table \ref{table:OLS_E} shows that at the high school level, Municipal students attain higher grades than those who didn't attend preschool. At the university level, Municipal students outperform students from Religious preschool.
+	
+Comparing across cities at the age 30 cohort, Municipal schools in Reggio outperform almost all school types in Parma and Padova in terms of high school grades. The findings are more mixed for university grades. For the age 40 cohort, Reggio Municipal schools continue to outperform schools in other cities in terms of high school grades and generally underperform schools from other cities in terms of university grades.
+		
+	\item \textbf{Diff-in-diff results:} For the age 30 cohort, Table \ref{table:ECh-30} shows that the degree by which Municipal educated individuals outperform individuals from Religious schools in terms of university grades is greater in Reggio than in Parma and Padova. Significant differences aren't detected for high school grades at this age level.
+	
+	For the age 40 cohort, we detect significant differences in high school grades and not university grades. Table \ref{table:ECh-40} shows that the degree by which Municipal schools outperform Religious schools in terms of high school grades is greater in Reggio than in Parma. Similarly, the degree by which Municipal schools outperfom State schools in terms of high school grades is greater in Reggio than in Padova.
+\end{itemize}
+
+\item \textbf{Graduation from High School and University:} 
+	\begin{itemize}
+	\item \textbf{OLS results:} We do not detect strong differences in likelihood of graduation between Municipal schools and other materna types within Reggio. Comparing across cities, Table \ref{table:OLS_E} shows that Municipal students from Reggio have lower likelihoods of graduating from high school and university compared to students from most materna types in Parma and Padova.
+	\item \textbf{Diff-in-diff results:} For the age 30 cohort, we do not see any significant diff-in-diff effects for high school graduation. Table \ref{table:ECh-30} shows that there is a difference in the likelihood of University graduation between Municipal educated individuals and those who  attended Religious preschool, and that this difference in likelihood in Reggio is significantly different than the difference in Parma. Table \ref{table:OLS_E} shows that Municipal educated individuals are more likely to graduate from university than Religious students in Reggio, and that the opposite is true in Parma. A similar diff-in-diff effect exists between those who attended Municipal school and those who didn't attend preschool in Reggio and Padova. Table \ref{table:OLS_E} shows that Municipal educated individuals are less likely to graduate from university than those who didn't attend preschool in Reggio, and that the opposite is true in Padova.
+	
+	For the age 40 cohort, Table \ref{table:ECh-40} shows that there is a difference in the likelihood of high school graduation between Municipal educated individuals and those who did not attend preschool, and that this difference in likelihood in Reggio is significantly different than the difference in Parma and Padova. Table \ref{table:OLS_E} shows that Municipal educated individuals had lower likelihoods of graduation than those who didn't attend preschool in both Reggio and Parma. The effect is inconclusive for Padova.
+	
+		 	\end{itemize}
+\end{itemize}
+
+\subsection{Employment and Earnings}
+Municipal educated individuals from Reggio consistently worked longer hours than other individuals both within and outside Reggio.
+
+\begin{itemize}
+
+\item \textbf{Hours Worked:} 
+	\begin{itemize}
+	\item \textbf{OLS results:}
+Comparing materna types within Reggio, Table \ref{table:OLS_W} shows that individuals who attended Municipal school work longer hours per week compared to individuals who attended Private school or individuals who did not attend any preschool. Comparing across cities, we find that individuals who attended Municipal school in Reggio work longer hours compared to individuals from most materna types in Parma and Padova.
+
+	\item \textbf{Diff-in-diff results:} Table \ref{table:WCh-30} shows that the extent by which individuals who attended Municipal preschool work longer hours than those who did not attend preschool is greater in Reggio than in Parma and Padova.
+	\end{itemize}
+	
+\end{itemize}  
+
+\subsection{Household Information}
+We find consistent differences between Municipal educated individuals from Reggio and other individuals in terms of house ownership and marriage and cohabitation.
+
+\begin{itemize}
+
+\item \textbf{Own House:} 
+	\begin{itemize}
+	\item \textbf{OLS results:}
+Comparing within Reggio, we do not detect differences in the likelihood of house ownership between Municipal educated individuals and those from other materna types.
+
+Comparing across cities, Table \ref{table:OLS_L} shows that Municipal educated individuals from Reggio are less likely to own a house than individuals from most materna types in Parma and Padova in the age 40 cohort.
+	
+	\item \textbf{Diff-in-diff results:} For the age 40 cohort, Table \ref{table:LCh-40} shows that there is a difference in the likelihood of house ownership between Municipal educated individuals and those who did not attend preschool, and that this difference in likelihood in Reggio is significantly different than the difference in Parma and Padova. Examination of Table \ref{table:OLS_L} shows that Municipal educated individuals are less likely to own a house than those who didn't receive any preschool education in Reggio, and that this relationship is reversed in Parma and Padova.
+	\end{itemize}
+		
+\item \textbf{Married or Cohabitating:} 
+	\begin{itemize}
+	\item \textbf{OLS results:}
+Comparing within Reggio, we do not detect differences in likelihood of marriage or cohabitation between Municipal educated individuals and those from other materna types.
+
+Comparing across cities for the age 40 cohort, Table \ref{table:OLS_L} shows that individuals who attended Municipal schools in Reggio are more likely to be married or cohabitating than individuals who attended State or no preschool in Parma, and those who attended Municipal or no preschool in Padova.
+
+	\item \textbf{Diff-in-diff results:} Table \ref{table:LCh-30} does not show significant diff-in-diff effects in likelihood of marriage and cohabitation in the age 30 cohort. For the age 40 cohort, Table \ref{table:LCh-40} shows that there is a difference in the likelihood of marriage or cohabitation between Municipal educated individuals and those who didn't attend preschool, and that this difference in likelihood in Reggio is significantly different than the difference in Parma. Similarly, we find that such a diff-in-diff effect exists between Reggio and Padova when comparing Municipal schools with State and Religious schools. Table \ref{table:OLS_L} shows that Municipal educated individuals are less likely to be married than those who didn't attend preschool in Reggio, and that the opposite relationship exists in Parma. Comparing Reggio and Padova, we find that Municipal educated individuals are more likely to be married than both State and Religious educated individuals in Reggio, and that these relationships are reversed in Padova.
+	\end{itemize}	
+\end{itemize}  
+
+\subsection{Health and Risk taking Behaviors}
+Compared to other individuals, Municipal educated individuals from Reggio report better health, are less likely to smoke cigarettes, and are generally more likely to have tried marijuana.
+
+\begin{itemize}
+\item \textbf{Tried marijuana:} 
+	
+	\begin{itemize}
+	\item \textbf{OLS results:} Table \ref{table:OLS_H} shows that within Reggio, those who attended Municipal preschool are more likely to have tried marijuana than those who did not attend any preschool in the age 30 cohort.
+
+	Comparing across cities, the table shows that for both the age 30 and 40 cohorts, individuals who attended Municipal school in Reggio are more likely to have tried marijuana than individuals who did not attend any preschool in Parma and Padova.
+		
+	\item \textbf{Diff-in-diff results:} Tables  \ref{table:HCh-30} and  \ref{table:HCh-40} shows that Municipal educated individuals are more likely to have tried marijuana than those who did not attend any preschool, and that this likelihood is greater in Reggio than in Padova for the age 30 cohort, and greater in Reggio than in Parma for the age 40 cohort.
+	
+	Tables  \ref{table:HCh-30} also shows that for the age 30 cohort, there is a difference in the likelihood of having tried marijuana between Municipal educated individuals and Religious educated individuals, and that this difference in likelihood in Reggio is significantly different than the difference in Padova. Table \ref{table:OLS_H} shows that Municipal educated individuals are less likely to have tried marijuana than Religious educated individuals in Reggio, and that this relationship is reversed in Padova.
+	\end{itemize}
+
+\item \textbf{Likelihood of smoking and number of cigarettes per day:} 
+	
+	\begin{itemize}
+	\item \textbf{OLS results:} Table  \ref{table:OLS_H} shows that within Reggio, there is no difference in the likelihood of smoking among individuals educated in Municipal schools and individuals from other materna types. Among those who smoke, Municipal educated individuals smoke more cigarettes per day than those who did not go to preschool in the age 30 cohort and than those who attended religious preschool in the age 40 cohort.
+
+	Comparing across cities, Municipal educated individuals from Reggio generally had a lower likelihood of smoking compared to individuals from Parma and Padova, but among those who smoked, Municipal educated individuals from Reggio generally reported higher number of cigarettes smoked per day.
+	
+	\item \textbf{Diff-in-diff results:} Table \ref{table:HCh-30} shows that there are no significant diff-in-diff effects in the age 30 cohort. For the age 40 cohort,  Table \ref{table:HCh-40} shows that there is a difference in the likelihood of cigarette consumption as well as the number of cigarettes smoked per day between Municipal educated individuals and Religious educated individuals, and that this difference in likelihood in Reggio is significantly different than the difference in Padova. Table \ref{table:OLS_H} shows that in Reggio, Municipal educated individuals are more likely to smoke cigarettes and smoke more cigarettes per day when compared to Religious educated individuals. These relationships are reversed in Padova where Municipal educated individuals are less likely to smoke and smoke less cigarettes per day than their Religious counterparts.
+	\end{itemize}
+
+\item \textbf{Health:} 
+	
+	\begin{itemize}
+	\item \textbf{OLS results:} Table  \ref{table:OLS_H} shows that Municipal educated individuals from Reggio generally report better levels of health than individuals from Parma and Padova.
+
+	\item \textbf{Diff-in-diff results:} For the age 30 cohort, Table \ref{table:HCh-30} shows that there is a difference in levels of health between Municipal educated individuals and those who didn't attend preschool, and that this difference in Reggio is significantly different than the difference in Parma and Padova. Table \ref{table:OLS_H} shows that in Reggio, Municipal educated individuals report higher levels of health than those who didn't attend preschool and that this relationship is reversed in both Parma and Padova. 
+	
+	For the age 40 cohort, we see the same diff-in-diff effect as above between Reggio and Parma. For Padova, we see that a significant diff-in-diff effect exists, however, unlike in the age 30 cohort, Municipal educated individuals report higher health than those who didn't attend preschool in both Reggio and Padova. Table \ref{table:HCh-40} also shows that this effect is larger in Reggio than in Padova. 
+	\end{itemize}
+
+\item \textbf{Age at first drink:} 
+	
+	\begin{itemize}
+	\item \textbf{OLS results:} Table  \ref{table:OLS_H} shows that age at first drink is lower for Municipal educated individuals from Reggio compared to individuals from most materna types in Parma and Padova.
+	
+	\item \textbf{Diff-in-diff results:} Table \ref{table:HCh-40} shows that there are no significant diff-in-diff effects at the age 40 level. At the age 30 cohort, Table \ref{table:HCh-40} shows that a number of significant diff-in-diff effects exist. We explain these significant effects in the following. Looking at Table \ref{table:OLS_H} we see that in Reggio, Municipal educated individuals have higher ages at first drink compared to those who attended state or school or no preschool. In Parma, both of these relationships are reversed, and in Padova, the relationship between Municipal and State are reversed. Table \ref{table:OLS_H} also shows that Municipal educated individuals start drinking at a younger age than Religious educated individuals in Reggio, and that the converse is true in Parma and Padova.
+	\end{itemize}
+\end{itemize}
+
+%\subsection{Noncognitive Outcomes}
+%
+%\begin{itemize}
+%\item \textbf{Locus of Control:} 
+%	
+%	\begin{itemize}
+%	\item \textbf{OLS results:} 
+%
+%	\item \textbf{Diff-in-diff results:} We do not detect any significant effects at the age 30 cohort. For the age 40 cohort, Table \ref{table:NCh-40} shows that diff-in-diff effects exist between Municipal educated individuals and those who didn't attend preschool when comparing Reggio with Padova. Table \ref{table:OLS_N} shows that Municipal educated individuals believe they are more in control of events affecting them than those who didn't attend preschool in Reggio, while the opposite is true in Padova. Table \ref{table:NCh-40} shows diff-in-diff effects also exist when comparing Municipal and Religious school between Reggio and Padova.  Table \ref{table:OLS_N} shows that in both Reggio and Padova, Municipal educated individuals believe they are less in control of events affecting them than those who attended Religious preschool in Reggio. The positive value for the diff-in-diff estimator in Table \ref{table:NCh-40} shows that this effect is larger in Padova than in Reggio.
+%	\end{itemize}
+%
+%\item \textbf{Depression score:} 
+%	
+%	\begin{itemize}
+%	\item \textbf{OLS results:} 
+%	
+%	\item \textbf{Diff-in-diff results:} 
+%	\end{itemize}
+%
+%
+%\end{itemize}
+
+\clearpage
+
+%----------------------------------------
+\appendix
+
+\singlespace
+\newgeometry{left=.8in,right=.7in,top=1in,bottom=1in}
+
+\begin{landscape}
+\section{Appendix: OLS and Difference-in-Difference Results}
+\subsection{Education - OLS results}
+
+\begin{center}
+		\scriptsize{
+			\begin{longtable}{L{3cm} c c c c c c p{.5cm} c c c c c c} 
+				\hline \\
+				\multicolumn{14}{L{19cm}}{\textbf{Note:} \fnOLS}
+				\endfoot
+				\caption{Mean outcomes for Education}  \label{table:OLS_E} \\
+				\toprule
+				\input{../../Output/Mean_OLS/meanOutcome_E.tex}
+			\end{longtable}
+		}		
+\end{center}
+\end{landscape}
+
+%--------------
+
+
+\subsection{Education - Difference-in-Difference Results}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-30 Cohort} \label{table:ECh-30}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult30_Ep}}
+\end{center}
+\footnotesize
+\fnDID
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-40 Cohort} \label{table:ECh-40}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult40_Ep}}
+\end{center}
+\footnotesize
+\fnDID
+\end{table}
+
+%\begin{table}[H]
+%\begin{center}
+%	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-50 Cohort} \label{table:ECh-50}
+%	\scalebox{0.80}{
+%		\input{../../Output/DiD/bic/didAdult50_Ep}}
+%\end{center}
+%\footnotesize
+%\fnDID
+%\end{table}
+
+%----------------------------------------
+
+\begin{landscape}
+\subsection{Employment and Earnings - OLS results}
+
+\begin{center}
+		\scriptsize{
+			\begin{longtable}{L{3cm} c c c c c c p{.5cm} c c c c c c}
+				\hline \\
+				\multicolumn{14}{L{19cm}}{\textbf{Note:} \fnOLS}
+				\endfoot
+				\caption{Mean outcomes for Employment and Earnings} \label{table:OLS_W} \\
+				\toprule \\
+				\input{../../Output/Mean_OLS/meanOutcome_W.tex}
+			\end{longtable}
+		}		
+\end{center}
+\end{landscape}
+
+%--------------
+
+\subsection{Employment and Earnings - Difference-in-Difference Results}
+
+
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-30 Cohort} \label{table:WCh-30}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult30_Wp}}
+\end{center}
+\footnotesize
+\fnDID
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-40 Cohort} \label{table:WCh-40}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult40_Wp}}
+\end{center}
+\footnotesize
+\fnDID
+\end{table}
+
+%\begin{table}[H]
+%\begin{center}
+%	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-50 Cohort} \label{table:WCh-50}
+%	\scalebox{0.80}{
+%		\input{../../Output/DiD/bic/didAdult50_Wp}}
+%\end{center}
+%\footnotesize
+%\fnDID
+%\end{table}
+
+
+
+%----------------------------------------
+
+\begin{landscape}
+\subsection{Household Information - OLS results}
+
+\begin{center}
+		\scriptsize{
+			\begin{longtable}{L{3cm} c c c c c c p{.5cm} c c c c c c}
+				\hline \\
+				\multicolumn{14}{L{18.5cm}}{\textbf{Note:} \fnOLS}
+				\endfoot
+				\caption{Mean outcomes for Household Information} \label{table:OLS_L} \\
+				\toprule \\
+				\input{../../Output/Mean_OLS/meanOutcome_L.tex}
+			\end{longtable}
+		}		
+\end{center}
+\end{landscape}
+
+%--------------
+
+\subsection{Household Information - Difference-in-Difference Results}
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-30 Cohort} \label{table:LCh-30}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult30_Lp}}
+\end{center}
+\footnotesize
+\fnDID
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-40 Cohort} \label{table:LCh-40}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult40_Lp}}
+\end{center}
+\footnotesize
+\fnDID
+\end{table}
+%
+%\begin{table}[H]
+%\begin{center}
+%	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-50 Cohort} \label{table:LCh-50}
+%	\scalebox{0.80}{
+%		\input{../../Output/DiD/bic/didAdult50_Lp}}
+%\end{center}
+%\footnotesize
+%\fnDID
+%\end{table}
+
+
+
+%----------------------------------------
+
+\begin{landscape}
+\subsection{Health and risk taking behavior - OLS results}
+
+\begin{center}
+		\scriptsize{
+			\begin{longtable}{L{3cm} c c c c c c p{.5cm} c c c c c c}
+				\hline \\
+				\multicolumn{14}{L{18.5cm}}{\textbf{Note:} \fnOLS}
+				\endfoot
+				\caption{Mean outcomes for Health and risk taking behavior}  \label{table:OLS_H} \\
+				\toprule \\
+				\input{../../Output/Mean_OLS/meanOutcome_H.tex}
+			\end{longtable}
+		}		
+\end{center}
+\end{landscape}
+
+%--------------
+
+\subsection{Health and risk taking behavior - Difference-in-Difference Results}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-30 Cohort} \label{table:HCh-30}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult30_Hp}}
+\end{center}
+\footnotesize
+\fnDID
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-40 Cohort} \label{table:HCh-40}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult40_Hp}}
+\end{center}
+\footnotesize
+\fnDID
+\end{table}
+
+%\begin{table}[H]
+%\begin{center}
+%	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-50 Cohort} \label{table:HCh-50}
+%	\scalebox{0.80}{
+%		\input{../../Output/DiD/bic/didAdult50_Hp}}
+%\end{center}
+%\footnotesize
+%\fnDID
+%\end{table}
+
+
+%
+%%----------------------------------------
+%
+%\begin{landscape}
+%\subsection{Noncognitive Outcomes - OLS results}
+%
+%\begin{center}
+%		\scriptsize{
+%			\begin{longtable}{L{3cm} c c c c c c p{.5cm} c c c c c c}
+%				\hline \\
+%				\multicolumn{14}{L{18.5cm}}{\textbf{Note:} \fnOLS}
+%				\endfoot
+%				\caption{Mean outcomes for Noncongnitive measures}  \label{table:OLS_N} \\
+%				\toprule \\
+%				\input{../../Output/Mean_OLS/meanOutcome_N.tex}
+%			\end{longtable}
+%		}		
+%\end{center}
+%\end{landscape}
+
+%--------------
+%
+%\subsection{Noncognitive Outcomes - Difference-in-Difference Results}
+%
+%\begin{table}[H]
+%\begin{center}
+%	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-30 Cohort} \label{table:NCh-30}
+%	\scalebox{0.80}{
+%		\input{../../Output/DiD/bic/didAdult30_Np}}
+%\end{center}
+%\footnotesize
+%\fnDID
+%\end{table}
+%
+%\begin{table}[H]
+%\begin{center}
+%	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-40 Cohort} \label{table:NCh-40}
+%	\scalebox{0.80}{
+%		\input{../../Output/DiD/bic/didAdult40_Np}}
+%\end{center}
+%\footnotesize
+%\fnDID
+%\end{table}
+%
+%\begin{table}[H]
+%\begin{center}
+%	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-50 Cohort} \label{table:NCh-50}
+%	\scalebox{0.80}{
+%		\input{../../Output/DiD/bic/didAdult50_Np}}
+%\end{center}
+%\footnotesize
+%\fnDID
+%\end{table}
+
+
+\end{document}
