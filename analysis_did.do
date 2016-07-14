@@ -43,7 +43,7 @@ local adult_outcome_L				mStatus_married_cohab childrenResp all_houseOwn live_pa
 local adult_outcome_H				Maria Smoke Cig BMI goodHealth SickDays ///
 									i_RiskFight i_RiskDUI RiskSuspended Drink1Age									
 									
-local adult_outcome_N				LocusControl Depression_score ///
+local adult_outcome_N				pos_LocusControl pos_Depression_score ///
 									binSatisIncome binSatisWork binSatisHealth binSatisFamily ///
 									optimist reciprocity1bin reciprocity2bin reciprocity3bin reciprocity4bin		
 									
@@ -93,6 +93,10 @@ local Drink1Age_lab				Age At First Drink
 
 local LocusControl_lab			Locus of Control
 local Depression_score_lab		Depression Score
+
+local pos_LocusControl_lab		Locus of Control - positive
+local pos_Depression_score_lab	Depression Score - positive
+
 local binSatisIncome_lab		Satisfied with Income
 local binSatisWork_lab			Satisfied with Work
 local binSatisHealth_lab 		Satisfied with Health 

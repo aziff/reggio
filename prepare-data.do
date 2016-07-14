@@ -467,10 +467,46 @@ label var cgCatholic "Caregiver is Catholic"
 sum cgFaith, detail
 gen cgFaithful = (cgFaith > 3)
 gen int_cgCatFaith = cgFaithful * cgCatholic
-label var int_cgCatFaith "Caregiver is Catholic AND more faithful than the average."
+label var int_cgCatFaith "Caregiver is Catholic and very faithful"
 
 // Recode Health
 gen goodHealth = 6 - Health
 
 // Relabel parental education variables
-label define maxedu_lab 1 "Junior high school" 2 "Two years high school" 3 "Four or five years high school" 4 "University degree" 5 "Bachelor's degree" 6 "Five year degree" 7 "Master degree" 8 "Master postgraduate" 9 "PhD"
+label define maxedu_lab 1 "Junior high school" 2 "Two years high school" 3 "Four or five years high school" 4 "University degree (4 years?)" 5 "Three year degree" 6 "Five year degree" 7 "Master degree (5 years including college?)" 8 "Master postgraduate" 9 "PhD"
+
+// Create parental years of education variable (SEE YKK's DOCUMENTATION)
+gen momYearsEdu = .
+replace momYearsEdu = 8 if momMaxEdu == 1
+replace momYearsEdu = 10 if momMaxEdu == 2
+replace momYearsEdu = 12 if momMaxEdu == 3
+replace momYearsEdu = 16 if momMaxEdu == 4
+replace momYearsEdu = 15 if momMaxEdu == 5
+replace momYearsEdu = 17 if momMaxEdu == 6
+replace momYearsEdu = 17 if momMaxEdu == 7
+replace momYearsEdu = 19 if momMaxEdu == 8
+replace momYearsEdu = 23 if momMaxEdu == 9
+label var momYearsEdu "Mother: years of education"
+
+gen dadYearsEdu = .
+replace dadYearsEdu = 8 if dadMaxEdu == 1
+replace dadYearsEdu = 10 if dadMaxEdu == 2
+replace dadYearsEdu = 12 if dadMaxEdu == 3
+replace dadYearsEdu = 16 if dadMaxEdu == 4
+replace dadYearsEdu = 15 if dadMaxEdu == 5
+replace dadYearsEdu = 17 if dadMaxEdu == 6
+replace dadYearsEdu = 17 if dadMaxEdu == 7
+replace dadYearsEdu = 19 if dadMaxEdu == 8
+replace dadYearsEdu = 23 if dadMaxEdu == 9
+label var dadYearsEdu "Father: years of education"
+
+// Create actual value of family income variable
+gen cgFamIncome_val = .
+replace cgFamIncome_val = 2500 if cgIncomeCat == 1
+replace cgFamIncome_val = 7500 if cgIncomeCat == 2
+replace cgFamIncome_val = 17500 if cgIncomeCat == 3
+replace cgFamIncome_val = 37500 if cgIncomeCat == 4
+replace cgFamIncome_val = 75000 if cgIncomeCat == 5
+replace cgFamIncome_val = 175000 if cgIncomeCat == 6
+replace cgFamIncome_val = 375000 if cgIncomeCat == 7
+label var cgFamIncome_val "Baseline family income"
