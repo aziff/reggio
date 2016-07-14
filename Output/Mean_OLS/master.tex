@@ -1,0 +1,126 @@
+\documentclass[11pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\parindent 22pt
+
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+\usepackage{adjustbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{appendix}
+\usepackage{array}
+\usepackage{authblk}
+\usepackage{booktabs}
+\usepackage{caption} 
+\usepackage{color}
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,anchorcolor=blue,citecolor=blue]{hyperref}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage{pdflscape}
+\usepackage{pgffor}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage{threeparttable}
+\usepackage[colorinlistoftodos,linecolor=black]{todonotes}
+\usepackage{enumitem}
+
+\setlist{  
+  listparindent=\parindent,
+  parsep=0pt,}
+  
+\captionsetup[table]{skip = 2pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+\newcommand{\highlight}[1]{\colorbox[gray]{0.9}{#1}}
+
+\newcommand{\fnOLS}{This table presents conditional and unconditional OLS results for our outcomes of interest. For each school type, the ``C. Mean" section shows the conditional means and the ``Mean" section shows the unconditional means. For the ``C.Mean" section, bold numbers indicate that the corresponding mean, $\gamma_0+\gamma_n$, is significantly different at the 10 \% level from the mean of individuals in the same restricted group who attended municipal schools, $\gamma_0$. For the ``Mean" section, bold numbers indicate that the corresponding mean is significantly different at the 10 \% level from the mean of individuals who attended Municipal school in Reggio in the particular age cohort.}
+
+\settimeformat{hhmmsstime}
+%-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+\begin{document}
+
+\pagestyle{empty}
+
+
+\begin{landscape}
+
+	\begin{center}
+
+		\scriptsize{
+			\begin{longtable}{L{3cm} c c c c c c p{.5cm} c c c c c c}
+				\hline \\
+				\multicolumn{14}{L{21.5cm}}{\textbf{Note:} \fnOLS}
+				\endfoot
+				\caption{Mean outcomes for Education} \\
+				\toprule \\
+				\input{../Trial_output/meanOutcome_E.tex} \\
+			\end{longtable}
+		}		
+		
+		\scriptsize{
+			\begin{longtable}{L{3cm} c c c c c c p{.5cm} c c c c c c}
+				\hline \\
+				\multicolumn{14}{L{21.5cm}}{\textbf{Note:} \fnOLS}
+				\endfoot
+				\caption{Mean outcomes for Employment and Earnings} \\
+				\toprule \\
+				\input{../Trial_output/meanOutcome_W.tex} \\
+			\end{longtable}
+		}
+
+		\clearpage
+		
+		\scriptsize{
+			\begin{longtable}{L{3cm} c c c c c c p{.5cm} c c c c c c}
+				\hline \\
+				\multicolumn{14}{L{19cm}}{\textbf{Note:} \fnOLS}
+				\endfoot
+				\caption{Mean outcomes for Marriage and Cohabitation} \\
+				\toprule \\
+				\input{../Trial_output/meanOutcome_L.tex} \\
+			\end{longtable}
+		}
+
+		\clearpage
+		
+		\scriptsize{
+			\begin{longtable}{L{3cm} c c c c c c p{.5cm} c c c c c c}
+				\hline \\
+				\multicolumn{14}{L{19cm}}{\textbf{Note:} \fnOLS}
+				\endfoot
+				\caption{Mean outcomes for Health} \\
+				\toprule \\
+				\input{../Trial_output/meanOutcome_H.tex} \\
+			\end{longtable}
+		}
+
+		\clearpage
+		
+		\scriptsize{
+			\begin{longtable}{L{3cm} c c c c c c p{.5cm} c c c c c c}
+				\hline \\
+				\multicolumn{14}{L{19cm}}{\textbf{Note:} \fnOLS}
+				\endfoot
+				\caption{Mean outcomes for Non-cognitive measures} \\
+				\toprule \\
+				\input{../Trial_output/meanOutcome_N.tex} \\
+			\end{longtable}
+		}
+		
+	\end{center}
+	
+\end{landscape}
+
+\end{document}
