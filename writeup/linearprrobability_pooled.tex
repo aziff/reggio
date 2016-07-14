@@ -21,7 +21,7 @@
 \usepackage{pgffor}
 \usepackage{caption} 
 \usepackage{threeparttable}
-\captionsetup[table]{skip=3pt}
+\captionsetup[table]{skip=2pt}
 
 
 
@@ -31,21 +31,138 @@
 
 \begin{document}
 
-\title{Preliminary Reggio Analysis: Results for Linear Probability Model, Gender-Pooled Sample}
+\title{Preliminary Reggio Analysis: Baseline Characteristics}
 \author{Reggio Team}
 \date{Original Version: June 10, 2016 \\ Current Version: \today}
 \maketitle 
 
-\section{Estimation Strategy}
 \doublespacing
-Before presenting an estimation framework, we first briefly discuss the data. Reggio data contains respondents from 3 cities (Reggio, Parma, Padova) and 6 cohorts (children, adolescents, adults in their 30's, adults in their 40's, adults in their 50's, and migrants who are children). Early childhood schools are broadly categorized into Asilo, which is for children aged 0-3, and Materna, which is for children aged 3-5. Asilo has 3 types: (i) Municipal, (ii) Religious, and (iii) Private. Materna has 4 types: (i) Municipal, (ii) Religious, (iii) Private, and (iv) State. For the purpose of estimating linear probability model, we denote ``not attending" any Asilo and Materna schools, respectively, also as a type of early childhood schools. Hence, for our purpose, we have 9 early childhood school types in total, which are 4 types of Asilo and 5 types of Materna. 
+\section{Introduction}
 
-We now present a framework for the linear probability model that estimates the  marginal effects of covariates on the probability of attending a certain type of early childhood schools. Let $Y_{i,p}^{c,a}$ be an indicator of attending a preschool of type $p$ for individual $i$ in city $c$ and in cohort $a$. Let $\mathbf{X}_{i}^{c,a}$ be a vector of binary covariates for individual $i$ in city $c$ and in cohort $a$. Covariates include individual, parental, and household baseline characteristics. The estimation equation is:
+This document presents analysis on baseline characteristics of each group of individuals who made different preschool decision in each city and each age cohort. The purpose of this document is to determine if there is a possible selection into different types of preschool. We only present the results for the materna decisions. The analysis is done in two routes. We first provide unconditional means of baseline variables for each group, and then we use the linear probability framework to determine which baseline characteristics are mostly likely to affect one's preschool decision. This document first presents the summary of baseline means, and then presents the linear probability estimation methodology and summary of the estimation results. Tables showing unconditional means and linear probability results are attached in the appendix. 
+
+\section{Summary of Baseline Means}
+\subsection{Children}
+
+The baseline means for the children cohort are reported in Table \ref{tab:base-reggio-child} (Reggio), Table \ref{tab:base-parma-child} (Parma), and Table \ref{tab:base-padova-child} (Padova). Summaries on the means are described below.
+
+\begin{itemize}
+\item \textbf{Child birth information:} 10\% of the Reggio Approach (RA) children had low birth weight, which is higher, although not significantly, than the rate for Reggio children who went to other types of preschool. 10\% of the RA children are reported to be premature at birth, which is higher than the rate for Reggio children who attended state and private preschool. Higher rates of low birth weight and prematurity at birth are seen in Parma. Parma children who attended state preschools and private preschools have over 10\% of low birthweight occurrence. Moreover, 14\% of Parma children who went to state preschool and 22\% of Parma children who went to private school were premature at birth. However, it is important to note that very few children attended private school across all cities. Lower rates of low birth weight and prematurity at birth are seen in Padova. Across all school types, the low birth weight and the prematurity at birth were observed for less than 8\% of each group. 
+
+\item \textbf{Mother's years of education:} More detailed information about how years of education are computed is written up in the ``Information on Variables" document. Mean mother's years of education is 12.6 years (graduated high school) for RA children. This is higher than the mean for Reggio children who did not attend any preschool (8 years) and the mean for Reggio children who attended state preschool (11.6 years). However, the mean for the RA children is lower than the mean for Reggio children who went to religious schools (12.8 years) and Reggio children who went to private schools (14 years). Mean mother's years of education is 1-2 years higher in Parma across different school types than the mean for the RA children. Notably, mean mother's years of education is 16.5 years for Parma children who did not attend any preschool, a finding very different from that of Reggio. Mean mother's years of education is generally higher in Padova than in Reggio, although not as high as the mean in Parma. In Padova, the group that shows the highest mean of mother's years of education is the municipal school group (14 years). The mean across all school types in Padova is over 13 years of education.
+
+\item \textbf{Father's years of education:} Mean father's years of education is 12.2 years (graduated high school) for RA children. This is higher than the mean for Reggio children who did not attend any preschool (11 years) and the mean for Reggio children who attended state preschool (11.53 years). However, the mean for the RA children is lower than the mean for Reggio children who went to religious schools (12.6 years) and Reggio children who went to private schools (14.5 years). Mean father's years of education is about 1 year higher in Parma across different school types than the mean for the RA children. The highest mean in Parma is shown for the state school group (13.9 years), and the lowest mean is shown for the no preschool group (12.3 years). Mean father's years of education is generally 1-2 years higher in Parma than the mean for RA children. The highest mean in Padova is shown for the group who attended private school (14.2 years). The lowest mean is shown for the no preschool group (12.5 years) in Padova.
+
+\item \textbf{Family income:} The problem of the family income variable is that there are high missing values for some groups. This section only reports based on the non-missing observations, but we will further investigate the family income using the Inverse Probability Weighting (IPW) scheme. Mean baseline family income for the RA children is 47,479.5 Euros, which is higher than the mean for the state and religious preschool groups in Reggio but lower than the means for private preschool groups (50000 Euros). However, the standard error for the family income of the RA children is the highest in Reggio. Although we are still further investigating the distribution of income, it is expected that the RA preschool has the most diverse income groups in the city of Reggio. Among the children who attended preschool in Parma, the mean baseline family income is similar to that for the RA children. Religious school group in Parma has the highest mean for family income (48991.2 Euros). No preschool group in Parma has the lowest mean for baseline family income (30833.3 Euros). In Padova, the lowest income group is the no preschool group, but there is only one observation out of 2 people in total in the group. The highest income group in Padova is the private school group, but only 3 people out of 12 people in total in the group reported their income. 
+
+\item \textbf{Caregiver's religion:} 72\% of the RA children are from Catholic families, and 40 \% of the RA children have caregivers who are Catholic and more faithful than the median of the total families in the younger cohorts. The highest rate of being Catholic and faithful in Reggio is shown in the religious preschool group. The lowest rate of being Catholic in Reggio is shown in the no preschool group. Parma children generally exhibit higher rate of being Catholic than the rate for the RA children. The highest rate of being Catholic in Parma is shown in the private preschool group (100\%). High rate of being Catholic in Parma is also shown for the other preschool groups (all over 80\%). The lowest rate in Parma is shown for no preschool group (50\%). Padova children also all exhibit higher rate of being Catholic than the rate for the RA children. 
+
+\item \textbf{Number of siblings:} Mean number of siblings for the RA children is 1, and the mean is similar across all school types in Reggio. Parma generally shows a slightly higher mean number of siblings from the mean for Reggio, but does not differ much. In Padova, the mean number of sibling is highest for the no preschool group (2 siblings), and lowest for the state preschool group (0.4 siblings).
+\end{itemize}
+
+\subsection{Migrants}
+
+The baseline means for the migrant cohort are reported in Table \ref{tab:base-reggio-migr} (Reggio), Table \ref{tab:base-parma-migr} (Parma), and Table \ref{tab:base-padova-migr} (Padova). Summaries on the means are described below.
+
+\begin{itemize}
+\item \textbf{Child birth information:} 13\% of the Reggio Approach (RA) migrant children had low birth weight, which is significantly higher than the rates for state preschool and no preschool groups in Reggio (0\%). 13\% of the RA migrant children are reported to be premature at birth which is higher than the rate for the state preschool, religious preschool, and no preschool groups in Reggio. In Parma, the highest rate of low birth weight is seen for the private preschool group (17\%). The lowest rate of low birth weight in Parma is seen for the religious and no preschool groups (0\%). The highest rate of prematurity at birth in Parma is seen for municipal and private preschool groups (17\%), and all the other groups in Parma has 0\% rate of prematurity at birth. In Padova, the highest rate of low birth weight is seen for the municipal group (11\%), and the lowest rate for the no preschool group. Municipal and state preschool groups in Padova both has 6\% of prematurity at birth, and all the other groups have 0\% prematurity at birth. 
+
+\item \textbf{Mother's years of education:} Mean mother's years of education for the migrant group is lower than that of the children cohort in Reggio across all school types. The mean for the RA migrant children is 10.9 years (2-3 years high school). The means are similar across school types for the Reggio migrant group. In Parma, the highest mean mother's years of education is seen for the religious group (14.5 years), and the lowest seen for state preschool group (8.8 years). In Padova, the highest mean is shown for the religious group (12.1 years), and the lowest shown for no preschool group (10 years). 
+
+\item \textbf{Father's years of education:} Mean father's years of education for the migrant cohort in Reggio is also lower than that of children cohort in Reggio across all school types. The mean for the RA migrant children is 10.9 years, which is higher than the state and no preschool groups but lower than the religious preschool group. In Parma, the highest mean is shown for the private preschool group (13.7 years), and the lowest mean is shown for the no preschool group (10.7 years). In Padova, the highest mean is shown for the municipal preschool group (11.7 years), and the lowest mean is shown for the state preschool group (10.1 years).
+
+\item \textbf{Family income:} The problem of the family income variable is that there are high missing values for some groups. This section only reports based on the non-missing observations, but we will further investigate the family income using the Inverse Probability Weighting (IPW) scheme. Mean baseline family income for the migrant cohort in Reggio is generally lower than that of children cohort in Reggio across all school types. The mean family income for the RA migrant children is 22,352.9 Euros, which is higher than the mean for the state preschool group (18,017.2 Euros), but lower than the mean for the religious preschool group (24,444.4 Euros) and the no preschool group (37,500 Euros). The reported mean family income is generally lower in Parma and Padova across all school types. The highest mean income in Parma is seen for the municipal group (18,300 Euros) and lowest for the no preschool group (7,500 Euros). The highest mean income in Padova is seen for the religious group (9,021.74 Euros) and lowest for no preschool group (2,500 Euros). However, the response rate for family income is low for many groups. 
+
+\item \textbf{Caregiver's religion:} Since migrant children came from diverse cultural background (more detailed information on countries of origin and religions shown in the ``Information on Variables" document), the rate of being Catholic is low. Only 19\% of the migrant children who attended RA schools came from Catholic families. The highest rate of being Catholic among Reggio children are seen for the religious preschool group (29\%). In Parma, the highest rate of being Catholic is seen for the state preschool group (60\%), and the lowest rate shown for the no preschool group (0\%). In Padova, the highest rate of being Catholic is shown for the municipal preschool group (33\%). 
+
+\item \textbf{Number of siblings:} Mean number of siblings for the RA migrant children is 1.4, and the highest mean in Reggio is shown for the no preschool group (2.25). In Parma, the highest mean is shown for the religious preschool group (1.7) and the lowest is shown for the private preschool group (0.8). In Padova, the highest mean except for private preschool group, which only has 1 child, is shown for the state preschool group (1.3) and the lowest is shown for the religious preschool group (0.96). 
+\end{itemize}
+
+\subsection{Adolescents}
+
+The baseline means for the adolescent cohort are reported in Table \ref{tab:base-reggio-adol} (Reggio), Table \ref{tab:base-parma-adol} (Parma), and Table \ref{tab:base-padova-adol} (Padova). Summaries on the means are described below.
+
+\begin{itemize}
+\item \textbf{Child birth information:} 5\% of the RA adolescents had low birth weight. High rates of low birth weight in Reggio are seen for the private preschool group (17\%) and no preschool group (14\%). 4\% of the RA adolescents had prematurity at birth. Similar to the low birth weight, high rates of prematurity at birth in Reggio are seen for the private preschool group (17\%) and no preschool group (14\%). In Parma, the highest rate of low birth weight and prematurity at birth is shown for the no preschool group (both 25\%). The lowest rates for both is shown for the private preschool group in Parma (both 0\%). In Padova, all rates of low birth weight and prematurity at birth for different preschool type except for no preschool (1 observation) are less than 10\%.
+
+\item \textbf{Mother's years of education:} Mean mother's years of education for the RA adolescents is 12.3 years. In Reggio, the highest mean is shown for the religious preschool (12.7 years), and the lowest mean is shown for the no preschool group (10.9 years). In Parma, the highest mean mother's years of education is seen for the private preschool group (16.3 years) and the lowest is seen for state preschool group (11.8 years). In Padova, the highest mean is shown for the state preschool group (13.4 years), and all the means for other groups in Padova range from 12 years to 12.9 years.
+
+\item \textbf{Father's years of education:} Mean father's years of education for the RA adolescents is 12.1 years. In Reggio, the highest mean is shown for the no preschool grou p (12.7 years), and the lowest mean is shown for the private preschool group (11.2 years). The mean father's years of education is similar across all adolescent groups in Reggio. In Parma, the mean father's years of education is higher than the mean for the RA adolescents. The highest in Parma is shown for the private preschool group (15.8 years), and the lowest in Parma is shown for the state preschool group (11.7 years). In Padova, the highest mean is shown for the private preschool group (14.4 years), and the lowest mean except for the no preschool group (1 observation) is shown for the religious preschool group (12.5 years).
+
+\item \textbf{Family income:} The problem of the family income variable is that there are high missing values for some groups. This section only reports based on the non-missing observations, but we will further investigate the family income using the Inverse Probability Weighting (IPW) scheme. Mean baseline family income for the RA adolescents is 49,748.1 Euros. The highest mean in Reggio is shown for the private preschool group (62,500 Euros), and the lowest mean is shown for the no preschool group (29,500 Euros). Reggio adoescents who went to state preschools also have low mean family income (30,000 Euros). In Parma, the highest mean among reported is shown for the religious preschool group (56,864.4 Euros), and the lowest mean is shown for the private preschool group (25,000 Euros). In Padova, the highest mean among reported is shown for the private preschool group (56,250 Euros), and the lowest mean is shown for the state preschool group (39,375 Euros).
+
+\item \textbf{Caregiver's religion:} 67\% of the RA adolescents came from Catholic families. In Reggio, the highest rate of being Catholic is seen for the religious preschool group (91\%), and the lowest seen for the state preschool group (64\%). The religious preschool group in Reggio also has the highest rate of caregiver being Catholic and more religious than the median.  In Parma, the rate of caregiver being Catholic is similar across groups who attended preschool, all around 85\%. The lowest rate in Parma is seen for the no preschool group (75\%). The religious preschool group in Parma shows the highest rate of caregiver being Catholic and more faithful than the median (60\%) among all Parma adolescent groups. In Padova, the highest rate of caregiver being Catholic is seen for the religious preschool group (78\%), and the lowest is seen for the private preschool group (33\%). 
+
+\item \textbf{Number of siblings:} Mean number of siblings for the RA adolescents is 1.1, and the highest mean in Reggio is shown for the no preschool group (1.7). In Parma, the highest mean is shown for the state preschool group (1.2) and the lowest is shown for the no preschool group (1.0). In Padova, the highest mean except for private preschool group, which only has 1 child, is shown for the religious preschool group (1.05) and the lowest is shown for the state preschool group (0.7). 
+\end{itemize}
+
+\subsection{Adults 30's}
+
+The baseline means for the age-30 cohort are reported in Table \ref{tab:base-reggio-age30} (Reggio), Table \ref{tab:base-parma-age30} (Parma), and Table \ref{tab:base-padova-age30} (Padova). Summaries on the means are described below.
+
+\begin{itemize}
+\item \textbf{Mother's years of education:} Mean mother's years of education for RA age-30 adults is 14 years (about up to 2 years of college). In Reggio, the highest mean is shown for the no preschool group (15 years), and the lowest mean except for the private preschool group (1 observation) is the religious preschool group (13.3 years). In Parma, the highest mean is shown for the religious preschool group (14.6 years), and the lowest mean is shown for the private preschool group (13.6 years). In Padova, the means except for the private preschool group (1 observation) are similar across all groups (around 13.7 years). 
+
+\item \textbf{Father's years of education:} Mean father's years of education for RA age-30 adults is 14.2 years. The highest mean in Reggio is shown for the no preschool group (14.8 years), and the lowest mean is shown for the religious preschool group (13.9 years). In Parma, the highest years of education is shown for the religious group (14.5 years), although it is similar across those who attended preschool. The lowest mean in Parma is shown for the no preschool group (13.5 years). In Padova, the highest mean except for the private preschool group (1 observation) is shown for the no preschool group (14.3 years), and the lowest is shown for the state preschool group (13.4 years). 
+
+\item \textbf{Caregiver's religion:} Although it is not possible in our data to find specific religion of caregivers for adult cohorts, it is shown that 41\% of the RA age-30 people had religious caregiver. The highest rate of caregiver being religious is shown for the religious preschool group (72\%) in Reggio, and the lowest is shown for the state preschool group (32\%). In Parma, the highest rate is shown for the no preschool group (84\%), and the lowest rate for the state preschool group (51\%). In Padova, the highest rate is shown for the no preschool group (84\%), and the lowest rate is shown for the municipal preschool group (71\%), which is still very high. 
+\end{itemize}
+
+\subsection{Adults 40's}
+
+The baseline means for the age-40 cohort are reported in Table \ref{tab:base-reggio-age40} (Reggio), Table \ref{tab:base-parma-age40} (Parma), and Table \ref{tab:base-padova-age40} (Padova). Summaries on the means are described below.
+
+\begin{itemize}
+\item \textbf{Mother's years of education:} Mean mother's years of education for RA age-40 adults is 12.3 years (graduated high school). In Reggio, the highest mean is shown for the no preschool group (13.6 years), and the lowest mean is shown for the private preschool group (12.0 years). In Parma, the highest mean except for the private preschool group (1 observation) is shown for the religious preschool group (13.3 years), and the lowest mean is shown for the state preschool group (12.0 years). In Padova, the highest mean is shown for the no preschool group (14 years), and the lowest mean shown for the municipal preschool group (11.8 years).
+
+\item \textbf{Father's years of education:} Mean father's years of education for RA age-40 adults is 12.5 years. In Reggio, the highest mean is shown for no preschool group (13.7 years), and the lowest mean is shown for the private preschool group (12.4 years). In Parma, the highest mean except for the private preschool group (1 observation) is shown for the religious preschool group (13.95 years), and the lowest is shown for the state preschool group (11.9 years). In Padova, the highest mean is shown for the no preschool group (14.6 years), and the lowest mean is shown for the municipal preschool group (12.7 years).
+
+\item \textbf{Caregiver's religion:} Although it is not possible in our data to find specific religion of caregivers for adult cohorts, it is shown that 39\% of the RA age-30 people had religious caregiver. In Reggio, the highest rate is shown for the no preschool group (65\%), and the lowest rate is shown for the RA group. In Parma, the highest rate is shown for the no preschool group (79\%), and the lowest rate is shown for the state preschool group (69\%). In Padova, the highest rate is shown for the state preschool group (83\%), and teh lowest is shown for the municipal preschool group (67\%). 
+
+\end{itemize}
+
+
+\subsection{Adults 50's}
+Although we report the tables for age-50 cohorts, we are still investigating into the accuracy of reported preschool information for this cohort. Age-50 cohort has significantly low accuracy rate regarding self-reported school information (a report on this specific issue will be prepared). This section is to be updated. 
+
+
+\section{Estimation Strategy: Linear Probability Model}
+We present a framework for the linear probability model (LPM) that estimates the effects of binary covariates on the probability of attending a certain type of early childhood schools. Let $Y_{i,p}^{c,a}$ be an indicator of attending a preschool of type $p$ for individual $i$ in city $c$ and in cohort $a$. Let $\mathbf{X}_{i}^{c,a}$ be a vector of binary covariates for individual $i$ in city $c$ and in cohort $a$. Covariates include individual, parental, and household baseline characteristics. The estimation equation is:
 \begin{equation} \label{eq:lpm}
 Y_{i,p}^{c,a} = \mathbf{X}_{i}^{c,a}\beta_{i,p}^{c,a} + \varepsilon_{i,p}^{c,a} \text{, $\forall$ $i$ in city $c$ and in cohort $a$}
 \end{equation}
 
-Equation \ref{eq:lpm} is estimated for each group of people who are in same city \textit{and} in same cohort. We first present the estimation results for attending types of Asilo schools for each group, and then present results for Materna schools. For the tables of results for Asilo types, each column indicates the type of Asilo school that is used as our dependent variable in the regression. Hence, each column shows the marginal effects of covariates on the probability of attending a type of Asilo school indicated in the column title, for the group of people in a certain city \textit{and} in a certain cohort. The description for the Materna tables is analogous. 
+Equation \ref{eq:lpm} is estimated for each group of people who are in same city \textit{and} in same cohort. For the tables of LPM results for materna types, which are presented after the baseline mean tables for each age cohort, each column indicates the type of materna school that is used as our dependent variable in the regression. Hence, each column shows the effects of binary covariates on the probability of attending a type of materna school indicated in the column title, for the group of people in a certain city \textit{and} in a certain cohort. 
+
+\section{Summary of the LPM Results}
+\subsection{Children}
+\begin{itemize}
+\item \textbf{Reggio:} Significant results shown in Table \ref{tlpm-Reggio-Child} for Reggio are as follows. Low birth weight makes children 28\% more likely to go to municipal preschools (Reggio Approach school). Mother's education above middle school makes less likely to have no materna experience and less likely to have attended state preschools relative to mother's education less than middle school (``Less than middle school" is the omitted category for parental education). Having 2 siblings makes it 17\% less likely to have attended the RA preschools relative to having no sibling (omitted category). Caregiver owning house makes children 15\% more likely to go to the religious preschools. Catholic and very religious caregiver makes children 13\% more likely to go to religious preschools. Family income of 100K-200K Euro makes children 50\% more likely to attend the RA preschools relative to family income of less than 5K Euros (omitted category). 
+
+\item \textbf{Parma:} Significant results shown in Table \ref{tlpm-Parma-Child} are as follows. Prematurity at birth makes children 31\% less likely to have attended municipal preschool and 23\% more likely to have attended religious preschools. Father's education above middle school graduation makes children less likely to have attended municipal school relative to father's education less than middle school. Born in province makes children 4\% less likely to not have attended any preschool and 5\% less likely to have attended private preschools. Having 1-2 siblings make it more likely to have attended municipal preschools, and less likely to have attended religious preschools. Family income of 10K-25K Euros makes children less likely to have attended religious and private schools relative to the lowest income category. Family income of 25K-50K Euro makes children more likely to not attend any preschools and more likely to have attended municipal preschools relative to the lowest income category.
+
+
+\item \textbf{Padova:} Significant results shown in Table \ref{tlpm-Padova-Child} are as follows. Low birth weight makes children 25\% more likely to have attended municipal preschools and 32\% less likely to have attended religious preschool. Mother's education greater than middle school makes children less likely to have attended state school, and mother who has a university degree makes children 19\% more likely to go to municipal preschool. Mother who were teenagers at birth makes children 75\% more likely to have attended municipal preschool. Born in province makes children 3\% less likely to not have attended any preschool. Father with a university degree makes children 16\% less likely to have attended municipal schools. Having 2 siblings makes it 32\% more likely to have attended municipal preschool and 28\% less likely to have attended religious preschools. Catholic and religious caregiver makes children 17\% less likely to have attended municipal preschools, and 15\% more likely to have attended religious schools. Highest income category makes children 11\% more likely to not have attended any preschool relative to the lowest income category. Income 5K-10K Euro makes children 76\% more likely to have attended municipal preschools and 53\% less likely to have attended religious preschools relative to the lowest income category. Family income of over 10K makes children less likely to have attended private preschools relative to the lowest income category.
+\end{itemize}
+
+\subsection{Migrants}
+\begin{itemize}
+\item \textbf{Reggio:} Significant results shown in Table \ref{tlpm-Reggio-Migr} are as follows. Mother being teenager at birth makes migrants 45\% more likely to have attended the Reggio Approach school, 24\% less likely to have attended religious preschools, 19\% more likely to have attended private preschools, and 39\% less likely to have attended state preschools. Higher number of sibling than 0 makes migrants less likely to have attended religious preschools. Caregiver being Catholic makes migrants 26\% more likely to have attended religious preschools. Family income of 10K-25K Euro makes migrants 15\% less likely to have attended religious preschools and 22\% more likely to have attended state preschools relative to the lowest income category. Highest income category makes migrants very likely to have attended religious preschools relative to the lowest income category. 
+
+\item \textbf{Parma:} Significant results shown in Table \ref{tlpm-Parma-Migr} are as follows. Mother's high school graduation makes it 28\% more likely for children to have attended municipal schools. Mother's university graduation makes children 23\% less likely to not have attended any preschool and 49\% more likely to have attended private preschool. Father's high school graduation makes children 33\% less likely to have attended municipal school. Having 1 or 2 siblings makes migrants more likely to not have attended any preschools. Caregiver's house ownership makes children 29\% less likely to have attended private preschool. Family income 5K-10K makes children 42\% more likely to not have attended preschool relative to the lowest income category
+
+\item \textbf{Padova:} Significant results shown in Table \ref{tlpm-Padova-Migr} for Reggio are as follows. Mother's high school graduation makes migrants 20\% less likely to have attended municipal preschools relative to mother not having completed middle school. Father's university degree makes migrants 47\% less likely to have attended state preschools relative to father not having finished middle schools.
+\end{itemize}
+
+\subsection{Adolescents}
+\begin{itemize}
+\item \textbf{Reggio:} Significant results shown in Table \ref{tlpm-Reggio-Adol} are as follows. Prematurity at birth makes adolescents 26\% less likely to have attended municipal preschools (RA schools). Born in province makes adolescnets 12\% more likely to have attended the RA schools. Catholic caregiver makes adolescents 20\% less likely to have attended the RA schools, and 19\% more likely to have attended religious preschools. Catholic and very religious caregiver makes adolescents 12\% less likely to have attended the RA schools and 17\% more likely to have attended religious preschools. 
+\item \textbf{Parma:} Significant results shown in Table \ref{tlpm-Parma-Adol} are as follows. Mother's university degree makes adolescents 26\% more likely to have attended municipal preschools, 10\% more likely to have attended private preschool, and 23\% less likely to have attended state preschools relative to mother not having finished middle school. Having 1 sibling makes adolescents 19\% more likely to have attended municipal preschools and 16\% less likely to have attended religious preschool. Catholic and very religious caregiver makes adolescents 13\% more likely to have attended religious preschools. Family income of 10K-25K makes adolescents 9\% more likely to have attended private preschools and 23\% more likely to have attended state preschools relative to the lowest income category. Family income of 25K-50K makes adolescents 17\% less likely to have attended municipal preschools and 16\% more likely to have attended state preschools.
+\item \textbf{Padova:} Significant results shown in Table \ref{tlpm-Padova-Adol} are as follows. Mother with maximum education level of middle school makes adolescents 26\% more likely to have gone to municipal preschools and 29\% less likely to have attended religious preschools relative to the lowest maternal education category. Mother with a university degree makes adolescents 17\% less likely to have attended religious preschools. Born in province makes adolescents 15\% less likely to have attended municipal preschools and 14\% more likely to have attended religious preschools. House ownership of caregiver makes adolescents 13\% more likely to have attended religious preschools and 9\% less likely to have attended state preschools. Catholic and very religious caregiver makes adolescents 14\% more likely to have attended religious preschools. Highest income category makes adolescents 50\% more likely to have attended religious preschools relative to the lowest income category.
+\end{itemize}
+
+\subsection{Adults Cohorts}
+Since we do not have many baseline characteristics available for older cohorts, it is trickier to find the characteristics that might have driven certain preschool decisions. We are currently investigating into this in depth.
 
 \clearpage
 \singlespacing
@@ -82,167 +199,291 @@ Equation \ref{eq:lpm} is estimated for each group of people who are in same city
 %\input{../Output/LPM/lpm_ParmaMigr_a.tex}
 %\input{../Output/LPM/lpm_PadovaMigr_a.tex}
 
+\appendix
 
-
-\section{Materna (Age 3-5)}
-\subsection{Children}
-\subsubsection{Unconditional Mean}
+\section{Children}
+\subsection{Unconditional Mean}
 \begin{table}[H]
-\caption{Baseline, Reggio, Children}
-\scalebox{0.85}{
+\caption{Baseline, Reggio, Children} \label{tab:base-reggio-child}
+\scalebox{0.90}{
 \input{../Output/description/baselineReggioChild.tex}
 }
+\begin{footnotesize}
+\vspace{0.5mm} 
+
+\underline{Note:} This table shows the unconditional mean of each baseline characteristic for the children cohort in Reggio. Bold numbers show that the group mean is significantly different at 10\% level from the group mean of children who attended the Reggio Approach materna schools. Standard errors are reported in parenthesis. 
+\end{footnotesize}
 \end{table}
 
 \begin{table}[H]
-\caption{Baseline, Parma, Children}
+\caption{Baseline, Parma, Children} \label{tab:base-parma-child}
 \scalebox{0.85}{
 \input{../Output/description/baselineParmaChild.tex}
 }
+\begin{footnotesize}
+\vspace{0.5mm} 
+
+\underline{Note:} This table shows the unconditional mean of each baseline characteristic for the children cohort in Parma. Bold numbers show that the group mean is significantly different at 10\% level from the group mean of children who attended the Reggio Approach materna schools. Standard errors are reported in parenthesis. 
+\end{footnotesize}
 \end{table}
 
 \begin{table}[H]
-\caption{Baseline, Padova, Children}
+\caption{Baseline, Padova, Children} \label{tab:base-padova-child}
 \scalebox{0.85}{
 \input{../Output/description/baselinePadovaChild.tex}
 }
+\begin{footnotesize}
+\vspace{0.5mm} 
+
+\underline{Note:} This table shows the unconditional mean of each baseline characteristic for the children cohort in Padova. Bold numbers show that the group mean is significantly different at 10\% level from the group mean of children who attended the Reggio Approach materna schools. Standard errors are reported in parenthesis. 
+\end{footnotesize}
 \end{table}
 
-\subsubsection{Linear Probability Model}
+\subsection{Linear Probability Model}
 \input{../Output/LPM/lpm_ReggioChild_m.tex}
 \input{../Output/LPM/lpm_ParmaChild_m.tex}
 \input{../Output/LPM/lpm_PadovaChild_m.tex}
 
-
-
-\subsection{Adolescents}
-\subsubsection{Unconditional Mean}
+\section{Migrants}
+\subsection{Unconditional Mean}
 \begin{table}[H]
-\caption{Baseline, Reggio, Adolescents}
+\caption{Baseline, Reggio, Migrants} \label{tab:base-reggio-migr}
+\scalebox{0.90}{
+\input{../Output/description/baselineReggioMigrant.tex}
+}
+\begin{footnotesize}
+\vspace{0.5mm} 
+
+\underline{Note:} This table shows the unconditional mean of each baseline characteristic for the migrant cohort in Reggio. Bold numbers show that the group mean is significantly different at 10\% level from the group mean of children who attended the Reggio Approach materna schools. Standard errors are reported in parenthesis. 
+\end{footnotesize}
+\end{table}
+
+\begin{table}[H]
+\caption{Baseline, Parma, Migrants} \label{tab:base-parma-migr}
+\scalebox{0.85}{
+\input{../Output/description/baselineParmaMigrant.tex}
+}
+\begin{footnotesize}
+\vspace{0.5mm} 
+
+\underline{Note:} This table shows the unconditional mean of each baseline characteristic for the migrant cohort in Parma. Bold numbers show that the group mean is significantly different at 10\% level from the group mean of children who attended the Reggio Approach materna schools. Standard errors are reported in parenthesis. 
+\end{footnotesize}
+\end{table}
+
+\begin{table}[H]
+\caption{Baseline, Padova, Migrants} \label{tab:base-padova-migr}
+\scalebox{0.85}{
+\input{../Output/description/baselinePadovaMigrant.tex}
+}
+\begin{footnotesize}
+\vspace{0.5mm} 
+
+\underline{Note:} This table shows the unconditional mean of each baseline characteristic for the migrant cohort in Padova. Bold numbers show that the group mean is significantly different at 10\% level from the group mean of children who attended the Reggio Approach materna schools. Standard errors are reported in parenthesis. 
+\end{footnotesize}
+\end{table}
+
+\subsection{Linear Probability Model}
+\input{../Output/LPM/lpm_ReggioMigr_m.tex}
+\input{../Output/LPM/lpm_ParmaMigr_m.tex}
+\input{../Output/LPM/lpm_PadovaMigr_m.tex}
+
+
+\section{Adolescents}
+\subsection{Unconditional Mean}
+\begin{table}[H]
+\caption{Baseline, Reggio, Adolescents} \label{tab:base-reggio-adol}
 \scalebox{0.85}{
 \input{../Output/description/baselineReggioAdolescent.tex}
 }
+\begin{footnotesize}
+\vspace{0.5mm} 
+
+\underline{Note:} This table shows the unconditional mean of each baseline characteristic for the adolescent cohort in Reggio. Bold numbers show that the group mean is significantly different at 10\% level from the group mean of children who attended the Reggio Approach materna schools. Standard errors are reported in parenthesis. 
+\end{footnotesize}
 \end{table}
 
 \begin{table}[H]
-\caption{Baseline, Parma, Adolescents}
+\caption{Baseline, Parma, Adolescents} \label{tab:base-parma-adol}
 \scalebox{0.85}{
 \input{../Output/description/baselineParmaAdolescent.tex}
 }
+\begin{footnotesize}
+\vspace{0.5mm} 
+
+\underline{Note:} This table shows the unconditional mean of each baseline characteristic for the adolescent cohort in Parma. Bold numbers show that the group mean is significantly different at 10\% level from the group mean of children who attended the Reggio Approach materna schools. Standard errors are reported in parenthesis. 
+\end{footnotesize}
 \end{table}
 
 \begin{table}[H]
-\caption{Baseline, Padova, Adolescents}
+\caption{Baseline, Padova, Adolescents} \label{tab:base-padova-adol}
 \scalebox{0.85}{
 \input{../Output/description/baselinePadovaAdolescent.tex}
 }
+\begin{footnotesize}
+\vspace{0.5mm} 
+
+\underline{Note:} This table shows the unconditional mean of each baseline characteristic for the adolescent cohort in Padova. Bold numbers show that the group mean is significantly different at 10\% level from the group mean of children who attended the Reggio Approach materna schools. Standard errors are reported in parenthesis. 
+\end{footnotesize}
 \end{table}
 
-\subsubsection{Linear Probability Model}
+\subsection{Linear Probability Model}
 \input{../Output/LPM/lpm_ReggioAdol_m.tex}
 \input{../Output/LPM/lpm_ParmaAdol_m.tex}
 \input{../Output/LPM/lpm_PadovaAdol_m.tex}
 
 
 
-\subsection{Adults at Age 30}
-\subsubsection{Unconditional Mean}
+\section{Adults at Age 30}
+\subsection{Unconditional Mean}
 \begin{table}[H]
-\caption{Baseline, Reggio, Adult 30's}
+\caption{Baseline, Reggio, Adult 30's} \label{tab:base-reggio-age30}
+\begin{center}
 \scalebox{0.8}{
 \input{../Output/description/baselineReggioAdult30.tex}
 }
+\end{center}
+\begin{footnotesize}
+\vspace{0.5mm} 
+
+\underline{Note:} This table shows the unconditional mean of each baseline characteristic for the age-30 cohort in Reggio. Bold numbers show that the group mean is significantly different at 10\% level from the group mean of children who attended the Reggio Approach materna schools. Standard errors are reported in parenthesis. 
+\end{footnotesize}
 \end{table}
 
 \begin{table}[H]
-\caption{Baseline, Parma, Adult 30's}
+\caption{Baseline, Parma, Adult 30's} \label{tab:base-parma-age30}
+\begin{center}
 \scalebox{0.8}{
 \input{../Output/description/baselineParmaAdult30.tex}
 }
+\end{center}
+\begin{footnotesize}
+\vspace{0.5mm} 
+
+\underline{Note:} This table shows the unconditional mean of each baseline characteristic for the age-30 cohort in Parma. Bold numbers show that the group mean is significantly different at 10\% level from the group mean of children who attended the Reggio Approach materna schools. Standard errors are reported in parenthesis. 
+\end{footnotesize}
 \end{table}
 
 \begin{table}[H]
-\caption{Baseline, Padova, Adult 30's}
+\caption{Baseline, Padova, Adult 30's} \label{tab:base-padova-age30}
+\begin{center}
 \scalebox{0.8}{
 \input{../Output/description/baselinePadovaAdult30.tex}
 }
+\end{center}
+\begin{footnotesize}
+\vspace{0.5mm} 
+
+\underline{Note:} This table shows the unconditional mean of each baseline characteristic for the age-30 cohort in Padova. Bold numbers show that the group mean is significantly different at 10\% level from the group mean of children who attended the Reggio Approach materna schools. Standard errors are reported in parenthesis. 
+\end{footnotesize}
 \end{table}
 
 
-\subsubsection{Linear Probability Model}
+\subsection{Linear Probability Model}
 \input{../Output/LPM/lpm_ReggioAdult30_m.tex}
 \input{../Output/LPM/lpm_ParmaAdult30_m.tex}
 \input{../Output/LPM/lpm_PadovaAdult30_m.tex}
 
 
 
-\subsection{Adults at Age 40}
-\subsubsection{Unconditional Mean}
+\section{Adults at Age 40}
+\subsection{Unconditional Mean}
 \begin{table}[H]
-\caption{Baseline, Reggio, Adult 40's}
+\caption{Baseline, Reggio, Adult 40's} \label{tab:base-reggio-age40}
+\begin{center}
 \scalebox{0.8}{
 \input{../Output/description/baselineReggioAdult40.tex}
 }
+\end{center}
+\begin{footnotesize}
+\vspace{0.5mm} 
+
+\underline{Note:} This table shows the unconditional mean of each baseline characteristic for the age-40 cohort in Reggio. Bold numbers show that the group mean is significantly different at 10\% level from the group mean of children who attended the Reggio Approach materna schools. Standard errors are reported in parenthesis. 
+\end{footnotesize}
 \end{table}
 
 \begin{table}[H]
-\caption{Baseline, Parma, Adult 40's}
+\caption{Baseline, Parma, Adult 40's} \label{tab:base-parma-age40}
+\begin{center}
 \scalebox{0.8}{
 \input{../Output/description/baselineParmaAdult40.tex}
 }
+\end{center}
+\begin{footnotesize}
+\vspace{0.5mm} 
+
+\underline{Note:} This table shows the unconditional mean of each baseline characteristic for the age-40 cohort in Parma. Bold numbers show that the group mean is significantly different at 10\% level from the group mean of children who attended the Reggio Approach materna schools. Standard errors are reported in parenthesis. 
+\end{footnotesize}
 \end{table}
 
 \begin{table}[H]
-\caption{Baseline, Padova, Adult 40's}
+\caption{Baseline, Padova, Adult 40's} \label{tab:base-padova-age40}
+\begin{center}
 \scalebox{0.8}{
 \input{../Output/description/baselinePadovaAdult40.tex}
 }
+\end{center}
+\begin{footnotesize}
+\vspace{0.5mm} 
+
+\underline{Note:} This table shows the unconditional mean of each baseline characteristic for the age-40 cohort in Padova. Bold numbers show that the group mean is significantly different at 10\% level from the group mean of children who attended the Reggio Approach materna schools. Standard errors are reported in parenthesis. 
+\end{footnotesize}
 \end{table}
 
-\subsubsection{Linear Probability Model}
+\subsection{Linear Probability Model}
 \input{../Output/LPM/lpm_ReggioAdult40_m.tex}
 \input{../Output/LPM/lpm_ParmaAdult40_m.tex}
 \input{../Output/LPM/lpm_PadovaAdult40_m.tex}
 
 
 
-\subsection{Adults at Age 50}
-\subsubsection{Unconditional Mean}
+\section{Adults at Age 50}
+\subsection{Unconditional Mean}
 \begin{table}[H]
-\caption{Baseline, Reggio, Adult 50's}
+\caption{Baseline, Reggio, Adult 50's} \label{tab:base-reggio-age50}
+\begin{center}
 \scalebox{0.8}{
 \input{../Output/description/baselineReggioAdult50.tex}
 }
+\end{center}
+\begin{footnotesize}
+\vspace{0.5mm} 
+
+\underline{Note:} This table shows the unconditional mean of each baseline characteristic for the age-50 cohort in Reggio. Bold numbers show that the group mean is significantly different at 10\% level from the group mean of children who attended the Reggio Approach materna schools. Standard errors are reported in parenthesis. 
+\end{footnotesize}
 \end{table}
 
 \begin{table}[H]
-\caption{Baseline, Parma, Adult 50's}
+\caption{Baseline, Parma, Adult 50's} \label{tab:base-parma-age50}
+\begin{center}
 \scalebox{0.8}{
 \input{../Output/description/baselineParmaAdult50.tex}
 }
+\end{center}
+\begin{footnotesize}
+\vspace{0.5mm} 
+
+\underline{Note:} This table shows the unconditional mean of each baseline characteristic for the age-50 cohort in Parma. Bold numbers show that the group mean is significantly different at 10\% level from the group mean of children who attended the Reggio Approach materna schools. Standard errors are reported in parenthesis. 
+\end{footnotesize}
 \end{table}
 
 \begin{table}[H]
-\caption{Baseline, Padova, Adult 50's}
+\caption{Baseline, Padova, Adult 50's} \label{tab:base-padova-age50}
+\begin{center}
 \scalebox{0.8}{
 \input{../Output/description/baselinePadovaAdult50.tex}
 }
+\end{center}
+\begin{footnotesize}
+\vspace{0.5mm} 
+
+\underline{Note:} This table shows the unconditional mean of each baseline characteristic for the age-50 cohort in Padova. Bold numbers show that the group mean is significantly different at 10\% level from the group mean of children who attended the Reggio Approach materna schools. Standard errors are reported in parenthesis. 
+\end{footnotesize}
 \end{table}
 
-\subsubsection{Linear Probability Model}
+\subsection{Linear Probability Model}
 \input{../Output/LPM/lpm_ReggioAdult50_m.tex}
 \input{../Output/LPM/lpm_ParmaAdult50_m.tex}
 \input{../Output/LPM/lpm_PadovaAdult50_m.tex}
-
-
-
-%\subsection{Migrants}
-%\subsubsection{Unconditional Mean}
-
-%\subsubsection{Linear Probability Model}
-%\input{../Output/LPM/lpm_ReggioMigrants_m.tex}
-%\input{../Output/LPM/lpm_ParmaMigrants_m.tex}
-%\input{../Output/LPM/lpm_PadovaMigrants_m.tex}
 
 
 \end{document}
