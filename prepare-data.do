@@ -439,6 +439,9 @@ forvalues i = 1/10 {
 replace live_parent = 0 if live_parent == . & Cohort > 3
 lab var live_parent "Adult lives with at least one parent"
 
+
+/* Baseline Variables */
+
 // number of sibling dummies
 gen numSibling_0 = (numSiblings == 0)
 label var numSibling_0 "Number of sibling is 0"
@@ -510,3 +513,10 @@ replace cgFamIncome_val = 75000 if cgIncomeCat == 5
 replace cgFamIncome_val = 175000 if cgIncomeCat == 6
 replace cgFamIncome_val = 375000 if cgIncomeCat == 7
 label var cgFamIncome_val "Baseline family income"
+
+// Create caregiver married and cohabiting variable
+gen cgmStatus_married_cohab = (cgmStatus == 1) | (cgmStatus == 6)
+lab var cgmStatus_married_cohab "Caregiver: married or cohabitating"
+
+// Create more exact hourse worked variable (If cgSES == "Never Worked", then replace cgHrsTot = 0)
+replace cgHrsTot = 0 if cgSES == 0
