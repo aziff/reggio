@@ -26,19 +26,19 @@ include "${klmReggio}/Analysis/baseline-rename"
 
 local main_baseline_vars  		Male Age lowbirthweight birthpremature CAPI
 								momAgeBirth momBornProvince
-								momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni 
+								momYearsEdu cgMigrant
 								dadAgeBirth dadBornProvince
-								dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni 
-								childrenSibTot cgRelig cgMigrant
-								cgReddito_1 cgReddito_2 cgReddito_3 cgReddito_4 cgReddito_5 cgReddito_6 cgReddito_7;
+								dadYearsEdu
+								numSiblings cgCatholic int_cgCatFaith
+								houseOwn cgFamIncome_val;
 								
 								
 local adult_baseline_vars		Male Age CAPI
 								momBornProvince
-								momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni 
+								momYearsEdu
 								dadBornProvince 
-								dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni
-								cgRelig cgCatholic int_cgCatFaith;
+								dadYearsEdu
+								numSiblings cgRelig;
 								
 								
 local Child_baseline_vars		`main_baseline_vars';
@@ -90,9 +90,13 @@ foreach cohort in `cohorts' {
 		file write baseline "\toprule" 	_n
 		file write baseline "`header'" 	_n
 		file write baseline "\midrule" 	_n
-			
+		
+		* --------------------------------------------------------------- *
+		* Storing the mean and standard errors for each baseline variable *
+		* --------------------------------------------------------------- *
 		foreach v in ``cohort'_baseline_vars' {
-			local row
+			local row_m
+			local row_s
 				
 			local school_i = 1
 			foreach s in `schools' {
@@ -101,6 +105,7 @@ foreach cohort in `cohorts' {
 				
 				local N_save`s' = r(N)
 				local mean_save = r(mean)
+				local std_save = r(sd)
 				
 				* Unconditional mean
 				reg `v' i.maternaType
@@ -131,12 +136,13 @@ foreach cohort in `cohorts' {
 				local vl 	: variable label `v'
 					
 				// reformat statistics
-				foreach l in mean min max p50 sd p {
+				foreach l in mean min max p50 std p {
 					local `l'_save : di %9.2f ``l'_save'
 				}
 				foreach l in  r_squared  {
 					local `l' : di %9.2f ``l''
 				}
+				local std_save (`std_save' )
 				
 				local N_save`s' : di %9.0f `N_save`s''
 						
@@ -150,26 +156,45 @@ foreach cohort in `cohorts' {
 					
 				// save to row 
 				if `school_i' == 1 {
-					local row `row' 	`vl' & `mean_save' 
+					local row_m `row_m' 	`vl' & `mean_save' 
 				}
 				else {
-					local row `row' 	& `mean_save' 
+					local row_m `row_m' 	& `mean_save' 
 				}
-					
+				
+				local row_s `row_s' 	& `std_save' 
 					
 				// write row
 				if `school_i' == 5 {
-					local row `row' \\
+					local row_m `row_m' \\
+					local row_s `row_s' \\
 							
-					file write baseline "`row'" _n
+					file write baseline "`row_m' " _n
+					file write baseline "`row_s' " _n
 				}
 						
 			local school_i = `school_i' + 1 
 			}
-			
-			file write baseline "\midrule" _n
-			file write baseline "Observations & `N_saveMunicipal' & `N_saveState' & `N_saveReligious' & `N_savePrivate' & `N_saveNone'" _n
 				
+		}
+		
+		* ---------------------------------------------------------------- *
+		* Storing the number of people who attended each type of preschool *
+		* ---------------------------------------------------------------- *
+		local school_i = 1
+		local row_N 	Observations
+		foreach s in `schools' {
+			summ intnr if maternaType == `school_i' & City == `city_i' & Cohort == `cohort_i'
+			local N_`s' = r(N)
+			local row_N `row_N' & `N_`s''
+			
+			if `school_i' == 5 {
+				local row_N `row_N' \\
+				
+				file write baseline "\midrule " _n
+				file write baseline "`row_N' " _n
+			}
+			local school_i = `school_i' + 1
 		}
 			
 		file write baseline "\bottomrule" _n
