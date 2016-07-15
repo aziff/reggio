@@ -1,0 +1,143 @@
+\documentclass[11pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\parindent 22pt
+
+\usepackage{adjustbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{appendix}
+\usepackage{array}
+\usepackage{authblk}
+\usepackage{booktabs}
+\usepackage{caption} 
+\usepackage{color}
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,anchorcolor=blue,citecolor=blue]{hyperref}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{pdfpages}
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage{pdflscape}
+\usepackage{pgffor}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage{threeparttable}
+\usepackage[colorinlistoftodos,linecolor=black]{todonotes}
+\usepackage{enumitem}
+
+\setlist{  
+  listparindent=\parindent,
+  parsep=0pt,}
+  
+\captionsetup[table]{skip = 2pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+\newcommand{\highlight}[1]{\colorbox{lightgray}{#1}}
+
+\newcommand{\fnDID}{\underline{Note:} This table shows difference in difference across school types and cities with the sample restricted to a specific age cohort. For convenience, we denote "Reggio None" as individuals in Reggio who did not attend any materna school. Notations are analogous across city and school type. Each column shows the following diff-in-diff estimate. \textbf{(1)} (Reggio Muni - Reggio None) - (Parma Muni - Parma None), \textbf{(2)} (Reggio Muni - Reggio State) - (Parma Muni -  Parma State), \textbf{(3)} (Reggio Muni - Reggio Reli) - (Parma Muni - Parma Reli), \textbf{(4)}(Reggio Muni - Reggio None) - (Padova Muni - Padova None),  \textbf{(5)}  (Reggio Muni - Reggio State) - (Padova Muni - Padova State), \textbf{(6)}  (Reggio Muni - Reggio Reli) - (Padova Muni - Padova Reli). Bold number indicates statistical significance at the 10\% level. Standard errors are reported in parentheses.}
+
+
+\newcommand{\fnOLS}{This table presents conditional and unconditional OLS results for our outcomes of interest. For each school type, the ``C. Mean" section shows the conditional means and the ``Mean" section shows the unconditional means. Bold numbers indicate statistical significance at the 10\% level.}
+
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+
+\settimeformat{hhmmsstime}
+
+%--------------------------------------------------------------------------------------
+\begin{document}
+
+\title{Effects of the Reggio Approach on Adult Cohorts: Estimation Strategy and Results}
+\author{Reggio Team}
+\date{Original version: Thursday  16$^{\text{th}}$ June, 2016 \\ Current version: \today \\ \vspace{1em} Time: \currenttime}
+\maketitle
+
+\singlespace
+\newgeometry{left=.8in,right=.7in,top=1in,bottom=1in}
+
+\begin{landscape}
+\begin{center}
+		\scriptsize{
+			\begin{longtable}{L{3cm} c c c c c c p{.5cm} c c c c c c c} 
+				\hline \\
+				\multicolumn{14}{L{19cm}}{\textbf{Note:} \fnOLS}
+				\endfoot
+				\caption{Mean outcomes for Education}  \label{table:OLS_E} \\
+				\toprule
+				\input{../../Output/meanOutcome_Ep.tex}
+			\end{longtable}
+		}		
+\clearpage
+%--------------
+
+
+		\scriptsize{
+			\begin{longtable}{L{3cm} c c c c c c p{.5cm} c c c c c c c}
+				\hline \\
+				\multicolumn{14}{L{19cm}}{\textbf{Note:} \fnOLS}
+				\endfoot
+				\caption{Mean outcomes for Employment and Earnings} \label{table:OLS_W} \\
+				\toprule \\
+				\input{../../Output/meanOutcome_Wp.tex}
+			\end{longtable}
+		}		
+\clearpage
+%--------------
+
+%----------------------------------------
+
+		\scriptsize{
+			\begin{longtable}{L{3cm} c c c c c c p{.5cm} c c c c c c c}
+				\hline \\
+				\multicolumn{14}{L{18.5cm}}{\textbf{Note:} \fnOLS}
+				\endfoot
+				\caption{Mean outcomes for Household Information} \label{table:OLS_L} \\
+				\toprule \\
+				\input{../../Output/meanOutcome_Lp.tex}
+			\end{longtable}
+		}	
+\clearpage	
+%--------------
+%----------------------------------------
+
+		\scriptsize{
+			\begin{longtable}{L{3cm} c c c c c c p{.5cm} c c c c c c c}
+				\hline \\
+				\multicolumn{14}{L{18.5cm}}{\textbf{Note:} \fnOLS}
+				\endfoot
+				\caption{Mean outcomes for Health and risk taking behavior}  \label{table:OLS_H} \\
+				\toprule \\
+				\input{../../Output/meanOutcome_Hp.tex}
+			\end{longtable}
+		}		
+\clearpage
+%---------------------------------------
+%%----------------------------------------
+
+		\scriptsize{
+			\begin{longtable}{L{3cm} c c c c c c p{.5cm} c c c c c c c}
+				\hline \\
+				\multicolumn{14}{L{18.5cm}}{\textbf{Note:} \fnOLS}
+				\endfoot
+				\caption{Mean outcomes for Noncongnitive measures}  \label{table:OLS_N} \\
+				\toprule \\
+				\input{../../Output/meanOutcome_Np.tex}
+			\end{longtable}
+		}		
+\end{center}
+\end{landscape}
+
+%%--------------
+%
+
+\end{document}
