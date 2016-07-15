@@ -1,0 +1,112 @@
+\documentclass[11pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\parindent 22pt
+
+\usepackage{adjustbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{appendix}
+\usepackage{array}
+\usepackage{authblk}
+\usepackage{booktabs}
+\usepackage{caption} 
+\usepackage{color}
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,anchorcolor=blue,citecolor=blue]{hyperref}
+\usepackage{longtable}
+\usepackage{lscape}
+\usepackage{pdfpages}
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage{pdflscape}
+\usepackage{pgffor}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage{threeparttable}
+\usepackage[colorinlistoftodos,linecolor=black]{todonotes}
+\usepackage{enumitem}
+  
+\captionsetup[table]{skip = 2pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+\newcommand{\OLS}{This table presents conditional and unconditional OLS results for our outcomes of interest. For each school type, the ``C. Mean" section shows the conditional means and the ``Mean" section shows the unconditional means. Bold numbers indicate statistical significance at the 10\% level.}
+
+
+
+\settimeformat{hhmmsstime}
+
+%--------------------------------------------------------------------------------------
+\begin{document}
+
+\singlespace
+\newgeometry{left=.8in,right=.7in,top=1in,bottom=.7in}
+
+\begin{landscape}
+
+\begin{center}
+
+		\scriptsize{
+
+
+%--------------------------------------------------------------------------------------
+% Pooled
+%--------------------------------------------------------------------------------------
+				\input{../../Output//OLS/OLStable_Ep.tex}
+
+				\input{../../Output//OLS/OLStable_Wp.tex}
+
+				\input{../../Output//OLS/OLStable_Lp.tex}
+
+				\input{../../Output//OLS/OLStable_Hp.tex}
+
+				\input{../../Output//OLS/OLStable_Np.tex}
+
+				\input{../../Output//OLS/OLStable_Wp.tex}
+
+%--------------------------------------------------------------------------------------
+% Female
+%--------------------------------------------------------------------------------------
+				\input{../../Output//OLS/OLStable_Ef.tex}
+
+				\input{../../Output//OLS/OLStable_Wf.tex}
+
+				\input{../../Output//OLS/OLStable_Lf.tex}
+
+				\input{../../Output//OLS/OLStable_Hf.tex}
+
+				\input{../../Output//OLS/OLStable_Nf.tex}
+
+				\input{../../Output//OLS/OLStable_Wf.tex}
+
+%--------------------------------------------------------------------------------------
+% Male
+%--------------------------------------------------------------------------------------
+				\input{../../Output//OLS/OLStable_Em.tex}
+
+				\input{../../Output//OLS/OLStable_Wm.tex}
+
+				\input{../../Output//OLS/OLStable_Lm.tex}
+
+				\input{../../Output//OLS/OLStable_Hm.tex}
+
+				\input{../../Output//OLS/OLStable_Nm.tex}
+
+				\input{../../Output//OLS/OLStable_Wm.tex}
+
+%--------------------------------------------------------------------------------------
+				}	
+
+\end{center}
+
+\end{landscape}
+
+
+\end{document}
