@@ -46,7 +46,7 @@
 \newcommand{\fnDID}{\underline{Note:} This table shows difference in difference across school types and cities with the sample restricted to a specific age cohort. For convenience, we denote "Reggio None" as individuals in Reggio who did not attend any materna school. Notations are analogous across city and school type. Each column shows the following diff-in-diff estimate. \textbf{(1)} (Reggio Muni - Reggio None) - (Parma Muni - Parma None), \textbf{(2)} (Reggio Muni - Reggio State) - (Parma Muni -  Parma State), \textbf{(3)} (Reggio Muni - Reggio Reli) - (Parma Muni - Parma Reli), \textbf{(4)}(Reggio Muni - Reggio None) - (Padova Muni - Padova None),  \textbf{(5)}  (Reggio Muni - Reggio State) - (Padova Muni - Padova State), \textbf{(6)}  (Reggio Muni - Reggio Reli) - (Padova Muni - Padova Reli). Bold number indicates statistical significance at the 10\% level. Standard errors are reported in parentheses.}
 
 
-\newcommand{\fnOLS}{This table presents conditional and unconditional OLS results for our outcomes of interest. For each school type, the ``C. Mean" section shows the conditional means and the ``Mean" section shows the unconditional means.}
+\newcommand{\fnOLS}{This table presents conditional and unconditional OLS results for our outcomes of interest. For each school type, the ``C. Mean" section shows the conditional means and the ``Mean" section shows the unconditional means. Bold numbers indicate statistical significance at the 10\% level.}
 
 \newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
 \def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
@@ -233,9 +233,9 @@ Compared to other individuals, Municipal educated individuals from Reggio genera
 \begin{itemize}
 \item \textbf{IQ Factor:} 
 	\begin{itemize}
-	\item \textbf{OLS results:} Comparing different materna types within Reggio, the conditional mean (C.Mean) estimates of Table \ref{table:OLS_E} show that individuals who attended Municipal preschools attained lower IQ scores than those who attended Religious preschools in the age 30 and 40 cohorts.
+	\item \textbf{OLS results:} Comparing different materna types within Reggio, the conditional mean (C.Mean) estimates of Table \ref{table:OLS_E} show that the mean IQ for individuals who attended Municipal preschools was significantly higher than the mean IQ for those who attended state schools and significantly lower than for those who attended Religious, Private or no preschools in the age 30 and 40 cohorts. A similar pattern holds for the uncontrolled means. 
 	
-	Comparing across cities, the mean estimates of Table \ref{table:OLS_E} show that individuals from all materna types in Parma and Padova, except those from private preschools in Padova, outpeform Municipal educated individuals from Reggio in the age 30 cohort. A similar relationship persists in the age 40 cohort.
+	Comparing across cities, both the C.Mean and Mean estimates of Table \ref{table:OLS_E} show that individuals from all materna types in Parma and Padova significantly outpeform Municipal educated individuals from Reggio in the age 30 cohort. The C.Mean estimates show a similar pattern for the age 40 cohort except for State schools in Parma and Padova both of which have significantly lower mean IQ than Municipal educated individuals in Reggio. The mean estimates show a similar pattern.
 	
 	\item \textbf{Diff-in-Diff results:} Table \ref{table:ECh-30} shows that the degree by which Municipal preschools underperform Religious preschools in Reggio is larger than the degree of this underperformance in Parma and Padova for the age 30 cohort. Table \ref{table:ECh-40} shows that this relationship continues to persist between Reggio and Parma at age 40, but becomes insignificant for Padova at this age level.
 	
@@ -244,10 +244,12 @@ Compared to other individuals, Municipal educated individuals from Reggio genera
 	
 \item \textbf{High school and University grades:} 
 	\begin{itemize}
-	\item \textbf{OLS results:} Looking at the Reggio age 30 cohort, Table \ref{table:OLS_E} shows that at the high school level, Municipal students attain higher grades than those who didn't attend preschool. At the university level, Municipal students outperform students from Religious preschool.
-	
-Comparing across cities at the age 30 cohort, Municipal schools in Reggio outperform almost all school types in Parma and Padova in terms of high school grades. The findings are more mixed for university grades. For the age 40 cohort, Reggio Municipal schools continue to outperform schools in other cities in terms of high school grades and generally underperform schools from other cities in terms of university grades.
-		
+	\item \textbf{OLS results:} Looking within Reggio, Table \ref{table:OLS_E} shows that Municipal students from the age 30 cohort have significantly higher mean high school grades than all other Reggio materna students except those from private preschools. At the age 40 cohort, Reggio Municipal students significantly outperform only students who didn't attend preschool and significantly underperform those who attended State and Private school in terms of high school grades. 
+
+In terms of university grades, Municipal students from the age 30 cohort have significantly higher mean grades than all other Reggio materna students except those from state preschools. For the age 40 cohort, Reggio Municipal educated individuals attain a significantly lower mean university grade than Religious students and significantly higher scores than State educated students.
+
+Comparing across cities at the age 30 cohort, Municipal schools in Reggio significantly outperform almost all school types in Parma and Padova in terms of high school grades and university grades. This pattern persists for highschool grades in the age 40 cohort, but gets reversed for university grades in the age 40 cohort.
+
 	\item \textbf{Diff-in-diff results:} For the age 30 cohort, Table \ref{table:ECh-30} shows that the degree by which Municipal educated individuals outperform individuals from Religious schools in terms of university grades is greater in Reggio than in Parma and Padova. Significant differences aren't detected for high school grades at this age level.
 	
 	For the age 40 cohort, we detect significant differences in high school grades and not university grades. Table \ref{table:ECh-40} shows that the degree by which Municipal schools outperform Religious schools in terms of high school grades is greater in Reggio than in Parma. Similarly, the degree by which Municipal schools outperfom State schools in terms of high school grades is greater in Reggio than in Padova.
@@ -255,7 +257,12 @@ Comparing across cities at the age 30 cohort, Municipal schools in Reggio outper
 
 \item \textbf{Graduation from High School and University:} 
 	\begin{itemize}
-	\item \textbf{OLS results:} We do not detect strong differences in likelihood of graduation between Municipal schools and other materna types within Reggio. Comparing across cities, Table \ref{table:OLS_E} shows that Municipal students from Reggio have lower likelihoods of graduating from high school and university compared to students from most materna types in Parma and Padova.
+	\item \textbf{OLS results:} Comparing materna types within Reggio, Table \ref{table:OLS_E} shows that for the age 30 cohort, Municipal educated students have higher likelihood of graduating high school than those who didn't attend preschool, and lower likelihood than State and Private educated students. At age 40, Municipal educated students have a higher likelihood of graduating high school than Private students, and lower likelihood than State students and those who didn't preschool. 
+
+underperform State and Private school educated people, while outperforming those who d
+
+
+ We do not detect strong differences in likelihood of graduation between Municipal schools and other materna types within Reggio. Comparing across cities, Table \ref{table:OLS_E} shows that Municipal students from Reggio have lower likelihoods of graduating from high school and university compared to students from most materna types in Parma and Padova.
 	\item \textbf{Diff-in-diff results:} For the age 30 cohort, we do not see any significant diff-in-diff effects for high school graduation. Table \ref{table:ECh-30} shows that there is a difference in the likelihood of University graduation between Municipal educated individuals and those who  attended Religious preschool, and that this difference in likelihood in Reggio is significantly different than the difference in Parma. Table \ref{table:OLS_E} shows that Municipal educated individuals are more likely to graduate from university than Religious students in Reggio, and that the opposite is true in Parma. A similar diff-in-diff effect exists between those who attended Municipal school and those who didn't attend preschool in Reggio and Padova. Table \ref{table:OLS_E} shows that Municipal educated individuals are less likely to graduate from university than those who didn't attend preschool in Reggio, and that the opposite is true in Padova.
 	
 	For the age 40 cohort, Table \ref{table:ECh-40} shows that there is a difference in the likelihood of high school graduation between Municipal educated individuals and those who did not attend preschool, and that this difference in likelihood in Reggio is significantly different than the difference in Parma and Padova. Table \ref{table:OLS_E} shows that Municipal educated individuals had lower likelihoods of graduation than those who didn't attend preschool in both Reggio and Parma. The effect is inconclusive for Padova.

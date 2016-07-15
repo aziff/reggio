@@ -119,14 +119,15 @@ foreach sex in m f p {
 	
 	foreach out_type in E W L H N S {
 
+/*
 		file open baseline using "Output/meanOutcome_`out_type'`sex'.tex", write replace
 		file write baseline "`header1'" _n
 		file write baseline "`header2'" _n
 		file write baseline "`header3'" _n
 		file write baseline "\hline \endhead" _n
-		
+	*/	
 		file open ols using "Output/OLS/OLStable_`out_type'`sex'.tex", write replace
-		file write ols "\begin{longtable}{L{7em} c c c c c c c c c c c c c c c}" _n
+		file write ols "\begin{longtable}{L{8em} c c c c c c c p{1em} c c c c c c c}" _n
 		file write ols "\caption{OLS Estimated Coefficients, ``out_type'_name' Outcomes, ``sex'_name'}\label{OLS-`out_type'-`sex'} \\" _n
 		file write ols "\toprule" _n
 		file write ols " & \multicolumn{7}{c}{\textbf{Conditional}} & & \multicolumn{7}{c}{\textbf{Unconditional}} \\" _n
@@ -140,10 +141,12 @@ foreach sex in m f p {
 	
 			local vl : variable label `v'	
 		
+			/*
 			file write baseline "~\\*[.05cm]" _n
 			file write baseline "\textbf{``v'_lab'} \\*[.1cm]" _n
+			*/
 			
-			file write ols "\textbf{``v'_lab'} \\" _n
+			file write ols "\textbf{``v'_lab'} \\*" _n
 		
 			local cohort_i = 4
 			foreach cohort in Adult30 Adult40 Adult50 {
@@ -153,13 +156,13 @@ foreach sex in m f p {
 				local mean_s = r(mean)
 				local mean_s: di %9.2f `mean_s'
 		
-				file write baseline "\quad \quad \textbf{``cohort'_name'} & & & & & & & & \multicolumn{6}{c}{\highlight{Reference mean = \textbf{`mean_s'}}} \\*[.1cm]" _n
-				file write ols 		"\quad \quad \textbf{``cohort'_name'} & & & & & & & & & & & & & & & \\ " _n
+				*file write baseline "\quad \quad \textbf{``cohort'_name'} & & & & & & & & \multicolumn{6}{c}{\highlight{Reference mean = \textbf{`mean_s'}}} \\*[.1cm]" _n
+				file write ols 		"\quad \quad \textbf{``cohort'_name'} & & & & & & & & & & & & & & & \\* " _n
 				
 				local city_i = 1
 				foreach city in `cities' {
 		
-					file write baseline "\quad \quad \quad `city'"
+					*file write baseline "\quad \quad \quad `city'"
 					file write ols 		"\quad \quad \quad `city'"
 						
 					foreach mean_type in cond un_cond {
@@ -287,8 +290,8 @@ foreach sex in m f p {
 					
 					}
 					
-				local umean `un_cond_meanMunicipal' & `un_cond_meanState' & `un_cond_meanReligious' & `un_cond_meanPrivate' & `un_cond_meanNone'
-				local cmean `cond_meanMunicipal' & `cond_meanState' & `cond_meanReligious' & `cond_meanPrivate' & `cond_meanNone'
+				*local umean `un_cond_meanMunicipal' & `un_cond_meanState' & `un_cond_meanReligious' & `un_cond_meanPrivate' & `un_cond_meanNone'
+				*local cmean `cond_meanMunicipal' & `cond_meanState' & `cond_meanReligious' & `cond_meanPrivate' & `cond_meanNone'
 				
 				local u_coeff `un_cond_meanMunicipal' & `un_cond_var2' & `un_cond_var3' & `un_cond_var4' & `un_cond_var5'
 				local c_coeff `cond_meanMunicipal' & `cond_var2' & `cond_var3' & `cond_var4' & `cond_var5'
@@ -299,22 +302,22 @@ foreach sex in m f p {
 				local u_p [`un_cond_p_cons'] & [`un_cond_p2'] & [`un_cond_p3'] & [`un_cond_p4'] & [`un_cond_p5']
 				local c_p [`cond_p_cons']  & [`cond_p2'] & [`cond_p3'] & [`cond_p4'] & [`cond_p5']
 			
-				file write baseline "& `cmean' & `cond_r_squared' & & `umean' & & `un_cond_r_squared' \\*" _n
-				file write ols		"& `c_coeff' & `cond_r_squared' & `cond_N' & & `u_coeff' & `un_cond_r_squared' & `un_cond_N'  \\" _n
-				file write ols		"\quad \quad \quad \quad s.e.& `c_se' & & & & `u_se' & &  \\" _n
-				file write ols		"\quad \quad \quad \quad $ p$ & `c_p' & & & & `u_p' & &  \\" _n
+				*file write baseline "& `cmean' & `cond_r_squared' & & `umean' & & `un_cond_r_squared' \\*" _n
+				file write ols		"& `c_coeff' & `cond_r_squared' & `cond_N' & & `u_coeff' & `un_cond_r_squared' & `un_cond_N'  \\*" _n
+				file write ols		"\quad \quad \quad \quad s.e.& `c_se' & & & & `u_se' & &  \\*" _n
+				file write ols		"\quad \quad \quad \quad $ p$ & `c_p' & & & & `u_p' & &  \\[1em]" _n
 				local city_i = `city_i' + 1
 				}
-			file write baseline "\\" _n
-			file write ols "\\" _n
+			*file write baseline "\\" _n
+			file write ols "~\\[1em]" _n
 			local cohort_i = `cohort_i' + 1
 			}
 			
-			file write ols "\midrule" _n
+			*file write ols "\midrule" _n
 		}
 	
-	file close baseline
-	file write ols "\bottomrule" _n
+	*file close baseline
+	*file write ols "\bottomrule" _n
 	file write ols "\end{longtable}"
 	file close ols
 	}
