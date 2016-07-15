@@ -13,7 +13,7 @@ global klmReggio   : env klmReggio
 global data_reggio : env data_reggio
 global git_reggio  : env git_reggio
 
-include "${klmReggio}/Analysis/prepare-data"
+include "${git_reggio}/prepare-data"
 
 * ---------------------------------------------------------------------------- *
 * 							Create locals									   *
@@ -332,7 +332,7 @@ local VP_l		xmPrivPadova
 			
 			
 foreach g in p m f  {
-	foreach o in N E W L H {
+	foreach o in E W L H N {
 		if `full_switch' == 1 {
 			local controls `adult_baseline_vars_`o''
 			local folder	full
@@ -377,7 +377,7 @@ foreach g in p m f  {
 			}
 			
 		* Make LaTeX table for Single Dummies
-		file open d_`type'_`o'`g' using "${git_reggio}/Analysis/Output/DiD/`folder'/single`cohort'_`o'`g'.tex", write replace
+		file open d_`type'_`o'`g' using "${git_reggio}/Output/DiD/`folder'/single`cohort'_`o'`g'.tex", write replace
 		file write d_`type'_`o'`g' "\begin{tabular}{L{6.2cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{1.8cm} C{0.3cm} C{0.3cm}}" _n
 		file write d_`type'_`o'`g' "\toprule" _n
 		file write d_`type'_`o'`g' " \textbf{Outcome} & \textbf{Parma Muni} & \textbf{Padova Muni} & \textbf{Reggio None} & \textbf{Reggio Stat} & \textbf{Reggio Reli} & \textbf{N} & \textbf{$ R^2$} \\" _n
@@ -392,7 +392,7 @@ foreach g in p m f  {
 		
 		
 		* Make LaTeX table for Diff-in-Diff
-	    file open did_`type'_`o'`g' using "${git_reggio}/Analysis/Output/DiD/`folder'/did`cohort'_`o'`g'.tex", write replace
+	    file open did_`type'_`o'`g' using "${git_reggio}/Output/DiD/`folder'/did`cohort'_`o'`g'.tex", write replace
 		file write did_`type'_`o'`g' "\begin{tabular}{lcccccccc}" _n
 		file write did_`type'_`o'`g' "\toprule" _n
 		file write did_`type'_`o'`g' " \textbf{Outcome} & \textbf{(1)} & \textbf{(2)} & \textbf{(3)} & \textbf{(4)} & \textbf{(5)} & \textbf{(6)} & \textbf{N} & \textbf{$ R^2$} \\" _n
