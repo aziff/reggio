@@ -302,7 +302,7 @@ foreach sex in m f p {
 				local u_p [`un_cond_p_cons'] & [`un_cond_p2'] & [`un_cond_p3'] & [`un_cond_p4'] & [`un_cond_p5']
 				local c_p [`cond_p_cons']  & [`cond_p2'] & [`cond_p3'] & [`cond_p4'] & [`cond_p5']
 			
-				file write baseline "& `cmean' & `cond_r_squared' & & `umean' & & `un_cond_r_squared' \\*" _n
+				file write baseline "& `cmean' & `cond_r_squared' & & `umean' & `un_cond_r_squared' \\*" _n
 				file write ols		"& `c_coeff' & `cond_r_squared' & `cond_N' & & `u_coeff' & `un_cond_r_squared' & `un_cond_N'  \\*" _n
 				file write ols		"\quad \quad \quad \quad s.e.& `c_se' & & & & `u_se' & &  \\*" _n
 				file write ols		"\quad \quad \quad \quad $ p$ & `c_p' & & & & `u_p' & &  \\[1em]" _n
