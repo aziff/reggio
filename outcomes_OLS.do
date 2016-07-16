@@ -110,14 +110,14 @@ local header3				"\quad \quad Restriction & \tiny{$\boldsymbol{\gamma_0}$}& \tin
 
 cd "$git_reggio"
 
-cap log close
-log using "Output/OLS/checkOLS", replace	
+*cap log close
+*log using "Output/OLS/checkOLS", replace	
 
 foreach sex in m f p {
 	preserve
 	``sex'_condition'
 	
-	foreach out_type in E W L H N S {
+	foreach out_type in E W L H N {
 
 
 		file open baseline using "Output/meanOutcome_`out_type'`sex'.tex", write replace
@@ -156,7 +156,7 @@ foreach sex in m f p {
 				local mean_s = r(mean)
 				local mean_s: di %9.2f `mean_s'
 		
-				file write baseline "\quad \quad \textbf{``cohort'_name'} & & & & & & & & \multicolumn{6}{c}{\highlight{Reference mean = \textbf{`mean_s'}}} \\*[.1cm]" _n
+				file write baseline "\quad \quad \textbf{``cohort'_name'} \\*[.1cm]" _n
 				file write ols 		"\quad \quad \textbf{``cohort'_name'} & & & & & & & & & & & & & & & \\* " _n
 				
 				local city_i = 1
@@ -290,8 +290,17 @@ foreach sex in m f p {
 					
 					}
 					
-				local umean `un_cond_meanMunicipal' & `un_cond_meanState' & `un_cond_meanReligious' & `un_cond_meanPrivate' & `un_cond_meanNone'
-				local cmean `cond_meanMunicipal' & `cond_meanState' & `cond_meanReligious' & `cond_meanPrivate' & `cond_meanNone'
+				if `city_i' == 1 {
+					local umean \highlight{`un_cond_meanMunicipal'} & `un_cond_meanState' & `un_cond_meanReligious' & `un_cond_meanPrivate' & `un_cond_meanNone'
+					local cmean \highlight{`cond_meanMunicipal'} & `cond_meanState' & `cond_meanReligious' & `cond_meanPrivate' & `cond_meanNone'
+				}
+				
+				else {
+					local umean `un_cond_meanMunicipal' & `un_cond_meanState' & `un_cond_meanReligious' & `un_cond_meanPrivate' & `un_cond_meanNone'
+					local cmean `cond_meanMunicipal' & `cond_meanState' & `cond_meanReligious' & `cond_meanPrivate' & `cond_meanNone'
+				}
+				
+				
 				
 				local u_coeff `un_cond_meanMunicipal' & `un_cond_var2' & `un_cond_var3' & `un_cond_var4' & `un_cond_var5'
 				local c_coeff `cond_meanMunicipal' & `cond_var2' & `cond_var3' & `cond_var4' & `cond_var5'
@@ -323,4 +332,4 @@ foreach sex in m f p {
 	}
 restore
 }
-log close
+*log close
