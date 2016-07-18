@@ -10,7 +10,6 @@
 \usepackage{authblk}
 \usepackage{booktabs}
 \usepackage{caption} 
-\usepackage{color}
 \usepackage{datetime}
 \usepackage{enumerate}
 \usepackage{fancyhdr}
@@ -30,6 +29,7 @@
 \usepackage{threeparttable}
 \usepackage[colorinlistoftodos,linecolor=black]{todonotes}
 \usepackage{enumitem}
+\usepackage{xcolor}
 
 \setlist{  
   listparindent=\parindent,
@@ -41,7 +41,7 @@
 \newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
 \newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
 
-\newcommand{\highlight}[1]{\colorbox{lightgray}{#1}}
+\newcommand{\highlight}[1]{\colorbox{lightgray!50}{\makebox(20,4){#1}}}
 
 \newcommand{\fnDID}{\underline{Note:} This table shows difference in difference across school types and cities with the sample restricted to a specific age cohort. For convenience, we denote "Reggio None" as individuals in Reggio who did not attend any materna school. Notations are analogous across city and school type. Each column shows the following diff-in-diff estimate. \textbf{(1)} (Reggio Muni - Reggio None) - (Parma Muni - Parma None), \textbf{(2)} (Reggio Muni - Reggio State) - (Parma Muni -  Parma State), \textbf{(3)} (Reggio Muni - Reggio Reli) - (Parma Muni - Parma Reli), \textbf{(4)}(Reggio Muni - Reggio None) - (Padova Muni - Padova None),  \textbf{(5)}  (Reggio Muni - Reggio State) - (Padova Muni - Padova State), \textbf{(6)}  (Reggio Muni - Reggio Reli) - (Padova Muni - Padova Reli). Bold number indicates statistical significance at the 10\% level. Standard errors are reported in parentheses.}
 
@@ -231,56 +231,82 @@ Hence, $\gamma_6$ is the difference between \Big((Reggio Muni) - (Reggio None)\B
 
 Compared to other individuals, Municipal educated individuals from Reggio generally have lower IQ, higher high school grades, mixed results for University grades, and lower likelihood of graduation.
 \begin{itemize}
-\item \textbf{IQ Factor:} 
+\item \textbf{IQ Factor:} \\
+Reggio Municipal students consistently underperform those who didn't attend preschool in Reggio, and tend to have lower IQ scores than most individuals from Parma and Padova.
 	\begin{itemize}
-	\item \textbf{OLS results:} Comparing different materna types within Reggio, the conditional mean (C.Mean) estimates of Table \ref{table:OLS_E} show that the mean IQ for individuals who attended Municipal preschools was significantly higher than the mean IQ for those who attended state schools and significantly lower than for those who attended Religious, Private or no preschools in the age 30 and 40 cohorts. A similar pattern holds for the uncontrolled means. 
+	\item \textbf{OLS results:} Comparing different materna types within Reggio, the conditional mean (C.Mean) estimates of Table \ref{table:OLS_E} show that the mean IQ for individuals who attended Municipal preschools in Reggio was significantly higher than the mean IQ for those who attended state schools and significantly lower than those who attended Private school or didn't attend preschool in the age 30 cohort. Most of the estimates become insignificant at the age 40 level and we only see that Municipal educated individuals from Reggio have significantly lower mean IQ than those who didn't attend any preschool in Reggio.
 	
-	Comparing across cities, both the C.Mean and Mean estimates of Table \ref{table:OLS_E} show that individuals from all materna types in Parma and Padova significantly outpeform Municipal educated individuals from Reggio in the age 30 cohort. The C.Mean estimates show a similar pattern for the age 40 cohort except for State schools in Parma and Padova both of which have significantly lower mean IQ than Municipal educated individuals in Reggio. The mean estimates show a similar pattern.
-	
-	\item \textbf{Diff-in-Diff results:} Table \ref{table:ECh-30} shows that the degree by which Municipal preschools underperform Religious preschools in Reggio is larger than the degree of this underperformance in Parma and Padova for the age 30 cohort. Table \ref{table:ECh-40} shows that this relationship continues to persist between Reggio and Parma at age 40, but becomes insignificant for Padova at this age level.
-	
-	Table \ref{table:ECh-40} shows two more significant diff-in-diff effects for the age 40 cohort. Firstly, the degree by which Municipal educated individuals underperform those who haven't attended preschool is lower in Reggio than in Padova. Secondly, the degree by which Municipal educated individuals outperform those who attended state school is higher in Reggio than in Padova.
+	Comparing across cities, the C.Mean estimates of Table \ref{table:OLS_E} show that Municipal educated individuals from Reggio have significantly lower mean IQ than individuals from all materna types in Parma and Padova at the age 30 cohort. At the age 40 cohort, Reggio Municipal schools similarly significantly underperform all materna types in Parma except State schools. Reggio Municipal schools only significantly underperform Municipal schools in Padova at this age level.
+
+	\item \textbf{Diff-in-Diff results:} For the age 30 cohort, Tables  \ref{table:OLS_E} and \ref{table:ECh-30} show that Municipal schools underperform Religious schools in all three cities, and that the degree of this underperformance is significantly larger in Reggio than in Parma or Padova. For the age 40 cohort, this diff-in-diff effect persists in Parma and becomes insignificant in Padova. Furthermore, we detect that \textbf{(i)} Municipal educated students attain higher mean IQ scores than state educated students in both Reggio and Padova, and that this difference is significantly smaller in Reggio than in Padova, and \textbf{(ii)} the degree by which Municipal educated individuals underperform those who haven't attended preschool is lower in Reggio than in Padova.
+
 	\end{itemize}
 	
-\item \textbf{High school and University grades:} 
+\item \textbf{High school grades:} \\
+Municipal students from Reggio generally tend to outperform individuals from Parma and Padova. Consistent patterns over the different cohorts aren't detected when looking within Reggio.
 	\begin{itemize}
-	\item \textbf{OLS results:} Looking within Reggio, Table \ref{table:OLS_E} shows that Municipal students from the age 30 cohort have significantly higher mean high school grades than all other Reggio materna students except those from private preschools. At the age 40 cohort, Reggio Municipal students significantly outperform only students who didn't attend preschool and significantly underperform those who attended State and Private school in terms of high school grades. 
+	\item \textbf{OLS results:} Looking within Reggio, Table \ref{table:OLS_E} shows that Municipal students from the age 30 cohort have significantly higher mean high school grades than Reggio individuals who attended State or Religious preschool, and significantly lower grades than those who attended private preschool. At age 40, Municipal students from Reggio only significantly outperform those who didn't attend any preschool, and underperform those who attended State or Private preschool. 
 
-In terms of university grades, Municipal students from the age 30 cohort have significantly higher mean grades than all other Reggio materna students except those from state preschools. For the age 40 cohort, Reggio Municipal educated individuals attain a significantly lower mean university grade than Religious students and significantly higher scores than State educated students.
+Comparing across cities, at the age 30 cohort, Municipal students from Reggio  have significantly higher mean high school grades than all individuals in Padova and those who attended Municipal, State and Religious schools in Parma. At age 40,  Municipal students from Reggio  have significantly higher mean high school grades than all individuals in Padova except those who attended State schools, and all individuals in Parma except those who attended Religious schools.
 
-Comparing across cities at the age 30 cohort, Municipal schools in Reggio significantly outperform almost all school types in Parma and Padova in terms of high school grades and university grades. This pattern persists for highschool grades in the age 40 cohort, but gets reversed for university grades in the age 40 cohort.
+	\item \textbf{Diff-in-diff results:}  Significant diff-in-diff effects aren't detected for high school grades at the age 30 cohort.	For the age 40 cohort, Tables \ref{table:OLS_E} and \ref{table:ECh-40} show that Municipal schools outperform religious schools in Reggio while the opposite effect is true in Parma, and that the difference of these differences is significant. Furthermore, we see that Municipal schools underperform state schools in both Reggio and Padova, and that this underperformance is significantly higher in Padova than in Reggio.
 
-	\item \textbf{Diff-in-diff results:} For the age 30 cohort, Table \ref{table:ECh-30} shows that the degree by which Municipal educated individuals outperform individuals from Religious schools in terms of university grades is greater in Reggio than in Parma and Padova. Significant differences aren't detected for high school grades at this age level.
-	
-	For the age 40 cohort, we detect significant differences in high school grades and not university grades. Table \ref{table:ECh-40} shows that the degree by which Municipal schools outperform Religious schools in terms of high school grades is greater in Reggio than in Parma. Similarly, the degree by which Municipal schools outperfom State schools in terms of high school grades is greater in Reggio than in Padova.
 \end{itemize}
 
-\item \textbf{Graduation from High School and University:} 
+
+\item \textbf{University grades:} \\
+Municipal students from Reggio generally have significantly higher mean grades than individuals from Parma and Padova in the age 30 cohort, and the reverse is true at the age 40 cohort. Consistent patterns over cohorts aren't detected when looking within Reggio.
 	\begin{itemize}
-	\item \textbf{OLS results:} Comparing materna types within Reggio, Table \ref{table:OLS_E} shows that for the age 30 cohort, Municipal educated students have higher likelihood of graduating high school than those who didn't attend preschool, and lower likelihood than State and Private educated students. At age 40, Municipal educated students have a higher likelihood of graduating high school than Private students, and lower likelihood than State students and those who didn't preschool. 
+	\item \textbf{OLS results:} Looking within Reggio, Table \ref{table:OLS_E} shows that Municipal students from the age 30 cohort have significantly higher mean university grades than Reggio individuals who attended private or no preschool, and significantly lower grades than those who attended state school. For the age 40 cohort, Municipal students from Reggio have significantly higher mean university grades than Reggio individuals who attended state preschool, and  lower grades than those who attended religious school.
 
-underperform State and Private school educated people, while outperforming those who d
+	Comparing across cities, at the age 30 cohort, Municipal students from Reggio have significantly higher mean grades than all individuals in Parma except those who attended private and no preschool, and all individuals in Padova except those who attended state and private schools. At the age 40 cohort, Municipal students from Reggio have significantly lower mean grades than all individuals in Parma except those who attended private school, and all individuals in Padova except those who attended state and private schools. 
 
+	\item \textbf{Diff-in-diff results:} For the age 30 cohort, Tables \ref{table:OLS_E} and \ref{table:ECh-30} show Municipal schools outperform religious schools in Reggio while the opposite is true in Parma and Padova, and that the difference of these differences is significant. For the age 40 cohort, Tables \ref{table:OLS_E} and \ref{table:ECh-40} show that Municipal educated students underperform those who didn't attend preschool in Reggio while the opposite is true in Parma, and that the difference of these differences is significant.
 
- We do not detect strong differences in likelihood of graduation between Municipal schools and other materna types within Reggio. Comparing across cities, Table \ref{table:OLS_E} shows that Municipal students from Reggio have lower likelihoods of graduating from high school and university compared to students from most materna types in Parma and Padova.
-	\item \textbf{Diff-in-diff results:} For the age 30 cohort, we do not see any significant diff-in-diff effects for high school graduation. Table \ref{table:ECh-30} shows that there is a difference in the likelihood of University graduation between Municipal educated individuals and those who  attended Religious preschool, and that this difference in likelihood in Reggio is significantly different than the difference in Parma. Table \ref{table:OLS_E} shows that Municipal educated individuals are more likely to graduate from university than Religious students in Reggio, and that the opposite is true in Parma. A similar diff-in-diff effect exists between those who attended Municipal school and those who didn't attend preschool in Reggio and Padova. Table \ref{table:OLS_E} shows that Municipal educated individuals are less likely to graduate from university than those who didn't attend preschool in Reggio, and that the opposite is true in Padova.
-	
-	For the age 40 cohort, Table \ref{table:ECh-40} shows that there is a difference in the likelihood of high school graduation between Municipal educated individuals and those who did not attend preschool, and that this difference in likelihood in Reggio is significantly different than the difference in Parma and Padova. Table \ref{table:OLS_E} shows that Municipal educated individuals had lower likelihoods of graduation than those who didn't attend preschool in both Reggio and Parma. The effect is inconclusive for Padova.
-	
-		 	\end{itemize}
+	\end{itemize}
+
+\item \textbf{Graduation from High School:} \\
+Within Reggio, Municipal students are less likely to graduate than state students in both age 30 and 40 cohorts. Municipal students from Reggio generally have lower likelihoods of graduation than individuals in Parma and Padova.
+	\begin{itemize}
+	\item \textbf{OLS results:} Looking within Reggio, Table \ref{table:OLS_E} shows that Municipal students from the age 30 cohort have significantly higher mean likelihood of graduating high school than those who attended no preschool, and lower likelihoods than state and private students. For the age 40 cohort, Municipal students from Reggio have significantly higher likelihood of graduating high school than private students, and lower likelihood than state students. 
+
+	Comparing across cities, at the age 30 cohort, Municipal students from Reggio have significantly lower likelihoods of graduation than all individuals from Parma and Padova. At the age 40 cohort, Municipal students from Reggio have significantly lower likelihoods of graduation than all individuals from Parma and Padova except those who attended state and private schools in these cities. 
+
+	\item \textbf{Diff-in-diff results:} Significant diff-in-diff effects aren't detected for high school graduation at the age 30 cohort. For the age 40 cohort, Tables \ref{table:OLS_E} and \ref{table:ECh-40} shows that
+Municipal educated students are less likely to graduate high school than those who didn't attend preschool in both Reggio and Parma, and that this difference in likelihood is significantly greater in Reggio than in Parma. 
+Furthermore, Municipal students have lower likelihoods of graduation than State students in Reggio while the opposite is true in Parma, and the difference in these differences is significant.
+	\end{itemize}
+
+\item \textbf{Graduation from University:} \\
+Within Reggio, Municipal students are more likely to graduate than religious students in both age 30 and 40 cohorts. Municipal students from Reggio generally have lower likelihoods of graduation than individuals in Parma and Padova.
+	\begin{itemize}
+	\item \textbf{OLS results:}  Looking within Reggio, Table \ref{table:OLS_E} shows that Municipal students from the age 30 cohort have significantly higher mean likelihood of graduating university than those who attended religious preschool, and lower likelihoods than those who attended state or no preschool. For the age 40 cohort, Municipal students from Reggio have significantly higher likelihood of graduation than students from all other materna types in Reggio. 
+
+	Comparing across cities, at the age 30 cohort, Municipal students from Reggio have significantly lower likelihoods of graduation than all individuals from Parma except those who attended Religious schools, and all individuals from Padova except those who didn't attend preschool. At the age 40 cohort, Municipal students from Reggio have significantly lower likelihoods of graduation than all individuals from Parma except those who didn't attend preschool, and all individuals from Padova except those who attended state or private schools. 
+
+	\item \textbf{Diff-in-diff results:} For the age 30 cohort, Tables \ref{table:OLS_E} and \ref{table:ECh-30} show that Municipal schools outperform Religious schools in Reggio while the opposite is true in Parma, and that the difference of these differences is significant. We also find that Municipal students underperform those who didn't attend preschool in Reggio while the opposite is true in Padova, and that the difference of these differences is significant. 
+
+For the age 40 cohort, Tables \ref{table:OLS_E} and \ref{table:ECh-40} show that Municipal students outperform those who didn't attend preschool in both Reggio and Parma, and that this difference is greater in Parma. We also find that Municipal students outperform state students in Reggio while the opposite is true in Padova, and that the difference of these differences is significant. 
+
+	\end{itemize}
+
 \end{itemize}
 
 \subsection{Employment and Earnings}
-Municipal educated individuals from Reggio consistently worked longer hours than other individuals both within and outside Reggio.
 
 \begin{itemize}
 
 \item \textbf{Hours Worked:} 
 	\begin{itemize}
 	\item \textbf{OLS results:}
-Comparing materna types within Reggio, Table \ref{table:OLS_W} shows that individuals who attended Municipal school work longer hours per week compared to individuals who attended Private school or individuals who did not attend any preschool. Comparing across cities, we find that individuals who attended Municipal school in Reggio work longer hours compared to individuals from most materna types in Parma and Padova.
+Comparing materna types within Reggio, Table \ref{table:OLS_W} shows that Municipal students from the age 30 cohort have significantly higher mean hours worked per week than Reggio individuals who attended state and religious schools, and lower hours than those who attended private schools. For the age 40 cohort, Municipal students from Reggio worked significantly lower hours than state and religious students.
 
-	\item \textbf{Diff-in-diff results:} Table \ref{table:WCh-30} shows that the extent by which individuals who attended Municipal preschool work longer hours than those who did not attend preschool is greater in Reggio than in Parma and Padova.
+	Comparing across cities, at the age 30 cohort, Municipal students from Reggio work significantly longer hours than all individuals in Parma except those who didn't attend preschool, and all individuals in Padova except those who attended state or private school. For the age 40 cohort,  Municipal students from Reggio work significantly shorter hours than those who attended private school in Parma, and significantly longer hours than all other Parma individuals. Municipal students from Reggio work significantly shorter hours than Padova individuals who attended Municipal, Religious or no preschool.
+
+	\item \textbf{Diff-in-diff results:} For the age 30 cohort, Tables \ref{table:OLS_W} and \ref{table:WCh-30} show that Municipal students work longer hours than those who didn't attend preschool in all three cities, and that this effect is greater in Reggio than Parma and Padova. 
+
+For the age 40 cohort, Tables \ref{table:OLS_W} and \ref{table:WCh-40} show that the same diff-in-diff effect persists between Reggio and Parma. We see that a diff-in-diff effect still exists between Reggio and Padova, but at this age level, Municipal students work longer hours than those who didn't attend preschool in Reggio while the opposite is true in Padova. Lastly, we see that Municipal students work shorter hours than state students in Reggio while the opposite is true in Padiva, and that this diff-in-diff effect is significant.
+
 	\end{itemize}
 	
 \end{itemize}  
@@ -290,12 +316,13 @@ We find consistent differences between Municipal educated individuals from Reggi
 
 \begin{itemize}
 
-\item \textbf{Own House:} 
+\item \textbf{Own House:} \\
+Within Reggio, Municipal students are gernerally more likely to own a house than other Reggio individuals at age 30, and the reverse is true for the age 40 cohort. Municipal students from Reggio are generally less likely to own a house than individuals from Parma and Padova.
 	\begin{itemize}
 	\item \textbf{OLS results:}
-Comparing within Reggio, we do not detect differences in the likelihood of house ownership between Municipal educated individuals and those from other materna types.
+Comparing materna types within Reggio in the age 30 cohort, Table \ref{table:OLS_L} shows that Municipal students have significantly higher mean likelihoods of owning a house than Reggio individuals who attended religious, private or no preschool, and significantly lower likelihood than those who attended state school.  For the age 40 cohort, Municipal students from Reggio were significantly less likely to own a house than students from all other materna types within Reggio.
 
-Comparing across cities, Table \ref{table:OLS_L} shows that Municipal educated individuals from Reggio are less likely to own a house than individuals from most materna types in Parma and Padova in the age 40 cohort.
+Comparing across cities in the age 30 cohort, Table \ref{table:OLS_L} shows that Municipal educated individuals from Reggio are less likely to own a house than individuals from all materna types in Parma and Padova. In the age 40 cohort, individuals who attended Municipal school in Reggio are less likely to own a house than Municipal, Religious and Private educated individuals in Parma, and those who attended Municipal, State, Religious or no preschool in Padova.
 	
 	\item \textbf{Diff-in-diff results:} For the age 40 cohort, Table \ref{table:LCh-40} shows that there is a difference in the likelihood of house ownership between Municipal educated individuals and those who did not attend preschool, and that this difference in likelihood in Reggio is significantly different than the difference in Parma and Padova. Examination of Table \ref{table:OLS_L} shows that Municipal educated individuals are less likely to own a house than those who didn't receive any preschool education in Reggio, and that this relationship is reversed in Parma and Padova.
 	\end{itemize}
@@ -303,9 +330,9 @@ Comparing across cities, Table \ref{table:OLS_L} shows that Municipal educated i
 \item \textbf{Married or Cohabitating:} 
 	\begin{itemize}
 	\item \textbf{OLS results:}
-Comparing within Reggio, we do not detect differences in likelihood of marriage or cohabitation between Municipal educated individuals and those from other materna types.
+Comparing materna types within Reggio in the age 30 cohort, Table \ref{table:OLS_L} shows that Municipal students have significantly higher mean likelihoods of marriage or cohabitation than Reggio individuals who attended state preschool, and significantly lower likelihoods than those who received Religious or Private education. For the age 40 cohort,  Municipal students have significantly higher mean likelihoods of marriage or cohabitation than  individuals who attended state or religious preschool, and significantly lower likelihoods than those who received a Private education. 
 
-Comparing across cities for the age 40 cohort, Table \ref{table:OLS_L} shows that individuals who attended Municipal schools in Reggio are more likely to be married or cohabitating than individuals who attended State or no preschool in Parma, and those who attended Municipal or no preschool in Padova.
+	Comparing across cities in the age 30 cohort, Table \ref{table:OLS_L} shows that Municipal educated individuals from Reggio are less likely to be married or cohabitating than all individuals in Parma, and all individuals in Padova except those who received a Religious education. For the age 40 cohort, Municipal educated individuals from Reggio are more likely to be married than Municipal educated individuals from Parma and Padova as well as those who didn't receive preschool education in Padova, and less likely than privately educated individuals of Parma.
 
 	\item \textbf{Diff-in-diff results:} Table \ref{table:LCh-30} does not show significant diff-in-diff effects in likelihood of marriage and cohabitation in the age 30 cohort. For the age 40 cohort, Table \ref{table:LCh-40} shows that there is a difference in the likelihood of marriage or cohabitation between Municipal educated individuals and those who didn't attend preschool, and that this difference in likelihood in Reggio is significantly different than the difference in Parma. Similarly, we find that such a diff-in-diff effect exists between Reggio and Padova when comparing Municipal schools with State and Religious schools. Table \ref{table:OLS_L} shows that Municipal educated individuals are less likely to be married than those who didn't attend preschool in Reggio, and that the opposite relationship exists in Parma. Comparing Reggio and Padova, we find that Municipal educated individuals are more likely to be married than both State and Religious educated individuals in Reggio, and that these relationships are reversed in Padova.
 	\end{itemize}	
@@ -318,21 +345,33 @@ Compared to other individuals, Municipal educated individuals from Reggio report
 \item \textbf{Tried marijuana:} 
 	
 	\begin{itemize}
-	\item \textbf{OLS results:} Table \ref{table:OLS_H} shows that within Reggio, those who attended Municipal preschool are more likely to have tried marijuana than those who did not attend any preschool in the age 30 cohort.
+	\item \textbf{OLS results:} Comparing materna types within Reggio in the age 30 cohort, Table \ref{table:OLS_H} shows that Municipal students have significantly lower mean likelihoods of having tried marijuana compared to Reggio individuals who attended state and religious preschool, and significantly higher likelihoods than those who received Private education. For the age 40 cohort,  Municipal students have significantly higher mean likelihoods of having tried marijuana than individuals from all other materna types in Reggio. 
 
-	Comparing across cities, the table shows that for both the age 30 and 40 cohorts, individuals who attended Municipal school in Reggio are more likely to have tried marijuana than individuals who did not attend any preschool in Parma and Padova.
+The estimates that suggest Municipal students are more likely to have tried marijuana are questionable as they all have a mean likelihood of trying marijuana that is negative. We do not interpret this variable any futher due to this reason. We will need to investigate the data to ensure that this variable is accurate.
 		
 	\item \textbf{Diff-in-diff results:} Tables  \ref{table:HCh-30} and  \ref{table:HCh-40} shows that Municipal educated individuals are more likely to have tried marijuana than those who did not attend any preschool, and that this likelihood is greater in Reggio than in Padova for the age 30 cohort, and greater in Reggio than in Parma for the age 40 cohort.
 	
 	Tables  \ref{table:HCh-30} also shows that for the age 30 cohort, there is a difference in the likelihood of having tried marijuana between Municipal educated individuals and Religious educated individuals, and that this difference in likelihood in Reggio is significantly different than the difference in Padova. Table \ref{table:OLS_H} shows that Municipal educated individuals are less likely to have tried marijuana than Religious educated individuals in Reggio, and that this relationship is reversed in Padova.
 	\end{itemize}
 
-\item \textbf{Likelihood of smoking and number of cigarettes per day:} 
+
+\item \textbf{Likelihood of smoking:} 
 	
 	\begin{itemize}
-	\item \textbf{OLS results:} Table  \ref{table:OLS_H} shows that within Reggio, there is no difference in the likelihood of smoking among individuals educated in Municipal schools and individuals from other materna types. Among those who smoke, Municipal educated individuals smoke more cigarettes per day than those who did not go to preschool in the age 30 cohort and than those who attended religious preschool in the age 40 cohort.
+	\item \textbf{OLS results:} Comparing materna types within Reggio in the age 30 cohort, Table \ref{table:OLS_H} shows that Municipal students have significantly lower mean likelihoods of having smoked compared to Reggio individuals who attended state preschool. For the age 40 cohort,  Municipal students have significantly higher mean likelihoods of smoking than individuals who attended any other type of materna in Reggio.
 
-	Comparing across cities, Municipal educated individuals from Reggio generally had a lower likelihood of smoking compared to individuals from Parma and Padova, but among those who smoked, Municipal educated individuals from Reggio generally reported higher number of cigarettes smoked per day.
+	Comparing across cities in the age 30 cohort, Table \ref{table:OLS_H} shows that Municipal educated individuals from Reggio are less likely to smoke than all individual from Parma, and all individuals from Padova except those from Padova who attended a private preschool. The estimate on individuals from Padova who attended private preschool is significant in the opposite direction and takes on a negative value. For the age 40 cohort, Municipal educated individuals from Reggio are less likely to smoke than all individuals from Parma other than those who attended Religious school, and Municipal and Religiously educated individuals from Padova. Those who attended state or no preschool in Padova are significantly less likely to smoke than those who attended Municipal school in Reggio.
+
+	\item \textbf{Diff-in-diff results:} Table \ref{table:HCh-30} shows that there are no significant diff-in-diff effects in the age 30 cohort. For the age 40 cohort,  Table \ref{table:HCh-40} shows that there is a difference in the likelihood of cigarette consumption between Municipal educated individuals and Religious educated individuals, and that this difference in likelihood in Reggio is significantly different than the difference in Padova. Table \ref{table:OLS_H} shows that in Reggio, Municipal educated individuals are more likely to smoke cigarettes when compared to Religious educated individuals. This relationship is reversed in Padova where Municipal educated individuals are less likely to smoke than their Religious counterparts.
+	\end{itemize}
+
+
+\item \textbf{Number of cigarettes per day:} 
+	
+	\begin{itemize}
+	\item \textbf{OLS results:} Comparing materna types within Reggio in the age 30 cohort, Table \ref{table:OLS_H} shows that among those who smoke, Municipal students smoke more cigarettes per day on average compared to Reggio individuals who attended state and religious preschool. For the age 40 cohort, Municipal students smoke signifcantly lower numbers of cigarettes per day compared to those who attended state or no preschool, and significantly more cigarettes than those who attended private preschool. 
+
+	Comparing across cities in the age 30 cohort, Table \ref{table:OLS_H} shows that Municipal educated individuals from Reggio smoke more cigarattes per day on average than all individuals in Parma and Padova except those in Padova who attended private preschool. In the age 40 cohort, Municipal educated individuals from Reggio smoke more cigarattes per day on average than all individuals in Parma, and smoke significantly less than those in Padova who attended Municipal, State and Religious schools.
 	
 	\item \textbf{Diff-in-diff results:} Table \ref{table:HCh-30} shows that there are no significant diff-in-diff effects in the age 30 cohort. For the age 40 cohort,  Table \ref{table:HCh-40} shows that there is a difference in the likelihood of cigarette consumption as well as the number of cigarettes smoked per day between Municipal educated individuals and Religious educated individuals, and that this difference in likelihood in Reggio is significantly different than the difference in Padova. Table \ref{table:OLS_H} shows that in Reggio, Municipal educated individuals are more likely to smoke cigarettes and smoke more cigarettes per day when compared to Religious educated individuals. These relationships are reversed in Padova where Municipal educated individuals are less likely to smoke and smoke less cigarettes per day than their Religious counterparts.
 	\end{itemize}
@@ -340,7 +379,9 @@ Compared to other individuals, Municipal educated individuals from Reggio report
 \item \textbf{Health:} 
 	
 	\begin{itemize}
-	\item \textbf{OLS results:} Table  \ref{table:OLS_H} shows that Municipal educated individuals from Reggio generally report better levels of health than individuals from Parma and Padova.
+	\item \textbf{OLS results:}  Comparing materna types within Reggio in the age 30 cohort, Table \ref{table:OLS_H} shows that Municipal students have significantly lower health than those who attend State, Religious and private schools, and have significantly better health than those who attend no preschool. For the age 40 cohort, Municipal students have significantly lower health than those who attend Religious schools, and significantly better health than those who attended State and private schools.
+
+	Comparing across cities in the age 30 cohort, Table \ref{table:OLS_H} shows that Municipal educated individuals from Reggio have better health than those who attend municipal, state or no preschool in Parma, and those who attend municipal and religious preschool in Padova. In the age 40 cohort, Municipal educated individuals from Reggio have significantly higher health than all individuals from Parma except those who didn't attend preschool, and have significantly lower health than those in Padova who attended municipal and state schools.
 
 	\item \textbf{Diff-in-diff results:} For the age 30 cohort, Table \ref{table:HCh-30} shows that there is a difference in levels of health between Municipal educated individuals and those who didn't attend preschool, and that this difference in Reggio is significantly different than the difference in Parma and Padova. Table \ref{table:OLS_H} shows that in Reggio, Municipal educated individuals report higher levels of health than those who didn't attend preschool and that this relationship is reversed in both Parma and Padova. 
 	
@@ -350,53 +391,63 @@ Compared to other individuals, Municipal educated individuals from Reggio report
 \item \textbf{Age at first drink:} 
 	
 	\begin{itemize}
-	\item \textbf{OLS results:} Table  \ref{table:OLS_H} shows that age at first drink is lower for Municipal educated individuals from Reggio compared to individuals from most materna types in Parma and Padova.
+	\item \textbf{OLS results:} Table  \ref{table:OLS_H}  Comparing materna types within Reggio in the age 30 cohort, Table \ref{table:OLS_H} shows that Municipal students have significantly higher mean age at first drink than those who attended state and private preschools, and lower age than those who received private education. At age 40, Municipal students have significantly higher age at first drink than private school students, and lower age at first drink than those who attended religious or no preschool.
+
+	Comparing across cities in the age 30 cohort, Table \ref{table:OLS_H} shows that Municipal educated individuals from Reggio have significantly lower age at first drink than all individuals in Parma and Padova, except those from Parma who didn't attend preschool. In the age 40 cohort, Municipal educated individuals from Reggio have significantly lower age at first drink than all individuals in Parma and Padova, except those from Parma who attended private school for whom then estimate is significant in the opposite direction. 
 	
 	\item \textbf{Diff-in-diff results:} Table \ref{table:HCh-40} shows that there are no significant diff-in-diff effects at the age 40 level. At the age 30 cohort, Table \ref{table:HCh-40} shows that a number of significant diff-in-diff effects exist. We explain these significant effects in the following. Looking at Table \ref{table:OLS_H} we see that in Reggio, Municipal educated individuals have higher ages at first drink compared to those who attended state or school or no preschool. In Parma, both of these relationships are reversed, and in Padova, the relationship between Municipal and State are reversed. Table \ref{table:OLS_H} also shows that Municipal educated individuals start drinking at a younger age than Religious educated individuals in Reggio, and that the converse is true in Parma and Padova.
 	\end{itemize}
 \end{itemize}
 
-%\subsection{Noncognitive Outcomes}
-%
-%\begin{itemize}
-%\item \textbf{Locus of Control:} 
-%	
-%	\begin{itemize}
-%	\item \textbf{OLS results:} 
-%
-%	\item \textbf{Diff-in-diff results:} We do not detect any significant effects at the age 30 cohort. For the age 40 cohort, Table \ref{table:NCh-40} shows that diff-in-diff effects exist between Municipal educated individuals and those who didn't attend preschool when comparing Reggio with Padova. Table \ref{table:OLS_N} shows that Municipal educated individuals believe they are more in control of events affecting them than those who didn't attend preschool in Reggio, while the opposite is true in Padova. Table \ref{table:NCh-40} shows diff-in-diff effects also exist when comparing Municipal and Religious school between Reggio and Padova.  Table \ref{table:OLS_N} shows that in both Reggio and Padova, Municipal educated individuals believe they are less in control of events affecting them than those who attended Religious preschool. The positive value for the diff-in-diff estimator in Table \ref{table:NCh-40} shows that this effect is larger in Padova than in Reggio.
-%	\end{itemize}
-%
-%\item \textbf{Depression score:} 
-%	
-%	\begin{itemize}
-%	\item \textbf{OLS results:} 
-%	
-%	\item \textbf{Diff-in-diff results:} We do not detect any significant effects at the age 30 cohort. For the age 40 cohort, Table \ref{table:NCh-40} shows that diff-in-diff effects exist between Municipal educated and State educated individuals when comparing Reggio with both Parma and Padova. Table \ref{table:OLS_N} shows that Municipal educated individuals report lower levels of depression than state educated individuals in Reggio and in Padova, and that this relationship is reversed in Parma. The negative score on the diff-in-diff effect between Reggio and Padova shows that the degree by which Municipal educated individuals are less depressed than State educated individuals is larger in Padova than in Reggio. Table \ref{table:NCh-40} also shows that a diff-in-diff effect exists between Reggio and Padova when comparing Municipal educated individuals to those who didn't received any preschool education. Table \ref{table:OLS_N} shows that Municipal educated individuals report lower levels of depression than their State educated counterparts in Reggio, and that the relationship is reversed in Padova. 
-%	\end{itemize}
-%
-%\item \textbf{Satisfied with Income:} 
-%	
-%	\begin{itemize}
-%	\item \textbf{OLS results:} 
-%	
-%	\item \textbf{Diff-in-diff results:} We do not detect significant effects at the age 40 cohort. For the age 30 cohort, Table \ref{table:NCh-30} shows that between Reggio and Parma, diff-in-diff effects exist when comparing Municipal educated individuals with \textbf{(i)} Religious educated individuals and  \textbf{(ii)} those who didn't receive preschool education. Table \ref{table:OLS_N} shows that in Reggio, Municipal educated individuals are more likely to be satisfied with their income than both Religious educated individuals and those who didn't attend preschool, and that both these relationships are reversed in Parma. 
-%	
-%	Table \ref{table:OLS_N} also shows that that a significant diff-in-diff effect exists when comparing Municipal and State schools between Reggio and Padova. Table \ref{table:OLS_N} shows that Municipal educated individuals are less likely to be satisfied with their income than State educated individuals in Reggio, and that this relationship is reversed in Padova.
-%	\end{itemize}
-%
-%
-%\item \textbf{Satisfied with Health:} 
-%	
-%	\begin{itemize}
-%	\item \textbf{OLS results:} 
-%	
-%	\item \textbf{Diff-in-diff results:}  Table \ref{table:NCh-30} shows that 5 out of our 6 estimates have significant diff-in-diff effects at age 30. When comparing Reggio and Parma, significant diff-in-diff effects exist between Municipal and None, and between Municipal and Religious. Table \ref{table:OLS_N} shows that Municipal educated individuals are less likely to be satisfied with health compared to Religious educated individuals in Reggio, and that the opposite is true in Parma.  Table \ref{table:OLS_N} also shows that  Municipal educated individuals report are less likely to be satisfied with health compared to those who didn't receive pre school education in both Reggio and Parma. The estimate for this diff-in-diff effect is negative in Table \ref{table:NCh-30}, which implies that the degree by which Municipal educated individuals are less likely to be satisfied with health compared to those who didn't receive preschool education is greater in Reggio than in Parma.
-%	
-%	 When looking at Reggio and Padova, significant diff-in-diff effects exist when comparing Municipal educated individuals with those who attended no preschool, State school, and Religious school. Table \ref{table:OLS_N} shows that in Reggio, Municipal educated individuals are less likely to be satisfied with health compared to individuals who attended no preschool, State school, or Religious school. These relationships are all reversed in Padova. 
-%	
-%	\end{itemize}
-%
+\subsection{Noncognitive Outcomes}
+
+\begin{itemize}
+\item \textbf{Locus of Control:} 
+	
+	\begin{itemize}
+	\item \textbf{OLS results:} Comparing materna types within Reggio in the age 30 cohort, Table \ref{table:OLS_N} shows that Municipal students tend to believe that they are more in control of events that affect their lives than private students, and that the reverse is true when comparing Municipal students with those who attended Religious or no preschool. For the age 40 cohort, we see that Municipal students believe they are less in control of events that affect their lives than Religious students.
+
+	Comparing across cities in the age 30 cohort, Table \ref{table:OLS_N} shows that Municipal educated individuals from Reggio believe that they are more in control of events that affect their lives than all individuals from Parma and Padova except those who attended Religious school in Parma or Padova. For the age 40 cohort, Municipal educated individuals from Reggio believe that they are more in control of events that affect their lives than all individuals in Parma except those who attended private school, and those individuals from Padova who attended Municipal or State school.
+
+	\item \textbf{Diff-in-diff results:} We do not detect any significant effects at the age 30 cohort. For the age 40 cohort, Table \ref{table:NCh-40} shows that diff-in-diff effects exist between Municipal educated individuals and those who didn't attend preschool when comparing Reggio with Padova. Table \ref{table:OLS_N} shows that Municipal educated individuals believe they are more in control of events affecting them than those who didn't attend preschool in Reggio, while the opposite is true in Padova. Table \ref{table:NCh-40} shows diff-in-diff effects also exist when comparing Municipal and Religious school between Reggio and Padova.  Table \ref{table:OLS_N} shows that in both Reggio and Padova, Municipal educated individuals believe they are less in control of events affecting them than those who attended Religious preschool. The positive value for the diff-in-diff estimator in Table \ref{table:NCh-40} shows that this effect is larger in Padova than in Reggio.
+	\end{itemize}
+
+\item \textbf{Depression score:} 
+	
+	\begin{itemize}
+	\item \textbf{OLS results:} Comparing materna types within Reggio in the age 30 cohort, Table \ref{table:OLS_N} shows that Municipal students have significantly lower levels of depression than state students, and significantly higher levels of depression than those who attended private or no preschool. At the age 40 cohort, Municipal students have significantly lower levels of depression than religious students.
+
+	Comparing across cities in the age 30 cohort, Table \ref{table:OLS_N} shows that Municipal students from Reggio are have significantly higher mean levels of depression than all individuals from Parma, and lower mean levels of depression than all individuals from Padova except those who attended religious school. The same pattern persists between Reggio and Parma at the age 40 level. Comparing Reggio and Padova at age 40, Municipal students from Reggio are significantly less depressed on average than Municipal students from Padova, and significantly more depressed than resligious students.
+
+	\item \textbf{Diff-in-diff results:} We do not detect any significant effects at the age 30 cohort. For the age 40 cohort, Table \ref{table:NCh-40} shows that diff-in-diff effects exist between Municipal educated and State educated individuals when comparing Reggio with both Parma and Padova. Table \ref{table:OLS_N} shows that Municipal educated individuals report lower levels of depression than state educated individuals in Reggio and in Padova, and that this relationship is reversed in Parma. The negative score on the diff-in-diff effect between Reggio and Padova shows that the degree by which Municipal educated individuals are less depressed than State educated individuals is larger in Padova than in Reggio. Table \ref{table:NCh-40} also shows that a diff-in-diff effect exists between Reggio and Padova when comparing Municipal educated individuals to those who didn't received any preschool education. Table \ref{table:OLS_N} shows that Municipal educated individuals report lower levels of depression than their State educated counterparts in Reggio, and that the relationship is reversed in Padova. 
+	\end{itemize}
+
+\item \textbf{Satisfied with Income:} 
+	
+	\begin{itemize}
+	\item \textbf{OLS results:} Comparing materna types within Reggio in the age 30 cohort, Table \ref{table:OLS_N} shows that Municipal students are significantly more likely to be satisfied with their income than those who attended religious, private or no preschool, and significantly less likely than those who attended state school. For the age 40 cohort, Municipal students are significantly more likely to be satisfied with their income than those who attended religious or private preschool, and significantly less likely than those who attended state school.
+
+	Comparing across cities in the age 30 cohort, Table \ref{table:OLS_N} shows that Municipal students from Reggio are significantly more likely to be satisfied with income than those from Parma who attended Municipal, private or no preschool, and those from PAdova who attended Municipal, state, private or no preschool. For the age 40 cohort, Municipal students from Reggio are significantly more likely to be satisfied with income than those from Parma who attended Municipal, state or religious schools, and significantly less likely than those from Parma who attended private schools. Municipal students from Reggio are also significantly more likely to be satisfied with income than all individuals from Padova, except those who attended private school.
+	
+	\item \textbf{Diff-in-diff results:} We do not detect significant effects at the age 40 cohort. For the age 30 cohort, Table \ref{table:NCh-30} shows that between Reggio and Parma, diff-in-diff effects exist when comparing Municipal educated individuals with \textbf{(i)} Religious educated individuals and  \textbf{(ii)} those who didn't receive preschool education. Table \ref{table:OLS_N} shows that in Reggio, Municipal educated individuals are more likely to be satisfied with their income than both Religious educated individuals and those who didn't attend preschool, and that both these relationships are reversed in Parma. 
+	
+	Table \ref{table:OLS_N} also shows that that a significant diff-in-diff effect exists when comparing Municipal and State schools between Reggio and Padova. Table \ref{table:OLS_N} shows that Municipal educated individuals are less likely to be satisfied with their income than State educated individuals in Reggio, and that this relationship is reversed in Padova.
+	\end{itemize}
+
+
+\item \textbf{Satisfied with Health:} 
+	
+	\begin{itemize}
+	\item \textbf{OLS results:} Comparing materna types within Reggio in the age 30 cohort, Table \ref{table:OLS_N} shows that Municipal students are significantly less likely to be satisfied with their health than those who attended state or private preschool. For the age 40 cohort, municipal students are significantly less likely to be satisfied with their health than those who attended state preschool, and significantly more likely than those who attended private preschool.
+
+	Comparing across cities in the age 30 cohort, Table \ref{table:OLS_N} shows that Municipal students from Reggio are significantly less likely to be satisfied with health than those from Parma who attended Municipal, state or no preschool, and more likely to be satisfied than those from Padova who attended state, religious or no preschool. For the age 40 cohort, Municipal students from Reggio are significantly more likely to be satisfied with health than those from Parma who attended Municipal, state, religious, or no preschools, and those from Padova who attended municipal, religious or no preschool.
+	
+	\item \textbf{Diff-in-diff results:}  Table \ref{table:NCh-30} shows that 5 out of our 6 estimates have significant diff-in-diff effects at age 30. When comparing Reggio and Parma, significant diff-in-diff effects exist between Municipal and None, and between Municipal and Religious. Table \ref{table:OLS_N} shows that Municipal educated individuals are less likely to be satisfied with health compared to Religious educated individuals in Reggio, and that the opposite is true in Parma.  Table \ref{table:OLS_N} also shows that  Municipal educated individuals report are less likely to be satisfied with health compared to those who didn't receive pre school education in both Reggio and Parma. The estimate for this diff-in-diff effect is negative in Table \ref{table:NCh-30}, which implies that the degree by which Municipal educated individuals are less likely to be satisfied with health compared to those who didn't receive preschool education is greater in Reggio than in Parma.
+	
+	 When looking at Reggio and Padova, significant diff-in-diff effects exist when comparing Municipal educated individuals with those who attended no preschool, State school, and Religious school. Table \ref{table:OLS_N} shows that in Reggio, Municipal educated individuals are less likely to be satisfied with health compared to individuals who attended no preschool, State school, or Religious school. These relationships are all reversed in Padova. 
+	
+	\end{itemize}
+
 %\item \textbf{Optimistic outlook on life:} 
 %	
 %	\begin{itemize}
@@ -408,7 +459,7 @@ Compared to other individuals, Municipal educated individuals from Reggio report
 %	
 %	\end{itemize}
 %
-%\end{itemize}
+\end{itemize}
 
 \clearpage
 
@@ -416,7 +467,7 @@ Compared to other individuals, Municipal educated individuals from Reggio report
 \appendix
 
 \singlespace
-\newgeometry{left=.8in,right=.7in,top=1in,bottom=1in}
+\newgeometry{left=.8in,right=.8in,top=1in,bottom=1in}
 
 \begin{landscape}
 \section{Appendix: OLS and Difference-in-Difference Results}
@@ -638,58 +689,58 @@ Compared to other individuals, Municipal educated individuals from Reggio report
 %
 %%----------------------------------------
 
-%\begin{landscape}
-%\subsection{Noncognitive Outcomes - OLS results}
-%
-%\begin{center}
-%		\scriptsize{
-%			\begin{longtable}{L{3cm} c c c c c c p{.5cm} c c c c c c}
-%				\hline \\
-%				\multicolumn{14}{L{18.5cm}}{\textbf{Note:} \fnOLS}
-%				\endfoot
-%				\caption{Mean outcomes for Noncongnitive measures}  \label{table:OLS_N} \\
-%				\toprule \\
-%				\input{../../Output/meanOutcome_Np.tex}
-%			\end{longtable}
-%		}		
-%\end{center}
-%\end{landscape}
-%
-%%--------------
-%
-%\subsection{Noncognitive Outcomes - Difference-in-Difference Results}
+\begin{landscape}
+\subsection{Noncognitive Outcomes - OLS results}
+
+\begin{center}
+		\scriptsize{
+			\begin{longtable}{L{3cm} c c c c c c p{.5cm} c c c c c c}
+				\hline \\
+				\multicolumn{14}{L{18.5cm}}{\textbf{Note:} \fnOLS}
+				\endfoot
+				\caption{Mean outcomes for Noncongnitive measures}  \label{table:OLS_N} \\
+				\toprule \\
+				\input{../../Output/meanOutcome_Np.tex}
+			\end{longtable}
+		}		
+\end{center}
+\end{landscape}
+
+%--------------
+
+\subsection{Noncognitive Outcomes - Difference-in-Difference Results}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-30 Cohort} \label{table:NCh-30}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult30_Np}}
+\end{center}
+\footnotesize
+\fnDID
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-40 Cohort} \label{table:NCh-40}
+	\scalebox{0.80}{
+		\input{../../Output/DiD/bic/didAdult40_Np}}
+\end{center}
+\footnotesize
+\fnDID
+\end{table}
+
+%------------------------------------------------
 %
 %\begin{table}[H]
 %\begin{center}
-%	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-30 Cohort} \label{table:NCh-30}
+%	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-50 Cohort} \label{table:NCh-50}
 %	\scalebox{0.80}{
-%		\input{../../Output/DiD/bic/didAdult30_Np}}
+%		\input{../../Output/DiD/bic/didAdult50_Np}}
 %\end{center}
 %\footnotesize
 %\fnDID
 %\end{table}
-%
-%\begin{table}[H]
-%\begin{center}
-%	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-40 Cohort} \label{table:NCh-40}
-%	\scalebox{0.80}{
-%		\input{../../Output/DiD/bic/didAdult40_Np}}
-%\end{center}
-%\footnotesize
-%\fnDID
-%\end{table}
-%
-%%------------------------------------------------
-%%
-%%\begin{table}[H]
-%%\begin{center}
-%%	\caption{Difference-in-Difference Across School Types and Cities, Restricting to Age-50 Cohort} \label{table:NCh-50}
-%%	\scalebox{0.80}{
-%%		\input{../../Output/DiD/bic/didAdult50_Np}}
-%%\end{center}
-%%\footnotesize
-%%\fnDID
-%%\end{table}
 
 
 \end{document}
