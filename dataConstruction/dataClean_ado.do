@@ -7,7 +7,7 @@ capture log close
 Author: Pietro Biroli (biroli@uchicago.edu)
 Purpose: Clean the adolescent dataset of the Reggio Project
 
-This Draft: 13 April 2015
+This Draft: 07 July 2016
 
 Note: The variable names are related to the number of the questions
       in the CAPI version of the questionnaire. See the file: REGGIO SCALES/reggio children quest CAPI adolescenti 26 nov.B
@@ -29,8 +29,8 @@ Note: The variable names are related to the number of the questions
 	  see the file data/sumStat_adolescent.xlsx
 	  
 	  [=] Signal questions to be addressed
-	  
-packages used: dummieslab, mvpatterns, zanthro	 
+
+packages used: dummieslab, mvpatterns, zanthro, mdesc, logout
 */
 
 /*-*-* directory: keep the global directory from dataClean_all unless otherwise specified
@@ -827,7 +827,7 @@ foreach parent in mom dad {
 format *irth* %d
 format *BirthState* %8.0g
 * Second respondent is caregiver: rename the variables related to the second respodent to cg`varname'
-foreach suff in Gender Relation Birthday BirthState BornIT BornCity mStatus MaxEdu PA ITNation {
+foreach suff in Gender Relation Birthday BirthState BornIT BornCity BornProvince mStatus MaxEdu PA ITNation {
 	rename `suff'2 cg`suff'
 }
 
@@ -1546,8 +1546,8 @@ foreach var of varlist childSDQ????? {
 	quietly drop `var'_Wmiss
 }
 
-* official scoring (from http://www.sdqinfo.org/c3.html)
-recode childSDQCond1 (1=3) (2=2) (3=1) (else=.), gen(qobeys)
+* official scoring (from http://www.sdqinfo.org/c3.html) + corrected error found out by Sidharth
+recode childSDQCond2 (1=3) (2=2) (3=1) (else=.), gen(qobeys)
 recode childSDQHype4 (1=3) (2=2) (3=1) (else=.), gen(qreflect)
 recode childSDQHype5 (1=3) (2=2) (3=1) (else=.), gen(qattends)
 recode childSDQPeer2 (1=3) (2=2) (3=1) (else=.), gen(qfriend)
@@ -1663,21 +1663,8 @@ foreach suff in score {
 	label var pos_childSDQ_`suff' "dv: Modified SDQ Total difficulties `suff' - Mother reports"
 }
 
-** Recreating ChildSDQCond_score and ChildSDQ_score to correct for wrong definition of qobeys in original code
-recode childSDQCond2 (1=3) (2=2) (3=1), gen(mod_qobeys)
-
-egen mod_nconduct=rownonmiss(childSDQCond1 mod_qobeys childSDQCond3 childSDQCond4 childSDQCond5)
-egen mod_pconduct=rmean(childSDQCond1 mod_qobeys childSDQCond3 childSDQCond4 childSDQCond5) if mod_nconduct>2
-replace mod_pconduct=15-round(mod_pconduct*5)
-
-gen mod_pebdtot=childSDQEmot_score+mod_pconduct+childSDQHype_score+childSDQPeer_score
-
-rename mod_pconduct mod_childSDQCond_score
-rename mod_pebdtot  mod_childSDQ_score
-
 drop qobeys qreflect qattends qfriend qpopular nemotion nconduct nhyper npeer nprosoc
-drop pos_nemotion pos_nconduct pos_nhyper pos_npeer pos_nprosoc mod_nconduct mod_qobeys
-
+drop pos_nemotion pos_nconduct pos_nhyper pos_npeer pos_nprosoc
 *--------------------------------------------------------------------------------------------------------*
 
 foreach var of varlist childSDQ*_*{
@@ -2357,8 +2344,8 @@ foreach var of varlist SDQ????? {
 	quietly drop `var'_Wmiss
 }
 
-* official scoring (from http:// www.sdqinfo.org/c3.html)
-recode SDQCond1 (1=3) (2=2) (3=1) (else=.), gen(qobeys)
+* official scoring (from http:// www.sdqinfo.org/c3.html) + corrected the mistake found by Sidharth
+recode SDQCond2 (1=3) (2=2) (3=1) (else=.), gen(qobeys)
 recode SDQHype4 (1=3) (2=2) (3=1) (else=.), gen(qreflect)
 recode SDQHype5 (1=3) (2=2) (3=1) (else=.), gen(qattends)
 recode SDQPeer2 (1=3) (2=2) (3=1) (else=.), gen(qfriend)
@@ -2474,18 +2461,6 @@ foreach suff in score {
 	label var pos_SDQPsoc_`suff' "dv: Modified SDQ prosocial `suff' - Mother reports"
 	label var pos_SDQ_`suff' "dv: Modified SDQ Total difficulties `suff' - Mother reports"
 }
-
-** Recreating ChildSDQCond_score and ChildSDQ_score to correct for wrong definition of qobeys in original code
-recode SDQCond2 (1=3) (2=2) (3=1), gen(mod_qobeys)
-
-egen mod_nconduct=rownonmiss(SDQCond1 mod_qobeys SDQCond3 SDQCond4 SDQCond5)
-egen mod_pconduct=rmean(SDQCond1 mod_qobeys SDQCond3 SDQCond4 SDQCond5) if mod_nconduct>2
-replace mod_pconduct=15-round(mod_pconduct*5)
-
-gen mod_pebdtot=SDQEmot_score+mod_pconduct+SDQHype_score+SDQPeer_score
-
-rename mod_pconduct mod_SDQCond_score
-rename mod_pebdtot  mod_SDQ_score
 
 drop qobeys qreflect qattends qfriend qpopular nemotion nconduct nhyper npeer nprosoc
 drop pos_nemotion pos_nconduct pos_nhyper pos_npeer pos_nprosoc

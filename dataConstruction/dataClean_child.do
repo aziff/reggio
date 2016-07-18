@@ -6,7 +6,7 @@ capture log close
 Author: Pietro Biroli (biroli@uchicago.edu)
 Purpose: Clean the children dataset of the Reggio Project
 
-This Draft: 13 April 2015
+This Draft: 07 July 2016
 
 Note: The variable names are related to the number of the questions
       in the CAPI version of the questionnaire. See the file: REGGIO SCALES/reggio children quest CAPI bambini 26 nov.D
@@ -1474,8 +1474,8 @@ foreach var of varlist childSDQ????? {
 	quietly drop `var'_Wmiss
 }
 
-* official scoring (from http://www.sdqinfo.org/c3.html)
-recode childSDQCond1 (1=3) (2=2) (3=1) (else=.), gen(qobeys)
+* official scoring (from http://www.sdqinfo.org/c3.html) + corrected error found out by Sidharth
+recode childSDQCond2 (1=3) (2=2) (3=1) (else=.), gen(qobeys)
 recode childSDQHype4 (1=3) (2=2) (3=1) (else=.), gen(qreflect)
 recode childSDQHype5 (1=3) (2=2) (3=1) (else=.), gen(qattends)
 recode childSDQPeer2 (1=3) (2=2) (3=1) (else=.), gen(qfriend)
@@ -1598,21 +1598,8 @@ foreach suff in score {
 	label var pos_childSDQ_`suff' "dv: Modified SDQ Total difficulties `suff' - Mother reports"
 }
 
-** Recreating ChildSDQCond_score and ChildSDQ_score to correct for wrong definition of qobeys in original code
-recode childSDQCond2 (1=3) (2=2) (3=1), gen(mod_qobeys)
-
-egen mod_nconduct=rownonmiss(childSDQCond1 mod_qobeys childSDQCond3 childSDQCond4 childSDQCond5)
-egen mod_pconduct=rmean(childSDQCond1 mod_qobeys childSDQCond3 childSDQCond4 childSDQCond5) if mod_nconduct>2
-replace mod_pconduct=15-round(mod_pconduct*5)
-
-gen mod_pebdtot=childSDQEmot_score+mod_pconduct+childSDQHype_score+childSDQPeer_score
-
-rename mod_pconduct mod_childSDQCond_score
-rename mod_pebdtot  mod_childSDQ_score
-
 drop qobeys qreflect qattends qfriend qpopular nemotion nconduct nhyper npeer nprosoc
-drop pos_nemotion pos_nconduct pos_nhyper pos_npeer pos_nprosoc mod_nconduct mod_qobeys
-
+drop pos_nemotion pos_nconduct pos_nhyper pos_npeer pos_nprosoc
 *--------------------------------------------------------------------------------------------------------*
 * (I) Caregiver and Child/Adolescent Health
 rename V39110 cgHealth
