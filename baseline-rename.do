@@ -128,7 +128,19 @@ local MrgrTaste_lab				Favorable to Migrants
 local Friends_lab				Number of Friends
 local MigrFriend_lab			Has Migrant Friends
 
+local SDQ_score_lab				SDQ Composite
+local SDQEmot_score_lab			SDQ Emotional
+local SDQCond_score_lab			SDQ Conduct
+local SDQHype_score_lab			SDQ Hyper
+local SDQPeer_score_lab			SDQ Peer problems
+local SDQPsoc_score_lab			SDQ Pro-social
 
+local childSDQ_score_lab		SDQ Composite - Child
+local childSDQEmot_score_lab	SDQ Emotional - Child
+local childSDQCond_score_lab	SDQ Conduct - Child
+local childSDQHype_score_lab	SDQ Hyper - Child
+local childSDQPeer_score_lab	SDQ Peer problems - Child
+local childSDQPsoc_score_lab	SDQ Pro-social - Child
 * ---------------------------------------------------------------------------- *
 * Baseline Estimation
 * Locals
