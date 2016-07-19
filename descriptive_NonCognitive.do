@@ -23,13 +23,14 @@ file write dstat "\setlength{\tabcolsep}{2pt}" _n
 file write dstat "`header2'" _n
 file write dstat "\scriptsize{" _n
 file write dstat "`header3'" _n
-file write dstat "\hline" _n
+file write dstat "\hline"
 file write dstat "\multicolumn{20}{L{20cm}}{\textbf{Note:} Unconditional means are reported for each variable by cohort and city. Standard Deviations are reported in italics below each mean estimates.}" _n
 file write dstat "\endfoot" _n
 file write dstat "\caption{Mean and Standard Deviation for Non-cognitive variables by city and cohort} \label{table:Desc_N} \\" _n
+file write dstat "\hline" _n
 file write dstat "`header4'" _n
 file write dstat "`header5'" _n
-file write dstat "\hline \endhead" _n
+file write dstat "\hline \\ \endhead \\" _n
 	
 # delimit cr	
 local N pos_Depression_score pos_LocusControl optimist ///
@@ -71,13 +72,13 @@ file write missing "\setlength{\tabcolsep}{2pt}" _n
 file write missing "`header2'" _n
 file write missing "\scriptsize{" _n
 file write missing "`header3'" _n
-file write missing "\hline" _n
 file write missing "\multicolumn{20}{L{23cm}}{\textbf{Note:} This table reports the number of observations that are missing for each non-cognitive variable by city and cohort. \textbf{--} indicates that the variable has 0 observations for the particular cohort-city group.}" _n
 file write missing "\endfoot"
 file write missing "\caption{Missing observations for non-cognitive variables by city and cohort} \label{table:Desc_N} \\" _n
+file write missing "\hline" _n
 file write missing "`header4'" _n
 file write missing "`header5'" _n
-file write missing "\hline \endhead" _n
+file write missing "\hline \endhead \\" _n
 
 foreach outcome in `N'{
 	foreach cohort_val in 1 3 4 5 6{
