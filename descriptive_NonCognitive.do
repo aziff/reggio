@@ -32,15 +32,12 @@ cd "$git_reggio"
 	file write dstat "\hline \endhead" _n
 	
 # delimit cr	
-local NC pos_Depression_score pos_LocusControl optimist ///
+local N pos_Depression_score pos_LocusControl optimist ///
 	  SDQ_score SDQEmot_score SDQCond_score SDQHype_score SDQPeer_score SDQPsoc_score ///
 	  childSDQ_score childSDQEmot_score childSDQCond_score childSDQHype_score childSDQPeer_score childSDQPsoc_score ///
-	  binSatisIncome binSatisWork binSatisHealth binSatisFamily ///
+	  binSatisSchool binSatisIncome binSatisWork binSatisHealth binSatisFamily ///
 	  reciprocity1bin reciprocity2bin reciprocity3bin reciprocity4bin
 	  
-local NAdol
-
-local NAdul
 # delimit cr
 
 foreach outcome in `N'{

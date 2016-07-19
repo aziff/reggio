@@ -119,6 +119,8 @@ local binSatisWork_lab			Satisfied with Work
 local binSatisHealth_lab 		Satisfied with Health 
 local binSatisFamily_lab		Satisfied with Family
 local optimist_lab				Optimistic Look on Life
+local binSatisSchool_lab		Satisfied with School
+
 local reciprocity1bin_lab		Return Favor 
 local reciprocity2bin_lab		Put Someone in Difficulty
 local reciprocity3bin_lab		Help Someone Kind To Me
