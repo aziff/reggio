@@ -1,0 +1,526 @@
+\input{auxilliary/preamble}
+
+% Define macros to facilitate loops
+%% Outcomes
+\newcommand{\labCS}{Child SDQ Score}
+\newcommand{\labS}{SDQ Score}
+\newcommand{\labCH}{Child Health Perception}
+\newcommand{\labH}{Health Perception}
+\newcommand{\labD}{Depression Score}
+\newcommand{\labM}{Migration Taste}
+\newcommand{\labLS}{Likes School}
+\newcommand{\labLM}{Likes Math}
+\newcommand{\labLL}{Likes Literature}
+\newcommand{\labDS}{Difficulties to Sit Still}
+\newcommand{\labDO}{Difficulties to Obey}
+\newcommand{\labDI}{Lack of Excitement to Learn}
+\newcommand{\labDE}{Fussy Eater}
+\newcommand{\labDIFF}{Difficulties in School}
+
+\begin{document}
+
+% title
+\title{OLS Results by Gender and Cohort}
+\author{Reggio Team}
+\date{Original version: May 8, 2016 \\ Current version: \today}
+\maketitle
+
+\doublespacing
+% outline
+\section{Introduction}
+
+This document presents the results from OLS regressions on a few outcomes of interest. The outcomes we examine differ across different age cohorts (children, adolescents, adults at age 32, adults at age 41, adults at age 54 to 59). Table \ref{table-outcome} describes outcomes we examine for each cohort:
+
+\begin{table}[H]
+	\begin{tabular}{lccc}  \toprule
+	\caption{Outcomes Examined for Each Cohort}
+	\label{table-outcome}
+	
+	\textbf{Outcome} & \textbf{Children} & \textbf{Adolescents} & \textbf{Adults} \\
+	& & & (30s, 40s, and 50s) \\
+	\midrule
+	Child SDQ score\footnote{Reported by mother} & \checkmark & \checkmark & \\ 
+    SDQ score\footnote{Self-reported} & & \checkmark & \\ 
+    Child health is good\footnote{Reported by mother}  & \checkmark & \checkmark & \\ 
+    Health is good\footnote{Self-reported} & & \checkmark & \checkmark \\ 
+    Depression score  & & \checkmark & \checkmark \\ 
+    Bothered by immigration  & & \checkmark & \checkmark \\ 
+%    Likes school  & \checkmark & \checkmark & \\ 
+%    Likes math  & \checkmark & \checkmark & \\ 
+%    Likes literature  & \checkmark & \checkmark & \\ 
+%    Difficulties to sit still  & \checkmark & \checkmark & \\ 
+%    Difficulties to obey  & \checkmark & \checkmark & \\ 
+%    Fussy eater  & \checkmark & \checkmark & \\ 
+%	Lack of excitement to learn  & \checkmark & \checkmark & \\ 
+%	Difficulties in school  & \checkmark & \checkmark & \\    
+	\bottomrule
+	\end{tabular}
+\end{table}
+
+Here below, we systematically display the relation between participation in different types of child care and the outcomes of interest.
+
+Separately for each age group (0-3 years, and 3-6 years), gender, and cohort we run the following regression:
+
+\[ Y_{iac} = \sum_{s} \delta_{c,s} D^{s}_{iac} + \beta_{X}X_{iac} + \alpha_{c} + \varepsilon_{iac} \]
+
+where $Y_{iac}$ is the outcome of individual $i$, of age $a$ in city $c$; 
+$D^{s}_{iac}$ is a dummy for attendance of school type $s$, $s \in Mun, Rel, Priv, Stat, None$. In some specifications, private, state and religious child-cares were pooled together in a single group, defined ``other''.\footnote{Note that there are no state infant-toddler centers, and virtually every child and adolescent attended some form of preschool. See results in the appendix for the disaggregated effect of each type of preschool.}
+$X_{iac}$ are baseline family characteristics of individual $i$, of age $a$ in city $c$ 
+$\alpha_{c}$ are city dummies.
+
+The treated group are the children who attended a municipal child-care in Reggio. The coefficients in column 1 to 3 report the difference between the child-care type (state, religious, private, and none in the three cities) and the Reggio Children Approach, which is the omitted category. 
+
+The following tables show the results of the estimated $\hat{\delta}_{c,s}$, using Ordinary Least Squares with an incremental set of controls (columns 1 to 3). The first column of each table only controls for school types $D_{sc}$ and city dummies, effectively showing raw differences in means; the second column introduces controls for baseline characteristics\footnote{Zip-code fixed effects, interview mode (computer or paper), gender, age and age$^2$ of respondent, dummies for mother and father maximum level of education (middle school, high school, university), mother and father age at birth, dummies for mother and father born in the region (province), dummy for religious mother, dummy for house ownership (only for the families of children and adolescents), dummies for family income bracket of children and adolescents, dummies for low-birth weight or premature birth of children and adolescents.}; the third column interacts all of these controls with city dummies, allowing the effect of controls to vary by city.
+
+
+%OLS results are split into preschool type (Asilo or Materna), age cohort, and gender. 
+
+Section \ref{sec-child} to \ref{sec-50} presents the results for each age cohort, respectively. The subsections are divided into outcomes, and each subsection show results for (i) Asilo males, (ii) Asilo females, (iii) Materna males, and (iv) Materna females.
+
+\section{Children}
+\label{sec-child}
+
+\subsection{Child SDQ Score}
+\foreach \type in {Asilo, Materna} {
+	\foreach \gender in {Male, Female} {
+	\begin{table}[H]
+	\caption{Child SDQ Score - \type ,  \gender}	
+	
+	\input{../Output/OLS/ols_tex_\type_Child_\gender_CS_short}
+	
+	\end{table}		
+	}
+}
+
+\subsection{Child Health Perception}
+
+\foreach \type in {Asilo, Materna} {
+	\foreach \gender in {Male, Female} {
+	\begin{table}[H]
+	\caption{Child Health Perception - \type ,  \gender}	
+	
+	\input{../Output/OLS/ols_tex_\type_Child_\gender_CH_short}
+	
+	\end{table}		
+	}
+}
+
+%\subsection{Likes School}
+%
+%\foreach \type in {Asilo, Materna} {
+%	\foreach \gender in {Male, Female} {
+%	\begin{table}[H]
+%	\caption{Likes School - \type ,  \gender}	
+%	
+%	\input{../Output/OLS/ols_tex_\type_Child_\gender_LS_short}
+%	
+%	\end{table}		
+%	}
+%}
+%
+%
+%\subsection{Likes Math}
+%
+%\foreach \type in {Asilo, Materna} {
+%	\foreach \gender in {Male, Female} {
+%	\begin{table}[H]
+%	\caption{Likes Math - \type ,  \gender}	
+%	
+%	\input{../Output/OLS/ols_tex_\type_Child_\gender_LM_short}
+%	
+%	\end{table}		
+%	}
+%}
+%
+%
+%\subsection{Likes Literature}
+%
+%\foreach \type in {Asilo, Materna} {
+%	\foreach \gender in {Male, Female} {
+%	\begin{table}[H]
+%	\caption{Likes Literature - \type ,  \gender}	
+%	
+%	\input{../Output/OLS/ols_tex_\type_Child_\gender_LL_short}
+%	
+%	\end{table}		
+%	}
+%}
+%
+%\subsection{Difficulties to Sit Still}
+%
+%\foreach \type in {Asilo, Materna} {
+%	\foreach \gender in {Male, Female} {
+%	\begin{table}[H]
+%	\caption{Difficulties to Sit Still - \type ,  \gender}	
+%	
+%	\input{../Output/OLS/ols_tex_\type_Child_\gender_DS_short}
+%	
+%	\end{table}		
+%	}
+%}
+%
+%\subsection{Difficulties to Obey}
+%
+%\foreach \type in {Asilo, Materna} {
+%	\foreach \gender in {Male, Female} {
+%	\begin{table}[H]
+%	\caption{Difficulties to Obey - \type ,  \gender}	
+%	
+%	\input{../Output/OLS/ols_tex_\type_Child_\gender_DO_short}
+%	
+%	\end{table}		
+%	}
+%}
+%
+%\subsection{Lack of Excitement to Learn}
+%
+%\foreach \type in {Asilo, Materna} {
+%	\foreach \gender in {Male, Female} {
+%	\begin{table}[H]
+%	\caption{Lack of Excitement to Learn - \type ,  \gender}	
+%	
+%	\input{../Output/OLS/ols_tex_\type_Child_\gender_DI_short}
+%	
+%	\end{table}		
+%	}
+%}
+%
+%\subsection{Fussy Eater}
+%
+%\foreach \type in {Asilo, Materna} {
+%	\foreach \gender in {Male, Female} {
+%	\begin{table}[H]
+%	\caption{Fussy Eater - \type ,  \gender}	
+%	
+%	\input{../Output/OLS/ols_tex_\type_Child_\gender_DE_short}
+%	
+%	\end{table}		
+%	}
+%}
+%
+%\subsection{Difficulties in School}
+%
+%\foreach \type in {Asilo, Materna} {
+%	\foreach \gender in {Male, Female} {
+%	\begin{table}[H]
+%	\caption{Difficulties in School - \type ,  \gender}	
+%	
+%	\input{../Output/OLS/ols_tex_\type_Child_\gender_DIFF_short}
+%	
+%	\end{table}		
+%	}
+%}
+
+\section{Adolescents}
+\label{sec-adol}
+
+\subsection{Child SDQ Score}
+\foreach \type in {Asilo, Materna} {
+	\foreach \gender in {Male, Female} {
+	\begin{table}[H]
+	\caption{Child SDQ Score - \type ,  \gender}	
+	
+	\input{../Output/OLS/ols_tex_\type_Adol_\gender_CS_short}
+	
+	\end{table}		
+	}
+}
+
+\subsection{SDQ Score}
+\foreach \type in {Asilo, Materna} {
+	\foreach \gender in {Male, Female} {
+	\begin{table}[H]
+	\caption{SDQ Score - \type ,  \gender}	
+	
+	\input{../Output/OLS/ols_tex_\type_Adol_\gender_S_short}
+	
+	\end{table}		
+	}
+}
+
+\subsection{Child Health Perception}
+
+\foreach \type in {Asilo, Materna} {
+	\foreach \gender in {Male, Female} {
+	\begin{table}[H]
+	\caption{Child Health Perception - \type ,  \gender}	
+	
+	\input{../Output/OLS/ols_tex_\type_Adol_\gender_CH_short}
+	
+	\end{table}		
+	}
+}
+
+\subsection{Health Perception}
+
+\foreach \type in {Asilo, Materna} {
+	\foreach \gender in {Male, Female} {
+	\begin{table}[H]
+	\caption{Health Perception - \type ,  \gender}	
+	
+	\input{../Output/OLS/ols_tex_\type_Adol_\gender_H_short}
+	
+	\end{table}		
+	}
+}
+
+\subsection{Depression Score}
+
+\foreach \type in {Asilo, Materna} {
+	\foreach \gender in {Male, Female} {
+	\begin{table}[H]
+	\caption{Depression Score - \type ,  \gender}	
+	
+	\input{../Output/OLS/ols_tex_\type_Adol_\gender_D_short}
+	
+	\end{table}		
+	}
+}
+
+\subsection{Migration Taste}
+
+\foreach \type in {Asilo, Materna} {
+	\foreach \gender in {Male, Female} {
+	\begin{table}[H]
+	\caption{Migration Taste - \type ,  \gender}	
+	
+	\input{../Output/OLS/ols_tex_\type_Adol_\gender_M_short}
+	
+	\end{table}		
+	}
+}
+
+%\subsection{Likes School}
+%
+%\foreach \type in {Asilo, Materna} {
+%	\foreach \gender in {Male, Female} {
+%	\begin{table}[H]
+%	\caption{Likes School - \type ,  \gender}	
+%	
+%	\input{../Output/OLS/ols_tex_\type_Adol_\gender_LS_short}
+%	
+%	\end{table}		
+%	}
+%}
+%
+%
+%\subsection{Likes Math}
+%
+%\foreach \type in {Asilo, Materna} {
+%	\foreach \gender in {Male, Female} {
+%	\begin{table}[H]
+%	\caption{Likes Math - \type ,  \gender}	
+%	
+%	\input{../Output/OLS/ols_tex_\type_Adol_\gender_LM_short}
+%	
+%	\end{table}		
+%	}
+%}
+%
+%
+%\subsection{Likes Literature}
+%
+%\foreach \type in {Asilo, Materna} {
+%	\foreach \gender in {Male, Female} {
+%	\begin{table}[H]
+%	\caption{Likes Literature - \type ,  \gender}	
+%	
+%	\input{../Output/OLS/ols_tex_\type_Adol_\gender_LL_short}
+%	
+%	\end{table}		
+%	}
+%}
+%
+%\subsection{Difficulties to Sit Still}
+%
+%\foreach \type in {Asilo, Materna} {
+%	\foreach \gender in {Male, Female} {
+%	\begin{table}[H]
+%	\caption{Difficulties to Sit Still - \type ,  \gender}	
+%	
+%	\input{../Output/OLS/ols_tex_\type_Adol_\gender_DS_short}
+%	
+%	\end{table}		
+%	}
+%}
+%
+%\subsection{Difficulties to Obey}
+%
+%\foreach \type in {Asilo, Materna} {
+%	\foreach \gender in {Male, Female} {
+%	\begin{table}[H]
+%	\caption{Difficulties to Obey - \type ,  \gender}	
+%	
+%	\input{../Output/OLS/ols_tex_\type_Adol_\gender_DO_short}
+%	
+%	\end{table}		
+%	}
+%}
+%
+%\subsection{Lack of Excitement to Learn}
+%
+%\foreach \type in {Asilo, Materna} {
+%	\foreach \gender in {Male, Female} {
+%	\begin{table}[H]
+%	\caption{Lack of Excitement to Learn - \type ,  \gender}	
+%	
+%	\input{../Output/OLS/ols_tex_\type_Adol_\gender_DI_short}
+%	
+%	\end{table}		
+%	}
+%}
+%
+%\subsection{Fussy Eater}
+%
+%\foreach \type in {Asilo, Materna} {
+%	\foreach \gender in {Male, Female} {
+%	\begin{table}[H]
+%	\caption{Fussy Eater - \type ,  \gender}	
+%	
+%	\input{../Output/OLS/ols_tex_\type_Adol_\gender_DE_short}
+%	
+%	\end{table}		
+%	}
+%}
+%
+%\subsection{Difficulties in School}
+%
+%\foreach \type in {Asilo, Materna} {
+%	\foreach \gender in {Male, Female} {
+%	\begin{table}[H]
+%	\caption{Difficulties in School - \type ,  \gender}	
+%	
+%	\input{../Output/OLS/ols_tex_\type_Adol_\gender_DIFF_short}
+%	
+%	\end{table}		
+%	}
+%}
+%
+
+\section{Adults at Age 30} 
+\label{sec-30}
+
+\subsection{Health Perception}
+
+\foreach \type in {Asilo, Materna} {
+	\foreach \gender in {Male, Female} {
+	\begin{table}[H]
+	\caption{Health Perception - \type ,  \gender}	
+	
+	\input{../Output/OLS/ols_tex_\type_Adult30_\gender_H_short}
+	
+	\end{table}		
+	}
+}
+
+\subsection{Depression Score}
+
+\foreach \type in {Asilo, Materna} {
+	\foreach \gender in {Male, Female} {
+	\begin{table}[H]
+	\caption{Depression Score - \type ,  \gender}	
+	
+	\input{../Output/OLS/ols_tex_\type_Adult30_\gender_D_short}
+	
+	\end{table}		
+	}
+}
+
+\subsection{Migration Taste}
+
+\foreach \type in {Asilo, Materna} {
+	\foreach \gender in {Male, Female} {
+	\begin{table}[H]
+	\caption{Migration Taste - \type ,  \gender}	
+	
+	\input{../Output/OLS/ols_tex_\type_Adult30_\gender_M_short}
+	
+	\end{table}		
+	}
+}
+
+\section{Adults at Age 40}
+\label{sec-40}
+
+\subsection{Health Perception}
+
+\foreach \type in {Asilo, Materna} {
+	\foreach \gender in {Male, Female} {
+	\begin{table}[H]
+	\caption{Health Perception - \type ,  \gender}	
+	
+	\input{../Output/OLS/ols_tex_\type_Adult40_\gender_H_short}
+	
+	\end{table}		
+	}
+}
+
+\subsection{Depression Score}
+
+\foreach \type in {Asilo, Materna} {
+	\foreach \gender in {Male, Female} {
+	\begin{table}[H]
+	\caption{Depression Score - \type ,  \gender}	
+	
+	\input{../Output/OLS/ols_tex_\type_Adult40_\gender_D_short}
+	
+	\end{table}		
+	}
+}
+
+\subsection{Migration Taste}
+
+\foreach \type in {Asilo, Materna} {
+	\foreach \gender in {Male, Female} {
+	\begin{table}[H]
+	\caption{Migration Taste - \type ,  \gender}	
+	
+	\input{../Output/OLS/ols_tex_\type_Adult40_\gender_M_short}
+	
+	\end{table}		
+	}
+}
+
+\section{Adults at Age 50}
+\label{sec-50}
+
+\subsection{Health Perception}
+
+\foreach \type in {Materna} {
+	\foreach \gender in {Male, Female} {
+	\begin{table}[H]
+	\caption{Health Perception - \type ,  \gender}	
+	
+	\input{../Output/OLS/ols_tex_\type_Adult50_\gender_H_short}
+	
+	\end{table}		
+	}
+}
+
+\subsection{Depression Score}
+
+\foreach \type in {Materna} {
+	\foreach \gender in {Male, Female} {
+	\begin{table}[H]
+	\caption{Depression Score - \type ,  \gender}	
+	
+	\input{../Output/OLS/ols_tex_\type_Adult50_\gender_D_short}
+	
+	\end{table}		
+	}
+}
+
+\subsection{Migration Taste}
+
+\foreach \type in {Materna} {
+	\foreach \gender in {Male, Female} {
+	\begin{table}[H]
+	\caption{Migration Taste - \type ,  \gender}	
+	
+	\input{../Output/OLS/ols_tex_\type_Adult50_\gender_M_short}
+	
+	\end{table}		
+	}
+}
+
+\end{document}

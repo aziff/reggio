@@ -1,0 +1,112 @@
+\documentclass{article}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{booktabs}
+\usepackage[colorinlistoftodos, linecolor=black]{todonotes}
+
+\begin{document}
+
+% title
+\title{Outline and Todo List for Reggio Analysis}
+\author{Pietro Biroli \and Jessica Yu Kyung Koh \and Anna Ziff}
+\date{Original version: January 22, 2016 \\ Current version: \today}
+\maketitle
+
+\listoftodos
+
+% outline
+\section{Outline}
+\begin{enumerate}
+
+\item Background 
+\todo[backgroundcolor=orange!30, size=\footnotesize]{Refer to first paper and presentation; keep it brief for now}
+\begin{enumerate}
+	\item Cities where the program took place
+		\begin{enumerate}
+			\item General information about the populations of those cities
+			\item Preschool availability take-up in those cities over the years and how this compares with the rest of Italy
+		\end{enumerate}
+		
+	\item Description of different ages preschool offered (infant-toddler care and preschool) and different types of schools (municipal, state, private, religious, none) and how availability of these have changed over the years.
+		\begin{enumerate}
+			\item Describe the program itself (municipal infant-toddler and preschool in Reggio Emilia) 
+			\item Compare with other programs \todo[backgroundcolor=orange!30, size=\footnotesize]{Ask Sylvie for help}
+		\end{enumerate}
+		\end{enumerate}
+	
+	\item Data
+	\begin{enumerate}	
+		\item Cohort design
+		\begin{enumerate}
+			\item Describe the different cohorts in terms of ages and preschool availability
+			\todo[backgroundcolor=green!30, size=\footnotesize]{Mention year of survey collection}
+		\end{enumerate}
+	\item Survey Data
+	\todo[backgroundcolor=red!30, size=\footnotesize]{Refer to data description document}
+	\begin{enumerate}
+		\item General description of survey data collected, including the different sections collected for the different cohorts
+		\item Variables of interest that are used in this first stage of analysis. Include description of the scales (raw or standardized) when appropriate.
+		\begin{enumerate}
+			\item Include descriptives of these variables \todo[backgroundcolor=orange!30,size=\footnotesize]{Include F-tests}
+		\end{enumerate}
+		\todo[backgroundcolor=green!30, size=\footnotesize]{Also, include a cognitive variable and variables for earnings and education.}
+	\end{enumerate}
+	\end{enumerate}
+	
+	\item Analysis
+	\begin{enumerate}
+		\item Main summary of findings across different specifications \todo[backgroundcolor=green!30,size=\footnotesize]{Which result is the best?}
+		\item OLS 
+		\begin{enumerate}
+			\item Deeper description of the different results with tables and graphs \textit{with $p$-values}			
+			\item List controls for each of the different regressions. 
+			\item Simple OLS by asilo/materna with dummies for interaction of school type and city with religious school as the omitted category \todo[backgroundcolor=orange!30, size=\footnotesize]{To avoid collinearity omit Reggio as city}
+			\item Pooled across cities \todo[backgroundcolor=red!30,size=\footnotesize]{Check uniformity of $\beta_X$ for the different controls }
+			\item Pooled across types of  schools (municipal, religious, private, etc.)
+		\end{enumerate}
+		\item Instrumental Variable approach \todo[backgroundcolor=orange!30,size=\footnotesize]{Define instruments well}
+		\item Propensity Score Matching \todo[backgroundcolor=orange!30,size=\footnotesize]{Chiara Pronzato is working on this}
+	\end{enumerate}
+	
+\end{enumerate}
+
+% quick notes
+\section{Data Quick Facts}
+
+\begin{table}[htbp]
+\begin{center}
+\caption{Values for Core Variables}
+\begin{tabular}{cl}
+\toprule
+Value & Meaning \\
+\midrule
+& Cohort \\
+\midrule
+1 & Children \\
+2 & Migrants \\
+3 & Adolescents \\
+4 & Adult 30 \\
+5 & Adult 40 \\
+6 & Adult 50 \\
+\midrule
+& City \\
+\midrule
+1 & Reggio \\
+2 & Parma \\
+3 & Padova \\
+\midrule
+& Type \\
+\midrule
+0 & Not attended \\
+1 & Municipal \\
+2 & State \\
+3 & Religious \\
+4 & Private \\
+\bottomrule
+\end{tabular}
+\end{center}
+\end{table}
+
+
+\end{document}
