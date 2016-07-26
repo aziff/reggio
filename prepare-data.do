@@ -520,3 +520,4 @@ lab var cgmStatus_married_cohab "Caregiver: married or cohabitating"
 
 // Create more exact hourse worked variable (If cgSES == "Never Worked", then replace cgHrsTot = 0)
 replace cgHrsTot = 0 if cgSES == 0
+lab var cgHrsTot "Caregiver: hours of work per week"
