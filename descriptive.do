@@ -154,3 +154,30 @@ foreach category in `categories' {
 	file close missing
 }
 *-----------------------------------
+// densities for IQ 
+
+local RE_line 		lcol(black) lwidth(thick)
+local PM_line 		lcol(gs8) lwidth(thick)
+local PD_line 		lcol(black) lpattern(dash) lwidth(thick)
+local graphregion 	graphregion(color(white)) 
+local xaxis 		xtitle("IQ Score") xlabel(#5, grid glwidth(vthin) glcolor(gs11) format(%9.1f))
+local yaxis 		ytitle("Density") ylabel(#5, glwidth(vthin) glcolor(gs11))
+local legend		legend(rows(1) label(1 Reggio) label(2 Parma) label(3 Padova))
+
+forvalues cohort_val = 1/6 {
+
+	preserve
+	
+		keep if Cohort == `cohort_val'
+
+		twoway 	(kdensity IQ_score if City == 1, `RE_line' ) 	///
+				(kdensity IQ_score if City == 2, `PM_line' ) 	///
+				(kdensity IQ_score if City == 3, `PD_line' ), 	///
+				`graphregion'									///
+				`xaxis' `yaxis'									///
+				`legend'										
+		graph export "Output/IQ_hist_`cohort_val'.eps", as(eps) replace
+	restore
+}
+
+*-----------------------------------
