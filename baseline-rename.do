@@ -130,19 +130,19 @@ local MrgrTaste_lab				Favorable to Migrants
 local Friends_lab				Number of Friends
 local MigrFriend_lab			Has Migrant Friends
 
-local SDQ_score_lab				SDQ Composite
-local SDQEmot_score_lab			SDQ Emotional
-local SDQCond_score_lab			SDQ Conduct
-local SDQHype_score_lab			SDQ Hyper
-local SDQPeer_score_lab			SDQ Peer problems
-local SDQPsoc_score_lab			SDQ Pro-social
+local pos_SDQ_score_lab				SDQ Composite
+local pos_SDQEmot_score_lab			SDQ Emotional
+local pos_SDQCond_score_lab			SDQ Conduct
+local pos_SDQHype_score_lab			SDQ Hyper
+local pos_SDQPeer_score_lab			SDQ Peer problems
+local pos_SDQPsoc_score_lab			SDQ Pro-social
 
-local childSDQ_score_lab		SDQ Composite - Child
-local childSDQEmot_score_lab	SDQ Emotional - Child
-local childSDQCond_score_lab	SDQ Conduct - Child
-local childSDQHype_score_lab	SDQ Hyper - Child
-local childSDQPeer_score_lab	SDQ Peer problems - Child
-local childSDQPsoc_score_lab	SDQ Pro-social - Child
+local pos_childSDQ_score_lab		SDQ Composite - Child
+local pos_childSDQEmot_score_lab	SDQ Emotional - Child
+local pos_childSDQCond_score_lab	SDQ Conduct - Child
+local pos_childSDQHype_score_lab	SDQ Hyper - Child
+local pos_childSDQPeer_score_lab	SDQ Peer problems - Child
+local pos_childSDQPsoc_score_lab	SDQ Pro-social - Child
 * ---------------------------------------------------------------------------- *
 * Baseline Estimation
 * Locals
