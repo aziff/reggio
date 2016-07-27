@@ -80,9 +80,9 @@ label var MigrFriend			"Has Migrant Friends"
 ** Locals for labels
 ** Label
 local IQ_factor_lab 			IQ Factor
-local IQ_score 					IQ Score
-local cgIQ_score 				Caregiver IQ Score
-local cgIQ_factor				Caregiver IQ Factor
+local IQ_score_lab 				IQ Score
+local cgIQ_score_lab 			Caregiver IQ Score
+local cgIQ_factor_lab			Caregiver IQ Factor
 local votoMaturita_lab			High School Grade
 local votoUni_lab				University Grade
 local highschoolGrad_lab		Graduate from High School
@@ -110,6 +110,9 @@ local Maria_lab					Tried Marijuana
 local Smoke_lab					Smokes
 local Cig_lab					Num. of Cigarettes Per Day
 local BMI_lab					BMI
+local childBMI_lab 				"BMI - child"
+local childz_BMI_lab 			"BMI z-score - child"
+local cgBMI_lab					Caregiver BMI	
 local goodHealth_lab			Good Health
 local SickDays_lab				Num. of Days Sick Past Month
 local i_RiskDUI_lab				Drove Under Influence 

@@ -11,6 +11,8 @@
 
 \tableofcontents
 
+\listoftables
+
 \doublespace
 
 \section{Overview}
@@ -30,6 +32,35 @@ This document compiles information on the variables in the Reggio dataset. The i
 \input{sections/reggio-variables_edu-inc}
 \input{sections/reggio-variables_health}
 \input{sections/reggio-variables_instruments}
+
+% Tables
+\clearpage
+\subsection{Descriptive statistics}
+
+\begin{landscape}
+\input{../../../../Output/descriptiveStats_edu}
+\end{landscape}
+
+\begin{landscape}
+\input{../../../../Output/descriptiveStats_health}
+\end{landscape}
+
+\begin{landscape}
+\input{../../../../Output/descriptiveStats_nonCog}
+\end{landscape}
+
+\subsection{Missing observations}
+\begin{landscape}
+\input{../../../../Output/missingVal_edu}
+\end{landscape}
+
+\begin{landscape}
+\input{../../../../Output/missingVal_health}
+\end{landscape}
+
+\begin{landscape}
+\input{../../../../Output/missingVal_nonCog}
+\end{landscape}
 
 
 \singlespace

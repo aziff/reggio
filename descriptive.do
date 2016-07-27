@@ -89,7 +89,8 @@ foreach category in `categories' {
 	file write dstat "\hline \\ \endhead \\" _n
 	
 	foreach outcome in ``category''{
-		local vl : variable label `outcome'
+		local vl "``outcome'_lab'"
+		
 		forvalues cohort_val = 1/6 {
 			forvalues city_val = 1/3 {
 				qui sum `outcome' if Cohort==`cohort_val' & City==`city_val'
