@@ -45,6 +45,10 @@ label var Maria					"Tried Marijuana"
 label var Smoke					"Smoker"
 label var Cig					"Num. of Cigarettes Per Day"
 label var BMI					"BMI"
+label var childBMI 				"BMI - child"
+label var childz_BMI 			"BMI z-score - child"
+label var cgBMI 				"Caregiver BMI"
+label var z_BMI					"BCMI z-score"
 label var Health				"Good Health"
 label var SickDays				"Num. of Days Sick Past Month"
 label var i_RiskDUI				"Drove Under Influence "
@@ -71,9 +75,14 @@ label var Friends				"Number of Friends"
 label var MigrFriend			"Has Migrant Friends"
 
 
+
+
 ** Locals for labels
 ** Label
 local IQ_factor_lab 			IQ Factor
+local IQ_score 					IQ Score
+local cgIQ_score 				Caregiver IQ Score
+local cgIQ_factor				Caregiver IQ Factor
 local votoMaturita_lab			High School Grade
 local votoUni_lab				University Grade
 local highschoolGrad_lab		Graduate from High School
