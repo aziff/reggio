@@ -11,13 +11,26 @@ set more off
 *-------------------------------------------------------------------------------
 
 local N_short_name 	nonCog
-local C_short_name 	Cog
+local E_short_name 	edu
+local H_short_name	health
+local W_short_name	labor
+local L_short_name	fam
+local S_short_name	soc
 
 local N_full_name	Non-cognitive
-local C_full_name	Cognitive
+local E_full_name	Education
+local H_full_name	Health
+local W_full_name	Labor
+local L_full_name	Family
+local S_full_name	Social
 
 local N_lower_name 	non-cognitive
-local C_lower_name 	cognitive
+local E_lower_name 	education
+local H_lower_name	health
+local W_lower_name	labor
+local L_lower_name	family
+local S_lower_name	social
+
 
 local N 	pos_childSDQ_score pos_childSDQEmot_score pos_childSDQCond_score pos_childSDQHype_score pos_childSDQPeer_score pos_childSDQPsoc_score ///
 			pos_SDQ_score pos_SDQEmot_score pos_SDQCond_score pos_SDQHype_score pos_SDQPeer_score pos_SDQPsoc_score ///
@@ -40,7 +53,7 @@ local H		childBMI childz_BMI cgBMI BMI z_BMI ///
 			Maria Smoke Cig goodHealth SickDays ///
 			i_RiskFight i_RiskDUI RiskSuspended Drink1Age									
 									
-local S				MigrTaste Friends MigrFriend
+local S		MigrTaste Friends MigrFriend
 			
 		
 local categories 	N H E W L H N S
