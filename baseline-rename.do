@@ -110,8 +110,9 @@ local Maria_lab					Tried Marijuana
 local Smoke_lab					Smokes
 local Cig_lab					Num. of Cigarettes Per Day
 local BMI_lab					BMI
-local childBMI_lab 				"BMI - child"
-local childz_BMI_lab 			"BMI z-score - child"
+local z_BMI_lab					BMI - z-score
+local childBMI_lab 				BMI - Child
+local childz_BMI_lab 			BMI z-score - Child
 local cgBMI_lab					Caregiver BMI	
 local goodHealth_lab			Good Health
 local SickDays_lab				Num. of Days Sick Past Month

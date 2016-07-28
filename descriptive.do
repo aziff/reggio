@@ -38,8 +38,6 @@ local N 	pos_childSDQ_score pos_childSDQEmot_score pos_childSDQCond_score pos_ch
 			reciprocity1bin reciprocity2bin reciprocity3bin reciprocity4bin ///
 			binSatisSchool binSatisHealth binSatisFamily binSatisIncome binSatisWork
 
-local H 	childBMI childz_BMI cgBMI BMI z_BMI ///
-
 local E		IQ_score IQ_factor cgIQ_score cgIQ_factor ///
 			votoMaturita votoUni ///
 			highschoolGrad MaxEdu_Uni MaxEdu_Grad
@@ -50,7 +48,7 @@ local W		PA_Empl SES_self HrsTot WageMonth ///
 local L		mStatus_married_cohab childrenResp all_houseOwn live_parent 
 									
 local H		childBMI childz_BMI cgBMI BMI z_BMI ///
-			Maria Smoke Cig goodHealth SickDays ///
+			Maria Cig goodHealth SickDays ///
 			i_RiskFight i_RiskDUI RiskSuspended Drink1Age									
 									
 local S		MigrTaste Friends MigrFriend
@@ -178,20 +176,26 @@ local xaxis 		xtitle("IQ Score") xlabel(#5, grid glwidth(vthin) glcolor(gs11) fo
 local yaxis 		ytitle("Density") ylabel(#5, glwidth(vthin) glcolor(gs11))
 local legend		legend(rows(1) label(1 Reggio) label(2 Parma) label(3 Padova))
 
-forvalues cohort_val = 1/6 {
+foreach var in IQ_score childBMI {
+	forvalues cohort_val = 1/6 {
+		if "`var'" == "BMI" & `cohort_val' > 3 {
+			local var BMI
+		}
 
-	preserve
+		preserve
 	
-		keep if Cohort == `cohort_val'
+			keep if Cohort == `cohort_val'
 
-		twoway 	(kdensity IQ_score if City == 1, `RE_line' ) 	///
-				(kdensity IQ_score if City == 2, `PM_line' ) 	///
-				(kdensity IQ_score if City == 3, `PD_line' ), 	///
-				`graphregion'									///
-				`xaxis' `yaxis'									///
-				`legend'										
-		graph export "Output/IQ_hist_`cohort_val'.eps", as(eps) replace
-	restore
+			twoway 	(kdensity `var' if City == 1, `RE_line' ) 	///
+					(kdensity `var' if City == 2, `PM_line' ) 	///
+					(kdensity `var' if City == 3, `PD_line' ), 	///
+					`graphregion'									///
+					`xaxis' `yaxis'									///
+					`legend'										
+			graph export "Output/`var'_`cohort_val'.eps", as(eps) replace
+			
+		restore
+	}
 }
 
 *-----------------------------------

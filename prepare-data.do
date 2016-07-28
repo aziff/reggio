@@ -409,10 +409,18 @@ gen mStatus_married_cohab = (mStatus_married == 1) | (mStatus_cohab == 1)
 lab var mStatus_married_cohab "Married or cohabitating indicator"
 
 // risk factors
-gen i_RiskDUI = (RiskDUI > 1)
+gen i_RiskDUI = (RiskDUI > 1) if RiskDUI < .
 lab var i_RiskDUI "Drove under the influence at least once"
-gen i_RiskFight = (RiskFight > 1 & RiskFight != .)
+gen i_RiskFight = (RiskFight > 1) if  RiskFight < .
 lab var i_RiskFight "Engaged in a fight at least once"
+
+// cigarettes
+replace Smoke = 1 if Cig > 0
+replace Cig = 0 if Smoke == 0
+
+// alcohol
+replace Drink = 1 if DrinkNum > 0
+replace DrinkNum = 0 if Drink == 0
 
 // reciprocity
 lab var reciprocity1bin "If someone does me a favor, I am prepared to return it"
