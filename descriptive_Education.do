@@ -18,8 +18,6 @@ set more off
 svyset
 
 tabout highschoolType City using "${git_reggio}/Output/check_variables/highschoolgrade.tex", replace ///
-	c(mean votoMaturita se) f(2 2) sum svy npos(lab) lay(row) ///
-	clab(_ (SE)) ///
-	style(tex) bt cl1(2-4) font(bold) ///
+	sum c(mean votoMaturita) f(2) ///
 	h3(& \multicolumn{3}{c}{Average highschool grade} \\) 
 
