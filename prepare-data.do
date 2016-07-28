@@ -26,7 +26,7 @@ global klmReggio    :    env klmReggio
 global data_reggio  :    env data_reggio
 global git_reggio   :    env git_reggio
 
-cd $data_reggio
+cd "$data_reggio"
 
 use Reggio, clear
 
@@ -529,3 +529,8 @@ lab var cgmStatus_married_cohab "Caregiver: married or cohabitating"
 // Create more exact hourse worked variable (If cgSES == "Never Worked", then replace cgHrsTot = 0)
 replace cgHrsTot = 0 if cgSES == 0
 lab var cgHrsTot "Caregiver: hours of work per week"
+
+// Relabel High School Type
+label define hsType_lab 1 "Classic high school" 2 "Science high school" 3 "Language high school" 4 "Art, music, or choir school" 5 "Institute for socio-psycho-pedagogy" 6 "Conservatory" ///
+						7 "Technical Institute (surveyor, accountancy, industrial etc.)" 8 "Professional (chemical, clectronic, etc.)" 9 "Art institute" 10 "Other"
+label values highschoolType hsType_lab
