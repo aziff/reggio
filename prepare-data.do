@@ -534,3 +534,34 @@ lab var cgHrsTot "Caregiver: hours of work per week"
 label define hsType_lab 1 "Classic high school" 2 "Science high school" 3 "Language high school" 4 "Art, music, or choir school" 5 "Institute for socio-psycho-pedagogy" 6 "Conservatory" ///
 						7 "Technical Institute (surveyor, accountancy, industrial etc.)" 8 "Professional (chemical, clectronic, etc.)" 9 "Art institute" 10 "Other"
 label values highschoolType hsType_lab
+
+// create BMI variables
+include "${git_reggio}/create-bmi_categories"
+
+// create satisfaction with family vars for adult and child that are roughly comparable
+
+gen satFamily = 0 if faceFamily<. | SatisFamily<.
+replace satFamily = 1 if faceFamily >= 7 & Cohort <3
+replace satFamily = 1 if SatisFamily >= 4 & Cohort >=3
+
+gen unsatFamily = 0 if faceFamily<. | SatisFamily<.
+replace unsatFamily = 1 if faceFamily <= 3 & Cohort <3
+replace unsatFamily = 1 if SatisFamily <= 2 & Cohort >=3
+
+gen satneutralFamily = 0 if faceFamily<. | SatisFamily<.
+replace satneutralFamily = 1 if faceFamily >3 & faceFamily<7 & Cohort <3
+replace satneutralFamily = 1 if SatisFamily == 3 & Cohort >=3
+
+// create perception of health during childhood vars that are roughly comparable across adults and children
+
+gen C_A_HealthGood = 0 if childHealth<.|Health16<.
+replace C_A_HealthGood = 1 if childHealth <= 2 & Cohort <3
+replace C_A_HealthGood = 1 if Health16 <= 2 & Cohort >=3
+
+gen C_A_HealthBad = 0 if childHealth<.|Health16<.
+replace C_A_HealthBad = 1 if childHealth >= 4 & Cohort <3
+replace C_A_HealthBad = 1 if Health16 >= 4 & Cohort >=3
+
+gen C_A_HealthAvg = 0 if childHealth<.|Health16<.
+replace C_A_HealthAvg = 1 if childHealth == 3 & Cohort <3
+replace C_A_HealthAvg = 1 if Health16 == 3 & Cohort >=3
