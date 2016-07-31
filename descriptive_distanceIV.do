@@ -34,7 +34,7 @@ file write dstat "\hline \\ \endhead \\" _n
 	
 # delimit ;
 local N distAsiloMunicipal1 distAsiloMunicipal2 distAsiloPrivate1 distAsiloPrivate1
-		distAsiloState1 distAsiloState1 distAsiloReligious1 distAsiloReligious1
+		distAsiloReligious1 distAsiloReligious1
 		distMaternaMunicipal1 distMaternaMunicipal2 distMaternaPrivate1 distMaternaPrivate1
 		distMaternaState1 distMaternaState1 distMaternaReligious1 distMaternaReligious1 ;
 
