@@ -33,10 +33,10 @@ file write dstat "`header5'" _n
 file write dstat "\hline \\ \endhead \\" _n
 	
 # delimit ;
-local N distAsiloMunicipal1 distAsiloMunicipal2 distAsiloPrivate1 distAsiloPrivate1
-		distAsiloReligious1 distAsiloReligious1
-		distMaternaMunicipal1 distMaternaMunicipal2 distMaternaPrivate1 distMaternaPrivate1
-		distMaternaState1 distMaternaState1 distMaternaReligious1 distMaternaReligious1 ;
+local N distAsiloMunicipal1 distAsiloMunicipal2 distAsiloPrivate1 distAsiloPrivate2
+		distAsiloReligious1 distAsiloReligious2
+		distMaternaMunicipal1 distMaternaMunicipal2 distMaternaPrivate1 distMaternaPrivate2
+		distMaternaState1 distMaternaState2 distMaternaReligious1 distMaternaReligious2 ;
 
 # delimit cr
 
