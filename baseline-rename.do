@@ -156,6 +156,25 @@ local pos_childSDQCond_score_lab	SDQ Conduct - Child
 local pos_childSDQHype_score_lab	SDQ Hyper - Child
 local pos_childSDQPeer_score_lab	SDQ Peer problems - Child
 local pos_childSDQPsoc_score_lab	SDQ Pro-social - Child
+
+local distAsiloMunicipal1_lab		Dist. closest Asilo Municipal
+local distAsiloMunicipal2_lab		Dist. 2nd-closest Asilo Municipal
+local distAsiloPrivate1_lab			Dist. closest Asilo Private
+local distAsiloPrivate2_lab			Dist. 2nd-closest Asilo Private
+local distAsiloReligious_lab		Dist. closest Asilo Religious
+local distAsiloReligious2_lab		Dist. 2nd-closest Asilo Religious
+
+local distMaternaMunicipal1_lab		Dist. closest Materna Municipal
+local distMaternaMunicipal2_lab		Dist. 2nd-closest Materna Municipal
+local distMaternaState1_lab			Dist. closest Materna State
+local distMaternaState2_lab			Dist. 2nd-closest Materna State
+local distMaternaPrivate1_lab		Dist. closest Materna Private
+local distMaternaPrivate2_lab		Dist. 2nd-closest Materna Private
+local distMaternaReligious_lab		Dist. closest Materna Religious
+local distMaternaReligious2_lab		Dist. 2nd-closest Materna Religious
+
+
+
 * ---------------------------------------------------------------------------- *
 * Baseline Estimation
 * Locals
