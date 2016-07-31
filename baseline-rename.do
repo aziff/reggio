@@ -157,21 +157,21 @@ local pos_childSDQHype_score_lab	SDQ Hyper - Child
 local pos_childSDQPeer_score_lab	SDQ Peer problems - Child
 local pos_childSDQPsoc_score_lab	SDQ Pro-social - Child
 
-local distAsiloMunicipal1_lab		Dist. closest Asilo Municipal
-local distAsiloMunicipal2_lab		Dist. 2nd-closest Asilo Municipal
-local distAsiloPrivate1_lab			Dist. closest Asilo Private
-local distAsiloPrivate2_lab			Dist. 2nd-closest Asilo Private
-local distAsiloReligious1_lab		Dist. closest Asilo Religious
-local distAsiloReligious2_lab		Dist. 2nd-closest Asilo Religious
+local distAsiloMunicipal1_lab		Closest Municipal Asilo
+local distAsiloMunicipal2_lab		2nd-closest Municipal Asilo
+local distAsiloPrivate1_lab		Closest Private Asilo
+local distAsiloPrivate2_lab		2nd-closest Private Asilo
+local distAsiloReligious1_lab		Closest Religious Asilo
+local distAsiloReligious2_lab		2nd-closest Religious Asilo
 
-local distMaternaMunicipal1_lab		Dist. closest Materna Municipal
-local distMaternaMunicipal2_lab		Dist. 2nd-closest Materna Municipal
-local distMaternaState1_lab			Dist. closest Materna State
-local distMaternaState2_lab			Dist. 2nd-closest Materna State
-local distMaternaPrivate1_lab		Dist. closest Materna Private
-local distMaternaPrivate2_lab		Dist. 2nd-closest Materna Private
-local distMaternaReligious1_lab		Dist. closest Materna Religious
-local distMaternaReligious2_lab		Dist. 2nd-closest Materna Religious
+local distMaternaMunicipal1_lab		Closest Municipal Materna
+local distMaternaMunicipal2_lab		2nd-closest Municipal Materna
+local distMaternaState1_lab		Closest State Materna
+local distMaternaState2_lab		2nd-closest State Materna
+local distMaternaPrivate1_lab		Closest Private Materna
+local distMaternaPrivate2_lab		2nd-closest Private Materna
+local distMaternaReligious1_lab		Closest Religious Materna
+local distMaternaReligious2_lab		2nd-closest Religious Materna
 
 
 
