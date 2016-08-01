@@ -535,9 +535,6 @@ label define hsType_lab 1 "Classic high school" 2 "Science high school" 3 "Langu
 						7 "Technical Institute (surveyor, accountancy, industrial etc.)" 8 "Professional (chemical, clectronic, etc.)" 9 "Art institute" 10 "Other"
 label values highschoolType hsType_lab
 
-// create BMI variables
-include "${git_reggio}/create-bmi_categories"
-
 // create satisfaction with family vars for adult and child that are roughly comparable
 
 gen satFamily = 0 if faceFamily<. | SatisFamily<.
@@ -565,3 +562,6 @@ replace C_A_HealthBad = 1 if Health16 >= 4 & Cohort >=3
 gen C_A_HealthAvg = 0 if childHealth<.|Health16<.
 replace C_A_HealthAvg = 1 if childHealth == 3 & Cohort <3
 replace C_A_HealthAvg = 1 if Health16 == 3 & Cohort >=3
+
+// create BMI variables
+include "${git_reggio}/create-bmi_categories"
