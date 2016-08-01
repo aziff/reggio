@@ -1,0 +1,83 @@
+
+% global preamble
+\input{preamble}
+
+\begin{document}
+
+\title{Description of Reggio Instruments}
+\author{Reggio Team}
+\date{Original version: Monday 1$^{\text{th}}$ August, 2016 \\ Current version: \today \\ \vspace{1em} Time: \currenttime}
+\maketitle
+
+\tableofcontents
+
+\doublespace
+
+\section{Overview}
+This document discusses the instruments used in Reggio analysis. We use three sets of instrument: (i) distance from childcare centers, (ii) fees of attending childcare centers, and (iii) capacity of childcare centers. This document provides information on what data sources are used to construct instruments and how instruments are used and constructed. Table \ref{tab:feecapacity} shows the information we have available for fee and capacity instruments. 
+
+
+\begin{table}[H]
+\caption{Fees and Capacity: Availability of Information} \label{tab:feecapacity}
+\scalebox{0.75}{
+\begin{tabular}{lccccccccc}
+\toprule
+& \multicolumn{3}{c}{\textbf{Reggio Emilia}} & \multicolumn{3}{c}{\textbf{Parma}} & \multicolumn{3}{c}{\textbf{Padova}} \\ 
+& \textbf{Municipal} & \textbf{State} & \textbf{Religious} & \textbf{Municipal} & \textbf{State} & \textbf{Religious} & \textbf{Municipal} & \textbf{State} & \textbf{Religious} \\ \midrule
+& \multicolumn{9}{c}{Preschool} \\ \midrule
+Fees children & X & X & X & X & X  & - & X  & X  & X  \\
+Fees adolescents & X & X & X & V & V & - & - & - & - \\
+Capacity children & X & X & X & X & X & -  & X & X & X \\
+Capacity adolescents  & X & X & X & - & - & - & - & - & - \\
+Waiting list children & X & X & X & - & - & - & X & - & - \\ 
+Waiting list adolescents & X & - & - & - & - & - & - & - & - \\ \midrule
+& \multicolumn{9}{c}{Infant-Toddler Center} \\ \midrule
+Fees children & X & n.a. & X & X & n.a. & - & X & n.a. & - \\
+Fees adolescents  & X & n.a. & X & V & n.a. & - & - & n.a. & - \\
+Capacity children  & X & n.a. & X & X & n.a. & - & X & n.a. & - \\
+Capacity adolescents  & X & n.a. & X & - & n.a. & - & - & n.a. & - \\
+Waiting list children & X & n.a. & - & X & n.a. & - & X & n.a. & - \\
+Waiting list adolescents & X & n.a. & - & - & n.a. & - & - & n.a. & - \\ \bottomrule
+\end{tabular}
+}
+\end{table} 
+ \singlespacing
+\underline{Note:} ``X" indicates that information is available for all years, ``V" indicates year 1997 is missing, ``-" indicates information is missing, and ``n.a." indicates that infant-toddler centers do not have the state type. 
+\doublespacing
+
+\section{Childcare Cost}
+
+The childcare cost information is stored in the ``RetteContributive" folder. ``RetteContributive\_lav" excel sheet shows the cost information of all three cities. 
+
+\section{Capacity}
+
+\subsection{Reggio}
+
+The information we have for capacity in municipal preschools in Reggio Emilia is:
+\begin{itemize}
+\item \textbf{Capacity:} for municipal preschools and municipally-affiliated preschools
+\item \textbf{Waiting list:} for municipal preschools, municipally-affiliated preschools, and spring classes in religious preschools
+\end{itemize}
+
+Above information are recorded yearly from 1994 to 2011. The source for the information about capacity is ``Schools Institution and the Municipality of Reggio Emilia Infant-Toddler."\footnote{http://www.scuolenidi.re.it}
+
+\subsection{Parma}
+
+The information we have for capacity in preschools in Parma is:
+\begin{itemize}
+\item \textbf{Capacity:} for municipal preschools, public-private companies (?), municipally-affiliated preschools, convenzionati, spring classes in religious preschools.
+\item \textbf{Waiting list:} for municipal preschools, public-private companies (?), municipally-affiliated preschools, convenzionati, spring classes in religious preschools.
+\end{itemize}
+
+Above information is recorded yearly from 1994 to 2011. The source for the information about capacity is ``TREND ISCRIZIONI - Comune di Parma."\footnote{www.comune.parma.it/notizie/Handlers}
+
+\subsection{Padova}
+The information we have for capacity in preschools in Padova is:
+\begin{itemize}
+\item \textbf{Capacity:} for municipal preschools, state preschools, religious (FISM) preschools
+\item \textbf{Waiting list:} for municipal preschools, state preschools, religious (FISM) preschools
+\end{itemize}
+
+Above information is recorded yearly from 2004 to 2011. The sources for the information about capacity is (1) SPES, which is a municipal company that responds to local and social need, (2) other sources not specified.
+
+\end{document}
