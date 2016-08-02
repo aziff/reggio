@@ -9,7 +9,7 @@ Purpose:
 -- Create some common variables (e.g. treatment group etc.)
 -- Quality check on some particular variables with unexpected averages 
 
-This Draft: 27 January 2016
+This Draft: 19 July 2016
 
 Input: 	ReggioChild.dta  --> see dataClean_child.do
         ReggioAdo.dta    --> see dataClean_ado.do
@@ -22,6 +22,21 @@ Output:	Reggio.dta --> single dataset with child+migrant+ado
 	Quality-Checks for strange results --> if $check == 1
 
 	[=] Signal questions to be addressed
+
+I am renaming the variables keep this convention:
+  - I try to use the camelCaseNamingConvention
+  - All the mother-related variables begin with 'mom'
+  - All the father-related variables begin with 'dad'
+  - All of the variables related to the caregiver begin with 'cg' 
+			(note: the second respondent is the caregiver; not always it was the mother)
+  - All the variables that begin with 'child' are the care-giver answer to questions pertaining to the child
+  - All the other variables (without a particular prefix) are related to the child
+  - I try to name the variables in English, even if the labels are usually in Italian;
+    as an execption, I will use the name "asilo" to refer to infant-toddler centers and the name
+	"materna" to refer to preschool.
+  - *bin refers to a binary variable created to make a dummy out of a continuous / more complex variable
+  - *cat refers to a categorial variable created to simply a continuous / more complex variable
+
 */
 
 global check    = 0   // = 1 --> do the quality-checks, = 0 skip that section
@@ -83,7 +98,7 @@ merge m:1 internr using interviewers/interviewers.dta, gen(_mergeInter)
 drop if _mergeInter == 2  // there are some from using: we have interviewer info, but they didn't do any useful interview
 
 /* -----------Manual Check of Preschool Names and Addresses 
-save Reggio.dta, replace
+saveold Reggio.dta, replace
 use Reggio_all.dta, clear
 *-* extract the names and address and cross-refernce them with the list of schools to assign the correct school type
 sort City Cohort intnr internr
@@ -402,8 +417,8 @@ tab cgOtherRelig Cohort
 
 *----------------------* Satisfaction
 foreach var in Income Work Health Family{
-	gen binSatis`var' = (Satis`var' >= 4) if Satis`var'<.
-	label var binSatis`var' "Satisfied with `var'"
+	gen Satis`var'_bin = (Satis`var' >= 4) if Satis`var'<.
+	label var Satis`var'_bin "Satisfied with `var'"
 }
 egen temp = rownonmiss(Satis*)
 gen Satisfied = (SatisHealth==5 | SatisSchool==5 | SatisFamily==5 | SatisWork==5) if temp>0
@@ -414,26 +429,26 @@ drop temp
 //binary variable for health satisfaction (86%)
 //binary for satisfaction w/ family (76%)
 
-gen binSocialMeet = (SocialMeet <= 3) if SocialMeet<. //binary if meets people more than once a month
+gen SocialMeet_bin = (SocialMeet <= 3) if SocialMeet<. //binary if meets people more than once a month
 
 *----------------------* Child self-reported status using faces
 foreach var in faceMe faceFamily faceSchool faceGeneral{
-	gen `var'bin = (`var'>=10)
-	replace `var'bin = `var' if `var'>=.
-	tab `var' `var'bin, miss
+	gen `var'_bin = (`var'>=10)
+	replace `var'_bin = `var' if `var'>=.
+	tab `var' `var'_bin, miss
 }
-label var faceMebin "Happy child"
-label var faceFamilybin "Happy in the family"
-label var faceSchoolbin "Happy at school"
-label var faceGeneralbin "Happy in general"
+label var faceMe_bin "Happy child"
+label var faceFamily_bin "Happy in the family"
+label var faceSchool_bin "Happy at school"
+label var faceGeneral_bin "Happy in general"
 
 foreach var in closeMom closeDad{
-	gen `var'bin = (`var'>=4)
-	replace `var'bin = `var' if `var'>=.
-	tab `var' `var'bin, miss
+	gen `var'_bin = (`var'>=4)
+	replace `var'_bin = `var' if `var'>=.
+	tab `var' `var'_bin, miss
 }
-label var closeMombin "Feels close to mom"
-label var closeDadbin "Feels close to dad"
+label var closeMom_bin "Feels close to mom"
+label var closeDad_bin "Feels close to dad"
 
 *----------------------* School and computer
 * School and difficulties
@@ -447,11 +462,8 @@ label var likeSchool "Child likes school (%)"
 label var likeMath "Child likes math (%)"
 label var likeLit "Child likes reading/italian (%)"
 
-gen hadDiffic = (difficultiesNone == 0) if (Cohort <= 3) & difficultiesNone<. // == 1 if child/ado had any difficulties
-label var hadDiffic "Had difficulties entering primary school"
-
-gen binSatisSchool = (SatisSchool >= 4 & Cohort == 3) if SatisSchool<. //binary for school satisfaction (72%)
-label var binSatisSchool "Satisfied with school"
+gen SatisSchool_bin = (SatisSchool >= 4 & Cohort == 3) if SatisSchool<. //binary for school satisfaction (72%)
+label var SatisSchool_bin "Satisfied with school"
 
 /* computer usage */
 * children: computer in household they can use
@@ -463,10 +475,10 @@ replace computer = 0 if childinvCom == 3
 replace computer = (PC_hrs == 0) if Cohort == 3 & PC_hrs<.
 
 *----------------------* Who should be in charge of education
-gen eduFamilybin = (eduFamily>=4)
-replace eduFamilybin = eduFamily if eduFamily>=.
-tab eduFamily eduFamilybin, miss
-label var eduFamilybin "Family should be main responsible for childcare (not public service)"
+gen eduFamily_bin = (eduFamily>=4)
+replace eduFamily_bin = eduFamily if eduFamily>=.
+tab eduFamily eduFamily_bin, miss
+label var eduFamily_bin "Family should be main responsible for childcare (not public service)"
 
 *----------------------* Health
 * Child health
@@ -492,18 +504,18 @@ replace childDoctorRecent = . if missing(childDoctor)
 gen childDiag = (childTotal_diag >= 1) //binary if child has any health problems (26%)
 replace childDiag = . if missing(childTotal_diag)
 
-gen binSickDays = (SickDays == 1 | childSickDays == 1) //binary if child has sick days
-replace binSickDays = (binSickDays == 0) //orignially, make it if no sick days, this just flips it
-replace binSickDays = . if (missing(SickDays) & missing(childSickDays))
+gen noSickDays_bin = (SickDays > 1 ) if SickDays<. //binary if child has sick days
+gen childnoSickDays_bin = (childSickDays > 1 ) if childSickDays<. //binary if child has sick days
+label var childnoSickDays_bin "Child never skipped school beacuse ill last month"
 
 *----------------------* Reciprocity
 forvalues i=1/4{
 	** Reciprocity -- converted into dummies
-	gen reciprocity`i'bin = (reciprocity`i'>=4) 
-	replace reciprocity`i'bin = reciprocity`i' if reciprocity`i'>=.
-	tab reciprocity`i' reciprocity`i'bin, miss
+	gen reciprocity`i'_bin = (reciprocity`i'>=4) 
+	replace reciprocity`i'_bin = reciprocity`i' if reciprocity`i'>=.
+	tab reciprocity`i' reciprocity`i'_bin, miss
 }
-label var reciprocity3bin "Reciprocate kindness"
+label var reciprocity3_bin "Reciprocate kindness"
 
 *----------------------* Importance of learning
 forvalues i=1/4{
@@ -626,35 +638,35 @@ foreach var of varlist cgMigrTimeFit cgMigrTimeSpeak cgMigrTimeFriends cgMigrTim
 label define time_cat 0 "Immediately" 1 "1-6 mth" 2 "7-12 mth" 3 ">1 year"
 label values cgMigrTime*cat time_cat
 
-recode MigrIntegr (1 = 1) (2/3 = 0), gen(MigrIntegr_cat)
-label var MigrIntegr_cat "Schools help migration"
-recode MigrAttitude (1/2 = 0) (3 = 1), gen(MigrAttitude_cat)
-label var MigrAttitude_cat "Diffident toward migrants"
-recode  MigrProgram  (1/2 = 1) (3/4 = 0), gen( MigrProgram_cat)
-label var MigrProgram_cat "Migrants slow down class curriculum"
-recode  MigrClassIntegr (1 = 1) (2/3 = 0), gen( MigrClassIntegr_cat)
-label var MigrClassIntegr_cat "Migrants are well integrated in classroom"
-recode  MigrTaste (1/2 = 1) (3/5 = 0), gen( MigrTaste_cat)
-label var MigrTaste_cat "Bothered by immigration into city"
-recode  MigrGood (1/2 = 1) (3/5 = 0), gen( MigrGood_cat)
-label var MigrGood_cat "Immigration is bad for our country"
-recode  MigrClassChild (1/3 = 0) (4/5 = 1), gen( MigrClassChild_cat)
-label var MigrClassChild_cat "Too many migrants in child's classroom"
+recode MigrIntegr (1 = 1) (2/3 = 0), gen(MigrIntegr_bin)
+label var MigrIntegr_bin "Schools help migration"
+recode MigrAttitude (1/2 = 0) (3 = 1), gen(MigrAttitude_bin)
+label var MigrAttitude_bin "Diffident toward migrants"
+recode  MigrProgram  (1/2 = 1) (3/4 = 0), gen( MigrProgram_bin)
+label var MigrProgram_bin "Migrants slow down class curriculum"
+recode  MigrClassIntegr (1 = 1) (2/3 = 0), gen( MigrClassIntegr_bin)
+label var MigrClassIntegr_bin "Migrants are well integrated in classroom"
+recode  MigrTaste (1/2 = 1) (3/5 = 0), gen( MigrTaste_bin)
+label var MigrTaste_bin "Bothered by immigration into city"
+recode  MigrGood (1/2 = 1) (3/5 = 0), gen( MigrGood_bin)
+label var MigrGood_bin "Immigration is bad for our country"
+recode  MigrClassChild (1/3 = 0) (4/5 = 1), gen( MigrClassChild_bin)
+label var MigrClassChild_bin "Too many migrants in child's classroom"
 
-recode cgMigrCity (1/2 = 0) (3/4 = 1), gen(cgMigrCity_cat)
-label var cgMigrCity_cat "City hostile to migrants"
-recode  cgMigrIntegCity (1/2 = 0) (3 = 1), gen(cgMigrIntegCity_cat)
-label var cgMigrIntegCity_cat "Hard to integrate into city"
-recode  cgMigrIntegIt (1/2 = 0) (3 = 1), gen(cgMigrIntegIt_cat)
-label var cgMigrIntegIt_cat "Hard to integrate in Italy"
-recode cgMigrIntegr (1 = 1) (2/3 = 0), gen(cgMigrIntegr_cat)
-label var cgMigrIntegr_cat "Schools help migration (caregiver)"
-recode cgMigrAttitude (1/2 = 0) (3 = 1), gen(cgMigrAttitude_cat)
-label var cgMigrAttitude_cat "Diffident toward migrants (caregiver)"
-recode  cgMigrProgram  (1/2 = 1) (3/4 = 0), gen( cgMigrProgram_cat)
-label var cgMigrProgram_cat "Migrants slow down class curriculum (caregiver)"
-recode  cgMigrTaste (1/2 = 1) (3/5 = 0), gen(cgMigrTaste_cat)
-label var cgMigrTaste_cat "Bothered by immigration into city (caregiver)"
+recode cgMigrCity (1/2 = 0) (3/4 = 1), gen(cgMigrCity_bin)
+label var cgMigrCity_bin "City hostile to migrants"
+recode  cgMigrIntegCity (1/2 = 0) (3 = 1), gen(cgMigrIntegCity_bin)
+label var cgMigrIntegCity_bin "Hard to integrate into city"
+recode  cgMigrIntegIt (1/2 = 0) (3 = 1), gen(cgMigrIntegIt_bin)
+label var cgMigrIntegIt_bin "Hard to integrate in Italy"
+recode cgMigrIntegr (1 = 1) (2/3 = 0), gen(cgMigrIntegr_bin)
+label var cgMigrIntegr_bin "Schools help migration (caregiver)"
+recode cgMigrAttitude (1/2 = 0) (3 = 1), gen(cgMigrAttitude_bin)
+label var cgMigrAttitude_bin "Diffident toward migrants (caregiver)"
+recode  cgMigrProgram  (1/2 = 1) (3/4 = 0), gen( cgMigrProgram_bin)
+label var cgMigrProgram_bin "Migrants slow down class curriculum (caregiver)"
+recode  cgMigrTaste (1/2 = 1) (3/5 = 0), gen(cgMigrTaste_bin)
+label var cgMigrTaste_bin "Bothered by immigration into city (caregiver)"
 
 
 *----------------------*  Admission Criteria Score (by Chiara) =====================================
@@ -790,24 +802,337 @@ gen interPadova_all = (interPadova==1)
 label var interPadova "3 Strange Padova interviewers (174,175,2525) Missing for non-adult-padova"
 label var interPadova_all "3 Strange Padova interviewers (174,175,2525) no missing"
 
+
+*----------------------* Outcomes of interest for Children and Adolescents (written by Chiara in 1.outcomes15July16children.do)
+
+/* TUTTI GLI OUTCOMES (5+10+6+31+26+16+11+20=135)
+
+*** DIFFICULTIES (5)
+
+difficultiesSit byte    %8.0g      LABU       Ability to sit still in a group when asked (difficulties in primary school)
+difficultiesI~t byte    %8.0g      LABU       Lack of excitement to learn (difficulties in primary school)
+difficultiesO~y byte    %8.0g      LABU       Ability to obey rules and directions (difficulties in primary school)
+difficultiesEat byte    %8.0g      LABU       Fussy eater (difficulties in primary school)
+difficulties    byte    %55.0g     difficulties
+
+                                              dv: Difficulties encountered when starting primary school
+											  
+*** THINGS AT HOME (10)
+
+childinvReadTo  byte    %8.0g      V37110   * Frequency reading to child
+childinvMusic   byte    %8.0g      V37120   * Music instrument at home
+childinvCom     byte    %8.0g      V37130     Is there a computer at home that the child can use?
+childinvTV_hrs  byte    %10.0g              * In a typical day, how many hours does your child spend watching television?
+childinvVideo~s byte    %10.0g              * In a typical day, how many hours does your child spend watching video games?
+childinvOut     byte    %8.0g      V37150   * Frequency taking child out (high = never)
+childinvFamMeal byte    %8.0g      V37190   * Frequency eating a meal together
+childinvChore~m byte    %8.0g      V37200_1 * How often is your child expected to do the following? Clean up his/her room?
+childinvChore~p byte    %8.0g      V37200_2 * How often is your child expected to do the following? Do routine chores such
+                                                as
+childinvChore~w byte    %8.0g      V37200_3 * How often is your child expected to do the following? Do homework
+                                                voluntarily?
+												
+*** EXTRA ACTIVITIES (6)
+											
+childinvReadS~f byte    %8.0g      V37210     Frequency reading by herself
+childinvSport   byte    %8.0g      LABA       Child does sport
+childinvDance   byte    %8.0g      LABA       Child does dances
+childinvTheater byte    %8.0g      LABA       Child does theater
+childinvOther   byte    %8.0g      LABA       Does your child participate in the following activities? Other, specify
+childinvFriends byte    %10.0g              * Number of child's friends
+
+*** S&D (31)
+
+childSDQPsoc1   byte    %8.0g      V56010_1   Considerate of other people's feelings
+childSDQHype1   byte    %8.0g      V56010_2 * Restless, overactive, cannot stay still for long
+childSDQEmot1   byte    %8.0g      V56010_3 * Often complains of headaches, stomach-aches or sickness
+childSDQPsoc2   byte    %8.0g      V56010_4 * Shares readily with other children, for example toys, treats, pencils
+childSDQCond1   byte    %8.0g      V56010_5   Often loses temper or is in a bad mood
+childSDQPeer1   byte    %8.0g      V56010_6   Rather solitary, prefers to play alone
+childSDQCond2   byte    %8.0g      V56010_7 * Generally well behaved, usually does what adults request
+childSDQEmot2   byte    %8.0g      V56010_8   Frequently worried or often seems worried
+childSDQPsoc3   byte    %8.0g      V56010_9 * Helpful if someone is hurt, upset or feeling ill
+childSDQHype2   byte    %8.0g      V530_A     Constantly fidgeting or squirming
+childSDQPeer2   byte    %8.0g      V531_A     Has at least one good friend
+childSDQCond3   byte    %8.0g      V532_A   * Often fights with other children or bullies them
+childSDQEmot3   byte    %8.0g      V533_A     Often unhappy, depressed or tearful
+childSDQPeer3   byte    %8.0g      V534_A     Generally liked by other children
+childSDQHype3   byte    %8.0g      V535_A     Easily distracted, concentration wanders
+childSDQEmot4   byte    %8.0g      V536_A   * Nervous or clingy in new situations, easily loses confidence
+childSDQPsoc4   byte    %8.0g      V537_A     Kind to younger children
+childSDQCond4   byte    %8.0g      V538_A     Often lies or cheats
+childSDQPeer4   byte    %8.0g      V539_A     Picked on or bullied by other children
+childSDQPsoc5   byte    %8.0g      V540_A   * Often offers to help others (parents, teachers, other children)
+childSDQHype4   byte    %8.0g      V541_A     Thinks things out before acting
+childSDQCond5   byte    %8.0g      V542_A   * Steals from home, school or elsewhere
+childSDQPeer5   byte    %8.0g      V543_A     Gets along better with adults than with other children
+childSDQEmot5   byte    %8.0g      V544_A     Many fears, easily scared
+childSDQHype5   byte    %8.0g      V545_A   * Good attention span, sees work through to the end
+
+childSDQEmot_~e byte    %9.0g                 SDQ emotional symptoms score - Mother reports
+childSDQCond_~e byte    %9.0g                 SDQ conduct problems score - Mother reports
+childSDQHype_~e byte    %9.0g                 SDQ hyperactivity/inattention score - Mother reports
+childSDQPeer_~e byte    %9.0g                 SDQ peer problems score - Mother reports
+childSDQPsoc_~e byte    %9.0g                 SDQ prosocial score - Mother reports
+childSDQ_score  byte    %9.0g                 SDQ Total difficulties score - Mother reports
+
+*** HEALTH AND HABITS (26)
+
+childHealth     byte    %8.0g      V38110     Child general health (high = sick) - Mother reports
+childSickDays   byte    %8.0g      V38120   * Child number of sick days
+childSleep      byte    %10.0g                On average, how many hours do you sleep a night? CHILD
+childHeight     int     %10.0g                Child Height
+childWeight     int     %10.0g                Child Weight
+childDoctor     byte    %8.0g      V38150   * How long has it been since your child last visited a doctor or dentist for a
+                                                rou
+childAsthma_d~g byte    %8.0g      LABW       asthma (has your child ever been diagnosed with...)
+childAllerg_d~g byte    %8.0g      LABW       allergies (has your child ever been diagnosed with...)
+childDigest_d~g byte    %8.0g      LABW       digestive problems (has your child ever been diagnosed with...)
+childEmot_diag  byte    %8.0g      LABW       emotional problems (has your child ever been diagnosed with...)
+childSleep_diag byte    %8.0g      LABW       sleeping problems (has your child ever been diagnosed with...)
+childGums_diag  byte    %8.0g      LABW     * gum disease (gingivitis; periodontal disease) or tooth loss because of
+                                                cavities
+childOther_diag byte    %8.0g      LABW       other (e.g.cancer, leukemia, diabetes, etc.) (has your child ever been
+                                                diagnosed
+childNone_diag  byte    %8.0g      LABW       none of these (has your child ever been diagnosed with...)
+
+childBreakfast  byte    %8.0g      V40120_2 * In a typical week, how many times do you have breakfast? CHILD
+childFruit      byte    %8.0g      V56130_2 * Frequency eating fruit, child
+childSnackNo    byte    %8.0g      LABY       Never Snack (usually eat as snack, child)
+childSnackFruit byte    %8.0g      LABY       Eat fruit as snack, child
+childSnackIce   byte    %8.0g      LABY       Ice cream (usually eat as snack, child)
+childSnackCandy byte    %8.0g      LABY       Candies, sweets, chocolate bars (usually eat as snack, child)
+childSnackRoll  byte    %8.0g      LABY       Cookies, roll cakes, baked goods (usually eat as snack, child)
+childSnackChips byte    %8.0g      LABY       Chips, crackers (usually eat as snack, child)
+childSnackOther byte    %8.0g      LABY       Other (specify_________) (usually eat as snack, child)
+sportTogether   byte    %8.0g      V41150   * Frequencty done sport together (high = a lot)
+childBMI        float   %9.0g                 BMI child
+childTotal_diag byte    %9.0g                 Total number of diagnosed health problems, child
+                                                child												
+*** THINGS AT SCHOOL (16)
+
+likeSchool_ch~d byte    %8.0g      V60000_1   Child dislikes school
+likeRead        byte    %8.0g      V60000_2   Child dislikes reading
+likeMath_child  byte    %8.0g      V60000_3   Child dislikes Math
+likeGym         byte    %8.0g      V60000_4 * Child dislikes gym
+goodBoySchool   byte    %8.0g      V60090_1   Child not a good boy in class
+bullied         byte    %8.0g      V60090_2 * How often do other children bully you?
+alienated       byte    %8.0g      V60090_3 * How often do you feel left out of things by children at school?
+doGrowUp        byte    %8.0g      LABAA      And finally, what would you like to be when you grow up?
+likeTV          byte    %8.0g      V60310_1 * Child dislikes TV
+likeDraw        byte    %8.0g      V60310_2   Child dislikes drawing
+likeSport       byte    %8.0g      V60310_3   Child dislikes sports
+FriendsGender   byte    %12.0g     FriendsGender
+                                            * Are your friends mostly boys, mostly girls or a mixture of boys and girls?
+bestFriend      byte    %8.0g      V60380     Do you have any best friends?
+lendFriend      byte    %8.0g      V60391     Child doesn't lends to friends
+favorReturn     byte    %8.0g      V60392     Child doesn't return a favor
+revengeReturn   byte    %8.0g      V60393   * Child doesn't seek revenge
+
+*** FEELINGS (11)
+
+funFamily       byte    %8.0g      V60394     Child doesn't have fun in family
+worryMyself     byte    %8.0g      LABAB      I keep it to myself (what you do when worried)
+worryFriend     byte    %8.0g      LABAB      I tell a friend (what you do when worried)
+worryHome       byte    %8.0g      LABAB      I tell someone at home (what you do when worried)
+worryTeacher    byte    %8.0g      LABAB      I tell a teacher (what you do when worried)
+faceMe          byte    %10.0g                Happy child
+faceFamily      byte    %10.0g                Happy family
+faceSchool      byte    %10.0g                Happy school
+faceGeneral     byte    %10.0g                Happy in general
+brushTeeth      byte    %10.0g                How many times do you brush your teeth a day?
+candyGame       byte    %13.0g     candy    * How many candies are you willing to give to a classmate?
+
+
+*** COGNITIVE (20)
+
+IQ1             byte    %9.0g                 
+IQ2             byte    %9.0g                 
+IQ3             byte    %9.0g                 
+IQ4             byte    %9.0g                 
+IQ5             byte    %9.0g                 
+IQ6             byte    %9.0g                 
+IQ7             byte    %9.0g                 
+IQ8             byte    %9.0g                 
+IQ9             byte    %9.0g                 
+IQ10            byte    %9.0g                 
+IQ11            byte    %9.0g                 
+IQ12            byte    %9.0g                 
+IQ13            byte    %9.0g                 
+IQ14            byte    %9.0g                 
+IQ15            byte    %9.0g                 
+IQ16            byte    %9.0g                 
+IQ17            byte    %9.0g                 
+IQ18            byte    %9.0g                 
+IQ_factor       float   %9.0g                 dv: Respondent mental ability. Raven matrices - factor score
+IQ_score        float   %9.0g                 Respondent mental ability. % of correct answers (Raven matrices)
+
+
+*/
+
+*** dummy dal verso giusto (do not flip)
+
+sum difficultiesNone childinvMusic childinvSport childinvDance childinvTheater childinvOther childnoSickDays childNone_diag childSnackFruit childSnackIce worryFriend worryHome ///
+worryTeacher faceMe_bin faceFamily_bin faceSchool_bin faceGeneral_bin IQ1 IQ2 IQ3 IQ4 IQ5 IQ6 IQ7 IQ8 IQ9 IQ10 IQ11 IQ12 IQ13 IQ14 IQ15 IQ16 IQ17 IQ18 bestFriend
+
+desc difficultiesNone childinvMusic childinvSport childinvDance childinvTheater childinvOther  childNone_diag childSnackFruit childSnackIce worryFriend worryHome ///
+worryTeacher IQ1 IQ2 IQ3 IQ4 IQ5 IQ6 IQ7 IQ8 IQ9 IQ10 IQ11 IQ12 IQ13 IQ14 IQ15 IQ16 IQ17 IQ18 bestFriend
+
+/*** flip these dummies (higher = better): do this in the analysis do file, otherwise things get messed up
+
+sum difficultiesSit difficultiesInterest difficultiesObey difficultiesEat ///
+childAsthma_* childAllerg_* childDigest_* childEmot_diag childSleep_diag childGums_diag childOther_diag childSnackNo childSnackCan childSnackRoll  ///
+childSnackChips childSnackOther  worryMyself 
+
+desc difficultiesSit difficultiesInterest difficultiesObey difficultiesEat ///
+childAsthma_* childAllerg_* childDigest_* childEmot_diag childSleep_diag childGums_diag childOther_diag childSnackNo childSnackCan childSnackRoll  ///
+childSnackChips childSnackOther  worryMyself
+
+foreach j in difficultiesSit difficultiesInterest difficultiesObey difficultiesEat ///
+childAsthma_ childAllerg_ childDigest_ childEmot_diag childSleep_diag childGums_diag childOther_diag childSnackNo childSnackCan childSnackRoll  ///
+childSnackChips childSnackOther  worryMyself {
+
+replace `j'= 1-`j'
+label var `j' "`j' flipped"
+} 
+*/
+
+sum difficultiesSit difficultiesInterest difficultiesObey difficultiesEat ///
+childAsthma_* childAllerg_* childDigest_* childEmot_diag childSleep_diag childGums_diag childOther_diag childSnackNo childSnackCan childSnackRoll  ///
+childSnackChips childSnackOther  worryMyself 
+
+*** create some dummies
+
+sum childinvReadTo  childinvFamMeal childinvChoresRoom childinvChoresHelp childinvChoresHomew childinvReadSelf  childinvFriends ///
+childSleep childHeight childBreakfast childFruit sportTogether bullied alienated revengeReturn brushTeeth ///
+candyGame IQ_score IQ_factor childSDQHype1 childSDQHype2 childSDQHype3 childSDQEmot1 childSDQEmot2 ///
+childSDQEmot3 childSDQEmot4 childSDQEmot5 childSDQCond1 childSDQCond3 childSDQCond4 childSDQCond5 childSDQPeer1 childSDQPeer4 childSDQPeer5
+
+desc childinvReadTo  childinvFamMeal childinvChoresRoom childinvChoresHelp childinvChoresHomew childinvReadSelf  childinvFriends ///
+childSleep childHeight childBreakfast childFruit sportTogether bullied alienated revengeReturn brushTeeth ///
+candyGame IQ_score IQ_factor childSDQHype1 childSDQHype2 childSDQHype3 childSDQEmot1 childSDQEmot2 ///
+childSDQEmot3 childSDQEmot4 childSDQEmot5 childSDQCond1 childSDQCond3 childSDQCond4 childSDQCond5 childSDQPeer1 childSDQPeer4 childSDQPeer5
+
+tab doGrowUp, m
+tab doGrowUp, gen(doGrowUp)
+replace doGrowUp1 = 0 if(doGrowUp1 == .)
+drop doGrowUp
+ren doGrowUp1 doGrowUp
+
+tab FriendsGender
+tab FriendsGender, nol
+gen FriendsGender_bin = (FriendsGender == 0)
+label var FriendsGender_bin "Friends from both genders"
+
+foreach j in childinvReadTo  childinvFamMeal childinvChoresRoom childinvChoresHelp childinvChoresHomew childinvReadSelf  childinvFriends ///
+childSleep childHeight childBreakfast childFruit sportTogether bullied alienated revengeReturn brushTeeth ///
+candyGame IQ_score IQ_factor childSDQHype1 childSDQHype2 childSDQHype3 childSDQEmot1 childSDQEmot2 ///
+childSDQEmot3 childSDQEmot4 childSDQEmot5 childSDQCond1 childSDQCond3 childSDQCond4 childSDQCond5 childSDQPeer1 childSDQPeer4 childSDQPeer5 {
+
+sum `j', d
+gen dummy1 = (`j' > r(p50)) if `j'<.
+gen dummy2 = (`j' >= r(p50)) if `j'<.
+sum dummy1
+gen diff1 = abs(r(mean)-0.5)
+sum dummy2
+gen diff2 = abs(r(mean)-0.5)
+gen `j'_bin = dummy1 if(diff1 <= diff2)
+replace `j'_bin = dummy2 if(diff1 > diff2)
+drop dummy1 dummy2 diff1 diff2
+label var `j'_bin "Dummy for `j'"
+} 
+
+sum childinvReadTo_bin childinvFamMeal_bin childinvChoresRoom_bin childinvChoresHelp_bin childinvChoresHomew_bin childinvReadSelf_bin childinvFriends_bin ///
+childSleep_bin childHeight_bin childBreakfast_bin childFruit_bin sportTogether_bin bullied_bin alienated_bin revengeReturn_bin brushTeeth_bin ///
+candyGame_bin IQ_score_bin IQ_factor_bin childSDQHype1_bin childSDQHype2_bin childSDQHype3_bin childSDQEmot1_bin childSDQEmot2_bin ///
+childSDQEmot3_bin childSDQEmot4_bin childSDQEmot5_bin childSDQCond1_bin childSDQCond3_bin childSDQCond4_bin childSDQCond5_bin childSDQPeer1_bin childSDQPeer4_bin childSDQPeer5_bin ///
+doGrowUp FriendsGender_bin
+
+*** crate and flip some dummy (higher = better)
+
+desc childinvTV_hrs childinvVideoG_hrs childHealth childWeight childDoctor childBMI childTotal_diag /// difficulties
+likeSchool_ch* likeRead likeMath_child likeGym goodBoySchool likeTV likeDraw likeSport lendFriend favorReturn funFamily ///
+childinvCom childinvOut ///
+childSDQPsoc1 childSDQPsoc2 childSDQPsoc3 childSDQPsoc4 childSDQPsoc5 ///
+childSDQHype4 childSDQHype5 childSDQCond2 childSDQPeer2 childSDQPeer3 childSDQ*score
+
+sum childinvTV_hrs childinvVideoG_hrs childHealth childWeight childDoctor childBMI childTotal_diag /// difficulties 
+likeSchool_ch* likeRead likeMath_child likeGym goodBoySchool likeTV likeDraw likeSport lendFriend favorReturn funFamily ///
+childinvCom  childinvOut ///
+childSDQPsoc1 childSDQPsoc2 childSDQPsoc3 childSDQPsoc4 childSDQPsoc5 ///
+childSDQHype4 childSDQHype5 childSDQCond2 childSDQPeer2 childSDQPeer3 childSDQ*score
+
+foreach j in childinvTV_hrs childinvVideoG_hrs childHealth childWeight childDoctor childBMI childTotal_diag /// difficulties 
+likeSchool_child likeRead likeMath_child likeGym goodBoySchool likeTV likeDraw likeSport lendFriend favorReturn funFamily ///
+childinvCom  childinvOut ///
+childSDQPsoc1 childSDQPsoc2 childSDQPsoc3 childSDQPsoc4 childSDQPsoc5 childSDQPeer_score childSDQPsoc_score ///
+childSDQHype4 childSDQHype5 childSDQCond2 childSDQPeer2 childSDQPeer3 childSDQ_score childSDQEmot_score childSDQHype_score childSDQCond_score {
+
+sum `j', d
+gen dummy1 = (`j' > r(p50)) if `j'<.
+gen dummy2 = (`j' >= r(p50)) if `j'<.
+sum dummy1
+gen diff1 = abs(r(mean)-0.5)
+sum dummy2
+gen diff2 = abs(r(mean)-0.5)
+gen `j'_bin = dummy1 if(diff1 <= diff2)
+replace `j'_bin = dummy2 if(diff1 > diff2)
+drop dummy1 dummy2 diff1 diff2
+replace `j'_bin= 1-`j'_bin
+label var `j'_bin "Dummy for `j' (flipped)"
+} 
+
+sum childinvTV_hrs_bin childinvVideoG_hrs_bin childHealth_bin childWeight_bin childDoctor_bin childBMI_bin childTotal_diag_bin /// difficulties_bin 
+likeSchool_child_bin likeRead_bin likeMath_child_bin likeGym_bin goodBoySchool_bin likeTV_bin likeDraw_bin likeSport_bin lendFriend_bin favorReturn_bin funFamily_bin ///
+childinvCom_bin childinvOut_bin ///
+childSDQPsoc1_bin childSDQPsoc2_bin childSDQPsoc3_bin childSDQPsoc4_bin childSDQPsoc5_bin ///
+childSDQHype4_bin childSDQHype5_bin childSDQCond2_bin childSDQPeer2_bin childSDQPeer3_bin childSDQ*score_bin
+
+*** full list of outcomes for children
+
+sum difficultiesSit difficultiesInterest difficultiesObey difficultiesEat difficultiesNone ///
+childinvReadTo_bin childinvMusic childinvCom_bin childinvTV_hrs_bin childinvVideoG_hrs_bin childinvOut_bin childinvFamMeal_bin childinvChoresRoom_bin childinvChoresHelp_bin ///
+childinvChoresHomew_bin ///
+childinvReadSelf_bin childinvSport childinvDance childinvTheater childinvOther childinvFriends_bin ///
+childSDQPsoc1_bin childSDQPsoc2_bin childSDQPsoc3_bin childSDQPsoc4_bin childSDQPsoc5_bin childSDQPsoc_score_bin /// childSDQPsoc_factor_bin 
+childSDQHype1_bin childSDQHype2_bin childSDQHype3_bin childSDQHype4_bin childSDQHype5_bin childSDQHype_score_bin /// childSDQHype_factor_bin 
+childSDQEmot1_bin childSDQEmot2_bin childSDQEmot3_bin childSDQEmot4_bin childSDQEmot5_bin childSDQEmot_score_bin /// childSDQEmot_factor_bin 
+childSDQCond1_bin childSDQCond2_bin childSDQCond3_bin childSDQCond4_bin childSDQCond5_bin childSDQCond_score_bin /// childSDQCond_factor_bin 
+childSDQPeer1_bin childSDQPeer2_bin childSDQPeer3_bin childSDQPeer4_bin childSDQPeer5_bin childSDQPeer_score_bin /// childSDQPeer_factor_bin 
+childSDQ_score_bin /// childSDQ_factor_bin 
+childHealth_bin childnoSickDays_bin childSleep_bin childHeight_bin childWeight_bin childDoctor_bin childAsthma_diag childAllerg_diag childDigest_diag childEmot_diag ///
+childSleep_diag childGums_diag childOther_diag childNone_diag childBreakfast_bin childFruit_bin childSnackNo childSnackFruit childSnackIce ///
+childSnackCan childSnackRoll childSnackChips childSnackOther sportTogether_bin childBMI_bin childTotal_diag_bin /// 
+likeSchool_child_bin likeRead_bin likeMath_child_bin likeGym_bin goodBoySchool_bin bullied_bin alienated_bin doGrowUp likeTV_bin likeDraw_bin likeSport_bin /// 
+FriendsGender_bin bestFriend lendFriend_bin favorReturn_bin revengeReturn_bin ///
+funFamily_bin worryMyself worryFriend worryHome worryTeacher faceMe_bin faceFamily_bin faceSchool_bin faceGeneral_bin brushTeeth_bin candyGame_bin ///
+IQ1 IQ2 IQ3 IQ4 IQ5 IQ6 IQ7 IQ8 IQ9 IQ10 IQ11 IQ12 IQ13 IQ14 IQ15 IQ16 IQ17 IQ18 IQ_score_bin IQ_factor_bin 
+
 *----------------------* Put some labels and save the data *----------------------------*
 // Give a label to all the variables (taken from codebook_All.xlsx)
 do $dir/Analysis/dataConstruction/varLabels.do 
 
+// Take away labels that are too long and prevent saving to stata13
+
+foreach var of varlist pos_SDQ????? pos_childSDQ????? pos_Locus?{
+label var `var' "RECODE to higher = better"
+}
+
+
 //save the data
 compress
-save Reggio_all.dta, replace
+saveold Reggio_all.dta, replace
 
 // Drop the strange interviews from Padova (n=368)
 drop if source==2 //3-strange-interviewers from Padova
-save Reggio.dta, replace
+saveold Reggio.dta, replace
 
 /* PILOT: all the changes in the variables have not been made, so the variables (maybe with the same name) are not necessary comparable
 use Reggio_all.dta
 append using ReggioAdultPilot.dta, generate(Pilot) force //cithBirth is string in Pilot
 replace source = 0 if Pilot==1 // August 2012 Pilot
 tab source, miss
-save Reggio_all.dta, replace
+saveold Reggio_all.dta, replace
 */
 
 /* Data for the maps
@@ -1310,7 +1635,7 @@ cd ..
 
 if $notInter==1{ // Preschool attendance of those who were not intreviewed (info on preshcool obtained via phone contact by DOXA)
 import excel "child_original.raw/Reggio children nido materna attendance of the contacts not int-CHILDREN ADO.xls", sheet("DATIFFF5") firstrow clear
-save notInterviewed.dta, replace
+saveold notInterviewed.dta, replace
 
 import excel "adults_original.raw/Reggio children nido materna attendance contacts not int ADULTS.xls", sheet("DATIFFF5") firstrow clear
 append using notInterviewed
@@ -1352,7 +1677,7 @@ replace Outcome ="disabled" if Outcome == "SOGGETTO INCAPACE\INABILE"
 replace Outcome ="does not have required preschool background" if Outcome == "SOGGETTO NON AVENTE I REQUISITI RICHIESTI IN TERMINI DI SCUOLA MATERNA FREQUENTATA"
 
 compress
-save notInterviewed.dta, replace
+saveold notInterviewed.dta, replace
 
 use Reggio, replace
 keep intnr Cohort City Address materna*_self maternaType materna materna_NotAttended asilo asilo_Attend asiloType
@@ -1368,6 +1693,6 @@ tabstat asilo_Attend maternaMuni_self maternaReli_self maternaStat_self materna_
 tab Outcome, miss
 
 compress
-save notInterviewed.dta, replace
+saveold notInterviewed.dta, replace
 }
 capture log close

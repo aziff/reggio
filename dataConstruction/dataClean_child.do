@@ -1618,26 +1618,26 @@ gen childBMI = childWeight/(childHeight/100)^2
 gen cgAgeDay = cgAge * 365.25
 gen childAgeDay = Age * 365.25
 egen childz_BMI = zanthro(childBMI,ba,US), xvar(childAgeDay) ageunit(day) gender(Male) gencode(male=1, female=0)
-* egen chidBMIcat = zbmicat(childBMI), xvar(childAgeDay) ageunit(day) gender(Male) gencode(male=1, female=0) // only for those age<18
-gen cgBMIcat = .
-gen childBMIcat = .
+* egen chidBMI_cat = zbmicat(childBMI), xvar(childAgeDay) ageunit(day) gender(Male) gencode(male=1, female=0) // only for those age<18
+gen cgBMI_cat = .
+gen childBMI_cat = .
 foreach pp in child cg {
-replace `pp'BMIcat = 0 if `pp'BMI < 18.5 & `pp'BMIcat >=.
-replace `pp'BMIcat = 1 if `pp'BMI < 25   & `pp'BMIcat >=.
-replace `pp'BMIcat = 2 if `pp'BMI < 30   & `pp'BMIcat >=.
-replace `pp'BMIcat = 3 if `pp'BMI > 30   & `pp'BMIcat >=. & `pp'BMI<. 
+replace `pp'BMI_cat = 0 if `pp'BMI < 18.5 & `pp'BMI_cat >=.
+replace `pp'BMI_cat = 1 if `pp'BMI < 25   & `pp'BMI_cat >=.
+replace `pp'BMI_cat = 2 if `pp'BMI < 30   & `pp'BMI_cat >=.
+replace `pp'BMI_cat = 3 if `pp'BMI > 30   & `pp'BMI_cat >=. & `pp'BMI<. 
 }
 foreach var of varlist *BMI*{
 	replace `var' = .w if `var'==.
 }
-label define BMIcat 0 "Under wg" 1 "Normal wg" 2 "Overweight" 3 "Obese"
-label values *BMIcat BMIcat
-label var childBMIcat "dv: Child BMI categories"
-label var cgBMIcat "dv: Caregiver BMI categories"
+label define BMI_cat 0 "Under wg" 1 "Normal wg" 2 "Overweight" 3 "Obese"
+label values *BMI_cat BMI_cat
+label var childBMI_cat "dv: Child BMI categories"
+label var cgBMI_cat "dv: Caregiver BMI categories"
 label var cgBMI "dv: Caregiver Body-Mass-Index (kg/m^2)"
 label var childBMI "dv: Respondent Body-Mass-Index (kg/m^2) - caregiver report"
 label var childz_BMI "dv: Respondent BMI - standardized score"
-tab *BMIcat
+tab *BMI_cat
 
 drop *AgeDay
 

@@ -1051,19 +1051,19 @@ forvalues i=1/4{
 	gen child`i'BMI = child`i'Weight/(child`i'Height/100)^2
 	/* [=] must find age of the "right" child, but there is no gender!!
 	egen child`i'z_BMI = zanthro(child`i'BMI,ba,US), xvar(child`i'Age) ageunit(year) gender(Male) gencode(male=1, female=0)
-	egen child`i'BMIcat = zbmicat(child`i'BMI), xvar(child`i'Age) ageunit(year) gender(Male) gencode(male=1, female=0) // only for those age<18
-	replace child`i'BMIcat = -1 if child`i'z_BMI < invnorm(.01) //severely underweight: below 2nd percentile
-	replace child`i'BMIcat = 0 if (child`i'z_BMI >= invnorm(.01) & child`i'z_BMI < invnorm(.05)) //underweight: below 5th pct
+	egen child`i'BMI_cat = zbmicat(child`i'BMI), xvar(child`i'Age) ageunit(year) gender(Male) gencode(male=1, female=0) // only for those age<18
+	replace child`i'BMI_cat = -1 if child`i'z_BMI < invnorm(.01) //severely underweight: below 2nd percentile
+	replace child`i'BMI_cat = 0 if (child`i'z_BMI >= invnorm(.01) & child`i'z_BMI < invnorm(.05)) //underweight: below 5th pct
 
-	local condition "child`i'Age>18 & child`i'BMIcat>=."
-	replace child`i'BMIcat = -1 if `condition' & child`i'BMI < 16  //severely underweight
-	replace child`i'BMIcat = 0 if `condition' & (child`i'BMI >= 16 & child`i'BMI < 18.5) //underweight
-	replace child`i'BMIcat = 1 if `condition' & (child`i'BMI >= 18.5 & child`i'BMI < 25)
-	replace child`i'BMIcat = 2 if `condition' & (child`i'BMI >= 25 & child`i'BMI < 30)
-	replace child`i'BMIcat = 3 if `condition' & (child`i'BMI >= 30 & child`i'BMI < .)
+	local condition "child`i'Age>18 & child`i'BMI_cat>=."
+	replace child`i'BMI_cat = -1 if `condition' & child`i'BMI < 16  //severely underweight
+	replace child`i'BMI_cat = 0 if `condition' & (child`i'BMI >= 16 & child`i'BMI < 18.5) //underweight
+	replace child`i'BMI_cat = 1 if `condition' & (child`i'BMI >= 18.5 & child`i'BMI < 25)
+	replace child`i'BMI_cat = 2 if `condition' & (child`i'BMI >= 25 & child`i'BMI < 30)
+	replace child`i'BMI_cat = 3 if `condition' & (child`i'BMI >= 30 & child`i'BMI < .)
 	*/
 	label var child`i'BMI "dv: child`i' Body-Mass-Index (kg/m^2)"
-	//label var child`i'BMIcat "dv: child`i' BMI categories"
+	//label var child`i'BMI_cat "dv: child`i' BMI categories"
 	//label var child`i'z_BMI "dv: child`i' BMI - standardized score"
 
 	foreach var of varlist child`i'BMI*{
@@ -1076,7 +1076,7 @@ sum child*BMI*
 browse child*BMI* child?Age
 browse child?BMI child?z_BMI child?Weight child?Height child?Age if (child1BMI<14 | child1BMI>40) & child1BMI<. //there are many underweight!
 
-egen temp  = rowmin(child?BMIcat)
+egen temp  = rowmin(child?BMI_cat)
 gen flagchildBMI = (temp==-1 )
 label var flagchildBMI "dv: at least one child is severely underweight"
 */
@@ -1098,24 +1098,24 @@ rename V47110 Weight
 
 gen BMI = Weight/(Height/100)^2
 sum BMI
-gen BMIcat = .
-replace BMIcat = -1 if BMI < 16 & BMIcat >=.
-replace BMIcat = 0 if BMI < 18.5 & BMIcat >=.
-replace BMIcat = 1 if BMI < 25   & BMIcat >=.
-replace BMIcat = 2 if BMI < 30   & BMIcat >=.
-replace BMIcat = 3 if BMI < 35   & BMIcat >=. & BMI<. 
-replace BMIcat = 4 if BMI < 40   & BMIcat >=. & BMI<. 
-replace BMIcat = 5 if BMI > 40   & BMIcat >=. & BMI<. 
+gen BMI_cat = .
+replace BMI_cat = -1 if BMI < 16 & BMI_cat >=.
+replace BMI_cat = 0 if BMI < 18.5 & BMI_cat >=.
+replace BMI_cat = 1 if BMI < 25   & BMI_cat >=.
+replace BMI_cat = 2 if BMI < 30   & BMI_cat >=.
+replace BMI_cat = 3 if BMI < 35   & BMI_cat >=. & BMI<. 
+replace BMI_cat = 4 if BMI < 40   & BMI_cat >=. & BMI<. 
+replace BMI_cat = 5 if BMI > 40   & BMI_cat >=. & BMI<. 
 
-label define BMIcat -1 "Severly Underwg" 0 "Under wg" 1 "Normal wg" 2 "Overweight" 3 "Obese" 4 "Severy Obese" 5 "Very Severy Obese"
-label values *BMIcat BMIcat
-label var BMIcat "dv: Respondent BMI categories"
+label define BMI_cat -1 "Severly Underwg" 0 "Under wg" 1 "Normal wg" 2 "Overweight" 3 "Obese" 4 "Severy Obese" 5 "Very Severy Obese"
+label values *BMI_cat BMI_cat
+label var BMI_cat "dv: Respondent BMI categories"
 label var BMI "dv: Respondent Body-Mass-Index (kg/m^2)"
 foreach var of varlist BMI*{
 	replace `var' = Weight if Weight>=.
 	replace `var' = Height if Height>=.
 }
-tab BMIcat
+tab BMI_cat
 
 
 rename V39150 SickDays
