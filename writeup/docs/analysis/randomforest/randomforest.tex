@@ -1,0 +1,54 @@
+\documentclass[11pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\parindent 22pt
+
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+\usepackage{adjustbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{appendix}
+\usepackage{array}
+\usepackage{authblk}
+\usepackage{booktabs}
+\usepackage{caption} 
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,anchorcolor=blue,citecolor=blue]{hyperref}
+\usepackage{lscape}
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage{pgffor}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage{threeparttable}
+\usepackage[colorinlistoftodos,linecolor=black]{todonotes}
+
+\captionsetup[table]{skip = 2pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+
+\settimeformat{hhmmsstime}
+
+\begin{document}
+
+\title{Random Foret Analysis}
+\author{Reggio Team}
+\date{Original version: Tuesday 2$^{\text{nd}}$ August, 2016 \\ Current version: \today \\ \vspace{1em} Time: \currenttime}
+\maketitle
+
+\doublespacing
+
+\section{Overview}
+
+Random forests are the procedures that constructs tree-structured predictors with an injection of randomness. Each tree in the collection is formed by first selecting at random, at each node, a small group of input coordinates to split on, and secondly, by calculating the best split based on these coordinates in the training set. 
+
+\end{document}
