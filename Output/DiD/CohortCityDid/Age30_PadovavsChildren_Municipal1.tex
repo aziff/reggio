@@ -1,0 +1,114 @@
+\documentclass{article}
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newlength{\tabcont}
+\newcommand{\tab}[1]{
+\settowidth{\tabcont}{#1}
+\ifthenelse{\lengthtest{\tabcont < .25\linewidth}}
+{\makebox[.25\linewidth][l]{#1}\ignorespaces}
+{\makebox[.5\linewidth][l]{\color{red} #1}\ignorespaces}
+}
+
+\usepackage{hyperref}
+\usepackage{mathtools}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{xfrac}
+\usepackage{graphicx}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{ifthen,xcolor}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{ragged2e}
+\newtheorem{theorem}{Theorem}
+\newtheorem{case}{Case}
+\newtheorem{assume}{Assumption}
+\newtheorem{example}{Example}
+
+\begin{document}
+
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Reggio Emilia vs. Padova, Comparing changes for Age30 cohorts}
+\begin{tabular}{l*{6}{c}}
+\toprule
+            &\multicolumn{1}{c}{IQ rank}&\multicolumn{1}{c}{IQ score}&\multicolumn{1}{c}{IQ factor}&\multicolumn{1}{c}{Family Sat.}&\multicolumn{1}{c}{Family Dis.}&\multicolumn{1}{c}{Family Neutral}\\
+\midrule
+Cohort FE   &     -0.0017         &      0.0240         &      0.0773         &      0.2531\sym{***}&     -0.0128         &     -0.2438\sym{***}\\
+            &    (0.0270)         &    (0.0233)         &    (0.0845)         &    (0.0324)         &    (0.0159)         &    (0.0298)         \\
+\addlinespace
+City FE     &      0.0142         &      0.2067\sym{***}&      0.6099\sym{***}&      0.1228\sym{***}&      0.0155         &     -0.1377\sym{***}\\
+            &    (0.0292)         &    (0.0252)         &    (0.0914)         &    (0.0351)         &    (0.0173)         &    (0.0324)         \\
+\addlinespace
+Diff-in-Diff&     -0.0118         &     -0.1779\sym{***}&     -0.5357\sym{***}&     -0.1175\sym{**} &     -0.0289         &      0.1456\sym{***}\\
+            &    (0.0379)         &    (0.0327)         &    (0.1186)         &    (0.0455)         &    (0.0223)         &    (0.0419)         \\
+\addlinespace
+Male Dummy  &      0.0052         &      0.0000         &     -0.0316         &      0.0360         &     -0.0150         &     -0.0220         \\
+            &    (0.0187)         &    (0.0161)         &    (0.0585)         &    (0.0225)         &    (0.0110)         &    (0.0206)         \\
+\addlinespace
+CAPI        &     -0.0022         &     -0.0261         &     -0.0490         &      0.0013         &     -0.0214         &      0.0210         \\
+            &    (0.0189)         &    (0.0163)         &    (0.0592)         &    (0.0227)         &    (0.0111)         &    (0.0209)         \\
+\addlinespace
+No. of Siblings&     -0.0107         &     -0.0165         &     -0.0350         &     -0.0014         &      0.0034         &     -0.0040         \\
+            &    (0.0102)         &    (0.0088)         &    (0.0317)         &    (0.0122)         &    (0.0060)         &    (0.0112)         \\
+\addlinespace
+Father Univ.&      0.0129         &      0.0198         &      0.0320         &      0.0117         &     -0.0138         &      0.0056         \\
+            &    (0.0209)         &    (0.0180)         &    (0.0653)         &    (0.0251)         &    (0.0123)         &    (0.0231)         \\
+\addlinespace
+Father HS   &     -0.0263         &     -0.0226         &     -0.0647         &      0.0674         &     -0.0198         &     -0.0505         \\
+            &    (0.0572)         &    (0.0493)         &    (0.1787)         &    (0.0686)         &    (0.0335)         &    (0.0629)         \\
+\addlinespace
+Mother HS   &      0.0079         &      0.0478         &      0.2251         &     -0.1007         &      0.0285         &      0.0724         \\
+            &    (0.0602)         &    (0.0519)         &    (0.1882)         &    (0.0722)         &    (0.0352)         &    (0.0662)         \\
+\bottomrule
+\multicolumn{7}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{7}{l}{\footnotesize Estimates shown are for individuals that attended municipal preschools only}\\
+\multicolumn{7}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+\end{table}
+
+
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Reggio Emilia vs. Padova, Comparing changes for Age30 cohorts}
+\begin{tabular}{l*{11}{c}}
+\toprule
+            &\multicolumn{1}{c}{Good Health}&\multicolumn{1}{c}{Bad Health}&\multicolumn{1}{c}{Avg Health}&\multicolumn{1}{c}{Obese}&\multicolumn{1}{c}{Overweight}&\multicolumn{1}{c}{est6}&\multicolumn{1}{c}{est7}&\multicolumn{1}{c}{est8}&\multicolumn{1}{c}{est9}&\multicolumn{1}{c}{est10}&\multicolumn{1}{c}{est11}\\
+\midrule
+Cohort FE   &     -0.0017         &      0.0240         &      0.0773         &      0.2531\sym{***}&     -0.0128         &     -0.2438\sym{***}&     -0.3042\sym{***}&      0.0062         &      0.3008\sym{***}&      0.0921\sym{*}  &     -0.0852\sym{**} \\
+            &    (0.0270)         &    (0.0233)         &    (0.0845)         &    (0.0324)         &    (0.0159)         &    (0.0298)         &    (0.0363)         &    (0.0141)         &    (0.0353)         &    (0.0400)         &    (0.0314)         \\
+\addlinespace
+City FE     &      0.0142         &      0.2067\sym{***}&      0.6099\sym{***}&      0.1228\sym{***}&      0.0155         &     -0.1377\sym{***}&     -0.2005\sym{***}&      0.0466\sym{**} &      0.1822\sym{***}&     -0.0617         &      0.0067         \\
+            &    (0.0292)         &    (0.0252)         &    (0.0914)         &    (0.0351)         &    (0.0173)         &    (0.0324)         &    (0.0395)         &    (0.0152)         &    (0.0385)         &    (0.0432)         &    (0.0340)         \\
+\addlinespace
+Diff-in-Diff&     -0.0118         &     -0.1779\sym{***}&     -0.5357\sym{***}&     -0.1175\sym{**} &     -0.0289         &      0.1456\sym{***}&      0.2644\sym{***}&     -0.0256         &     -0.2671\sym{***}&      0.0571         &     -0.0399         \\
+            &    (0.0379)         &    (0.0327)         &    (0.1186)         &    (0.0455)         &    (0.0223)         &    (0.0419)         &    (0.0511)         &    (0.0197)         &    (0.0498)         &    (0.0561)         &    (0.0441)         \\
+\addlinespace
+Male Dummy  &      0.0052         &      0.0000         &     -0.0316         &      0.0360         &     -0.0150         &     -0.0220         &     -0.0241         &     -0.0111         &      0.0309         &     -0.0344         &      0.0932\sym{***}\\
+            &    (0.0187)         &    (0.0161)         &    (0.0585)         &    (0.0225)         &    (0.0110)         &    (0.0206)         &    (0.0252)         &    (0.0097)         &    (0.0245)         &    (0.0277)         &    (0.0218)         \\
+\addlinespace
+CAPI        &     -0.0022         &     -0.0261         &     -0.0490         &      0.0013         &     -0.0214         &      0.0210         &      0.0208         &     -0.0200\sym{*}  &     -0.0051         &     -0.0397         &      0.0494\sym{*}  \\
+            &    (0.0189)         &    (0.0163)         &    (0.0592)         &    (0.0227)         &    (0.0111)         &    (0.0209)         &    (0.0255)         &    (0.0099)         &    (0.0248)         &    (0.0280)         &    (0.0220)         \\
+\addlinespace
+No. of Siblings&     -0.0107         &     -0.0165         &     -0.0350         &     -0.0014         &      0.0034         &     -0.0040         &      0.0315\sym{*}  &     -0.0110\sym{*}  &     -0.0223         &      0.0432\sym{**} &      0.0035         \\
+            &    (0.0102)         &    (0.0088)         &    (0.0317)         &    (0.0122)         &    (0.0060)         &    (0.0112)         &    (0.0137)         &    (0.0053)         &    (0.0133)         &    (0.0150)         &    (0.0118)         \\
+\addlinespace
+Father Univ.&      0.0129         &      0.0198         &      0.0320         &      0.0117         &     -0.0138         &      0.0056         &      0.0067         &     -0.0097         &      0.0033         &     -0.0323         &     -0.0794\sym{**} \\
+            &    (0.0209)         &    (0.0180)         &    (0.0653)         &    (0.0251)         &    (0.0123)         &    (0.0231)         &    (0.0281)         &    (0.0109)         &    (0.0274)         &    (0.0309)         &    (0.0243)         \\
+\addlinespace
+Father HS   &     -0.0263         &     -0.0226         &     -0.0647         &      0.0674         &     -0.0198         &     -0.0505         &      0.0764         &      0.0072         &     -0.0877         &      0.0598         &     -0.0171         \\
+            &    (0.0572)         &    (0.0493)         &    (0.1787)         &    (0.0686)         &    (0.0335)         &    (0.0629)         &    (0.0767)         &    (0.0298)         &    (0.0746)         &    (0.0845)         &    (0.0665)         \\
+\addlinespace
+Mother HS   &      0.0079         &      0.0478         &      0.2251         &     -0.1007         &      0.0285         &      0.0724         &     -0.0557         &      0.0088         &      0.0443         &      0.0106         &     -0.0606         \\
+            &    (0.0602)         &    (0.0519)         &    (0.1882)         &    (0.0722)         &    (0.0352)         &    (0.0662)         &    (0.0807)         &    (0.0313)         &    (0.0786)         &    (0.0890)         &    (0.0700)         \\
+\bottomrule
+\multicolumn{12}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{12}{l}{\footnotesize Estimates shown are for individuals that attended municipal preschools only}\\
+\multicolumn{12}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+\end{table}
+
+\end{document}

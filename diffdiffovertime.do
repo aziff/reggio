@@ -42,11 +42,14 @@ foreach y in `adult' {
 gen `y' = .
 }
 
+
+
 ** Standardizing IQ as rank in cumulative distribution
 
 bys Cohort City CAPI: cumul IQ_score, gen(IQ_v1)
 
-do diffdiff.do
+
+do did.do
 
 /*
 diffdiff.do contains a program written to estimate the difference in difference coefficients
@@ -70,9 +73,9 @@ examples:
 The following loop does this for all possible combinations of Age 50 / Age 40 / Age 30
 */
 
-foreach a in "Age50" "Age40" "Age30" {
-	foreach y in "Children" "Adolescent" {
-		foreach s in "Municipal" "Religious" "State" "Pooled" {
+foreach a in Age50 Age40 Age30 {
+	foreach y in Children Adolescent {
+		foreach s in Municipal Religious State Pooled {
 		
 		DiffDiff `a' `y' `s'
 		
