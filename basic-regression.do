@@ -13,7 +13,7 @@ global klmReggio   : env klmReggio
 global data_reggio : env data_reggio
 global git_reggio  : env git_reggio
 
-cd 		${klmReggio}/Analysis
+cd 		${git_reggio}
 include prepare-data
 
 *-* Adjust variables and statistics of interest
@@ -83,7 +83,32 @@ local control_vars				CAPI Age
                 
 local cohorts					Child Migrant Adolescent Adult30 Adult40 Adult50;
 local cities					Reggio Parma Padova;
-local schools					Municipal State Religious Private None;                      
+local schools					Municipal State Religious Private None;  
+
+local N 	pos_childSDQ_score pos_childSDQEmot_score pos_childSDQCond_score pos_childSDQHype_score pos_childSDQPeer_score pos_childSDQPsoc_score ///
+			pos_SDQ_score pos_SDQEmot_score pos_SDQCond_score pos_SDQHype_score pos_SDQPeer_score pos_SDQPsoc_score ///
+			pos_Depression_score pos_LocusControl optimist ///
+			reciprocity1bin reciprocity2bin reciprocity3bin reciprocity4bin ///
+			binSatisSchool binSatisHealth binSatisFamily binSatisIncome binSatisWork
+
+local E		IQ_score IQ_factor cgIQ_score cgIQ_factor ///
+			votoMaturita votoUni ///
+			highschoolGrad MaxEdu_Uni MaxEdu_Grad
+
+local W		PA_Empl SES_self HrsTot WageMonth ///
+			Reddito_1 Reddito_2 Reddito_3 Reddito_4 Reddito_5 Reddito_6 Reddito_7
+
+local L		mStatus_married_cohab childrenResp all_houseOwn live_parent 
+									
+local H		childBMI childz_BMI cgBMI BMI z_BMI ///
+			Maria Cig goodHealth SickDays ///
+			i_RiskFight i_RiskDUI RiskSuspended Drink1Age									
+									
+local S		MigrTaste Friends MigrFriend
+			
+		
+local categories 	N H E W L H N S
+                    
 
 #delimit cr
 
@@ -155,11 +180,6 @@ local binSatisWork_short			SFW
 local binSatisHealth_short 			SFH
 local binSatisFamily_short			SFF
 
-*-* Adding variables
-// married
-gen mStatus_married_cohab = (mStatus_married == 1) | (mStatus_cohab == 1)
-lab var mStatus_married_cohab "Married or cohabitating indicator"
-
 *-* Regressions
 * ---------------------------------------------------------------------------- *
 * Regression 1: Reggio (All) vs. Parma/Padova (All)
@@ -167,12 +187,14 @@ gen allReggio = (City == 1)
 
 local cohort_i = 1
 foreach cohort in `cohorts' {
-	foreach var in ``cohort'_outcome_vars' {
+	foreach var_cat in `categories' {
+		foreach var in ``var_cat'' {
 		
-		// regression for Reggio (all) vs. everything
-		sum `var' if Cohort == `cohort_i'
-		if r(N) > 0 {
-			reg `var' allReggio ``cohort'_baseline_vars' if Cohort == `cohort_i' 
+			sum `var' if Cohort == `cohort_i'
+			if r(N) > 0 {
+				reg `var' allReggio ``cohort'_baseline_vars' if Cohort == `cohort_i' 
+				estimates store `var'_`cohort_i'_1
+			/*
 			mat rslt = r(table)
 			local N_all``var'_short'`cohort' = e(N)
 			local R2_all``var'_short'`cohort' = e(r2)
@@ -196,28 +218,27 @@ foreach cohort in `cohorts' {
 				local b_all``var'_short'`cohort' 	\textbf{`b_all``var'_short'`cohort''}
 				local se_all``var'_short'`cohort'	\textbf{`se_all``var'_short'`cohort''}
 			}
+			*/
+			}
 		}
+		/*
+		file open basicreg_all`cohort' using "${git_reggio}/Output/Basic_Regression/basicreg_all`cohort'.tex", write replace
+		file write basicreg_all`cohort' "\begin{tabular}{lccc}" _n
+		file write basicreg_all`cohort' "\toprule" _n
+		file write basicreg_all`cohort' " \textbf{Outcome} & \textbf{Reggio All} & \textbf{N} & \textbf{$ R^2$} \\" _n
+		file write basicreg_all`cohort' "\midrule" _n	
+		foreach var in ``cohort'_outcome_vars' {
+			file write basicreg_all`cohort' "``var'_lab' & `b_all``var'_short'`cohort'' & `N_all``var'_short'`cohort'' & `R2_all``var'_short'`cohort'' \\ " _n
+			file write basicreg_all`cohort' " & `se_all``var'_short'`cohort'' & \\" _n
+		}
+		file write basicreg_all`cohort' "\bottomrule" _n
+		file write basicreg_all`cohort' "\end{tabular}" _n
+		file close basicreg_all`cohort'
+		*/
 	}
-	
-	file open basicreg_all`cohort' using "${git_reggio}/Output/Basic_Regression/basicreg_all`cohort'.tex", write replace
-	file write basicreg_all`cohort' "\begin{tabular}{lccc}" _n
-	file write basicreg_all`cohort' "\toprule" _n
-	file write basicreg_all`cohort' " \textbf{Outcome} & \textbf{Reggio All} & \textbf{N} & \textbf{$ R^2$} \\" _n
-	file write basicreg_all`cohort' "\midrule" _n	
-	foreach var in ``cohort'_outcome_vars' {
-		file write basicreg_all`cohort' "``var'_lab' & `b_all``var'_short'`cohort'' & `N_all``var'_short'`cohort'' & `R2_all``var'_short'`cohort'' \\ " _n
-		file write basicreg_all`cohort' " & `se_all``var'_short'`cohort'' & \\" _n
-	}
-	file write basicreg_all`cohort' "\bottomrule" _n
-	file write basicreg_all`cohort' "\end{tabular}" _n
-	file close basicreg_all`cohort'
-	
 	local cohort_i = `cohort_i' + 1
 	
 }
-
-
-
 * ---------------------------------------------------------------------------- *
 * Regression 2: Reggio Preschool vs. Parma/Padova Preschool
 local cohort_i = 1
@@ -227,7 +248,8 @@ foreach cohort in `cohorts' {
 		sum `var' if Cohort == `cohort_i'
 		if r(N) > 0 {
 			reg `var' allReggio ``cohort'_baseline_vars' if Cohort == `cohort_i' & materna == 1
-			
+			estimates store `var'_`cohort_i'_2
+			/*
 			mat rslt = r(table)
 			local N_pre``var'_short'`cohort' = e(N)
 			local R2_pre``var'_short'`cohort' = e(r2)
@@ -251,9 +273,10 @@ foreach cohort in `cohorts' {
 				local b_pre``var'_short'`cohort' 	\textbf{`b_pre``var'_short'`cohort''}
 				local se_pre``var'_short'`cohort'	\textbf{`se_pre``var'_short'`cohort''}
 			}
+			*/
 		}
 	}
-	
+	/*
 	file open basicreg_pre`cohort' using "${git_reggio}/Output/Basic_Regression/basicreg_pre`cohort'.tex", write replace
 	file write basicreg_pre`cohort' "\begin{tabular}{lccc}" _n
 	file write basicreg_pre`cohort' "\toprule" _n
@@ -266,15 +289,68 @@ foreach cohort in `cohorts' {
 	file write basicreg_pre`cohort' "\bottomrule" _n
 	file write basicreg_pre`cohort' "\end{tabular}" _n
 	file close basicreg_pre`cohort'
-	
+	*/
 	local cohort_i = `cohort_i' + 1
 } 
 
-
-
-
 * ---------------------------------------------------------------------------- *
-* Regression 3: Comparison Among Reggio School Types
+* Regression 3: Reggio Municipal Preschool vs. Reggio Other
+replace allReggio = xmReggioMuni
+local cohort_i = 1
+foreach cohort in `cohorts' {
+	foreach var in ``cohort'_outcome_vars' {
+
+		sum `var' if Cohort == `cohort_i'
+		if r(N) > 0 {
+			reg `var' allReggio ``cohort'_baseline_vars' if Cohort == `cohort_i' & materna == 1 & City == 1
+			estimates store `var'_`cohort_i'_3
+			/*
+			mat rslt = r(table)
+			local N_pre``var'_short'`cohort' = e(N)
+			local R2_pre``var'_short'`cohort' = e(r2)
+			local R2_pre``var'_short'`cohort': di %9.2f `R2_pre``var'_short'`cohort''
+			
+			** Generate locals for the output values (1st row: Beta, 2nd row: Standard Error, 4th row: P-value)
+			matrix matb_pre``var'_short'`cohort' = rslt["b","allReggio"]
+			local b_pre``var'_short'`cohort' = matb_pre``var'_short'`cohort'[1,1]
+			local b_pre``var'_short'`cohort': di %9.2f `b_pre``var'_short'`cohort''
+			
+			matrix matse_pre``var'_short'`cohort' = rslt["se","allReggio"]
+			local se_pre``var'_short'`cohort' = matse_pre``var'_short'`cohort'[1,1]
+			local se_pre``var'_short'`cohort': di %9.2f `se_pre``var'_short'`cohort''
+			local se_pre``var'_short'`cohort' (`se_pre``var'_short'`cohort'' )
+			
+			matrix matp_pre``var'_short'`cohort' = rslt["pvalue","allReggio"]
+			local p_pre``var'_short'`cohort' = matp_pre``var'_short'`cohort'[1,1]
+			local p_pre``var'_short'`cohort': di %9.2f `p_pre``var'_short'`cohort''
+			
+			if (`p_pre``var'_short'`cohort'' <= 0.1) {
+				local b_pre``var'_short'`cohort' 	\textbf{`b_pre``var'_short'`cohort''}
+				local se_pre``var'_short'`cohort'	\textbf{`se_pre``var'_short'`cohort''}
+			}
+			*/
+		}
+	}
+	/*
+	file open basicreg_pre`cohort' using "${git_reggio}/Output/Basic_Regression/basicreg_pre`cohort'.tex", write replace
+	file write basicreg_pre`cohort' "\begin{tabular}{lccc}" _n
+	file write basicreg_pre`cohort' "\toprule" _n
+	file write basicreg_pre`cohort' " \textbf{Outcome} & \textbf{Reggio Materna} & \textbf{N} & \textbf{$ R^2$} \\" _n
+	file write basicreg_pre`cohort' "\midrule" _n	
+	foreach var in ``cohort'_outcome_vars' {
+		file write basicreg_pre`cohort' "``var'_lab' & `b_pre``var'_short'`cohort'' & `N_pre``var'_short'`cohort'' & `R2_pre``var'_short'`cohort'' \\ " _n
+		file write basicreg_pre`cohort' " & `se_pre``var'_short'`cohort'' & \\" _n
+	}
+	file write basicreg_pre`cohort' "\bottomrule" _n
+	file write basicreg_pre`cohort' "\end{tabular}" _n
+	file close basicreg_pre`cohort'
+	*/
+	local cohort_i = `cohort_i' + 1
+} 
+
+/*
+* ---------------------------------------------------------------------------- *
+* Regression 4: Comparison Among Reggio School Types
 local cohort_i = 1
 foreach cohort in `cohorts' {
 	foreach var in ``cohort'_outcome_vars' {
@@ -328,9 +404,20 @@ foreach cohort in `cohorts' {
 	
 } 
 
+*/
 
+// graphing
 
-
-
-
-
+local cohort_i = 1
+foreach cohort in `cohorts' {
+	foreach var in ``cohort'_outcome_vars' {
+		sum `var' if Cohort == `cohort_i'
+		if r(N) > 0 {
+			coefplot 	(`var'_`cohort_i'_1, label(All Reggio vs. All Parma/Padova)) 		///
+						(`var'_`cohort_i'_2, label(Muni Reggio vs. Preschool Parma/Padova))	///
+						(`var'_`cohort_i'_3, label(Muni Reggio vs. Other Reggio)),			///
+						drop(_cons ``cohort'_baseline_vars') xline(0)						///
+						graphregion(color(white))
+		}
+	}
+}
