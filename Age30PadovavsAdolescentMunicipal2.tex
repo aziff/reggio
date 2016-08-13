@@ -1,0 +1,39 @@
+\begin{table}[htbp]\centering
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\caption{Reggio Emilia vs. Padova, Comparing changes for Age30 cohorts}
+\begin{tabular}{l*{5}{c}}
+\toprule
+            &\multicolumn{1}{c}{Good Health}&\multicolumn{1}{c}{Bad Health}&\multicolumn{1}{c}{Avg Health}&\multicolumn{1}{c}{Obese}&\multicolumn{1}{c}{Overweight}\\
+\midrule
+Cohort FE   &     -0.3042\sym{***}&      0.0062         &      0.3008\sym{***}&      0.0921\sym{*}  &     -0.0852\sym{**} \\
+            &    (0.0363)         &    (0.0141)         &    (0.0353)         &    (0.0400)         &    (0.0314)         \\
+\addlinespace
+City FE     &     -0.2005\sym{***}&      0.0466\sym{**} &      0.1822\sym{***}&     -0.0617         &      0.0067         \\
+            &    (0.0395)         &    (0.0152)         &    (0.0385)         &    (0.0432)         &    (0.0340)         \\
+\addlinespace
+Diff-in-Diff&      0.2644\sym{***}&     -0.0256         &     -0.2671\sym{***}&      0.0571         &     -0.0399         \\
+            &    (0.0511)         &    (0.0197)         &    (0.0498)         &    (0.0561)         &    (0.0441)         \\
+\addlinespace
+Male Dummy  &     -0.0241         &     -0.0111         &      0.0309         &     -0.0344         &      0.0932\sym{***}\\
+            &    (0.0252)         &    (0.0097)         &    (0.0245)         &    (0.0277)         &    (0.0218)         \\
+\addlinespace
+CAPI        &      0.0208         &     -0.0200\sym{*}  &     -0.0051         &     -0.0397         &      0.0494\sym{*}  \\
+            &    (0.0255)         &    (0.0099)         &    (0.0248)         &    (0.0280)         &    (0.0220)         \\
+\addlinespace
+No. of Siblings&      0.0315\sym{*}  &     -0.0110\sym{*}  &     -0.0223         &      0.0432\sym{**} &      0.0035         \\
+            &    (0.0137)         &    (0.0053)         &    (0.0133)         &    (0.0150)         &    (0.0118)         \\
+\addlinespace
+Father Univ.&      0.0067         &     -0.0097         &      0.0033         &     -0.0323         &     -0.0794\sym{**} \\
+            &    (0.0281)         &    (0.0109)         &    (0.0274)         &    (0.0309)         &    (0.0243)         \\
+\addlinespace
+Father HS   &      0.0764         &      0.0072         &     -0.0877         &      0.0598         &     -0.0171         \\
+            &    (0.0767)         &    (0.0298)         &    (0.0746)         &    (0.0845)         &    (0.0665)         \\
+\addlinespace
+Mother HS   &     -0.0557         &      0.0088         &      0.0443         &      0.0106         &     -0.0606         \\
+            &    (0.0807)         &    (0.0313)         &    (0.0786)         &    (0.0890)         &    (0.0700)         \\
+\bottomrule
+\multicolumn{6}{l}{\footnotesize Standard errors in parentheses}\\
+\multicolumn{6}{l}{\footnotesize Estimates shown are for individuals that attended municipal preschools only}\\
+\multicolumn{6}{l}{\footnotesize \sym{*} \(p<0.05\), \sym{**} \(p<0.01\), \sym{***} \(p<0.001\)}\\
+\end{tabular}
+\end{table}

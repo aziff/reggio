@@ -129,8 +129,7 @@ local covariates "Male CAPI numSiblings dadMaxEdu_Uni dadMaxEdu_Grad momMaxEdu_G
 		};
 
 		
-	foreach h in IQ_v1 IQ_score IQ_factor satFamily unsatFamily satneutralFamily C_A_HealthGood 
-		C_A_HealthBad C_A_HealthAvg BMI_obese BMI_overweight {;
+	foreach h in C_A_HealthGood C_A_HealthBad C_A_HealthAvg BMI_obese BMI_overweight {;
 			
 		eststo: quietly diff `h', period(`older') treated(`x') cov(`covariates') ;
 

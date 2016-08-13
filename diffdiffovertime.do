@@ -28,7 +28,7 @@ include "${git_reggio}/prepare-data"
 
 ** Dummy variables for Reggio vs Padova and Reggio vs Parma pooling all preschool types
 
-local school "Municipal Pooled Religious State"
+local school "Municipal Pooled "
 local adult "Age50 Age40 Age30"
 local younger "Adolescent Children"
 local city "Padova Parma"
