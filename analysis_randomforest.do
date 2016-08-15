@@ -24,9 +24,9 @@ local outcomes_of_interest		BMIcat						// Outcomes of interest should be ordere
 								
 local unordered_preschool		City Cohort maternaType		// preschool-related unordered variables
 local unordered_other			Male  CAPI cgMigrant ///	
-								numSiblings cgCatholic int_cgCatFaith houseOwn
+								cgCatholic int_cgCatFaith 
 local ordered_other				lowbirthweight birthpremature momBornProvince dadBornProvince cgIncomeCat ///
-								momMaxEdu dadMaxEdu
+								momMaxEdu dadMaxEdu houseOwn numSiblings 
 local tree_number				10 							// I get errors when I include more than 10 trees
 
 
@@ -50,12 +50,12 @@ foreach var in `outcomes_of_interest' {
 	* 1. Only including `unordered_preschool'
 	** Run command
 	di "Running chaidforest: only including unordered preschool variables"
-	chaidforest `var', unordered(`unordered_preschool') ntree(`tree_number') nvuse(3)
+	chaidforest `var', unordered(`unordered_preschool') ntree(`tree_number') nvuse(3) 
 	
 	** Graph each tree
 	di "Graphing: only including unordered preschool variables"
 	foreach num of numlist 1/`tree_number' {
-		estat gettree, tree(`num') graph /*mlabsize(vsmall)*/ // How can I include graph options?
+		estat gettree, tree(`num') graph  // How can I include graph options?
 		graph export "${git_reggio}/Output/Randomforest/`var'_onlypreschool_tree`num'.eps", replace
 	}
 	
