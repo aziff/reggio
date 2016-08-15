@@ -20,15 +20,14 @@ include "${git_reggio}/prepare-data"
 * 							 Create locals									   *
 * ---------------------------------------------------------------------------- *							
 ** Random forest inputs
-local outcomes_of_interest		BMIcat	
-								/* Note: Outcomes of interest should be ordered categorical variables.
-								*/
+local outcomes_of_interest		BMIcat						// Outcomes of interest should be ordered categorical variables.
+								
 local unordered_preschool		City Cohort maternaType		// preschool-related unordered variables
 local unordered_other			Male  CAPI cgMigrant ///	
 								numSiblings cgCatholic int_cgCatFaith houseOwn
 local ordered_other				lowbirthweight birthpremature momBornProvince dadBornProvince cgIncomeCat ///
 								momMaxEdu dadMaxEdu
-local tree_number				50
+local tree_number				10 							// I get errors when I include more than 10 trees
 
 
 * ---------------------------------------------------------------------------- *
@@ -51,16 +50,17 @@ foreach var in `outcomes_of_interest' {
 	* 1. Only including `unordered_preschool'
 	** Run command
 	di "Running chaidforest: only including unordered preschool variables"
-	chaidforest `var', unordered(`unordered_preschool') ntree(`tree_number')
+	chaidforest `var', unordered(`unordered_preschool') ntree(`tree_number') nvuse(3)
 	
 	** Graph each tree
 	di "Graphing: only including unordered preschool variables"
 	foreach num of numlist 1/`tree_number' {
-		estat gettree, tree(`num') graph
+		estat gettree, tree(`num') graph /*mlabsize(vsmall)*/ // How can I include graph options?
 		graph export "${git_reggio}/Output/Randomforest/`var'_onlypreschool_tree`num'.eps", replace
 	}
 	
-	* 2. Including all baseline variables
+	/*
+	* 2. Including all baseline variables (2016/08/14 NOT WORKING, "invalid numlist has too few elements")
 	** Run command
 	di "Running chaidforest: including all variables"
 	chaidforest `var', unordered(`unordered_preschool' `unordered_other') ordered(`ordered_other') ntree(`tree_number')
@@ -70,7 +70,7 @@ foreach var in `outcomes_of_interest' {
 	foreach num of numlist 1/`tree_number' {
 		estat gettree, tree(`num') graph
 		graph export "${git_reggio}/Output/Randomforest/`var'_all_tree`num'.eps", replace
-	} 
+	} */
 
 }
 
