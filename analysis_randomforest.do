@@ -48,11 +48,23 @@ keep if Cohort > 3 	// only keeping adults
 foreach var in `outcomes_of_interest' {
 	
 	* 1. Only including `unordered_preschool'
-	** Run command
-	di "Running chaidforest: only including unordered preschool variables"
-	chaidforest `var', unordered(`unordered_preschool') ntree(`tree_number') nvuse(3) 
+	** Run command (for full sample)
+	di "Running chaidforest: only including unordered preschool variables and the full sample"
+	chaidforest `var', unordered(`unordered_preschool') ntree(`tree_number') nvuse(3) nosamp 
+	predict newvar, mode
 	
-	** Graph each tree
+	** Graph the tree for the full sample
+	di "Graphing: only including unordered preschool variables and the full sample"
+	estat gettree, tree(1) graph
+	dd
+	graph export "${git_reggio}/Output/Randomforest/`var'_onlypreschool_fullsample.eps", replace
+	
+	** Run command (for full sample)
+	di "Running chaidforest: only including unordered preschool variables and the full sample"
+	chaidforest `var', unordered(`unordered_preschool') ntree(`tree_number') nvuse(3) nosamp 
+	predict newvar, mode
+	
+	** Graph the tree for the full sample
 	di "Graphing: only including unordered preschool variables"
 	foreach num of numlist 1/`tree_number' {
 		estat gettree, tree(`num') graph  // How can I include graph options?

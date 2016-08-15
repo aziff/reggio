@@ -565,3 +565,8 @@ replace C_A_HealthAvg = 1 if Health16 == 3 & Cohort >=3
 
 // create BMI variables
 include "${git_reggio}/create-bmi_categories"
+
+
+// save as Reggio_prepareddata
+cd "${data_reggio}"
+save Reggio_prepared.dta, replace
