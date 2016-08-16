@@ -484,7 +484,9 @@ label var int_cgCatFaith "Caregiver is Catholic and very faithful"
 gen goodHealth = 6 - Health
 
 // Relabel parental education variables
-label define maxedu_lab 1 "Junior high school" 2 "Two years high school" 3 "Four or five years high school" 4 "University degree (4 years?)" 5 "Three year degree" 6 "Five year degree" 7 "Master degree (5 years including college?)" 8 "Master postgraduate" 9 "PhD"
+* label define maxedu_lab 1 "Junior high school" 2 "Two years high school" 3 "Four or five years high school" 4 "University degree (4 years?)" 5 "Three year degree" 6 "Five year degree" 7 "Master degree (5 years including college?)" 8 "Master postgraduate" 9 "PhD"
+label define maxedu_lab 1 "Junior HS" 2 "2Y HS" 3 "4-5Y HS" 4 "Univ." 5 "3Y Degree" 6 "5Y Degree" 7 "Master" 8 "Master+" 9 "PhD"
+label values MaxEdu maxedu_lab
 
 // Create parental years of education variable (SEE YKK's DOCUMENTATION)
 gen momYearsEdu = .

@@ -52,20 +52,29 @@
 
 Random forests are the procedures that constructs tree-structured predictors with an injection of randomness. Each tree in the collection is formed by first selecting at random, at each node, a small group of input coordinates to split on, and secondly, by calculating the best split based on these coordinates in the training set. Hence, a random tree is based on a random set of explanatory variables \textit{and} a random resample. 
 
-We use the random forest approach to analyze how city, cohort, and preschool type affect outcomes of our interest. We use cities, cohorts, and preschool types as explanatory variables that are used to construct the trees. We do not choose a random subset of explanatory variables, but instead use all explanatory variables (which are city, cohort, and materna type). Future steps include adding more baseline variables as explanatory variables.
+We use the classification tree approach to analyze how city, cohort, and preschool type might affect outcomes of our interest. We use cities, cohorts, and preschool types as explanatory variables that are used to construct the trees. We do not choose a random subset of explanatory variables, but instead use all explanatory variables (which are city, cohort, and materna type). Future steps include adding more baseline variables as explanatory variables.
 
-\section{Random Forest Trees: Adult BMI} 
+\section{Classification Tree} 
 
 \begin{landscape}
-\foreach \x in {1,2,3,4,5,6,7,8,9,10}
-{ \begin{figure}[H]
+\begin{figure}[H]
 	\begin{center}
-	\caption{Adult BMI, Tree \x}\
+	\caption{Maximum Education}
 	
-	\includegraphics[width=50em]{../../../../Output/Randomforest/BMIcat_onlypreschool_tree\x.eps}
+	\includegraphics[width=45em]{../../../../Output/Randomforest/MaxEdu_R.png}
 
 	\end{center}
- \end{figure} }
+ \end{figure} 
+ 
+ \begin{figure}[H]
+	\begin{center}
+	\caption{IQ Factor}
+	
+	\includegraphics[width=45em]{../../../../Output/Randomforest/IQfactor_R.png}
+
+	\end{center}
+ \end{figure} 
+
 \end{landscape} 
  
 \end{document}
