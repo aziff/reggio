@@ -1,0 +1,105 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\parindent 22pt
+
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+\usepackage{adjustbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{appendix}
+\usepackage{array}
+\usepackage{authblk}
+\usepackage{booktabs}
+\usepackage{caption} 
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,anchorcolor=blue,citecolor=blue]{hyperref}
+\usepackage{lscape}
+\usepackage{epstopdf}
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage{pgffor}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage{threeparttable}
+\usepackage[colorinlistoftodos,linecolor=black]{todonotes}
+
+\captionsetup[table]{skip = 2pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+
+\settimeformat{hhmmsstime}
+
+\begin{document}
+
+\title{Reggio Variables}
+\author{Reggio Team}
+\date{Original version: Friday 19$^{\text{nd}}$ August, 2016 \\ Current version: \today \\ \vspace{1em} Time: \currenttime}
+\maketitle
+
+\doublespacing
+
+\section{Overview}
+
+This document presents the main outcome variables and baseline variables available for each age cohort. Note that variables differ across age cohorts, but not within age cohorts. Table \ref{tab:baseline} shows the availability of baseline characteristics. 
+\begin{landscape}
+\begin{table}[H] \caption{Availability of Outcome Variables} \label{tab:outcome}
+\begin{center}
+\begin{tabular}{L{4.4cm} L{6cm} L{6cm} L{6cm}}
+\toprule
+\textbf{Category} & \textbf{Children} & \textbf{Adolescents} & \textbf{Adults} \\ \midrule
+\textbf{Cognitive} & Raven's IQ & Raven's IQ & Raven's IQ  \\ \midrule
+\textbf{Education} & & High school grade, Graduated from high school  & High school grade, Graduated from high school, University grade, Maximum education \\ \midrule
+\textbf{Employment} &  & & Employment status, Occupation, Work hours, Wage, Household income \\ \midrule
+\textbf{Living Environment} & & & Marital status, Living with parents, Children  \\ \midrule
+\textbf{Noncognitive} & Difficulties (sitting, learning, obeying, eating), SDQ and subscores, Like school, Like subject,    & & \\ \midrule
+\textbf{Health} & General Health, Weight and height, Diseases, Sleep \\ \midrule
+\textbf{Social} & Bullied, \\ \bottomrule
+
+\end{tabular}
+\end{center}
+\end{table}
+\end{landscape}
+
+\begin{table}[H] \caption{Availability of Baseline Variables} 
+\label{tab:baseline}
+\begin{center}
+\begin{tabular}{lccc}
+\toprule
+\textbf{Variable} & \textbf{Children} & \textbf{Adolescents} & \textbf{Adults} \\ \midrule
+\textbf{Parent Information} \\
+\quad Age at Birth & \checkmark & \checkmark \\
+\quad Born in Province & \checkmark & \checkmark & \checkmark \\
+\quad Maximum Education & \checkmark & \checkmark & \checkmark \\
+\quad Marital Status & \checkmark \\ 
+\textbf{Caregiver Information} \\
+\quad Preschool Experience & \checkmark \\ 
+\quad Marital Status & \checkmark \\ 
+\quad Religious or Not & \checkmark & \checkmark & \checkmark \\
+\quad Specific Religion & \checkmark & \checkmark \\
+\quad Degree of Faithfulness & \checkmark & \checkmark \\
+\quad Migration Status & \checkmark & \checkmark \\
+\textbf{Household Information} \\
+\quad Number of Siblings & \checkmark & \checkmark & \checkmark \\
+\quad Family Income* & \checkmark & \checkmark \\
+\quad House Ownership* & \checkmark & \checkmark \\
+\textbf{Child Information} \\
+\quad Low Birth Weight & \checkmark & \checkmark \\
+\quad Premature at Birth & \checkmark & \checkmark \\
+\bottomrule
+\end{tabular}
+\end{center}
+\raggedright \footnotesize Note: This table shows the availability of baseline characteristics for each age cohort. ``Children" column includes both Italian and migrant children cohorts. ``Adult" column includes all age-30, age-40, and age-50 cohorts. * indicates that the variable shows the information during the time of the survey, and hence variables with * might not be appropriate for controlling baseline characteristics. 
+\end{table}
+
+
+\end{document}

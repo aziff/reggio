@@ -1,0 +1,80 @@
+\documentclass[12pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\parindent 22pt
+
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+
+\usepackage{adjustbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{appendix}
+\usepackage{array}
+\usepackage{authblk}
+\usepackage{booktabs}
+\usepackage{caption} 
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,anchorcolor=blue,citecolor=blue]{hyperref}
+\usepackage{lscape}
+\usepackage{epstopdf}
+\usepackage{mathtools}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage{pgffor}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage{threeparttable}
+\usepackage[colorinlistoftodos,linecolor=black]{todonotes}
+
+\captionsetup[table]{skip = 2pt}
+
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+
+
+\settimeformat{hhmmsstime}
+
+\begin{document}
+
+\title{Random Forest Analysis}
+\author{Reggio Team}
+\date{Original version: Tuesday 2$^{\text{nd}}$ August, 2016 \\ Current version: \today \\ \vspace{1em} Time: \currenttime}
+\maketitle
+
+\doublespacing
+
+\section{Overview}
+
+Random forests are the procedures that constructs tree-structured predictors with an injection of randomness. Each tree in the collection is formed by first selecting at random, at each node, a small group of input coordinates to split on, and secondly, by calculating the best split based on these coordinates in the training set. Hence, a random tree is based on a random set of explanatory variables \textit{and} a random resample. 
+
+We use the classification tree approach to analyze how city, cohort, and preschool type might affect outcomes of our interest. We use cities, cohorts, and preschool types as explanatory variables that are used to construct the trees. We do not choose a random subset of explanatory variables, but instead use all explanatory variables (which are city, cohort, and materna type). Future steps include adding more baseline variables as explanatory variables.
+
+\section{Classification Tree} 
+
+\begin{landscape}
+\begin{figure}[H]
+	\begin{center}
+	\caption{Maximum Education}
+	
+	\includegraphics[width=45em]{../../../../Output/Randomforest/MaxEdu_R.png}
+
+	\end{center}
+ \end{figure} 
+ 
+ \begin{figure}[H]
+	\begin{center}
+	\caption{IQ Factor}
+	
+	\includegraphics[width=45em]{../../../../Output/Randomforest/IQfactor_R.png}
+
+	\end{center}
+ \end{figure} 
+
+\end{landscape} 
+ 
+\end{document}

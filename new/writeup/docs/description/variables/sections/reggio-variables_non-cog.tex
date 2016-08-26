@@ -1,0 +1,294 @@
+\section{Non-cognitive Variables}
+\label{sec:non-cognitive}
+\setlength{\tabcolsep}{20pt}
+
+\begin{table}[H]
+\rowcolors{3}{gray!7}{white}
+	\begin{center}
+
+	\scalebox{0.9}{
+	\begin{threeparttable}
+	\caption{Availability of variables by cohort}
+		\begin{tabular}{L{5.5cm}C{2cm} C{2cm} C{2cm}} \hline
+															& \textbf{Children Cohort} 			& \textbf{Adol Cohort} 		& \textbf{Adult Cohort} 		\\ 
+		\hline	
+		\textbf{Depression Score}							&									& \checkmark				& \checkmark					\\
+		\textbf{Locus of Control}								&									& \checkmark				& \checkmark					\\
+		%Caregiver Locus of Control							& \checkmark						&\checkmark															\\
+		\textbf{Optimistic outlook on life}						&									& \checkmark				& \checkmark					 \\
+
+		\textbf{SDQ Scores} \footnotemark		&									&							&								\\
+		\quad \quad SDQ Composite score						& \checkmark						& \checkmark				&								\\
+		\quad \quad SDQ Emotional score						& \checkmark						& \checkmark				&								\\
+		\quad \quad SDQ Conduct score							& \checkmark					& \checkmark				&								\\
+		\quad \quad SDQ Hyper score							& \checkmark						& \checkmark				&								\\
+		\quad \quad SDQ Peer problems score					& \checkmark						& \checkmark				&								\\
+		\quad \quad SDQ Pro-social score						&\checkmark							& \checkmark				&								\\
+
+		\textbf{Satisfaction variables}							&									&							&								 \\
+		\quad \quad Satisfied with income						& 									&							& \checkmark					\\
+		\quad \quad Satisfied with work						& 									&							& \checkmark					\\	
+		\quad \quad Satisfied with health						&									& \checkmark				& \checkmark					\\
+		\quad \quad Satisfied with family						&									& \checkmark				& \checkmark					\\
+		\quad \quad Satisfied with school						&									& \checkmark 				&								\\
+		%\quad \quad Satisfied with education					&									& \checkmark 				&								\\
+		
+		\textbf{Reciprocity variables}							&									&							&								\\
+		\quad \quad Return favor								&									& \checkmark				& \checkmark					 \\
+		\quad \quad Put someone in difficulty					&									& \checkmark				& \checkmark					 \\	
+		\quad \quad Help someone kind to me					&									& \checkmark				& \checkmark					 \\
+		\quad \quad Insult back								&									& \checkmark				& \checkmark					 \\
+
+		
+		\hline
+		\end{tabular}
+
+		\begin{tablenotes}
+		\singlespace
+		\footnotesize{
+			\item [1] For children, one set of SDQ scores are available based on caregiver's response to the SDQ questionnaire. For adolescents, two sets of SDQ scores are available with one based on caregiver's response to questionnaires and the other on  adolescent's self-response to the questionnaire.  
+		}
+		\end{tablenotes}
+	\end{threeparttable}
+	}
+	\end{center}
+\end{table}
+\setcounter{footnote}{0}
+
+\subsection{Depression score}
+%\textbf{Variable name in data}: pos\_Depression\_score \\[.3cm]
+Adults and adolescents were administered the 10-item Center for Epidemiologic Studies Depression (CES-D) Scale \footnote{See \cite{Radloff_1977_APM}; also this scale is present in the NLSY.}. Respondent's answers to these questions were used to construct a \textit{depression} variable that ranges from 16 to 50, where higher values correspond with lower levels of depression. The variable is constructed as the sum of the following underlying variables where each variable records respondent's response to the corresponding question on a 1 - 5 scale. \\
+
+\begin{table}[H]
+\begin{center}
+\footnotesize{
+\caption{Underlying scores used to construct depression variable where each questions corresponds to a specific variable}
+	\begin{tabular}{L{8.5cm} l}
+	\hline
+	\textbf{Question for each variable}	 					& \textbf{Definition for scaled score} \\
+	\hline
+	I was bothered by things that don’t usually bother me	& 1 = ``Always", 5 = ``Never"  \\	
+	I had trouble keeping my mind on what I was doing	& 1 = ``Always", 5 = ``Never"  	\\
+	I felt depressed											& 1 = ``Always", 5 = ``Never"	 \\
+	I felt everything I did was an effort						& 1 = ``Always", 5 = ``Never"	 \\
+	I felt hopeful about the future							& 1 = ``Never",  5 = ``Always"	 \\
+	I felt fearful 												& 1 = ``Always", 5 = ``Never"	\\ 
+	My sleep was restless										& 1 = ``Always", 5 = ``Never" \\
+	I was happy												& 1 = ``Never", 5 = ``Always" \\
+	I felt lonely												& 1 = ``Always", 5 = ``Never"  \\
+	I could not get going 										& 1 = ``Always",  5 = ``Never" \\
+	
+	\hline
+	
+	\end{tabular}
+}
+
+\end{center}
+\end{table}
+\clearpage
+
+\subsection{Locus of Control}
+%\textbf{Variable name in data}: pos\_LocusControl \\[.3cm]
+Adults, adolescents and caregivers of adolescents and children are administered a short version of the Rotter Locus-of-Control Scale \footnote{See \cite{Rotter_1966_PMGaA}; this scale is used in the National Longitudinal Study of Parents and Children (NSLY).}. According to  \citet{Miller_2004_BOOKNLSY79}, the Rotter scale ``was designed to measure the extent to which individuals believe they have control over their lives through self-motivation or self determination (internal control) as opposed to the extent that the environment (i.e., chance, fate, luck) controls their lives (external control)."
+
+Respondent's answers to the locus-of-control test is used to contruct a factor score, where higher values correspond with a more internal locus-of-control i.e., respondents with higher values believe that they are more in control of the outcomes in their lives. The factor score is based on the following underlying variables where each variable records respondent's response to the corresponding questions on a scale of 1 - 5. Each respondent is assigned a value of 1 if he/she answers ``Strongly agree" and a value of 5 if respondent answers ``Strongly disagree" to the following questions. \\
+
+\begin{table}[H]
+\begin{center}
+\footnotesize{
+\caption{Question used to construct Locus of Control factor score}
+	\begin{tabular}{l L{11cm}}
+	\hline
+	\textbf{Variable} & \textbf{Question} \\
+	\hline
+	
+	Locus1		& I feel that I don’t have enough control over the direction my life is taking \\	
+	Locus2		& It is not always wise to plan too far ahead, because many things turn out to be a matter of good or bad fortune anyhow\\
+	Locus3		& Getting what I want has little or nothing to do with luck \\
+	Locus4		& I feel that I have little influence over the things that happen to me \\
+	
+	\hline
+	
+	\end{tabular}
+}
+
+\end{center}
+\end{table}
+
+\subsection{Optimistic outlook on life}
+%\textbf{Variable name in data}: optimist \\[.3cm]
+Adults and adolescents were administered the Cantril's Self-Anchoring Ladder \footnote{See \cite{Cantril_1965_BOOK_Pattern-Hum-Con}; this scale is used in Gallup Surveys worldwide}. The Cantril Self-Anchoring Scale asks respondent's to answer where they see themselves in their ``ladder of life" in the present and in the future, where higher values of the ladder correspond with better outcomes. Responses on this scale were used to construct a dummy variable that provides a binary measure of whether the respondent is an optimist or not. The variable takes on the value of 1 if the individual feels he/she will be at a better point in his/her ``ladder of life" in the future than today, and 0 otherwise.
+
+\subsection{SDQ Scores}
+The  Strength \& Difficulties questionnaire (SDQ) is administered to caregivers of children, caregivers of adolescents, and adolescents \footnote{See \cite{Goodman_1997_JCPP}; this scale is also used in the Avon Longitudinal
+Study of Parents and Children (ALSPAC) and in the Millennium Cohort Study}. The dataset distinguishes between SDQ scores derived from questionnaires administered to caregivers and scores derived from questionnaires administered to adolesents. The SDQ is a widely-used scale inquiring about emotional symptoms, conduct problems, hyperactivity and inattention, peer relationships problems, and pro-social behavior. The following variables are constructed based on the questionnaire.
+
+\subsubsection{SDQ Composite score}
+%\textbf{Variable name in data}: pos\_SDQ\_score \\[.3cm]
+The variable takes on values from 13 to 40, with higher values corresponding with better outcomes. The variable is constructed as the sum of underlying SDQ component scores which are in turn derived based on responses to the SDQ. The underlying components measure performance in the areas of emotional symptoms, conduct problems, hyperactivity and inattention, and peer relationships problems. These components are described in detail in the following sections.
+
+\subsubsection{SDQ Emotional score}
+%\textbf{Variable name in data}: pos\_SDQEmot\_score \\[.3cm]
+The variable takes on values from 0 to 10, with higher values corresponding with better outcomes. The variable is constructed as a function of the mean of 5 underlying variables, where each variable measures respondent's response to the corresponding questions in the table below. The underlying variables take on the value of 1 if the respondent answers  ``Completely true" , 2 if the answer is ``Partially true", and 3 if the answer is ``False". \\
+
+\begin{table}[H]
+\begin{center}
+\footnotesize{
+\caption{SDQ questions related to emotional symptoms}
+\begin{tabular}{l l}
+\hline
+\textbf{Variable} & \textbf{Label} \\
+\hline
+SDQEmot1 & Often complains of headaches, stomach-aches or sickness\\
+SDQEmot2 & Frequently worried or often seems worried\\
+SDQEmot3 & Often unhappy, depressed or tearful\\
+SDQEmot4 & Nervous or clingy in new situations, easily loses confidence\\
+SDQEmot5 & Many fears, easily scared\\
+\hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+\subsubsection{SDQ Conduct score}
+%\textbf{Variable name in data}: pos\_SDQCond\_score \\[.3cm]
+The variable takes on values from 2 to 10, with higher values corresponding with better outcomes. The variable is constructed as a function of the mean mean of 5 underlying variables, where each variable measures respondent's response to the corresponding questions in the table below. The underlying variables \textit{SDQCond1}, \textit{SDQCond3}, \textit{SDQCond4} and \textit{SDQCond5} take on the value of 1 if the respondent answers  ``Completely true", 2 if the answer is ``Partially true", and 3 if the answer is ``False". For \textit{SDQCond2}, an answer of ``Completely true" corresponds with 3 and ``False" corresponds with 1. The order is reversed for this variable because the question measures a positive characteristic. \\
+
+\begin{table}[H]
+\begin{center}
+\footnotesize{
+\caption{SDQ questions related to conduct}
+\begin{tabular}{l l}
+\hline
+\textbf{Variable} & \textbf{Label} \\
+\hline
+SDQCond1 & Often loses temper or is in a bad mood\\
+SDQCond2 &  Generally well behaved, usually does what adults request \\
+SDQCond3 & Often fights with other children or bullies them\\
+SDQCond4 & Often lies or cheats\\
+SDQCond5 & Steals from home, school or elsewhere\\
+\hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+\subsubsection{SDQ Hyper score}
+%\textbf{Variable name in data}: pos\_SDQHype\_score \\[.3cm]
+The variable takes on values from 0 to 10, with higher values corresponding with better outcomes. The variable is constructed as a function of the mean of 5 underlying variables, where each variable measures respondent's response to the corresponding questions in the table below. The underlying variables \textit{SDQHype1}, \textit{SDQHype2} and \textit{SDQHype3} take on the value of 1 if the respondent answers  ``Completely true", 2 if the answer is ``Partially true", and 3 if the answer is ``False". For \textit{SDQHype4} and \textit{SDQHype5}, an answer of ``Completely true" corresponds with 3 and ``False" corresponds with 1. The order is reversed for these variables because the question measures a positive characteristic. \\
+
+\begin{table}[H]
+\begin{center}
+\footnotesize{
+\caption{SDQ questions related to hyperactivity}
+\begin{tabular}{l l}
+\hline
+\textbf{Variable} & \textbf{Label} \\
+\hline
+SDQHype1 & Restless, overactive, cannot stay still for long\\
+SDQHype2 & Constantly fidgeting or squirming\\
+SDQHype3 & Easily distracted, concentration wanders\\
+SDQHype4 & Thinks things out before acting \\
+SDQHype5 & Good attention span, sees work through to end\\
+\hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+\subsubsection{SDQ Peer problems score}
+%\textbf{Variable name in data}: pos\_SDQPeer\_score \\[.3cm]
+The variable takes on values from 3 to 10, with higher values corresponding with better outcomes. The variable is constructed as a function of the mean of 5 underlying variables, where each variable measures respondent's response to the corresponding questions in the table below. The underlying variables \textit{SDQPeer1}, \textit{SDQPeer4} and \textit{SDQPeer5} take on the value of 1 if the respondent answers  ``Completely true", 2 if the answer is ``Partially true", and 3 if the answer is ``False". For \textit{SDQPeer2} and \textit{SDQPeer3}, an answer of ``Completely true" corresponds with 3 and ``False" corresponds with 1. The order is reversed for these variables because the question measures a positive characteristic. \\
+
+\begin{table}[H]
+\begin{center}
+\footnotesize{
+\caption{SDQ questions related to peer problems}
+\begin{tabular}{l l}
+\hline
+\textbf{Variable} & \textbf{Label} \\
+\hline
+SDQPeer1 & Rather solitary, prefers to play alone\\
+SDQPeer2 & Has atleast one good friend\\
+SDQPeer3 & Generally liked by other children\\
+SDQPeer4 & Picked on or bullied by other childres\\
+SDQPeer5 & Gets along better with adults than with other children\\
+\hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+\subsubsection{SDQ Pro-social score}
+%\textbf{Variable name in data}: pos\_SDQPsoc\_score \\[.3cm]
+The variable takes on values from 0 to 9, with higher values corresponding with better outcomes. The variable is constructed as a function of the mean of 5 underlying variables, where each variable measures respondent's response to the corresponding questions in the table below. The underlying variables take on the value of 1 if the respondent answers  ``False", 2 if the answer is ``Partially true", and 3 if the answer is ``Completely True".  \\
+
+\begin{table}[H]
+\begin{center}
+\footnotesize{
+\caption{SDQ questions related to pro-social behavior}
+\begin{tabular}{l l}
+\hline
+\textbf{Variable} & \textbf{Label} \\
+\hline
+SDQPsoc1 & Considerate of other people's feelings\\
+SDQPsoc2 & Shares readily with other children, for example toys, treats, pencils\\
+SDQPsoc3 & Helpful if someone is hurt, upset or feeling ill\\
+SDQPsoc4 & Kind to younger children\\
+SDQPsoc5 & Often offers to help others (parents, teachers, other children)\\
+\hline
+\end{tabular}
+}
+\end{center}
+\end{table}
+
+\subsection{Satisfaction variables}
+
+Adults are asked to answer four questions relating to satisfaction with income, work, health and family, while adolescents are asked to answer three questions relating to satisfaction with health, family and school. For each question, respondent's can choose from five different answers ranging from ``Very satisfied" to ``Not satisfied". Using the respondent's answers to these questions, we construct the following satisfaction dummy variables where the indicator takes on a value of 1 if the individual answers ``Very satisfied" or ``Quite satisfied", and 0 if they answer ``Satisfied", ``Somewhat satisfied", or ``Not satisfied".
+
+\begin{table}[H]
+
+\begin{center}
+\scalebox{0.87}{
+\begin{threeparttable}
+\caption{Definition of Satisfaction binary variables}
+
+\begin{tabular}{L{5cm} L{10cm}}
+\hline
+	\textbf{Indicator variable} 	& \textbf{Underlying question that variable is based on}	\\ \hline    	% \textbf{Variable name in dataset} 
+	Satisfied with Income			& How satisfied are you today with your income? \\						%binSatisIncome	
+	Satisfied with work			& How satisfied are you today with your work? \\						%binSatisWork	
+	Satisfied with health			& How satisfied are you today with your health? \\						% binSatisHealth	
+	Satisfied with family			& How satisfied are you today with your family? \\						%binSatisFamily	
+	Satisfied with school			& How satisfied are you today with school? \\							% binSatisSchool	
+
+\hline
+\end{tabular}
+\end{threeparttable}
+}
+\end{center}
+\end{table}
+
+
+\subsection{Reciprocity variables}
+Adolescents and adults were asked to indicate how well five statements on reciprocity applied to them \footnote{These questions are based on a measure developed by \cite{Perugini-etal_2003_EJP}; \cite{Dohmen_Falk_etal_2009_EJ}}. For each statement, respondent's could choose five values ranging from  "I don't identify" to ``I identify very much". Using the respondent's answers to these questions, we construct the following reciprocity dummy variables where the indicator takes on a value of 1 if the individual answers ``I identify very much" or `` I identify quite a lot", and 0 if they answer ``I am neutral", ``I identify little", or ``'I don't identify" to the questions below.
+\begin{table}[H]
+\begin{center}
+\scalebox{0.87}{
+\begin{threeparttable}
+\caption{Definition of Reciprocity binary variables}
+
+\begin{tabular}{L{5cm} L{10cm}}
+\hline
+\textbf{Indicator Variable} 			& \textbf{Underlying question that indicator is based on}	\\ \hline 				% \textbf{Variable name in dataset} 		
+	Return favor						& If someone does me a favor, I am prepared to return it  \\						% & reciprocity1bin							
+	Put someone in difficulty			& If someone puts me in a difficult situation, I will do the same to him/her \\		% & reciprocity2bin							
+	Help someone kind to me			& I go out of my way to help somebody who has been kind to me before \\		%& reciprocity3bin							
+	Insult back							& If somebody insulted me, I will insult him/her back \\							%& reciprocity4bin							
+\hline
+\end{tabular}
+\end{threeparttable}
+}
+\end{center}
+\end{table}
+

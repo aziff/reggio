@@ -1,0 +1,73 @@
+% Packages
+\documentclass[12pt]{article}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+
+%% for text
+\usepackage{adforn} % arrows
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage[titletoc]{appendix}
+\usepackage{bm}
+\usepackage[usenames, dvipsnames]{color}
+\usepackage{comment}
+\usepackage{datetime}
+\usepackage{enumerate}
+\usepackage{etoolbox}
+\usepackage{fixltx2e}
+\usepackage{footnote}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue,anchorcolor=blue]{hyperref}
+\usepackage{pdfpages}
+\usepackage{pdflscape}
+\usepackage{setspace}
+\usepackage[normalem]{ulem}
+
+%% for tables/figures
+\usepackage{adjustbox}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{epstopdf}
+\usepackage{float}
+\usepackage{framed}
+\usepackage{graphicx}
+\usepackage{longtable}
+\usepackage{makecell}
+\usepackage{makeidx}
+\usepackage{marvosym}
+\usepackage{multirow}
+\usepackage{ragged2e}
+\usepackage{rotating}
+\usepackage{subcaption}
+\usepackage{tabu}
+\usepackage{tabularx}
+\usepackage[para, flushleft]{threeparttablex}
+\usepackage{titlesec}
+\usepackage[table]{xcolor}
+\usepackage{xr}
+
+%% bib
+\usepackage{bibunits}
+\usepackage{natbib}
+
+%% tikz
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+
+
+% Commands
+\newcommand{\mr}{\multirow}
+\newcommand{\mc}{\multicolumn}
+\newcommand{\fns}{\footnotesize}
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+\newcommand{\equald}{\ensuremath{\overset{d}{=}}}
+\captionsetup[table]{skip=10pt}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\renewcommand{\arraystretch}{0.7}
+
+% Settings
+\settimeformat{hhmmsstime}

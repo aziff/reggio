@@ -1,0 +1,67 @@
+
+% global preamble
+\input{preamble}
+
+\begin{document}
+
+\title{Description of Reggio Variables}
+\author{Reggio Team}
+\date{Original version: Monday 18$^{\text{th}}$ July, 2016 \\ Current version: \today \\ \vspace{1em} Time: \currenttime}
+\maketitle
+
+\tableofcontents
+
+\listoftables
+
+\doublespace
+
+\section{Overview}
+\label{sec:overview}
+This document compiles information on the variables in the Reggio dataset. The information presented includes (1) an explanation of relevant variables by broad category (e.g. health outcomes), (2) descriptive statistics, (3) a tabulation of missing observations, and (4) a discussion of any issues with the variables. Table \ref{tab:basic_cohort} shows the number of individuals in each cohort by city.
+
+\begin{table}[htbp]
+	\begin{center}
+		\caption{Overview of Sample by Cohort and City}\label{tab:basic_cohort}
+			\input{../../../../Output/description/basic-cohort-numbers}
+	\end{center}
+\end{table}
+
+\input{sections/reggio-variables_edu-inc}
+\input{sections/reggio-variables_non-cog}
+\input{sections/reggio-variables_health}
+\input{sections/reggio-variables_instruments}
+
+% Tables
+\clearpage
+\subsection{Descriptive statistics}
+
+\begin{landscape}
+\input{../../../../Output/descriptiveStats_edu}
+\end{landscape}
+
+\begin{landscape}
+\input{../../../../Output/descriptiveStats_health}
+\end{landscape}
+
+\begin{landscape}
+\input{../../../../Output/descriptiveStats_nonCog}
+\end{landscape}
+
+\subsection{Missing observations}
+\begin{landscape}
+\input{../../../../Output/missingVal_edu}
+\end{landscape}
+
+\begin{landscape}
+\input{../../../../Output/missingVal_health}
+\end{landscape}
+
+\begin{landscape}
+\input{../../../../Output/missingVal_nonCog}
+\end{landscape}
+
+
+\singlespace
+\bibliographystyle{chicago}
+\bibliography{heckman,heckmanAdd}
+\end{document}
