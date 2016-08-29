@@ -10,6 +10,7 @@
 clear all
 set more off
 set maxvar 32000
+
 * ---------------------------------------------------------------------------- *
 * Set directory
 /* 
@@ -21,6 +22,10 @@ Note: In order to make this do file runable on other computers,
                   on their computers. 
 Note: Install the following commands: dummieslab, outreg2
 */
+
+global klmReggio   : env klmReggio
+global data_reggio : env data_reggio
+global git_reggio  : env git_reggio
 
 cd "$data_reggio"
 
@@ -523,5 +528,5 @@ replace BMI_overweight = 1 if childBMI >= 26.09993 & childBMI < 31.0288 & Male =
 
 
 // save as Reggio_prepareddata
-*cd "${data_reggio}"
-*save Reggio_prepared.dta, replace
+cd "${data_reggio}"
+save Reggio_prepared.dta, replace

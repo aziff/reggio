@@ -19,6 +19,7 @@ global current : pwd
 
 include "${current}/../prepare-data"
 include "${current}/../macros" 
+include "${current}/function/diffindiff"
 
 * ---------------------------------------------------------------------------- *
 * 								Preparation 								   *
