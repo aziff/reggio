@@ -1,10 +1,14 @@
-* ---------------------------------------------------------------------------- *
+/* --------------------------------------------------------------------------- *
 * Analyzing the Reggio Children Evaluation Survey - Diff-in-Diff for Adult Cohorts
 * Authors: Jessica Yu Kyung Koh
 * Created: 06/16/2016
 * Edited:  08/24/2016
-* ---------------------------------------------------------------------------- *
 
+* Note: This execution do file performs diff-in-diff estimates and generates tables
+        by using "diffindiff" command that is programmed in 
+		"reggio/script/diff-in-diff/function/diffindiff.do"  
+		To understand how the command is coded, please refer to the above do file.
+* --------------------------------------------------------------------------- */
 
 clear all
 

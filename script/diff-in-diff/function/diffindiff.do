@@ -11,9 +11,21 @@
 		
 * Options: 
 	- type(string)
+	  : This shows the type of outcome category as defined in macros.do.
+	    For example, adult outcome variables for education category is stored in the global
+		variable called "adult_outcome_E" in macros.do. This option types in "E" in order to
+		capture the education category for adult outcome variables. 
+		
 	- ifcondition(string)
+	  : This ifcondition limits the sample to the ones that are used in the diff-in-diff analysis.
+	    For example, if we want to do diff-in-diff between Religious schools and Municipal schools in Padova,
+		the ifcondition should be "Padova == 1 & (maternaMuni == 1 | maternaReli ==1)"
+	  
 	- comparison(string)
+	  : This option is defined in order to name the tex file of the output. 
+	
 	- keep(varlist)
+	  : This is to only keep the necessary variables that will be shown in the tables. 
 	
 * ---------------------------------------------------------------------------- */
 
