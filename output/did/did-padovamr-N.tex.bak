@@ -44,6 +44,6 @@ Help Someone Kind To Me&       0.164         &       0.186\sym{**} &      -0.158
 Insult Back &      -0.124         &      -0.154         &      0.0961         \\
             &     (0.119)         &    (0.0977)         &     (0.131)         \\
 \hline\hline
-\multicolumn{4}{l}{\footnotesize \specialcell{\underline{Note:} This table shows the diff-in-diff estimates for municipal and religious schools in Padova. \\                                                                         Standard errors are reported in parenthesis. Stars show statistical significance as follows: \\                                                                         * p < 0.05, ** p < 0.01, *** p < 0.001.}}\\
+\multicolumn{4}{l}{\footnotesize \specialcell{Note: This table shows the difference-in-difference estimates for \\                                                 municipal and religious schools in Padova. Standard errors are reported in \\                                                 parenthesis. Stars show statistical significance as follows: * p < 0.05, \\                                                 ** p < 0.01, *** p < 0.001.}}\\
 \end{tabular}
 }

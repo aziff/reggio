@@ -41,11 +41,13 @@ local f_con		& Male == 0
 * ---------------------------------------------------------------------------- *
 global X					Cohort_Adult30 maternaReli xmReliAdult30	
 global controls				${adult_baseline_vars}
-local ifcondition 			Padova == 1 & (maternaMuni == 1 | maternaReli ==1)	
+global comparison			padovamr
+global padovamr_note		municipal and religious schools in Padova
+global ifcondition 			Padova == 1 & (maternaMuni == 1 | maternaReli ==1)	
 
 foreach type in E W L H N S R {
 
-	diffindiff, type("`type'") ifcondition("`ifcondition'") comparison("padovamr") keep(Cohort_Adult30 maternaReli xmReliAdult30)
+	diffindiff, type("`type'") ifcondition("${ifcondition}") comparison("${comparison}") keep(Cohort_Adult30 maternaReli xmReliAdult30)
 
 }
 

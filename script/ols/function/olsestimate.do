@@ -1,9 +1,9 @@
 /* ---------------------------------------------------------------------------- *
-* Programming a function for the Diff-in-Diff for Reggio analysis
+* Programming a function for the OLS for Reggio analysis
 * Author: Jessica Yu Kyung Koh
 * Edited: 08/29/2016
 
-* Note: This function performs a diff-in-diff analysis and creates tables
+* Note: This function performs OLS analysis and creates tables
         for each outcome category. The outcome variables are listed in the table
 		in each row. Note that esttab command usually stores each outcome in 
 		each column of the table. Hence, the purpose of this program is to transpose
@@ -21,7 +21,7 @@
 	    For example, if we want to do diff-in-diff between Religious schools and Municipal schools in Padova,
 		the ifcondition should be "Padova == 1 & (maternaMuni == 1 | maternaReli ==1)"
 	  
-	- comparison(string)
+	- usegroup(string)
 	  : This option is defined in order to name the tex file of the output. 
 	
 	- keep(varlist)
@@ -29,11 +29,11 @@
 	
 * ---------------------------------------------------------------------------- */
 
-capture program drop diffindiff
-capture program define diffindiff
+capture program drop olsestimate
+capture program define olsestimate
 
 version 13
-syntax, type(string) ifcondition(string) comparison(string) keep(varlist)
+syntax, type(string) ifcondition(string) usegroup(string) keep(varlist)
 	
 	
 	***** Create a local for the label (Going to be filled out in the loop)
@@ -41,13 +41,13 @@ syntax, type(string) ifcondition(string) comparison(string) keep(varlist)
 	
 	***** Create a local for footnote that will be included in the output
 	# delimit ;
-	local Note			"\specialcell{\underline{Note:} This table shows the diff-in-diff estimates for ${`comparison'_note}. \\
+	local Note			"\specialcell{\underline{Note:} This table shows the OLS estimates for ${`usegroup'_note}. \\
 									Standard errors are reported in parenthesis. Stars show statistical significance as follows: \\
 									* p < 0.05, ** p < 0.01, *** p < 0.001.}" ;
 	# delimit cr
 	
 	di "Note: `Note'"
-	di "Comparison Note: ${`comparison'_note}"
+	di "Usegroup Note: ${`usegroup'_note}"
 
 	***** Loop through the outcomes in a category and store diff-in-diff results
 	foreach var in ${adult_outcome_`type'} {		
@@ -91,7 +91,7 @@ syntax, type(string) ifcondition(string) comparison(string) keep(varlist)
 	}
 
 	***** Output the table to the tex file
-	esttab using "${current}/../../output/did/did-`comparison'-`type'.tex", replace se mtitle ///
+	esttab using "${current}/../../output/ols/ols-`usegroup'-`type'.tex", replace se mtitle ///
 				coeflabels(`coeflabel') noobs nonotes addnotes("`Note'")
 
 end

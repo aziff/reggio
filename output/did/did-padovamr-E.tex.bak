@@ -23,6 +23,6 @@ Max Edu: University&      0.0551         &     -0.0317         &      0.0455    
 Max Edu: Graduate School&     -0.0762         &     -0.0280         &       0.156\sym{*}  \\
             &    (0.0668)         &    (0.0553)         &    (0.0734)         \\
 \hline\hline
-\multicolumn{4}{l}{\footnotesize \specialcell{\underline{Note:} This table shows the diff-in-diff estimates for municipal and religious schools in Padova. \\                                                                         Standard errors are reported in parenthesis. Stars show statistical significance as follows: \\                                                                         * p < 0.05, ** p < 0.01, *** p < 0.001.}}\\
+\multicolumn{4}{l}{\footnotesize \specialcell{Note: This table shows the difference-in-difference estimates for \\                                                 municipal and religious schools in Padova. Standard errors are reported in \\                                                 parenthesis. Stars show statistical significance as follows: * p < 0.05, \\                                                 ** p < 0.01, *** p < 0.001.}}\\
 \end{tabular}
 }
