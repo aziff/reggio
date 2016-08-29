@@ -1,0 +1,40 @@
+		(1)
+VARIABLES	LABELS	
+		
+xmReggioReli	Reggio Reli Preschool	-0.369
+		[0.296]
+xmParmaMuni	Parma Muni Preschool	-0.106
+		[0.267]
+xmPadovaMuni	Padova Muni Preschool	-0.303
+		[0.335]
+xmParmaStat	Parma Stat Preschool	0.219
+		[0.241]
+xmPadovaStat	Padova Stat Preschool	0.381
+		[0.245]
+xmReggioStat	Reggio Stat Preschool	-0.069
+		[0.344]
+xmParmaReli	Parma Reli Preschool	-0.100
+		[0.314]
+xmPadovaReli	Padova Reli Preschool	0.292
+		[0.214]
+xmParmaPriv	Parma Priv Preschool	0.631***
+		[0.170]
+xmPadovaPriv	Padova Priv Preschool	0.202
+		[0.440]
+xmReggioPriv	Reggio Priv Preschool	-0.369**
+		[0.170]
+xmParmaNone	Parma None Preschool	-1.369*
+		[0.743]
+xmPadovaNone	Padova None Preschool	0.631***
+		[0.170]
+xmReggioNone	Reggio None Preschool	-1.369***
+		[0.170]
+Constant	Constant	4.369***
+		[0.170]
+		
+Observations		349
+R-squared		0.041
+Controls		None
+Robust standard errors in brackets		
+*** p<0.01, ** p<0.05, * p<0.1		
+Dependent variable: dv: Difficulties encountered when starting primary school.		

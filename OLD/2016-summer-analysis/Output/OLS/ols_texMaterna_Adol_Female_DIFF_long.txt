@@ -1,0 +1,37 @@
+		(1)
+VARIABLES	LABELS	
+		
+xmReggioReli	Reggio Reli Preschool	-0.268
+		[0.185]
+xmParmaMuni	Parma Muni Preschool	-401.204
+		[398.562]
+xmPadovaMuni	Padova Muni Preschool	186.289
+		[392.133]
+xmParmaStat	Parma Stat Preschool	-400.969
+		[398.544]
+xmPadovaStat	Padova Stat Preschool	185.303
+		[392.117]
+xmReggioStat	Reggio Stat Preschool	-0.064
+		[0.245]
+xmParmaReli	Parma Reli Preschool	-401.752
+		[398.618]
+xmPadovaReli	Padova Reli Preschool	185.892
+		[392.200]
+xmParmaPriv	Parma Priv Preschool	-401.238
+		[398.246]
+xmPadovaPriv	Padova Priv Preschool	185.473
+		[392.101]
+xmReggioPriv	Reggio Priv Preschool	-1.333
+		[0.887]
+xmParmaNone	Parma None Preschool	-402.141
+		[398.646]
+xmReggioNone	Reggio None Preschool	-1.636
+		[1.221]
+Constant	Constant	-252.780
+		[249.085]
+		
+Observations		366
+R-squared		0.410
+Controls		Inter
+Robust standard errors in brackets		
+*** p<0.01, ** p<0.05, * p<0.1		

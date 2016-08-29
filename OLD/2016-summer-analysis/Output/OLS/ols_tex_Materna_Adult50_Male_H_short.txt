@@ -1,0 +1,28 @@
+		(1)	(2)	(3)
+VARIABLES	LABELS			
+				
+xmReggioNone	Reggio None Preschool	0.014	0.250	0.259
+		[0.206]	[0.233]	[0.259]
+xmReggioSome	Reggio other preschool	0.020	0.196	0.186
+		[0.230]	[0.241]	[0.261]
+xmParmaMuni	Parma Muni Preschool	-0.333*	0.657*	-55.363
+		[0.197]	[0.348]	[116.216]
+xmPadovaMuni	Padova Muni Preschool	0.167	0.621*	-50.280
+		[0.288]	[0.366]	[91.250]
+xmParmaSome	Parma other preschool	0.042	0.845***	-55.184
+		[0.264]	[0.265]	[116.217]
+xmPadovaSome	Padova other preschool	-0.111	0.135	-50.705
+		[0.214]	[0.293]	[91.247]
+xmParmaNone	Parma None Preschool	-0.064	0.718**	-55.509
+		[0.216]	[0.322]	[116.217]
+xmPadovaNone	Padova None Preschool	-0.111	0.173	-50.629
+		[0.214]	[0.296]	[91.248]
+Constant	Constant	0.333*	-1.661	19.207
+		[0.197]	[39.031]	[75.753]
+				
+Observations		188	188	188
+R-squared		0.026	0.295	0.440
+Controls		None	All	Inter
+Robust standard errors in brackets				
+*** p<0.01, ** p<0.05, * p<0.1				
+Dependent variable: Respondent health is good (%).				

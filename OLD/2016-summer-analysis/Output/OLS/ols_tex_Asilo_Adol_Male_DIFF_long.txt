@@ -1,0 +1,32 @@
+		(1)	(2)	(3)
+VARIABLES	LABELS			
+				
+xaReggioNone	Reggio None ITC	-0.183	-0.256	-0.287
+		[0.222]	[0.252]	[0.289]
+xaReggioReli	Reggio Reli ITC	0.358***	0.267	0.491
+		[0.136]	[0.333]	[0.394]
+xaParmaMuni	Parma Muni ITC	-0.508*	-0.783**	371.721
+		[0.299]	[0.396]	[476.146]
+xaPadovaMuni	Padova Muni ITC	-0.869**	-0.866	-139.382
+		[0.384]	[0.569]	[573.211]
+xaParmaReli	Parma Reli ITC	0.192	0.292	372.484
+		[0.206]	[0.434]	[476.031]
+xaPadovaReli	Padova Reli ITC	-0.975	-0.490	-138.567
+		[1.118]	[1.060]	[573.101]
+xaParmaPriv	Parma Priv ITC	-0.442	-0.661	371.703
+		[0.742]	[0.778]	[475.971]
+xaReggioPriv	Reggio Priv ITC	0.358***	0.189	0.134
+		[0.136]	[0.417]	[0.582]
+xaParmaNone	Parma None ITC	-0.067	-0.289	372.240
+		[0.223]	[0.335]	[476.125]
+xaPadovaNone	Padova None ITC	-0.442**	-0.314	-138.848
+		[0.214]	[0.478]	[573.054]
+Constant	Constant	4.642***	153.377	133.337
+		[0.136]	[218.008]	[297.659]
+				
+Observations		292	292	292
+R-squared		0.045	0.225	0.365
+Controls		None	All	Inter
+Robust standard errors in brackets				
+*** p<0.01, ** p<0.05, * p<0.1				
+Dependent variable: dv: Difficulties encountered when starting primary school.				

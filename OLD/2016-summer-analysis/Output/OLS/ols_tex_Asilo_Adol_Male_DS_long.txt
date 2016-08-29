@@ -1,0 +1,32 @@
+		(1)	(2)	(3)
+VARIABLES	LABELS			
+				
+xaReggioNone	Reggio None ITC	0.025	0.060	0.086
+		[0.045]	[0.052]	[0.059]
+xaReggioReli	Reggio Reli ITC	-0.038	-0.045	0.008
+		[0.027]	[0.077]	[0.059]
+xaParmaMuni	Parma Muni ITC	0.096	0.163*	4.065
+		[0.069]	[0.094]	[103.174]
+xaPadovaMuni	Padova Muni ITC	0.144	0.053	50.834
+		[0.088]	[0.134]	[119.180]
+xaParmaReli	Parma Reli ITC	-0.038	-0.052	3.881
+		[0.027]	[0.107]	[103.154]
+xaPadovaReli	Padova Reli ITC	0.296	0.179	50.913
+		[0.279]	[0.216]	[119.149]
+xaParmaPriv	Parma Priv ITC	0.162	0.219	4.118
+		[0.184]	[0.195]	[103.125]
+xaReggioPriv	Reggio Priv ITC	-0.038	0.002	0.132
+		[0.027]	[0.092]	[0.083]
+xaParmaNone	Parma None ITC	0.037	0.078	3.947
+		[0.050]	[0.077]	[103.165]
+xaPadovaNone	Padova None ITC	0.087*	-0.041	50.774
+		[0.046]	[0.095]	[119.145]
+Constant	Constant	0.038	-46.499	-88.533*
+		[0.027]	[46.833]	[52.904]
+				
+Observations		292	292	292
+R-squared		0.033	0.219	0.348
+Controls		None	All	Inter
+Robust standard errors in brackets				
+*** p<0.01, ** p<0.05, * p<0.1				
+Dependent variable: Ability to sit still in a group when asked (difficulties in primary school).				

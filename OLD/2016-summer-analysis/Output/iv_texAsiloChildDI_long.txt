@@ -1,0 +1,39 @@
+		(1)	(2)	(3)	(4)	(5)	(6)
+VARIABLES	LABELS						
+							
+ReggioAsilo	RCH infant-toddler				0.030	-0.060	-0.138
+					[0.280]	[0.160]	[0.298]
+xaReggioNone	Reggio None ITC	0.042*	0.044*	0.030	0.055	-0.019	-0.083
+		[0.025]	[0.026]	[0.024]	[0.223]	[0.122]	[0.240]
+xaReggioReli	Reggio Reli ITC	0.023	0.013	-0.005			
+		[0.038]	[0.036]	[0.035]			
+xaParmaMuni	Parma Muni ITC	0.048**	0.089**	-0.926	-1.002	-0.713	-0.462
+		[0.024]	[0.040]	[5.109]	[4.894]	[4.826]	[4.963]
+xaPadovaMuni	Padova Muni ITC	0.079*	0.120**	4.579	4.504	4.792	5.043
+		[0.041]	[0.058]	[6.658]	[6.292]	[6.236]	[6.384]
+Male	Male dummy		0.029*	0.005	0.005	0.006	0.007
+			[0.015]	[0.021]	[0.019]	[0.020]	[0.020]
+xaParmaReli	Parma Reli ITC	-0.014	0.044	-1.012	-1.088	-0.799	-0.548
+		[0.010]	[0.035]	[5.115]	[4.899]	[4.832]	[4.967]
+xaPadovaReli	Padova Reli ITC	0.029	0.037	4.483	4.408	4.696	4.947
+		[0.044]	[0.054]	[6.639]	[6.275]	[6.219]	[6.367]
+xaParmaPriv	Parma Priv ITC	-0.014	0.039	-0.970	-1.046	-0.757	-0.506
+		[0.010]	[0.025]	[5.114]	[4.898]	[4.830]	[4.967]
+xaPadovaPriv	Padova Priv ITC	-0.014	0.028	4.495	4.420	4.709	4.960
+		[0.010]	[0.052]	[6.658]	[6.292]	[6.236]	[6.384]
+xaReggioPriv	Reggio Priv ITC	-0.014	-0.007	-0.003	0.023	-0.055	-0.124
+		[0.010]	[0.022]	[0.025]	[0.247]	[0.147]	[0.266]
+xaParmaNone	Parma None ITC	0.053*	0.093**	-0.922	-0.997	-0.708	-0.457
+		[0.029]	[0.038]	[5.110]	[4.894]	[4.826]	[4.964]
+xaPadovaNone	Padova None ITC	0.032	0.086*	4.555	4.479	4.768	5.019
+		[0.021]	[0.051]	[6.651]	[6.286]	[6.230]	[6.378]
+Constant	Constant	0.014	-1.869	-2.310	-2.235	-2.524	-2.774
+		[0.010]	[2.532]	[2.590]	[2.701]	[2.585]	[2.857]
+							
+Observations		770	770	770	770	770	770
+R-squared		0.015	0.094	0.135	0.134	0.132	0.122
+Controls		None	All	Inter			
+IV					distance	distXsib	dist score
+Robust standard errors in brackets							
+*** p<0.01, ** p<0.05, * p<0.1							
+Dependent variable: Lack of excitement to learn (difficulties in primary school).							

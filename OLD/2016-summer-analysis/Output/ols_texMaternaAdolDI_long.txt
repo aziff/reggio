@@ -1,0 +1,38 @@
+		(1)
+VARIABLES	LABELS	
+		
+xmReggioReli	Reggio Reli Preschool	0.013
+		[0.034]
+xmParmaMuni	Parma Muni Preschool	-0.010
+		[0.027]
+xmPadovaMuni	Padova Muni Preschool	-0.027
+		[0.019]
+xmParmaStat	Parma Stat Preschool	-0.027
+		[0.019]
+xmPadovaStat	Padova Stat Preschool	-0.027
+		[0.019]
+xmReggioStat	Reggio Stat Preschool	-0.027
+		[0.019]
+xmParmaReli	Parma Reli Preschool	-0.027
+		[0.019]
+xmPadovaReli	Padova Reli Preschool	0.008
+		[0.032]
+xmParmaPriv	Parma Priv Preschool	-0.027
+		[0.019]
+xmPadovaPriv	Padova Priv Preschool	-0.027
+		[0.019]
+xmReggioPriv	Reggio Priv Preschool	-0.027
+		[0.019]
+xmParmaNone	Parma None Preschool	0.973***
+		[0.019]
+xmReggioNone	Reggio None Preschool	-0.027
+		[0.019]
+Constant	Constant	0.027
+		[0.019]
+		
+Observations		366
+R-squared		0.134
+Controls		None
+Robust standard errors in brackets		
+*** p<0.01, ** p<0.05, * p<0.1		
+Dependent variable: Lack of excitement to learn (difficulties in primary school).		

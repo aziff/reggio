@@ -1,0 +1,28 @@
+		(1)
+VARIABLES	LABELS	
+		
+xaReggioSome	Reggio other ITC	-0.153
+		[0.133]
+xaParmaMuni	Parma Muni ITC	0.053
+		[0.070]
+xaPadovaMuni	Padova Muni ITC	-0.278**
+		[0.114]
+xaParmaSome	Parma other ITC	0.114
+		[0.082]
+xaPadovaSome	Padova other ITC	-0.248**
+		[0.120]
+xaParmaNone	Parma None ITC	0.030
+		[0.076]
+xaPadovaNone	Padova None ITC	-0.077
+		[0.073]
+xaReggioNone	Reggio None ITC	-0.089
+		[0.080]
+Constant	Constant	0.820***
+		[0.050]
+		
+Observations		345
+R-squared		0.059
+Controls		None
+Robust standard errors in brackets		
+*** p<0.01, ** p<0.05, * p<0.1		
+Dependent variable: Child likes school (%).		
