@@ -23,3 +23,7 @@
   
   - Outputs for each script should be stored in the corresponding subfolder in "reggio/output"
     For example, outputs for IV analysis should be stored in "reggio/output/iv" folder. 
+
+  - "function" folder in each subfolder for methodology stores functions programmed to do corresponding analysis.
+    For example, "diffindiff.do" inside "reggio/scripts/diff-in-diff/function" is the function for the diff-in-diff-in-diff
+	for Reggio analysis. This function will be brought in do files that execute the diff-in-diff analysis.

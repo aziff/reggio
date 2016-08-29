@@ -2,34 +2,41 @@
 * Programming a function for the Diff-in-Diff for Reggio analysis
 * Author: Jessica Yu Kyung Koh
 * Edited: 08/29/2016
+
 * Note: This function performs a diff-in-diff analysis and creates tables
-         for each outcome category. The outcome variables are listed in the table
-		 in each row. Note that esttab command usually stores each outcome in 
-		 each column of the table. Hence, the purpose of this program is to transpose
-		 that format. 
+        for each outcome category. The outcome variables are listed in the table
+		in each row. Note that esttab command usually stores each outcome in 
+		each column of the table. Hence, the purpose of this program is to transpose
+		that format. 
+		
+* Options: 
+	- type(string)
+	- ifcondition(string)
+	- comparison(string)
+	- keep(varlist)
+	
 * ---------------------------------------------------------------------------- */
 
 capture program drop diffindiff
 capture program define diffindiff
 
-version13
-syntax, type(string) ifcondition(string) comparison(string) keep(string)
+version 13
+syntax, type(string) ifcondition(string) comparison(string) keep(varlist)
 
 	* Create a local for the label (Going to be filled out in the loop)
 	local coeflabel
 
 	* Loop through the outcomes in a category and store diff-in-diff results
-	foreach var in `adult_outcome_`"`type'"'' {		
-		di "adult outcomes: `adult_outcome_`type''"
-		sum `var' if `"`ifcondition'"'
+	foreach var in ${adult_outcome_`type'} {		
+		sum `var' if `ifcondition'
 		if r(N) > 0 {
-			eststo `var' : quietly reg `var' `X' `controls' if `"`ifcondition'"'
+			eststo `var' : quietly reg `var' ${X} ${controls} if `ifcondition'
 			local coeflabel `coeflabel' `var' "${`var'_lab}"
 		}
 	}	
 
 	* Store the initial results in the initial format (Output in each column) 
-	esttab, se nostar keep(`"`string'"')
+	esttab, se nostar keep(`keep')
 
 	matrix C = r(coefs)
 
