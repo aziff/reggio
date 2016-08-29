@@ -6,7 +6,7 @@
 
 * Note: This execution do file performs diff-in-diff estimates and generates tables
         by using "diffindiff" command that is programmed in 
-		"reggio/script/diff-in-diff/function/diffindiff.do"  
+		"reggio/script/did/function/diffindiff.do"  
 		To understand how the command is coded, please refer to the above do file.
 * --------------------------------------------------------------------------- */
 
