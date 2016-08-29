@@ -12,17 +12,23 @@ set more off
 set maxvar 32000
 
 * ---------------------------------------------------------------------------- *
-* Set directory
-/* 
-Note: In order to make this do file runable on other computers, 
+* Install command and set directory
+* ---------------------------------------------------------------------------- *
+/* Note: In order to make this do file runable on other computers, 
                   create an environment variable that points to the directory for Reggio.dta.
                   Those who want to use this code on their computers should set up 
                   environment variables named "klmReggio" for klmReggio 
                   and "data_reggio" for klmReggio/SURVEY_DATA_COLLECTION/data
-                  on their computers. 
-Note: Install the following commands: dummieslab, outreg2
-*/
+                  on their computers. */
 
+* Install the following commands: dummieslab, outreg2
+capture which dummieslab     			// Checks system for estout
+if _rc ssc install dummieslab  			// If not found, installs estout
+capture which outreg2					// Checks system for diff
+if _rc ssc install outreg2 				// CIf not found, installs diff
+
+
+* Set globals for directories
 global klmReggio   : env klmReggio
 global data_reggio : env data_reggio
 global git_reggio  : env git_reggio
@@ -31,9 +37,10 @@ cd "$data_reggio"
 
 use Reggio, clear
 
-//cd ${klmReggio}/Analysis/Output/
+
 * ---------------------------------------------------------------------------- *
 * Create locals and label variables
+* ---------------------------------------------------------------------------- *
 ** Categories
 local cities                          Reggio Parma Padova
 local school_types                    None Muni Stat Reli Priv
@@ -48,22 +55,21 @@ local potentialIV                    distAsilo*1 distAsilo*2 distMaterna*1 distM
                                      score score2 grand_city lone_parent numSibling 
 
 ** Variable labels
-label var ReggioMaterna         "RCH preschool"
-label var ReggioAsilo           "RCH infant-toddler"
+label var ReggioMaterna        		"RCH preschool"
+label var ReggioAsilo          		"RCH infant-toddler"
 
-label var CAPI                  "CAPI"
-label var Cohort_Adult30        "30 year olds"
-label var Cohort_Adult40        "40 year olds"
-label var Male                  "Male dummy"
-label var asilo_Attend          "Any infant-toddler center"
-label var asilo_Municipal       "Municipal infant-toddler center"
-label var materna_Municipal     "Municipal preschool"
-label var materna_Religious     "Religious preschool"
-label var materna_State         "State preschool"
-label var materna_Private       "Private preschool"
+label var CAPI                		"CAPI"
+label var Cohort_Adult30       		"30 year olds"
+label var Cohort_Adult40       		"40 year olds"
+label var asilo_Attend         		"Any infant-toddler center"
+label var asilo_Municipal      		"Municipal infant-toddler center"
+label var materna_Municipal    		"Municipal preschool"
+label var materna_Religious    		"Religious preschool"
+label var materna_State        		"State preschool"
+label var materna_Private      		"Private preschool"
 
-label var cgPA_HouseWife        "Caregiver Housewife"
-label var dadPA_Unempl          "Father Unemployed" 
+label var cgPA_HouseWife       		"Caregiver Housewife"
+label var dadPA_Unempl         		"Father Unemployed" 
 label var cgmStatus_div         "Caregiver Divorced"
 label var momHome06             "Mom Home at 6"
 label var numSiblings           "Num. Siblings"
@@ -73,7 +79,6 @@ label var MaxEdu_Uni            "University"
 
 label var momBornProvince       "Mom born in the province"
 label var dadBornProvince       "Dad born in the province"
-
 
 label var SDQ_score             "SDQ score (self rep.)"
 label var childSDQ_score        "SDQ score (mom rep.)"
@@ -87,9 +92,76 @@ label var Age_sq                "Age sq."
 label var lowbirthweight        "Low birthweight"
 label var birthpremature        "Premature"
 
+label var Male 					"Male indicator"
+label var momAgeBirth 			"Mother: age at birth"
+label var dadAgeBirth 			"Father: age at birth"
+label var momMaxEdu_low			"Mother max. edu.: less than middle school"
+label var momMaxEdu_middle  	"Mother max. edu.: middle school"
+label var momMaxEdu_HS 			"Mother max. edu.: high school"
+label var momMaxEdu_Uni 		"Mother max. edu.: university"
+label var dadMaxEdu_low			"Father max. edu.: less than middle school"
+label var dadMaxEdu_middle 		"Father max. edu.: middle school"
+label var dadMaxEdu_HS 			"Father max. edu.: high school"
+label var dadMaxEdu_Uni 		"Father max. edu.: university"
+label var momBornProvince 		"Mother: born in province"
+label var dadBornProvince 		"Father: born in province"
+label var cgRelig 				"Religious caregiver indicator"
+label var houseOwn 				"Home ownership indicator"
+label var cgReddito_1			"Income: 5,000 euros or less"
+label var cgReddito_2			"Income: 5,001-10,000 euros"
+label var cgReddito_3 			"Income: 10,001-25,000 euros"
+label var cgReddito_4 			"Income: 25,001-50,000 euros"
+label var cgReddito_5 			"Income: 50,001-100,000 euros"
+label var cgReddito_6 			"Income: 100,001-250,000 euros"
+label var cgReddito_7 			"Income: more than 250,000 euros"		
+label var lowbirthweight 		"Low birthweight"
+label var birthpremature		"Premature birth"
+label var childrenSibTot		"Number of siblings"
+label var yrCity				"Migrants: year entered city"
+label var ageCity				"Migrants: age entered city"
+label var cgMigrant				"Mother: born outside of Italy"
+
+label var mStatus_married_cohab "Married or Cohabitating"
+label var childrenResp			"Num. of Children in House"
+label var all_houseOwn			"Own House"
+label var live_parent			"Live With Parents"
+
+label var Maria					"Tried Marijuana"
+label var Smoke					"Smoker"
+label var Cig					"Num. of Cigarettes Per Day"
+label var BMI					"BMI"
+label var childBMI 				"BMI - child"
+label var childz_BMI 			"BMI z-score - child"
+label var cgBMI 				"Caregiver BMI"
+label var z_BMI					"BCMI z-score"
+label var Health				"Good Health"
+label var SickDays				"Num. of Days Sick Past Month"
+label var i_RiskDUI				"Drove Under Influence "
+label var i_RiskFight			"Engaged in A Fight "
+label var RiskSuspended			"Ever Suspended from School"
+label var Drink1Age				"Age At First Drink"
+
+label var LocusControl			"Locus of Control"
+label var Depression_score		"Depression Score"
+label var pos_LocusControl		"Locus of Control - Positive"
+label var pos_Depression_score	"Depression Score - Positive"
+label var binSatisIncome		"Satisfied with Income"
+label var binSatisWork			"Satisfied with Work"
+label var binSatisHealth 		"Satisfied with Health"
+label var binSatisFamily		"Satisfied with Family"
+label var optimist				"Optimistic Look on Life"
+label var reciprocity1bin		"Return a Favor"
+label var reciprocity2bin		"Put Someone in Difficulty"
+label var reciprocity3bin		"Help Someone Who is Kind To Me"
+label var reciprocity4bin 		"Would Insult Someone Back"
+
+label var MigrTaste				"Favorable to Migrants"
+label var Friends				"Number of Friends"
+label var MigrFriend			"Has Migrant Friends"
+
 
 * ---------------------------------------------------------------------------- *
-* Create some variables for the regressions (maybe some of this should be in the cleaning do files)
+* Create some variables for the regressions 
 * ---------------------------------------------------------------------------- *
 * Create ParmaAsilo, ParmaMaterna, PadovaAsilo, PadovaMaterna
 
@@ -157,8 +229,10 @@ replace otherSib = 1 if childrenSibTot>0 & childrenSibTot<.
 replace otherSib = 0 if otherSib == . 
 tab Cohort otherSib, row
 
+
 * ---------------------------------------------------------------------------- *
 ** Dummy variables for zipcode fixed effects
+* ---------------------------------------------------------------------------- *
 dummieslab Postal
 //drop one big postal code for each city to avoid multicollinearity
 tab Postal if City==1
@@ -223,8 +297,11 @@ foreach var in lowbirthweight birthpremature momAgeBirth dadAgeBirth {
       replace `var' = 0 if (Cohort == 4 | Cohort == 5 | Cohort == 6) & (`var' == .)
 }
 
+
+
 * ---------------------------------------------------------------------------- *
 * Fix missing value problems for controls
+* ---------------------------------------------------------------------------- *
 
 ** Replace missing with zeros and put missing variable
 foreach parent in mom dad {
@@ -241,8 +318,10 @@ foreach var in momBornProvince dadBornProvince cgRelig houseOwn lowbirthweight b
 }
 
 
+
 * ---------------------------------------------------------------------------- *
 ** Create dummy for school types
+* ---------------------------------------------------------------------------- *
 generate maternaNone = (maternaType == 0)
 generate maternaMuni = (maternaType == 1)
 generate maternaStat = (maternaType == 2)
@@ -265,9 +344,10 @@ foreach type in None Muni Stat Reli Priv Yes {
 }
 
 
+
 * ---------------------------------------------------------------------------- *
 * Add variables that researchers are specifically interested in
-
+* ---------------------------------------------------------------------------- *
 *-* Adding variables
 // married and cohabiting
 gen mStatus_married_cohab = (mStatus_married == 1) | (mStatus_cohab == 1)

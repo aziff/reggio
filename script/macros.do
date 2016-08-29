@@ -172,95 +172,25 @@ global pos_SDQHype_score_lab			SDQ Hyper
 global pos_SDQPeer_score_lab			SDQ Peer problems
 global pos_SDQPsoc_score_lab			SDQ Pro-social
 
-global pos_childSDQ_score_lab		SDQ Composite - Child
-global pos_childSDQEmot_score_lab	SDQ Emotional - Child
-global pos_childSDQCond_score_lab	SDQ Conduct - Child
-global pos_childSDQHype_score_lab	SDQ Hyper - Child
-global pos_childSDQPeer_score_lab	SDQ Peer problems - Child
-global pos_childSDQPsoc_score_lab	SDQ Pro-social - Child
+global pos_childSDQ_score_lab			SDQ Composite - Child
+global pos_childSDQEmot_score_lab		SDQ Emotional - Child
+global pos_childSDQCond_score_lab		SDQ Conduct - Child
+global pos_childSDQHype_score_lab		SDQ Hyper - Child
+global pos_childSDQPeer_score_lab		SDQ Peer problems - Child
+global pos_childSDQPsoc_score_lab		SDQ Pro-social - Child
 
-global distAsiloMunicipal1_lab		Closest Municipal Asilo
-global distAsiloMunicipal2_lab		2nd-closest Municipal Asilo
-global distAsiloPrivate1_lab		Closest Private Asilo
-global distAsiloPrivate2_lab		2nd-closest Private Asilo
-global distAsiloReligious1_lab		Closest Religious Asilo
-global distAsiloReligious2_lab		2nd-closest Religious Asilo
+global distAsiloMunicipal1_lab			Closest Municipal Asilo
+global distAsiloMunicipal2_lab			2nd-closest Municipal Asilo
+global distAsiloPrivate1_lab			Closest Private Asilo
+global distAsiloPrivate2_lab			2nd-closest Private Asilo
+global distAsiloReligious1_lab			Closest Religious Asilo
+global distAsiloReligious2_lab			2nd-closest Religious Asilo
 
 global distMaternaMunicipal1_lab		Closest Municipal Materna
 global distMaternaMunicipal2_lab		2nd-closest Municipal Materna
-global distMaternaState1_lab		Closest State Materna
-global distMaternaState2_lab		2nd-closest State Materna
-global distMaternaPrivate1_lab		Closest Private Materna
-global distMaternaPrivate2_lab		2nd-closest Private Materna
+global distMaternaState1_lab			Closest State Materna
+global distMaternaState2_lab			2nd-closest State Materna
+global distMaternaPrivate1_lab			Closest Private Materna
+global distMaternaPrivate2_lab			2nd-closest Private Materna
 global distMaternaReligious1_lab		Closest Religious Materna
 global distMaternaReligious2_lab		2nd-closest Religious Materna									
-
-
-
-** Relabeling variables
-label var Male 					"Male indicator"
-label var momAgeBirth 			"Mother: age at birth"
-label var dadAgeBirth 			"Father: age at birth"
-label var momMaxEdu_low			"Mother max. edu.: less than middle school"
-label var momMaxEdu_middle  	"Mother max. edu.: middle school"
-label var momMaxEdu_HS 			"Mother max. edu.: high school"
-label var momMaxEdu_Uni 		"Mother max. edu.: university"
-label var dadMaxEdu_low			"Father max. edu.: less than middle school"
-label var dadMaxEdu_middle 		"Father max. edu.: middle school"
-label var dadMaxEdu_HS 			"Father max. edu.: high school"
-label var dadMaxEdu_Uni 		"Father max. edu.: university"
-label var momBornProvince 		"Mother: born in province"
-label var dadBornProvince 		"Father: born in province"
-label var cgRelig 				"Religious caregiver indicator"
-label var houseOwn 				"Home ownership indicator"
-label var cgReddito_1			"Income: 5,000 euros or less"
-label var cgReddito_2			"Income: 5,001-10,000 euros"
-label var cgReddito_3 			"Income: 10,001-25,000 euros"
-label var cgReddito_4 			"Income: 25,001-50,000 euros"
-label var cgReddito_5 			"Income: 50,001-100,000 euros"
-label var cgReddito_6 			"Income: 100,001-250,000 euros"
-label var cgReddito_7 			"Income: more than 250,000 euros"		
-label var lowbirthweight 		"Low birthweight"
-label var birthpremature		"Premature birth"
-label var childrenSibTot		"Number of siblings"
-label var yrCity				"Migrants: year entered city"
-label var ageCity				"Migrants: age entered city"
-label var cgMigrant				"Mother: born outside of Italy"
-
-label var mStatus_married_cohab "Married or Cohabitating"
-label var childrenResp			"Num. of Children in House"
-label var all_houseOwn			"Own House"
-label var live_parent			"Live With Parents"
-
-label var Maria					"Tried Marijuana"
-label var Smoke					"Smoker"
-label var Cig					"Num. of Cigarettes Per Day"
-label var BMI					"BMI"
-label var childBMI 				"BMI - child"
-label var childz_BMI 			"BMI z-score - child"
-label var cgBMI 				"Caregiver BMI"
-label var z_BMI					"BCMI z-score"
-label var Health				"Good Health"
-label var SickDays				"Num. of Days Sick Past Month"
-label var i_RiskDUI				"Drove Under Influence "
-label var i_RiskFight			"Engaged in A Fight "
-label var RiskSuspended			"Ever Suspended from School"
-label var Drink1Age				"Age At First Drink"
-
-label var LocusControl			"Locus of Control"
-label var Depression_score		"Depression Score"
-label var pos_LocusControl		"Locus of Control - Positive"
-label var pos_Depression_score	"Depression Score - Positive"
-label var binSatisIncome		"Satisfied with Income"
-label var binSatisWork			"Satisfied with Work"
-label var binSatisHealth 		"Satisfied with Health"
-label var binSatisFamily		"Satisfied with Family"
-label var optimist				"Optimistic Look on Life"
-label var reciprocity1bin		"Return a Favor"
-label var reciprocity2bin		"Put Someone in Difficulty"
-label var reciprocity3bin		"Help Someone Who is Kind To Me"
-label var reciprocity4bin 		"Would Insult Someone Back"
-
-label var MigrTaste				"Favorable to Migrants"
-label var Friends				"Number of Friends"
-label var MigrFriend			"Has Migrant Friends"
