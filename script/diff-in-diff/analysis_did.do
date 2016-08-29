@@ -47,7 +47,7 @@ global ifcondition 			Padova == 1 & (maternaMuni == 1 | maternaReli ==1)
 
 foreach type in E W L H N S R {
 
-	diffindiff, type("`type'") ifcondition("${ifcondition}") comparison("${comparison}") keep(Cohort_Adult30 maternaReli xmReliAdult30)
+	diffindiff, type("`type'") ifcondition("${ifcondition}") comparison("${comparison}") keep(${X})
 
 }
 
