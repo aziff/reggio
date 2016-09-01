@@ -1,0 +1,28 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\hline\hline
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+            &\multicolumn{1}{c}{None40}&\multicolumn{1}{c}{Reli40}&\multicolumn{1}{c}{Priv40}&\multicolumn{1}{c}{Stat40}\\
+\hline
+IQ Factor   &      0.0126         &     -0.0209         &       0.339         &      -0.188         \\
+            &    (0.0864)         &    (0.0981)         &     (0.516)         &     (0.122)         \\
+[1em]
+High School Grade&      -1.268         &       3.912         &       7.299         &       0.488         \\
+            &     (2.150)         &     (2.409)         &     (12.03)         &     (3.285)         \\
+[1em]
+University Grade&      -5.026\sym{*}  &       1.930         &      -4.270         &      -0.179         \\
+            &     (2.299)         &     (2.089)         &     (7.259)         &     (2.800)         \\
+[1em]
+Graduate from High School&     -0.0148         &      0.0125         &     -0.0294         &      -0.158         \\
+            &    (0.0577)         &    (0.0655)         &     (0.344)         &    (0.0813)         \\
+[1em]
+Max Edu: University&      -0.223\sym{**} &     -0.0774         &       0.335         &      0.0119         \\
+            &    (0.0693)         &    (0.0787)         &     (0.414)         &    (0.0977)         \\
+[1em]
+Max Edu: Graduate School&     -0.0710\sym{*}  &     -0.0629         &      -0.125         &     -0.0315         \\
+            &    (0.0311)         &    (0.0354)         &     (0.186)         &    (0.0439)         \\
+\hline\hline
+\multicolumn{5}{l}{\footnotesize \specialcell{\underline{Note:} This table shows the OLS estimates for age-40 cohort in Parma. \\                                                                         Standard errors are reported in parenthesis. Stars show statistical significance as follows: \\                                                                         * p < 0.05, ** p < 0.01, *** p < 0.001.}}\\
+\end{tabular}
+}

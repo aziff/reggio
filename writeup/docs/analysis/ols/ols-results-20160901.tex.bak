@@ -1,0 +1,75 @@
+\input{../../auxiliary/preamble}
+
+\begin{document}
+
+\title{Preliminary OLS Results for the Adult Cohort}
+\author{Reggio Team}
+\date{Current version: \today \\ \vspace{1em} Time: \currenttime}
+\maketitle
+
+
+\doublespacing
+
+\section{Education}
+\begin{table}[H]
+\begin{center}
+	\caption{OLS Result for Cognitive and Education, Reggio vs. Other Cities} \label{tab:rvsother_E}
+		\input{../../../../output/ols/ols-reggiovsall-E.tex}
+\end{center}
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{OLS Result for Cognitive and Education, Preschool vs. No Preschool, Age 50} \label{tab:yesvsno50_E}
+		\input{../../../../output/ols/ols-yesvsno50-E.tex}
+\end{center}
+\end{table}
+
+
+\begin{table}[H]
+\begin{center}
+	\caption{OLS Result for Cognitive and Education, Reggio Age-30 Cohort} \label{tab:reggio30_E}
+		\input{../../../../output/ols/ols-reggio30-E.tex}
+\end{center}
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{OLS Result for Cognitive and Education, Reggio Age-40 Cohort} \label{tab:reggio40_E}
+		\input{../../../../output/ols/ols-reggio40-E.tex}
+\end{center}
+\end{table}
+
+
+\begin{table}[H]
+\begin{center}
+	\caption{OLS Result for Cognitive and Education, Parma Age-30 Cohort} \label{tab:parma30_E}
+		\input{../../../../output/ols/ols-parma30-E.tex}
+\end{center}
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{OLS Result for Cognitive and Education, Parma Age-40 Cohort} \label{tab:parma40_E}
+		\input{../../../../output/ols/ols-parma40-E.tex}
+\end{center}
+\end{table}
+
+
+\begin{table}[H]
+\begin{center}
+	\caption{OLS Result for Cognitive and Education, Padova Age-30 Cohort} \label{tab:padova30_E}
+		\input{../../../../output/ols/ols-padova30-E.tex}
+\end{center}
+\end{table}
+
+\begin{table}[H]
+\begin{center}
+	\caption{OLS Result for Cognitive and Education, Padova Age-40 Cohort} \label{tab:padova40_E}
+		\input{../../../../output/ols/ols-padova40-E.tex}
+\end{center}
+\end{table}
+
+
+
+\end{document}

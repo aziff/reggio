@@ -1,0 +1,43 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\hline\hline
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+            &\multicolumn{1}{c}{None40}&\multicolumn{1}{c}{Reli40}&\multicolumn{1}{c}{Priv40}&\multicolumn{1}{c}{Stat40}\\
+\hline
+Employed    &     0.00354         &     0.00242         &      0.0327         &     -0.0401         \\
+            &    (0.0414)         &    (0.0470)         &     (0.247)         &    (0.0583)         \\
+[1em]
+Self-Employed&     -0.0103         &     0.00329         &      -0.164         &     -0.0659         \\
+            &    (0.0560)         &    (0.0635)         &     (0.334)         &    (0.0789)         \\
+[1em]
+Hours Worked Per Week&      -0.865         &     0.00872         &       0.916         &      -0.285         \\
+            &     (1.156)         &     (1.326)         &     (6.546)         &     (1.728)         \\
+[1em]
+Monthly Wage&       348.2         &       240.5         &           0         &       108.7         \\
+            &     (584.6)         &     (562.8)         &         (.)         &     (648.6)         \\
+[1em]
+H. Income: 5,000 Euros of Less&     0.00948         &    -0.00688         &     -0.0564         &      0.0300         \\
+            &    (0.0147)         &    (0.0167)         &    (0.0880)         &    (0.0208)         \\
+[1em]
+H. Income: 5,001-10,000 Euros&      0.0105         &    -0.00621         &     0.00458         &    -0.00695         \\
+            &    (0.0156)         &    (0.0177)         &    (0.0930)         &    (0.0220)         \\
+[1em]
+H. Income: 10,001-25,000 Euros&       0.209\sym{**} &       0.101         &      -0.103         &       0.323\sym{**} \\
+            &    (0.0790)         &    (0.0897)         &     (0.471)         &     (0.111)         \\
+[1em]
+H. Income: 25,001-50,000 Euros&     -0.0894         &      0.0912         &       0.387         &      -0.261\sym{*}  \\
+            &    (0.0826)         &    (0.0938)         &     (0.493)         &     (0.116)         \\
+[1em]
+H. Income: 50,001-100,000 Euros&     -0.0976\sym{*}  &      -0.132\sym{**} &      -0.170         &     -0.0921         \\
+            &    (0.0418)         &    (0.0475)         &     (0.250)         &    (0.0590)         \\
+[1em]
+H. Income: 100,001-250,000 Euros&     -0.0420\sym{*}  &     -0.0477\sym{*}  &     -0.0621         &     0.00720         \\
+            &    (0.0188)         &    (0.0213)         &     (0.112)         &    (0.0264)         \\
+[1em]
+H. Income: More than 250,000 Euros&           0         &           0         &           0         &           0         \\
+            &         (.)         &         (.)         &         (.)         &         (.)         \\
+\hline\hline
+\multicolumn{5}{l}{\footnotesize \specialcell{\underline{Note:} This table shows the OLS estimates for age-40 cohort in Parma. \\                                                                         Standard errors are reported in parenthesis. Stars show statistical significance as follows: \\                                                                         * p < 0.05, ** p < 0.01, *** p < 0.001.}}\\
+\end{tabular}
+}

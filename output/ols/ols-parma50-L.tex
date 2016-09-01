@@ -1,0 +1,25 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\hline\hline
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+            &\multicolumn{1}{c}{None50}&\multicolumn{1}{c}{Reli50}&\multicolumn{1}{c}{Priv50}&\multicolumn{1}{c}{Stat50}\\
+\hline
+Married or Cohabitating&      -0.234         &     -0.0479         &           0         &     -0.0721         \\
+            &     (0.154)         &     (0.193)         &         (.)         &     (0.205)         \\
+[1em]
+mStatus\_div &      0.0852         &     -0.0327         &           0         &     -0.0788         \\
+            &     (0.129)         &     (0.160)         &         (.)         &     (0.171)         \\
+[1em]
+Num. of Children in House&      -0.325         &      -0.541         &           0         &      -0.413         \\
+            &     (0.237)         &     (0.295)         &         (.)         &     (0.315)         \\
+[1em]
+Own House   &      -0.241\sym{*}  &      -0.301\sym{*}  &           0         &     -0.0641         \\
+            &     (0.115)         &     (0.144)         &         (.)         &     (0.154)         \\
+[1em]
+Live With Parents&    -0.00529         &    -0.00359         &           0         &       0.144\sym{**} \\
+            &    (0.0356)         &    (0.0444)         &         (.)         &    (0.0474)         \\
+\hline\hline
+\multicolumn{5}{l}{\footnotesize \specialcell{\underline{Note:} This table shows the OLS estimates for age-50 cohort in Parma. \\                                                                         Standard errors are reported in parenthesis. Stars show statistical significance as follows: \\                                                                         * p < 0.05, ** p < 0.01, *** p < 0.001.}}\\
+\end{tabular}
+}

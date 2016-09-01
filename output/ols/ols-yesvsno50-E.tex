@@ -1,0 +1,28 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{3}{c}}
+\hline\hline
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
+            &\multicolumn{1}{c}{MaternaReggio}&\multicolumn{1}{c}{MaternaParma}&\multicolumn{1}{c}{MaternaPadova}\\
+\hline
+IQ Factor   &     -0.0420         &     -0.0630         &      0.0168         \\
+            &    (0.0592)         &     (0.136)         &    (0.0811)         \\
+[1em]
+High School Grade&      -0.193         &      -7.440         &      -4.784         \\
+            &     (1.836)         &     (4.411)         &     (3.271)         \\
+[1em]
+University Grade&       13.14         &      10.000         &      -1.817         \\
+            &     (7.268)         &         (.)         &     (3.355)         \\
+[1em]
+Graduate from High School&       0.155\sym{*}  &      -0.105         &     0.00765         \\
+            &    (0.0730)         &     (0.109)         &    (0.0808)         \\
+[1em]
+Max Edu: University&       0.125\sym{*}  &      0.0176         &     0.00905         \\
+            &    (0.0564)         &    (0.0750)         &    (0.0687)         \\
+[1em]
+Max Edu: Graduate School&           0         &           0         &      0.0207         \\
+            &         (.)         &         (.)         &    (0.0365)         \\
+\hline\hline
+\multicolumn{4}{l}{\footnotesize \specialcell{\underline{Note:} This table shows the OLS estimates for Preschool vs. No Preschool for age-50 cohort for each city \\ specified by each column. Estimation for each column is restricted to the corresponding city. \\                                                                         Standard errors are reported in parenthesis. Stars show statistical significance as follows: \\                                                                         * p < 0.05, ** p < 0.01, *** p < 0.001.}}\\
+\end{tabular}
+}

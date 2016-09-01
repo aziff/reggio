@@ -1,0 +1,34 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\hline\hline
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
+            &\multicolumn{1}{c}{None50}&\multicolumn{1}{c}{Reli50}&\multicolumn{1}{c}{Priv50}&\multicolumn{1}{c}{Stat50}\\
+\hline
+MigrTaste   &      -0.217         &      -0.258         &      -0.513         &      -0.250         \\
+            &     (0.218)         &     (0.241)         &     (0.525)         &     (0.302)         \\
+[1em]
+Number of Friends&      -1.345         &      -1.725         &      -2.522         &       2.577         \\
+            &     (1.214)         &     (1.357)         &     (3.021)         &     (1.709)         \\
+[1em]
+Has Migrant Friends&       0.121         &       0.229         &       0.351         &      0.0344         \\
+            &     (0.144)         &     (0.160)         &     (0.359)         &     (0.203)         \\
+[1em]
+volunteer   &       0.205         &      0.0615         &       0.569         &      0.0652         \\
+            &     (0.136)         &     (0.151)         &     (0.338)         &     (0.191)         \\
+[1em]
+invFamMeal  &      -0.419         &      -0.260         &      -0.286         &       0.169         \\
+            &     (0.352)         &     (0.362)         &     (0.574)         &     (0.387)         \\
+[1em]
+votedMunicipal&      -0.175         &      -0.145         &       0.136         &      -0.400\sym{**} \\
+            &     (0.102)         &     (0.113)         &     (0.254)         &     (0.144)         \\
+[1em]
+votedRegional&      -0.176         &     -0.0686         &       0.113         &      -0.298\sym{*}  \\
+            &     (0.103)         &     (0.115)         &     (0.257)         &     (0.145)         \\
+[1em]
+votedNational&      -0.117         &      -0.272\sym{*}  &       0.146         &      -0.249         \\
+            &     (0.122)         &     (0.136)         &     (0.304)         &     (0.172)         \\
+\hline\hline
+\multicolumn{5}{l}{\footnotesize \specialcell{\underline{Note:} This table shows the OLS estimates for age-50 cohort in Reggio. \\                                                                         Standard errors are reported in parenthesis. Stars show statistical significance as follows: \\                                                                         * p < 0.05, ** p < 0.01, *** p < 0.001.}}\\
+\end{tabular}
+}

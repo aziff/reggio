@@ -1,7 +1,7 @@
 /* ---------------------------------------------------------------------------- *
 * Programming a function for the OLS for Reggio analysis
 * Author: Jessica Yu Kyung Koh
-* Edited: 08/29/2016
+* Edited: 09/01/2016
 
 * Note: This function performs OLS analysis and creates tables
         for each outcome category. The outcome variables are listed in the table
@@ -16,10 +16,10 @@
 		variable called "adult_outcome_E" in macros.do. This option types in "E" in order to
 		capture the education category for adult outcome variables. 
 		
-	- ifcondition(string)
-	  : This ifcondition limits the sample to the ones that are used in the diff-in-diff analysis.
-	    For example, if we want to do diff-in-diff between Religious schools and Municipal schools in Padova,
-		the ifcondition should be "Padova == 1 & (maternaMuni == 1 | maternaReli ==1)"
+	- agelist(string)
+	  : This shows the list of the ages that are to be added up in the columns of the tables.
+	    For example, the regression results for Reggio vs. Other Cities for each age cohort will be
+		presented by each column in the table.
 	  
 	- usegroup(string)
 	  : This option is defined in order to name the tex file of the output. 
@@ -33,7 +33,7 @@ capture program drop olsestimate
 capture program define olsestimate
 
 version 13
-syntax, type(string) ifcondition(string) usegroup(string) keep(varlist)
+syntax, type(string) agelist(string) usegroup(string) keep(varlist)
 	
 	
 	***** Create a local for the label (Going to be filled out in the loop)
@@ -49,45 +49,50 @@ syntax, type(string) ifcondition(string) usegroup(string) keep(varlist)
 	di "Note: `Note'"
 	di "Usegroup Note: ${`usegroup'_note}"
 
-	***** Loop through the outcomes in a category and store diff-in-diff results
-	foreach var in ${adult_outcome_`type'} {		
-		sum `var' if `ifcondition'
-		if r(N) > 0 {
-			eststo `var' : quietly reg `var' ${X} ${controls} if `ifcondition'
-			local coeflabel `coeflabel' `var' "${`var'_lab}"
-		}
-	}	
+	***** Loop through the outcomes in a category and store diff-in-diff results for each age group
+	foreach age in ${agelist} {
+		foreach var in ${adult_outcome_`type'} {		
+			sum `var' if ${ifcondition`age'}
+			if r(N) > 0 {
+				eststo `var' : quietly reg `var' ${X} ${controls} if ${ifcondition`age'}
+				local coeflabel `coeflabel' `var' "${`var'_lab}"
+			}
+		}	
 
 	***** Store the initial results in the initial format (Output in each column) 
-	esttab, se nostar keep(`keep')
-
-	matrix C = r(coefs)
-
+		esttab, se nostar keep(`keep')
+		matrix C`age' = r(coefs)
+	}
+	
+	***** Clear eststo to make a new table. 
 	eststo clear
-	local rnames : rownames C
-	local models : coleq C
-	local models : list uniq models
-	local i 0
-
+	
 	***** Loop through each row to produce the transposed final table
-	foreach name of local rnames {
-	   local ++i
-	   local j 0
-	   capture matrix drop b
-	   capture matrix drop se
-	   foreach model of local models {
-		   local ++j
-		   matrix tmp = C[`i', 2*`j'-1]
-		   if tmp[1,1] < . {
-			  matrix colnames tmp = `model'
-			  matrix b = nullmat(b), tmp
-			  matrix tmp[1,1] = C[`i', 2*`j']
-			  matrix se = nullmat(se), tmp
+	foreach	age in ${agelist} {
+		local rnames : rownames C`age'
+		local models : coleq C`age'
+		local models : list uniq models
+		local i 0
+
+		foreach name of local rnames {
+		   local ++i
+		   local j 0
+		   capture matrix drop b
+		   capture matrix drop se
+		   foreach model of local models {
+			   local ++j
+			   matrix tmp = C`age'[`i', 2*`j'-1]
+			   if tmp[1,1] < . {
+				  matrix colnames tmp = `model'
+				  matrix b = nullmat(b), tmp
+				  matrix tmp[1,1] = C`age'[`i', 2*`j']
+				  matrix se = nullmat(se), tmp
+			  }
 		  }
-	  }
-	  ereturn post b
-	  quietly estadd matrix se
-	  eststo `name'
+		  ereturn post b
+		  quietly estadd matrix se
+		  eststo ${`name'_c}`age'
+		}
 	}
 
 	***** Output the table to the tex file

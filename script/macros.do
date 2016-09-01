@@ -48,7 +48,7 @@ global adult_baseline_vars		Male CAPI
 								momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni 
 								dadBornProvince 
 								dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni 
-								numSiblings cgRelig;
+								numSibling_1 numSibling_2 numSibling_more cgRelig;
 								
 								
 global Child_baseline_vars			`child_baseline_vars';								
