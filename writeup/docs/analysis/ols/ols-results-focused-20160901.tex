@@ -1,0 +1,167 @@
+\input{../../auxiliary/preamble}
+
+\begin{document}
+
+\title{Preliminary OLS and Diff-in-Diff Results for the Adult Cohort}
+\author{Reggio Team}
+\date{Current version: \today \\ \vspace{1em} Time: \currenttime}
+\maketitle
+
+
+\doublespacing
+\listoftables
+
+\section{Analysis: Reggio Municipal vs. Reggio No Preschool}
+\label{sec:reggio_muninone}
+
+Before comparing across cities and across school types, we first check if attending Reggio Approach school has effects relative to not attending any preschool in Reggio. Assuming that people who did not attend any preschool does not have any treatment effect of preschool, this comparison is a preliminary way of checking the possible treatment effects of the Reggio Approach. Since we limit the estimation only to people in Reggio in either age-30 cohort and age-40 cohort, this eliminates the overall city effect. 
+
+However, the above assumption is a bad assumption if there are inherent difference between people who select into municipal school and people who select into no preschool at all. Especially for the older cohorts, richer families might have kept their children at home rather than sending them to preschools. In order to eliminate the possible difference among two groups, we also present the difference-in-difference estimates of (Age-30 Muni - Age-30 None) - (Age-40 Muni - Age-40 None) for people in Reggio. However, this diff-in-diff is based on the assumption that families who send their kids to municipal preschools are similar between age-30 and age-40 cohorts, and vice versa for no preschool groups. It has to be recognized that if there has been a big change in behaviors of families in sending their kids to preschool between two age cohorts, the diff-in-diff estimates might be misleading. We don't use Age-50 municipal group in Reggio, because the accuracy rate for the self-reported school type is low for that group. \\\
+
+ 
+\begin{table}[H]
+\begin{center}
+	\caption{OLS Result for Cognitive and Education, Municipal vs. None, Reggio} \label{tab:rvsother_E}
+		\input{../../../../output/multiple-methods/multiple-munivsnone-E.tex}
+\end{center}
+\end{table}
+
+
+% ----------------------------------------------------------------------------------------- %
+
+\begin{table}[H]
+\begin{center}
+	\caption{OLS Result for Employment and Income, Municipal vs. None, Reggio} \label{tab:rvsother_W}
+		\input{../../../../output/multiple-methods/multiple-munivsnone-W.tex}
+\end{center}
+\end{table}
+
+% ----------------------------------------------------------------------------------------- %
+
+\begin{table}[H]
+\begin{center}
+	\caption{OLS Result for Living Environment, Municipal vs. None, Reggio} \label{tab:rvsother_L}
+		\input{../../../../output/multiple-methods/multiple-munivsnone-L.tex}
+\end{center}
+\end{table}
+
+
+% ----------------------------------------------------------------------------------------- %
+\begin{table}[H]
+\begin{center}
+	\caption{OLS Result for Health, Municipal vs. None, Reggio} \label{tab:rvsother_H}
+		\input{../../../../output/multiple-methods/multiple-munivsnone-H.tex}
+\end{center}
+\end{table}
+
+
+% ----------------------------------------------------------------------------------------- %
+
+\begin{table}[H]
+\begin{center}
+	\caption{OLS Result for Noncognitive, Municipal vs. None, Reggio} \label{tab:rvsother_N}
+		\input{../../../../output/multiple-methods/multiple-munivsnone-N.tex}
+\end{center}
+\end{table}
+
+
+% ----------------------------------------------------------------------------------------- %
+
+\begin{table}[H]
+\begin{center}
+	\caption{OLS Result for Social Behavior, Municipal vs. None, Reggio} \label{tab:rvsother_S}
+		\input{../../../../output/multiple-methods/multiple-munivsnone-S.tex}
+\end{center}
+\end{table}
+
+
+% ----------------------------------------------------------------------------------------- %
+
+\begin{table}[H]
+\begin{center}
+	\caption{OLS Result for Religion, Municipal vs. None, Reggio} \label{tab:rvsother_R}
+		\input{../../../../output/multiple-methods/multiple-munivsnone-R.tex}
+\end{center}
+\end{table}
+
+
+
+
+\section{Analysis: Reggio Municipal vs. Parma/Padova No Preschool}
+
+Since there are unclear trends in Section \ref{sec:reggio_muninone}, we check if attending Reggio Approach school has effects relative to not attending any preschool in Parma or Padova. Assuming that people who did not attend any preschool does not have any treatment effect of preschool, this comparison is a preliminary way of checking the possible treatment effects of the Reggio Approach. Since it is possible that there are inherent difference between people living in Reggio and people living in Parma or Padova, we control for the city effect by putting indicator for either living in Parma or living in Padova. 
+
+ 
+\begin{table}[H]
+\begin{center}
+	\caption{OLS Result for Cognitive and Education, Reggio Municipal vs. Padova/Parma None} \label{tab:rvsother_E}
+		\input{../../../../output/multiple-methods/multiple-munivsnone_pp-E.tex}
+\end{center}
+\end{table}
+
+
+% ----------------------------------------------------------------------------------------- %
+
+\begin{table}[H]
+\begin{center}
+	\caption{OLS Result for Employment and Income, Reggio Municipal vs. Padova/Parma None} \label{tab:rvsother_W}
+		\input{../../../../output/multiple-methods/multiple-munivsnone_pp-W.tex}
+\end{center}
+\end{table}
+
+% ----------------------------------------------------------------------------------------- %
+
+\begin{table}[H]
+\begin{center}
+	\caption{OLS Result for Living Environment, Reggio Municipal vs. Padova/Parma None} \label{tab:rvsother_L}
+		\input{../../../../output/multiple-methods/multiple-munivsnone_pp-L.tex}
+\end{center}
+\end{table}
+
+
+% ----------------------------------------------------------------------------------------- %
+\begin{table}[H]
+\begin{center}
+	\caption{OLS Result for Health, Reggio Municipal vs. Padova/Parma None} \label{tab:rvsother_H}
+		\input{../../../../output/multiple-methods/multiple-munivsnone_pp-H.tex}
+\end{center}
+\end{table}
+
+
+% ----------------------------------------------------------------------------------------- %
+
+\begin{table}[H]
+\begin{center}
+	\caption{OLS Result for Noncognitive, Reggio Municipal vs. Padova/Parma None} \label{tab:rvsother_N}
+		\input{../../../../output/multiple-methods/multiple-munivsnone_pp-N.tex}
+\end{center}
+\end{table}
+
+
+% ----------------------------------------------------------------------------------------- %
+
+\begin{table}[H]
+\begin{center}
+	\caption{OLS Result for Social Behavior, Reggio Municipal vs. Padova/Parma None} \label{tab:rvsother_S}
+		\input{../../../../output/multiple-methods/multiple-munivsnone_pp-S.tex}
+\end{center}
+\end{table}
+
+
+% ----------------------------------------------------------------------------------------- %
+
+\begin{table}[H]
+\begin{center}
+	\caption{OLS Result for Religion, Reggio Municipal vs. Padova/Parma None} \label{tab:rvsother_R}
+		\input{../../../../output/multiple-methods/multiple-munivsnone_pp-R.tex}
+\end{center}
+\end{table}
+
+
+
+
+
+
+
+
+\end{document}

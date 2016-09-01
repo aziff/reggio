@@ -92,9 +92,9 @@ global adult_outcome_H					Maria Smoke Cig BMI goodHealth SickDays ///
 										i_RiskFight i_RiskDUI RiskSuspended Drink1Age							
 
 * Noncognitive										
-global adult_outcome_N					LocusControl Depression_score Stress StressWork ///
-										binSatisIncome binSatisWork binSatisHealth binSatisFamily ///
-										optimist reciprocity1bin reciprocity2bin reciprocity3bin reciprocity4bin		
+global adult_outcome_N					pos_LocusControl Depression_score Stress StressWork ///
+										SatisIncome SatisWork SatisHealth SatisFamily ///
+										optimist reciprocity1 reciprocity2 reciprocity3 reciprocity4	
 
 * Social										
 global adult_outcome_S					MigrTaste Friends MigrFriend volunteer invFamMeal childinvFamMeal ///
@@ -151,15 +151,15 @@ global Depression_score_lab			Depression Score
 global pos_LocusControl_lab			Locus of Control - positive
 global pos_Depression_score_lab		Depression Score - positive
 
-global binSatisIncome_lab			Satisfied with Income
-global binSatisWork_lab				Satisfied with Work
-global binSatisHealth_lab 			Satisfied with Health 
-global binSatisFamily_lab			Satisfied with Family
+global SatisIncome_lab				Satisfied with Income
+global SatisWork_lab				Satisfied with Work
+global SatisHealth_lab 				Satisfied with Health 
+global SatisFamily_lab				Satisfied with Family
 global optimist_lab					Optimistic Look in Life
-global reciprocity1bin_lab			Return Favor 
-global reciprocity2bin_lab			Put Someone in Difficulty
-global reciprocity3bin_lab			Help Someone Kind To Me
-global reciprocity4bin_lab 			Insult Back
+global reciprocity1_lab				Return Favor 
+global reciprocity2_lab				Put Someone in Difficulty
+global reciprocity3_lab				Help Someone Kind To Me
+global reciprocity4_lab 			Insult Back
 
 global MigrTaste_lab				Favorable to Migrants
 global Friends_lab					Number of Friends

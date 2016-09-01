@@ -37,12 +37,14 @@ local m_con		& Male == 1
 local f_con		& Male == 0
 
 ** Column names for final table
+global maternaMuni_c		Muni
 global maternaNone_c		None
 global maternaReli_c		Reli
 global maternaPriv_c		Priv
 global maternaStat_c		Stat
 global maternaYes_c			Materna
 global Reggio_c				Reggio
+
 
 * ---------------------------------------------------------------------------- *
 * Regression: Compare Reggio with All The Other Cities (All Age Groups)
@@ -178,3 +180,23 @@ foreach type in E W L H N S R {
 	olsestimate, type("`type'") agelist("${agelist}") usegroup("${usegroup}") keep(${X})
 
 }
+
+
+* ---------------------------------------------------------------------------- *
+* Regression: Reggio Muni vs. None
+* ---------------------------------------------------------------------------- *
+global X					maternaMuni
+global agelist				30 40
+global controls				${adult_baseline_vars}
+global usegroup				munivsnone
+global munivsnone_note		people in Reggio who attended municipal preschools or none
+global ifcondition30 		(Reggio == 1) & (Cohort_Adult30 == 1) & (maternaMuni == 1 | maternaNone == 1)
+global ifcondition40 		(Reggio == 1) & (Cohort_Adult40 == 1) & (maternaMuni == 1 | maternaNone == 1)
+
+foreach type in E W L H N S R {
+
+	olsestimate, type("`type'") agelist("${agelist}") usegroup("${usegroup}") keep(${X})
+
+}
+
+

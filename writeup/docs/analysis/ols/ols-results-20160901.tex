@@ -11,8 +11,22 @@
 \doublespacing
 \listoftables
 
+\section{Overview}
+
+In the Reggio sample, there are different ways to cluster the data along the multiple dimensions (city, age cohort, and school type). This document records experimentation with different forms of aggregation and disaggregation to compare across and between the groups. The goal of this is to understand what can be considered the treatment and control groups, considering the possible imitation of the "Reggio Approach" among different cities and school types. As we have more diverse outcomes for the adult cohorts, we first focus on analyzing the possible effects of preschool on the adult cohorts. We present the results and interpretations by each outcome category.
+
+First, we perform two routes of aggregated analysis: \textbf{(1)} by comparing all people in Reggio with all people in Parma and Padova for each age cohort, and \textbf{(2)} by comparing people who attended any type of materna preschool with people who did not attend materna preschool. The first comparison is based on the assumption that the Reggio approach is widely spread across all people in Reggio, but not in Parma and Padova. The second comparison is based on the assumption that self-reported school types for the age-50 cohort is not reliable, because of the huge possibility that the municipal and state preschools did not exist for the age-50 cohort. However, we assume that the fact that they attended preschool is highly likely, and we try to see the effect of attending preschool in general for the oldest cohort. 
+
+Second, we perform disaggregated analysis with the goal of observing effect of each school type for each city on age-30 and age-40 cohorts, respectively. For each estimation, we limit the sample to certain city and certain age cohort. People who attended the municipal preschools are the omitted group (thereby, the reference group) for each estimation. 
+
+Compared to the younger cohorts, there are much fewer possible baseline variables available for the adult cohorts. The control variables used for all estimation are as follows:
+\begin{itemize}
+\item Male indicator, CAPI, mother born in province, father born in province, mother's maximum education, father's maximum education, number of siblings, religious caregiver indicator
+\end{itemize}
+
 
 \section{Education}
+\subsection{Result}
 \begin{table}[H]
 \begin{center}
 	\caption{OLS Result for Cognitive and Education, Reggio vs. Other Cities} \label{tab:rvsother_E}
@@ -22,7 +36,7 @@
 
 \begin{table}[H]
 \begin{center}
-	\caption{OLS Result for Cognitive and Education, Preschool vs. No Preschool, Age 50} \label{tab:yesvsno50_E}
+	\caption{OLS Result for Cognitive and Education, Preschool vs. No Preschool, Age-50 Cohort} \label{tab:yesvsno50_E}
 		\input{../../../../output/ols/ols-yesvsno50-E.tex}
 \end{center}
 \end{table}
@@ -85,7 +99,7 @@
 
 \begin{table}[H]
 \begin{center}
-	\caption{OLS Result for Employment and Income, Preschool vs. No Preschool, Age 50} \label{tab:yesvsno50_W}
+	\caption{OLS Result for Employment and Income, Preschool vs. No Preschool,, Age-50 Cohort} \label{tab:yesvsno50_W}
 		\input{../../../../output/ols/ols-yesvsno50-W.tex}
 \end{center}
 \end{table}
@@ -149,7 +163,7 @@
 
 \begin{table}[H]
 \begin{center}
-	\caption{OLS Result for Living Environment, Preschool vs. No Preschool, Age 50} \label{tab:yesvsno50_L}
+	\caption{OLS Result for Living Environment, Preschool vs. No Preschool, Age-50 Cohort} \label{tab:yesvsno50_L}
 		\input{../../../../output/ols/ols-yesvsno50-L.tex}
 \end{center}
 \end{table}
@@ -213,7 +227,7 @@
 
 \begin{table}[H]
 \begin{center}
-	\caption{OLS Result for Health, Preschool vs. No Preschool, Age 50} \label{tab:yesvsno50_H}
+	\caption{OLS Result for Health, Preschool vs. No Preschool, Age-50 Cohort} \label{tab:yesvsno50_H}
 		\input{../../../../output/ols/ols-yesvsno50-H.tex}
 \end{center}
 \end{table}
@@ -276,7 +290,7 @@
 
 \begin{table}[H]
 \begin{center}
-	\caption{OLS Result for Noncognitive, Preschool vs. No Preschool, Age 50} \label{tab:yesvsno50_N}
+	\caption{OLS Result for Noncognitive, Preschool vs. No Preschool, Age-50 Cohort} \label{tab:yesvsno50_N}
 		\input{../../../../output/ols/ols-yesvsno50-N.tex}
 \end{center}
 \end{table}
@@ -339,7 +353,7 @@
 
 \begin{table}[H]
 \begin{center}
-	\caption{OLS Result for Social Behavior, Preschool vs. No Preschool, Age 50} \label{tab:yesvsno50_S}
+	\caption{OLS Result for Social Behavior, Preschool vs. No Preschool, Age-50 Cohort} \label{tab:yesvsno50_S}
 		\input{../../../../output/ols/ols-yesvsno50-S.tex}
 \end{center}
 \end{table}
@@ -403,7 +417,7 @@
 
 \begin{table}[H]
 \begin{center}
-	\caption{OLS Result for Religion, Preschool vs. No Preschool, Age 50} \label{tab:yesvsno50_R}
+	\caption{OLS Result for Religion, Preschool vs. No Preschool, Age-50 Cohort} \label{tab:yesvsno50_R}
 		\input{../../../../output/ols/ols-yesvsno50-R.tex}
 \end{center}
 \end{table}
