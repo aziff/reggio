@@ -132,6 +132,7 @@ global mStatus_married_cohab_lab 	Married or Cohabitating
 global childrenResp_lab				Num. of Children in House
 global all_houseOwn_lab				Own House
 global live_parent_lab				Live With Parents
+global mStatus_div_lab				Divorced
 
 global Maria_lab					Tried Marijuana
 global Smoke_lab					Smokes
@@ -160,10 +161,14 @@ global reciprocity2bin_lab			Put Someone in Difficulty
 global reciprocity3bin_lab			Help Someone Kind To Me
 global reciprocity4bin_lab 			Insult Back
 
-global MrgrTaste_lab				Favorable to Migrants
+global MigrTaste_lab				Favorable to Migrants
 global Friends_lab					Number of Friends
 global MigrFriend_lab				Has Migrant Friends
-
+global volunteer_lab				Volunteers
+global invFamMeal_lab				Child Eats Meal with Fam
+global votedMunicipal_lab			Ever Voted for Municipal
+global votedRegional_lab			Ever Voted for Regional
+global votedNational_lab			Ever Voted for National
 
 global pos_SDQ_score_lab				SDQ Composite
 global pos_SDQEmot_score_lab			SDQ Emotional

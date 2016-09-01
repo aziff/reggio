@@ -54,7 +54,7 @@ syntax, type(string) agelist(string) usegroup(string) keep(varlist)
 		foreach var in ${adult_outcome_`type'} {		
 			sum `var' if ${ifcondition`age'}
 			if r(N) > 0 {
-				eststo `var' : quietly reg `var' ${X} ${controls} if ${ifcondition`age'}
+				eststo `var' : quietly reg `var' ${X} ${controls} if ${ifcondition`age'}, robust
 				local coeflabel `coeflabel' `var' "${`var'_lab}"
 			}
 		}	
