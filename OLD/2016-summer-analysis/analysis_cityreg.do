@@ -18,6 +18,7 @@ replace Cohort_new = 1 if Cohort == 1 // children
 replace Cohort_new = 2 if Cohort == 3 // adolescents
 replace Cohort_new = 3 if Cohort == 4 | Cohort == 5 | Cohort == 6 // adults
 
+
 ** Run regressions and save the outputs
 local int xa 
 foreach age in `school_age_types' { // Asilo or Materna
