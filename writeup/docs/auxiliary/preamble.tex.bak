@@ -1,5 +1,5 @@
 \documentclass[11pt]{article}
-\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]
 \parindent 22pt
 
 \usepackage{adjustbox}
@@ -24,6 +24,7 @@
 \usepackage{datetime}
 \captionsetup[table]{skip = 2pt}
 \usepackage[T1]{fontenc}
+\usepackage[landscape]{geometry}
 
 % Allow line breaks with \\ in specialcells
 \newcommand{\specialcell}[2][c]{%

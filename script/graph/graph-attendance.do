@@ -1,6 +1,6 @@
 * ---------------------------------------------------------------------------- *
 * Graphing Attendance for Each School Types Across Cities and Age Cohorts
-* Authors: Jessica Yu Kyung Koh
+* Authors: Pietro Biroli, Jessica Yu Kyung Koh
 * Created: 09/02/2016
 * Edited: 09/02/2016
 * ---------------------------------------------------------------------------- *
@@ -52,7 +52,7 @@ graph export "${output}/asiloType-Attend.png", replace
 * Plot
 graph hbar (mean) materna_Municipal materna_State materna_Religious materna_Private materna_NotAttended, ///
 				over(Cohort_born, label(angle(10) labsize(3))) over(City) stack  percentages /// 
-				legend(size(small) label(1 "Municipal") label(2 "State") label(3 "Religious") label(4 "Private") label(5 "Not Attended")) ///
+				legend(size(small) label(1 "Municipal") label(2 "State") label(3 "Religious") label(4 "Private") label(5 "Not Attended") ) ///
 				graphregion(color(white))
 
 * Export the chart				
