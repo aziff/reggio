@@ -39,7 +39,7 @@ tab Cohort Cohort_born
 * Plot
 graph hbar (sum) asilo_Municipal asilo_State asilo_Religious asilo_Private asilo_NotAttended, ///
 				over(Cohort_born, label(angle(10) labsize(3))) over(City) stack  percentages /// 
-				legend(size(small) label(1 "Municipal") label(2 "State") label(3 "Religious") label(4 "Private") label(5 "Not Attended")) ///
+				legend(size(small) label(1 "Municipal") label(2 "State") label(3 "Religious") label(4 "Private") label(5 "Not Attended") ) ///
 				graphregion(color(white))
 
 * Export the chart

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.11.6)  2 SEP 2016 16:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.11.6)  2 SEP 2016 17:55
 entering extended mode
 **asilo-analysis-20160901.tex
 (asilo-analysis-20160901.tex
@@ -1227,50 +1227,51 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 9.
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
-{C:/Users/Jessica Yu Kyung/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-<../../../../output/image/asiloType-Attend.png, id=18, 937.5025pt x 681.54625pt
+{C:/Users/Jessica Yu Kyung/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] 
+[2]
+<../../../../output/image/asiloType-Attend.png, id=38, 937.5025pt x 681.54625pt
 >
 File: ../../../../output/image/asiloType-Attend.png Graphic file (type png)
  <use ../../../../output/image/asiloType-Attend.png>
 Package pdftex.def Info: ../../../../output/image/asiloType-Attend.png used on 
-input line 20.
+input line 44.
 (pdftex.def)             Requested size: 656.24728pt x 477.07912pt.
 
-Overfull \hbox (5.81728pt too wide) in paragraph at lines 20--21
+Overfull \hbox (5.81728pt too wide) in paragraph at lines 44--45
  [][] 
  []
 
 
-LaTeX Warning: Float too large for page by 31.82408pt on input line 21.
+LaTeX Warning: Float too large for page by 31.82408pt on input line 45.
 
-[2 <../../../../output/image/asiloType-Attend.png (PNG copy)>]
+[3 <../../../../output/image/asiloType-Attend.png (PNG copy)>]
 
 Package caption Warning: Unused \captionsetup[table] on input line 111.
 See the caption package documentation for explanation.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 25.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 25.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 48.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 48.
 (asilo-analysis-20160901.xwm) (asilo-analysis-20160901.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 25.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 25.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 48.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 48.
 Package rerunfilecheck Info: File `asilo-analysis-20160901.out' has not changed
 .
-(rerunfilecheck)             Checksum: 83E7427EBA848BC6771F4FD8E2CBC45F;44.
+(rerunfilecheck)             Checksum: 361CCA3C78B3BA66B7E4635781B70228;316.
  ) 
 Here is how much of TeX's memory you used:
- 28519 strings out of 493636
- 528159 string characters out of 3141291
- 783115 words of memory out of 3000000
- 31361 multiletter control sequences out of 15000+200000
- 10622 words of font info for 40 fonts, out of 3000000 for 9000
+ 28539 strings out of 493636
+ 528456 string characters out of 3141291
+ 786111 words of memory out of 3000000
+ 31376 multiletter control sequences out of 15000+200000
+ 10929 words of font info for 41 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 57i,7n,92p,842b,470s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 57i,7n,92p,1337b,472s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:
 /Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on asilo-analysis-20160901.pdf (2 pages, 85293 bytes).
+Output written on asilo-analysis-20160901.pdf (3 pages, 100730 bytes).
 PDF statistics:
- 37 PDF objects out of 1000 (max. 8388607)
- 5 named destinations out of 1000 (max. 500000)
- 26 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 59 PDF objects out of 1000 (max. 8388607)
+ 10 named destinations out of 1000 (max. 500000)
+ 58 words of extra memory for PDF output out of 10000 (max. 10000000)
 
