@@ -34,7 +34,7 @@ label values Cohort_born Cohort_born
 tab Cohort Cohort_born
 
 * ---------------------------------------------------------------------------- *
-* Asilo
+* Asilo (Ages 0-3)
 * ---------------------------------------------------------------------------- *
 * Plot
 graph hbar (sum) asilo_Municipal asilo_State asilo_Religious asilo_Private asilo_NotAttended, ///
@@ -47,7 +47,7 @@ graph export "${output}/asiloType-Attend.png", replace
 
 
 * ---------------------------------------------------------------------------- *
-* Materna
+* Materna (Ages 3-6)
 * ---------------------------------------------------------------------------- *
 * Plot
 graph hbar (mean) materna_Municipal materna_State materna_Religious materna_Private materna_NotAttended, ///
