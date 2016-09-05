@@ -1412,7 +1412,7 @@ foreach var in childinvSport childinvDance childinvTheater childinvOther{
 }
 rename V37220_open childinvExtracv_open
 
-rename V55050 childinvFriends
+rename V55050 childFriends
 rename V37230 childinvTakeToSchool
 rename V37230_open childinvTakeToSchool_open
 rename V37240 childinvTakeOutSchool
@@ -1421,7 +1421,7 @@ rename V37260_1 distTime
 rename V37260_2 distMeter
 rename V55120 childSuspended
 
-// factor childinvReadTo-childinvFriends
+// factor childinvReadTo-childFriends
 
 * (H) Caregiver on Child/Adolescent Noncog
 rename V56010_1 childSDQPsoc1

@@ -839,7 +839,7 @@ childinvSport   byte    %8.0g      LABA       Child does sport
 childinvDance   byte    %8.0g      LABA       Child does dances
 childinvTheater byte    %8.0g      LABA       Child does theater
 childinvOther   byte    %8.0g      LABA       Does your child participate in the following activities? Other, specify
-childinvFriends byte    %10.0g              * Number of child's friends
+childFriends byte    %10.0g              * Number of child's friends
 
 *** S&D (31)
 
@@ -970,7 +970,7 @@ IQ_score        float   %9.0g                 Respondent mental ability. % of co
 
 */
 
-*** dummy dal verso giusto (do not flip)
+*** no flip dummy
 
 sum difficultiesNone childinvMusic childinvSport childinvDance childinvTheater childinvOther childnoSickDays childNone_diag childSnackFruit childSnackIce worryFriend worryHome ///
 worryTeacher faceMe_bin faceFamily_bin faceSchool_bin faceGeneral_bin IQ1 IQ2 IQ3 IQ4 IQ5 IQ6 IQ7 IQ8 IQ9 IQ10 IQ11 IQ12 IQ13 IQ14 IQ15 IQ16 IQ17 IQ18 bestFriend
@@ -1002,16 +1002,13 @@ childAsthma_* childAllerg_* childDigest_* childEmot_diag childSleep_diag childGu
 childSnackChips childSnackOther  worryMyself 
 
 *** create some dummies
-
-sum childinvReadTo  childinvFamMeal childinvChoresRoom childinvChoresHelp childinvChoresHomew childinvReadSelf  childinvFriends ///
+local varCreate childinvReadTo  childinvFamMeal childinvChoresRoom childinvChoresHelp childinvChoresHomew childinvReadSelf  childFriends ///
 childSleep childHeight childBreakfast childFruit sportTogether bullied alienated revengeReturn brushTeeth ///
 candyGame IQ_score IQ_factor childSDQHype1 childSDQHype2 childSDQHype3 childSDQEmot1 childSDQEmot2 ///
 childSDQEmot3 childSDQEmot4 childSDQEmot5 childSDQCond1 childSDQCond3 childSDQCond4 childSDQCond5 childSDQPeer1 childSDQPeer4 childSDQPeer5
 
-desc childinvReadTo  childinvFamMeal childinvChoresRoom childinvChoresHelp childinvChoresHomew childinvReadSelf  childinvFriends ///
-childSleep childHeight childBreakfast childFruit sportTogether bullied alienated revengeReturn brushTeeth ///
-candyGame IQ_score IQ_factor childSDQHype1 childSDQHype2 childSDQHype3 childSDQEmot1 childSDQEmot2 ///
-childSDQEmot3 childSDQEmot4 childSDQEmot5 childSDQCond1 childSDQCond3 childSDQCond4 childSDQCond5 childSDQPeer1 childSDQPeer4 childSDQPeer5
+sum `varCreate'
+des `varCreate'
 
 tab doGrowUp, m
 tab doGrowUp, gen(doGrowUp)
@@ -1024,10 +1021,7 @@ tab FriendsGender, nol
 gen FriendsGender_bin = (FriendsGender == 0)
 label var FriendsGender_bin "Friends from both genders"
 
-foreach j in childinvReadTo  childinvFamMeal childinvChoresRoom childinvChoresHelp childinvChoresHomew childinvReadSelf  childinvFriends ///
-childSleep childHeight childBreakfast childFruit sportTogether bullied alienated revengeReturn brushTeeth ///
-candyGame IQ_score IQ_factor childSDQHype1 childSDQHype2 childSDQHype3 childSDQEmot1 childSDQEmot2 ///
-childSDQEmot3 childSDQEmot4 childSDQEmot5 childSDQCond1 childSDQCond3 childSDQCond4 childSDQCond5 childSDQPeer1 childSDQPeer4 childSDQPeer5 {
+foreach j in `varCreate'{
 
 sum `j', d
 gen dummy1 = (`j' > r(p50)) if `j'<.
@@ -1042,31 +1036,23 @@ drop dummy1 dummy2 diff1 diff2
 label var `j'_bin "Dummy for `j'"
 } 
 
-sum childinvReadTo_bin childinvFamMeal_bin childinvChoresRoom_bin childinvChoresHelp_bin childinvChoresHomew_bin childinvReadSelf_bin childinvFriends_bin ///
+sum childinvReadTo_bin childinvFamMeal_bin childinvChoresRoom_bin childinvChoresHelp_bin childinvChoresHomew_bin childinvReadSelf_bin childFriends_bin ///
 childSleep_bin childHeight_bin childBreakfast_bin childFruit_bin sportTogether_bin bullied_bin alienated_bin revengeReturn_bin brushTeeth_bin ///
 candyGame_bin IQ_score_bin IQ_factor_bin childSDQHype1_bin childSDQHype2_bin childSDQHype3_bin childSDQEmot1_bin childSDQEmot2_bin ///
 childSDQEmot3_bin childSDQEmot4_bin childSDQEmot5_bin childSDQCond1_bin childSDQCond3_bin childSDQCond4_bin childSDQCond5_bin childSDQPeer1_bin childSDQPeer4_bin childSDQPeer5_bin ///
 doGrowUp FriendsGender_bin
 
 *** crate and flip some dummy (higher = better)
-
-desc childinvTV_hrs childinvVideoG_hrs childHealth childWeight childDoctor childBMI childTotal_diag /// difficulties
-likeSchool_ch* likeRead likeMath_child likeGym goodBoySchool likeTV likeDraw likeSport lendFriend favorReturn funFamily ///
+local varCreflip childinvTV_hrs childinvVideoG_hrs childHealth childWeight childDoctor childBMI childTotal_diag /// difficulties
+likeSchool_child likeRead likeMath_child likeGym goodBoySchool likeTV likeDraw likeSport lendFriend favorReturn funFamily ///
 childinvCom childinvOut ///
 childSDQPsoc1 childSDQPsoc2 childSDQPsoc3 childSDQPsoc4 childSDQPsoc5 ///
-childSDQHype4 childSDQHype5 childSDQCond2 childSDQPeer2 childSDQPeer3 childSDQ*score
+childSDQHype4 childSDQHype5 childSDQCond2 childSDQPeer2 childSDQPeer3 ///
+childSDQ????_score childSDQ_score childSDQ_factor ///
 
-sum childinvTV_hrs childinvVideoG_hrs childHealth childWeight childDoctor childBMI childTotal_diag /// difficulties 
-likeSchool_ch* likeRead likeMath_child likeGym goodBoySchool likeTV likeDraw likeSport lendFriend favorReturn funFamily ///
-childinvCom  childinvOut ///
-childSDQPsoc1 childSDQPsoc2 childSDQPsoc3 childSDQPsoc4 childSDQPsoc5 ///
-childSDQHype4 childSDQHype5 childSDQCond2 childSDQPeer2 childSDQPeer3 childSDQ*score
-
-foreach j in childinvTV_hrs childinvVideoG_hrs childHealth childWeight childDoctor childBMI childTotal_diag /// difficulties 
-likeSchool_child likeRead likeMath_child likeGym goodBoySchool likeTV likeDraw likeSport lendFriend favorReturn funFamily ///
-childinvCom  childinvOut ///
-childSDQPsoc1 childSDQPsoc2 childSDQPsoc3 childSDQPsoc4 childSDQPsoc5 childSDQPeer_score childSDQPsoc_score ///
-childSDQHype4 childSDQHype5 childSDQCond2 childSDQPeer2 childSDQPeer3 childSDQ_score childSDQEmot_score childSDQHype_score childSDQCond_score {
+des `varCreflip'
+sum `varCreflip'
+foreach j of varlist `varCreflip'{
 
 sum `j', d
 gen dummy1 = (`j' > r(p50)) if `j'<.
@@ -1093,13 +1079,13 @@ childSDQHype4_bin childSDQHype5_bin childSDQCond2_bin childSDQPeer2_bin childSDQ
 sum difficultiesSit difficultiesInterest difficultiesObey difficultiesEat difficultiesNone ///
 childinvReadTo_bin childinvMusic childinvCom_bin childinvTV_hrs_bin childinvVideoG_hrs_bin childinvOut_bin childinvFamMeal_bin childinvChoresRoom_bin childinvChoresHelp_bin ///
 childinvChoresHomew_bin ///
-childinvReadSelf_bin childinvSport childinvDance childinvTheater childinvOther childinvFriends_bin ///
+childinvReadSelf_bin childinvSport childinvDance childinvTheater childinvOther childFriends_bin ///
 childSDQPsoc1_bin childSDQPsoc2_bin childSDQPsoc3_bin childSDQPsoc4_bin childSDQPsoc5_bin childSDQPsoc_score_bin /// childSDQPsoc_factor_bin 
 childSDQHype1_bin childSDQHype2_bin childSDQHype3_bin childSDQHype4_bin childSDQHype5_bin childSDQHype_score_bin /// childSDQHype_factor_bin 
 childSDQEmot1_bin childSDQEmot2_bin childSDQEmot3_bin childSDQEmot4_bin childSDQEmot5_bin childSDQEmot_score_bin /// childSDQEmot_factor_bin 
 childSDQCond1_bin childSDQCond2_bin childSDQCond3_bin childSDQCond4_bin childSDQCond5_bin childSDQCond_score_bin /// childSDQCond_factor_bin 
 childSDQPeer1_bin childSDQPeer2_bin childSDQPeer3_bin childSDQPeer4_bin childSDQPeer5_bin childSDQPeer_score_bin /// childSDQPeer_factor_bin 
-childSDQ_score_bin /// childSDQ_factor_bin 
+childSDQ_score_bin childSDQ_factor_bin /// 
 childHealth_bin childnoSickDays_bin childSleep_bin childHeight_bin childWeight_bin childDoctor_bin childAsthma_diag childAllerg_diag childDigest_diag childEmot_diag ///
 childSleep_diag childGums_diag childOther_diag childNone_diag childBreakfast_bin childFruit_bin childSnackNo childSnackFruit childSnackIce ///
 childSnackCan childSnackRoll childSnackChips childSnackOther sportTogether_bin childBMI_bin childTotal_diag_bin /// 
