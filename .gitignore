@@ -1,0 +1,15 @@
+*.dta
+*.lot
+*.DS_Store
+*.tex.bak
+*.bbl
+*.blg
+*.aux
+*.out
+*.log
+*.pdf
+*.csv
+*.xls
+*.xlsx
+*.doc
+*.docx
