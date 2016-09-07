@@ -99,7 +99,7 @@ There are two main ways of testing treatment effects of attending infant-toddler
 H_1: &  Y_{0,0} = Y_{1,0} \\ 
 H_2: &  Y_{0,1} = Y_{1,1} 
 \end{eqnarray}
-where $Y_{0,0}$ is the mean outcome of the people who did not attend any infant-toddler center or preschool, and vice versa for other cases. 
+where $Y_{0,0}$ is the outcome of the people who did not attend any infant-toddler center or preschool, and vice versa for other cases. 
 
 \subsection{Strategy 1}
 
