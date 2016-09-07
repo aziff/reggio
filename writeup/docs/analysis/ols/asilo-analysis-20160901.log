@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.11.6)  2 SEP 2016 17:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (MiKTeX 2.9) (preloaded format=pdflatex 2015.11.6)  7 SEP 2016 16:48
 entering extended mode
 **asilo-analysis-20160901.tex
 (asilo-analysis-20160901.tex
@@ -1228,50 +1228,62 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) [1
 
 {C:/Users/Jessica Yu Kyung/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] 
-[2]
-<../../../../output/image/asiloType-Attend.png, id=38, 937.5025pt x 681.54625pt
+[2] [3]
+[4] [5]
+<../../../../output/image/asiloType-Attend.png, id=81, 937.5025pt x 681.54625pt
 >
 File: ../../../../output/image/asiloType-Attend.png Graphic file (type png)
  <use ../../../../output/image/asiloType-Attend.png>
 Package pdftex.def Info: ../../../../output/image/asiloType-Attend.png used on 
-input line 44.
-(pdftex.def)             Requested size: 656.24728pt x 477.07912pt.
+input line 73.
+(pdftex.def)             Requested size: 590.6297pt x 429.3764pt.
+ [6
 
-Overfull \hbox (5.81728pt too wide) in paragraph at lines 44--45
+ <../../../../output/image/asiloType-Attend.png (PNG copy)>] [7
+
+]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 109.
+
+
+("C:\Program Files (x86)\MiKTeX 2.9\tex\latex\base\omscmr.fd"
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 109.
+
+Overfull \hbox (10.54558pt too wide) in paragraph at lines 131--132
  [][] 
  []
 
-
-LaTeX Warning: Float too large for page by 31.82408pt on input line 45.
-
-[3 <../../../../output/image/asiloType-Attend.png (PNG copy)>]
-
-Package caption Warning: Unused \captionsetup[table] on input line 111.
-See the caption package documentation for explanation.
-
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 48.
-Package atveryend Info: Executing hook `AfterLastShipout' on input line 48.
-(asilo-analysis-20160901.xwm) (asilo-analysis-20160901.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 48.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 48.
+[8] [9]
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 148.
+Package atveryend Info: Executing hook `AfterLastShipout' on input line 148.
+ (asilo-analysis-20160901.xwm) (asilo-analysis-20160901.aux)
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 148.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 148.
 Package rerunfilecheck Info: File `asilo-analysis-20160901.out' has not changed
 .
-(rerunfilecheck)             Checksum: 361CCA3C78B3BA66B7E4635781B70228;316.
+(rerunfilecheck)             Checksum: 6FB0941BEE9F476CBF48501530FF9D07;701.
  ) 
 Here is how much of TeX's memory you used:
- 28539 strings out of 493636
- 528456 string characters out of 3141291
- 786111 words of memory out of 3000000
- 31376 multiletter control sequences out of 15000+200000
- 10929 words of font info for 41 fonts, out of 3000000 for 9000
+ 28655 strings out of 493636
+ 530045 string characters out of 3141291
+ 797115 words of memory out of 3000000
+ 31454 multiletter control sequences out of 15000+200000
+ 19641 words of font info for 73 fonts, out of 3000000 for 9000
  1025 hyphenation exceptions out of 8191
- 57i,7n,92p,1337b,472s stack positions out of 5000i,500n,10000p,200000b,50000s
+ 57i,12n,92p,1070b,508s stack positions out of 5000i,500n,10000p,200000b,50000s
 <C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
-<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:
-/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb>
-Output written on asilo-analysis-20160901.pdf (3 pages, 100730 bytes).
+<C:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C
+:/Program Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/P
+rogram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Prog
+ram Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr17.pfb><C:/Program
+ Files (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Program Fil
+es (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Program Files
+ (x86)/MiKTeX 2.9/fonts/type1/public/amsfonts/cm/cmti12.pfb>
+Output written on asilo-analysis-20160901.pdf (9 pages, 172624 bytes).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
- 10 named destinations out of 1000 (max. 500000)
- 58 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 149 PDF objects out of 1000 (max. 8388607)
+ 30 named destinations out of 1000 (max. 500000)
+ 106 words of extra memory for PDF output out of 10000 (max. 10000000)
 
