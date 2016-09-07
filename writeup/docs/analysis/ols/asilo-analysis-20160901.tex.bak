@@ -65,7 +65,7 @@ V 	   & 2006			& 6 \\
 
 Figure \ref{fig:attended-itc} shows the percentage of children, adolescents, and adults interviewed in our sample who attended the different types of infant-toddler centers in Reggio Emilia, Parma, and Padova. We can see that for the oldest cohort, the majority did not attend infant-toddler centers; almost all people in Reggio for the oldest cohort did not attend any infant-toddler center, while a small proportion of Parma and Parma attended some infant-toddler centers. We can see that participation of infant-toddler centers, especially the municipal ones, increased over time for all cities.
 
-However, some data problems should be noted. First, there are evidence that Parma's municipal infant-toddler care system started 10-15 years later than that of Reggio, which is contrary to what we see in the data. Since we rely on self-reported information on what infant-toddler center each respondent attended, it is possible that some information is mistaken. For example, there are 10 age-50 cohort people in Parma who reported that they have gone to either municipal, municipal-affiliated, or religious-FISM-affiliated infant-toddler ceters. However, none of them provided the name of the infant-toddler centers they attended. They all provided a short (not too detailed) address of the infant-toddler center that they remember. Since we identify the infant-toddler center that respondents "likely" have gone to based on the information they provided, the categorization of schools might not be correct. We are currently gathering more evidence about the exact start date of the educational municipal infant-toddler centers in Parma. 
+However, some data problems should be noted. First, there are evidence that Parma's municipal infant-toddler care system started 10-15 years later than that of Reggio, which is contrary to what we see in the data. Since we rely on self-reported information on what infant-toddler center each respondent attended, it is possible that some information is mistaken. For example, there are 10 age-50 cohort people in Parma who reported that they have gone to either municipal, municipal-affiliated, or religious-FISM-affiliated infant-toddler centers. However, none of them provided the name of the infant-toddler centers they attended. They all provided short (not too detailed) addresses of the infant-toddler centers that they remember. Since we identify the infant-toddler center that respondents "likely" have gone to based on the information they provided, the categorization of schools might not be correct. We are currently gathering more evidence about the exact start date of the educational municipal infant-toddler centers in Parma. 
 
 \begin{landscape}
 \begin{figure}[H]
@@ -114,7 +114,7 @@ Y_{i}^{c,h} & = & \alpha + \beta_{0}R + \mathbf{X}\gamma + \varepsilon_{i}^{c,h}
 & \forall & i \in \text{ \{People in city $c$ and cohort $h$ and in group (0,1) or (1,1)\}}
 \end{eqnarray}
 
-One of the caveats of this analysis is that it significantly reduces the sample size used in the analysis. In fact, the hypotheses cannot be tested using this strategy for many groups. Table \ref{tab:num-group} shows the number of people available for each group necessary for analysis using this strategy. It is easy to see that it is impossible to test $H_1$ with our data, because there are almost no people who went to municipal infant-toddler centers but did not attend any preschools (the group (1,0)). It is possible to carry out test for $H_2$ for many groups, but the number of observations for the group (1,1) are very small especially for the adult cohorts. 
+One of the caveats of this analysis is that it significantly reduces the sample size used in the analysis. In fact, the hypotheses cannot be tested using this strategy for many groups. Table \ref{tab:num-group} shows the number of people available for each group necessary for analysis using this strategy. It is easy to see that it is impossible to test $H_1$ with our data, because there are almost no people who went to municipal infant-toddler centers but did not attend any preschools (the group (1,0)). It is possible to carry out test for $H_2$ for many groups, but the number of observations for the group (1,1) is very small for the adult cohorts. 
 
 \begin{table}[H] \caption{Number of Individuals in Each Group} \label{tab:num-group}
 \scalebox{0.77}{
@@ -132,9 +132,9 @@ Age-50		& 146 & 0 &	8 & 0 & \textbf{200} & 71 & 0 & 4 & 8 & \textbf{103} & 55 & 
 \end{table}
 
 \subsection{Strategy 2}
-Another strategy is to use broader sample and control for the preschool attendance in the regression equation. We still divide the groups by city and cohort. We first aim to estimate the effect of attending infant toddler centers in general, $R^{attend}$, without differentiating among types. That is:
+Another strategy is to use broader sample and control for the preschool attendance in the regression equation. We still divide the groups by city and cohort. We first aim to estimate the effect of attending infant toddler centers in general, $R^{Attend}$, without differentiating among types. That is:
 \begin{equation}
-Y_{i}^{c,h} = \alpha + \beta_{0}R^{attend} + \mathbf{P}\delta + \mathbf{X}\gamma + \varepsilon_{i}^{c,h}, \forall i \in \text{ \{People in city $c$ and cohort $h$\}}
+Y_{i}^{c,h} = \alpha + \beta_{0}R^{Attend} + \mathbf{P}\delta + \mathbf{X}\gamma + \varepsilon_{i}^{c,h}, \forall i \in \text{ \{People in city $c$ and cohort $h$\}}
 \end{equation}
 where $\mathbf{P}$ is the vector of indicators of attending each type of preschools for ages 3-6. We then aim to estimate the effect of attending municipal infant-toddler centers by using the following regression equation:
 \begin{eqnarray}
