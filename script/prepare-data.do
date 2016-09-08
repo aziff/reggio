@@ -54,111 +54,6 @@ local Materna_name                    Preschool
 local potentialIV                    distAsilo*1 distAsilo*2 distMaterna*1 distMaterna*2 ///
                                      score score2 grand_city lone_parent numSibling 
 
-** Variable labels
-label var ReggioMaterna        		"RCH preschool"
-label var ReggioAsilo          		"RCH infant-toddler"
-
-label var CAPI                		"CAPI"
-label var Cohort_Adult30       		"30 year olds"
-label var Cohort_Adult40       		"40 year olds"
-label var asilo_Attend         		"Any infant-toddler center"
-label var asilo_Municipal      		"Municipal infant-toddler center"
-label var materna_Municipal    		"Municipal preschool"
-label var materna_Religious    		"Religious preschool"
-label var materna_State        		"State preschool"
-label var materna_Private      		"Private preschool"
-
-label var cgPA_HouseWife       		"Caregiver Housewife"
-label var dadPA_Unempl         		"Father Unemployed" 
-label var cgmStatus_div         "Caregiver Divorced"
-label var momHome06             "Mom Home at 6"
-label var numSiblings           "Num. Siblings"
-label var childrenSibTot        "Num. Siblings"
-label var houseOwn              "Own Home"
-label var MaxEdu_Uni            "University"
-
-label var momBornProvince       "Mom born in the province"
-label var dadBornProvince       "Dad born in the province"
-
-label var SDQ_score             "SDQ score (self rep.)"
-label var childSDQ_score        "SDQ score (mom rep.)"
-label var Depression_score      "Depression score (CESD)"
-label var HealthPerc            "Respondent health is good (%)"
-label var childHealthPerc       "Child health is good (%) - mom report"
-label var MigrTaste_cat         "Bothered by migrants (%)"
-
-label var Age                   "Age"
-label var Age_sq                "Age sq."
-label var lowbirthweight        "Low birthweight"
-label var birthpremature        "Premature"
-
-label var Male 					"Male indicator"
-label var momAgeBirth 			"Mother: age at birth"
-label var dadAgeBirth 			"Father: age at birth"
-label var momMaxEdu_low			"Mother max. edu.: less than middle school"
-label var momMaxEdu_middle  	"Mother max. edu.: middle school"
-label var momMaxEdu_HS 			"Mother max. edu.: high school"
-label var momMaxEdu_Uni 		"Mother max. edu.: university"
-label var dadMaxEdu_low			"Father max. edu.: less than middle school"
-label var dadMaxEdu_middle 		"Father max. edu.: middle school"
-label var dadMaxEdu_HS 			"Father max. edu.: high school"
-label var dadMaxEdu_Uni 		"Father max. edu.: university"
-label var momBornProvince 		"Mother: born in province"
-label var dadBornProvince 		"Father: born in province"
-label var cgRelig 				"Religious caregiver indicator"
-label var houseOwn 				"Home ownership indicator"
-label var cgReddito_1			"Income: 5,000 euros or less"
-label var cgReddito_2			"Income: 5,001-10,000 euros"
-label var cgReddito_3 			"Income: 10,001-25,000 euros"
-label var cgReddito_4 			"Income: 25,001-50,000 euros"
-label var cgReddito_5 			"Income: 50,001-100,000 euros"
-label var cgReddito_6 			"Income: 100,001-250,000 euros"
-label var cgReddito_7 			"Income: more than 250,000 euros"		
-label var lowbirthweight 		"Low birthweight"
-label var birthpremature		"Premature birth"
-label var childrenSibTot		"Number of siblings"
-label var yrCity				"Migrants: year entered city"
-label var ageCity				"Migrants: age entered city"
-label var cgMigrant				"Mother: born outside of Italy"
-
-label var mStatus_married_cohab "Married or Cohabitating"
-label var childrenResp			"Num. of Children in House"
-label var all_houseOwn			"Own House"
-label var live_parent			"Live With Parents"
-
-label var Maria					"Tried Marijuana"
-label var Smoke					"Smoker"
-label var Cig					"Num. of Cigarettes Per Day"
-label var BMI					"BMI"
-label var childBMI 				"BMI - child"
-label var childz_BMI 			"BMI z-score - child"
-label var cgBMI 				"Caregiver BMI"
-label var z_BMI					"BCMI z-score"
-label var Health				"Good Health"
-label var SickDays				"Num. of Days Sick Past Month"
-label var i_RiskDUI				"Drove Under Influence "
-label var i_RiskFight			"Engaged in A Fight "
-label var RiskSuspended			"Ever Suspended from School"
-label var Drink1Age				"Age At First Drink"
-
-label var LocusControl			"Locus of Control"
-label var Depression_score		"Depression Score"
-label var pos_LocusControl		"Locus of Control - Positive"
-label var pos_Depression_score	"Depression Score - Positive"
-label var binSatisIncome		"Satisfied with Income"
-label var binSatisWork			"Satisfied with Work"
-label var binSatisHealth 		"Satisfied with Health"
-label var binSatisFamily		"Satisfied with Family"
-label var optimist				"Optimistic Look on Life"
-label var reciprocity1bin		"Return a Favor"
-label var reciprocity2bin		"Put Someone in Difficulty"
-label var reciprocity3bin		"Help Someone Who is Kind To Me"
-label var reciprocity4bin 		"Would Insult Someone Back"
-
-label var MigrTaste				"Favorable to Migrants"
-label var Friends				"Number of Friends"
-label var MigrFriend			"Has Migrant Friends"
-
 
 * ---------------------------------------------------------------------------- *
 * Create some variables for the regressions 
@@ -604,6 +499,136 @@ replace BMI_overweight = 1 if childBMI >= 24.66372 & childBMI < 28.90981 & Male 
 replace BMI_overweight = 1 if childBMI >= 25.20482 & childBMI < 29.6335 & Male == 0 & Age >=17 & Age< 18
 replace BMI_overweight = 1 if childBMI >= 25.67786 & childBMI < 30.32554 & Male == 0 & Age >=18 & Age< 19
 replace BMI_overweight = 1 if childBMI >= 26.09993 & childBMI < 31.0288 & Male == 0 & Age >=19 & Age< 20
+
+
+
+// Mother work/school variable
+label define momWork_lab 1 "Yes, worked full-time" 2 "Yes, worked part-time" 3 "Yes, went to school" 4 "No, stayed at home" 
+label values momWorking06 momWork_lab
+
+generate momWork_fulltime06 = (momWorking06 == 1)
+label var momWork_fulltime06 "dv: Mother worked full-time when you were less than 6 years old."
+
+generate momWork_parttime06 = (momWorking06 == 2)
+label var momWork_parttime06 "dv: Mother worked part-time when you were less than 6 years old."
+
+generate momSchool06 = (momWorking06 == 3)
+label var momSchool06 "dv: Mother went to school when you were less than 6 years old."
+
+generate momWork_No06 = (momWorking06 == 4)
+label var momWork_No06 "dv: Mother did not work nor go to school when you were less than 6 years old."
+
+
+* ---------------------------------------------------------------------------- *
+* Label Variables 
+
+
+** Variable labels
+label var ReggioMaterna        		"RCH preschool"
+label var ReggioAsilo          		"RCH infant-toddler"
+
+label var CAPI                		"CAPI"
+label var Cohort_Adult30       		"30 year olds"
+label var Cohort_Adult40       		"40 year olds"
+label var asilo_Attend         		"Any infant-toddler center"
+label var asilo_Municipal      		"Municipal infant-toddler center"
+label var materna_Municipal    		"Municipal preschool"
+label var materna_Religious    		"Religious preschool"
+label var materna_State        		"State preschool"
+label var materna_Private      		"Private preschool"
+
+label var cgPA_HouseWife       		"Caregiver Housewife"
+label var dadPA_Unempl         		"Father Unemployed" 
+label var cgmStatus_div         "Caregiver Divorced"
+label var momHome06             "Mom Home at 6"
+label var numSiblings           "Num. Siblings"
+label var childrenSibTot        "Num. Siblings"
+label var houseOwn              "Own Home"
+label var MaxEdu_Uni            "University"
+
+label var momBornProvince       "Mom born in the province"
+label var dadBornProvince       "Dad born in the province"
+
+label var SDQ_score             "SDQ score (self rep.)"
+label var childSDQ_score        "SDQ score (mom rep.)"
+label var Depression_score      "Depression score (CESD)"
+label var HealthPerc            "Respondent health is good (%)"
+label var childHealthPerc       "Child health is good (%) - mom report"
+label var MigrTaste_cat         "Bothered by migrants (%)"
+
+label var Age                   "Age"
+label var Age_sq                "Age sq."
+label var lowbirthweight        "Low birthweight"
+label var birthpremature        "Premature"
+
+label var Male 					"Male indicator"
+label var momAgeBirth 			"Mother: age at birth"
+label var dadAgeBirth 			"Father: age at birth"
+label var momMaxEdu_low			"Mother max. edu.: less than middle school"
+label var momMaxEdu_middle  	"Mother max. edu.: middle school"
+label var momMaxEdu_HS 			"Mother max. edu.: high school"
+label var momMaxEdu_Uni 		"Mother max. edu.: university"
+label var dadMaxEdu_low			"Father max. edu.: less than middle school"
+label var dadMaxEdu_middle 		"Father max. edu.: middle school"
+label var dadMaxEdu_HS 			"Father max. edu.: high school"
+label var dadMaxEdu_Uni 		"Father max. edu.: university"
+label var momBornProvince 		"Mother: born in province"
+label var dadBornProvince 		"Father: born in province"
+label var cgRelig 				"Religious caregiver indicator"
+label var houseOwn 				"Home ownership indicator"
+label var cgReddito_1			"Income: 5,000 euros or less"
+label var cgReddito_2			"Income: 5,001-10,000 euros"
+label var cgReddito_3 			"Income: 10,001-25,000 euros"
+label var cgReddito_4 			"Income: 25,001-50,000 euros"
+label var cgReddito_5 			"Income: 50,001-100,000 euros"
+label var cgReddito_6 			"Income: 100,001-250,000 euros"
+label var cgReddito_7 			"Income: more than 250,000 euros"		
+label var lowbirthweight 		"Low birthweight"
+label var birthpremature		"Premature birth"
+label var childrenSibTot		"Number of siblings"
+label var yrCity				"Migrants: year entered city"
+label var ageCity				"Migrants: age entered city"
+label var cgMigrant				"Mother: born outside of Italy"
+
+label var mStatus_married_cohab "Married or Cohabitating"
+label var childrenResp			"Num. of Children in House"
+label var all_houseOwn			"Own House"
+label var live_parent			"Live With Parents"
+
+label var Maria					"Tried Marijuana"
+label var Smoke					"Smoker"
+label var Cig					"Num. of Cigarettes Per Day"
+label var BMI					"BMI"
+label var childBMI 				"BMI - child"
+label var childz_BMI 			"BMI z-score - child"
+label var cgBMI 				"Caregiver BMI"
+label var z_BMI					"BCMI z-score"
+label var Health				"Good Health"
+label var SickDays				"Num. of Days Sick Past Month"
+label var i_RiskDUI				"Drove Under Influence "
+label var i_RiskFight			"Engaged in A Fight "
+label var RiskSuspended			"Ever Suspended from School"
+label var Drink1Age				"Age At First Drink"
+
+label var LocusControl			"Locus of Control"
+label var Depression_score		"Depression Score"
+label var pos_LocusControl		"Locus of Control - Positive"
+label var pos_Depression_score	"Depression Score - Positive"
+label var binSatisIncome		"Satisfied with Income"
+label var binSatisWork			"Satisfied with Work"
+label var binSatisHealth 		"Satisfied with Health"
+label var binSatisFamily		"Satisfied with Family"
+label var optimist				"Optimistic Look on Life"
+label var reciprocity1bin		"Return a Favor"
+label var reciprocity2bin		"Put Someone in Difficulty"
+label var reciprocity3bin		"Help Someone Who is Kind To Me"
+label var reciprocity4bin 		"Would Insult Someone Back"
+
+label var MigrTaste				"Favorable to Migrants"
+label var Friends				"Number of Friends"
+label var MigrFriend			"Has Migrant Friends"
+
+
 
 
 
