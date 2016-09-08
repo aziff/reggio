@@ -1,0 +1,28 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{3}{c}}
+\hline\hline
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
+            &\multicolumn{1}{c}{Reggio30}&\multicolumn{1}{c}{Reggio40}&\multicolumn{1}{c}{Parma30}\\
+\hline
+IQ Factor   &      -0.143         &      -0.387\sym{**} &      -0.190         \\
+            &     (0.136)         &     (0.145)         &     (0.153)         \\
+[1em]
+High School Grade&      -4.676\sym{**} &       1.879         &      -5.590         \\
+            &     (1.667)         &     (1.955)         &     (4.942)         \\
+[1em]
+University Grade&       2.567         &       14.11         &      -0.799         \\
+            &     (7.730)         &     (11.85)         &     (3.158)         \\
+[1em]
+Graduate from High School&     -0.0537         &     -0.0777         &       0.148\sym{*}  \\
+            &    (0.0583)         &     (0.115)         &    (0.0647)         \\
+[1em]
+Max Edu: University&      -0.193\sym{**} &     -0.0991         &     -0.0622         \\
+            &    (0.0594)         &    (0.0513)         &     (0.104)         \\
+[1em]
+Max Edu: Graduate School&      0.0228         &           0         &      0.0220         \\
+            &    (0.0220)         &         (.)         &    (0.0354)         \\
+\hline\hline
+\multicolumn{4}{l}{\footnotesize \specialcell{\underline{Note:} This table shows the OLS estimates for the effects of attending the municipal asilo \\ for the group specified by each column. Estimation for each column \\ is restricted to the corresponding cohort. \\                                                                         Standard errors are reported in parenthesis. Stars show statistical significance as follows: \\                                                                         * p < 0.05, ** p < 0.01, *** p < 0.001.}}\\
+\end{tabular}
+}
