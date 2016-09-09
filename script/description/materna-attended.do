@@ -45,18 +45,18 @@ foreach num in 1 2 3 4 5 6 {
 
 	* Drop if maternaType_manualFull is written as "No Info" (YKK: Who are these people?)
 	drop if maternaType_manualFull == "No Info"
-
+	
 	* Generate the count variable
 	sort maternaname_manual
 	by maternaname_manual: generate N_attendee = _N
-
+	
 	* Drop duplicates of the same school
 	sort maternaname_manual
 	quietly by maternaname_manual: gen dup = cond(_N==1,0,_n)
-	keep if dup == 1
+	keep if dup == 1 | dup == 0
 
 	* Make into the format that goes into the excel sheet
-	generate sort_attendee = -N_attendee
+	generate sort_attendee = -(N_attendee)
 	sort City sort_attendee
 	drop dup maternaType sort_attendee 
 
