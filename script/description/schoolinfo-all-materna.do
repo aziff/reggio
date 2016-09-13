@@ -4,10 +4,7 @@
 * Created: 09/13/2016
 * Edited:  09/13/2016
 * Note: The purpose of this do file is to generate a xls file that shows # of
-        attendees per each ITC/preschool in our data. We are focusing only on
-		age-40 and age-50 cohorts in this do file, as those are the cohorts that
-		needs to be double-checked regarding the childcare attendance information
-		that they provided. 
+        attendees per each ITC/preschool in our data. 
 * --------------------------------------------------------------------------- */
 
 clear all
@@ -26,6 +23,10 @@ global current : pwd
 
 local asilo_5		Asilo Age-40
 local asilo_6		Asilo Age-50
+local materna_1		Scuole Child
+local materna_2		Scuole Migr
+local materna_3		Scuole Adol
+local materna_4		Scuole Age-30
 local materna_5		Scuole Age-40
 local materna_6		Scuole Age-50
 
@@ -42,11 +43,11 @@ drop _merge
 * Create Necessary Excel File for Each Cohort *
 * ------------------------------------------- *
 * Switch (Turns on if it the loop for "materna" type starts)
-local switch = 0
+local switch = 1
 
 * Loop
-foreach type in asilo materna {
-	foreach num in 5 6 {
+foreach type in /*asilo*/ materna {
+	foreach num in 1 2 3 4 5 6 {
 
 		preserve
 		
@@ -85,7 +86,7 @@ foreach type in asilo materna {
 		}
 		
 		* Export 
-		export excel using "${git_reggio}\output\description\age40-age50-schoolinfo.xlsx", sheet("``type'_`num''") firstrow(variables) sheetreplace 
+		export excel using "${git_reggio}\output\description\allcohort-schoolinfo-`type'.xlsx", sheet("``type'_`num''") firstrow(variables) sheetreplace 
 		
 		restore
 	}	
