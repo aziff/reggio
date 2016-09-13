@@ -41,6 +41,10 @@ drop _merge
 * ------------------------------------------- *
 * Create Necessary Excel File for Each Cohort *
 * ------------------------------------------- *
+* Switch (Turns on if it the loop for "materna" type starts)
+local switch = 0
+
+* Loop
 foreach type in asilo materna {
 	foreach num in 5 6 {
 
@@ -50,32 +54,42 @@ foreach type in asilo materna {
 		keep if Cohort == `num' & `type'_Attend == 1
 
 		* Keep necessary variables
-		keep City Cohort `type'Type Name_School `type'Type_manualFull 
+		keep City Cohort `type'Type Name_School `type'Type_manualFull `type'name_manual
 
 		* Drop if maternaType_manualFull is written as "No Info" (YKK: Who are these people?)
 		drop if `type'Type_manualFull == "No Info"
 		
 		* Generate the count variable
-		sort Name_School
-		by Name_School: generate N_attendee = _N
+		sort `type'name_manual
+		by `type'name_manual: generate N_attendee = _N
 		
 		* Drop duplicates of the same school
-		sort Name_School
-		quietly by Name_School: gen dup = cond(_N==1,0,_n)
+		sort `type'name_manual
+		quietly by `type'name_manual: gen dup = cond(_N==1,0,_n)
 		keep if dup == 1 | dup == 0
 
 		* Make into the format that goes into the excel sheet
 		generate sort_attendee = -(N_attendee)
 		sort City sort_attendee
 		drop dup sort_attendee 
-
-		order City Cohort `type'Type `type'Type_manualFull Name_School 
+		
+		* Order variables
+		if `switch' == 0 {
+			order City Cohort `type'Type `type'Type_manualFull `type'name_manual 				// asilo does not have long name?
+			drop Name_School
+		}
+		
+		if `switch' == 1 {
+			order City Cohort `type'Type `type'Type_manualFull `type'name_manual Name_School 	// materna has long name for sure.
+			rename Name_School	longname_manual
+		}
 		
 		* Export 
-		export excel using "${git_reggio}\output\description\age40-ag50-schoolinfo.xlsx", sheet("``type'_`num''") firstrow(variables) sheetreplace 
+		export excel using "${git_reggio}\output\description\age40-age50-schoolinfo.xlsx", sheet("``type'_`num''") firstrow(variables) sheetreplace 
 		
 		restore
 	}	
+	local switch = 1
 }
 
 
