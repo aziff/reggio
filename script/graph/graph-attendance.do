@@ -24,8 +24,8 @@ include "${current}/../macros"
 * Generate variables necessary for plotting
 recode Cohort (1=2) (2=1), gen(Cohort_born) //to make it look better in the bar graph
 label define Cohort_born ///
-1 "2006-Imm." ///
-2 "2006-It. " ///
+1 "2006-Migrant" ///
+2 "2006-Italian " ///
 3 "1994     " ///
 4 "1980-1981" ///
 5 "1969-1970" ///

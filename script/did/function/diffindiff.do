@@ -92,6 +92,6 @@ syntax, type(string) ifcondition(string) comparison(string) keep(varlist)
 
 	***** Output the table to the tex file
 	esttab using "${current}/../../output/did/did-`comparison'-`type'.tex", replace se mtitle ///
-				coeflabels(`coeflabel') noobs nonotes addnotes("`Note'")
+				coeflabels(`coeflabel') noobs nonotes addnotes("`Note'") booktabs
 
 end

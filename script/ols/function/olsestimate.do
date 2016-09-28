@@ -97,6 +97,6 @@ syntax, type(string) agelist(string) usegroup(string) keep(varlist)
 
 	***** Output the table to the tex file
 	esttab using "${current}/../../output/ols/ols-`usegroup'-`type'.tex", replace se mtitle ///
-				coeflabels(`coeflabel') noobs nonotes addnotes("`Note'")
+				coeflabels(`coeflabel') noobs nonotes addnotes("`Note'") booktabs
 
 end

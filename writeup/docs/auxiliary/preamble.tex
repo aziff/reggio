@@ -51,6 +51,7 @@
 \newlength{\tablewidth}
 \setlength{\tablewidth}{9.3in}
 \setcounter{secnumdepth}{4}
+\usepackage{datetime}
 
 \titleformat{\paragraph}
 {\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
@@ -111,6 +112,13 @@
 \captionsetup[table]{skip=10pt}
 %\makeindex
 
+% Allow line breaks with \\ in specialcells
+\newcommand{\specialcell}[2][c]{%
+\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}
+                   %%%
+}
+
+
 
 \newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 \newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
@@ -129,5 +137,7 @@
 
 \newcommand{\mr}{\multirow}
 \newcommand{\mc}{\multicolumn}
+
+
 
 %\newcommand{\comment}[1]{}
