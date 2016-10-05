@@ -26,13 +26,13 @@ include "${current}/../macros"
 * ---------------------------------------------------------------------------- *
 * Plot bar graphs
 * ---------------------------------------------------------------------------- *
-* Locals for plotting
+*********** Locals for plotting
 local region				graphregion(color(white))
 local xtitle				xtitle(Mother's Years of Education)
 local ytitle				ytitle(Proportion of Working Mothers, height(5) color(navy))
 local legend				legend(label(1 "Age-30 Cohort") label(2 "Age-40 Cohort") label(3 "Age-50 Cohort") size(small))
 
-* Plot bar graphs for proportion of P = 1 for different work/study status of mothers
+*********** Plot bar graphs for proportion of P = 1 for different work/study status of mothers
 preserve
 keep if Cohort == 4 | Cohort == 5 | Cohort == 6
 generate materna_count = 1
@@ -52,9 +52,8 @@ graph bar n, over(momWorking06) over(Cohort) asyvars ///
 graph export "${current}\..\..\output\image\bar_momworkpreschool_count.pdf", replace		 
 
 restore
-ddd
 
-* Plot bar graphs for work/study status of mothers
+*********** Plot bar graphs for work/study status of mothers
 preserve
 keep if Cohort == 4 | Cohort == 5 | Cohort == 6
 graph hbar (sum) momWork_fulltime06 momWork_parttime06 momSchool06 momWork_No06 if (materna == 1), ///
@@ -69,4 +68,30 @@ graph hbar (sum) momWork_fulltime06 momWork_parttime06 momSchool06 momWork_No06 
 				graphregion(color(white)) title("Proportion of Work/Study Status of Mothers (Preschool = 0)", size(medlarge))
 graph export "${current}\..\..\output\image\bar_mompreschoolno.pdf", replace
 
+
+*********** Plot who took care of children if mother is working full-time and the children did not attend preschool
+graph hbar (sum) careNoAsiloMom careNoAsiloDad careNoAsiloGra careNoAsiloBsh careNoAsiloBso careNoAsiloBro careNoAsiloFam careNoAsiloOth if (momWork_fulltime06 == 1) & (materna == 0), ///
+				over(Cohort) stack  bar(1, color(gs0)) bar(2, color(gs2)) bar(3, color(gs4)) bar(4, color(gs6)) percentages bar(5, color(gs8)) bar(6, color(gs10)) bar(7, color(gs12)) bar(8, color(gs14)) /// 
+				legend(size(small) label(1 "Mother") label(2 "Father") label(3 "Grandparents") label(4 "Babysitter, home") ///
+				label(5 "Babysitter, out-of-home") label(6 "Sibling") label(7 "Other family") label(8 "Other")) ///
+				graphregion(color(white)) title("Who Took Care of Children When Mother Worked Full-Time", size(medlarge))
+graph export "${current}\..\..\output\image\bar_caregiver_momft.pdf", replace
+
+
+*********** Plot mean years of education by cohort, mother work status, preschool choice
+collapse (mean) meanmomYearsEdu = momYearsEdu, by(momWork_Yes06 materna Cohort)
+
+label define materna_lab 0 "Not attended" 1 "Attended"
+label values materna materna_lab
+
+graph bar meanmomYearsEdu, over(momWork_Yes06) over(materna, label(labsize(small))) over(Cohort) asyvars ///
+		 bar(1, color(gs5)) bar(2, color(gs10)) ///
+		 legend(size(small) label(1 "Did not work/study") label(2 "Worked/studied")) ///
+		 ytitle("Mean Mother's Years of Education") graphregion(color(white))
+graph export "${current}\..\..\output\image\bar_momyearsedu_mean.pdf", replace		
+
 restore
+
+
+		
+
