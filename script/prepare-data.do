@@ -522,6 +522,12 @@ generate momWork_Yes06 = (momWork_No06 == 0)
 label var momWork_Yes06 "dv: Mother worked or went to school when you were less than 6 years old."
 
 
+// label values of careAsilo variable
+label define careAsilo_lab 1 "Mother" 2 "Father" 3 "Grandparents" 4 "Baby sitter, home" 5 "Baby sitter, out of house" 6 "Sibling" 7 "Other family member" 8 "Other"
+label values careAsilo careAsilo_lab
+label values careNoAsilo careAsilo_lab
+
+
 * ---------------------------------------------------------------------------- *
 * Label Variables 
 

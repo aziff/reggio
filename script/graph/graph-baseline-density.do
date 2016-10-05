@@ -39,8 +39,3 @@ twoway (kdensity momYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06
 		(kdensity momYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == 6), color(green)) 
 graph export "${current}\..\..\output\image\kdensity_momeduwork.pdf", replace
 
-** Plot density for working fathers
-twoway (kdensity dadYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == 4), `region' `xtitle' `ytitle' `legend' color(navy)) ///
-		(kdensity dadYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == 5), color(maroon)) ///
-		(kdensity dadYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == 6), color(green)) 
-graph export "${current}\..\..\output\image\kdensity_momeduwork.pdf", replace
