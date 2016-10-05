@@ -92,6 +92,16 @@ graph export "${current}\..\..\output\image\bar_momyearsedu_mean.pdf", replace
 
 restore
 
+*********** Plot density for working mothers
+local xtitle				xtitle(Mother's Years of Education)
+local ytitle				ytitle(Proportion, height(5) color(navy))
+local legend				legend(label(1 "Work = 1, P = 1") label(2 "Work = 1, P = 0") label(3 "Work = 0, P = 1") label(4 "Work = 0, P = 0") size(small))
+
+twoway (kdensity momYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == 6) & (materna == 1), `region' `xtitle' `ytitle' `legend' color(navy)) ///
+		(kdensity momYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == 6) & (materna == 0), color(maroon)) ///
+		(kdensity momYearsEdu if ((momWork_fulltime06 == 0) & (momWork_parttime06 == 0)) & (Cohort == 6) & (materna == 1), color(green)) ///
+		(kdensity momYearsEdu if ((momWork_fulltime06 == 0) & (momWork_parttime06 == 0)) & (Cohort == 6) & (materna == 0), color(yellow))
+graph export "${current}\..\..\output\image\kdensity_momeduworkmaterna.pdf", replace
 
 		
 
