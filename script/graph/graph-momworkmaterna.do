@@ -93,27 +93,21 @@ graph export "${current}\..\..\output\image\bar_momyearsedu_mean.pdf", replace
 restore
 
 *********** Plot density for working mothers
-local xtitle				xtitle(Mother's Years of Education)
-local ytitle				ytitle(Proportion, height(5) color(navy))
-local legend				legend(label(1 "Work = 1, P = 1") label(2 "Work = 1, P = 0") label(3 "Work = 0, P = 1") label(4 "Work = 0, P = 0") size(small))
+local xtitle		xtitle(Mother's Years of Education)
+local ytitle		ytitle(Proportion, height(5) color(navy))
+local legend		legend(label(1 "Work = 1, P = 1") label(2 "Work = 1, P = 0") label(3 "Work = 0, P = 1") label(4 "Work = 0, P = 0") size(small))
 
-twoway (kdensity momYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == 6) & (materna == 1), `region' `xtitle' `ytitle' `legend' color(gs3)) ///
-		(kdensity momYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == 6) & (materna == 0), color(gs10)) ///
-		(kdensity momYearsEdu if ((momWork_fulltime06 == 0) & (momWork_parttime06 == 0)) & (Cohort == 6) & (materna == 1), color(purple)) ///
-		(kdensity momYearsEdu if ((momWork_fulltime06 == 0) & (momWork_parttime06 == 0)) & (Cohort == 6) & (materna == 0), color(erose))
-graph export "${current}\..\..\output\image\kdensity_momeduworkmaterna_age50.pdf", replace
+local age_4			30
+local age_5			40
+local age_6			50
 
-twoway (kdensity momYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == 5) & (materna == 1), `region' `xtitle' `ytitle' `legend' color(gs3)) ///
-		(kdensity momYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == 5) & (materna == 0), color(gs10)) ///
-		(kdensity momYearsEdu if ((momWork_fulltime06 == 0) & (momWork_parttime06 == 0)) & (Cohort == 5) & (materna == 1), color(purple)) ///
-		(kdensity momYearsEdu if ((momWork_fulltime06 == 0) & (momWork_parttime06 == 0)) & (Cohort == 5) & (materna == 0), color(erose))
-graph export "${current}\..\..\output\image\kdensity_momeduworkmaterna_age40.pdf", replace
+foreach cohort in 4 5 6 {
+	twoway (kdensity momYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == `cohort') & (materna == 1), `region' `xtitle' `ytitle' `legend' color(gs3)) ///
+			(kdensity momYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == `cohort') & (materna == 0), color(gs10)) ///
+			(kdensity momYearsEdu if ((momWork_fulltime06 == 0) & (momWork_parttime06 == 0)) & (Cohort == `cohort') & (materna == 1), color(purple)) ///
+			(kdensity momYearsEdu if ((momWork_fulltime06 == 0) & (momWork_parttime06 == 0)) & (Cohort == `cohort') & (materna == 0), color(erose))
+	graph export "${current}\..\..\output\image\kdensity_momeduworkmaterna_age`age_`cohort''.pdf", replace
+}
 
-twoway (kdensity momYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == 4) & (materna == 1), `region' `xtitle' `ytitle' `legend' color(gs3)) ///
-		(kdensity momYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == 4) & (materna == 0), color(gs10)) ///
-		(kdensity momYearsEdu if ((momWork_fulltime06 == 0) & (momWork_parttime06 == 0)) & (Cohort == 4) & (materna == 1), color(purple)) ///
-		(kdensity momYearsEdu if ((momWork_fulltime06 == 0) & (momWork_parttime06 == 0)) & (Cohort == 4) & (materna == 0), color(erose))
-graph export "${current}\..\..\output\image\kdensity_momeduworkmaterna_age30.pdf", replace
 
-		
 
