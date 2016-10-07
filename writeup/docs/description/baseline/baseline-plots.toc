@@ -1,3 +1,0 @@
-\contentsline {section}{\numberline {1}Mother's Employment and Preschool Choice}{1}{section.1}
-\contentsline {section}{\numberline {2}Mother's Education and Preschool Choice}{3}{section.2}
-\contentsline {section}{\numberline {3}Nationality of Caregivers}{6}{section.3}
