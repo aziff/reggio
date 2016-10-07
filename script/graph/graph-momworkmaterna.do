@@ -8,6 +8,9 @@
 clear all
 set more off
 
+capture which graph3d					// Checks system for graph3d
+if _rc ssc install graph3d 				// If not found, installs graph3d
+
 * ---------------------------------------------------------------------------- *
 * Set directory
 * ---------------------------------------------------------------------------- *
@@ -108,6 +111,4 @@ foreach cohort in 4 5 6 {
 			(kdensity momYearsEdu if ((momWork_fulltime06 == 0) & (momWork_parttime06 == 0)) & (Cohort == `cohort') & (materna == 0), color(erose))
 	graph export "${current}\..\..\output\image\kdensity_momeduworkmaterna_age`age_`cohort''.pdf", replace
 }
-
-
 
