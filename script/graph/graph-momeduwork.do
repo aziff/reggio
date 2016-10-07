@@ -54,7 +54,7 @@ keep if Cohort == 4 | Cohort == 5 | Cohort == 6
 graph hbar (sum) momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)), ///
 				over(Cohort) stack  percentages bar(1, color(gs2)) bar(2, color(gs7)) bar(3, color(gs10)) bar(4, color(gs13)) /// 
 				legend(size(small) label(1 "Less than middle school") label(2 "Middle school") label(3 "High school") label(4 "University")) ///
-				graphregion(color(white)) title("Proportion of Max Education Among Working Mothers", size(medlarge))
+				graphregion(color(white))
 graph export "${current}\..\..\output\image\bar_momeduwork.pdf", replace
 
 restore

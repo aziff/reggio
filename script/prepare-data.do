@@ -528,9 +528,61 @@ label values careAsilo careAsilo_lab
 label values careNoAsilo careAsilo_lab
 
 
+*** Define Religion label
+label define religion_lab  0 "None" 1 "Catholic" 2 "Protestant" 3 "Orthodox" 4 "Christian" ///
+							5 "Jewish" 6 "Islamica" 7 "Eastern Religion" 8 "Other Religion"
+label values cgReligType religion_lab
+
+
+*** Caregiver Nationality
+** Southern Europe (Albania, Bulgaria, Georgia, Macedonia, Romania, Serbia)
+generate cgNationSEurope = .
+replace cgNationSEurope = 0 if cgNationality != .
+replace cgNationSEurope = 1 if (cgNationality == 2) | (cgNationality == 34) | (cgNationality == 74) | (cgNationality == 138) | (cgNationality == 185) | (cgNationality == 198)
+lab var cgNationSEurope "dv: Caregiver nationality: Southern Europe"
+
+** Africa (Algeria, Burkina Faso, Burundi, Camerun, Congo (Rep.), Costa d Avorio, Egitto (Egypt), Eritrea, Ghana, Guinea, Mali, Morocco, Nigeria, Senegal)
+generate cgNationAfrica = .
+replace cgNationAfrica = 0 if cgNationality != .
+replace cgNationAfrica = 1 if (cgNationality == 3) | (cgNationality == 35) | (cgNationality == 36) | (cgNationality == 38) | (cgNationality == 52) | (cgNationality == 55)  ///
+							  | (cgNationality == 63) | (cgNationality == 66) | (cgNationality == 77) | (cgNationality == 91) | (cgNationality == 143) | (cgNationality == 145) ///
+							  | (cgNationality == 165) | (cgNationality == 197)  
+lab var cgNationAfrica "dv: Caregiver nationality: Africa"
+							  
+** South America (Argentina, Brazil, Chile, Colombia, Ecuador, Paraguay, Peru) 
+generate cgNationSAmerica = .
+replace cgNationSAmerica = 0 if cgNationality != .
+replace cgNationSAmerica = 1 if (cgNationality == 11) | (cgNationality == 32) | (cgNationality == 45) | (cgNationality == 49) | (cgNationality == 62) | (cgNationality == 176) | (cgNationality == 177)      
+lab var cgNationSAmerica "dv: Caregiver nationality: Southern America"
+
+** Asia (Bangladesh, China, Philippines, India, Nepal, Pakistan) 
+generate cgNationAsia = .
+replace cgNationAsia = 0 if cgNationality != .
+replace cgNationAsia = 1 if (cgNationality == 21) | (cgNationality == 46) | (cgNationality == 69) | (cgNationality == 99) | (cgNationality == 162) | (cgNationality == 172)
+lab var cgNationAsia "dv: Caregiver nationality: Asia"
+
+** Western Europe (Belgium, Germany) 
+generate cgNationWEurope = .
+replace cgNationWEurope = 0 if cgNationality != .
+replace cgNationWEurope = 1 if (cgNationality == 23) | (cgNationality == 76)
+lab var cgNationWEurope "dv: Caregiver nationality: Western Europe"
+
+** Eastern Europe (Bielorussia, Croatia, Moldova, Poland, Russia)
+generate cgNationEEurope = .
+replace cgNationEEurope = 0 if cgNationality != .
+replace cgNationEEurope = 1 if (cgNationality == 28) | (cgNationality == 57) | (cgNationality == 153) | (cgNationality == 179) | (cgNationality == 187)
+lab var cgNationEEurope "dv: Caregiver nationality: Eastern Europe"
+
+** Caribbean (Cuba, Dominicana)
+generate cgNationCarib = .
+replace cgNationCarib = 0 if cgNationality != .
+replace cgNationCarib = 1 if (cgNationality == 58) | (cgNationality == 61)
+lab var cgNationCarib "dv: Caregiver nationality: Caribbean"
+
+
 * ---------------------------------------------------------------------------- *
 * Label Variables 
-
+* ---------------------------------------------------------------------------- *
 
 ** Variable labels
 label var ReggioMaterna        		"RCH preschool"
