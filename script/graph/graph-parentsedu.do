@@ -23,15 +23,13 @@ global current : pwd
 use "${data_reggio}/Reggio_prepared"
 include "${current}/../macros" 
 
-* ---------------------------------------------------------------------------- *
-* Plot density functions
-* ---------------------------------------------------------------------------- *
+
 * Locals for plotting
 local momedu momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni
 local dadedu dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni
 
 
-* Plot bar graph for working mothers
+* Plot bar graph for mothers and fathers
 preserve
 keep if Cohort == 4 | Cohort == 5 | Cohort == 6
 
@@ -58,25 +56,27 @@ foreach p in mom dad{
 							legend(size(vsmall) rows(1) label(1 "Less than middle school") label(2 "Middle school") ///
 							label(3 "High school") label(4 "University")) ///
 							graphregion(color(white)) ylabel(, nogrid) `ylab_cond' title(`Cohort`c'', size(medium)) ///
-							saving("support\bar_`p'_city`k'_cohort`c'.gph", replace)
+							name(bar_`p'_city`k'_cohort`c')
+			window manage close graph
+
 		}
 	}
 }
 
-cd support
-
 foreach p in mom dad{
 	forvalues k = 1/3{
-		grc1leg 		bar_`p'_city`k'_cohort4.gph bar_`p'_city`k'_cohort5.gph bar_`p'_city`k'_cohort6.gph, ///
+		grc1leg 		bar_`p'_city`k'_cohort4 bar_`p'_city`k'_cohort5 bar_`p'_city`k'_cohort6, ///
 						ycommon xcommon rows(1) imargin(0 4 0 0) graphregion(color(white)) title(`City`k'', size(medium)) ///
-						saving("combinedCohort_`p'_`k'.gph", replace)
+						name(combinedCohort_`p'_`k')
+		window manage close graph
+
 	}
 }		
 
-grc1leg 			combinedCohort_mom_1.gph combinedCohort_mom_2.gph combinedCohort_mom_3.gph, ///
+grc1leg 			combinedCohort_mom_1 combinedCohort_mom_2 combinedCohort_mom_3, ///
 					ycommon xcommon rows(3) imargin(0 0 0 0) graphregion(color(white))
-graph export "${current}\..\..\Output\image\bar_momWork.pdf", replace
+graph export "${current}\..\..\Output\image\bar_momWork.eps", replace
 
-grc1leg 			combinedCohort_dad_1.gph combinedCohort_dad_2.gph combinedCohort_dad_3.gph, ///
+grc1leg 			combinedCohort_dad_1 combinedCohort_dad_2 combinedCohort_dad_3, ///
 					ycommon xcommon rows(3) imargin(0 0 0 0) graphregion(color(white))
-graph export "${current}\..\..\Output\image\bar_dadWork.pdf", replace
+graph export "${current}\..\..\Output\image\bar_dadWork.eps", replace
