@@ -37,6 +37,6 @@ foreach cohort in 4 5 6 {
 			(kdensity numSiblings if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == `cohort') & (materna == 0), color(gs10)) ///
 			(kdensity numSiblings if ((momWork_fulltime06 == 0) & (momWork_parttime06 == 0)) & (Cohort == `cohort') & (materna == 1), color(purple)) ///
 			(kdensity numSiblings if ((momWork_fulltime06 == 0) & (momWork_parttime06 == 0)) & (Cohort == `cohort') & (materna == 0), color(erose))
-	graph export "${current}\..\..\output\image\kdensity_numsibling_age`age_`cohort''.pdf", replace
+	graph export "${current}\..\..\output\image\kdensity_numsibling_age`age_`cohort''.eps", replace
 }
 

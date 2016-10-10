@@ -51,7 +51,7 @@ graph bar cgNationSEurope cgNationAfrica cgNationSAmerica cgNationAsia cgNationW
 		 legend(size(small) label(1 "Southern Europe") label(2 "Africa") label(3 "South America") label(4 "Asia") ///
 							label(5 "Western Europe") label(6 "Eastern Europe") label(7 "Caribbean")) ///
 		 ytitle("Number of Caregivers") graphregion(color(white))
-graph export "${current}\..\..\output\image\bar_cgNationality.pdf", replace		 
+graph export "${current}\..\..\output\image\bar_cgNationality.eps", replace		 
 
 restore
 
