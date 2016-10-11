@@ -7,7 +7,7 @@
 \contentsline {subsubsection}{\numberline {2.4.1}Parma}{6}{subsubsection.2.4.1}
 \contentsline {subsubsection}{\numberline {2.4.2}Padova}{7}{subsubsection.2.4.2}
 \contentsline {section}{\numberline {3}Data}{8}{section.3}
-\contentsline {section}{\numberline {4}Methodology}{8}{section.4}
-\contentsline {section}{\numberline {5}Empirical Results}{9}{section.5}
-\contentsline {subsection}{\numberline {5.1}Possibility of Diffusion}{9}{subsection.5.1}
-\contentsline {section}{\numberline {6}Conclusion}{15}{section.6}
+\contentsline {section}{\numberline {4}Methodology}{10}{section.4}
+\contentsline {section}{\numberline {5}Empirical Results}{11}{section.5}
+\contentsline {section}{\numberline {6}Possibility of Diffusion}{16}{section.6}
+\contentsline {section}{\numberline {7}Conclusion}{23}{section.7}
