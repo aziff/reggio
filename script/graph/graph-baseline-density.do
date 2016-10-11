@@ -37,5 +37,5 @@ local legend				legend(label(1 "Age-30 Cohort") label(2 "Age-40 Cohort") label(3
 twoway (kdensity momYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == 4), `region' `xtitle' `ytitle' `legend' color(navy)) ///
 		(kdensity momYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == 5), color(maroon)) ///
 		(kdensity momYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == 6), color(green)) 
-graph export "${current}\..\..\output\image\kdensity_momeduwork.pdf", replace
+graph export "${current}\..\..\output\image\kdensity_momeduwork.eps", replace
 

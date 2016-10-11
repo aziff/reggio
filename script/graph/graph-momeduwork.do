@@ -37,14 +37,14 @@ local legend				legend(label(1 "Age-30 Cohort") label(2 "Age-40 Cohort") label(3
 twoway (kdensity momYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == 4), `region' `xtitle' `ytitle' `legend' color(navy)) ///
 		(kdensity momYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == 5), color(maroon)) ///
 		(kdensity momYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == 6), color(green)) 
-graph export "${current}\..\..\output\image\kdensity_momeduwork.pdf", replace
+graph export "${current}\..\..\output\image\kdensity_momeduwork.eps", replace
 
 
 ** Plot histogram for working mothers
 twoway (histogram momYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == 4), `region' `xtitle' `ytitle' `legend' color(gs4)) ///
 		(histogram momYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == 5), fcolor(none) lcolor(black)) ///
 		(histogram momYearsEdu if ((momWork_fulltime06 == 1) | (momWork_parttime06 == 1)) & (Cohort == 6), color(gs12)) 
-graph export "${current}\..\..\output\image\histogram_momeduwork.pdf", replace
+graph export "${current}\..\..\output\image\histogram_momeduwork.eps", replace
 
 
 * Plot bar graph for working mothers
@@ -55,6 +55,6 @@ graph hbar (sum) momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni if ((
 				over(Cohort) stack  percentages bar(1, color(gs2)) bar(2, color(gs7)) bar(3, color(gs10)) bar(4, color(gs13)) /// 
 				legend(size(small) label(1 "Less than middle school") label(2 "Middle school") label(3 "High school") label(4 "University")) ///
 				graphregion(color(white))
-graph export "${current}\..\..\output\image\bar_momeduwork.pdf", replace
+graph export "${current}\..\..\output\image\bar_momeduwork.eps", replace
 
 restore
