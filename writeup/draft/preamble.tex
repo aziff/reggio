@@ -51,6 +51,7 @@
 \setlength{\tablewidth}{9.3in}
 \setcounter{secnumdepth}{4}
 \usepackage[T1]{fontenc}
+\usepackage{calc}
 
 \titleformat{\paragraph}
 {\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
@@ -69,6 +70,14 @@
 \usepackage{lipsum}
 \definecolor{lightgray}{RGB}{220,220,220}
 %\newwatermark[allpages,color=lightgray,angle=45,scale=3,xpos=0,ypos=0]{Preliminary Draft}
+
+% Allow line breaks with \\ in specialcells
+\newcommand{\specialcell}[2][c]{%
+\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}
+                   %%%
+}
+
+
 
 %Further subsection level
 \usepackage{titlesec}

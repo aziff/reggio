@@ -1,25 +1,24 @@
 {
 \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-\begin{tabular}{l*{2}{c}}
-\hline\hline
-            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}\\
-            &\multicolumn{1}{c}{Muni30}&\multicolumn{1}{c}{Muni40}\\
-\hline
-Married or Cohabitating&     -0.0443         &      0.0263         \\
-            &    (0.0817)         &    (0.0770)         \\
-[1em]
-Divorced    &      0.0232         &     -0.0117         \\
-            &    (0.0137)         &    (0.0549)         \\
-[1em]
-Num. of Children in House&      0.0129         &     -0.0439         \\
-            &    (0.0556)         &    (0.0973)         \\
-[1em]
-Own House   &       0.101         &    -0.00685         \\
-            &    (0.0851)         &    (0.0702)         \\
-[1em]
-Live With Parents&     -0.0960         &     -0.0448         \\
-            &    (0.0524)         &    (0.0299)         \\
-\hline\hline
-\multicolumn{3}{l}{\footnotesize \specialcell{\underline{Note:} This table shows the OLS estimates for people in Reggio who attended municipal preschools or none. \\                                                                         Standard errors are reported in parenthesis. Stars show statistical significance as follows: \\                                                                         * p < 0.05, ** p < 0.01, *** p < 0.001.}}\\
+\begin{tabular}{l*{6}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
+            &\multicolumn{1}{c}{None30}&\multicolumn{1}{c}{BIC30}&\multicolumn{1}{c}{Full30}&\multicolumn{1}{c}{None40}&\multicolumn{1}{c}{BIC40}&\multicolumn{1}{c}{Full40}\\
+\midrule
+Married or Cohabitating&      0.0652         &     -0.0665         &     -0.0129         &     0.00781         &     -0.0164         &      0.0201         \\
+            &    (0.0754)         &    (0.0810)         &    (0.0827)         &    (0.0618)         &    (0.0703)         &    (0.0965)         \\
+\addlinespace
+Divorced    &      0.0268\sym{*}  &      0.0409\sym{*}  &      0.0192         &     -0.0312         &     -0.0113         &      0.0373         \\
+            &    (0.0133)         &    (0.0204)         &    (0.0130)         &    (0.0453)         &    (0.0478)         &    (0.0615)         \\
+\addlinespace
+Num. of Children in House&      0.0223         &      0.0172         &      0.0418         &      0.0563         &     -0.0530         &     -0.0707         \\
+            &    (0.0519)         &    (0.0566)         &    (0.0603)         &    (0.0846)         &    (0.0979)         &     (0.106)         \\
+\addlinespace
+Own House   &    -0.00177         &      0.0830         &       0.153         &     -0.0859         &     -0.0160         &     -0.0294         \\
+            &    (0.0773)         &    (0.0845)         &    (0.0899)         &    (0.0642)         &    (0.0707)         &    (0.0812)         \\
+\addlinespace
+Live With Parents&     -0.0613         &      -0.102         &     -0.0876         &     -0.0266         &     -0.0375         &     -0.0413         \\
+            &    (0.0570)         &    (0.0531)         &    (0.0544)         &    (0.0279)         &    (0.0254)         &    (0.0297)         \\
+\bottomrule
 \end{tabular}
 }

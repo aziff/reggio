@@ -1,49 +1,48 @@
 {
 \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-\begin{tabular}{l*{2}{c}}
-\hline\hline
-            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}\\
-            &\multicolumn{1}{c}{Muni30}&\multicolumn{1}{c}{Muni40}\\
-\hline
-Locus of Control - positive&      -0.153         &       0.319\sym{*}  \\
-            &     (0.124)         &     (0.136)         \\
-[1em]
-Depression Score&       0.516         &      -2.116\sym{*}  \\
-            &     (0.847)         &     (1.031)         \\
-[1em]
-Stress      &      0.0963         &      0.0969         \\
-            &     (0.108)         &     (0.128)         \\
-[1em]
-StressWork  &      0.0158         &       0.220\sym{*}  \\
-            &    (0.0910)         &    (0.0917)         \\
-[1em]
-Satisfied with Income&       0.204         &       0.221         \\
-            &     (0.148)         &     (0.150)         \\
-[1em]
-Satisfied with Work&      0.0771         &       0.226         \\
-            &     (0.145)         &     (0.123)         \\
-[1em]
-Satisfied with Health&      -0.174         &     -0.0167         \\
-            &     (0.117)         &    (0.0894)         \\
-[1em]
-Satisfied with Family&     -0.0175         &       0.180         \\
-            &     (0.137)         &     (0.149)         \\
-[1em]
-Optimistic Look in Life&      -0.151         &      0.0613         \\
-            &    (0.0838)         &    (0.0841)         \\
-[1em]
-Return Favor&     -0.0905         & -0.00000865         \\
-            &     (0.173)         &     (0.161)         \\
-[1em]
-Put Someone in Difficulty&       0.658\sym{***}&      -0.103         \\
-            &     (0.186)         &     (0.201)         \\
-[1em]
-Help Someone Kind To Me&      -0.124         &     -0.0170         \\
-            &     (0.119)         &     (0.114)         \\
-[1em]
-Insult Back &       0.597\sym{***}&      -0.173         \\
-            &     (0.165)         &     (0.184)         \\
-\hline\hline
-\multicolumn{3}{l}{\footnotesize \specialcell{\underline{Note:} This table shows the OLS estimates for people in Reggio who attended municipal preschools or none. \\                                                                         Standard errors are reported in parenthesis. Stars show statistical significance as follows: \\                                                                         * p < 0.05, ** p < 0.01, *** p < 0.001.}}\\
+\begin{tabular}{l*{6}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
+            &\multicolumn{1}{c}{None30}&\multicolumn{1}{c}{BIC30}&\multicolumn{1}{c}{Full30}&\multicolumn{1}{c}{None40}&\multicolumn{1}{c}{BIC40}&\multicolumn{1}{c}{Full40}\\
+\midrule
+Locus of Control - positive&      0.0713         &      -0.133         &      -0.122         &       0.171         &       0.162         &       0.199         \\
+            &     (0.127)         &     (0.125)         &     (0.127)         &     (0.119)         &     (0.137)         &     (0.165)         \\
+\addlinespace
+Depression Score - positive&       1.337         &      -0.678         &      -0.251         &       2.399\sym{**} &       1.848         &       2.225\sym{*}  \\
+            &     (0.920)         &     (0.849)         &     (0.883)         &     (0.872)         &     (0.962)         &     (1.085)         \\
+\addlinespace
+Stress      &       0.184         &       0.102         &      0.0645         &       0.255\sym{*}  &       0.201         &       0.134         \\
+            &     (0.111)         &     (0.108)         &     (0.126)         &     (0.104)         &     (0.112)         &     (0.150)         \\
+\addlinespace
+Work is Source of Stress&      0.0933         &      0.0639         &      0.0222         &       0.162         &       0.179\sym{*}  &       0.249\sym{*}  \\
+            &    (0.0994)         &     (0.102)         &    (0.0983)         &    (0.0857)         &    (0.0882)         &     (0.101)         \\
+\addlinespace
+Satisfied with Income&       0.240         &       0.272         &       0.221         &       0.269\sym{*}  &       0.300\sym{*}  &       0.306         \\
+            &     (0.142)         &     (0.153)         &     (0.152)         &     (0.128)         &     (0.147)         &     (0.161)         \\
+\addlinespace
+Satisfied with Work&       0.122         &       0.126         &       0.125         &       0.353\sym{**} &       0.315\sym{**} &       0.248         \\
+            &     (0.138)         &     (0.149)         &     (0.146)         &     (0.114)         &     (0.122)         &     (0.145)         \\
+\addlinespace
+Satisfied with Health&     -0.0871         &      -0.180         &      -0.191         &      0.0578         &      0.0169         &    0.000877         \\
+            &     (0.108)         &     (0.110)         &     (0.135)         &    (0.0700)         &    (0.0857)         &     (0.102)         \\
+\addlinespace
+Satisfied with Family&      0.0616         &     -0.0277         &      0.0122         &       0.227\sym{*}  &       0.142         &      0.0969         \\
+            &     (0.134)         &     (0.143)         &     (0.148)         &     (0.116)         &     (0.137)         &     (0.157)         \\
+\addlinespace
+Optimistic Look in Life&      -0.173\sym{*}  &      -0.197\sym{*}  &      -0.127         &     -0.0632         &    -0.00647         &       0.105         \\
+            &    (0.0746)         &    (0.0771)         &    (0.0874)         &    (0.0716)         &    (0.0816)         &     (0.108)         \\
+\addlinespace
+Return Favor&      0.0610         &     -0.0535         &     -0.0901         &      0.0891         &     0.00774         &     -0.0505         \\
+            &     (0.159)         &     (0.154)         &     (0.192)         &     (0.128)         &     (0.149)         &     (0.195)         \\
+\addlinespace
+Put Someone in Difficulty&       0.615\sym{***}&       0.688\sym{***}&       0.642\sym{**} &      0.0109         &      -0.119         &       0.154         \\
+            &     (0.178)         &     (0.191)         &     (0.205)         &     (0.163)         &     (0.191)         &     (0.213)         \\
+\addlinespace
+Help Someone Kind To Me&     -0.0164         &     -0.0848         &      -0.146         &       0.102         &      0.0696         &     0.00196         \\
+            &     (0.111)         &     (0.110)         &     (0.123)         &    (0.0940)         &    (0.0977)         &     (0.124)         \\
+\addlinespace
+Insult Back &       0.387\sym{*}  &       0.524\sym{**} &       0.719\sym{***}&      -0.369\sym{*}  &      -0.272         &     -0.0920         \\
+            &     (0.176)         &     (0.169)         &     (0.169)         &     (0.158)         &     (0.164)         &     (0.209)         \\
+\bottomrule
 \end{tabular}
 }

@@ -268,6 +268,7 @@ lab var reciprocity2bin "If someone puts me in a difficult situation, I will do 
 lab var reciprocity3bin "I go out of my way to help somebody who has been kind to me before"
 lab var reciprocity4bin "If somebody insults me, I will insult him/her back"
 
+
 // opinons on work
 gen r_StressWork = StressWork
 recode r_StressWork (0=1) (1=0)

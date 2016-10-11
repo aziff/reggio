@@ -63,17 +63,9 @@ global Adult50_baseline_vars		 	`adult_baseline_vars';
 
 # delimit cr
 
-* Baseline variables for each category
-foreach cat in E L H N S {
-	global adult_baseline_vars_`cat'		Male CAPI numSiblings dadMaxEdu_Uni dadMaxEdu_Grad momMaxEdu_Grad
-}
-
-
-global adult_baseline_vars_W				Male CAPI numSiblings dadMaxEdu_Uni dadMaxEdu_Grad momMaxEdu_Grad i.SES	
-									
+								
 * BIC-selected baseline variables 
-global bic_baseline_vars		    		Male CAPI numSiblings dadMaxEdu_Uni dadMaxEdu_Grad momMaxEdu_Grad
-
+global bic_adults_baseline_vars		    	Male CAPI numSiblings momMaxEdu_middle dadMaxEdu_Uni numSibling_2 numSibling_more
 
 
 * -------------------------- *											
@@ -91,11 +83,11 @@ global adult_outcome_W					PA_Empl SES_self HrsTot WageMonth ///
 global adult_outcome_L					mStatus_married_cohab mStatus_div childrenResp all_houseOwn live_parent
 
 * Health									
-global adult_outcome_H					Maria Smoke Cig BMI goodHealth SickDays ///
-										i_RiskFight i_RiskDUI RiskSuspended Drink1Age							
+global adult_outcome_H					Maria /*Smoke*/ Cig BMI goodHealth SickDays ///
+										/*i_RiskFight i_RiskDUI*/ RiskSuspended Drink1Age							
 
 * Noncognitive										
-global adult_outcome_N					pos_LocusControl Depression_score Stress StressWork ///
+global adult_outcome_N					pos_LocusControl pos_Depression_score Stress StressWork ///
 										SatisIncome SatisWork SatisHealth SatisFamily ///
 										optimist reciprocity1 reciprocity2 reciprocity3 reciprocity4	
 
@@ -123,13 +115,13 @@ global PA_Empl_lab					Employed
 global SES_self_lab					Self-Employed
 global HrsTot_lab					Hours Worked Per Week
 global WageMonth_lab				Monthly Wage
-global Reddito_1_lab				H. Income: 5,000 Euros of Less
-global Reddito_2_lab				H. Income: 5,001-10,000 Euros
-global Reddito_3_lab				H. Income: 10,001-25,000 Euros
-global Reddito_4_lab				H. Income: 25,001-50,000 Euros
-global Reddito_5_lab				H. Income: 50,001-100,000 Euros
-global Reddito_6_lab				H. Income: 100,001-250,000 Euros
-global Reddito_7_lab				H. Income: More than 250,000 Euros
+global Reddito_1_lab				Income: 5,000 Euros of Less
+global Reddito_2_lab				Income: 5,001-10,000 Euros
+global Reddito_3_lab				Income: 10,001-25,000 Euros
+global Reddito_4_lab				Income: 25,001-50,000 Euros
+global Reddito_5_lab				Income: 50,001-100,000 Euros
+global Reddito_6_lab				Income: 100,001-250,000 Euros
+global Reddito_7_lab				Income: More than 250,000 Euros
 
 global mStatus_married_cohab_lab 	Married or Cohabitating
 global childrenResp_lab				Num. of Children in House
@@ -153,6 +145,8 @@ global Depression_score_lab			Depression Score
 
 global pos_LocusControl_lab			Locus of Control - positive
 global pos_Depression_score_lab		Depression Score - positive
+
+global StressWork_lab				Work is Source of Stress
 
 global SatisIncome_lab				Satisfied with Income
 global SatisWork_lab				Satisfied with Work

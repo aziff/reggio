@@ -6,7 +6,7 @@ This code creates a .csv file containing all possible combinations of the baseli
 """
 
 vars = 					["Male", "CAPI", "numSiblings", 
-						"momMaxEdu_middle", "momMaxEdu_HS", "momMaxEdu_Uni", "momMaxEdu_Grad","momBornProvince", \
+						"momMaxEdu_middle", "momMaxEdu_HS", "momMaxEdu_Uni", "momMaxEdu_Grad","momBornProvince", 
 						"dadMaxEdu_middle", "dadMaxEdu_HS", "dadMaxEdu_Uni", "dadMaxEdu_Grad","dadBornProvince"]
 
 print vars
