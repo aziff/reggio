@@ -7,27 +7,30 @@
 
 \input{preamble}
 
+\usepackage{sectsty}
+\sectionfont{\fontsize{12}{12}\selectfont}
+
 \begin{document}
 
-\title{Evaluation of the Reggio Approach \\ Draft}
-\author{Reggio Team}
-\date{Original version: October 3, 2016 \\ Current version: \today}
+\title{\normalsize \textbf{Evaluation of the Reggio Approach} \\ \normalsize Draft}
+\author{\normalsize Reggio Team}
+\date{\normalsize Original version: October 3, 2016 \\ Current version: \today}
 \maketitle
 
 \doublespacing
 
-This document presents (i) a brief description of the data, (ii) a simple analysis comparing individuals who attended the Reggio Emilia municipal schools to other individuals in Reggio Emilia, and (iii) a discussion of some potential selection issues in the sample.
+This draft presents (i) a brief description of the data, (ii) a simple analysis comparing individuals who attended the Reggio Emilia municipal schools to individuals in Reggio Emilia who did not attend any preschool, and (iii) a discussion of selection into preschool on observed characteristics. 
 
 \section{Data}
 \label{sec:data}
 
-The sample was collected from the population of individuals in Reggio Emilia, Parma, and Padova who were born in the year ranges of the five cohorts.  These individuals were collected from the population registries in each of the cities. The sample was then restricted to those individuals who live in the same city in which they were raised. All cohorts except the youngest one were restricted to individuals who are Italian citizens. In contrast, the youngest cohort includes an oversampling of immigrant children. The sample from Reggio Emilia, across all cohorts, includes an oversampling of those who attended municipal schools, as this is considered the treatment.
+The sample was collected from the population of individuals in Reggio Emilia, Parma, and Padova who were born in the year ranges of the five cohorts.  These individuals were collected from the population registries in each of the cities. The sample was then restricted to those individuals living in the same city in which they were raised. All cohorts except the youngest one were restricted to individuals who are Italian citizens. In contrast, the youngest cohort includes an oversampling of immigrant children. The sample from Reggio Emilia, across all cohorts, includes an oversampling of those who attended municipal schools, as this is considered the treatment.
 
 Of the reference sample, 7,109 individuals were randomly selected. Of these, 4,019 completed interviews, resulting in a response rate of 56.5\%. Figure~\ref{fig:sample} presents an overview of the sample highlighting those who attended a Reggio Approach preschool. Table~\ref{tab:sample} provides a detailed tabulation of the sample by city, cohort, and school type.
 
 \begin{figure}[H]
 \begin{center}
-\caption{Overview of Sample}\label{fig:sample}
+\caption{The Sample by City and Cohort}\label{fig:sample}
 	\includegraphics[width=.9\textwidth]{output/sample.eps}
 \end{center}
 \raggedright
@@ -38,7 +41,7 @@ Note: This figure displays the number of individuals by cohort and city. The bar
 \centering
 \scalebox{0.7}{
 \begin{threeparttable}
-	\caption{Sample by Cohort, City, and School Type}\label{tab:sample}
+	\caption{The Sample by Cohort, City, and School Type}\label{tab:sample}
 	\input{output/sample_ready}
 \begin{tablenotes}
 Note: This table shows the sample size by city, cohort, and school type. These numbers do not include individuals with an unidentified preschool type. In the whole sample, there are 45 individuals with unidentified preschool type. None: no preschool; Muni.: municipal preschool;  State: state preschool; Relig.: religious preschool; Priv.: private preschool.
@@ -51,16 +54,28 @@ The structure of the cohorts allows us to study the effects of the Reggio Approa
 
 Separate questionnaires were administered to the children, adolescents, and adults, as well as to the caregivers of the children and adolescents. The questionnaires included items about early childhood experiences, family structure, education, interaction with other ethnicities, and measures cognitive and social-emotional skills. The questionnaires for adults additionally included items about occupation, income, and life satisfaction. 
 
-\section{Methodology}
+\section{Basic Analysis}
 \label{sec:methodology}
 
+We present a basic specification of OLS to estimate the effect on an outcome of interest, $Y$, of the Reggio Approach compared to not attending preschool at all. For this abbreviated analysis, we restrict to individuals from Reggio Emilia who either attended a Reggio Approach preschool or did not attend any preschool (across all cohorts, $N = 967$).
 
+For individual $i$ in Reggio Emilia, let $\mu_i$ indicate whether that individual attended a Reggio Approach preschool. We select a vector, $\bm{X}_i$, of five baseline control variables with the lowest BIC to account for family background.\footnote{These variables are: \color{maroon}{forthcoming}} We estimate $\beta_1$ in the simple model
 
-\section{Results}
+\begin{equation}
+	Y_i = \beta_0 + \beta_1 \mu_i + \bm{X}_i\bm{\beta} + \varepsilon_i
+	\label{eq:ra-v-none}
+\end{equation}
+
+\noindent where we $\varepsilon_i$ is a random disturbance. 
+
+While this estimate is useful in gaining a basic understanding of the effect of the Reggio Approach, there is a clear selection issue. That is, the choice to enroll a child in the Reggio Approach and the choice to not enroll a child in any preschool are likely tied to family characteristics. After Section~\ref{sec:results} in which we present the estimates from Equation~\eqref{eq:ra-v-none}, we present a discussion of selection on observed characteristics.
+
+\subsection{Results}
 \label{sec:results}
 
 \section{Discussion of Selection}
 \label{sec:selection}
+
 
 \bibliography{heckman}
 \bibliographystyle{chicago}
