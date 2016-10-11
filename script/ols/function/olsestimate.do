@@ -86,7 +86,7 @@ syntax, type(string) list(string) usegroup(string) keep(varlist)
 	}
 
 	***** Output the table to the tex file
-	esttab using "${current}/../../output/ols/ols-`usegroup'-`type'.tex", replace se mtitle ///
+	esttab using "${current}/../../output/ols/ols-`usegroup'-`type'.tex", replace b(a2) se(2) mtitle ///
 				coeflabels(`coeflabel') noobs nonotes /*addnotes("`Note'")*/ booktabs
 
 end
