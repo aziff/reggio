@@ -9,6 +9,7 @@
 
 \usepackage{sectsty}
 \sectionfont{\fontsize{12}{12}\selectfont}
+\subsectionfont{\fontsize{12}{12}\selectfont}
 
 \begin{document}
 
@@ -24,7 +25,7 @@ This draft presents (i) a brief description of the data, (ii) a simple analysis 
 \section{Data}
 \label{sec:data}
 
-The sample was collected from the population of individuals in Reggio Emilia, Parma, and Padova who were born in the year ranges of the five cohorts.  These individuals were collected from the population registries in each of the cities. The sample was then restricted to those individuals living in the same city in which they were raised. All cohorts except the youngest one were restricted to individuals who are Italian citizens. In contrast, the youngest cohort includes an oversampling of immigrant children. The sample from Reggio Emilia, across all cohorts, includes an oversampling of those who attended municipal schools, as this is considered the treatment.
+The sample is a subset of the individuals in Reggio Emilia, Parma, and Padova who were born in the year ranges of the five cohorts.  These individuals were collected from the population registries in each of the cities. The sample was then restricted to those individuals living in the same city in which they were raised. All cohorts except the youngest one were restricted to individuals who are Italian citizens. In contrast, the youngest cohort includes an oversampling of immigrant children. The sample from Reggio Emilia, across all cohorts, includes an oversampling of those who attended municipal schools, as this is considered the treatment.
 
 Of the reference sample, 7,109 individuals were randomly selected. Of these, 4,019 completed interviews, resulting in a response rate of 56.5\%. Figure~\ref{fig:sample} presents an overview of the sample highlighting those who attended a Reggio Approach preschool. Table~\ref{tab:sample} provides a detailed tabulation of the sample by city, cohort, and school type.
 
@@ -33,8 +34,7 @@ Of the reference sample, 7,109 individuals were randomly selected. Of these, 4,0
 \caption{The Sample by City and Cohort}\label{fig:sample}
 	\includegraphics[width=.9\textwidth]{output/sample.eps}
 \end{center}
-\raggedright
-Note: This figure displays the number of individuals by cohort and city. The bars for Reggio Emilia differentiate between those who attended municipal preschool (black bars) and those who did not (white bars). 
+\footnotetext{\noindent Note: This figure displays the number of individuals by cohort and city. The bars for Reggio Emilia differentiate between those who attended municipal preschool (black bars) and those who did not (white bars). Those in Reggio Emilia who attended municipal preschools are considered the treatment group.}
 \end{figure}
 
 \begin{table}[H]
@@ -44,22 +44,22 @@ Note: This figure displays the number of individuals by cohort and city. The bar
 	\caption{The Sample by Cohort, City, and School Type}\label{tab:sample}
 	\input{output/sample_ready}
 \begin{tablenotes}
-Note: This table shows the sample size by city, cohort, and school type. These numbers do not include individuals with an unidentified preschool type. In the whole sample, there are 45 individuals with unidentified preschool type. None: no preschool; Muni.: municipal preschool;  State: state preschool; Relig.: religious preschool; Priv.: private preschool.
+Note: This table shows the sample size by city, cohort, and school type. These numbers do not include individuals with an unidentified preschool type. In total, there are 45 individuals with unidentified preschool type. We separate migrants and children for clarity in this table even though they are in the same birth cohort (year of birth: 2006). None: no preschool; Muni.: municipal preschool;  State: state preschool; Relig.: religious preschool; Priv.: private preschool.
 \end{tablenotes}
 \end{threeparttable}
 }
 \end{table}
 
-The structure of the cohorts allows us to study the effects of the Reggio Approach at different points throughout the life cycle. The youngest cohort of children were interviewed when they entered primary school, the adolescent cohort when they ended compulsory schooling, and the adult cohorts capture different points of engagement in the labor market and familial decisions. This cohort structure also allows us to evaluate the Reggio Approach compared to the alternative early childhood experiences as they evolved over time.
+The structure of the cohorts allows us to study the effects of the Reggio Approach at different points throughout the life cycle. The youngest cohort of children were interviewed when they entered primary school, the adolescent cohort when they ended compulsory schooling, and the adult cohorts capture different points of adulthood to measure key outcomes such as engagement in the labor market, health, and family decisions. This cohort structure also allows us to evaluate the Reggio Approach compared to the alternative early childhood experiences as they evolved over time.
 
-Separate questionnaires were administered to the children, adolescents, and adults, as well as to the caregivers of the children and adolescents. The questionnaires included items about early childhood experiences, family structure, education, interaction with other ethnicities, and measures cognitive and social-emotional skills. The questionnaires for adults additionally included items about occupation, income, and life satisfaction. 
+Separate questionnaires were administered to the children, adolescents, and adults, as well as to the caregivers of the children and adolescents. The questionnaires included items about early childhood experiences, family structure, education, interaction with non-Italians (or with Italians in the case of the migrant children), and measures of cognitive and social-emotional skills. The questionnaires for adults additionally included items about occupation, income, and life satisfaction. 
 
 \section{Basic Analysis}
 \label{sec:methodology}
 
-We present a basic specification of OLS to estimate the effect on an outcome of interest, $Y$, of the Reggio Approach compared to not attending preschool at all. For this abbreviated analysis, we restrict to individuals from Reggio Emilia who either attended a Reggio Approach preschool or did not attend any preschool (across all cohorts, $N = 967$).
+We present a basic specification of OLS to estimate the effect of the Reggio Approach on an outcome of interest, $Y$, compared to not attending preschool at all. For this abbreviated analysis, we restrict to individuals from Reggio Emilia who either attended a Reggio Approach preschool or did not attend any preschool (across all cohorts, $N = 967$).
 
-For individual $i$ in Reggio Emilia, let $\mu_i$ indicate whether that individual attended a Reggio Approach preschool. We select a vector, $\bm{X}_i$, of five baseline control variables with the lowest BIC to account for family background.\footnote{These variables are: \color{maroon}{forthcoming}} We estimate $\beta_1$ in the simple model
+For individual $i$ in Reggio Emilia, let $\mu_i$ indicate whether that individual attended a Reggio Approach preschool. We select a vector, $\bm{X}_i$, of five baseline control variables with the lowest BIC to account for family background.\footnote{These variables are: \color{maroon}{forthcoming}} For each cohort, we estimate $\beta_1$ in the simple model
 
 \begin{equation}
 	Y_i = \beta_0 + \beta_1 \mu_i + \bm{X}_i\bm{\beta} + \varepsilon_i
@@ -76,11 +76,11 @@ While this estimate is useful in gaining a basic understanding of the effect of 
 \section{Discussion of Selection}
 \label{sec:selection}
 
-\subsection{Differences in parental education}
+The selection into preschool, as well as the selection into a particular type of preschool, might be determined by social, demographic, and economic characteristics of the family. Some of these characteristics might be observed in our data, and other might be omitted. We begin our exploration of the selection on observed characteristics by presenting the distributions of parental education.
 
-Figures \ref{fig:momEdu} and \ref{fig:dadEdu} presents the distribution of parental educational attainment for individuals from each materna type-city-cohort combination. Figure \ref{fig:momEdu} shows that within Reggio, mothers of individuals who did not attend preschool have proportionally higher levels of high school and university education than mothers of individuals who attended some form of preschool. This difference is more pronounced for the older cohorts. Figure \ref{fig:dadEdu} shows a similar pattern persists when examining father's education. A clear pattern does not emerge when we compare parental educational attainment between individuals who attended preschool in Reggio. This suggests that parental education might have played a larger role in the initial decision of sending an individual to preschool, as compared to the subsequent decision of choosing a particular type of preschool. Figures \ref{fig:momEdu} and \ref{fig:dadEdu} include analogous graphs for Parma and Padova.
+Figures~\ref{fig:momEdu} and~\ref{fig:dadEdu} present the distribution of parental educational attainment for individuals from each combination of city, cohort, and preschool type. Figure~\ref{fig:momEdu} shows that within Reggio Emilia, mothers of individuals who did not attend preschool have proportionally higher levels of high school and university education than mothers of individuals who attended some form of preschool. This difference is more pronounced for the older cohorts. Figure~\ref{fig:dadEdu} shows that a similar pattern persists when examining father's education. A clear pattern does not emerge when we compare parental educational attainment between individuals who attended different types of preschool in Reggio Emilia. This suggests that parental education might have played a larger role in the initial decision of sending an individual to preschool, as compared to the subsequent decision of choosing a particular type of preschool. Figures~\ref{fig:momEdu} and~\ref{fig:dadEdu} include analogous graphs for Parma and Padova.
 
-Figure \ref{fig:parentsEdu} examines inequality of educational attainment between mothers and fathers for individuals from each city-cohort combination. Each column represents the total proportion of individuals in each city-cohort combination whose fathers are more educated than mothers. Each column is further broken down into sections that calculate this proportion conditional on different levels of father's education. The figures show that total inequality in educational attainment is largest in Padova and smallest in Reggio, and that this ranking of total inequality is consistent across the three adult cohorts. Furthermore, for the older cohorts, the level of inequality is substantially larger in Padova compared to Reggio and Parma. Padova begins to look similar to the other two cities by the time we reach the age 30 cohort. 
+Figure~\ref{fig:parentsEdu} examines the difference of educational attainment between mothers and fathers for individuals from each city-cohort combination. Each column represents the total proportion of individuals in each city-cohort combination whose fathers are more educated than mothers. Each column is further broken down into sections that calculate this proportion conditional on different levels of father's education. The figures show that total inequality in educational attainment is largest in Padova and smallest in Reggio Emilia, and that this ranking of total inequality is consistent across the three adult cohorts. Furthermore, for the older cohorts, the level of inequality is substantially larger in Padova compared to Reggio Emilia and Parma. Padova is similar to the other two cities by the time we reach the age 30 cohort. 
 
 
 \begin{figure}[!htb]
@@ -89,7 +89,7 @@ Figure \ref{fig:parentsEdu} examines inequality of educational attainment betwee
 	\includegraphics[scale=1.2]{../../Output/image/bar_momEdu}
 	\caption{Mother's educational attainment by city, cohort and materna type}
 	\label{fig:momEdu}
-	\footnotetext{\textbf{Note:  (1)} Definiteion of bar labels: N = Not attended; M = Municipal; S = State; R = Religious. \textbf{(2)} Each bar presents the distribution of mothers' educational attainment for individuals in each city-cohort-materna type combination. }
+	\footnotetext{Note:  \textbf{(1)} Definiteion of bar labels: N = Not attended; M = Municipal; S = State; R = Religious. \textbf{(2)} Each bar presents the distribution of mothers' educational attainment for individuals in each city-cohort-materna type combination. }
 	\end{minipage}
 \end{figure}
 
@@ -99,7 +99,7 @@ Figure \ref{fig:parentsEdu} examines inequality of educational attainment betwee
 	\includegraphics[scale=1.2]{../../Output/image/bar_dadEdu}
 	\caption{Father's education attainment by city, cohort and materna type}
 	\label{fig:dadEdu}
-	\footnotetext{\textbf{Note:  (1)} Definiteion of bar labels: N = Not attended; M = Municipal; S = State; R = Religious. \textbf{(2)} Each bar presents the distribution of fathers' educational attainment for individuals in each city-cohort-materna type combination. }
+	\footnotetext{Note:  \textbf{(1)} Definiteion of bar labels: N = Not attended; M = Municipal; S = State; R = Religious. \textbf{(2)} Each bar presents the distribution of fathers' educational attainment for individuals in each city-cohort-materna type combination. }
 	\end{minipage}
 \end{figure}
 
@@ -109,7 +109,7 @@ Figure \ref{fig:parentsEdu} examines inequality of educational attainment betwee
 	\includegraphics[scale=1]{../../Output/image/bar_parentsEduCompare}
 	\caption{Proportion of individuals with fathers who are more educated than mothers by city and cohort}
 	\label{fig:parentsEdu}
-	\footnotetext{\noindent \textbf{Note:   } Each column represents the proportion of individuals within each city-cohort combination whose fathers were more educated than their mothers.}
+	\footnotetext{\noindent Note: Each column represents the proportion of individuals within each city-cohort combination whose fathers were more educated than their mothers.}
 	\end{minipage}
 \end{figure}
 
