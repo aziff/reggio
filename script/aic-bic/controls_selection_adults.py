@@ -53,7 +53,7 @@ def model_select(data, yvar, xvars, spec):
 	output_bic = []
 	cols = []  
 	
-	models = itertools.chain.from_iterable([itertools.combinations(xvars, 3)])
+	models = itertools.chain.from_iterable([itertools.combinations(xvars, 4)])
 	
 	for i,m in enumerate(models):
 	
