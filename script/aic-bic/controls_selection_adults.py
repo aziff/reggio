@@ -33,7 +33,7 @@ data = data.set_index('intnr')
 data = data.sort_index()
 
 usedata = {}
-usedata['reggio'] = data.loc[(data.Cohort==4) | (data.Cohort==5) | (data.Cohort==6),:] 		# Limit to adult cohorts only
+usedata['reggio'] = data.loc[(data.Cohort==4) | (data.Cohort==5) | (data.Cohort==6), :] 		# Limit to adult cohorts only
 
 # bring in outcomes files, and find the ABC-only/CARE-only ones
 outcomes = pd.read_csv(paths.outcomes, index_col='variable')
@@ -97,7 +97,7 @@ for spec in ['reggio']:
 	# estimate rankings by AIC and BIC
 	selection = selection.rank(axis=1).groupby(level=0).sum()
 	best = selection.idxmin(axis = 1)
-	model_list = list(itertools.chain.from_iterable([itertools.combinations(bank, 5)]))
+	model_list = list(itertools.chain.from_iterable([itertools.combinations(bank, 4)]))
 	best_aic["{}".format(spec)] = model_list[selection.idxmin(axis = 1)[0]]
 	best_bic["{}".format(spec)] = model_list[selection.idxmin(axis = 1)[1]]
 
