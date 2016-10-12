@@ -68,9 +68,29 @@ global Adult50_baseline_vars		 	`adult_baseline_vars';
 global bic_adults_baseline_vars		    	Male CAPI numSiblings momMaxEdu_middle dadMaxEdu_Uni numSibling_2 numSibling_more
 
 
-* -------------------------- *											
-* Outcomes for each category *
-* -------------------------- *
+* ------------------------------------------- *											
+* Outcomes for each category: Younger Cohorts *
+* ------------------------------------------- *
+/*
+local outcomesChild              IQ_factor IQ_score p50IQ_score p75IQ_score
+                                 likeSchool_child   
+                                 childBMI childHealthPerc
+                                 childSDQ_score;
+                                   
+local outcomesAdol               IQ_factor IQ_score p50IQ_score p75IQ_score
+                                 RiskSuspended
+                                 Smoke Cig sport 
+                                 BMI HealthPerc childHealthPerc 
+                                 LocusControl SDQ_score childSDQ_score Depression_score 
+                                 MigrTaste_cat; */
+
+/* Reggio Second Paper uses the following outcome variables:
+	 many friends, musical instruments at home, often read to child, low SDQ score, talk about worries, tell wories to teacher,
+	 normal BMI, good health, no illness, fruit as snack, excited to learn, can sit still, likes school, happy in general, share candies.
+*/
+* ----------------------------------------- *											
+* Outcomes for each category: Adult Cohorts *
+* ----------------------------------------- *								 
 * Cognitive skills and education
 global adult_outcome_E					IQ_factor votoMaturita votoUni ///
 										highschoolGrad MaxEdu_Uni MaxEdu_Grad
@@ -83,7 +103,7 @@ global adult_outcome_W					PA_Empl SES_self HrsTot WageMonth ///
 global adult_outcome_L					mStatus_married_cohab mStatus_div childrenResp all_houseOwn live_parent
 
 * Health									
-global adult_outcome_H					Maria /*Smoke*/ Cig BMI goodHealth SickDays ///
+global adult_outcome_H					Maria /*Smoke*/ Cig BMI BMI_obese BMI_overweight goodHealth SickDays ///
 										/*i_RiskFight i_RiskDUI*/ RiskSuspended Drink1Age							
 
 * Noncognitive										
@@ -139,6 +159,8 @@ global i_RiskDUI_lab				Drove Under Influence
 global i_RiskFight_lab				Engaged in A Fight 
 global RiskSuspended_lab			Ever Suspended from School
 global Drink1Age_lab				Age At First Drink
+global BMI_obese_lab				Obese
+global BMI_overweight_lab			Overweight
 
 global LocusControl_lab				Locus of Control
 global Depression_score_lab			Depression Score

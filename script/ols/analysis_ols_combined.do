@@ -55,11 +55,11 @@ global controlsFull30		${adult_baseline_vars}
 global controlsFull40		${adult_baseline_vars}
 
 global ifconditionNone30 	(Reggio == 1) & (Cohort_Adult30 == 1) & (maternaMuni == 1 | maternaNone == 1)
-global ifconditionBIC30		${ifcondition30none}
-global ifconditionFull30	${ifcondition30none}
+global ifconditionBIC30		${ifconditionNone30}
+global ifconditionFull30	${ifconditionNone30}
 global ifconditionNone40 	(Reggio == 1) & (Cohort_Adult40 == 1) & (maternaMuni == 1 | maternaNone == 1)
-global ifconditionBIC40		${ifcondition40none}
-global ifconditionFull40	${ifcondition40none}
+global ifconditionBIC40		${ifconditionNone40}
+global ifconditionFull40	${ifconditionNone40}
 
 foreach type in E W L H N S R {
 

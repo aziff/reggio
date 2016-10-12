@@ -41,7 +41,7 @@ syntax, type(string) list(string) usegroup(string) keep(varlist)
 
 	***** Loop through the outcomes in a category and store diff-in-diff results for each age group
 	foreach item in ${list} {
-		foreach var in ${adult_outcome_`type'} {		
+		foreach var in ${adult_outcome_`type'} {	
 			sum `var' if ${ifcondition`item'}
 			if r(N) > 0 {
 				eststo `var' : quietly reg `var' ${X} ${controls`item'} if ${ifcondition`item'}, robust
@@ -53,10 +53,10 @@ syntax, type(string) list(string) usegroup(string) keep(varlist)
 		esttab, se nostar keep(`keep')
 		matrix C`item' = r(coefs)
 	}
-	
+
 	***** Clear eststo to make a new table. 
 	eststo clear
-	
+
 	***** Loop through each row to produce the transposed final table
 	foreach	item in ${list} {
 		local rnames : rownames C`item'
