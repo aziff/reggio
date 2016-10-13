@@ -27,21 +27,21 @@ global schools					Municipal State Religious Private None;
 * Baseline variables *
 * ------------------ *
 global child_baseline_vars  	Male lowbirthweight birthpremature CAPI
-								momAgeBirth momBornProvince
+								teenMomBirth momBornProvince
 								momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni 
-								dadAgeBirth dadBornProvince
+								teenDadBirth dadBornProvince
 								dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni 
-								numSiblings cgCatholic int_cgCatFaith houseOwn cgMigrant
+								numSibling_1 numSibling_2 numSibling_more cgCatholic int_cgCatFaith houseOwn cgMigrant
 								cgReddito_1 cgReddito_2 cgReddito_3 cgReddito_4 cgReddito_5 cgReddito_6 cgReddito_7
 								momWork_fulltime06 momWork_parttime06 momSchool06;  
 								// We assume that household income abd family house ownership for children cohorts can be considered as "baseline"
 								
 global adol_baseline_vars  		Male lowbirthweight birthpremature CAPI
-								momAgeBirth momBornProvince
+								teenMomBirth momBornProvince
 								momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni 
-								dadAgeBirth dadBornProvince
+								teenDadBirth dadBornProvince
 								dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni 
-								numSiblings cgCatholic int_cgCatFaith cgMigrant
+								numSibling_1 numSibling_2 numSibling_more cgCatholic int_cgCatFaith cgMigrant
 								momWork_fulltime06 momWork_parttime06 momSchool06;								
 								
 								
@@ -80,22 +80,11 @@ local outcomesChild              IQ_factor IQ_score ///
 local outcomesAdol               IQ_factor IQ_score ///
 								 Friends childinvTalkOut childinvTalkSchool ///
 								 pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score ///
-								 pos_SDQ_score pos_SDQPsoc_score pos_SDQPeer_score pos_SDQHype_score pos_SDQEmot_score pos_SDQCond_score ///
+								 pos_SDQ_score pos_SDQPsoc_score pos_SDQPeer_score pos_SDQHype_score pos_SDQEmot_score pos_SDQCond_score LocusControl pos_Depression_score ///
                                  BMI_obese BMI_overweight childHealthPerc childSickDays ///
-								 RiskSuspended ///
-                                 Smoke Cig sport ///
-                                 BMI HealthPerc childHealthPerc /// 
-                                 LocusControl pos_Depression_score /// 
-                                 MigrTaste_cat
+								 RiskSuspended Smoke Cig sport ///
+                                 difficultiesInterest difficultiesSit dropoutSchool pos_likeSchool MigrTaste_cat Trust
 								 
-/* Reggio Second Paper uses the following outcome variables (Children):
-	 many friends, musical instruments at home, often read to child, low SDQ score, talk about worries, tell wories to teacher,
-	 normal BMI, good health, no illness, fruit as snack, excited to learn, can sit still, likes school, happy in general, share candies.
-	 
-   Reggio Second Paper uses the following outcome variables (Adolescents):
-	 many friends, talks about activities, talks about school, low SDQ score, normal BMI, good health, no illness, fruit as snack, never smoked,
-	 does not drink, excited to learn, can sit still, attending school, likes school, low depression score, high trust
-*/
 * ----------------------------------------- *											
 * Outcomes for each category: Adult Cohorts *
 * ----------------------------------------- *								 

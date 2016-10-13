@@ -33,19 +33,25 @@ data = data.set_index('intnr')
 data = data.sort_index()
 
 usedata = {}
-usedata['reggio'] = data.loc[(data.Cohort==4) | (data.Cohort==5) | (data.Cohort==6), :] 		# Limit to adult cohorts only
+usedata['child'] = data.loc[(data.Cohort==1) | (data.Cohort==2), :] 							# Limit to adolescent cohorts only
+usedata['adol'] = data.loc[(data.Cohort==3), :] 												# Limit to adolescent cohorts only
+usedata['adult'] = data.loc[(data.Cohort==4) | (data.Cohort==5) | (data.Cohort==6), :] 		# Limit to adult cohorts only
 
 # bring in outcomes files, and find the ABC-only/CARE-only ones
-outcomes = pd.read_csv(paths.outcomes, index_col='variable')
+outcomes = {}
+for cohort in ['child', 'adol', 'adult']:
+	outcomes['{}'.format(cohort)]  = pd.read_csv(paths.outcomes['{}'.format(cohort)] , index_col='variable')
 
 # bring in bank of control variables
-bank = pd.read_csv(paths.controls)
-bank = list(bank.loc[:, 'variable'])
+bank = {}
+for cohort in ['child', 'adol', 'adult']:
+	bank['{}'.format(cohort)]  = pd.read_csv(paths.controls['{}'.format(cohort)])
+	bank['{}'.format(cohort)] = list(bank['{}'.format(cohort)].loc[:, 'variable'])
 
 # define model selection function
-def model_select(data, yvar, xvars, spec):
+def model_select(data, yvar, xvars, cohort):
 
-	data_mod = usedata['{}'.format(spec)]
+	data_mod = usedata['{}'.format(cohort)]
 	
 	print "Estimating AIC/BIC for {}...".format(yvar)    
 	
@@ -88,24 +94,28 @@ def model_select(data, yvar, xvars, spec):
 best_aic = {}
 best_bic = {}
 	
-for spec in ['reggio']:
+for cohort in ['child', 'adol', 'adult']:
 	selection = Parallel(n_jobs=1)(
-		delayed(model_select)(data, yvar, bank, spec) for yvar in outcomes.index) 
+		delayed(model_select)(data, yvar, bank, cohort) for yvar in outcomes.index) 
 	selection = pd.concat(selection, axis=0)
 	selection.sort_index(inplace=True)
 
 	# estimate rankings by AIC and BIC
 	selection = selection.rank(axis=1).groupby(level=0).sum()
 	best = selection.idxmin(axis = 1)
-	model_list = list(itertools.chain.from_iterable([itertools.combinations(bank, 4)]))
-	best_aic["{}".format(spec)] = model_list[selection.idxmin(axis = 1)[0]]
-	best_bic["{}".format(spec)] = model_list[selection.idxmin(axis = 1)[1]]
+	model_list = list(itertools.chain.from_iterable([itertools.combinations(bank['{}'.format(cohort)], 4)]))
+	best_aic["{}".format(cohort)] = model_list[selection.idxmin(axis = 1)[0]]
+	best_bic["{}".format(cohort)] = model_list[selection.idxmin(axis = 1)[1]]
 
-	print 'Best AIC:', ('Male', 'CAPI') + best_aic['{}'.format(spec)]
-	print 'Best BIC:', ('Male', 'CAPI') + best_bic['{}'.format(spec)]
+	print 'Best AIC:', ('Male', 'CAPI') + best_aic['{}'.format(cohort)]
+	print 'Best BIC:', ('Male', 'CAPI') + best_bic['{}'.format(cohort)]
 
 record = open('best_controls.txt', 'wb')
         
-record.write('Reggio Best AIC: {} \n\n'.format(' '.join(('Male', 'CAPI') + best_aic['reggio'])))
-record.write('Reggio Best BIC: {}'.format(' '.join(('Male', 'CAPI') + best_bic['reggio'])))
+record.write('Reggio Children Best AIC: {} \n\n'.format(' '.join(('Male', 'CAPI') + best_aic['child'])).'\n')
+record.write('Reggio Children Best BIC: {}'.format(' '.join(('Male', 'CAPI') + best_bic['child'])).'\n')
+record.write('Reggio Adolescent Best AIC: {} \n\n'.format(' '.join(('Male', 'CAPI') + best_aic['adol'])).'\n')
+record.write('Reggio Adolescent Best BIC: {}'.format(' '.join(('Male', 'CAPI') + best_bic['adol'])).'\n')
+record.write('Reggio Adult Best AIC: {} \n\n'.format(' '.join(('Male', 'CAPI') + best_aic['adult'])).'\n')
+record.write('Reggio Adult Best BIC: {}'.format(' '.join(('Male', 'CAPI') + best_bic['adult'])).'\n')
 record.close()
