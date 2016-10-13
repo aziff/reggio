@@ -96,7 +96,7 @@ best_bic = {}
 	
 for cohort in ['child', 'adol', 'adult']:
 	selection = Parallel(n_jobs=1)(
-		delayed(model_select)(data, yvar, bank, cohort) for yvar in outcomes.index) 
+		delayed(model_select)(data, yvar, bank, cohort) for yvar in outcomes['{}'.format(cohort)].index) 
 	selection = pd.concat(selection, axis=0)
 	selection.sort_index(inplace=True)
 
