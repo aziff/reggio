@@ -581,6 +581,19 @@ replace cgNationCarib = 1 if (cgNationality == 58) | (cgNationality == 61)
 lab var cgNationCarib "dv: Caregiver nationality: Caribbean"
 
 
+* Like School - Child and Adolescents
+gen likeSchool_child_pos = likeSchool_child
+recode likeSchool_child_pos (1 = 3) (2 = 2) (3 = 1)
+lab var likeSchool_child_pos "dv: How much child likes school"
+lab define LS_child 1 "A little" 2 "So so" 3 "A lot" 
+lab values likeSchool_child_pos LS_child
+
+gen likeSchool_ado_pos = likeSchool_ado
+recode likeSchool_ado_pos (1 = 5) (2 = 4) (3 = 3) (4 = 2) (5 = 1)
+lab var likeSchool_ado_pos "dv: How much adolescent likes school"
+lab define LS_ado 1 "Not at all" 2 "Not really" 3 "So so" 4 "Somewhat" 5 "A lot"
+lab values likeSchool_ado_pos LS_ado
+
 * ---------------------------------------------------------------------------- *
 * Label Variables 
 * ---------------------------------------------------------------------------- *

@@ -54,11 +54,11 @@ global adult_baseline_vars		Male CAPI
 								momWork_fulltime06 momWork_parttime06 momSchool06;
 								
 								
-global Child_baseline_vars			`child_baseline_vars';								
-global Migrant_baseline_vars		`child_baseline_vars' yrCity ageCity;
-global Adolescent_baseline_vars		`adol_baseline_vars';
-global Adult30_baseline_vars 		`adult_baseline_vars'; 
-global Adult40_baseline_vars 		`adult_baseline_vars';
+global Child_baseline_vars				`child_baseline_vars';								
+global Migrant_baseline_vars			`child_baseline_vars' yrCity ageCity;
+global Adolescent_baseline_vars			`adol_baseline_vars';
+global Adult30_baseline_vars 			`adult_baseline_vars'; 
+global Adult40_baseline_vars 			`adult_baseline_vars';
 global Adult50_baseline_vars		 	`adult_baseline_vars';
 
 # delimit cr
@@ -71,22 +71,30 @@ global bic_adults_baseline_vars		    	Male CAPI numSiblings momMaxEdu_middle dad
 * ------------------------------------------- *											
 * Outcomes for each category: Younger Cohorts *
 * ------------------------------------------- *
-/*
-local outcomesChild              IQ_factor IQ_score p50IQ_score p75IQ_score
-                                 likeSchool_child   
-                                 childBMI childHealthPerc
-                                 childSDQ_score;
+local outcomesChild              IQ_factor IQ_score ///
+								 childinvFriends childinvMusic childinvReadTo ///
+								 pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score ///
+								 worryHome worryTeacher worryFriend worryMyself BMI_obese BMI_overweight childHealthPerc childSickDays ///
+                                 difficultiesInterest difficultiesSit pos_likeSchool_child faceGeneral 
                                    
-local outcomesAdol               IQ_factor IQ_score p50IQ_score p75IQ_score
-                                 RiskSuspended
-                                 Smoke Cig sport 
-                                 BMI HealthPerc childHealthPerc 
-                                 LocusControl SDQ_score childSDQ_score Depression_score 
-                                 MigrTaste_cat; */
-
-/* Reggio Second Paper uses the following outcome variables:
+local outcomesAdol               IQ_factor IQ_score ///
+								 Friends childinvTalkOut childinvTalkSchool ///
+								 pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score ///
+								 pos_SDQ_score pos_SDQPsoc_score pos_SDQPeer_score pos_SDQHype_score pos_SDQEmot_score pos_SDQCond_score ///
+                                 BMI_obese BMI_overweight childHealthPerc childSickDays ///
+								 RiskSuspended ///
+                                 Smoke Cig sport ///
+                                 BMI HealthPerc childHealthPerc /// 
+                                 LocusControl pos_Depression_score /// 
+                                 MigrTaste_cat
+								 
+/* Reggio Second Paper uses the following outcome variables (Children):
 	 many friends, musical instruments at home, often read to child, low SDQ score, talk about worries, tell wories to teacher,
 	 normal BMI, good health, no illness, fruit as snack, excited to learn, can sit still, likes school, happy in general, share candies.
+	 
+   Reggio Second Paper uses the following outcome variables (Adolescents):
+	 many friends, talks about activities, talks about school, low SDQ score, normal BMI, good health, no illness, fruit as snack, never smoked,
+	 does not drink, excited to learn, can sit still, attending school, likes school, low depression score, high trust
 */
 * ----------------------------------------- *											
 * Outcomes for each category: Adult Cohorts *
