@@ -53,7 +53,7 @@ def model_select(data, yvar, xvars, cohort):
 
 	data_mod = usedata['{}'.format(cohort)]
 	
-	print "Estimating AIC/BIC for {}...".format(yvar)    
+	print "Estimating AIC/BIC for {} : {}...".format(cohort, yvar)    
 	
 	output_aic = []
 	output_bic = []
