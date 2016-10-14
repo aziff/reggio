@@ -1,7 +1,7 @@
 /* ---------------------------------------------------------------------------- *
 * Programming a function for the OLS for Reggio analysis
 * Author: Jessica Yu Kyung Koh
-* Edited: 09/01/2016
+* Edited: 10/14/2016
 
 * Note: This function performs OLS analysis and creates tables
         for each outcome category. The outcome variables are listed in the table
@@ -26,6 +26,9 @@
 	
 	- keep(varlist)
 	  : This is to only keep the necessary variables that will be shown in the tables. 
+	  
+	- cohort(string)
+	  : This is to specify what age cohort is being used in the estimation.
 	
 * ---------------------------------------------------------------------------- */
 
@@ -33,7 +36,7 @@ capture program drop olsestimate
 capture program define olsestimate
 
 version 13
-syntax, type(string) list(string) usegroup(string) keep(varlist)
+syntax, type(string) list(string) usegroup(string) keep(varlist) cohort(string)
 	
 	
 	***** Create a local for the label (Going to be filled out in the loop)
@@ -41,7 +44,7 @@ syntax, type(string) list(string) usegroup(string) keep(varlist)
 
 	***** Loop through the outcomes in a category and store diff-in-diff results for each age group
 	foreach item in ${list} {
-		foreach var in ${adult_outcome_`type'} {	
+		foreach var in ${`cohort'_outcome_`type'} {	
 			sum `var' if ${ifcondition`item'}
 			if r(N) > 0 {
 				eststo `var' : quietly reg `var' ${X} ${controls`item'} if ${ifcondition`item'}, robust
@@ -86,7 +89,7 @@ syntax, type(string) list(string) usegroup(string) keep(varlist)
 	}
 
 	***** Output the table to the tex file
-	esttab using "${current}/../../output/ols/ols-`usegroup'-`type'.tex", replace b(a2) se(2) mtitle ///
+	esttab using "${current}/../../output/ols/ols-`usegroup'-`type'-`cohort'.tex", replace b(a2) se(2) mtitle ///
 				coeflabels(`coeflabel') noobs nonotes /*addnotes("`Note'")*/ booktabs
 
 end
