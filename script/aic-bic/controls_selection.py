@@ -35,7 +35,7 @@ data = data.sort_index()
 usedata = {}
 usedata['child'] = data.loc[(data.Cohort==1) | (data.Cohort==2), :] 							# Limit to adolescent cohorts only
 usedata['adol'] = data.loc[(data.Cohort==3), :] 												# Limit to adolescent cohorts only
-usedata['adult'] = data.loc[(data.Cohort==4) | (data.Cohort==5) | (data.Cohort==6), :] 		# Limit to adult cohorts only
+usedata['adult'] = data.loc[(data.Cohort==4) | (data.Cohort==5) | (data.Cohort==6), :] 			# Limit to adult cohorts only
 
 # bring in outcomes files, and find the ABC-only/CARE-only ones
 outcomes = {}
@@ -96,7 +96,7 @@ best_bic = {}
 	
 for cohort in ['child', 'adol', 'adult']:
 	selection = Parallel(n_jobs=1)(
-		delayed(model_select)(data, yvar, bank, cohort) for yvar in outcomes['{}'.format(cohort)].index) 
+		delayed(model_select)(data, yvar, bank['{}'.format(cohort)], cohort) for yvar in outcomes['{}'.format(cohort)].index) 
 	selection = pd.concat(selection, axis=0)
 	selection.sort_index(inplace=True)
 
@@ -112,10 +112,10 @@ for cohort in ['child', 'adol', 'adult']:
 
 record = open('best_controls.txt', 'wb')
         
-record.write('Reggio Children Best AIC: {} \n\n'.format(' '.join(('Male', 'CAPI') + best_aic['child'])))
-record.write('Reggio Children Best BIC: {}'.format(' '.join(('Male', 'CAPI') + best_bic['child'])))
-record.write('Reggio Adolescent Best AIC: {} \n\n'.format(' '.join(('Male', 'CAPI') + best_aic['adol'])))
-record.write('Reggio Adolescent Best BIC: {}'.format(' '.join(('Male', 'CAPI') + best_bic['adol'])))
+#record.write('Reggio Children Best AIC: {} \n\n'.format(' '.join(('Male', 'CAPI') + best_aic['child'])))
+#record.write('Reggio Children Best BIC: {}'.format(' '.join(('Male', 'CAPI') + best_bic['child'])))
+#record.write('Reggio Adolescent Best AIC: {} \n\n'.format(' '.join(('Male', 'CAPI') + best_aic['adol'])))
+#record.write('Reggio Adolescent Best BIC: {}'.format(' '.join(('Male', 'CAPI') + best_bic['adol'])))
 record.write('Reggio Adult Best AIC: {} \n\n'.format(' '.join(('Male', 'CAPI') + best_aic['adult'])))
 record.write('Reggio Adult Best BIC: {}'.format(' '.join(('Male', 'CAPI') + best_bic['adult'])))
 record.close()
