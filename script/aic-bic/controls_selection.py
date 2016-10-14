@@ -111,11 +111,12 @@ for cohort in ['child', 'adol', 'adult']:
 	print 'Best BIC:', ('Male', 'CAPI') + best_bic['{}'.format(cohort)]
 
 record = open('best_controls.txt', 'wb')
-        
-record.write('Reggio Children Best AIC: {} \n\n'.format(' '.join(('Male', 'CAPI') + best_aic['child'])))
-record.write('Reggio Children Best BIC: {}'.format(' '.join(('Male', 'CAPI') + best_bic['child'])))
-record.write('Reggio Adolescent Best AIC: {} \n\n'.format(' '.join(('Male', 'CAPI') + best_aic['adol'])))
-record.write('Reggio Adolescent Best BIC: {}'.format(' '.join(('Male', 'CAPI') + best_bic['adol'])))
-record.write('Reggio Adult Best AIC: {} \n\n'.format(' '.join(('Male', 'CAPI') + best_aic['adult'])))
-record.write('Reggio Adult Best BIC: {}'.format(' '.join(('Male', 'CAPI') + best_bic['adult'])))
+
+record.write('The best controls according to AIC and BIC criteria for each age group is:')        
+record.write('\n Reggio Children Best AIC: {} \n\n'.format(' '.join(('Male', 'CAPI') + best_aic['child'])))
+record.write('\n Reggio Children Best BIC: {}'.format(' '.join(('Male', 'CAPI') + best_bic['child'])))
+record.write('\n Reggio Adolescent Best AIC: {} \n\n'.format(' '.join(('Male', 'CAPI') + best_aic['adol'])))
+record.write('\n Reggio Adolescent Best BIC: {}'.format(' '.join(('Male', 'CAPI') + best_bic['adol'])))
+record.write('\n Reggio Adult Best AIC: {} \n\n'.format(' '.join(('Male', 'CAPI') + best_aic['adult'])))
+record.write('\n Reggio Adult Best BIC: {}'.format(' '.join(('Male', 'CAPI') + best_bic['adult'])))
 record.close()
