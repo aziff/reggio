@@ -2,7 +2,7 @@
 * Analyzing the Reggio Children Evaluation Survey - OLS 
 * Authors: Jessica Yu Kyung Koh
 * Created: 06/16/2016
-* Edited:  10/11/2016
+* Edited:  10/14/2016
 
 * Note: This execution do file performs diff-in-diff estimates and generates tables
         by using "olsestimate" command that is programmed in 
@@ -25,11 +25,6 @@ use "${data_reggio}/Reggio_prepared"
 include "${current}/../macros" 
 include "${current}/function/olsestimate"
 
-* ---------------------------------------------------------------------------- *
-* 								Preparation 								   *
-* ---------------------------------------------------------------------------- *
-** Keep only the adult cohorts
-keep if (Cohort == 4) | (Cohort == 5) | (Cohort == 6)
 
 ** Gender condition
 local p_con	
@@ -41,16 +36,83 @@ global maternaMuni_c
 
 
 * ---------------------------------------------------------------------------- *
-* Regression: Reggio Muni vs. None
+* 					Reggio Muni vs. None:	Children 						   *
 * ---------------------------------------------------------------------------- *
+** Keep only the adult cohorts
+preserve
+keep if (Cohort == 1) | (Cohort == 2) 
+
+* Set necessary global variables
+global X					maternaMuni
+global list					NoneIt BICIt FullIt NoneMg BICMg FullMg   // It => Italians, Mg => Migrants
+global usegroup				munivsnone
+
+global controlsNoneIt
+global controlsNoneMg
+global controlsBICIt		${bic_child_baseline_vars}
+global controlsBICMg		${bic_child_baseline_vars}
+global controlsFullIt		${child_baseline_vars}
+global controlsFullMg		${child_baseline_vars}
+
+global ifconditionNoneIt 	(Reggio == 1) & (Cohort_Child == 1) & (maternaMuni == 1 | maternaNone == 1)
+global ifconditionBICIt		${ifconditionNoneIt}
+global ifconditionFullIt	${ifconditionNoneIt}
+global ifconditionNoneMg 	(Reggio == 1) & (Cohort_Migrants == 1) & (maternaMuni == 1 | maternaNone == 1)
+global ifconditionBICMg		${ifconditionNoneMg}
+global ifconditionFullMg	${ifconditionNoneMg}
+
+foreach type in A {
+
+	olsestimate, type("`type'") list("${list}") usegroup("${usegroup}") keep(${X}) cohort("child")
+
+}
+restore
+
+
+* ---------------------------------------------------------------------------- *
+* 					Reggio Muni vs. None:	Adolescents 					   *
+* ---------------------------------------------------------------------------- *
+** Keep only the adult cohorts
+preserve
+keep if (Cohort == 3)
+
+* Set necessary global variables
+global X					maternaMuni
+global list					None BIC Full 
+global usegroup				munivsnone
+
+global controlsNone
+global controlsBIC			${bic_adol_baseline_vars}
+global controlsFull			${adol_baseline_vars}
+
+global ifconditionNone  	(Reggio == 1) & (Cohort_Adol == 1) & (maternaMuni == 1 | maternaNone == 1)
+global ifconditionBIC 		${ifconditionNone}
+global ifconditionFull 		${ifconditionNone}
+
+foreach type in A {
+
+	olsestimate, type("`type'") list("${list}") usegroup("${usegroup}") keep(${X}) cohort("adol")
+
+}
+restore
+
+
+* ---------------------------------------------------------------------------- *
+* 					Reggio Muni vs. None:	Adults		 					   *
+* ---------------------------------------------------------------------------- *
+** Keep only the adult cohorts
+preserve
+keep if (Cohort == 4) | (Cohort == 5) | (Cohort == 6)
+
+* Set necessary global variables
 global X					maternaMuni
 global list					None30 BIC30 Full30 None40 BIC40 Full40
 global usegroup				munivsnone
 
 global controlsNone30
 global controlsNone40
-global controlsBIC30		${bic_adults_baseline_vars}
-global controlsBIC40		${bic_adults_baseline_vars}
+global controlsBIC30		${bic_adult_baseline_vars}
+global controlsBIC40		${bic_adult_baseline_vars}
 global controlsFull30		${adult_baseline_vars}
 global controlsFull40		${adult_baseline_vars}
 
@@ -63,8 +125,7 @@ global ifconditionFull40	${ifconditionNone40}
 
 foreach type in E W L H N S R {
 
-	olsestimate, type("`type'") list("${list}") usegroup("${usegroup}") keep(${X})
+	olsestimate, type("`type'") list("${list}") usegroup("${usegroup}") keep(${X}) cohort("adult")
 
 }
-
-
+restore
