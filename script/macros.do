@@ -73,13 +73,13 @@ global bic_adult_baseline_vars		    	Male CAPI momMaxEdu_middle dadMaxEdu_Uni nu
 * ------------------------------------------- *											
 * Outcomes for each category: Younger Cohorts *
 * ------------------------------------------- *
-local child_outcome_A            IQ_factor IQ_score ///
+global child_outcome_A           IQ_factor IQ_score ///
 								 childinvFriends childinvMusic  ///
 								 pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score ///
 								 worryHome worryTeacher worryFriend worryMyself BMI_obese BMI_overweight childHealthPerc childSickDays ///
                                  difficultiesInterest difficultiesSit likeSchool_child_pos faceGeneral 
                                    
-local adol_outcome_A             IQ_factor IQ_score ///
+global adol_outcome_A            IQ_factor IQ_score ///
 								 Friends childinvTalkOut childinvTalkSchool ///
 								 pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score ///
 								 pos_SDQ_score pos_SDQPsoc_score pos_SDQPeer_score pos_SDQHype_score pos_SDQEmot_score pos_SDQCond_score LocusControl pos_Depression_score ///
