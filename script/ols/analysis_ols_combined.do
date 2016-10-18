@@ -19,11 +19,11 @@ global klmReggio   : env klmReggio
 global data_reggio : env data_reggio
 global git_reggio  : env git_reggio
 
-global current : pwd
+global here : pwd
 
 use "${data_reggio}/Reggio_prepared"
-include "${current}/../macros" 
-include "${current}/function/olsestimate"
+include "${here}/../macros" 
+include "${here}/function/olsestimate"
 
 
 ** Gender condition
@@ -64,7 +64,7 @@ global ifconditionFullIt	${ifconditionNoneIt}
 global ifconditionNoneMg 	(Reggio == 1) & (Cohort_Migrants == 1) & (maternaMuni == 1 | maternaNone == 1)
 global ifconditionBICMg		${ifconditionNoneMg}
 global ifconditionFullMg	${ifconditionNoneMg}
-global ifconditionNone	 	(Reggio == 1) & (Cohort_Migrants == 1) & (maternaMuni == 1 | maternaNone == 1)
+global ifconditionNone	 	(Reggio == 1) & (maternaMuni == 1 | maternaNone == 1)
 global ifconditionBIC		${ifconditionNoneMg}
 global ifconditionFull		${ifconditionNoneMg}
 
