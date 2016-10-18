@@ -1,0 +1,27 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{6}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
+            &\multicolumn{1}{c}{None30}&\multicolumn{1}{c}{BIC30}&\multicolumn{1}{c}{Full30}&\multicolumn{1}{c}{None40}&\multicolumn{1}{c}{BIC40}&\multicolumn{1}{c}{Full40}\\
+\midrule
+IQ Factor   &      0.0041         &       -0.21         &       -0.29         &      -0.075         &      -0.025         &       -0.16         \\
+            &      (0.15)         &      (0.15)         &      (0.16)         &      (0.12)         &      (0.13)         &      (0.17)         \\
+\addlinespace
+High School Grade&        4.05\sym{*}  &        4.86\sym{*}  &        3.97         &        0.69         &        1.67         &        1.40         \\
+            &      (1.96)         &      (2.08)         &      (2.40)         &      (1.39)         &      (1.51)         &      (2.23)         \\
+\addlinespace
+University Grade&        2.39         &        0.19         &        0.64         &       -0.83         &       -0.58         &       -1.93         \\
+            &      (2.23)         &      (2.34)         &      (2.84)         &      (2.43)         &      (2.74)         &      (5.64)         \\
+\addlinespace
+Graduate from High School&      -0.042         &       0.033         &      0.0095         &       -0.17\sym{***}&      -0.054         &      -0.031         \\
+            &      (0.05)         &      (0.05)         &      (0.06)         &      (0.05)         &      (0.05)         &      (0.07)         \\
+\addlinespace
+Max Edu: University&       -0.12         &      -0.072         &      -0.074         &      -0.019         &       0.051         &       0.057         \\
+            &      (0.07)         &      (0.07)         &      (0.07)         &      (0.05)         &      (0.06)         &      (0.06)         \\
+\addlinespace
+Max Edu: Graduate School&      0.0067         &      0.0082         &      0.0070         &           0         &           0         &           0         \\
+            &      (0.01)         &      (0.01)         &      (0.01)         &         (.)         &         (.)         &         (.)         \\
+\bottomrule
+\end{tabular}
+}

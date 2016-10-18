@@ -61,7 +61,7 @@ global ifconditionNoneMg 	(Reggio == 1) & (Cohort_Migrants == 1) & (maternaMuni 
 global ifconditionBICMg		${ifconditionNoneMg}
 global ifconditionFullMg	${ifconditionNoneMg}
 
-foreach type in A {
+foreach type in CN S H B {
 
 	olsestimate, type("`type'") list("${list}") usegroup("${usegroup}") keep(${X}) cohort("child")
 
@@ -89,7 +89,7 @@ global ifconditionNone  	(Reggio == 1) & (Cohort_Adol == 1) & (maternaMuni == 1 
 global ifconditionBIC 		${ifconditionNone}
 global ifconditionFull 		${ifconditionNone}
 
-foreach type in A {
+foreach type in CN S H B {
 
 	olsestimate, type("`type'") list("${list}") usegroup("${usegroup}") keep(${X}) cohort("adol")
 
