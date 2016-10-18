@@ -89,7 +89,7 @@ syntax, type(string) list(string) usegroup(string) keep(varlist) cohort(string)
 	}
 
 	***** Output the table to the tex file
-	esttab using "${current}/../../output/ols/ols-`usegroup'-`type'-`cohort'.tex", replace b(a2) se(2) mtitle ///
+	esttab using "${here}/../../output/ols/ols-`usegroup'-`type'-`cohort'.tex", replace b(a2) se(2) mtitle ///
 				coeflabels(`coeflabel') noobs nonotes /*addnotes("`Note'")*/ booktabs
 
 end
