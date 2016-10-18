@@ -24,7 +24,7 @@ global schools					Municipal State Religious Private None
 * ------------------ *
 * Baseline variables *
 * ------------------ *
-local child_baseline_vars  	Male lowbirthweight birthpremature CAPI ///
+global child_baseline_vars  		Male Cohort_Migrants lowbirthweight birthpremature CAPI ///
 								teenMomBirth momBornProvince ///
 								momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
 								teenDadBirth dadBornProvince ///
@@ -34,7 +34,7 @@ local child_baseline_vars  	Male lowbirthweight birthpremature CAPI ///
 								momWork_fulltime06 momWork_parttime06 momSchool06  
 								// We assume that household income abd family house ownership for children cohorts can be considered as "baseline"
 								
-local adol_baseline_vars  		Male lowbirthweight birthpremature CAPI ///
+global adol_baseline_vars  		Male lowbirthweight birthpremature CAPI ///
 								teenMomBirth momBornProvince ///
 								momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
 								teenDadBirth dadBornProvince ///
@@ -43,7 +43,7 @@ local adol_baseline_vars  		Male lowbirthweight birthpremature CAPI ///
 								momWork_fulltime06 momWork_parttime06 momSchool06		 						
 								
 								
-local adult_baseline_vars		Male CAPI ///
+global adult_baseline_vars		Male CAPI ///
 								momBornProvince ///
 								momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
 								dadBornProvince  ///
@@ -52,16 +52,16 @@ local adult_baseline_vars		Male CAPI ///
 								momWork_fulltime06 momWork_parttime06 momSchool06
 								
 								
-global Child_baseline_vars				`child_baseline_vars'							
-global Migrant_baseline_vars			`child_baseline_vars' yrCity ageCity
-global Adolescent_baseline_vars			`adol_baseline_vars'
-global Adult30_baseline_vars 			`adult_baseline_vars'
-global Adult40_baseline_vars 			`adult_baseline_vars'
-global Adult50_baseline_vars		 	`adult_baseline_vars'
+global Child_baseline_vars				$child_baseline_vars							
+global Migrant_baseline_vars			$child_baseline_vars yrCity ageCity
+global Adolescent_baseline_vars			$adol_baseline_vars
+global Adult30_baseline_vars 			$adult_baseline_vars
+global Adult40_baseline_vars 			$adult_baseline_vars
+global Adult50_baseline_vars		 	$adult_baseline_vars
 
 								
 * BIC-selected baseline variables 
-global bic_child_baseline_vars				Male CAPI numSibling_more houseOwn cgMigrant cgReddito_7
+global bic_child_baseline_vars				Male CAPI Cohort_Migrants numSibling_more houseOwn cgMigrant cgReddito_7
 global bic_adol_baseline_vars				Male CAPI momMaxEdu_low dadMaxEdu_Uni numSibling_2 cgCatholic
 global bic_adult_baseline_vars		    	Male CAPI momMaxEdu_middle dadMaxEdu_Uni numSibling_2 numSibling_more
 
