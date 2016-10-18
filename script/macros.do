@@ -73,19 +73,27 @@ global bic_adult_baseline_vars		    	Male CAPI momMaxEdu_middle dadMaxEdu_Uni nu
 * ------------------------------------------- *											
 * Outcomes for each category: Younger Cohorts *
 * ------------------------------------------- *
-global child_outcome_A           IQ_factor IQ_score ///
-								 childinvFriends childinvMusic  ///
-								 pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score ///
-								 worryHome worryTeacher worryFriend worryMyself BMI_obese BMI_overweight childHealthPerc childSickDays ///
-                                 difficultiesInterest difficultiesSit likeSchool_child_pos faceGeneral 
+global child_outcome_CN         		IQ_factor IQ_score ///
+										pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score 
+								 
+global child_outcome_S	 		 		childinvFriends childinvMusic  ///
+										worryHome worryTeacher worryFriend worryMyself 
+								 
+global child_outcome_H 			 		BMI_obese BMI_overweight childHealthPerc childSickDays 
+
+global child_outcome_B			 		difficultiesInterest difficultiesSit likeSchool_child_pos faceGeneral 
+                                 
                                    
-global adol_outcome_A            IQ_factor IQ_score ///
-								 Friends childinvTalkOut childinvTalkSchool ///
-								 pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score ///
-								 pos_SDQ_score pos_SDQPsoc_score pos_SDQPeer_score pos_SDQHype_score pos_SDQEmot_score pos_SDQCond_score LocusControl pos_Depression_score ///
-                                 BMI_obese BMI_overweight childHealthPerc childSickDays ///
-								 RiskSuspended Smoke Cig sport ///
-                                 difficultiesInterest difficultiesSit dropoutSchool likeSchool_ado_pos MigrTaste_cat Trust
+global adol_outcome_CN          		IQ_factor IQ_score ///
+										pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score ///
+										pos_SDQ_score pos_SDQPsoc_score pos_SDQPeer_score pos_SDQHype_score pos_SDQEmot_score pos_SDQCond_score LocusControl pos_Depression_score 
+
+global adol_outcome_S 					Friends childinvTalkOut childinvTalkSchool
+								 
+global adol_outcome_H            		BMI_obese BMI_overweight childHealthPerc childSickDays ///
+										RiskSuspended Cig 
+								 
+global adol_outcome_B           		difficultiesInterest difficultiesSit dropoutSchool likeSchool_ado_pos MigrTaste_cat Trust sport 
 								 
 * ----------------------------------------- *											
 * Outcomes for each category: Adult Cohorts *
@@ -124,6 +132,7 @@ global adult_outcome_R					Faith
 
 ** Label for tables
 global IQ_factor_lab 					IQ Factor
+global IQ_score_lab						IQ Score
 global votoMaturita_lab					High School Grade
 global votoUni_lab						University Grade
 global highschoolGrad_lab				Graduate from High School
