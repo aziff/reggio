@@ -50,30 +50,28 @@ Note: This table shows the sample size by city, cohort, and school type. These n
 }
 \end{table}
 
-The structure of the cohorts allows us to study the effects of the Reggio Approach at different points throughout the life cycle. The youngest cohort of children were interviewed when they entered primary school, the adolescent cohort when they ended compulsory schooling, and the adult cohorts capture different points of adulthood to measure key outcomes such as engagement in the labor market, health, and family decisions. This cohort structure also allows us to evaluate the Reggio Approach compared to the alternative early childhood experiences as they evolved over time.
+The structure of the cohorts allows us to study the effects of the Reggio Approach at different points throughout the life cycle. The youngest cohort of children were interviewed when they entered primary school, the adolescent cohort when they ended compulsory schooling, and the adult cohorts capture different points of adulthood to measure key outcomes such as engagement in the labor market, health, and family decisions. This cohort structure also allows us to evaluate the Reggio Approach compared to the alternative early childhood experiences over time.
 
 Separate questionnaires were administered to the children, adolescents, and adults, as well as to the caregivers of the children and adolescents. The questionnaires included items about early childhood experiences, family structure, education, interaction with non-Italians (or with Italians in the case of the migrant children), and measures of cognitive and social-emotional skills. The questionnaires for adults additionally included items about occupation, income, and life satisfaction. 
 
 \section{Basic Analysis}
 \label{sec:methodology}
 
-We present a basic specification of OLS to estimate the effect of the Reggio Approach on an outcome of interest, $Y$, compared to not attending preschool at all. For this abbreviated analysis, we restrict to individuals from Reggio Emilia who either attended a Reggio Approach preschool or did not attend any preschool (across all cohorts, $N = 967$).
+We present a basic specification of OLS to estimate the effect of the Reggio Approach on an outcome of interest, $Y$, compared to not attending preschool at all. For this abbreviated analysis, we restrict to individuals from Reggio Emilia who either attended a Reggio Approach preschool or did not attend any preschool. We further restrict to two cohorts: adults in their 30s and adults in their 40s. This allows us to focus on a uniform set of outcomes between the cohorts. We exclude the cohort of adults in their 50s because the Reggio Approach was not available to them.
 
-For individual $i$ in Reggio Emilia, let $\mu_i$ indicate whether that individual attended a Reggio Approach preschool. We select a vector, $\bm{X}_i$, of five baseline control variables with the lowest BIC to account for family background.\footnote{These variables are: \color{maroon}{forthcoming}} For each cohort, we estimate $\beta_1$ in the simple model
+For individual $i$ in Reggio Emilia, let $\mu_i$ indicate whether that individual attended a Reggio Approach preschool. We select a vector, $\bm{X}_i$, of baseline control variables with the lowest BIC to account for family background.\footnote{These variables are: gender, whether the individual took the computer-assisted (CAPI), number of siblings, an indicator if the mother's maximum education was middle school, an indicator if the father's maximum education is university, and two indicators for the number of siblings (one indicating having two or more siblings, the other indicating having three or more siblings).} For both cohorts, we estimate $\beta_1$ in the simple model
 
 \begin{equation}
 	Y_i = \beta_0 + \beta_1 \mu_i + \bm{X}_i\bm{\beta} + \varepsilon_i
 	\label{eq:ra-v-none}
 \end{equation}
 
-\noindent where we $\varepsilon_i$ is a random disturbance. 
+\noindent where we assume $\varepsilon_i$ to be a random disturbance. 
 
 While this estimate is useful in gaining a basic understanding of the effect of the Reggio Approach, there is a clear selection issue. That is, the choice to enroll a child in the Reggio Approach and the choice to not enroll a child in any preschool are likely tied to family characteristics. After Section~\ref{sec:results} in which we present the estimates from Equation~\eqref{eq:ra-v-none}, we present a discussion of selection on observed characteristics.
 
 \subsection{Results}
 \label{sec:results}
-
-
 \input{section/reggioEvaluation_results}
 
 \section{Discussion of Selection}
@@ -118,7 +116,7 @@ Figure~\ref{fig:parentsEdu} examines the difference of educational attainment be
 
 \clearpage
 
-\bibliography{heckman}
-\bibliographystyle{chicago}
+%\bibliography{heckman}
+%\bibliographystyle{chicago}
 
 \end{document}

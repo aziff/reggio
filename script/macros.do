@@ -4,64 +4,60 @@
 * Edited: 2016/08/23
 * ---------------------------------------------------------------------------- * 
 
-#delimit ;
-
 * --------- *
 * Directory *
 * --------- *
 global klmReggio   : env klmReggio
 global data_reggio : env data_reggio
 global git_reggio  : env git_reggio
-global current 	   : pwd
+global current 	"${git_reggio}/script"
 global output	"${current}/../output"
 
 
 * -------------- *
 * Classification *
 * -------------- *
-global cohorts					Child Migrant Adolescent Adult30 Adult40 Adult50;
-global cities					Reggio Parma Padova;
-global schools					Municipal State Religious Private None;
+global cohorts					Child Migrant Adolescent Adult30 Adult40 Adult50
+global cities					Reggio Parma Padova
+global schools					Municipal State Religious Private None
 	
 * ------------------ *
 * Baseline variables *
 * ------------------ *
-global child_baseline_vars  	Male lowbirthweight birthpremature CAPI
-								teenMomBirth momBornProvince
-								momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni 
-								teenDadBirth dadBornProvince
-								dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni 
-								numSibling_1 numSibling_2 numSibling_more cgCatholic int_cgCatFaith houseOwn cgMigrant
-								cgReddito_1 cgReddito_2 cgReddito_3 cgReddito_4 cgReddito_5 cgReddito_6 cgReddito_7
-								momWork_fulltime06 momWork_parttime06 momSchool06;  
+local child_baseline_vars  	Male lowbirthweight birthpremature CAPI ///
+								teenMomBirth momBornProvince ///
+								momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
+								teenDadBirth dadBornProvince ///
+								dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
+								numSibling_1 numSibling_2 numSibling_more cgCatholic int_cgCatFaith houseOwn cgMigrant ///
+								cgReddito_1 cgReddito_2 cgReddito_3 cgReddito_4 cgReddito_5 cgReddito_6 cgReddito_7 ///
+								momWork_fulltime06 momWork_parttime06 momSchool06  
 								// We assume that household income abd family house ownership for children cohorts can be considered as "baseline"
 								
-global adol_baseline_vars  		Male lowbirthweight birthpremature CAPI
-								teenMomBirth momBornProvince
-								momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni 
-								teenDadBirth dadBornProvince
-								dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni 
-								numSibling_1 numSibling_2 numSibling_more cgCatholic int_cgCatFaith cgMigrant
-								momWork_fulltime06 momWork_parttime06 momSchool06;								
+local adol_baseline_vars  		Male lowbirthweight birthpremature CAPI ///
+								teenMomBirth momBornProvince ///
+								momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
+								teenDadBirth dadBornProvince ///
+								dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
+								numSibling_1 numSibling_2 numSibling_more cgCatholic int_cgCatFaith cgMigrant ///
+								momWork_fulltime06 momWork_parttime06 momSchool06		 						
 								
 								
-global adult_baseline_vars		Male CAPI
-								momBornProvince
-								momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni 
-								dadBornProvince 
-								dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni 
-								numSibling_1 numSibling_2 numSibling_more cgRelig
-								momWork_fulltime06 momWork_parttime06 momSchool06;
+local adult_baseline_vars		Male CAPI ///
+								momBornProvince ///
+								momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
+								dadBornProvince  ///
+								dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
+								numSibling_1 numSibling_2 numSibling_more cgRelig ///
+								momWork_fulltime06 momWork_parttime06 momSchool06
 								
 								
-global Child_baseline_vars				`child_baseline_vars';								
-global Migrant_baseline_vars			`child_baseline_vars' yrCity ageCity;
-global Adolescent_baseline_vars			`adol_baseline_vars';
-global Adult30_baseline_vars 			`adult_baseline_vars'; 
-global Adult40_baseline_vars 			`adult_baseline_vars';
-global Adult50_baseline_vars		 	`adult_baseline_vars';
-
-# delimit cr
+global Child_baseline_vars				`child_baseline_vars'							
+global Migrant_baseline_vars			`child_baseline_vars' yrCity ageCity
+global Adolescent_baseline_vars			`adol_baseline_vars'
+global Adult30_baseline_vars 			`adult_baseline_vars'
+global Adult40_baseline_vars 			`adult_baseline_vars'
+global Adult50_baseline_vars		 	`adult_baseline_vars'
 
 								
 * BIC-selected baseline variables 

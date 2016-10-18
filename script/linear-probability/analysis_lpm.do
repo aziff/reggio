@@ -17,7 +17,7 @@ global data_reggio	: 	env data_reggio
 global git_reggio   : 	env git_reggio
 
 * Prepare the data for the analysis, creating variables and locals
-include ${klmReggio}/Analysis/prepare-data.do
+include ${klmReggio}/Analysis/script/prepare-data.do
 
 cd ${klmReggio}/Analysis/Output/
 
@@ -249,10 +249,10 @@ foreach city in Reggio Parma Padova {
 * Materna (Age 3-5)
 * Asilo (Age 0-3)
 local city_val = 1
-foreach city in Reggio Parma Padova {
+foreach city in Reggio /*Parma Padova*/ {
 
 	local cohort_val = 1
-	foreach cohort in Child Migr Adol Adult30 Adult40 Adult50  { 
+	foreach cohort in /*Child Migr Adol*/ Adult30 Adult40 /*Adult50*/  { 
 	
 		foreach gender in 0 1 {
 		
