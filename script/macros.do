@@ -199,6 +199,7 @@ global pos_SDQCond_score_lab			SDQ Conduct
 global pos_SDQHype_score_lab			SDQ Hyper
 global pos_SDQPeer_score_lab			SDQ Peer problems
 global pos_SDQPsoc_score_lab			SDQ Pro-social
+global SDQPsoc_score_lab				SDQ Pro-social
 
 global pos_childSDQ_score_lab			SDQ Composite - Child
 global pos_childSDQEmot_score_lab		SDQ Emotional - Child
@@ -206,6 +207,7 @@ global pos_childSDQCond_score_lab		SDQ Conduct - Child
 global pos_childSDQHype_score_lab		SDQ Hyper - Child
 global pos_childSDQPeer_score_lab		SDQ Peer problems - Child
 global pos_childSDQPsoc_score_lab		SDQ Pro-social - Child
+global childSDQPsoc_score_lab			SDQ Pro-social - Child
 
 global distAsiloMunicipal1_lab			Closest Municipal Asilo
 global distAsiloMunicipal2_lab			2nd-closest Municipal Asilo
