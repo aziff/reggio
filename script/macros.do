@@ -24,7 +24,7 @@ global schools					Municipal State Religious Private None
 * ------------------ *
 * Baseline variables *
 * ------------------ *
-global child_baseline_vars  		Male Cohort_Migrants lowbirthweight birthpremature CAPI ///
+global child_baseline_vars  	Male Cohort_Migrants lowbirthweight birthpremature CAPI ///
 								teenMomBirth momBornProvince ///
 								momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
 								teenDadBirth dadBornProvince ///
@@ -106,7 +106,7 @@ global adult_outcome_W					PA_Empl SES_self HrsTot WageMonth ///
 global adult_outcome_L					mStatus_married_cohab mStatus_div childrenResp all_houseOwn live_parent
 
 * Health									
-global adult_outcome_H					Maria /*Smoke*/ Cig BMI BMI_obese BMI_overweight goodHealth SickDays ///
+global adult_outcome_H					Maria /*Smoke*/ Cig BMI BMI_obese BMI_overweight goodHealth HCondition9 SickDays ///
 										/*i_RiskFight i_RiskDUI*/ RiskSuspended Drink1Age							
 
 * Noncognitive										
@@ -165,6 +165,7 @@ global RiskSuspended_lab				Ever Suspended from School
 global Drink1Age_lab					Age At First Drink
 global BMI_obese_lab					Obese
 global BMI_overweight_lab				Overweight
+global HCondition9_lab					No Problematic Health Condition
 
 global LocusControl_lab					Locus of Control
 global Depression_score_lab				Depression Score
