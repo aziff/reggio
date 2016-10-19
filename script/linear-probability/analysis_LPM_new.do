@@ -33,41 +33,45 @@ gen FamIncome_med = (cgFamIncome_val > r(p50))
 sum cgPolitics, detail
 gen cgPolitics_med = (cgPolitics > r(p50))
 
-local keepvars			Male lowbirthweight birthpremature ///
+local keepvars			momWork_fulltime06 momWork_parttime06 ///
 				momBornProvince ///
 				momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
 				dadBornProvince ///
 				dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
-				atleast2sibling atleast1sibling cgCatholic int_cgCatFaith houseOwn ///
+				atleast2sibling atleast1sibling Male ///
 				FamIncome_med ///
-				momWork_fulltime06 momWork_parttime06 cgPolitics_med
+				cgRelig int_cgCatFaith ///
+				cgPolitics_med lowbirthweight birthpremature migrant
 
 
-local child_baseline_vars  	Male lowbirthweight birthpremature ///
-				teenMomBirth momBornProvince ///
+local child_baseline_vars  	momWork_fulltime06 momWork_parttime06 ///
+				atleast2sibling atleast1sibling ///
+				momBornProvince ///
 				momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
 				dadBornProvince ///
 				dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
-				atleast2sibling atleast1sibling int_cgCatFaith houseOwn cgMigrant ///
-				FamIncome_med ///
-				momWork_fulltime06 momWork_parttime06  cgPolitics_med
+				FamIncome_med int_cgCatFaith cgMigrant cgPolitics_med ///
+				lowbirthweight birthpremature migrant
+				
 								
-local adol_baseline_vars  		Male lowbirthweight birthpremature ///
-					teenMomBirth momBornProvince ///
-					momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
-					dadBornProvince ///
-					dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
-					atleast2sibling atleast1sibling int_cgCatFaith cgMigrant ///
-					momWork_fulltime06 momWork_parttime06 cgPolitics_med		 						
+local adol_baseline_vars  	momWork_fulltime06 momWork_parttime06  ///
+				atleast2sibling atleast1sibling ///
+				momBornProvince ///
+				momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
+				dadBornProvince ///
+				dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
+				FamIncome_med int_cgCatFaith cgMigrant cgPolitics_med ///
+				lowbirthweight birthpremature  						
 								
 								
-local adult_baseline_vars		Male ///
-					momBornProvince ///
-					momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
-					dadBornProvince  ///
-					dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
-					atleast2sibling atleast1sibling cgRelig ///
-					momWork_fulltime06 momWork_parttime06
+local adult_baseline_vars	momWork_fulltime06 momWork_parttime06 ///
+				atleast2sibling atleast1sibling ///
+				momBornProvince ///
+				momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
+				dadBornProvince  ///
+				dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
+				cgRelig 
+					
 								
 								
 global Child_baseline_vars			`child_baseline_vars'							
@@ -98,7 +102,8 @@ global dadMaxEdu_HS_lab				Father Max. Edu.: High Sch.
 global dadMaxEdu_Uni_lab			Father Max. Edu.: University
 global cgPolitics_med_lab			Caregiver Politics: Right of the Median
 global FamIncome_med_lab			H. Income Above Median
-
+global cgRelig_lab				Caregiver is Religious
+global migrant					Non-Italian Child
 
 foreach a in child adol adult {
 	foreach v in ``a'_baseline_vars'{
@@ -187,10 +192,10 @@ foreach  city in Reggio Parma Padova {
 		Adult30`city'materna  Adult30`city'both
 		Adult40`city'materna  Adult40`city'both
 		Adult50`city'materna  Adult50`city'both] 
-		using "test`city'.tex", 
+		using "LPM_materna_both_`city'.tex", 
 		replace tex(frag) 
 		alpha(.01, .05, .10) sym (***, **, *) dec(3) par(se) r2
-		ti(Linear Probability Model) label keep(`keepvars');
+		label keep(`keepvars');
 	#delimit cr
 	
 	local city_val = `city_val' + 1
