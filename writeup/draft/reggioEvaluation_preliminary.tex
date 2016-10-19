@@ -126,7 +126,7 @@ For this abbreviated analysis, we restrict to individuals from Reggio Emilia who
 For individual $i$ in Reggio Emilia, let $R_i^{P}$ indicate whether that individual attended a Reggio Approach preschool. We select a vector, $\bm{X}_i$, of baseline control variables with the lowest BIC to account for family background.\footnote{These variables are: gender, whether the individual took the computer-assisted (CAPI), number of siblings, an indicator if the mother's maximum education was middle school, an indicator if the father's maximum education is university, and two indicators for the number of siblings (one indicating having two or more siblings, the other indicating having three or more siblings).} For both cohorts, we estimate $\beta$ in the simple model
 
 \begin{equation}
-	Y_i = \alpha + \beta \mu_i + \bm{X}_i\gamma + \varepsilon_i
+	Y_i = \alpha + \beta R_i^{P} + \bm{X}_i\gamma + \varepsilon_i
 	\label{eq:ra-v-none}
 \end{equation}
 
