@@ -16,14 +16,20 @@ cap file 	close outcomes
 cap log 	close
 
 global klmReggio   : env klmReggio
-global data_reggio = "/mnt/ide0/share/klmReggio/SURVEY_DATA_COLLECTION/data"
-global git_reggio  = "/mnt/ide0/home/aziff/projects/reggio"
+global data_reggio : env data_reggio
+global git_reggio : env git_reggio
+//global data_reggio = "/mnt/ide0/share/klmReggio/SURVEY_DATA_COLLECTION/data"
+//global git_reggio  = "/mnt/ide0/home/aziff/projects/reggio"
 
 global code = 	"${git_reggio}/script/linear-probability"
-global outputLPM = "/mnt/ide0/home/aziff/projects/reggio/Output/"
+global outputLPM = "${git_reggio}/Output/"
 use "${data_reggio}/Reggio_prepared"
 
 include "${code}/../macros" 
+
+// combine children and adolescents
+gen migrant = (Cohort == 2)
+replace Cohort = 1 if Cohort == 2
 
 // transform some variables into binary
 gen atleast1sibling = (numSibling_0 == 0)
@@ -50,8 +56,9 @@ local child_baseline_vars  	momWork_fulltime06 momWork_parttime06 ///
 				momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
 				dadBornProvince ///
 				dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
-				FamIncome_med int_cgCatFaith cgMigrant cgPolitics_med ///
-				lowbirthweight birthpremature migrant
+				cgRelig ///
+				FamIncome_med cgRelig cgPolitics_med cgMigrant  ///
+				migrant lowbirthweight birthpremature 
 				
 								
 local adol_baseline_vars  	momWork_fulltime06 momWork_parttime06  ///
@@ -60,7 +67,8 @@ local adol_baseline_vars  	momWork_fulltime06 momWork_parttime06  ///
 				momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
 				dadBornProvince ///
 				dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
-				FamIncome_med int_cgCatFaith cgMigrant cgPolitics_med ///
+				cgRelig ///
+				FamIncome_med cgPolitics_med cgMigrant ///
 				lowbirthweight birthpremature  						
 								
 								
@@ -102,8 +110,8 @@ global dadMaxEdu_HS_lab				Father Max. Edu.: High Sch.
 global dadMaxEdu_Uni_lab			Father Max. Edu.: University
 global cgPolitics_med_lab			Caregiver Politics: Right of the Median
 global FamIncome_med_lab			H. Income Above Median
-global cgRelig_lab				Caregiver is Religious
-global migrant					Non-Italian Child
+global cgRelig_lab					Caregiver is Religious
+global migrant_lab					Non-Italian Child
 
 foreach a in child adol adult {
 	foreach v in ``a'_baseline_vars'{
@@ -149,9 +157,7 @@ foreach age in asilo materna {
 	// note: not doing private because of low N
 }
 
-// combine children and adolescents
-gen migrant = (Cohort == 2)
-replace Cohort = 1 if Cohort == 2
+
 
 replace asilo 		= (asilo == 1)
 gen both_asil_mat 	= (asilo == 1 & materna == 1)
