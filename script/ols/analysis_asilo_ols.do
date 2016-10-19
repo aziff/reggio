@@ -19,17 +19,18 @@ global klmReggio   : env klmReggio
 global data_reggio : env data_reggio
 global git_reggio  : env git_reggio
 
-global current : pwd
+global here : pwd
 
-use "${data_reggio}/Reggio_prepared"
-include "${current}/../macros" 
-include "${current}/function/olsestimate"
+use "Z:\SURVEY_DATA_COLLECTION\data\Reggio_prepared"
+include "${here}/../macros" 
+include "${here}/function/olsestimate"
 
 * ---------------------------------------------------------------------------- *
 * 								Preparation 								   *
 * ---------------------------------------------------------------------------- *
 ** Keep only the adult cohorts
 keep if (Cohort == 4) | (Cohort == 5) | (Cohort == 6)
+keep if (City == 1)
 
 ** Gender condition
 local p_con	
@@ -37,13 +38,7 @@ local m_con		& Male == 1
 local f_con		& Male == 0
 
 ** Column names for final table
-global maternaMuni_c		Muni
-global maternaNone_c		None
-global maternaReli_c		Reli
-global maternaPriv_c		Priv
-global maternaStat_c		Stat
-global maternaYes_c			Materna
-global Reggio_c				Reggio
+global asilo_Municipal_c
 
 
 * ---------------------------------------------------------------------------- *
@@ -58,18 +53,34 @@ preserve
 keep if ((asilo_Attend == 0) & (maternaType == 1)) | ((asilo_Municipal == 1) & (maternaType == 1))		 
 		 
 global X						asilo_Municipal	
-global agelist 					Reggio30 Reggio40 Parma30
-global controls					${adult_baseline_vars}
+global list 					None30 BIC30 Full30 None40 BIC40 Full40
 global usegroup					asilocompare
-global asilocompare_note		the effects of attending the municipal asilo \\ for the group specified by each column. Estimation for each column \\ is restricted to the corresponding cohort
-global ifconditionReggio30 		Reggio == 1 & Cohort_Adult30 == 1
-global ifconditionReggio40 		Reggio == 1 & Cohort_Adult40 == 1
-global ifconditionParma30 		Parma == 1 & Cohort_Adult30 == 1
+
+global controlsNone30
+global controlsNone40
+global controlsBIC30		${bic_adult_baseline_vars}
+global controlsBIC40		${bic_adult_baseline_vars}
+global controlsFull30		${adult_baseline_vars}
+global controlsFull40		${adult_baseline_vars}
+
+global ifconditionNone30 	Cohort_Adult30 == 1
+global ifconditionBIC30		${ifconditionNone30}
+global ifconditionFull30	${ifconditionNone30}
+global ifconditionNone40 	Cohort_Adult40 == 1
+global ifconditionBIC40		${ifconditionNone40}
+global ifconditionFull40	${ifconditionNone40}
 
 foreach type in E W L H N S R {
-	olsestimate, type("`type'") agelist("${agelist}") usegroup("${usegroup}") keep(${X})	
+
+	olsestimate, type("`type'") list("${list}") usegroup("${usegroup}") keep(${X}) cohort("adult")
+
 }
 
 restore
+
+
+
+
+
 
 

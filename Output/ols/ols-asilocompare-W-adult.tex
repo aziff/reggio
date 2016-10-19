@@ -1,0 +1,42 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{6}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
+            &\multicolumn{1}{c}{None30}&\multicolumn{1}{c}{BIC30}&\multicolumn{1}{c}{Full30}&\multicolumn{1}{c}{None40}&\multicolumn{1}{c}{BIC40}&\multicolumn{1}{c}{Full40}\\
+\midrule
+Employed    &       0.053\sym{*}  &       0.049\sym{*}  &       0.043         &       0.031         &       0.056         &       0.045         \\
+            &      (0.02)         &      (0.02)         &      (0.02)         &      (0.02)         &      (0.03)         &      (0.03)         \\
+\addlinespace
+Self-Employed&       0.053         &       0.064         &       0.075         &        0.16         &        0.15         &        0.20         \\
+            &      (0.06)         &      (0.06)         &      (0.06)         &      (0.09)         &      (0.09)         &      (0.11)         \\
+\addlinespace
+Hours Worked Per Week&        0.60         &        0.75         &        1.02         &        3.34         &        4.18\sym{*}  &        5.74\sym{**} \\
+            &      (0.93)         &      (0.92)         &      (0.90)         &      (1.87)         &      (1.90)         &      (2.02)         \\
+\addlinespace
+Monthly Wage&      -218.0         &      -164.0         &      -160.7         &      -725.3         &      -265.8         &       100.8         \\
+            &    (113.94)         &    (116.14)         &    (105.54)         &    (410.34)         &    (303.48)         &    (361.86)         \\
+\addlinespace
+Income: 5,000 Euros of Less&        0.18\sym{**} &        0.15\sym{*}  &        0.13\sym{*}  &           0         &           0         &           0         \\
+            &      (0.07)         &      (0.06)         &      (0.05)         &         (.)         &         (.)         &         (.)         \\
+\addlinespace
+Income: 5,001-10,000 Euros&      -0.011         &      -0.013         &      -0.014         &           0         &           0         &           0         \\
+            &      (0.01)         &      (0.01)         &      (0.01)         &         (.)         &         (.)         &         (.)         \\
+\addlinespace
+Income: 10,001-25,000 Euros&     -0.0095         &      -0.039         &      -0.037         &        0.27\sym{**} &        0.26\sym{*}  &        0.28\sym{*}  \\
+            &      (0.08)         &      (0.08)         &      (0.08)         &      (0.10)         &      (0.11)         &      (0.13)         \\
+\addlinespace
+Income: 25,001-50,000 Euros&      -0.097         &      -0.025         &      -0.019         &       -0.16         &       -0.14         &       -0.21         \\
+            &      (0.09)         &      (0.08)         &      (0.08)         &      (0.11)         &      (0.12)         &      (0.13)         \\
+\addlinespace
+Income: 50,001-100,000 Euros&      -0.063\sym{*}  &      -0.070\sym{*}  &      -0.063\sym{*}  &      -0.082\sym{**} &       -0.10\sym{**} &      -0.080         \\
+            &      (0.03)         &      (0.03)         &      (0.03)         &      (0.03)         &      (0.04)         &      (0.05)         \\
+\addlinespace
+Income: 100,001-250,000 Euros&           0         &           0         &           0         &      -0.031         &      -0.012         &      0.0033         \\
+            &         (.)         &         (.)         &         (.)         &      (0.02)         &      (0.01)         &      (0.01)         \\
+\addlinespace
+Income: More than 250,000 Euros&           0         &           0         &           0         &           0         &           0         &           0         \\
+            &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         &         (.)         \\
+\bottomrule
+\end{tabular}
+}
