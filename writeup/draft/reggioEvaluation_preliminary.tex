@@ -25,7 +25,7 @@ This draft presents (i) a brief description of the data, (ii) a simple analysis 
 \section{Data}
 \label{sec:data}
 
-The sample is a subset of the individuals in Reggio Emilia, Parma, and Padova who were born in the year ranges of the five cohorts.  These individuals were collected from the population registries in each of the cities. The sample was then restricted to those individuals living in the same city in which they were raised. All cohorts except the youngest one were restricted to individuals who are Italian citizens. In contrast, the youngest cohort includes an oversampling of immigrant children. The sample from Reggio Emilia, across all cohorts, includes an oversampling of those who attended municipal schools, as this is considered the treatment.
+The sample is a subset of the individuals in Reggio Emilia, Parma, and Padova who were born in the year ranges of the five cohorts.  These individuals were collected from the population registries in each of the cities. The sample was then restricted to those individuals living in the same city in which they were raised. All cohorts except the youngest one comprised only individuals who are Italian citizens. In contrast, the youngest cohort includes an oversampling of immigrant children.\footnote{In the adult cohorts there was no immigrant who was born in the any of the three cities and still lived there. In the adolescent cohort, the number was immigrant born was extremely small.} The sample from Reggio Emilia, across all cohorts, includes an oversampling of those who attended municipal schools, as this is the treatment group.
 
 Of the reference sample, 7,109 individuals were randomly selected. Of these, 4,019 completed interviews, resulting in a response rate of 56.5\%. Figure~\ref{fig:sample} presents an overview of the sample highlighting those who attended a Reggio Approach preschool. Table~\ref{tab:sample} provides a detailed tabulation of the sample by city, cohort, and school type.
 
@@ -72,6 +72,9 @@ Since there are two stages of early childhood interventions, (i) ages 0-3 and (i
         								& 1 & \multicolumn{1}{|c|}{(1,0)} & \multicolumn{1}{c|}{(1,1)} \\ 
         								&  & \multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{} \\ \cline{3-4}
   \end{tabular}
+\begin{flushleft}
+\tiny{{\bfseries Notes:} Sample size for the treatment group. Number of individuals in each city that attended a \textit{municipal} infant-toddler-center (ages 0-3), a \textit{municipal} preschool (ages 3-6), or both. (0,0) = did not attend any municipal school for both ages 0-3 and 3-6; (1,0) = attended a municipal school for ages 0-3 but did \textit{not} attend for ages 3-6; (0,1) = did \textit{not} attend a municipal school for ages 0-3 but did attend for ages 3-6; (1,1) = attended a municipal school for both ages 0-3 and 3-6;}
+\end{flushleft}
 \end{table}
 
 
@@ -113,7 +116,7 @@ Age-50		& 146 & 0 &	8 & 0 & \textbf{200} & 71 & 0 & 4 & 8 & \textbf{103} & 55 & 
 
 In Table \ref{tab:num-group}, the groups subject to our estimation are highlighted. Since there are more outcomes for adult cohorts than younger cohorts, we first focus on analyzing the effect of infant-toddler centers on the adult cohorts. Based on the available number of individuals in each cell and the history of the foundation date of municipal asilo for each city, we decide to test $H_2$ for the following groups:
 \begin{itemize}
-\item Age-30 people in Reggio who did not attend no infant-toddler center and attended municipal preschool (the group (0,1)) \textbf{vs.} Age-30 people in Reggio who attended both municipal infant-toddler center and municipal preschool (the group (1,1))
+\item Age-30 people in Reggio who did not attend any infant-toddler center and attended municipal preschool (the group (0,1)) \textbf{vs.} Age-30 people in Reggio who attended both municipal infant-toddler center and municipal preschool (the group (1,1))
 \item Age-40 people in Reggio who did not attend no infant-toddler center and attended municipal preschool (the group (0,1)) \textbf{vs.} Age-40 people in Reggio who attended both municipal infant-toddler center and municipal preschool (the group (1,1))
 \item Age-30 people in Parma who did not attend no infant-toddler center and attended municipal preschool (the group (0,1)) \textbf{vs.} Age-30 people in Parma who attended both municipal infant-toddler center and municipal preschool (the group (1,1))
 \end{itemize}
@@ -132,7 +135,7 @@ For individual $i$ in Reggio Emilia, let $R_i^{P}$ indicate whether that individ
 
 \noindent where we assume $\varepsilon_i$ to be a random disturbance. 
 
-While this estimate is useful in gaining a basic understanding of the effect of the Reggio Approach, there is a clear selection issue. That is, the choice to enroll a child in the Reggio Approach and the choice to not enroll a child in any preschool are likely tied to family characteristics. After Section~\ref{sec:results} in which we present the estimates from Equation~\eqref{eq:ra-v-none}, we present a discussion of selection on observed characteristics.
+While this estimate is useful in gaining a basic understanding of the relation between the Reggio Approach and outcomes $Y_i$, there is a clear selection issue. That is, the choice to enroll a child in the Reggio Approach and the choice not to enroll a child in any preschool might be tied to unobservable characteristics that are also influencing the outcomes. After Section~\ref{sec:results} in which we present the estimates from Equation~\eqref{eq:ra-v-none}, we present a discussion of selection on observed characteristics.
 
 \section{Results}
 \label{sec:results}
