@@ -81,7 +81,6 @@ global keepPadova40			maternaMuni
 global comparisonlist		Padova30 Padova40
 global controls				${adult_baseline_vars}
 global usegroup				munivsnone_pp
-global munivsnone_pp_note	people in Reggio who attended \\ municipal preschools and people who live in Parma or Padova with no preschool experience
 global ifconditionParma30 	((Reggio == 1 & maternaMuni == 1) | (Parma == 1 & maternaNone == 1)) & (Cohort_Adult30 == 1)
 global ifconditionPadova30	((Reggio == 1 & maternaMuni == 1) | (Padova == 1 & maternaNone == 1)) & (Cohort_Adult30 == 1)
 global ifconditionParma40 	((Reggio == 1 & maternaMuni == 1) | (Parma == 1 & maternaNone == 1)) & (Cohort_Adult40 == 1)
