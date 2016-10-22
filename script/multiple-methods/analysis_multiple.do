@@ -19,11 +19,11 @@ global klmReggio   : env klmReggio
 global data_reggio : env data_reggio
 global git_reggio  : env git_reggio
 
-global current : pwd
+global here : pwd
 
 use "${data_reggio}/Reggio_prepared"
-include "${current}/../macros" 
-include "${current}/function/multipleanalysis"
+include "${here}/../macros" 
+include "${here}/function/multipleanalysis"
 
 * ---------------------------------------------------------------------------- *
 * 								Preparation 								   *
