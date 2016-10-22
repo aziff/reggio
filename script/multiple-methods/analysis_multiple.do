@@ -59,7 +59,6 @@ global keepdid				xmMuniAdult30
 global comparisonlist		30 40 did
 global controls				${adult_baseline_vars}
 global usegroup				munivsnone
-global munivsnone_note		people in Reggio who attended \\ municipal preschools or no preschool at all
 global ifcondition30 		(Reggio == 1) & (Cohort_Adult30 == 1) & (maternaMuni == 1 | maternaNone == 1)
 global ifcondition40 		(Reggio == 1) & (Cohort_Adult40 == 1) & (maternaMuni == 1 | maternaNone == 1)
 global ifconditiondid		(Reggio == 1) & (Cohort_Adult30 == 1 | Cohort_Adult40 == 1) & (maternaMuni == 1 | maternaNone == 1)
