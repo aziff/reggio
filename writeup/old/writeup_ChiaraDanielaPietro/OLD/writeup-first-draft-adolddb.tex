@@ -1,0 +1,662 @@
+%2multibyte Version: 5.50.0.2960 CodePage: 1252
+
+\documentclass[12pt]{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{eurosym}
+\usepackage[top=1in, bottom=1in, left=1in, right=1in]{geometry}
+\usepackage{adjustbox}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{array}
+\usepackage{booktabs}
+\usepackage{fancyhdr}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue,anchorcolor=blue,citecolor=blue]{hyperref}
+\usepackage{lscape}
+\usepackage{multirow}
+\usepackage{natbib}
+\usepackage{setspace}
+\usepackage{tabularx}
+\usepackage[colorinlistoftodos,linecolor=black]{todonotes}
+\usepackage{appendix}
+\usepackage{pgffor}
+
+\setcounter{MaxMatrixCols}{10}
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2960}
+%TCIDATA{Codepage=1252}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=BibTeX}
+%TCIDATA{LastRevised=Sunday, July 31, 2016 12:41:19}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+
+\parindent 22pt
+\newcommand{\indep}{\rotatebox[origin=c]{90}{$\models$}}
+\newcolumntype{L}[1]{>{\raggedright\arraybackslash}p{#1}}
+\newcolumntype{C}[1]{>{\centering\arraybackslash}p{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\arraybackslash}p{#1}}
+\input{tcilatex}
+\begin{document}
+
+\title{Analysis of the Reggio Approach}
+\author{Pietro Biroli, Daniela Del Boca, and Chiara Pronzato }
+\date[VERY PRELIMINARY DRAFT]{ \\
+Original version: January 22, 2016 \\
+Current version: \today }
+\maketitle
+
+\bigskip
+
+%\listoftodos
+\doublespacing
+
+%\include{main-files/2-summary}
+
+\section{Summary (Introduction)}
+
+This paper aims to evaluate the Reggio Approach preschool system. The Reggio
+Approach includes infant-toddler centers (ages 0-2) and preschools (ages
+3-5), both of which are for children before they enter primary school at age
+6. The first Reggio infant-toddler center was established in 1971, while the
+first Reggio preschool was established even earlier, in 1963.
+
+The Reggio Approach (RA)\ is a unique natural experiment which has been in
+place for fifty years in the city of Reggio Emilia, Italy. Here a universal
+high-quality early child care system has developed a more progressive vision
+of the child \ as an individual with rights and potential (Malaguzzi \
+1993). The Reggio Approach has received world-wide recognition and was
+defined as an exemplary model of early childhood education by Newsweek in
+1971. It has received over the years several prizes and has been emulated in
+different countries,\footnote{%
+The official \href{http://www.reggiochildren.it/network/?lang=en}{Reggio
+Children International Network} is present in 33 countries worldwide. Many
+other preschools around the world are \textquotedblleft
+inspired\textquotedblright\ by the Reggio Approach but they are not
+officially part of these network.} but it has never been evaluated.
+
+In order to evaluate the Reggio Approach, we have collected data on five age
+cohorts, three cohorts of adults, one cohort of adolescents, and one cohort
+of children in their first year of elementary school. The data were
+collected in Reggio Emilia, and Padua and Parma. Parma and Padua are similar
+to Reggio Emilia in several dimensions (size, geographic, demographic and
+socio-economic structure and fertility dynamics), but do not provide the
+same type of early childhood education.The schools that follow the Reggio
+Approach are the municipal infant-toddler centers and preschools in Reggio
+Emilia. All of the children who attended a municipal infant-toddler center
+or preschool in Reggio Emilia are considered part of the treated group,
+since they received the RA intervention. The other types of schools in
+Reggio Emilia, and all the schools in Parma and Padova (including the
+municipal schools) did not receive the RA intervention.
+
+The evaluation of the Reggio Children Approach presents several challenges,
+given the non-experimental nature of the program. The Reggio Approach\
+preschool system was introduced and grew non randomly over the course of
+several decades (QUESTO\ L HO\ \ LASCIATO\ MA\ NON\ HO\ CAPITO). Therefore
+the evaluation strategy has to deal with lack of well defined control group,
+variation of treatment overtime (?) and potential spillover effects. This
+analysis evaluates RA aiming to adressing these issues.We consider several
+groupings of controls to account for differences by region, data collection,
+socioeconomic factors, and most importantly type of preschool chosen by the
+families. Different model specifications allow for comparison with various
+control groups, allowing for a more nuanced understanding of the effects of
+RA, including the effects both within and between regions and in relation to
+other types of early education.
+
+In the next section, we review some of the previous work on the impact of
+child care quality and curriculum on child outcomes. A brief description of
+the RA is provided in Section 3 while a comparison between Reggio Emilia and
+the other two cities involved with the data collection is provided in
+Section \ref{sec:background}. More detail about this data collection,
+including sample structure and survey design, is given in Section \ref%
+{sec:data}. A simple model of school selection is sketched in Section \ref%
+{sec:model}. The identification strategy and the empirical analysis are
+discussed in Section \ref{sec:analysis}.
+
+%\include{main-files/3-background}
+
+\section{\protect\bigskip Literature}
+
+In the last few years economic \textbf{r}esearch has started analyzing the
+impact of child care on child outcomes focusing not only on its availability
+but also its quality and pedagogical philosophies. Felfe and Lalive (2014)
+analyzed German data, using information on the quality of available
+childcare for children under the age of three. They show that quality is a
+very important determinant of several child outcomes at the age of 6,
+particularly of socio-emotional maturity and school readiness. Specifically,
+teachers' age and education, working hours and group size have a positive
+impact on child outcomes. The effects are stronger for the children of less
+educated mothers.
+
+Love et al. (2003) using data from three studies in the different contexts
+of the U.S., Australia and Israel (Early Head Start; the Sydney Family
+Development Project; Haifa-NICHD \ merged data) compare a variety of
+childcare centers differing in levels of regulation and of staff quality,
+and provide consistent evidence that the quality of child care has an
+important impact on child development. In particular, children from
+low-income families experience a stronger positive impact of childcare
+quality on a both cognitive and non-cognitive outcomes.
+
+Duncan et al. (2012) explore the effects on later outcomes of high-versus
+low-quality childcare both during infant--toddlerhood and during the
+preschool years, using data from the National Institute of Child Health and
+Human Development Study of Early Child Care. They show that quality matters
+as well as the timing of attendance high quality education. Cognitive,
+language and other skills were highest in children who experienced
+high-quality care in both the infant--toddler and preschool periods,
+somewhat lower in children who experienced high-quality child care during
+only one of these periods, and lowest among children who experienced
+low-quality care during both periods
+
+Other studies have linked quality with the influence of certain program
+curricula and pedagogical philosophies on the teaching strategies employed
+in classrooms, roughly divided into the two main categories of
+\textquotedblleft child centered\textquotedblright\ and \textquotedblleft
+academic\textquotedblright\ approaches. The Reggio approach is a clear
+example of a child centered approach, where the teacher is encouraged to
+become the child's co-learner and collaborator. According to this approach,
+teachers do not impose a specific curriculum, but facilitate the child's
+learning by planning activities based on the child's interests, and engaging
+in the activities alongside the child (Malaguzzi, 1993, Hewett, 2001). In an
+academic approach, instead, the focus is on acquiring notions related to
+different subject areas.
+
+Using data from the Pre-K Survey of Beliefs and Practices, Marcon (1999)
+identifies three different preschool models operating in an urban school
+district: child centered, academic driven and a combination of the two. His
+empirical evidence shows that by the end of preschool, children from
+child-centered programs have acquired greater competence in social, basic
+math and basic verbal skills than their peers in academically-driven
+preschool environments.
+
+Other studies have compared the effectiveness of several pedagogical models.
+Miller and Bizzell, (1984) analyzes the achievement test and IQ data on
+low-income black youths who had participated in traditional and more
+progressive programs in pre and prekindergarten through ninth and tenth
+grades. They find long-term positive effects of child-centered learning on
+school achievement. Schweinhart et al., (1993) have evaluated long term
+effects (through age 23) of the High/Scope program vs more traditional
+preschool curriculum models. Their findings show that using a curriculum
+model based on child-initiated learning activities improves social behavior
+at a later age. Specifically they found at age 23, compared to the other
+curriculum groups, the group who has experienced a more traditional
+curriculum had three times as many felony arrests per person.
+
+The traditional sequential and subject specific approaches are less
+effective in promoting children's learning in the early years whereas a
+holistic approach that sustains children's overall development across
+several domains is more effective as it is supportive of children's learning
+strategies (Bennett, Gordon, and Edelmann, 2013). As stated by Bennett
+(2013): `The cognitive development of young children does not match a
+traditional subject approach. Rather, it is focused on meaning-making --
+his/her place in the family; the roles and work of significant adults;
+forging a personal identity; how to communicate needs and desires; how to
+interact successfully and make friends; how things work; the change of the
+season and other remarkable events in the child's environment.
+
+While RA\ has certainly a leadership in child-centered approach and a long
+lasting pedagogical experience, these principles are increasingly becoming
+part of \ large number of child care experiences ind different contexts in
+Italy as well as in other countries (Lazzari et al 2012). 
+
+%\include{main-files/3-background}
+
+\section{The Reggio Approach}
+
+\label{sec:background}
+
+% Quick description of Reggio Approach history
+This section briefly describes the Reggio Approach (for a more complete
+discussion of the Italian early childhood landscape, the educational
+philosophy \citet{biroli2015evaluating})The Reggio Approach to early
+childhood education is a community effort of public investment in
+high-quality early childhood education spearheaded and led by the pedagogist
+Loris Malaguzzi (1920-1994), whose foresight has been the main influence on
+the approach. Since Malaguzzi became Pedagogical Consultant to Reggio Emilia
+municipal scool in 1963, more and more progressive models of early childhood
+education characterized the municipal schools in Reggio Emilia previously
+dominated by Catholic traditional schools. The system evolved slowly over
+the years from a parent cooperative in the outskirts of Reggio Emilia into a
+structured municipal system of 26 infant-toddler centers and 30 preschools,
+in alternative to the prevailing Catholic schools which have declined
+rapidly after that.
+
+Its education project built on existing pedagogical models combined with
+many innovative features. As stated by Edwards, Gandini and Forman (1993)
+this curriculum facilitates children'sconstruction their own powers of
+thinking through all the expressive, communicative and cognitive languages.
+
+The Reggio Children Approach views early childhood education as based on
+relationships, and focuses on each child in relation with other children,
+family, teachers, society and the environment. Its philosophy is based on
+several principles (Rinaldi. 2005, Gandini, 1993)
+
+First of all, children are seen as researchers: they develop theories and
+adapt them, individually and with others, while they interpret and
+reconstruct the world and their surroundings. These learning conditions are
+favored by the creation of small working groups of children and adults
+researching together .Collaborative group work is considered valuable and
+necessary to advance cognitive development. Children are encouraged to
+dialogue,, compare, negotiate, , and problem solve through group work.
+
+Second, teachers are encouraged to facilitate the child's learning by
+planning activities and lessons based on the child's interests, asking
+questions to further understanding, and actively engaging in the activities
+alongside the child, as partners to the child more than only an instructor
+(Hewett, 2001). According to the principles of RA, each class is organized
+with two teachers (often male and female), who are supported by a new
+professional figure, the "atelierista", a teacher trained to foster the
+children's expressive and creative languages.
+
+Third, a continous documentation of children's work in progress is
+constructed as an important tool for the learning process for children,
+teachers, and parents. Pictures of children engaged in experiences, their
+words as they discuss what they are doing, feeling and thinking, and the
+children's interpretation of experience through the visual media are
+displayed daily and used as assessment and memories. Other benefits of
+documentation include: making visible children's learning process, sharing
+their experiences with the parents and allowing teachers to record and
+understand children learning dynamics.
+
+A fourth important element concerns the teachers training. An ongoing and
+continous job- training and collegial workplace for all educational figures
+is established. \ and is an integral part of the educational experience.
+training is achieved through internal weekly updates, classroom teaching and
+meetings that become a tool for dialogue, discussion and growth among the
+various professional figures at the school.
+
+Another important aspect \ concerns the space of the educational experience.
+Since the beginning, the aesthetic dimension was considered an integral part
+of learning, from the architecture, furniture, to the materials used in the
+school. The early municipal schools, opened in 1963 and 1964, were already
+equipped with an internal kitchen, and its personnel was actively involved
+in the educational project, an important and innovative choice for a public
+service.The preschools are generally filled with indoor plants and vines. In
+each room  the attention of both children and adults is captured through the
+use of mirrors (on the walls, floors, and ceilings), photographs, and
+children's work accompanied by transcriptions of their discussions. The
+environment has been defined by Malaguzzi  the "third teacher" besides
+children and teachers.
+
+Finally, parents are a vital component to the Reggio philosophy. They are
+viewed as partners, collaborators of their children's learning as they are
+involved in every aspect of the curriculum. This philosophy does not end
+when the child leaves the classroom. Teachers conduct frequent meetings with
+parents to help educate them about children's social, emotional, creative
+and academic development.The educational project of early childhood is
+outcome of of the joint work of teachers, pedagogists and parents in
+Consigli Infanzia Citt\`{a} which are elected every three years.
+
+In the next sections we will try to analyze differences and similarities in
+Reggio, Parma and Padova in order to understand and interpret better our
+empirical results.
+
+\section{Reggio, Parma and Padova}
+
+% Reggio Emilia vs. Parma vs. Padova
+In addition to collecting data from individuals in Reggio Emilia, data were
+collected from individuals in Parma and Padova, two cities that share
+several features with Reggio Emilia. More information on the data collection
+is given in Section (\ref{sec:data}).
+
+Table (\ref{tab:comparison}) lists some characteristics of the three cities.
+While in the rest of the paper we will show several similarities between
+Reggio Emilia, Padova and Parma concerning size, geographic, demographic and
+socio-economic structure, in this part we discuss some of the differences
+concerning the pedagogical approach and infant-toddler centres' and
+preschools' organization (educators roles, type of training, parental
+involvement etc) in the three educational systems.
+
+First of all, the Reggio Emilia municipal infant-toddler centers and
+preschools are certainly the oldest childcare system in Italy: it started in
+1963 with the opening of the first municipal preschool and in 1971 with the
+opening of the first municipal infant-toddler center, earlier than the 1971
+National Law. Padova (1976-77) and Parma (1975) instead started after the
+law, in the mid-late seventies..
+
+More information on the data collection is given in Section (\ref{sec:data}).
+
+\begin{table}[tbph]
+\caption{Demographic Comparison of Reggio Emilia, Parma, and Padova}
+\label{tab:comparison}
+\begin{center}
+\begin{tabular}{lccc}
+\hline\hline
+& \multicolumn{3}{c}{City} \\ 
+\cmidrule{2-4} & Reggio Emilia & Parma & Padova \\ \hline
+Population (2013)* & 172,525 & 187,938 & 209,678 \\ 
+Average per-capita income (2011 euros)** & 25,226 & 28,437 & 29,915 \\ \hline
+\end{tabular}%
+\end{center}
+\par
+{\footnotesize Notes: *ISTAT, \url{http://www.demo.istat.it/}; **Finance
+Minister, taxable income for 2011. }
+\end{table}
+%\todo[backgroundcolor=orange!30,size=\tiny]{Add information about (updated) italian and immigrant births to table \ref{tab:comparison}. Look for values in 1960 (start of the program, baseline)}
+
+% Preschool availability and take-up
+
+% Different types of preschool
+As in every Italian city, early educational experiences are divided into two
+main age categories. The first, infant-toddler centers (asilo nido), is
+available for children aged 0 through 3 while the second, preschool (scuola
+materna/dell'infanzia), is for children aged 3 through 6.
+
+For each of these age groups, there are schools established and managed by
+different entities: municipal, state, private, and religious. Table \ref%
+{tab:types} summarizes the types of schools available for each age group,
+highlighting that there are no state-run infant-toddler centers.
+
+\begin{table}[tbph]
+\caption{Types of Schools}
+\label{tab:types}
+\begin{center}
+\begin{tabular}{ccc}
+\hline\hline
+& Infant-Toddler & Preschool \\ \hline
+Municipal & \checkmark & \checkmark \\ 
+State &  & \checkmark \\ 
+Private & \checkmark & \checkmark \\ 
+Religious & \checkmark & \checkmark \\ \hline
+\end{tabular}%
+\end{center}
+\end{table}
+
+The schools that follow the Reggio Approach are the municipal infant-toddler
+centers and preschools in Reggio Emilia. All of the children who attended a
+municipal infant-toddler center or preschool in Reggio Emilia are considered
+part of the treated group, since they received the RA intervention. The
+other types of schools in Reggio Emilia, and all the schools in Parma and
+Padova (including the municipal schools) did not receive the RA
+intervention. 
+%A detailed interview with the managers of the religious preschools in Reggio Emilia showed that [...] \todo[backgroundcolor=orange!30,size=\tiny]{Together with Claudia and Moira, who run the RA schools, we are collecting more specific information available about the religious schools in Reggio. No information is available for state and private} 
+
+\bigskip
+
+In Italy, early childhood education is provided at the public level (State
+and Municipal) and by private organizations (religious and secular). The
+system is decentralized: the municipality is the main decision-maker, while
+the regions define general management criteria;%
+%TCIMACRO{%
+%\TeXButton{Footnote}{\footnote{To date, in Italy there are 8,092 municipalities in 101 provinces and 20 regions.}} }%
+%BeginExpansion
+\footnote{To date, in Italy there are 8,092 municipalities in 101 provinces and 20 regions.}
+%EndExpansion
+The central government is only responsible for defining common objective
+standards and resources allocation among regions. (Brilli et al 2016).
+
+Child care is offered by the State, municipalities, religious institutions
+and private companies Enacted in 1968, Law 444 provided for state-run early
+childcare education and enabled municipalities to create their own
+autonomous early childhood programming. In 1968, Law 444 assigned the costs
+of building, equipment and playing materials to the State; municipalities
+were to fund building maintenance, heating and operating costs including
+salaries for an all-female staff of teachers under 35 years of age with a
+high school diploma and In 1971, Italy enacted Law 1044 mandating regional
+governments to construct and operate enough asili nido to meet the local
+demand for childcare for children aged 3 to 36 months.( Brilli et al 2016)
+
+Municipalities are \ also enabled to set eligibility criteria for whom
+access to public childcare appears to be most valuable. Selection criteria
+appear to be similar across munic- ipalities, however, the weighting of
+distinct family characteristics varies. The Catholic Church offers the
+majority of private religious early childhood programs. In the last years,
+childcare supply from private providers has increased and developed
+differently across Italian regions (Istituto Degli Innocenti, 2002 and
+2009). Public childcare differs from private childcare in several ways. For
+instance, public services are more strictly regulated both in terms of
+service standards and in terms of management and personnel requirements
+(Istituto Degli Innocenti, 2002). As recently stated in Budget Law 2002,%
+%TCIMACRO{%
+%\TeXButton{footnote}{\footnote{Law 448/2001 (Budget Law 2002) defined formal childcare as "structures aimed at granting the development and socialization of girls and boys aged between 3 months and 3 years and to support families and parents with young children".}} }%
+%BeginExpansion
+\footnote{Law 448/2001 (Budget Law 2002) defined formal childcare as "structures aimed at granting the development and socialization of girls and boys aged between 3 months and 3 years and to support families and parents with young children".}
+%EndExpansion
+one of the most important aim of public childcare is educational. This goal
+has been implemented through the introduction of quality standards,
+especially in regions with greater experience in childcare provision (such
+as Emilia Romagna and Tuscany). Public childcare is also less expensive than
+the private one, since it is highly subsidized for lower income families.
+
+The Italian child care quality is relatively high vs other countries.
+According to the European ranking italian public child care it is fourth
+after Denmark, Finland and France (De Haneau et al 2008).
+
+While high quality standards are common among public schools there is still
+variation in the curriculum across municipalities and regions.
+
+In this section we aim to compare Reggio Emilia and Parma and Padova. While
+the first two are both provinces of Emilia Romagna, Padova is a province of
+Veneto.In Padova, the pedagogical approach is influenced by Frabboni
+(Frabboni and Guerra,1999) and is based on a more traditional cognitive
+child approach, that is not child-centered as RA. Differently from RA,
+teachers have a more traditional role as instructors who follow a sequential
+and academic program. There is no teacher with specific art and creative
+skills to stimulate and coordinate children's activities. Parents are
+informed about the children activities and progress in specific meetings.
+
+Teachers undergo frequent training but a specific times and in provided in
+classroom with traditional lecture format. \ Also in Padova's muncipal
+schools, teachers document teh activities and collect materials produced by
+teachers and children. However this is done ex-post and used as a archive
+for valuation of children's work and communication with the parents (Piano
+dell Offerta Formativa of preschools and nidi in Padova 2016). Finally most
+schools has their own kitchen but food are provided by an external company.
+The presence of a majority of private/catholic schools have still strong
+spillover on the philosophy of the muncipal and state child care. Padova is
+one of the largest cities of Veneto, traditionally a very Catholic region,
+which was for a long time the heartland of Christian Democracy.
+
+Parma is instead the third largest city of Emilia Romagna, a region which
+has been historically a stronghold of the Italian Communist Party, forming
+the famous Italian "Red Quadrilateral" with Tuscany, Umbria and Marche. This
+is due to the strength of the anti-fascist resistance around the time of
+World War IIas well as a strong tradition of anti-clericalism dating from
+the 19th century, when part of the region belonged to the Papal States.
+However the political history of Parma has been different from Reggio Emilia
+During the period 1950-1990 a moderate socialist party has been predominant
+and  afterwards the center-right has controlled the city administration. In
+Parma, the pedagogical approach is not based on a unique pedagogical
+approach, but is influenced by a combination of different ones. Among others
+Winnicott and Bion who have stressed the strenght of the link mother child
+and imposed a very long and articulated and long adjustment period for the
+child to be separated from his/her family in order \ to attend child care
+
+According to the Piano dell' Offerta Formativa of preschools and nidi
+(2016), children should have a central role in the learning process which
+allows to achieving a dimension of knowlege not as a perfomance but as
+possibility of supporting independent and original building of his/her
+personality. In spite of some similarities in the role of children and
+teachers in Parma there is no role for a teacher/coordinator with a creative
+and artistic background (aterlierista).   The role of parents is strong and
+integrated in the schools. Parents can intervene in the schools with ideas
+proposals and experiences. 
+
+Training are given for 45-50 hours a year at specific times. The training
+consists in meetings with the pedagogical coordinator while formal training
+is provided in classroom with traditional lecture format by university
+professors .
+
+As in Padova there is no art trained teacher entitled to stimulate and
+encourage children's creativity and teachers'training is offered periodical
+in a traditional setting.
+
+Finally each school has their own kitchen but food are provided by an
+external company.
+
+Important differences characterize also the organization of child care (del
+Boca et al 2016). The eligibility criteria in Padova is mainly geographical,
+while in Parma priority is given to families in difficulty (health issues
+and single parent families) as well as parental working hours, similarly to
+Reggio \citep{Frabboni1999}
+
+From these documents and informal interviews with coordinators of servizi
+educativi of Parma and Padova and Reggio Emilia, it looks the curriculum in
+Parma is a combination of Padova and Reggio Emilia.
+
+% ------------------------------ Section DATA ------------------------------------------%
+%\include{main-files/4-data}
+
+\section{Data}
+
+\label{sec:data}
+
+This section discusses the survey data which has been used for the analysis
+in this report.\footnote{%
+Also administrative data from the RA preschool system was collected. Its
+description and more details about the survey data are contained in %
+\citet{biroli2015evaluating}} To evaluate the impact of Reggio, individuals
+living in Reggio Emilia, Parma, and Padova since their first year of life
+were interviewed. Data were collected on five age cohorts, including three
+cohorts of adults, one cohort of adolescents, and one cohort of children in
+their first year of elementary school.
+
+The structure of the cohorts is described in Table \ref{tab:cohorts}.
+
+\begin{table}[tbph]
+\caption{Cohort Structure}
+\label{tab:cohorts}
+\begin{center}
+\begin{tabular}{ccc}
+\hline\hline
+Cohort & Years of Birth & Age at Interview \\ \hline
+I & 1954--1959 & 54--60 \\ 
+II & 1969--1970 & 43 \\ 
+III & 1980--1981 & 32 \\ 
+IV & 1994 & 18 \\ 
+V & 2006 & 6 \\ \hline
+\end{tabular}%
+\end{center}
+\end{table}
+
+In order to fix ideas on the identification strategy, we currently focus our
+attention only on the adolescents, the cohort for which we have the most
+wide array of information on both the caregiver and the respondent of
+interest.\textbf{I would add all cohorts in this table to show that
+different cohorts have differnet options of school types}
+
+Table (\ref{tab:sample-adol}) shows the number of adolescents interviewed in
+our sample who attended the different types of child-care in Reggio Emilia,
+Parma, and Padova.
+
+\begin{table}[tbph]
+\caption{Sample Size by City and School Type; Adolescent }
+\label{tab:sample-adol}
+\begin{center}
+\begin{tabular}{l|ccc|ccc}
+\hline\hline
+\multicolumn{1}{r|}{City:} & Reggio & Parma & Padova & Reggio & Parma & 
+Padova \\ 
+\textit{School} & \multicolumn{3}{c|}{\textit{Infant-Toddler Center}} & 
+\multicolumn{3}{c}{\textit{Preschool}} \\ \hline
+Not Attended & 130 & 130 & 210 & 7 & 4 & 1 \\ 
+Municipal & 153 & 97 & 61 & 166 & 116 & 93 \\ 
+State & . & . & . & 22 & 43 & 47 \\ 
+Religious & 9 & 10 & 8 & 96 & 82 & 131 \\ 
+Private & 3 & 13 & 0 & 6 & 6 & 6 \\ \hline
+\end{tabular}%
+\end{center}
+\end{table}
+
+\bigskip 
+
+% ------------------------------ Section DATA ------------------------------------------%
+%\include{main-files/4-data}
+
+\section{References}
+
+Bennett, J. (2013) Early childhood curriculum for children from low-income
+and immigrant backgrounds. Paper presented at the second meeting of the
+Transatlantic Forum on Inclusive Early Years
+
+held in New York, 10-12 July 2013.
+
+Bennett, J., Gordon, J. and Edelmann, 2013. Early childhood education and
+care (ECEC) for children from disadvantaged backgrounds: findings from a
+European literature review and two case
+
+studies. Studycommissioned by the Directorate General for Education and
+Culture. Retrieved from:
+http://ec.europa.eu/education/more-information/doc/ecec/report\_en.pdf
+
+Bion, W. R. (1962). Learning from Experience, London: William Heinemann.
+[Reprinted London: Karnac Books
+
+Brilli Y, Del Boca D. and Chiara Pronzato"Does the availability of child
+care impact child outcomes?" Review of the Economics of the Household March
+, 2016
+
+Del Boca D. Pronzato C. and Sorrenti G. "When rationing plays a role" 
+CESIFO Economic Studies Summer 2016
+
+De Henau, J., D. Meulders, and S. O'Dorchai (2008). Making time for working
+parents: comparing public childcare provision. In D. del Boca and C. Wetzels
+(Eds.), Social Policies, Labour Markets
+
+and Motherhood, Chapter 2, pp. 28--51. Cambridge: Cambridge University Press
+
+Duncan G., Li, W., Farkas, G. J., Burchinal, M. R., \& Vandell, D. L. (2012)
+Timing of High-Quality Child Care and Cognitive, Language, and Preacademic
+Development. Developmental Psychology
+
+Edwards, C.; Gandini, L.; Forman, G., eds. "The Hundred Languages of
+Children: The Reggio Emilia Approach to Early Childhood Education". Norwood,
+NJ: Ablex Publishing Corporation. pp.
+
+19--37.1993
+
+Felfe, C., and R. Lalive. "Does Early Child Care Help or Hurt Children's
+Development"? IZA Discussion Paper N. 8484, (2014). Institute for the Study
+of Labor.
+
+Gandini, L. (1993). "Fundamentals of the Reggio Emilia Approach to Early
+Childhood Education". Young Children 49 (1): 4--8.
+
+Hewett, Valarie (2001)."Examining the Reggio Emilia approach to early
+childhood education". Early Childhood Education Journal, 29, 95-100.
+
+Lazzari, A., and Vandenbroeck, M. (2012). Literature Review of the
+Participation of Disadvantaged Children and families in ECEC Services in
+Europe. In J. Bennett (Ed.), Early childhood education 
+
+and care (ECEC) for children from disadvantaged backgrounds Brussels
+
+Love J., Harrison L, Sagi-Schwartz A, van IJzendoorn MH, Ross C, Ungerer JA,
+Raikes H, Brady-Smith C, Boller K, Brooks-Gunn J, Constantine J, Kisker EE,
+Paulsell D, Chazan-Cohen
+
+"Child care quality matters: how conclusions may vary with context"Child
+Dev. 2003 Jul-Aug;74(4):1021-33
+
+Marcon R 1999 "Differential Impact of Preschool Models on Development and
+Early Leaming of Inner-City Children: A Three-Cohort Study Developmental
+Psychology"
+
+1999, Vol. 35, No. 2, 358-375
+
+Miller, L. B., and Bizzell, R. P. (1984) ."Long-term effects of four
+preschool programs: Ninth-and-tenth-grader results". Child Development, 55,
+1570-1587
+
+Malaguzzi, L. (1993). History, ideas, and basic philosophy: An interview
+with Lella Gandini. In Edwards C., Gandini, and G. Forman (Eds.), The
+hundred languages of children: The Reggio Emilia
+
+approach..Norwood, NJ: Ablex Publishing Corporation. pp. 19--37.
+
+Rinaldi. C. (2005) In dialogue with Reggio Emilia - Listening, researching
+and learning. Routledge 
+
+Rankin, B. (2004, October). "The Importance of Intentional Socialization
+Among Children in Small Groups: A Conversation with Loris Malaguzzi." Early
+Childhood Education 32 (2), 81--85.
+
+Schweinhart, L. J., Weikart, D. P., and Larner, M. B. (1986). Consequences
+of three preschool curriculum models through age 15. Early Childhood
+Research Quarterly, 1, 15-45.
+
+Winnicott D. (1965) The Maturational Processes and the Facilitating
+Environment: Studies in the Theory of Emotional Development" International
+Universities Press, 1965
+
+\end{document}
