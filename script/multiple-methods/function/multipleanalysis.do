@@ -86,7 +86,7 @@ syntax, type(string) comparisonlist(string) usegroup(string)
 	}
 
 	***** Output the table to the tex file
-	esttab using "${current}/../../output/multiple-methods/multiple-`usegroup'-`type'.tex", replace se mtitle ///
+	esttab using "${here}/../../output/multiple-methods/multiple-`usegroup'-`type'.tex", replace se mtitle ///
 				coeflabels(`coeflabel') noobs nonotes booktabs 
 
 end
