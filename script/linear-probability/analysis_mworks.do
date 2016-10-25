@@ -31,9 +31,25 @@ gen FamIncome_med = (cgFamIncome_val > r(p50))
 sum cgPolitics, detail
 gen cgPolitics_med = (cgPolitics > r(p50))
 
+// distance variable
+foreach g in Asilo Materna {
+	gen dist`g'Closest = .
+	replace dist`g'Closest = distAsiloMunicipal1
+	
+	foreach t in Private Religious State {
+		cap replace dist`g'Closest = dist`g'`t'1 if dist`g'`t'1 < dist`g'Closest
+	}
+	
+	gen dist`g'Closest_med = .
+	
+	forvalues c = 1/3 {
+		sum dist`g'Closest if City == `c', detail
+		replace dist`g'Closest_med = (dist`g'Closest < r(p50)) if City == `c'
+	}
+}
+
 // variables to consider
-local keepvars			momWork_fulltime06 momWork_parttime06 ///
-				momBornProvince ///
+local keepvars			momBornProvince ///
 				momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
 				dadBornProvince ///
 				dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
@@ -43,19 +59,17 @@ local keepvars			momWork_fulltime06 momWork_parttime06 ///
 				cgPolitics_med lowbirthweight birthpremature migrant
 
 
-local child_baseline_vars  	momWork_fulltime06 momWork_parttime06 ///
-				atleast2sibling atleast1sibling ///
+local child_baseline_vars  	atleast1sibling atleast2sibling ///
 				momBornProvince ///
 				momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
 				dadBornProvince ///
 				dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
 				cgRelig ///
-				FamIncome_med cgRelig cgPolitics_med cgMigrant  ///
+				FamIncome_med cgPolitics_med cgMigrant  ///
 				migrant lowbirthweight birthpremature 
 				
 								
-local adol_baseline_vars  	momWork_fulltime06 momWork_parttime06  ///
-				atleast2sibling atleast1sibling ///
+local adol_baseline_vars  	atleast1sibling atleast2sibling ///
 				momBornProvince ///
 				momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
 				dadBornProvince ///
@@ -65,8 +79,7 @@ local adol_baseline_vars  	momWork_fulltime06 momWork_parttime06  ///
 				lowbirthweight birthpremature  						
 								
 								
-local adult_baseline_vars	momWork_fulltime06 momWork_parttime06 ///
-				atleast2sibling atleast1sibling ///
+local adult_baseline_vars	atleast1sibling atleast2sibling ///
 				momBornProvince ///
 				momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
 				dadBornProvince  ///
@@ -132,19 +145,21 @@ lab var both_asil_mat Both
 // LPM
 local cohort_val = 1
 foreach cohort in Child Migrant Adolescent Adult30 Adult40 Adult50 {
-	
-	tab Cohort if Cohort == `cohort_val'
+	di "cohort:`cohort', `cohort_val'"
+	tab Cohort if Cohort == `cohort_val' & City == 1
 	if r(N) > 0 {
 
-		global controls ${`cohort'_baseline_vars} migrant
+		global controls ${`cohort'_baseline_vars} 
 		
-		reg materna $controls if Cohort == `cohort_val' & City == `city_val', robust
-		est store `cohort'`city'materna
+		ivreg2 momWork_fulltime06 (materna = low_score /*distMaternaClosest_med*/) $controls if City == 1 & Cohort == `cohort_val'
+		ivreg2 momWork_fulltime06 (both_asil_mat = low_score /*distMaternaClosest_med distAsiloClosest_med*/) $controls if City == 1 & Cohort == `cohort_val'
+		//reg materna $controls if Cohort == `cohort_val' & City == `city_val', robust
+		//est store `cohort'`city'materna
 		
-		reg both_asil_mat $controls if Cohort == `cohort_val' & City == `city_val', robust
-		est store `cohort'`city'both
+		//reg both_asil_mat $controls if Cohort == `cohort_val' & City == `city_val', robust
+		//est store `cohort'`city'both
 	}
-		
+	/*	
 	local cohort_val = `cohort_val' + 1	
 	
 	estimates dir
@@ -161,8 +176,9 @@ foreach cohort in Child Migrant Adolescent Adult30 Adult40 Adult50 {
 		alpha(.01, .05, .10) sym (***, **, *) dec(3) par(se) r2
 		label keep(`keepvars');
 	#delimit cr
+	*/
 	
-	local city_val = `city_val' + 1
+	local cohort_val = `cohort_val' + 1
 }
 
 
