@@ -36,16 +36,16 @@ Mother's working status is the most consistently positive and significant charac
 
 Higher education of the mothers is generally associated with higher enrollment in preschool and preschool and infant-toddler care, even across cohorts and cities. Figures~\ref{fig:momEdu} and~\ref{fig:dadEdu} present the distribution of parental educational attainment for individuals from each combination of city, cohort, and preschool type. Figure~\ref{fig:momEdu} shows that within Reggio Emilia, mothers of individuals who did not attend preschool have proportionally higher levels of high school and university education than mothers of individuals who attended some form of preschool. This difference is more pronounced for the older cohorts, and statistically significant only for adults in their 50s (see Table~\ref{tab:lpmRE}). Figure~\ref{fig:dadEdu} shows that a similar pattern persists when examining father's education. A clear pattern does not emerge when we compare parental educational attainment between individuals who attended different types of preschool in Reggio Emilia. This suggests that parental education might have played a larger role in the initial decision of sending an individual to preschool, as compared to the subsequent decision of choosing a particular type of preschool. Figures~\ref{fig:momEdu} and~\ref{fig:dadEdu} include analogous graphs for Parma and Padova.
 
-Figure~\ref{fig:parentsEdu} examines the difference of educational attainment between mothers and fathers for individuals from each city-cohort combination. Each column represents the total proportion of individuals in each city-cohort combination whose fathers are more educated than mothers. Each column is further broken down into sections that calculate this proportion conditional on different levels of father's education. The figures show that total inequality in educational attainment is largest in Padova and smallest in Reggio Emilia, and that this ranking of total inequality is consistent across the three adult cohorts. Furthermore, for the older cohorts, the level of inequality is substantially larger in Padova compared to Reggio Emilia and Parma. Padova is similar to the other two cities by the time we reach the age 30 cohort. 
+Figure~\ref{fig:parentsEdu} examines the difference of educational attainment between mothers and fathers for individuals from each city-cohort combination. Each column represents the total proportion of individuals in each city-cohort combination whose fathers are more educated than mothers. Each column is further broken down into sections that calculate this proportion conditional on different levels of father's education. The figures show that total inequality in educational attainment is largest in Padova and smallest in Reggio Emilia, and that this ranking of total inequality is consistent across the three adult cohorts. Furthermore, for the older cohorts, the level of inequality is substantially larger in Padova compared to Reggio Emilia and Parma. Padova is similar to the other two cities for the cohorts younger than the age-40 cohort. 
 
 
 \begin{figure}[!htb]
 	\begin{minipage}{1\textwidth}
 	\centering
 	\includegraphics[scale=1.2]{../../Output/image/bar_momEdu}
-	\caption{Mother's educational attainment by city, cohort and materna type}
+	\caption{Mother's Educational Attainment by City, Cohort and Preschool Type}
 	\label{fig:momEdu}
-	\footnotetext{Note:  \textbf{(1)} Definiteion of bar labels: N = Not attended; M = Municipal; S = State; R = Religious. \textbf{(2)} Each bar presents the distribution of mothers' educational attainment for individuals in each city-cohort-materna type combination. }
+	\footnotetext{Note:  \textbf{(1)} Definiteion of bar labels: N = Not attended; M = Municipal; S = State; R = Religious. \textbf{(2)} Each bar presents the distribution of mothers' educational attainment for individuals in each city-cohort-preschool type combination. }
 	\end{minipage}
 \end{figure}
 
@@ -53,9 +53,9 @@ Figure~\ref{fig:parentsEdu} examines the difference of educational attainment be
 	\begin{minipage}{1\textwidth}
 	\centering
 	\includegraphics[scale=1.2]{../../Output/image/bar_dadEdu}
-	\caption{Father's education attainment by city, cohort and materna type}
+	\caption{Father's Education Attainment by City, Cohort and Preschool Type}
 	\label{fig:dadEdu}
-	\footnotetext{Note:  \textbf{(1)} Definition of bar labels: N = Not attended; M = Municipal; S = State; R = Religious. \textbf{(2)} Each bar presents the distribution of fathers' educational attainment for individuals in each city-cohort-materna type combination. }
+	\footnotetext{Note:  \textbf{(1)} Definition of bar labels: N = Not attended; M = Municipal; S = State; R = Religious. \textbf{(2)} Each bar presents the distribution of fathers' educational attainment for individuals in each city-cohort-preschool type combination. }
 	\end{minipage}
 \end{figure}
 
@@ -63,8 +63,28 @@ Figure~\ref{fig:parentsEdu} examines the difference of educational attainment be
 	\begin{minipage}{.9\textwidth}
 	\centering
 	\includegraphics[scale=1]{../../Output/image/bar_parentsEduCompare}
-	\caption{Proportion of individuals with fathers who are more educated than mothers by city and cohort}
+	\caption{Proportion of Individuals with Fathers who are More Educated than Mothers by City and Cohort}
 	\label{fig:parentsEdu}
 	\footnotetext{\noindent Note: Each column represents the proportion of individuals within each city-cohort combination whose fathers were more educated than their mothers.}
 	\end{minipage}
 \end{figure}
+
+Although the above correlations help us understand some of the potential characteristics determining selection, because the measures for parental characteristics are measured at age 6, the naive linear probability model above will produce biased results. We discuss several potential instruments for enrollment in preschool (and infant-toddler care). The second stage then uses this estimated first stage and a vector of controls to predict mother's working status and education.
+
+\textbf{[AZ: This is very preliminary---we are developing this more. Right now, we are experimenting with instrumenting for enrollment to then estimate the effect on mother's employment and education. In addition to the instruments below, we plan to try a constructed score that helps determine eligibility for the Reggio Emilia municipal schools and perhaps the presence of other relatives in the area.]}
+
+One potential instrument is a measure of distance to the nearest preschool or infant-toddler center. We construct two indicators to be used in an IV regression for preschool and preschool and infant-toddler care separately. The first is an indicator that is 1 when the family lives closer than the sample median to the nearest preschool. The second is the analogous indicator for the nearest infant-toddler care. Table~\ref{tab:dist-center} shows a preliminary first stage to predict enrollment in preschool and both preschool and infant-toddler care. The results do not indicate that this would be a strong instrument.
+
+\begin{table}[H]
+\begin{center}
+\caption{First Stage in Reggio Emilia, Distance to Nearest Center} \label{tab:dist-center}
+\scalebox{0.7}{
+\input{../../Output/LPM_mworks_materna_both_}}
+\end{center}
+\raggedright Note: This table shows the first stage using distance to the nearest center. Control variables are omitted in this table, although they are used in the regressions that produce these estimates. There are no individuals in the age-50 cohort who attended both preschool and infant-toddler care.
+\end{table}
+
+
+
+
+
