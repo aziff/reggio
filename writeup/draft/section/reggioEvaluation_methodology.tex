@@ -1,45 +1,44 @@
 
-Since there are two stages of early childhood interventions, (i) ages 0-3 and (ii) ages 3-6, it is important to consider both when estimating treatment effects of either intervention on later outcomes. Table \ref{tab:cases-treat} shows the possible cases of receiving early childhood intervention in our data, where 0 indicates not attending and 1 indicates attending. For this stage, we limit the type of infant-toddler centers and preschools to municipal only. 
+Because there are two stages of early childhood interventions, (i) ages 0-3 and (ii) ages 3-6, it is important to consider both when estimating treatment effects of either intervention on later outcomes. Table \ref{tab:cases-treat} shows the possible cases of receiving early childhood intervention in our data, where 0 indicates not attending and 1 indicates attending. For this stage, we limit the type of infant-toddler centers and preschools to municipal only. 
 
-\begin{table}[H] \caption{Possible Cases of Treatment} \label{tab:cases-treat}
-
-  \begin{tabular}{C{1.8cm} R{0.7cm} C{2cm} C{2cm}}
+\begin{table}[H]
+\caption{Possible Cases of Treatment} \label{tab:cases-treat}
+\begin{tabular}{C{1.8cm} R{0.7cm} C{2cm} C{2cm}}
   
 		& & \multicolumn{2}{c}{Preschool (Ages 3-6)} \\
 		& & 0 & 1 \\ \cline{3-4}            
         								 &  & \multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{} \\
-        								& 0 & \multicolumn{1}{|c|}{(0,0)} & \multicolumn{1}{c|}{(0,1)} \\ 
+        							& 0 & \multicolumn{1}{|c|}{(0,0)} & \multicolumn{1}{c|}{(0,1)} \\ 
         				ITC				&  & \multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{} \\ \cline{3-4}
                         (Age 0-3)  		&  & \multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{} \\
         								& 1 & \multicolumn{1}{|c|}{(1,0)} & \multicolumn{1}{c|}{(1,1)} \\ 
         								&  & \multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{} \\ \cline{3-4}
-  \end{tabular}
+\end{tabular}
 \begin{flushleft}
-\tiny{{\bfseries Notes:} Sample size for the treatment group. Number of individuals in each city that attended a \textit{municipal} infant-toddler-center (ages 0-3), a \textit{municipal} preschool (ages 3-6), or both. (0,0) = did not attend any municipal school for both ages 0-3 and 3-6; (1,0) = attended a municipal school for ages 0-3 but did \textit{not} attend for ages 3-6; (0,1) = did \textit{not} attend a municipal school for ages 0-3 but did attend for ages 3-6; (1,1) = attended a municipal school for both ages 0-3 and 3-6;}
+\footnotesize{Note:} We only consider municipal ITCs (infant-toddler-centers, ages 0-3) and preschools (ages 3-6). (0,0): did not attend any municipal school for both ages 0-3 and 3-6; (1,0): attended a municipal school for ages 0-3 but did \textit{not} attend for ages 3-6; (0,1): did \textit{not} attend a municipal school for ages 0-3 but did attend for ages 3-6; (1,1): attended a municipal school for both ages 0-3 and 3-6.
 \end{flushleft}
 \end{table}
 
-
 \subsection{Estimating Effects of Infant-Toddler Centers}
-There are two main ways of testing treatment effects of attending infant-toddler centers. First is to compare people who did not attend any municipal school for both ages 0-3 and 3-6 with people who only attended municipal infant-toddler centers for ages 0-3. This is to compare (0,0) and (1,0) in Figure \ref{tab:cases-treat}. Second is to compare people who only attended municipal preschool for ages 3-6 with people who attended both municipal infant-toddler centers and preschools. This is to compare (0,1) and (1,1) in Figure \ref{tab:cases-treat}. Formally writing, the hypotheses are:
+There are two main methods to test treatment effects of attending infant-toddler centers. The first is to compare people who did not attend infant-toddler care or preschool with people who only attended municipal infant-toddler care. Using the notation in Table~\ref{tab:cases-treat}, tis comparison is between (0,0) and (1,0). The second method is to compare people who only attended municipal preschool with people who attended both municipal infant-toddler centers and preschools. That is, to compare (0,1) and (1,1). The hypotheses are formally written as
 \begin{eqnarray}
 H_1: &  Y_{0,0} = Y_{1,0} \\ 
 H_2: &  Y_{0,1} = Y_{1,1} 
 \end{eqnarray}
-where $Y_{0,0}$ is the outcome of the people who did not attend any infant-toddler center or preschool, and vice versa for other cases. 
+\noindent where $Y_{i,j}$ is the outcome of the individuals who attended $i \in \{0,1\}$ infant-toddler care and $j \in \{0,1\}$ preschool.
 
-A possible estimation strategy is to limit the sample to specific city \textit{and} specific cohort \textit{and} the comparison groups needed according to the hypothesis above. To test $H_1$, we estimate the following regression equation:
+A possible estimation strategy is to limit the sample to a specific city and a specific cohort constrained to the comparison groups needed according to the hypotheses above. To test $H_1$, we estimate the following regression equation:
 \begin{eqnarray}
-Y_{i}^{c,h} & = & \alpha + \beta_{0}R_i^{ITC} + \mathbf{X_i}\gamma + \varepsilon_{i}^{c,h}, \\ \nonumber
+Y_{i}^{c,h} & = & \alpha + \beta_{0}R_i^{ITC} + \mathbf{X}_i\gamma + \varepsilon_{i}^{c,h}, \\ \nonumber
 & \forall & i \in \text{ \{People in city $c$ and cohort $h$ and in group (0,0) or (1,0)\}}
 \end{eqnarray}
 where $R_i^{ITC}$ is the indicator for attending municipal infant-toddler center and $\mathbf{X_i}$ is the vector of baseline variables for individual $i$. Likewise, to test $H_2$:
 \begin{eqnarray}
-Y_{i}^{c,h} & = & \alpha + \beta_{0}R_i^{ITC} + \mathbf{X_i}\gamma + \varepsilon_{i}^{c,h}, \\ \nonumber
-& \forall & i \in \text{ \{People in city $c$ and cohort $h$ and in group (0,1) or (1,1)\}}
+Y_{i}^{c,h} & = & \alpha + \beta_{0}R_i^{ITC} + \mathbf{X}_i\gamma + \varepsilon_{i}^{c,h}, \\ \nonumber
+& \forall & i \in \text{ \{People in city $c$ and cohort $h$ and in group (0,1) or (1,1)\}.}
 \end{eqnarray}
 
-One of the caveats of this analysis is that it significantly reduces the sample size used in the analysis. In fact, the hypotheses cannot be tested using this strategy for many groups. Table \ref{tab:num-group} shows the number of people available for each group necessary for analysis using this strategy. It is easy to see that it is impossible to test $H_1$ with our data, because there are almost no people who went to municipal infant-toddler centers but did not attend any preschools (the group (1,0)). It is possible to carry out test for $H_2$ for many groups, but the number of observations for the group (1,1) is very small for the adult cohorts. 
+One caveat of this analysis is that it uses a limited sample size. In our data, these hypotheses cannot be tested under this strategy for many groups. Table~\ref{tab:num-group} shows the number of people available for each group necessary for analysis using this strategy. It is impossible to test $H_1$ with our data, because there are almost no people who attended municipal infant-toddler care but did not attend preschool (the group (1,0)). It is possible to test $H_2$ for several groups, but the number of observations for the group (1,1) is small for the adult cohorts. 
 
 \begin{table}[H] \caption{Number of Individuals in Each Group} \label{tab:num-group}
 \scalebox{0.77}{
@@ -56,14 +55,14 @@ Age-50		& 146 & 0 &	8 & 0 & \textbf{200} & 71 & 0 & 4 & 8 & \textbf{103} & 55 & 
 \end{tabular}}
 \end{table}
 
-In Table \ref{tab:num-group}, the groups subject to our estimation are highlighted. Since there are more outcomes for adult cohorts than younger cohorts, we first focus on analyzing the effect of infant-toddler centers on the adult cohorts. Based on the available number of individuals in each cell and the history of the foundation date of municipal asilo for each city, we decide to test $H_2$ for the following groups:
+In Table \ref{tab:num-group}, the groups subject to our estimation are highlighted. Since there are more outcomes for adult cohorts than younger cohorts, we first focus on analyzing the effect of infant-toddler care on the adult cohorts. Based on the available number of individuals in each cell and the history of the foundation date of municipal infant-toddler care for each city, we decide to test $H_2$ for the following groups:
 \begin{itemize}
-\item Age-30 people in Reggio who did not attend any infant-toddler center and attended municipal preschool (the group (0,1)) \textbf{vs.} Age-30 people in Reggio who attended both municipal infant-toddler center and municipal preschool (the group (1,1))
-\item Age-40 people in Reggio who did not attend no infant-toddler center and attended municipal preschool (the group (0,1)) \textbf{vs.} Age-40 people in Reggio who attended both municipal infant-toddler center and municipal preschool (the group (1,1))
-\item Age-30 people in Parma who did not attend no infant-toddler center and attended municipal preschool (the group (0,1)) \textbf{vs.} Age-30 people in Parma who attended both municipal infant-toddler center and municipal preschool (the group (1,1))
+\item Age-30 individuals in Reggio who did not attend any infant-toddler center and attended municipal preschool (the group (0,1)) \textbf{vs.} Age-30 individuals in Reggio who attended both municipal infant-toddler center and municipal preschool (the group (1,1))
+\item Age-40 individuals in Reggio who did not attend no infant-toddler center and attended municipal preschool (the group (0,1)) \textbf{vs.} Age-40 individuals in Reggio who attended both municipal infant-toddler center and municipal preschool (the group (1,1))
+\item Age-30 individuals in Parma who did not attend no infant-toddler center and attended municipal preschool (the group (0,1)) \textbf{vs.} Age-30 individuals in Parma who attended both municipal infant-toddler center and municipal preschool (the group (1,1))
 \end{itemize}
 
-The first two comparison above will show effects of the Reggio-Approach infant-toddler centers for each age cohort. The third comparison does not show effects of the Reggio-Approach infant-toddler centers, but shows effect of Parma infant-toddler centers for age-30 cohort. For our analysis in this draft, we only include the comparisons for Reggio individuals. 
+The first two comparisons above show effects of the Reggio-Approach infant-toddler care for each age cohort. The third comparison does not show effects of the Reggio-Approach infant-toddler care, but rather shows the effect of Parma infant-toddler care for the age-30 cohort. For our analysis in this draft, we only include the comparisons for individuals in Reggio Emilia. 
 
 \subsection{Estimating Effects of Preschools}
 For this abbreviated analysis, we restrict to individuals from Reggio Emilia who either attended a Reggio Approach preschool or did not attend any preschool. We exclude the cohort of adults in their 50s because the Reggio Approach was not available to them.
