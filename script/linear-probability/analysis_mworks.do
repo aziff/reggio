@@ -14,7 +14,7 @@ global data_reggio = "/mnt/ide0/share/klmReggio/data_survey/data"
 global git_reggio  = "/mnt/ide0/home/aziff/projects/reggio"
 
 global code 	 = "${git_reggio}/script/linear-probability"
-global outputLPM = "${git_reggio}/Output/"
+global outputLPM = "${git_reggio}/output/"
 
 use "${data_reggio}/Reggio_prepared"
 include "${code}/../macros" 
@@ -151,35 +151,46 @@ foreach cohort in Child Migrant Adolescent Adult30 Adult40 Adult50 {
 
 		global controls ${`cohort'_baseline_vars} 
 		
-		ivreg2 momWork_fulltime06 (materna = low_score /*distMaternaClosest_med*/) $controls if City == 1 & Cohort == `cohort_val'
-		ivreg2 momWork_fulltime06 (both_asil_mat = low_score /*distMaternaClosest_med distAsiloClosest_med*/) $controls if City == 1 & Cohort == `cohort_val'
+		reg materna distMaternaClosest_med grand_close $controls if City == 1 & Cohort == `cohort_val'
+		est store `cohort'Reggiomaterna
+		reg both_asil_mat distAsiloClosest_med grand_close $controls if City == 1 & Cohort == `cohort_val'
+		est store `cohort'Reggioboth
+		/*
+		ivreg2 momWork_fulltime06 (materna = distMaternaClosest_med grand_close) $controls if City == 1 & Cohort == `cohort_val'
+		ivreg2 momWork_fulltime06 (both_asil_mat = distAsiloClosest_med grand_close) $controls if City == 1 & Cohort == `cohort_val'
+		ivreg2 momWork_parttime06 (materna = distMaternaClosest_med grand_close) $controls if City == 1 & Cohort == `cohort_val'
+		ivreg2 momWork_parttime06 (both_asil_mat = distAsiloClosest_med grand_close) $controls if City == 1 & Cohort == `cohort_val'
+		*/
 		//reg materna $controls if Cohort == `cohort_val' & City == `city_val', robust
 		//est store `cohort'`city'materna
 		
 		//reg both_asil_mat $controls if Cohort == `cohort_val' & City == `city_val', robust
 		//est store `cohort'`city'both
 	}
-	/*	
-	local cohort_val = `cohort_val' + 1	
+	
+	local cohort_val = `cohort_val' + 1
+	
+}
+	
 	
 	estimates dir
 
 	cd $outputLPM
 	#delimit ;
-		outreg2 [Child`city'materna Child`city'both 
-		Adolescent`city'materna Adolescent`city'both 
-		Adult30`city'materna  Adult30`city'both
-		Adult40`city'materna  Adult40`city'both
-		Adult50`city'materna  Adult50`city'both] 
-		using "LPM_materna_both_`city'.tex", 
+		outreg2 [ChildReggiomaterna ChildReggioboth 
+		AdolescentReggiomaterna AdolescentReggioboth 
+		Adult30Reggiomaterna  Adult30Reggioboth
+		Adult40Reggiomaterna  Adult40Reggioboth
+		Adult50Reggiomaterna  Adult50Reggioboth] 
+		using "LPM_mworks_materna_both_`city'.tex", 
 		replace tex(frag) 
 		alpha(.01, .05, .10) sym (***, **, *) dec(3) par(se) r2
-		label keep(`keepvars');
+		label keep(distAsiloClosest_med distMaternaClosest_med);
 	#delimit cr
-	*/
 	
-	local cohort_val = `cohort_val' + 1
-}
+	
+	
+
 
 
 
