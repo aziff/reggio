@@ -1,7 +1,7 @@
 /* ---------------------------------------------------------------------------- *
 * Programming a function for the OLS for Reggio analysis
 * Author: Jessica Yu Kyung Koh
-* Edited: 09/01/2016
+* Edited: 10/31/2016
 
 * Note: This function performs OLS analysis and creates tables
         for each outcome category. The outcome variables are listed in the table
@@ -16,16 +16,13 @@
 		variable called "adult_outcome_E" in macros.do. This option types in "E" in order to
 		capture the education category for adult outcome variables. 
 		
-	- agelist(string)
+	- comparisonlist(string)
 	  : This shows the list of the ages that are to be added up in the columns of the tables.
 	    For example, the regression results for Reggio vs. Other Cities for each age cohort will be
 		presented by each column in the table.
 	  
 	- usegroup(string)
 	  : This option is defined in order to name the tex file of the output. 
-	
-	- keep(varlist)
-	  : This is to only keep the necessary variables that will be shown in the tables. 
 	
 * ---------------------------------------------------------------------------- */
 
