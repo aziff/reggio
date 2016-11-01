@@ -78,7 +78,7 @@ syntax, type(string) comparisonlist(string) usegroup(string)
 		  }
 		  ereturn post b
 		  quietly estadd matrix se
-		  eststo ${`name'`comp'_c}
+		  eststo `comp'
 		}
 	}
 
