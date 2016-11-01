@@ -1,25 +1,24 @@
 {
 \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-\begin{tabular}{l*{3}{c}}
-\hline\hline
-            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
-            &\multicolumn{1}{c}{Muni\_Age30}&\multicolumn{1}{c}{Muni\_Age40}&\multicolumn{1}{c}{DiD}\\
-\hline
-Married or Cohabitating&     -0.0443         &      0.0263         &    0.000729         \\
-            &    (0.0817)         &    (0.0770)         &     (0.105)         \\
-[1em]
-Divorced    &      0.0232         &     -0.0117         &      0.0324         \\
-            &    (0.0137)         &    (0.0549)         &    (0.0511)         \\
-[1em]
-Num. of Children in House&      0.0129         &     -0.0439         &     -0.0132         \\
-            &    (0.0556)         &    (0.0973)         &     (0.107)         \\
-[1em]
-Own House   &       0.101         &    -0.00685         &      0.0965         \\
-            &    (0.0851)         &    (0.0702)         &     (0.105)         \\
-[1em]
-Live With Parents&     -0.0960         &     -0.0448         &     0.00652         \\
-            &    (0.0524)         &    (0.0299)         &    (0.0563)         \\
-\hline\hline
-\multicolumn{4}{l}{\footnotesize \specialcell{\underline{Note:} This table shows the estimates for people in Reggio who attended \\ municipal preschools or no preschool at all. \\                                                                         Standard errors are reported in parenthesis. Stars show statistical significance as follows: \\                                                                         * p < 0.05, ** p < 0.01, *** p < 0.001.}}\\
+\begin{tabular}{l*{10}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}&\multicolumn{1}{c}{(8)}&\multicolumn{1}{c}{(9)}&\multicolumn{1}{c}{(10)}\\
+            &\multicolumn{1}{c}{est1}&\multicolumn{1}{c}{est2}&\multicolumn{1}{c}{est3}&\multicolumn{1}{c}{est4}&\multicolumn{1}{c}{est5}&\multicolumn{1}{c}{est6}&\multicolumn{1}{c}{est7}&\multicolumn{1}{c}{est8}&\multicolumn{1}{c}{est9}&\multicolumn{1}{c}{est10}\\
+\midrule
+Married or Cohabitating&      0.0652         &      0.0652         &      0.0652         &      0.0388         &       0.162         &     0.00781         &     0.00781         &     0.00781         &      -0.218\sym{*}  &      0.0597         \\
+            &    (0.0754)         &    (0.0754)         &    (0.0754)         &     (0.115)         &     (0.129)         &    (0.0618)         &    (0.0618)         &    (0.0618)         &    (0.0971)         &     (0.129)         \\
+\addlinespace
+Divorced    &      0.0268\sym{*}  &      0.0268\sym{*}  &      0.0268\sym{*}  &      0.0399         &    -0.00173         &     -0.0312         &     -0.0312         &     -0.0312         &      0.0238         &      0.0538         \\
+            &    (0.0133)         &    (0.0133)         &    (0.0133)         &    (0.0286)         &    (0.0313)         &    (0.0453)         &    (0.0453)         &    (0.0453)         &    (0.0752)         &     (0.102)         \\
+\addlinespace
+Num. of Children in House&      0.0223         &      0.0223         &      0.0223         &      -0.126         &     0.00706         &      0.0563         &      0.0563         &      0.0563         &      -0.401\sym{*}  &      -0.354         \\
+            &    (0.0519)         &    (0.0519)         &    (0.0519)         &    (0.0824)         &     (0.102)         &    (0.0846)         &    (0.0846)         &    (0.0846)         &     (0.168)         &     (0.201)         \\
+\addlinespace
+Own House   &    -0.00177         &    -0.00177         &    -0.00177         &     -0.0843         &     -0.0279         &     -0.0859         &     -0.0859         &     -0.0859         &      -0.229\sym{**} &      -0.201\sym{*}  \\
+            &    (0.0773)         &    (0.0773)         &    (0.0773)         &     (0.118)         &     (0.131)         &    (0.0642)         &    (0.0642)         &    (0.0642)         &    (0.0882)         &     (0.101)         \\
+\addlinespace
+Live With Parents&     -0.0613         &     -0.0613         &     -0.0613         &      -0.198\sym{*}  &      -0.235         &     -0.0266         &     -0.0266         &     -0.0266         &     -0.0624         &      -0.182\sym{*}  \\
+            &    (0.0570)         &    (0.0570)         &    (0.0570)         &    (0.0921)         &     (0.124)         &    (0.0279)         &    (0.0279)         &    (0.0279)         &    (0.0544)         &    (0.0900)         \\
+\bottomrule
 \end{tabular}
 }

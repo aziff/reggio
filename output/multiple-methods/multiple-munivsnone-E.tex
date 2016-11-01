@@ -1,28 +1,27 @@
 {
 \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-\begin{tabular}{l*{3}{c}}
-\hline\hline
-            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
-            &\multicolumn{1}{c}{Muni\_Age30}&\multicolumn{1}{c}{Muni\_Age40}&\multicolumn{1}{c}{DiD}\\
-\hline
-IQ Factor   &      -0.276         &      0.0428         &      -0.115         \\
-            &     (0.145)         &     (0.151)         &     (0.198)         \\
-[1em]
-High School Grade&       3.870         &       1.570         &       2.905         \\
-            &     (2.177)         &     (1.792)         &     (2.533)         \\
-[1em]
-University Grade&       1.574         &      -5.733         &       4.965         \\
-            &     (2.920)         &     (4.420)         &     (4.291)         \\
-[1em]
-Graduate from High School&      0.0468         &     -0.0704         &      0.0697         \\
-            &    (0.0498)         &    (0.0593)         &    (0.0705)         \\
-[1em]
-Max Edu: University&     -0.0838         &       0.111\sym{*}  &      -0.152         \\
-            &    (0.0692)         &    (0.0562)         &    (0.0861)         \\
-[1em]
-Max Edu: Graduate School&     0.00852         &           0         &     0.00791         \\
-            &   (0.00876)         &         (.)         &   (0.00807)         \\
-\hline\hline
-\multicolumn{4}{l}{\footnotesize \specialcell{\underline{Note:} This table shows the estimates for people in Reggio who attended \\ municipal preschools or no preschool at all. \\                                                                         Standard errors are reported in parenthesis. Stars show statistical significance as follows: \\                                                                         * p < 0.05, ** p < 0.01, *** p < 0.001.}}\\
+\begin{tabular}{l*{10}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}&\multicolumn{1}{c}{(8)}&\multicolumn{1}{c}{(9)}&\multicolumn{1}{c}{(10)}\\
+            &\multicolumn{1}{c}{est1}&\multicolumn{1}{c}{est2}&\multicolumn{1}{c}{est3}&\multicolumn{1}{c}{est4}&\multicolumn{1}{c}{est5}&\multicolumn{1}{c}{est6}&\multicolumn{1}{c}{est7}&\multicolumn{1}{c}{est8}&\multicolumn{1}{c}{est9}&\multicolumn{1}{c}{est10}\\
+\midrule
+IQ Factor   &     0.00406         &     0.00406         &     0.00406         &     -0.0948         &      -0.138         &     -0.0747         &     -0.0747         &     -0.0747         &      0.0309         &       0.337         \\
+            &     (0.149)         &     (0.149)         &     (0.149)         &     (0.188)         &     (0.218)         &     (0.120)         &     (0.120)         &     (0.120)         &     (0.151)         &     (0.219)         \\
+\addlinespace
+High School Grade&       4.051\sym{*}  &       4.051\sym{*}  &       4.051\sym{*}  &      -1.550         &       4.328         &       0.690         &       0.690         &       0.690         &      -1.828         &       4.740         \\
+            &     (1.961)         &     (1.961)         &     (1.961)         &     (4.122)         &     (3.406)         &     (1.395)         &     (1.395)         &     (1.395)         &     (3.249)         &     (3.229)         \\
+\addlinespace
+University Grade&       2.390         &       2.390         &       2.390         &       1.304         &      -0.446         &      -0.826         &      -0.826         &      -0.826         &      -7.537\sym{*}  &      -4.659         \\
+            &     (2.233)         &     (2.233)         &     (2.233)         &     (3.081)         &     (3.975)         &     (2.433)         &     (2.433)         &     (2.433)         &     (3.251)         &     (3.389)         \\
+\addlinespace
+Graduate from High School&     -0.0424         &     -0.0424         &     -0.0424         &     -0.0461         &     -0.0843         &      -0.170\sym{***}&      -0.170\sym{***}&      -0.170\sym{***}&      -0.247\sym{***}&      -0.148         \\
+            &    (0.0502)         &    (0.0502)         &    (0.0502)         &    (0.0801)         &    (0.0849)         &    (0.0502)         &    (0.0502)         &    (0.0502)         &    (0.0738)         &     (0.106)         \\
+\addlinespace
+Max Edu: University&      -0.120         &      -0.120         &      -0.120         &      -0.115         &      -0.393\sym{**} &     -0.0188         &     -0.0188         &     -0.0188         &      -0.334\sym{***}&     0.00199         \\
+            &    (0.0670)         &    (0.0670)         &    (0.0670)         &     (0.109)         &     (0.124)         &    (0.0535)         &    (0.0535)         &    (0.0535)         &    (0.0937)         &     (0.113)         \\
+\addlinespace
+Max Edu: Graduate School&     0.00671         &     0.00671         &     0.00671         &     -0.0341         &     0.00671         &           0         &           0         &           0         &     -0.0875\sym{*}  &     -0.0237         \\
+            &   (0.00672)         &   (0.00672)         &   (0.00672)         &    (0.0212)         &   (0.00674)         &         (.)         &         (.)         &         (.)         &    (0.0420)         &    (0.0389)         \\
+\bottomrule
 \end{tabular}
 }
