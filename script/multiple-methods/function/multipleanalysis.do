@@ -41,7 +41,7 @@ syntax, type(string) comparisonlist(string) usegroup(string)
 		foreach var in ${adult_outcome_`type'} {		
 			sum `var' if ${ifcondition`comp'}
 			if r(N) > 0 {
-				eststo `var' : quietly reg `var' ${X`comp'} ${controls} if ${ifcondition`comp'}, robust
+				eststo `var' : quietly reg `var' ${X`comp'} ${controls`comp'} if ${ifcondition`comp'}, robust
 				local coeflabel `coeflabel' `var' "${`var'_lab}"
 			}
 		}	
