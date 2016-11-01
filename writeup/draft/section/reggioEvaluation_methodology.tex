@@ -59,12 +59,12 @@ In Table \ref{tab:num-group}, the groups subject to our estimation are highlight
 \begin{itemize}
 \item Age-30 individuals in Reggio who did not attend any infant-toddler center and attended municipal preschool (the group (0,1)) \textbf{vs.} Age-30 individuals in Reggio who attended both municipal infant-toddler center and municipal preschool (the group (1,1))
 \item Age-40 individuals in Reggio who did not attend no infant-toddler center and attended municipal preschool (the group (0,1)) \textbf{vs.} Age-40 individuals in Reggio who attended both municipal infant-toddler center and municipal preschool (the group (1,1))
-\item Age-30 individuals in Parma who did not attend no infant-toddler center and attended municipal preschool (the group (0,1)) \textbf{vs.} Age-30 individuals in Parma who attended both municipal infant-toddler center and municipal preschool (the group (1,1))
 \end{itemize}
 
-The first two comparisons above show effects of the Reggio-Approach infant-toddler care for each age cohort. The third comparison does not show effects of the Reggio-Approach infant-toddler care, but rather shows the effect of Parma infant-toddler care for the age-30 cohort. For our analysis in this draft, we only include the comparisons for individuals in Reggio Emilia. 
+The above two comparisons above show effects of the Reggio-Approach infant-toddler care for each age cohort. For our analysis in this draft, we only include the comparisons for individuals in Reggio Emilia. 
 
 \subsection{Estimating Effects of Preschools}
+\subsubsection{OLS}
 For this abbreviated analysis, we restrict to individuals from Reggio Emilia who either attended a Reggio Approach preschool or did not attend any preschool. We exclude the cohort of adults in their 50s because the Reggio Approach was not available to them.
 
 For individual $i$ in Reggio Emilia, let $R_i^{P}$ indicate whether that individual attended a Reggio Approach preschool. We select a vector, $\bm{X}_i$, of baseline control variables with the lowest BIC to account for family background.\footnote{These variables are: gender, whether the individual took the computer-assisted (CAPI), number of siblings, an indicator if the mother's maximum education was middle school, an indicator if the father's maximum education is university, and two indicators for the number of siblings (one indicating having two or more siblings, the other indicating having three or more siblings).} For both cohorts, we estimate $\beta$ in the simple model
@@ -77,3 +77,12 @@ For individual $i$ in Reggio Emilia, let $R_i^{P}$ indicate whether that individ
 \noindent where we assume $\varepsilon_i$ to be a random disturbance. 
 
 While this estimate is useful in gaining a basic understanding of the relation between the Reggio Approach and outcomes $Y_i$, there is a clear selection issue. That is, the choice to enroll a child in the Reggio Approach and the choice not to enroll a child in any preschool might be tied to unobservable characteristics that are also influencing the outcomes. After Section~\ref{sec:results} in which we present the estimates from Equation~\eqref{eq:ra-v-none}, we present a discussion of selection on observed characteristics.
+
+\subsubsection{Difference-in-Difference}
+For this diff-in-diff analysis, we shut down the effects of different cohorts and compare difference in outcomes across cities for different preschool types after fixing the cohort. We restrict to individuals in age-30 and age-40 cohorts who either attended municipal preschool or did not attend any preschool. In this section, we present the estimation model to explicitly show how our difference-in-difference approach work. 
+
+In the context of our analysis, let's consider a case with age-30 people from Reggio and Parma who either attended municipal preschool or did not attend any preschool. We can write the estimation equation for this group as:
+\begin{eqnarray}  \label{eq:specific2}
+Y_i & = \alpha + \beta_1 Reggio_i + \beta_2 R_i^P + \beta_3 Reggio_i * R_i^P + \bm{X}_i\gamma + \varepsilon_i 
+\end{eqnarray}
+where $Reggio_i$ is the indicator for $i$ living in Reggio. In this regression, $\beta_3$ has an interpretation of (Reggio Municipal - Parma Municipal) - (Reggio None - Parma None). The first difference shows the difference between outcomes of those who attended municipal preschools in Reggio and those who attended municipal preschools in Parma. However, there can be inherent differences between people in Reggio and people in Parma for the age-30 cohort. The second difference is intended to capture the inherent difference in outcomes between two cities and to eliminate the city effect. Analogous interpretation is applied to diff-in-diff comparisons between Reggio and Padova. 

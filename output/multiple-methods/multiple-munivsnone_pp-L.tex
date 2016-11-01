@@ -1,25 +1,24 @@
 {
 \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-\begin{tabular}{l*{4}{c}}
-\hline\hline
-            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}\\
-            &\multicolumn{1}{c}{Parma30}&\multicolumn{1}{c}{Parma40}&\multicolumn{1}{c}{Padova30}&\multicolumn{1}{c}{Padova40}\\
-\hline
-Married or Cohabitating&      0.0370         &       0.154\sym{*}  &      0.0237         &       0.233\sym{**} \\
-            &    (0.0950)         &    (0.0693)         &    (0.0846)         &    (0.0889)         \\
-[1em]
-Divorced    &     -0.0217         &     -0.0627         &      0.0235         &      -0.219\sym{**} \\
-            &    (0.0265)         &    (0.0466)         &    (0.0185)         &    (0.0718)         \\
-[1em]
-Num. of Children in House&       0.155         &    -0.00802         &      0.0375         &       0.184         \\
-            &    (0.0979)         &    (0.0834)         &    (0.0810)         &     (0.109)         \\
-[1em]
-Own House   &       0.139         &     -0.0164         &     -0.0230         &      0.0375         \\
-            &     (0.102)         &    (0.0677)         &    (0.0835)         &    (0.0830)         \\
-[1em]
-Live With Parents&     -0.0569         &     -0.0477\sym{*}  &      -0.276\sym{***}&     -0.0902\sym{*}  \\
-            &    (0.0577)         &    (0.0219)         &    (0.0699)         &    (0.0411)         \\
-\hline\hline
-\multicolumn{5}{l}{\footnotesize \specialcell{\underline{Note:} This table shows the estimates for people in Reggio who attended \\ municipal preschools and people who live in Parma or Padova with no preschool experience. \\                                                                         Standard errors are reported in parenthesis. Stars show statistical significance as follows: \\                                                                         * p < 0.05, ** p < 0.01, *** p < 0.001.}}\\
+\begin{tabular}{l*{2}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}\\
+            &\multicolumn{1}{c}{Padova30}&\multicolumn{1}{c}{Padova40}\\
+\midrule
+Married or Cohabitating&      0.0339         &       0.240\sym{*}  \\
+            &    (0.0880)         &    (0.0949)         \\
+\addlinespace
+Divorced    &      0.0185         &      -0.231\sym{**} \\
+            &    (0.0172)         &    (0.0771)         \\
+\addlinespace
+Num. of Children in House&      0.0347         &       0.237\sym{*}  \\
+            &    (0.0857)         &     (0.104)         \\
+\addlinespace
+Own House   &     -0.0110         &      0.0560         \\
+            &    (0.0843)         &    (0.0946)         \\
+\addlinespace
+Live With Parents&      -0.281\sym{***}&     -0.0838\sym{*}  \\
+            &    (0.0740)         &    (0.0427)         \\
+\bottomrule
 \end{tabular}
 }

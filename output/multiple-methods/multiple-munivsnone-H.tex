@@ -1,40 +1,39 @@
 {
 \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-\begin{tabular}{l*{3}{c}}
-\hline\hline
-            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}\\
-            &\multicolumn{1}{c}{Muni\_Age30}&\multicolumn{1}{c}{Muni\_Age40}&\multicolumn{1}{c}{DiD}\\
-\hline
-Tried Marijuana&      0.0916         &      0.0864         &     -0.0156         \\
-            &    (0.0563)         &    (0.0507)         &    (0.0706)         \\
-[1em]
-Smokes      &           0         &           0         &           0         \\
-            &         (.)         &         (.)         &         (.)         \\
-[1em]
-Num. of Cigarettes Per Day&       2.431         &      -0.372         &       1.866         \\
-            &     (1.348)         &     (1.666)         &     (1.843)         \\
-[1em]
-BMI         &       0.620         &      -0.220         &       0.872         \\
-            &     (0.412)         &     (0.482)         &     (0.597)         \\
-[1em]
-Good Health &       0.129         &       0.126         &      0.0362         \\
-            &    (0.0775)         &     (0.103)         &     (0.116)         \\
-[1em]
-Num. of Days Sick Past Month&       0.285\sym{***}&      0.0400         &       0.200         \\
-            &    (0.0848)         &    (0.0872)         &     (0.107)         \\
-[1em]
-Engaged in A Fight&           0         &           0         &           0         \\
-            &         (.)         &         (.)         &         (.)         \\
-[1em]
-Drove Under Influence&           0         &           0         &           0         \\
-            &         (.)         &         (.)         &         (.)         \\
-[1em]
-Ever Suspended from School&      -0.141\sym{**} &     -0.0159         &     -0.0963         \\
-            &    (0.0521)         &    (0.0545)         &    (0.0685)         \\
-[1em]
-Age At First Drink&      -0.518         &      -0.367         &       0.335         \\
-            &     (1.238)         &     (1.396)         &     (1.783)         \\
-\hline\hline
-\multicolumn{4}{l}{\footnotesize \specialcell{\underline{Note:} This table shows the estimates for people in Reggio who attended \\ municipal preschools or no preschool at all. \\                                                                         Standard errors are reported in parenthesis. Stars show statistical significance as follows: \\                                                                         * p < 0.05, ** p < 0.01, *** p < 0.001.}}\\
+\begin{tabular}{l*{10}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}&\multicolumn{1}{c}{(7)}&\multicolumn{1}{c}{(8)}&\multicolumn{1}{c}{(9)}&\multicolumn{1}{c}{(10)}\\
+            &\multicolumn{1}{c}{None30}&\multicolumn{1}{c}{BIC30}&\multicolumn{1}{c}{Full30}&\multicolumn{1}{c}{DidPm30}&\multicolumn{1}{c}{DidPv30}&\multicolumn{1}{c}{None40}&\multicolumn{1}{c}{BIC40}&\multicolumn{1}{c}{Full40}&\multicolumn{1}{c}{DidPm40}&\multicolumn{1}{c}{DidPv40}\\
+\midrule
+Tried Marijuana&       0.103         &       0.100         &      0.0916         &     -0.0442         &      -0.217\sym{*}  &      0.0375         &      0.0495         &      0.0864         &     -0.0828         &     -0.0882         \\
+            &    (0.0528)         &    (0.0542)         &    (0.0563)         &    (0.0751)         &     (0.106)         &    (0.0432)         &    (0.0462)         &    (0.0507)         &    (0.0655)         &    (0.0882)         \\
+\addlinespace
+Num. of Cigarettes Per Day&       1.468         &       1.689         &       2.431         &       1.905         &       1.891         &      -0.348         &      -0.588         &      -0.372         &      -0.582         &       3.486         \\
+            &     (1.092)         &     (1.163)         &     (1.348)         &     (2.306)         &     (2.443)         &     (1.399)         &     (1.596)         &     (1.666)         &     (2.433)         &     (1.902)         \\
+\addlinespace
+BMI         &       0.898\sym{*}  &       0.659         &       0.620         &       0.222         &       1.166         &      -0.414         &      -0.555         &      -0.220         &      0.0640         &      -1.071         \\
+            &     (0.450)         &     (0.399)         &     (0.412)         &     (0.560)         &     (0.715)         &     (0.491)         &     (0.487)         &     (0.482)         &     (0.613)         &     (0.851)         \\
+\addlinespace
+Obese       &     -0.0685         &      0.0509         &      0.0472         &      -0.184\sym{*}  &       0.259\sym{*}  &      -0.211\sym{**} &      -0.114         &     -0.0337         &      -0.332\sym{***}&      -0.282\sym{*}  \\
+            &    (0.0671)         &    (0.0613)         &    (0.0617)         &    (0.0916)         &     (0.118)         &    (0.0670)         &    (0.0715)         &    (0.0776)         &    (0.0904)         &     (0.125)         \\
+\addlinespace
+Overweight  &      0.0393         &     -0.0253         &     -0.0226         &    0.000214         &    -0.00132         &      0.0281         &     -0.0616         &     -0.0934         &       0.124         &      0.0689         \\
+            &    (0.0609)         &    (0.0573)         &    (0.0573)         &    (0.0979)         &     (0.107)         &    (0.0618)         &    (0.0638)         &    (0.0699)         &    (0.0947)         &     (0.102)         \\
+\addlinespace
+Good Health &       0.220\sym{**} &       0.142         &       0.129         &       0.373\sym{**} &       0.384\sym{*}  &       0.121         &       0.171         &       0.126         &       0.380\sym{**} &      -0.352         \\
+            &    (0.0750)         &    (0.0727)         &    (0.0775)         &     (0.133)         &     (0.161)         &    (0.0801)         &    (0.0924)         &     (0.103)         &     (0.133)         &     (0.202)         \\
+\addlinespace
+No Problematic Health Condition&      -0.278\sym{***}&      -0.250\sym{***}&      -0.272\sym{***}&      -0.204         &     -0.0634         &      0.0286         &      0.0531         &      0.0713         &       0.106         &      -0.195         \\
+            &    (0.0690)         &    (0.0737)         &    (0.0792)         &     (0.113)         &     (0.142)         &    (0.0777)         &    (0.0822)         &    (0.0930)         &     (0.118)         &     (0.134)         \\
+\addlinespace
+Num. of Days Sick Past Month&       0.256\sym{**} &       0.283\sym{***}&       0.285\sym{***}&       0.113         &      0.0297         &      0.0423         &      0.0561         &      0.0400         &     -0.0299         &      0.0135         \\
+            &    (0.0863)         &    (0.0843)         &    (0.0848)         &    (0.0948)         &     (0.143)         &    (0.0602)         &    (0.0836)         &    (0.0872)         &     (0.139)         &     (0.121)         \\
+\addlinespace
+Ever Suspended from School&      -0.111\sym{*}  &      -0.120\sym{*}  &      -0.141\sym{**} &      -0.129\sym{*}  &      -0.161         &     -0.0406         &     -0.0325         &     -0.0159         &     -0.0515         &     -0.0597         \\
+            &    (0.0516)         &    (0.0534)         &    (0.0521)         &    (0.0651)         &    (0.0931)         &    (0.0369)         &    (0.0413)         &    (0.0545)         &    (0.0609)         &    (0.0583)         \\
+\addlinespace
+Age At First Drink&       2.106         &      -0.278         &      -0.518         &       2.159         &      -3.238         &       0.960         &      0.0244         &      -0.367         &      -0.141         &      -1.582         \\
+            &     (1.331)         &     (1.256)         &     (1.238)         &     (1.652)         &     (2.009)         &     (1.270)         &     (1.328)         &     (1.396)         &     (1.517)         &     (2.040)         \\
+\bottomrule
 \end{tabular}
 }
