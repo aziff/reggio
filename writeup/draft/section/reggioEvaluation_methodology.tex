@@ -1,5 +1,5 @@
 
-Because there are two stages of early childhood interventions, (i) ages 0-3 and (ii) ages 3-6, it is important to consider both when estimating treatment effects of either intervention on later outcomes. Table \ref{tab:cases-treat} shows the possible cases of receiving early childhood intervention in our data, where 0 indicates not attending and 1 indicates attending. For this stage, we limit the type of infant-toddler centers and preschools to municipal only. 
+Because there are two stages of early childhood interventions, (i) ages 0-3 and (ii) ages 3-6, it is important to consider both when estimating treatment effects of either intervention on later outcomes. Table~\ref{tab:cases-treat} shows the possible cases of receiving early childhood intervention in our data, where 0 indicates not attending and 1 indicates attending. At this stage, we limit the type of infant-toddler centers and preschools to municipal only. 
 
 \begin{table}[H]
 \caption{Possible Cases of Treatment} \label{tab:cases-treat}
@@ -20,7 +20,7 @@ Because there are two stages of early childhood interventions, (i) ages 0-3 and 
 \end{table}
 
 \subsection{Estimating Effects of Infant-Toddler Centers}
-There are two main methods to test treatment effects of attending infant-toddler centers. The first is to compare people who did not attend infant-toddler care or preschool with people who only attended municipal infant-toddler care. Using the notation in Table~\ref{tab:cases-treat}, tis comparison is between (0,0) and (1,0). The second method is to compare people who only attended municipal preschool with people who attended both municipal infant-toddler centers and preschools. That is, to compare (0,1) and (1,1). The hypotheses are formally written as
+There are two main methods to test the effect of attending infant-toddler centers. The first is to compare people who did not attend infant-toddler care or preschool with people who only attended municipal infant-toddler care. Using the notation in Table~\ref{tab:cases-treat}, this comparison is between (0,0) and (1,0). The second method is to compare people who only attended municipal preschool with people who attended both municipal infant-toddler centers and preschools. That is, to compare (0,1) and (1,1). The hypotheses are formally written as
 \begin{eqnarray}
 H_1: &  Y_{0,0} = Y_{1,0} \\ 
 H_2: &  Y_{0,1} = Y_{1,1} 
@@ -38,7 +38,7 @@ Y_{i}^{c,h} & = & \alpha + \beta_{0}R_i^{ITC} + \mathbf{X}_i\gamma + \varepsilon
 & \forall & i \in \text{ \{People in city $c$ and cohort $h$ and in group (0,1) or (1,1)\}.}
 \end{eqnarray}
 
-One caveat of this analysis is that it uses a limited sample size. In our data, these hypotheses cannot be tested under this strategy for many groups. Table~\ref{tab:num-group} shows the number of people available for each group necessary for analysis using this strategy. It is impossible to test $H_1$ with our data, because there are almost no people who attended municipal infant-toddler care but did not attend preschool (the group (1,0)). It is possible to test $H_2$ for several groups, but the number of observations for the group (1,1) is small for the adult cohorts. 
+One caveat of this analysis is that it uses a limited sample size. In our data, these hypotheses cannot be tested under this strategy for many groups. Table~\ref{tab:num-group} shows the number of individuals available for each group necessary for analysis using this strategy. It is impossible to test $H_1$ in our data, because there are almost no people who attended municipal infant-toddler care without attending preschool (the group (1,0)). While it is possible to test $H_2$ for several groups, the number of observations for the group (1,1) is small for the adult cohorts. 
 
 \begin{table}[H] \caption{Number of Individuals in Each Group} \label{tab:num-group}
 \scalebox{0.77}{
@@ -55,17 +55,17 @@ Age-50		& 146 & 0 &	8 & 0 & \textbf{200} & 71 & 0 & 4 & 8 & \textbf{103} & 55 & 
 \end{tabular}}
 \end{table}
 
-In Table \ref{tab:num-group}, the groups subject to our estimation are highlighted. Since there are more outcomes for adult cohorts than younger cohorts, we first focus on analyzing the effect of infant-toddler care on the adult cohorts. Based on the available number of individuals in each cell and the history of the foundation date of municipal infant-toddler care for each city, we decide to test $H_2$ for the following groups:
+In Table \ref{tab:num-group}, the groups subject to our estimation are highlighted. Since there are more outcomes for adult cohorts than for younger cohorts, we first focus on analyzing the effect of infant-toddler care on the adult cohorts. Based on the available number of individuals in each cell and the history of the foundation date of municipal infant-toddler care for each city, we decide to test $H_2$ for the following groups:
 \begin{itemize}
 \item Age-30 individuals in Reggio who did not attend any infant-toddler center and attended municipal preschool (the group (0,1)) \textbf{vs.} Age-30 individuals in Reggio who attended both municipal infant-toddler center and municipal preschool (the group (1,1))
 \item Age-40 individuals in Reggio who did not attend no infant-toddler center and attended municipal preschool (the group (0,1)) \textbf{vs.} Age-40 individuals in Reggio who attended both municipal infant-toddler center and municipal preschool (the group (1,1))
 \end{itemize}
 
-The above two comparisons above show effects of the Reggio-Approach infant-toddler care for each age cohort. For our analysis in this draft, we only include the comparisons for individuals in Reggio Emilia. 
+These two comparisons show effects of the Reggio-Approach infant-toddler care for each age cohort. In this draft, we only include the comparisons for individuals in Reggio Emilia. 
 
 \subsection{Estimating Effects of Preschools}
 \subsubsection{OLS}
-For this abbreviated analysis, we restrict to individuals from Reggio Emilia who either attended a Reggio Approach preschool or did not attend any preschool. We exclude the cohort of adults in their 50s because the Reggio Approach was not available to them.
+For this abbreviated analysis, we restrict to individuals from Reggio Emilia who either attended a Reggio Approach preschool or did not attend any preschool. We exclude the cohort of adults in their 50s because the Reggio Approach was not available at that time.
 
 For individual $i$ in Reggio Emilia, let $R_i^{P}$ indicate whether that individual attended a Reggio Approach preschool. We select a vector, $\bm{X}_i$, of baseline control variables with the lowest BIC to account for family background.\footnote{These variables are: gender, whether the individual took the computer-assisted (CAPI), number of siblings, an indicator if the mother's maximum education was middle school, an indicator if the father's maximum education is university, and two indicators for the number of siblings (one indicating having two or more siblings, the other indicating having three or more siblings).} For both cohorts, we estimate $\beta$ in the simple model
 
@@ -76,13 +76,13 @@ For individual $i$ in Reggio Emilia, let $R_i^{P}$ indicate whether that individ
 
 \noindent where we assume $\varepsilon_i$ to be a random disturbance. 
 
-While this estimate is useful in gaining a basic understanding of the relation between the Reggio Approach and outcomes $Y_i$, there is a clear selection issue. That is, the choice to enroll a child in the Reggio Approach and the choice not to enroll a child in any preschool might be tied to unobservable characteristics that are also influencing the outcomes. After Section~\ref{sec:results} in which we present the estimates from Equation~\eqref{eq:ra-v-none}, we present a discussion of selection on observed characteristics.
+While this estimate is useful in gaining a basic understanding of the relation between the Reggio Approach and outcomes $Y_i$, there is a clear selection issue. That is, the choice to enroll a child in the Reggio Approach and the choice not to enroll a child in any preschool might be tied to unobservable characteristics that are also influencing the outcomes. After Section~\ref{sec:results} in which we present the estimates from Equation~\eqref{eq:ra-v-none}, we present a preliminary discussion of selection on observed characteristics.
 
 \subsubsection{Difference-in-Difference}
-For this diff-in-diff analysis, we shut down the effects of different cohorts and compare difference in outcomes across cities for different preschool types after fixing the cohort. We restrict to individuals in age-30 and age-40 cohorts who either attended municipal preschool or did not attend any preschool. In this section, we present the estimation model to explicitly show how our difference-in-difference approach work. 
+For this difference-in-difference analysis, we compare the difference in outcomes across cities for different preschool types after fixing the cohort. We restrict this analysis to individuals in the age-30 and age-40 cohorts who either attended municipal preschool or did not attend any preschool. In this section, we present the estimation model to explicitly show how our difference-in-difference approach works. 
 
-In the context of our analysis, let's consider a case with age-30 people from Reggio and Parma who either attended municipal preschool or did not attend any preschool. We can write the estimation equation for this group as:
+In the context of our analysis, we consider a case with age-30 individuals from Reggio Emilia and Parma who either attended municipal preschool or did not attend any preschool. We can write the estimation equation for this group as:
 \begin{eqnarray}  \label{eq:specific2}
 Y_i & = \alpha + \beta_1 Reggio_i + \beta_2 R_i^P + \beta_3 Reggio_i * R_i^P + \bm{X}_i\gamma + \varepsilon_i 
 \end{eqnarray}
-where $Reggio_i$ is the indicator for $i$ living in Reggio. In this regression, $\beta_3$ has an interpretation of (Reggio Municipal - Parma Municipal) - (Reggio None - Parma None). The first difference shows the difference between outcomes of those who attended municipal preschools in Reggio and those who attended municipal preschools in Parma. However, there can be inherent differences between people in Reggio and people in Parma for the age-30 cohort. The second difference is intended to capture the inherent difference in outcomes between two cities and to eliminate the city effect. Analogous interpretation is applied to diff-in-diff comparisons between Reggio and Padova. 
+where $Reggio_i$ is the indicator for $i$ living in Reggio Emilia. In this regression, $\beta_3$ has an interpretation of (Reggio Municipal - Parma Municipal) - (Reggio None - Parma None). The first difference shows the difference between outcomes of those who attended municipal preschools in Reggio Emilia and those who attended municipal preschools in Parma. However, there can be inherent differences between individuals in Reggio Emilia and those in Parma for the age-30 cohort. The second difference is intended to capture the inherent difference in outcomes between two cities and to eliminate the city effect. Analogous interpretation is applied to difference-in-difference comparisons between Reggio Emilia and Padova. 

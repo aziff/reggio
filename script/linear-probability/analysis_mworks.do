@@ -10,8 +10,11 @@ clear all
 global klmReggio   : env klmReggio
 global data_reggio : env data_reggio
 global git_reggio  : env git_reggio
-global data_reggio = "/mnt/ide0/share/klmReggio/data_survey/data"
-global git_reggio  = "/mnt/ide0/home/aziff/projects/reggio"
+
+global data_reggio = "/Volumes/klmReggio/data_survey/data"
+
+//global data_reggio = "/mnt/ide0/share/klmReggio/data_survey/data"
+//global git_reggio  = "/mnt/ide0/home/aziff/projects/reggio"
 
 global code 	 = "${git_reggio}/script/linear-probability"
 global outputLPM = "${git_reggio}/output/"
@@ -55,7 +58,7 @@ local keepvars			momBornProvince ///
 				dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
 				atleast2sibling atleast1sibling Male ///
 				FamIncome_med ///
-				cgRelig int_cgCatFaith ///
+				cgRelig int_cgCatFaith cgMigrant ///
 				cgPolitics_med lowbirthweight birthpremature migrant
 
 
@@ -65,8 +68,8 @@ local child_baseline_vars  	atleast1sibling atleast2sibling ///
 				dadBornProvince ///
 				dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
 				cgRelig ///
-				FamIncome_med cgPolitics_med cgMigrant  ///
-				migrant lowbirthweight birthpremature 
+				FamIncome_med cgPolitics_med   ///
+				 lowbirthweight birthpremature cgMigrant migrant
 				
 								
 local adol_baseline_vars  	atleast1sibling atleast2sibling ///
@@ -75,8 +78,8 @@ local adol_baseline_vars  	atleast1sibling atleast2sibling ///
 				dadBornProvince ///
 				dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
 				cgRelig ///
-				FamIncome_med cgPolitics_med cgMigrant ///
-				lowbirthweight birthpremature  						
+				FamIncome_med cgPolitics_med ///
+				lowbirthweight cgMigrant birthpremature  						
 								
 								
 local adult_baseline_vars	atleast1sibling atleast2sibling ///

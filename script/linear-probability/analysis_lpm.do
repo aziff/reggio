@@ -18,6 +18,8 @@ cap log 	close
 global klmReggio   : env klmReggio
 global data_reggio : env data_reggio
 global git_reggio : env git_reggio
+global data_reggio = "/Volumes/klmReggio/data_survey/data"
+
 //global data_reggio = "/mnt/ide0/share/klmReggio/SURVEY_DATA_COLLECTION/data"
 //global git_reggio  = "/mnt/ide0/home/aziff/projects/reggio"
 
@@ -39,44 +41,32 @@ gen FamIncome_med = (cgFamIncome_val > r(p50))
 sum cgPolitics, detail
 gen cgPolitics_med = (cgPolitics > r(p50))
 
-local keepvars			momWork_fulltime06 momWork_parttime06 ///
-				momBornProvince ///
-				momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
-				dadBornProvince ///
+local keepvars	momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
 				dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
-				atleast2sibling atleast1sibling Male ///
+				atleast1sibling Male ///
 				FamIncome_med ///
 				cgRelig int_cgCatFaith ///
-				cgPolitics_med lowbirthweight birthpremature migrant
+				cgPolitics_med lowbirthweight birthpremature cgMigrant migrant
 
 
-local child_baseline_vars  	momWork_fulltime06 momWork_parttime06 ///
-				atleast2sibling atleast1sibling ///
-				momBornProvince ///
+local child_baseline_vars  atleast1sibling ///
 				momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
-				dadBornProvince ///
 				dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
 				cgRelig ///
-				FamIncome_med cgRelig cgPolitics_med cgMigrant  ///
-				migrant lowbirthweight birthpremature 
+				FamIncome_med cgRelig cgPolitics_med   ///
+				 lowbirthweight birthpremature cgMigrant migrant
 				
 								
-local adol_baseline_vars  	momWork_fulltime06 momWork_parttime06  ///
-				atleast2sibling atleast1sibling ///
-				momBornProvince ///
+local adol_baseline_vars   atleast1sibling ///
 				momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
-				dadBornProvince ///
 				dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
 				cgRelig ///
-				FamIncome_med cgPolitics_med cgMigrant ///
-				lowbirthweight birthpremature  						
+				FamIncome_med cgPolitics_med  ///
+				lowbirthweight birthpremature  	cgMigrant					
 								
 								
-local adult_baseline_vars	momWork_fulltime06 momWork_parttime06 ///
-				atleast2sibling atleast1sibling ///
-				momBornProvince ///
+local adult_baseline_vars atleast1sibling ///
 				momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
-				dadBornProvince  ///
 				dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
 				cgRelig 
 					
