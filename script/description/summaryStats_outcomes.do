@@ -35,7 +35,7 @@ local header5	"& \scriptsize{Reggio} & \scriptsize{Parma}& \scriptsize{Padova} &
 
 cd "$git_reggio\Output"
 
-file open dstat using "summaryAll_output.tex", write replace
+file open dstat using "summaryAll_outcome_output.tex", write replace
 file write dstat "\singlespace" _n
 file write dstat "\setlength{\tabcolsep}{2pt}" _n
 file write dstat "`header2'" _n
