@@ -72,6 +72,10 @@ global bic_adult_baseline_vars		    	Male CAPI momMaxEdu_middle dadMaxEdu_Uni nu
 global child_outcome_CN         		IQ_factor IQ_score ///
 										pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score 
 								 
+global child_outcome_C	         		IQ_factor IQ_score
+										
+global child_outcome_N					pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score 		 								 
+								 
 global child_outcome_S	 		 		childinvFriends childinvMusic  ///
 										worryHome worryTeacher worryFriend worryMyself 
 								 
@@ -82,8 +86,13 @@ global child_outcome_B			 		difficultiesInterest difficultiesSit likeSchool_chil
                                    
 global adol_outcome_CN          		IQ_factor IQ_score ///
 										pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score ///
-										pos_SDQ_score pos_SDQPsoc_score pos_SDQPeer_score pos_SDQHype_score pos_SDQEmot_score pos_SDQCond_score LocusControl pos_Depression_score 
+										pos_SDQ_score pos_SDQPsoc_score pos_SDQPeer_score pos_SDQHype_score pos_SDQEmot_score pos_SDQCond_score /*LocusControl*/ pos_Depression_score 
 
+global adol_outcome_C	          		IQ_factor IQ_score
+
+global adol_outcome_N	          		pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score ///
+										pos_SDQ_score pos_SDQPsoc_score pos_SDQPeer_score pos_SDQHype_score pos_SDQEmot_score pos_SDQCond_score /*LocusControl*/ pos_Depression_score 					
+										
 global adol_outcome_S 					Friends childinvTalkOut childinvTalkSchool
 								 
 global adol_outcome_H            		BMI_obese BMI_overweight childHealthPerc childSickDays ///
@@ -174,6 +183,7 @@ global pos_LocusControl_lab				Locus of Control - positive
 global pos_Depression_score_lab			Depression Score - positive
 
 global StressWork_lab					Work is Source of Stress
+global Stress_lab						Stress
 
 global SatisIncome_lab					Satisfied with Income
 global SatisWork_lab					Satisfied with Work
@@ -190,6 +200,7 @@ global Friends_lab						Number of Friends
 global MigrFriend_lab					Has Migrant Friends
 global volunteer_lab					Volunteers
 global invFamMeal_lab					Child Eats Meal with Fam
+global childinvFamMeal_lab				Child Eats Meal with Fam
 global votedMunicipal_lab				Ever Voted for Municipal
 global votedRegional_lab				Ever Voted for Regional
 global votedNational_lab				Ever Voted for National
