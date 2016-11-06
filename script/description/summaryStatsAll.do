@@ -21,6 +21,11 @@ foreach m in Cognitive NonCognitive Social Health Employment Education LivingSta
 	local `m': list uniq `m'
 }
 
+foreach v in `Employment' `Education' `LivingStatus'{
+	egen check_`v' = total(`v'), by(Cohort)
+	replace `v' = . if check_`v' == 0
+}
+
 *-------------------------------------------------------------------------------
 local header1	"\begin{landscape}"
 local header2	"\begin{center}"
@@ -28,16 +33,16 @@ local header3	"\begin{longtable}{L{5cm} c c c p{.5cm} c c c p{.5cm} c c c p{.5cm
 local header4	"& \multicolumn{3}{c}{\textbf{Children}} & & \multicolumn{3}{c}{\textbf{Adolescents}} & & \multicolumn{3}{c}{\textbf{Adults 30}} & & \multicolumn{3}{c}{\textbf{Adults 40}} & & \multicolumn{3}{c}{\textbf{Adults 50}}\\"
 local header5	"& \scriptsize{Reggio} & \scriptsize{Parma}& \scriptsize{Padova} & & \scriptsize{Reggio} & \scriptsize{Parma}& \scriptsize{Padova} & & \scriptsize{Reggio} & \scriptsize{Parma}& \scriptsize{Padova} & & \scriptsize{Reggio} & \scriptsize{Parma}& \scriptsize{Padova} & & \scriptsize{Reggio} & \scriptsize{Parma}& \scriptsize{Padova}\\"
 
-cd "$git_reggio\writeup\draft\section\summary-stats"
+cd "$git_reggio\Output"
 
-file open dstat using "summaryAll.tex", write replace
+file open dstat using "summaryAll_output.tex", write replace
 file write dstat "\singlespace" _n
 file write dstat "\setlength{\tabcolsep}{2pt}" _n
 file write dstat "`header2'" _n
 file write dstat "\scriptsize{" _n
 file write dstat "`header3'" _n
 file write dstat "\hline"
-file write dstat "\multicolumn{20}{L{20cm}}{\textbf{Note:} Means are reported for each variable by cohort and city. Standard Deviations are reported in italics below each mean estimate. A "." denotes that the variable is not defined for a specific cohort.}" _n
+file write dstat "\multicolumn{20}{L{24cm}}{\textbf{Note:} Means are reported for each variable by cohort and city. Standard Deviations are reported in italics below each mean estimate. A . denotes that the variable is not defined for a specific cohort.}" _n
 file write dstat "\endfoot" _n
 file write dstat "\caption{Summary statistics for outcome variables by cohort and city} \label{table:summaryStat} \\" _n
 file write dstat "\hline" _n
