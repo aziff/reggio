@@ -29,9 +29,9 @@ global child_baseline_vars  	Male Cohort_Migrants lowbirthweight birthpremature 
 								momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
 								teenDadBirth dadBornProvince ///
 								dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
-								numSibling_1 numSibling_2 numSibling_more cgCatholic int_cgCatFaith houseOwn cgMigrant ///
+								/*numSibling_1*/ numSibling_2 /*numSibling_more*/ cgCatholic int_cgCatFaith houseOwn cgMigrant ///
 								cgReddito_1 cgReddito_2 cgReddito_3 cgReddito_4 cgReddito_5 cgReddito_6 cgReddito_7 ///
-								momWork_fulltime06 momWork_parttime06 momSchool06  
+								//momWork_fulltime06 momWork_parttime06 momSchool06  
 								// We assume that household income abd family house ownership for children cohorts can be considered as "baseline"
 								
 global adol_baseline_vars  		Male lowbirthweight birthpremature CAPI ///
@@ -40,7 +40,7 @@ global adol_baseline_vars  		Male lowbirthweight birthpremature CAPI ///
 								teenDadBirth dadBornProvince ///
 								dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
 								numSibling_1 numSibling_2 numSibling_more cgCatholic int_cgCatFaith cgMigrant ///
-								momWork_fulltime06 momWork_parttime06 momSchool06		 						
+								//momWork_fulltime06 momWork_parttime06 momSchool06		 						
 								
 								
 global adult_baseline_vars		Male CAPI ///
@@ -49,7 +49,7 @@ global adult_baseline_vars		Male CAPI ///
 								dadBornProvince  ///
 								dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
 								numSibling_1 numSibling_2 numSibling_more cgRelig ///
-								momWork_fulltime06 momWork_parttime06 momSchool06
+								//momWork_fulltime06 momWork_parttime06 momSchool06
 								
 								
 global Child_baseline_vars				$child_baseline_vars							
