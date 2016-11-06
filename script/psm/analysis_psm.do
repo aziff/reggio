@@ -6,13 +6,13 @@ Date:			November 5, 2016
 This file:		Propensity score matching for all cohorts
 				Old results with previous set of outcomes and controls
 */
-/*
+
 cap log close
 
 global klmReggio 	:	env klmReggio
 global git_reggio	:	env git_reggio
 global data_reggio	: 	env data_reggio
-global output		= 	"${git_reggio}/Output"
+global output		= 	"${git_reggio}/Output/psm"
 global code			= 	"${git_reggio}/script"
 
 local day=subinstr("$S_DATE"," ","",.)
@@ -77,9 +77,7 @@ gen sample_nido2 	= ((Reggio == 1 & ReggioAsilo == 1) 	| (Parma == 1) | (Padova 
 gen sample_materna2 	= ((Reggio == 1 & ReggioMaterna == 1) 	| (Parma == 1) | (Padova == 1))
 gen sample3 		= (Reggio == 1 	| Parma == 1)
 gen sample4 		= (Reggio == 1 	| Padova == 1)
-*/
 
-// here
 
 local child_cat_groups	CN S H B 
 local adol_cat_groups	CN S H B
@@ -95,9 +93,6 @@ local materna_var		ReggioMaterna
 foreach group in /*child adol*/ adult { 				// group: children, adol, adults
 	foreach school in nido materna {					// school: asilo, materna 
 		foreach cohort in ``group'_cohorts' {			// cohort: childeren, adolescent, adults 30s, adults 40s, adults 50s
-			
-			// store estimates in a local by category
-			local est_list 
 			foreach cat in ``group'_cat_groups' {		// outcome category (differs by group)			
 			
 				foreach outcome in ${`group'_outcome_`cat'} { 	// outcome (differs by outcome category)
@@ -116,34 +111,23 @@ foreach group in /*child adol*/ adult { 				// group: children, adol, adults
 					qui replace weight = (1 / (1 - pr_``school'_var')) if ``school'_var' == 0
 					
 					// use weights
-					reg `outcome' ``school'_var' `school' ${`cohort'_baseline_vars} [pweight = weight] if (sample_`school'2 == 1), rob
-					est store `outcome'`cat'`cohort'`school'
-					
-					// store estimates in a local
-					local est_list `est_list' `outcome'`cat'`cohort'`school'
+					reg `outcome' ``school'_var' `school' ${`cohort'_baseline_vars} [pweight = weight] if (sample_`school'2 == 1), robust
+					# delimit ;
+
+					outreg2 using "`cat'_`school'_`cohort'.tex", 
+							append
+							tex(frag) 
+							bracket 
+							dec(3) 
+							ctitle("${`var'_lab}") 
+							keep(``school'_var')
+							alpha(.01, .05, .10) 
+							sym (***, **, *);
+							//addtext(Sample, RAvsPP, Mean, `varmean');
+					# delimit cr
 					
 				restore
-
 				}
-				
-				est dir
-				di "`est_list'"
-				
-				// output table
-				cd ${output}
-				# delimit ;
-					outreg2 [IQ_factorEAdult30nido]
-						using "`cat'_`school'_`cohort'.tex", 
-						replace 
-						tex(frag) 
-						bracket 
-						dec(3) 
-						ctitle("PSM") 
-						keep(``school'_var')
-						alpha(.01, .05, .10) 
-						sym (***, **, *)
-						addtext(Sample, RAvsPP, Mean, `varmean');
-				# delimit cr
 			}
 		}
 	}
