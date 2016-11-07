@@ -594,6 +594,49 @@ lab var likeSchool_ado_pos "dv: How much adolescent likes school"
 lab define LS_ado 1 "Not at all" 2 "Not really" 3 "So so" 4 "Somewhat" 5 "A lot"
 lab values likeSchool_ado_pos LS_ado
 
+
+
+
+* ---------------------------------------------------------------------------- *
+* Generate more interaction terms
+global adult_baseline_vars_int	momBornProvince ///
+								momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
+								dadBornProvince  ///
+								dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
+								numSibling_1 numSibling_2 numSibling_more cgRelig 
+								
+local momBornProvince_s			MBP
+local momMaxEdu_low_s			MEDL
+local momMaxEdu_middle_s		MEDM
+local momMaxEdu_HS_s			MEDH
+local momMaxEdu_Uni_s			MEDU
+local dadBornProvince_s			DBP
+local dadMaxEdu_low_s			DEDL
+local dadMaxEdu_middle_s		DEDM
+local dadMaxEdu_HS_s			DEDH
+local dadMaxEdu_Uni_s			DEDU
+local numSibling_1_s			NSB1
+local numSibling_2_s			NSB2
+local numSibling_more_s			NSBM
+local cgRelig_s					RELI
+
+								
+
+** Interaction with Male
+foreach var in momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni momBornProvince dadBornProvince dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni numSibling_1 numSibling_2 numSibling_more cgRelig {
+	generate int_male_`var' = `var' * Male
+	label var int_male_`var' "Interaction between Male and `var'" 
+}
+
+* Interaction among variables
+foreach var1 in $adult_baseline_vars_int {
+	foreach var2 in $adult_baseline_vars_int {
+		generate int_``var1'_s'_``var2'_s' = `var1' * `var2'
+		label var int_``var1'_s'_``var2'_s'  "Interaction between `var1' and `var2'"
+	}
+}
+
+
 * ---------------------------------------------------------------------------- *
 * Label Variables 
 * ---------------------------------------------------------------------------- *
