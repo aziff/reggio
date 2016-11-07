@@ -44,7 +44,7 @@ file write dstat "`header3'" _n
 file write dstat "\hline"
 file write dstat "\multicolumn{20}{L{24cm}}{\textbf{Note:} Means are reported for each variable by cohort and city. Standard Deviations are reported in italics below each mean estimate. A . denotes that the variable is not defined for a specific cohort.}" _n
 file write dstat "\endfoot" _n
-file write dstat "\caption{Summary statistics for outcome variables by cohort and city} \label{table:summaryStat} \\" _n
+file write dstat "\caption{Summary statistics for outcome variables by cohort and city} \label{table:summaryStat_outcomes} \\" _n
 file write dstat "\hline" _n
 file write dstat "`header4'" _n
 file write dstat "`header5'" _n
