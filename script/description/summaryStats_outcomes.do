@@ -33,7 +33,7 @@ local header3	"\begin{longtable}{L{5cm} c c c p{.5cm} c c c p{.5cm} c c c p{.5cm
 local header4	"& \multicolumn{3}{c}{\textbf{Children}} & & \multicolumn{3}{c}{\textbf{Adolescents}} & & \multicolumn{3}{c}{\textbf{Adults 30}} & & \multicolumn{3}{c}{\textbf{Adults 40}} & & \multicolumn{3}{c}{\textbf{Adults 50}}\\"
 local header5	"& \scriptsize{Reggio} & \scriptsize{Parma}& \scriptsize{Padova} & & \scriptsize{Reggio} & \scriptsize{Parma}& \scriptsize{Padova} & & \scriptsize{Reggio} & \scriptsize{Parma}& \scriptsize{Padova} & & \scriptsize{Reggio} & \scriptsize{Parma}& \scriptsize{Padova} & & \scriptsize{Reggio} & \scriptsize{Parma}& \scriptsize{Padova}\\"
 
-cd "$git_reggio\Output"
+cd "$git_reggio\output"
 
 file open dstat using "summaryAll_outcome_output.tex", write replace
 file write dstat "\singlespace" _n
