@@ -6,7 +6,7 @@ Date:			November 5, 2016
 This file:		Propensity score matching for all cohorts
 				Old results with previous set of outcomes and controls
 */
-
+/*
 cap log close
 
 global klmReggio 	:	env klmReggio
@@ -15,8 +15,8 @@ global data_reggio	: 	env data_reggio
 global output		= 	"${git_reggio}/Output/psm"
 global code			= 	"${git_reggio}/script"
 
-local day=subinstr("$S_DATE"," ","",.)
-log using "${code}/psm/PSM`day'.log", text replace
+//local day=subinstr("$S_DATE"," ","",.)
+//log using "${code}/psm/PSM`day'.log", text replace
 
 // bring in project-level macros
 cd $code
@@ -77,7 +77,7 @@ gen sample_nido2 	= ((Reggio == 1 & ReggioAsilo == 1) 	| (Parma == 1) | (Padova 
 gen sample_materna2 	= ((Reggio == 1 & ReggioMaterna == 1) 	| (Parma == 1) | (Padova == 1))
 gen sample3 		= (Reggio == 1 	| Parma == 1)
 gen sample4 		= (Reggio == 1 	| Padova == 1)
-
+*/
 
 local child_cat_groups	CN S H B 
 local adol_cat_groups	CN S H B
@@ -111,21 +111,28 @@ foreach group in /*child adol*/ adult { 				// group: children, adol, adults
 					qui replace weight = (1 / (1 - pr_``school'_var')) if ``school'_var' == 0
 					
 					// use weights
-					reg `outcome' ``school'_var' `school' ${`cohort'_baseline_vars} [pweight = weight] if (sample_`school'2 == 1), robust
+					reg `outcome' ``school'_var' `school' ${`cohort'_baseline_vars} [iweight = weight] if (sample_`school'2 == 1) 
+					
+					local check_file : dir "." file "${output}/`cat'_psm_`school'_`cohort'.tex"
+					di "check file"
+					di "`check_file'"
+					if "`check_file'" != "" {
+						rm "`check_file'"
+					}
+					
+					cd ${output}
 					# delimit ;
-
-					outreg2 using "`cat'_`school'_`cohort'.tex", 
+					outreg2 using "`cat'_psm_`school'_`cohort'.tex", 
 							append
 							tex(frag) 
 							bracket 
 							dec(3) 
-							ctitle("${`var'_lab}") 
+							ctitle("${`outcome'_lab}") 
 							keep(``school'_var')
 							alpha(.01, .05, .10) 
 							sym (***, **, *);
 							//addtext(Sample, RAvsPP, Mean, `varmean');
 					# delimit cr
-					
 				restore
 				}
 			}
