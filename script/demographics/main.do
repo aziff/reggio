@@ -6,7 +6,7 @@ Original date:		10/28/16
 This file:			Call files that clean specific excel files
 */
 
-global klmReggio 	: env klmReggio
+global klmReggio 	: env klmReggio 
 global data_reggio	: env data_reggio
 global git_reggio	: env git_reggio
 

@@ -115,27 +115,22 @@ foreach group in /*child adol*/ adult { 				// group: children, adol, adults
 					qui replace weight = (1 / (1 - pr_``school'_var')) if ``school'_var' == 0
 					
 					// use weights
-<<<<<<< 51900ee465c924369b62924f90b7662593f39e59
-					reg `outcome' ``school'_var' `school' ${`cohort'_baseline_vars} [iweight = weight] if (sample_`school'2 == 1) 
+					reg `outcome' ``school'_var' `school' ${`cohort'_baseline_vars} [pweight = weight] if (sample_`school'2 == 1 & Cohort == `cohort_val'), robust
 					
+					/*
+					// delete current file
 					local check_file : dir "." file "${output}/`cat'_psm_`school'_`cohort'.tex"
 					di "check file"
 					di "`check_file'"
 					if "`check_file'" != "" {
 						rm "`check_file'"
 					}
-					
-					cd ${output}
+					*/
 					# delimit ;
-					outreg2 using "`cat'_psm_`school'_`cohort'.tex", 
-=======
-					reg `outcome' ``school'_var' `school' ${`cohort'_baseline_vars} [pweight = weight] if (sample_`school'2 == 1 & Cohort == `cohort_val'), robust
-					# delimit ;
-
-					outreg2 using "`cat'_`school'_`cohort'.csv", 
->>>>>>> Changes to the PSM pre-monday presentation. still something more to do
+					cd ${output};
+					outreg2 using "`cat'_`school'_`cohort'.tex", 
 							append
-							//tex(frag) 
+							tex(frag) 
 							bracket 
 							dec(3) 
 							ctitle("${`outcome'_lab}") 
