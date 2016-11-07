@@ -1,0 +1,12 @@
+	(1)
+VARIABLES	Faith
+	
+ReggioMaterna	-0.339***
+	[0.092]
+Constant	3.182***
+	[1.158]
+	
+Observations	638
+R-squared	0.220
+Robust standard errors in brackets	
+*** p<0.01, ** p<0.05, * p<0.10	

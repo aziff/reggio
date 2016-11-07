@@ -118,7 +118,7 @@ global adult_outcome_N					pos_LocusControl pos_Depression_score Stress StressWo
 										optimist reciprocity1 reciprocity2 reciprocity3 reciprocity4	
 
 * Social										
-global adult_outcome_S					MigrTaste Friends MigrFriend volunteer invFamMeal childinvFamMeal ///
+global adult_outcome_S					MigrTaste Friends MigrFriend volunteer invFamMeal invFamMeal ///
 										votedMunicipal votedRegional votedNational
 
 * Religion

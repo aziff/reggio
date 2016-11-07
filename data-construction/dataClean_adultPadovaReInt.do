@@ -28,9 +28,9 @@ Note: The variable names are related to the number of the questions
 */
 
 /*-*-* directory: keep global directory from dataClean_all.do unless otherwise needed
- local dir "C:\Users\Pietro\Documents\ChicaGo\Heckman\ReggioChildren\SURVEY_DATA_COLLECTION\data"
- local dir "/mnt/ide0/share/klmReggio/SURVEY_DATA_COLLECTION/data"
- local dir "/mnt/ide0/home/biroli/ChicaGo/Heckman/ReggioChildren/SURVEY_DATA_COLLECTION/data"
+ local dir "C:\Users\Pietro\Documents\ChicaGo\Heckman\ReggioChildren\data_survey\data"
+ local dir "/mnt/ide0/share/klmReggio/data_survey/data"
+ local dir "/mnt/ide0/home/biroli/ChicaGo/Heckman/ReggioChildren/data_survey/data"
 
 cd "`dir'"
 */

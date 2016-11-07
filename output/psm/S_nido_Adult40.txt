@@ -1,0 +1,12 @@
+	(1)	(2)	(3)	(4)	(5)	(6)	(7)	(8)	(9)
+VARIABLES	MigrTaste	Friends	MigrFriend	volunteer	invFamMeal	invFamMeal	votedMunicipal	votedRegional	votedNational
+									
+ReggioAsilo	0.172	-1.369	0.266***	0.007	-0.243	-0.243	0.527***	0.739***	0.284***
+	[0.179]	[1.298]	[0.098]	[0.048]	[0.184]	[0.184]	[0.090]	[0.078]	[0.081]
+Constant	1.027**	42.843**	0.993***	0.096	2.122***	2.122***	0.652**	1.270***	0.716**
+	[0.417]	[20.885]	[0.151]	[0.070]	[0.202]	[0.202]	[0.255]	[0.188]	[0.279]
+									
+Observations	529	520	534	534	243	243	511	511	511
+R-squared	0.079	0.291	0.123	0.078	0.117	0.117	0.387	0.414	0.136
+Robust standard errors in brackets									
+*** p<0.01, ** p<0.05, * p<0.10									

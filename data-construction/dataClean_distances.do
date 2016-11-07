@@ -19,7 +19,7 @@ Author: Geoffrey Wang and Pietro Biroli
 Date: 3/16/2015
 
 // =========== Step: Prepare schools and individuals for geocoding ===================
-Each school was given an unique ID manually using the file klmReggio\SURVEY_DATA_COLLECTION\Scuole_ParmaReggioPadova_updated.xlsx
+Each school was given an unique ID manually using the file klmReggio\data_survey\Scuole_ParmaReggioPadova_updated.xlsx
 School ID has been hard-coded so that 
 the first number is for the city (1=Reggio, 2=Parma, 3=Padova)
 the second number is the type of school (1=municipal, 2=state, 3=Religious, 4=Private)
@@ -27,8 +27,8 @@ the last three numbers are for the school number (if nido and materna have same 
 IDs are given (roughly) sorting by name and address
 If "short name" is missing, then there is nobody in our dataset assigned to that school
 
-Each individual was assigned to a particular school manually based on the answers to name and address of preschool, see file klmReggio\SURVEY_DATA_COLLECTION\data\ReggioAll_SchoolNames_manual.xlsx
-Each school is identified by a "short name" and a "school ID", both of which are also present in the file klmReggio\SURVEY_DATA_COLLECTION\Scuole_ParmaReggioPadova_updated.xlsx
+Each individual was assigned to a particular school manually based on the answers to name and address of preschool, see file klmReggio\data_survey\data\ReggioAll_SchoolNames_manual.xlsx
+Each school is identified by a "short name" and a "school ID", both of which are also present in the file klmReggio\data_survey\Scuole_ParmaReggioPadova_updated.xlsx
 
 
 Use do files in order to update Reggio_all.dta
@@ -41,8 +41,8 @@ saved file: "Reggio_geocode.xlsx"
 // ========== Step: Geocode schools and individuals ======================
 
 Use ArcGIS to: 
-Geocode schools (input: klmReggio\SURVEY_DATA_COLLECTION\Scuole_ParmaReggioPadova_updated.xlsx, output: CAREFULLY overwrite same file)
-Geocode individuals (input: klmReggio\SURVEY_DATA_COLLECTION\data\Distances\Reggio_geocode.xlsx, output:klmReggio\SURVEY_DATA_COLLECTION\data\Distances\indiv_coord.xlsx)
+Geocode schools (input: klmReggio\data_survey\Scuole_ParmaReggioPadova_updated.xlsx, output: CAREFULLY overwrite same file)
+Geocode individuals (input: klmReggio\data_survey\data\Distances\Reggio_geocode.xlsx, output:klmReggio\data_survey\data\Distances\indiv_coord.xlsx)
 
 // ========= Step: Calculate distances =================================
 ---First, calculate individuals' distances to center of their respective cities
@@ -61,9 +61,9 @@ capture log close
 set more off
 
 /***directory
- global dir "/mnt/ide0/share/klmReggio/SURVEY_DATA_COLLECTION/data/"
-// global dir "/Volumes/klmReggio/SURVEY_DATA_COLLECTION/data/"
-// global dir "\\athens.uchicago.edu/klmReggio/SURVEY_DATA_COLLECTION/data/"
+ global dir "/mnt/ide0/share/klmReggio/data_survey/data/"
+// global dir "/Volumes/klmReggio/data_survey/data/"
+// global dir "\\athens.uchicago.edu/klmReggio/data_survey/data/"
 cd "$dir"
 */
 if 1==0{ // Prepare the data for ArcGIS to geocode individuals and schools addresses

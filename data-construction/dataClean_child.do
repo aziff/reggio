@@ -35,7 +35,7 @@ packages used: dummieslab, mvpatterns, zanthro, mdesc, logout
 /*-*-* directory: keep global directory from dataClean_all.do unless otherwise needed*/
  */
  local dir : env klmReggio
- local datadir "`dir'/SURVEY_DATA_COLLECTION/data"
+ local datadir "`dir'/data_survey/data"
 cd `datadir'
  */
 *-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-* 

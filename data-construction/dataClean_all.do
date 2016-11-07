@@ -45,7 +45,7 @@ global notInter = 0   // = 1 --> do the section on preschool-attendance of not-i
 *** directory
 global dir : env klmReggio
 
-global datadir "$dir/SURVEY_DATA_COLLECTION/data"
+global datadir "$dir/data_survey/data"
 cd "$datadir"
 
 * log using dataClean_all, replace
@@ -53,17 +53,17 @@ cd "$datadir"
 if 1==1 { // 1) Create common data Reggio.dta
 /* ================ Merging the datasets ================ */
 
-/*
-do $dir/Analysis/dataConstruction/dataClean_child.do
-do $dir/Analysis/dataConstruction/dataClean_ado.do
-do $dir/Analysis/dataConstruction/dataClean_adultPilot.do
-do $dir/Analysis/dataConstruction/dataClean_adultPadovaReInt.do
-do $dir/Analysis/dataConstruction/dataClean_adult.do
-do $dir/Analysis/dataConstruction/dataClean_interviewers.do
-//do $dir/Analysis/dataConstruction/dataClean_namesManual.do
-//do $dir/Analysis/dataConstruction/dataClean_distances.do
-//do $dir/Analysis/dataConstruction/dataClean_instruments.do
-*/
+*
+do $dir/Analysis/data-construction/dataClean_child.do
+do $dir/Analysis/data-construction/dataClean_ado.do
+do $dir/Analysis/data-construction/dataClean_adultPilot.do
+do $dir/Analysis/data-construction/dataClean_adultPadovaReInt.do
+do $dir/Analysis/data-construction/dataClean_adult.do
+do $dir/Analysis/data-construction/dataClean_interviewers.do
+do $dir/Analysis/data-construction/dataClean_namesManual.do
+//do $dir/Analysis/data-construction/dataClean_distances.do
+//do $dir/Analysis/data-construction/dataClean_instruments.do
+*
 
 
 cd "$datadir"
@@ -126,7 +126,7 @@ export excel using "ReggioAll_SchoolNames.xlsx" if Type_manualFull=="", sheet("R
 export excel using "temp.xlsx"                  if Type_manualFull!="", sheet("NoInfo") firstrow(variables) replace
 
 *-* import the manually coded preschool_type
-do $dir/Analysis/dataConstruction/NamesManual.do
+do $dir/Analysis/data-construction/NamesManual.do
 
 */
 
@@ -1096,7 +1096,7 @@ IQ1 IQ2 IQ3 IQ4 IQ5 IQ6 IQ7 IQ8 IQ9 IQ10 IQ11 IQ12 IQ13 IQ14 IQ15 IQ16 IQ17 IQ18
 
 *----------------------* Put some labels and save the data *----------------------------*
 // Give a label to all the variables (taken from codebook_All.xlsx)
-do $dir/Analysis/dataConstruction/varLabels.do 
+do $dir/Analysis/data-construction/varLabels.do 
 
 // Take away labels that are too long and prevent saving to stata13
 

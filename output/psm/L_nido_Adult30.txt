@@ -1,0 +1,12 @@
+	(1)	(2)	(3)	(4)	(5)
+VARIABLES	mStatus_married_cohab	mStatus_div	childrenResp	all_houseOwn	live_parent
+					
+ReggioAsilo	-0.004	0.087**	-0.032	-0.124	-0.129*
+	[0.090]	[0.040]	[0.080]	[0.091]	[0.074]
+Constant	-0.072	0.120**	-0.233	0.453	1.695***
+	[0.474]	[0.059]	[0.166]	[0.545]	[0.136]
+					
+Observations	462	458	462	462	462
+R-squared	0.072	0.143	0.046	0.053	0.136
+Robust standard errors in brackets					
+*** p<0.01, ** p<0.05, * p<0.10					

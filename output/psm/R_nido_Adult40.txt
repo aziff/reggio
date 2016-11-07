@@ -1,0 +1,12 @@
+	(1)
+VARIABLES	Faith
+	
+ReggioAsilo	-0.035
+	[0.229]
+Constant	2.548**
+	[1.036]
+	
+Observations	532
+R-squared	0.166
+Robust standard errors in brackets	
+*** p<0.01, ** p<0.05, * p<0.10	

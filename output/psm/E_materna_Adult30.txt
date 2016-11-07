@@ -1,0 +1,12 @@
+	(1)	(2)	(3)	(4)	(5)	(6)
+VARIABLES	IQ_factor	votoMaturita	votoUni	highschoolGrad	MaxEdu_Uni	MaxEdu_Grad
+						
+ReggioMaterna	-0.630***	5.141***	1.371	-0.007	-0.293***	-0.055***
+	[0.091]	[1.385]	[1.732]	[0.029]	[0.043]	[0.014]
+Constant	0.297	66.776***	101.580***	0.820***	0.005	0.007
+	[0.446]	[4.548]	[4.695]	[0.279]	[0.307]	[0.053]
+						
+Observations	642	519	214	642	642	642
+R-squared	0.149	0.176	0.107	0.165	0.191	0.069
+Robust standard errors in brackets						
+*** p<0.01, ** p<0.05, * p<0.10						

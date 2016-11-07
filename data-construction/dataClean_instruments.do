@@ -18,8 +18,8 @@ Output:	Instruments.dta
 */
 
 /*** directory
-// global dir "C:\Users\Pietro\Documents\ChicaGo\Heckman\ReggioChildren\SURVEY_DATA_COLLECTION\data"
- global dir "/mnt/ide0/share/klmReggio/SURVEY_DATA_COLLECTION/data"
+// global dir "C:\Users\Pietro\Documents\ChicaGo\Heckman\ReggioChildren\data_survey\data"
+ global dir "/mnt/ide0/share/klmReggio/data_survey/data"
 cd "$dir"
 */
 
