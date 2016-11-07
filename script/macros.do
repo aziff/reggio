@@ -24,13 +24,7 @@ global schools					Municipal State Religious Private None
 * ------------------ *
 * Baseline variables *
 * ------------------ *
-global child_baseline_vars  	Male Cohort_Migrants lowbirthweight birthpremature CAPI ///
-								teenMomBirth momBornProvince ///
-								momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
-								teenDadBirth dadBornProvince ///
-								dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
-								/*numSibling_1*/ numSibling_2 /*numSibling_more*/ cgCatholic int_cgCatFaith houseOwn cgMigrant ///
-								cgReddito_1 cgReddito_2 cgReddito_3 cgReddito_4 cgReddito_5 cgReddito_6 cgReddito_7 ///
+global child_baseline_vars  	Male /*Cohort_Migrants*/ lowbirthweight birthpremature CAPI	teenMomBirth momBornProvince momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni teenDadBirth dadBornProvince dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni numSibling_1 numSibling_2 numSibling_more cgCatholic int_cgCatFaith houseOwn cgMigrant cgReddito_1 cgReddito_2 cgReddito_3 cgReddito_4 cgReddito_5 cgReddito_6 cgReddito_7
 								//momWork_fulltime06 momWork_parttime06 momSchool06  
 								// We assume that household income abd family house ownership for children cohorts can be considered as "baseline"
 								
@@ -258,3 +252,36 @@ global dropoutSchool_lab 				Go To School
 global likeSchool_ado_pos_lab 			How Much Child Likes School
 global MigrTaste_cat_lab 				Bothered by Migrants
 global Trust_lab						Trust Score
+
+global Male_lab							Male
+global Cohort_Migrants_lab 				Is a migrant
+global lowbirthweight_lab 				Low birthweight
+global birthpremature_lab 				Premature birth
+global CAPI_lab 						CAPI
+global teenMomBirth_lab 				Born to teenaged mother
+global momBornProvince_lab 				Mom born in province
+global momMaxEdu_low_lab 				Mom Max Edu: Low
+global momMaxEdu_middle_lab 			Mom Max Edu: Middle School
+global momMaxEdu_HS_lab 				Mom Max Edu: High School
+global momMaxEdu_Uni_lab 				Mom Max Edu: University
+global teenDadBirth_lab 				Born to teenaged father
+global dadBornProvince_lab 				Father born in province
+global dadMaxEdu_low_lab 				Dad Max Edu: Low
+global dadMaxEdu_middle_lab 			Dad Max Edu: Middle School
+global dadMaxEdu_HS_lab 				Dad Max Edu: High School
+global dadMaxEdu_Uni_lab 				Dad Max Edu: University
+global numSibling_1_lab 				Has 1 sibling
+global numSibling_2_lab 				Has 2 siblings
+global numSibling_more_lab 				Has more than 2 siblings
+global cgCatholic_lab 					Caregiver was Catholic
+global int_cgCatFaith_lab 				Caregiver was faithful and Catholic
+global houseOwn_lab 					Caregiver owned house
+global cgMigrant_lab 					Caregiver was a migrant
+global cgReddito_1_lab 					Caregiver Income: 5,000 euros or less
+global cgReddito_2_lab 					Caregiver Income: 5,001-10,000 euros
+global cgReddito_3_lab 					Caregiver Income: 10,001-25,000 euros
+global cgReddito_4_lab 					Caregiver Income: 25,001-50,000 euros
+global cgReddito_5_lab 					Caregiver Income: 50,001-100,000 euros
+global cgReddito_6_lab 					Caregiver Income: 100,001-250,000 euros
+global cgReddito_7_lab 					Caregiver Income: > 250,000 euros
+global cgRelig_lab						Caregiver was religious
