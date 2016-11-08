@@ -2,7 +2,7 @@
 * Analyzing the Reggio Children Evaluation Survey - OLS and Diff-in-Diff for Adult Cohorts
 * Authors: Jessica Yu Kyung Koh
 * Created: 06/16/2016
-* Edited:  10/31/2016
+* Edited:  11/08/2016
 
 * Note: This execution do file performs diff-in-diff estimates and generates tables
         by using "multipleanalysis" command that is programmed in 
