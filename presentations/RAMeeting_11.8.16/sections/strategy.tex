@@ -1,0 +1,75 @@
+\subsection{Strategy}
+
+\begin{frame} \frametitle{Model Specification}
+%Pooling all three cities, and running the model separately for infant-toddler centers (age 0-3) and preschools (age 3-6), we 
+Consider the simplest model:
+
+\begin{equation}
+Y_{i} = \alpha_0 + \delta^{a} R_{i}^{a} + \beta^{a} \boldsymbol{X} + \varepsilon_{i}^{a}    \hspace{2ex} \text{ for } i \in [\text{RCA, } \mathcal{C}]\label{eq1:OLSreggio}
+\end{equation}
+
+
+With 
+%\begin{footnotesize}
+\begin{itemize}
+	\item $Y_{i}$: outcome interest
+	\item $R_{i}$: dummy for RCA attendance, vs. control group $\mathcal{C}$
+	\begin{enumerate}
+		\item Reggio Emilia \hfill {\scriptsize other child-care type (rel, state, priv, none)}
+		\item Parma or Padova \hfill {\scriptsize any child-care type (mun, rel, state, priv, none)}
+		%\item Reggio, Parma, or Padova \hfill  {\scriptsize any other child-care type}
+	\end{enumerate}
+	\item Separately for age (0-3) and (3-6), $a \in \{ITC,PS\}$ %, where $a$ can be either infant-toddler centers (ITC, age 0-3) or preschool (PS, age 3-6); 
+	%\item $C_{i}$: attended any type of childcare
+	\item $\boldsymbol{X}$ predetermined control variables\footnotetext{\scriptsize \noindent Age and gender of the individual, health at birth, family structure, parental educational and economic resources, house property, religiosity, and distance from the town center}
+
+\end{itemize}
+%\end{footnotesize}
+
+\end{frame}
+
+%------------------------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Method 1: OLS}\label{frame:OLS}
+First estimation strategy: ordinary least square 
+
+\vspace{3ex}
+
+Requires absence of selection on unobservables: $\varepsilon_{i} \orth R^{a}_{i}$
+
+\vspace{1ex}
+Check balance of observables at baseline for $a \in ITC, PS$ across 4 groups:
+\begin{itemize}
+	\item[-] Treated: $R^{a}_{i}=1$
+	\begin{itemize}
+		\item Reggio Children Approach (RCA) 
+	\end{itemize}
+	\item[-] Control: $R^{a}_{i}=0$
+	\begin{itemize} \setcounter{enumi}{1}
+		\item Reggio Emilia other \hfill {\scriptsize other child-care type (rel, state, priv, none)}
+		%\item Parma or Padova \hfill {\scriptsize any child-care type (mun, rel, state, priv, none)}
+		%\item Reggio, Parma, or Padova \hfill  {\scriptsize any other child-care type}
+	\end{itemize}
+\end{itemize}
+\end{frame}
+%------------------------------------------------------------------------------------------------
+\begin{frame} \frametitle{Method 2: Difference-in-Difference} \label{frame:DiD-model}
+All cities have municipal schools but only in Reggio Emilia they follow the RCA approach:
+\begin{itemize}
+	\item \textbf{Diff 1}: Reggio Municipal - Parma Municipal
+	\item \textbf{Diff 2}: Reggio None - Parma None
+\end{itemize}
+
+\begin{align}
+Y_{i} = \alpha_0+ \delta R_{i} + \alpha_{MC} MC_{i} & +  \alpha_{re} Reggio_{i} + \beta \boldsymbol{X} + \varepsilon_{i} \nonumber  \label{eq8:didpr}
+\end{align} 
+
+where $Reggio_{i}=1$ if the respondent is from Reggio Emilia, $MC_{i}=1$ if the respondent attended a \textit{municipal} childcare center, and $R_{i}=MC_{i} \times Reggio_{i}=1$ if the respondent attended a municipal childcare center in Reggio Emilia, therefore following the Reggio Approach.
+
+\end{frame}
+
+%-----------------------------------------------------------------------------------------------
+\begin{frame} \frametitle{Method 3: Propensity Score Matching}
+
+
+\end{frame}
