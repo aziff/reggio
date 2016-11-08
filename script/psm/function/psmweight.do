@@ -16,10 +16,10 @@ syntax, yvar(string) xvars(varlist) cohort_num(integer) school_type(string)
 	probit `yvar' `xvars' if Reggio == 1 & Cohort == `cohort_num'
 					
 	// predict propensity for those in all three cities
-	qui predict pr_`yvar' if sample_`school_type'2 == 1 & Cohort == `cohort_num'
+	qui predict pr_`yvar'_Cohort`cohort_num' if sample_`school_type'2 == 1 & Cohort == `cohort_num'
 				
 	// calculate weights exactuly
-	qui gen weight_Cohort`cohort_num' = (1 / pr_`yvar') 			if `yvar' == 1 & Cohort == `cohort_num'
-	qui replace weight_Cohort`cohort_num' = (1 / (1 - pr_`yvar')) 	if `yvar' == 0 & Cohort == `cohort_num'
+	qui gen weight_Cohort`cohort_num' = (1 / pr_`yvar'_Cohort`cohort_num') 			if `yvar' == 1 & Cohort == `cohort_num'
+	qui replace weight_Cohort`cohort_num' = (1 / (1 - pr_`yvar'_Cohort`cohort_num')) 	if `yvar' == 0 & Cohort == `cohort_num'
 	
 end
