@@ -19,7 +19,7 @@ syntax, yvar(string) xvars(varlist) cohort_num(integer) school_type(string)
 	qui predict pr_`yvar' if sample_`school_type'2 == 1 & Cohort == `cohort_num'
 				
 	// calculate weights exactuly
-	qui gen weight = (1 / pr_`yvar') 			if `yvar' == 1 & Cohort == `cohort_num'
-	qui replace weight = (1 / (1 - pr_`yvar')) 	if `yvar' == 0 & Cohort == `cohort_num'
+	qui gen weight_Cohort`cohort_num' = (1 / pr_`yvar') 			if `yvar' == 1 & Cohort == `cohort_num'
+	qui replace weight_Cohort`cohort_num' = (1 / (1 - pr_`yvar')) 	if `yvar' == 0 & Cohort == `cohort_num'
 	
 end
