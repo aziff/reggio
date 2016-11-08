@@ -1,0 +1,66 @@
+\documentclass{beamer}
+
+\usepackage{amssymb} 
+\usepackage{amsmath} % This is the file main.tex \usepackage{multimedia} 
+\usepackage{graphicx}
+\hypersetup{colorlinks,linkcolor=blue,urlcolor=blue} 
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{adjustbox}
+\usepackage{epstopdf}
+\usepackage[para, flushleft]{threeparttablex}
+
+%%%%%%%%% NEW COMMAND MACRO %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\notorth}{\ensuremath{\perp\!\!\!\!\!\!\diagup\!\!\!\!\!\!\perp}}
+\newcommand{\orth}{\ensuremath{\perp\!\!\!\perp}}
+\newcommand{\mr}{\multirow}
+\newcommand{\mc}{\multicolumn}
+
+%%%%%%%%% Theme %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%\usetheme{Warsaw}
+\usetheme{Boadilla}
+% or ...
+
+\usecolortheme{orchid}
+%\usecolortheme[Blue]{structure}
+% Alternatively, you can try Copenhagen; its borders are slightly less dark, but its the same style (rounded edged rectangle on the first %slide)
+%\usetheme{Copenhagen}
+
+%% Whatever is on the top of the slide
+%\useinnertheme{rounded} %%rectangles, circles, rounded, inmargin, 
+%\useoutertheme{split} %%puts sections on the upper-left hand side and subsections in upper-rhs; name and title on 
+
+\setbeamerfont{table}{size=\footnotesize} 
+\setbeamerfont{smalltable}{size=\scriptsize} 
+\setbeamerfont{microtable}{size=\tiny}
+\setbeamertemplate{navigation symbols}{}  %%Get rid of the navigation symbols at the bottom
+\setbeamertemplate{footline}[text line]{\parbox{\linewidth}{\hfill  \insertpagenumber / \insertpresentationendpage}} %\insertshortauthor \hspace{2ex} \insertshorttitle
+%\setbeamertemplate{footline}[text line]{\parbox{\linewidth}{\vspace*{-8pt}\insertshortauthor  \hfill  \insertpagenumber }}  %\insertpresentationendpage
+
+\usepackage{booktabs}
+\usepackage[flushleft]{threeparttable}
+
+
+%Here is alternative table of contents pointers% 
+%\setbeamertemplate{sections/subsections in toc}[square] 
+\setbeamertemplate{sections/subsections in toc}[circle] 
+%\setbeamertemplate{sections/subsections in toc}[ball] 
+%\setbeamertemplate{sections/subsections in toc}[ball unnumbered]
+%\setbeamertemplate{sections/subsections in toc}[default]
+
+%The next line is the background. Right now we have it set to a vertical shading, with top white bottom 20% blue. 
+%You can alter this however you want. We were using red!20 before. You can use standard names for colors, or if I understand correctly 
+%you can also use RGB (red green blue) code, for example 30,30,30) 
+%\setbeamertemplate{background canvas}[vertical shading][top=white,bottom=blue!10]
+
+%Alternatively, you can make the background just a solid color. 
+%\setbeamercolor{background canvas}{bg=red!5}
+
+%Below is the amount of opaqueness in terms of percent.  You can remove this line or set to 0 and it will make future lines unable to be seen.
+\setbeamercovered{transparent=15}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\graphicspath{{include/}}

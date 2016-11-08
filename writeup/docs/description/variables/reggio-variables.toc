@@ -1,0 +1,29 @@
+\contentsline {section}{\numberline {1}Overview}{2}{section.1}
+\contentsline {section}{\numberline {2}Education Variables}{3}{section.2}
+\contentsline {subsection}{\numberline {2.1}Maximum Education}{3}{subsection.2.1}
+\contentsline {subsection}{\numberline {2.2}High School Grades}{4}{subsection.2.2}
+\contentsline {section}{\numberline {3}Cognitive Variables}{7}{section.3}
+\contentsline {section}{\numberline {4}Income and Employment Variables}{10}{section.4}
+\contentsline {subsection}{\numberline {4.1}Family Income}{10}{subsection.4.1}
+\contentsline {subsection}{\numberline {4.2}Caregiver's Occupation and Hours of Work}{10}{subsection.4.2}
+\contentsline {subsection}{\numberline {4.3}House Ownership}{11}{subsection.4.3}
+\contentsline {section}{\numberline {5}Non-cognitive Variables}{12}{section.5}
+\contentsline {subsection}{\numberline {5.1}Depression score}{12}{subsection.5.1}
+\contentsline {subsection}{\numberline {5.2}Locus of Control}{14}{subsection.5.2}
+\contentsline {subsection}{\numberline {5.3}Optimistic outlook on life}{14}{subsection.5.3}
+\contentsline {subsection}{\numberline {5.4}SDQ Scores}{15}{subsection.5.4}
+\contentsline {subsubsection}{\numberline {5.4.1}SDQ Composite score}{15}{subsubsection.5.4.1}
+\contentsline {subsubsection}{\numberline {5.4.2}SDQ Emotional score}{15}{subsubsection.5.4.2}
+\contentsline {subsubsection}{\numberline {5.4.3}SDQ Conduct score}{16}{subsubsection.5.4.3}
+\contentsline {subsubsection}{\numberline {5.4.4}SDQ Hyper score}{17}{subsubsection.5.4.4}
+\contentsline {subsubsection}{\numberline {5.4.5}SDQ Peer problems score}{17}{subsubsection.5.4.5}
+\contentsline {subsubsection}{\numberline {5.4.6}SDQ Pro-social score}{18}{subsubsection.5.4.6}
+\contentsline {subsection}{\numberline {5.5}Satisfaction variables}{18}{subsection.5.5}
+\contentsline {subsection}{\numberline {5.6}Reciprocity variables}{19}{subsection.5.6}
+\contentsline {section}{\numberline {6}Health Variables}{20}{section.6}
+\contentsline {subsection}{\numberline {6.1}Body Mass Index (BMI)}{20}{subsection.6.1}
+\contentsline {subsection}{\numberline {6.2}Subjective Health Measures}{20}{subsection.6.2}
+\contentsline {subsection}{\numberline {6.3}Risky Behaviors}{20}{subsection.6.3}
+\contentsline {section}{\numberline {7}Instruments}{21}{section.7}
+\contentsline {subsection}{\numberline {7.1}Descriptive statistics}{22}{subsection.7.1}
+\contentsline {subsection}{\numberline {7.2}Missing observations}{27}{subsection.7.2}
