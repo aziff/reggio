@@ -1,0 +1,48 @@
+This is BibTeX, Version 0.99d (TeX Live 2016/W32TeX)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: reggio-variables.aux
+The style file: chicago.bst
+A level-1 auxiliary file: bu.aux
+Database file #1: heckman.bib
+Database file #2: heckmanAdd.bib
+You've used 8 entries,
+            2861 wiz_defined-function locations,
+            680 strings with 6598 characters,
+and the built_in function-call counts, 5046 in all, are:
+= -- 397
+> -- 347
+< -- 0
++ -- 104
+- -- 116
+* -- 456
+:= -- 950
+add.period$ -- 25
+call.type$ -- 8
+change.case$ -- 53
+chr.to.int$ -- 8
+cite$ -- 8
+duplicate$ -- 144
+empty$ -- 326
+format.name$ -- 128
+if$ -- 907
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 11
+newline$ -- 44
+num.names$ -- 80
+pop$ -- 40
+preamble$ -- 1
+purify$ -- 104
+quote$ -- 0
+skip$ -- 140
+stack$ -- 0
+substring$ -- 284
+swap$ -- 45
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 130
+warning$ -- 0
+while$ -- 78
+width$ -- 0
+write$ -- 111
