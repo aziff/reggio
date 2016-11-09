@@ -6,7 +6,7 @@ Date:			November 5, 2016
 This file:		Propensity score matching for all cohorts
 				Old results with previous set of outcomes and controls
 */
-
+/*
 cap log close
 set more off
 
@@ -24,8 +24,6 @@ global code			= 	"${git_reggio}/script"
 cd ${code}/psm/function
 include psmweight
 
-//local day=subinstr("$S_DATE"," ","",.)
-//log using "${code}/psm/PSM`day'.log", text replace
 
 // DATA PREPARATION
 
@@ -85,11 +83,15 @@ gen sample_materna2 	= ((Reggio == 1 & ReggioMaterna == 1) 	| (Parma == 1) | (Pa
 gen sample3 		= (Reggio == 1 	| Parma == 1)
 gen sample4 		= (Reggio == 1 	| Padova == 1)
 
-
+*/
 
 
 				
 // ANALYSIS
+cap log close
+local day=subinstr("$S_DATE"," ","",.)
+log using "${code}/psm/PSM`day'pweight", replace
+
 
 local child_cat_groups	CN S H B 
 local adol_cat_groups	CN S H B
