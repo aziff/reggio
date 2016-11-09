@@ -46,7 +46,7 @@ global maternaMuniPadova30_c	Padova30
 global maternaMuniPadova40_c	Padova40
 
 
-** Preparation for PSM
+** Preparation for IPW
 drop if(ReggioAsilo == . | ReggioMaterna == .)
 
 gen sample1 		= (Reggio == 1)
@@ -86,7 +86,7 @@ keep if (Cohort == 1) | (Cohort == 2)
 foreach type in None Stat Reli Other {
 	* Set necessary global variables
 	global X					maternaMuni
-	global comparisonlist		NoneIt BICIt FullIt DidPmIt DidPvIt PSMIt NoneMg BICMg FullMg DidPmMg DidPvMg PSMMg // It => Italians, Mg => Migrants
+	global comparisonlist		NoneIt BICIt FullIt DidPmIt DidPvIt IPWIt NoneMg BICMg FullMg DidPmMg DidPvMg IPWMg // It => Italians, Mg => Migrants
 	global usegroup				munivs`type'_child
 
 	global XNoneIt				maternaMuni		
@@ -94,23 +94,23 @@ foreach type in None Stat Reli Other {
 	global XFullIt				maternaMuni		
 	global XDidPmIt				maternaMuni	Reggio xmMuniReggio	
 	global XDidPvIt				maternaMuni	Reggio xmMuniReggio	
-	global XPSMIt				ReggioMaterna materna
+	global XIPWIt				ReggioMaterna materna
 
 	global XNoneMg				maternaMuni		
 	global XBICMg				maternaMuni		
 	global XFullMg				maternaMuni		
 	global XDidPmMg				maternaMuni	Reggio xmMuniReggio	
 	global XDidPvMg				maternaMuni	Reggio xmMuniReggio	
-	global XPSMMg				ReggioMaterna materna
+	global XIPWMg				ReggioMaterna materna
 
 	global keepNoneIt			maternaMuni
 	global keepBICIt			maternaMuni
 	global keepFullIt			maternaMuni
-	global keepPSMIt			ReggioMaterna
+	global keepIPWIt			ReggioMaterna
 	global keepNoneMg			maternaMuni
 	global keepBICMg			maternaMuni
 	global keepFullMg			maternaMuni
-	global keepPSMMg			ReggioMaterna
+	global keepIPWMg			ReggioMaterna
 
 	global keepDidPmIt			xmMuniReggio
 	global keepDidPvIt			xmMuniReggio
@@ -130,8 +130,8 @@ foreach type in None Stat Reli Other {
 	global controlsDidPmMg		${bic_child_baseline_vars}
 	global controlsDidPvIt		${bic_child_baseline_vars}
 	global controlsDidPvMg		${bic_child_baseline_vars}
-	global controlsPSMIt		${bic_child_baseline_vars} [pweight = weight_Cohort1]
-	global controlsPSMMg		${bic_child_baseline_vars} [pweight = weight_Cohort2]
+	global controlsIPWIt		${bic_child_baseline_vars} [pweight = weight_Cohort1]
+	global controlsIPWMg		${bic_child_baseline_vars} [pweight = weight_Cohort2]
 
 	global ifconditionNoneIt 	(Reggio == 1) & (Cohort_Child == 1)   & (maternaMuni == 1 | materna`type' == 1)
 	global ifconditionBICIt		${ifconditionNoneIt}
@@ -144,16 +144,16 @@ foreach type in None Stat Reli Other {
 	global ifconditionFull		${ifconditionNoneMg}
 	global ifconditionDidPmIt	(Reggio == 1 | Parma == 1) & (Cohort == 1)   & (maternaMuni == 1 | materna`type' == 1)
 	global ifconditionDidPvIt	(Reggio == 1 | Padova == 1) & (Cohort == 1)   & (maternaMuni == 1 | materna`type' == 1)
-	global ifconditionPSMIt		(sample_materna2 == 1 & Cohort == 1)
+	global ifconditionIPWIt		(sample_materna2 == 1 & Cohort == 1)
 	global ifconditionDidPmMg	(Reggio == 1 | Parma == 1) & (Cohort == 2)   & (maternaMuni == 1 | materna`type' == 1)
 	global ifconditionDidPvMg	(Reggio == 1 | Padova == 1) & (Cohort == 2)   & (maternaMuni == 1 | materna`type' == 1)
-	global ifconditionPSMMg		(sample_materna2 == 1 & Cohort == 2)
+	global ifconditionIPWMg		(sample_materna2 == 1 & Cohort == 2)
 
 
 	foreach type in CN S H B {
 
-		* Compute PSM Weight
-		di "Estimating `type' for Children: PSMWEIGHT"
+		* Compute IPW Weight
+		di "Estimating `type' for Children: psmweight"
 		psmweight, yvar("ReggioMaterna") xvars(${child_baseline_vars}) cohort_num(1) school_type("materna")
 		psmweight, yvar("ReggioMaterna") xvars(${child_baseline_vars}) cohort_num(2) school_type("materna") 
 
@@ -178,7 +178,7 @@ keep if (Cohort == 3)
 foreach type in None Stat Reli Other {
 	* Set necessary global variables
 	global X					maternaMuni
-	global comparisonlist		None BIC Full DidPm DidPv PSM 
+	global comparisonlist		None BIC Full DidPm DidPv IPW 
 	global usegroup				munivs`type'_adol
 
 	global XNone				maternaMuni		
@@ -186,12 +186,12 @@ foreach type in None Stat Reli Other {
 	global XFull				maternaMuni		
 	global XDidPm				maternaMuni	Reggio xmMuniReggio	
 	global XDidPv				maternaMuni	Reggio xmMuniReggio	
-	global XPSM					ReggioMaterna materna
+	global XIPW					ReggioMaterna materna
 
 	global keepNone				maternaMuni
 	global keepBIC				maternaMuni
 	global keepFull				maternaMuni
-	global keepPSM				ReggioMaterna
+	global keepIPW				ReggioMaterna
 	global keepDidPm			xmMuniReggio
 	global keepDidPv			xmMuniReggio
 
@@ -200,19 +200,19 @@ foreach type in None Stat Reli Other {
 	global controlsFull			${adol_baseline_vars}
 	global controlsDidPm		${bic_adol_baseline_vars}
 	global controlsDidPv		${bic_adol_baseline_vars}
-	global controlsPSM			${bic_adol_baseline_vars} [pweight = weight_Cohort3]
+	global controlsIPW			${bic_adol_baseline_vars} [pweight = weight_Cohort3]
 
 	global ifconditionNone 		(Reggio == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`type' == 1)
 	global ifconditionBIC		${ifconditionNone}
 	global ifconditionFull		${ifconditionNone}
 	global ifconditionDidPm		(Reggio == 1 | Parma == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`type' == 1)
 	global ifconditionDidPv		(Reggio == 1 | Padova == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`type' == 1)
-	global ifconditionPSM		(sample_materna2 == 1 & Cohort == 3)   & (maternaMuni == 1 | materna`type' == 1)
+	global ifconditionIPW		(sample_materna2 == 1 & Cohort == 3)   & (maternaMuni == 1 | materna`type' == 1)
 
 
 	foreach type in CN S H B {
 		
-		* Compute PSM Weight
+		* Compute IPW Weight
 		psmweight, yvar("ReggioMaterna") xvars(${child_baseline_vars}) cohort_num(3) school_type("materna")
 
 		* Run Multiple Analysis
@@ -236,30 +236,30 @@ drop if asilo == 1 // dropping those who went to infant-toddler centers
 
 foreach type in None Stat Reli Other {
 	* Set necessary global variables
-	global comparisonlist		None30 BIC30 Full30 DidPm30 DidPv30 PSM30 None40 BIC40 Full40 DidPm40 DidPv40 PSM40
+	global comparisonlist		None30 BIC30 Full30 DidPm30 DidPv30 IPW30 None40 BIC40 Full40 DidPm40 DidPv40 IPW40
 
 	global XNone30				maternaMuni		
 	global XBIC30				maternaMuni		
 	global XFull30				maternaMuni		
 	global XDidPm30				maternaMuni	Reggio xmMuniReggio	
 	global XDidPv30				maternaMuni	Reggio xmMuniReggio	
-	global XPSM30				ReggioMaterna materna
+	global XIPW30				ReggioMaterna materna
 
 	global XNone40				maternaMuni		
 	global XBIC40				maternaMuni		
 	global XFull40				maternaMuni		
 	global XDidPm40				maternaMuni	Reggio xmMuniReggio	
 	global XDidPv40				maternaMuni	Reggio xmMuniReggio	
-	global XPSM40				ReggioMaterna materna
+	global XIPW40				ReggioMaterna materna
 
 	global keepNone30			maternaMuni
 	global keepBIC30			maternaMuni
 	global keepFull30			maternaMuni
-	global keepPSM30			ReggioMaterna
+	global keepIPW30			ReggioMaterna
 	global keepNone40			maternaMuni
 	global keepBIC40			maternaMuni
 	global keepFull40			maternaMuni
-	global keepPSM40			ReggioMaterna
+	global keepIPW40			ReggioMaterna
 
 	global keepDidPm30			xmMuniReggio
 	global keepDidPv30			xmMuniReggio
@@ -278,26 +278,26 @@ foreach type in None Stat Reli Other {
 	global controlsDidPm40		${bic_adult_baseline_vars}
 	global controlsDidPv30		${bic_adult_baseline_vars}
 	global controlsDidPv40		${bic_adult_baseline_vars}
-	global controlsPSM30		${bic_adult_baseline_vars} [pweight = weight_Cohort4]
-	global controlsPSM40		${bic_adult_baseline_vars} [pweight = weight_Cohort5]
+	global controlsIPW30		${bic_adult_baseline_vars} [pweight = weight_Cohort4]
+	global controlsIPW40		${bic_adult_baseline_vars} [pweight = weight_Cohort5]
 
 	global ifconditionNone30 	(Reggio == 1) & (Cohort_Adult30 == 1)  & (maternaMuni == 1 | materna`type' == 1)
 	global ifconditionBIC30		${ifconditionNone30} 
 	global ifconditionFull30	${ifconditionNone30}
 	global ifconditionDidPm30	(Reggio == 1 | Parma == 1) & (Cohort_Adult30 == 1)  & (maternaMuni == 1 | materna`type' == 1)
 	global ifconditionDidPv30	(Reggio == 1 | Padova == 1) & (Cohort_Adult30 == 1)  & (maternaMuni == 1 | materna`type' == 1)
-	global ifconditionPSM30		(sample_materna2 == 1 & Cohort == 4)
+	global ifconditionIPW30		(sample_materna2 == 1 & Cohort == 4)
 
 	global ifconditionNone40 	(Reggio == 1) & (Cohort_Adult40 == 1)  & (maternaMuni == 1 | materna`type' == 1)
 	global ifconditionBIC40		${ifconditionNone40}
 	global ifconditionFull40	${ifconditionNone40}
 	global ifconditionDidPm40	(Reggio == 1 | Parma == 1) & (Cohort_Adult40 == 1)  & (maternaMuni == 1 | materna`type' == 1)
 	global ifconditionDidPv40	(Reggio == 1 | Padova == 1) & (Cohort_Adult40 == 1)  & (maternaMuni == 1 | materna`type' == 1)
-	global ifconditionPSM40		(sample_materna2 == 1 & Cohort == 5)
+	global ifconditionIPW40		(sample_materna2 == 1 & Cohort == 5)
 
 	foreach type in E W L H N S R {
 		
-		* Compute PSM Weight
+		* Compute IPW Weight
 		psmweight, yvar("ReggioMaterna") xvars(${adult_baseline_vars}) cohort_num(4) school_type("materna") // For age-30 cohort
 		psmweight, yvar("ReggioMaterna") xvars(${adult_baseline_vars}) cohort_num(5) school_type("materna") // For age-40 cohort
 
@@ -307,6 +307,4 @@ foreach type in None Stat Reli Other {
 }
 
 restore
-
-
 
