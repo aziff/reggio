@@ -67,6 +67,89 @@ local Adult40_num 		= 5
 local Adult50_num 		= 6
 
 
+
+
+
+
+
+* ---------------------------------------------------------------------------- *
+* 					Reggio Muni vs. None:	Children 						   *
+* ---------------------------------------------------------------------------- *
+** Keep only the adult cohorts
+preserve
+keep if (Cohort == 1) | (Cohort == 2) 
+
+* Set necessary global variables
+global X					maternaMuni
+*global list				NoneIt BICIt FullIt NoneMg BICMg FullMg   // It => Italians, Mg => Migrants
+global list					None BIC Full
+global usegroup				munivsnone
+
+global controlsNoneIt
+global controlsNoneMg
+global controlsNone
+global controlsBICIt		${bic_child_baseline_vars}
+global controlsBICMg		${bic_child_baseline_vars}
+global controlsBIC			${bic_child_baseline_vars}
+global controlsFullIt		${child_baseline_vars}
+global controlsFullMg		${child_baseline_vars}
+global controlsFull			${child_baseline_vars}
+
+global ifconditionNoneIt 	(Reggio == 1) & (Cohort_Child == 1) & (maternaMuni == 1 | maternaNone == 1)
+global ifconditionBICIt		${ifconditionNoneIt}
+global ifconditionFullIt	${ifconditionNoneIt}
+global ifconditionNoneMg 	(Reggio == 1) & (Cohort_Migrants == 1) & (maternaMuni == 1 | maternaNone == 1)
+global ifconditionBICMg		${ifconditionNoneMg}
+global ifconditionFullMg	${ifconditionNoneMg}
+global ifconditionNone	 	(Reggio == 1) & (maternaMuni == 1 | maternaNone == 1)
+global ifconditionBIC		${ifconditionNoneMg}
+global ifconditionFull		${ifconditionNoneMg}
+
+foreach type in CN S H B {
+
+	olsestimate, type("`type'") list("${list}") usegroup("${usegroup}") keep(${X}) cohort("child")
+
+}
+restore
+
+
+* ---------------------------------------------------------------------------- *
+* 					Reggio Muni vs. None:	Adolescents 					   *
+* ---------------------------------------------------------------------------- *
+** Keep only the adult cohorts
+preserve
+keep if (Cohort == 3)
+
+* Set necessary global variables
+global X					maternaMuni
+global list					None BIC Full 
+global usegroup				munivsnone
+
+global controlsNone
+global controlsBIC			${bic_adol_baseline_vars}
+global controlsFull			${adol_baseline_vars}
+
+global ifconditionNone  	(Reggio == 1) & (Cohort_Adol == 1) & (maternaMuni == 1 | maternaNone == 1)
+global ifconditionBIC 		${ifconditionNone}
+global ifconditionFull 		${ifconditionNone}
+
+foreach type in CN S H B {
+
+	olsestimate, type("`type'") list("${list}") usegroup("${usegroup}") keep(${X}) cohort("adol")
+
+}
+restore
+
+
+
+
+
+
+
+
+
+
+
 	
 
 * ---------------------------------------------------------------------------- *
