@@ -13,13 +13,13 @@ With
 %\begin{footnotesize}
 \begin{itemize}
 	\item $Y_{i}$: outcome interest
-	\item $R_{i}$: dummy for RCA attendance, vs. control group $\mathcal{C}$
+	\item $R_{i}$: dummy for municipal attendance, vs. control group $\mathcal{C}$
 	\begin{enumerate}
 		\item Reggio Emilia \hfill {\scriptsize other child-care type (rel, state, priv, none)}
 		\item Parma or Padova \hfill {\scriptsize any child-care type (mun, rel, state, priv, none)}
 		%\item Reggio, Parma, or Padova \hfill  {\scriptsize any other child-care type}
 	\end{enumerate}
-	\item Separately for age (0-3) and (3-6), $a \in \{ITC,PS\}$ %, where $a$ can be either infant-toddler centers (ITC, age 0-3) or preschool (PS, age 3-6); 
+	\item Separate for age (0-3) and (3-6), $a \in \{ITC,PS\}$ %, where $a$ can be either infant-toddler centers (ITC, age 0-3) or preschool (PS, age 3-6); 
 	%\item $C_{i}$: attended any type of childcare
 	\item $\boldsymbol{X}$ predetermined control variables\footnotetext{\scriptsize \noindent Age and gender of the individual, health at birth, family structure, parental educational and economic resources, house property, religiosity, and distance from the town center}
 
@@ -70,6 +70,18 @@ where $Reggio_{i}=1$ if the respondent is from Reggio Emilia, $MC_{i}=1$ if the 
 
 %-----------------------------------------------------------------------------------------------
 \begin{frame} \frametitle{Method 3: Propensity Score Matching}
+Consider the potential for selection into the Reggio Approach. We want to account for this and characterize hypothetical selection in Parma and Padova.
 
+\begin{enumerate}
+\item \textbf{Predict the probability of attending the Reggio Approach} \\
+\quad {\scriptsize Sample: Individuals in Reggio Emilia} \\
+$R_i = \beta_0 + \textbf{X}_i\beta + \upsilon_{i}$
+\item \textbf{Calculate inverse propensities based on these estimates} \\
+\quad {\scriptsize Sample: Individuals in Reggio Emilia, Parma, and Padova} \\
+$\hat{\omega}_i = \frac{1}{\hat{R}_i}$ if $P_i =1$; $\hat{\omega}_i\frac{1}{1-\hat{R}_i}$ if $P_i = 0$
+\item \textbf{Use this to reweigh the sample} \\
+\quad {\scriptsize Sample: Individuals in Reggio Emilia, Parma, and Padova} \\
+$Y_i = \alpha_0 + \alpha_1 R_i + \alpha_2 P_i + \textbf{X}_i\alpha + \eta_{i}$
+\end{enumerate}
 
 \end{frame}
