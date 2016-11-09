@@ -1,0 +1,18 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{6}{c}}
+\toprule
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
+            &\multicolumn{1}{c}{None}&\multicolumn{1}{c}{BIC}&\multicolumn{1}{c}{Full}&\multicolumn{1}{c}{DidPm}&\multicolumn{1}{c}{DidPv}&\multicolumn{1}{c}{PSM}\\
+\midrule
+Num. of Friends&       0.217         &       1.029         &       0.733         &      -1.236         &       1.253         &      -0.470         \\
+            &     (1.222)         &     (1.105)         &     (1.132)         &     (1.857)         &     (2.052)         &     (1.103)         \\
+\addlinespace
+Doesn't Talk About Activities&      0.0505         &      0.0304         &    0.000985         &       0.141         &    -0.00887         &      -0.154\sym{*}  \\
+            &    (0.0761)         &    (0.0789)         &    (0.0829)         &     (0.120)         &     (0.110)         &    (0.0666)         \\
+\addlinespace
+Doesn't Talk About School&      0.0104         &   -0.000666         &     -0.0195         &      0.0279         &      0.0212         &     -0.0705         \\
+            &    (0.0730)         &    (0.0736)         &    (0.0772)         &     (0.110)         &     (0.105)         &    (0.0563)         \\
+\bottomrule
+\end{tabular}
+}
