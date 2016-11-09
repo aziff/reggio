@@ -24,16 +24,16 @@ global schools					Municipal State Religious Private None
 * ------------------ *
 * Baseline variables *
 * ------------------ *
-global child_baseline_vars  	Male /*Cohort_Migrants*/ lowbirthweight birthpremature CAPI	teenMomBirth momBornProvince momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni teenDadBirth dadBornProvince dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni numSibling_1 numSibling_2 numSibling_more cgCatholic int_cgCatFaith houseOwn cgMigrant cgReddito_1 cgReddito_2 cgReddito_3 cgReddito_4 cgReddito_5 cgReddito_6 cgReddito_7
+global child_baseline_vars  	Male /*Cohort_Migrants*/ lowbirthweight birthpremature CAPI	momBornProvince momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni cgIslam dadBornProvince dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni numSibling_1 numSibling_2 numSibling_more cgCatholic cgIslam int_cgCatFaith houseOwn cgMigrant cgReddito_1 cgReddito_2 cgReddito_3 cgReddito_4 cgReddito_5 cgReddito_6 cgReddito_7
 								//momWork_fulltime06 momWork_parttime06 momSchool06  
 								// We assume that household income abd family house ownership for children cohorts can be considered as "baseline"
 								
-global adol_baseline_vars  		Male lowbirthweight birthpremature CAPI ///
-								teenMomBirth momBornProvince ///
+global adol_baseline_vars  		Male lowbirthweight birthpremature CAPI cgIslam ///
+								momBornProvince ///
 								momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
-								teenDadBirth dadBornProvince ///
+								dadBornProvince ///
 								dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
-								numSibling_1 numSibling_2 numSibling_more cgCatholic int_cgCatFaith cgMigrant ///
+								numSibling_1 numSibling_2 numSibling_more cgCatholic int_cgCatFaith cgMigrant 
 								//momWork_fulltime06 momWork_parttime06 momSchool06		 						
 								
 								
@@ -42,7 +42,7 @@ global adult_baseline_vars		Male CAPI ///
 								momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
 								dadBornProvince  ///
 								dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
-								numSibling_1 numSibling_2 numSibling_more cgRelig ///
+								numSibling_1 numSibling_2 numSibling_more cgRelig cgIslam
 								//momWork_fulltime06 momWork_parttime06 momSchool06
 								
 								
@@ -55,9 +55,9 @@ global Adult50_baseline_vars		 	$adult_baseline_vars
 
 								
 * BIC-selected baseline variables 
-global bic_child_baseline_vars				Male CAPI Cohort_Migrants numSibling_more houseOwn cgMigrant cgReddito_7
-global bic_adol_baseline_vars				Male CAPI momMaxEdu_low dadMaxEdu_Uni numSibling_2 cgCatholic
-global bic_adult_baseline_vars		    	Male CAPI momMaxEdu_middle dadMaxEdu_Uni numSibling_2 numSibling_more
+global bic_child_baseline_vars				Male CAPI Cohort_Migrants numSibling_more houseOwn cgMigrant cgReddito_7 cgIslam
+global bic_adol_baseline_vars				Male CAPI momMaxEdu_low dadMaxEdu_Uni numSibling_2 cgCatholic cgIslam
+global bic_adult_baseline_vars		    	Male CAPI momMaxEdu_middle dadMaxEdu_Uni numSibling_2 numSibling_more cgIslam
 
 
 * ------------------------------------------- *											
@@ -115,7 +115,7 @@ global adult_outcome_H					Maria /*Smoke*/ Cig BMI BMI_obese BMI_overweight good
 * Noncognitive										
 global adult_outcome_N					pos_LocusControl pos_Depression_score Stress StressWork ///
 										SatisIncome SatisWork SatisHealth SatisFamily ///
-										optimist reciprocity1 reciprocity2 reciprocity3 reciprocity4	
+										optimist pos_reciprocity neg_reciprocity	
 
 * Social										
 global adult_outcome_S					MigrTaste Friends MigrFriend volunteer invFamMeal invFamMeal ///
@@ -188,6 +188,8 @@ global reciprocity1_lab					Return Favor
 global reciprocity2_lab					Put Someone in Difficulty
 global reciprocity3_lab					Help Someone Kind To Me
 global reciprocity4_lab 				Insult Back
+global pos_reciprocity_lab				Positive Reciprocity
+global neg_reciprocity_lab				Negative Reciprocity
 
 global MigrTaste_lab					Favorable to Migrants
 global Friends_lab						Number of Friends

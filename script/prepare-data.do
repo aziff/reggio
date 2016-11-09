@@ -534,6 +534,10 @@ label define religion_lab  0 "None" 1 "Catholic" 2 "Protestant" 3 "Orthodox" 4 "
 							5 "Jewish" 6 "Islamica" 7 "Eastern Religion" 8 "Other Religion"
 label values cgReligType religion_lab
 
+*** Indicator for Islamica
+generate cgIslam = (cgReligType == 6)
+label var cgIslam "dv: Caregiver's religion is Islam"
+
 
 *** Caregiver Nationality
 ** Southern Europe (Albania, Bulgaria, Georgia, Macedonia, Romania, Serbia)
@@ -595,6 +599,20 @@ lab define LS_ado 1 "Not at all" 2 "Not really" 3 "So so" 4 "Somewhat" 5 "A lot"
 lab values likeSchool_ado_pos LS_ado
 
 
+
+* Grouping positive and negative reciprocities together
+** Positive reciprocity
+egen pos_reciprocity = rowmean(reciprocity1 reciprocity3)
+lab var pos_reciprocity "dv: Positive reciprocity"
+
+** Nevative reciprocity
+egen neg_reciprocity = rowmean(reciprocity2 reciprocity4)
+lab var neg_reciprocity "dv: Negative reciprocity"
+
+
+** Generate non-maternaMuni
+generate maternaOther = (maternaMuni != 1)
+lab var maternaOther "dv: Went to non-municipal preschool or no preschool"
 
 
 * ---------------------------------------------------------------------------- *
