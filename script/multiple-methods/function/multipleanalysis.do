@@ -30,7 +30,7 @@ capture program drop multipleanalysis
 capture program define multipleanalysis
 
 version 13
-syntax, type(string) comparisonlist(string) usegroup(string) 
+syntax, type(string) comparisonlist(string) usegroup(string) cohort(string)
 	
 	
 	***** Create a local for the label (Going to be filled out in the loop)
@@ -38,10 +38,10 @@ syntax, type(string) comparisonlist(string) usegroup(string)
 	
 	***** Loop through the outcomes in a category and store diff-in-diff results for each age group
 	foreach comp in ${comparisonlist} {
-		foreach var in ${adult_outcome_`type'} {		
+		foreach var in ${`cohort'_outcome_`type'} {
 			sum `var' if ${ifcondition`comp'}
 			if r(N) > 0 {
-				eststo `var' : quietly reg `var' ${X`comp'} ${controls`comp'} if ${ifcondition`comp'}, robust
+				eststo `var' :  reg `var' ${X`comp'} ${controls`comp'} if ${ifcondition`comp'}, robust
 				local coeflabel `coeflabel' `var' "${`var'_lab}"
 			}
 		}	
