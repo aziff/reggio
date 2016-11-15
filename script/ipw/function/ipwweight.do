@@ -2,12 +2,12 @@
 Project:			Reggio Evaluation
 Authors:			Anna Ziff
 Original date:		11/8/16
-This file:			Function for PSM weights
+This file:			Function for IPW weights
 					Later: add some matching for sensitivity
 */
 
-capture program drop psmweight
-capture program define psmweight
+capture program drop ipwweight
+capture program define ipwweight
 
 version 13
 syntax, yvar(string) xvars(varlist) cohort_num(integer) school_type(string)

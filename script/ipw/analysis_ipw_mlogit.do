@@ -1,6 +1,6 @@
 /*
 Project:		Reggio Evaluation
-Authors:		Anna Ziff
+Authors:		Chiara Pronzato, Anna Ziff
 Date:			November 5, 2016
 
 This file:		Propensity score matching for all cohorts
@@ -69,3 +69,44 @@ local Adolescent_num 	= 3
 local Adult30_num 		= 4
 local Adult40_num 		= 5
 local Adult50_num 		= 6
+
+foreach group in /*child adol*/ adult { 							// group: children, adol, adults
+	foreach school in /*nido*/ materna {							// school: asilo, materna 
+		foreach cohort in ``group'_cohorts' {						// ``group'_cohorts'  cohort: childeren, adolescent, adults 30s, adults 40s, adults 50s
+						
+			// predict probabilities and generate weights
+			mlogit D ${`group'_outcome_`cat'} if Cohort == ``cohort'_num'
+			
+			gen weight_Cohort``cohort'_num' = .
+			
+			forvalues d = 0/2 {
+			
+				predict Dhat``cohort'_num'`d' 									if Cohort == ``cohort'_num', outcome(`d')
+				replace weight_Cohort``cohort'_num' = (1 / Dhat``cohort'_num'`d') if D == `d' & Cohort == ``cohort'_num'
+			}
+			
+			// loop through outcomes
+			foreach cat in ``group'_cat_groups' {					// outcome category (differs by group)			
+			
+				foreach outcome in ${`group'_outcome_`cat'} { 		// outcome (differs by outcome category)
+				preserve
+					// regress outcome on controls
+					forvalues d = 0/2 {
+						reg `outcome' ${`cohort'_baseline_vars} CAPI if Cohort == ``cohort'_num' & D == `d'
+						predict Yhat`d' if Cohort == ``cohort'_num'
+					}
+					
+					
+					// wrong approach
+					// residualize
+					//gen `outcome'R = `outcome' - `outcome'hat if Cohort == ``cohort'_num'
+					
+					// regress using weights
+					//reg `outcome'R ``school'_var' [pweight= weight_Cohort``cohort'_num'] if Cohort == ``cohort'_num' , robust
+						
+				restore
+				}
+			}
+		}
+	}
+}
