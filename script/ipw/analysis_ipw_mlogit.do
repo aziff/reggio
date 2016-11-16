@@ -10,6 +10,8 @@ This file:		Propensity score matching for all cohorts
 cap log close
 set more off
 
+global bootstrap = 3
+
 global klmReggio 	:	env klmReggio
 global git_reggio	:	env git_reggio
 global data_reggio	: 	env data_reggio
@@ -42,10 +44,15 @@ gen sample_materna2 	= ((Reggio == 1 & ReggioMaterna == 1) 	| (Parma == 1) | (Pa
 gen sample3 			= (Reggio == 1 	| Parma == 1)
 gen sample4 			= (Reggio == 1 	| Padova == 1)
 
+// DEFINE D
 gen D = .
 replace D = 2 if (ReggioMaterna == 0) & (maternaType == 0)
 replace D = 1 if (ReggioMaterna == 0) & (maternaType > 0)
 replace D = 0 if (ReggioMaterna == 1)
+
+gen D0 = (D == 0)
+gen D1 = (D == 1)
+gen D2 = (D == 2)
 
 // ANALYSIS
 global adult_baseline_vars		Male ///
@@ -73,38 +80,65 @@ local Adult50_num 		= 6
 foreach group in /*child adol*/ adult { 							// group: children, adol, adults
 	foreach school in /*nido*/ materna {							// school: asilo, materna 
 		foreach cohort in ``group'_cohorts' {						// ``group'_cohorts'  cohort: childeren, adolescent, adults 30s, adults 40s, adults 50s
-						
-			// predict probabilities and generate weights
-			mlogit D ${`group'_outcome_`cat'} if Cohort == ``cohort'_num'
 			
-			gen weight_Cohort``cohort'_num' = .
+					// loop through outcomes
+					foreach cat in ``group'_cat_groups' {					// outcome category (differs by group)			
 			
-			forvalues d = 0/2 {
-			
-				predict Dhat``cohort'_num'`d' 									if Cohort == ``cohort'_num', outcome(`d')
-				replace weight_Cohort``cohort'_num' = (1 / Dhat``cohort'_num'`d') if D == `d' & Cohort == ``cohort'_num'
-			}
-			
-			// loop through outcomes
-			foreach cat in ``group'_cat_groups' {					// outcome category (differs by group)			
-			
-				foreach outcome in ${`group'_outcome_`cat'} { 		// outcome (differs by outcome category)
-				preserve
-					// regress outcome on controls
-					forvalues d = 0/2 {
-						reg `outcome' ${`cohort'_baseline_vars} CAPI if Cohort == ``cohort'_num' & D == `d'
-						predict Yhat`d' if Cohort == ``cohort'_num'
-					}
+						foreach outcome in ${`group'_outcome_`cat'} { 		// outcome (differs by outcome category)
+							matrix `outcome'`cohort' = J(${bootstrap},1,.)
+							// bootstrap
+							forvalues b = 0/$bootstrap {
+							preserve
+								if `b' != 0 { // 0 is point estimate with original sample
+									bsample N
+								}
+								
+								// predict probabilities and generate weights
+								mlogit D ${`group'_outcome_`cat'} if Cohort == ``cohort'_num'
+								
+								drop weight_Cohort``cohort'_num'
+								gen weight_Cohort``cohort'_num' = .
+				
+								forvalues d = 0/2 {
+									
+									predict Dhat``cohort'_num'`d' 									if Cohort == ``cohort'_num', outcome(`d')
+									replace weight_Cohort``cohort'_num' = (1 / Dhat``cohort'_num'`d') if D == `d' & Cohort == ``cohort'_num'
+								}
+							
+								// regress outcome on controls
+								forvalues d = 0/2 {
+									reg `outcome' ${`cohort'_baseline_vars} CAPI if Cohort == ``cohort'_num' & D == `d'
+									
+									predict Yhat`d' if Cohort == ``cohort'_num'
+								}
 					
+								// calculate estimator
+								gen tmp2 = Yhat2 + D2/weight_Cohort``cohort'_num' * (`outcome' - Yhat2)
+								forvalues d = 0/1 {
+								
+									gen tmp`d' = Yhat`d' + D`d'/weight_Cohort``cohort'_num' * (`outcome' - Yhat`d')
+									
+									gen dr`d'`outcome'``cohort'_num' = tmp2 - tmp`d'
+								}
+				
+								// store result
+								collapse dr0`outcome'``cohort'_num' dr1`outcome'``cohort'_num' if Cohort == ``cohort'_num'
+								
+								mkmat dr`outcome'``cohort'_num', matrix(tmp)
+								
+								matrix `outcome'``cohort'_num' = (`outcome'``cohort'_num' \ tmp)
+								matrix drop tmp
+								
+								// drop variables for this bootstrap
+								drop Dhat* Yhat* tmp* dr*
 					
-					// wrong approach
-					// residualize
-					//gen `outcome'R = `outcome' - `outcome'hat if Cohort == ``cohort'_num'
-					
-					// regress using weights
-					//reg `outcome'R ``school'_var' [pweight= weight_Cohort``cohort'_num'] if Cohort == ``cohort'_num' , robust
-						
-				restore
+							restore
+						}
+
+						// calculate mean for each outcome and cohort
+						matrix list `outcome'``cohort'_num'
+							
+						// calculate standard error for each outcome and cohort
 				}
 			}
 		}
