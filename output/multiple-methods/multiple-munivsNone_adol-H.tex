@@ -1,27 +1,27 @@
 {
 \def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
-\begin{tabular}{l*{6}{c}}
+\begin{tabular}{l*{5}{c}}
 \toprule
-            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}&\multicolumn{1}{c}{(6)}\\
-            &\multicolumn{1}{c}{None}&\multicolumn{1}{c}{BIC}&\multicolumn{1}{c}{Full}&\multicolumn{1}{c}{DidPm}&\multicolumn{1}{c}{DidPv}&\multicolumn{1}{c}{IPW}\\
+            &\multicolumn{1}{c}{(1)}&\multicolumn{1}{c}{(2)}&\multicolumn{1}{c}{(3)}&\multicolumn{1}{c}{(4)}&\multicolumn{1}{c}{(5)}\\
+            &\multicolumn{1}{c}{None}&\multicolumn{1}{c}{BIC}&\multicolumn{1}{c}{Full}&\multicolumn{1}{c}{DidPm}&\multicolumn{1}{c}{DidPv}\\
 \midrule
-Obese       &      -0.109         &     -0.0894         &      -0.314         &    -0.00265         &       0.672\sym{***}&     -0.0577         \\
-            &     (0.174)         &     (0.175)         &     (0.236)         &     (0.278)         &     (0.189)         &    (0.0454)         \\
+Obese       &      -0.109         &     -0.0894         &      -0.314         &    -0.00265         &       0.672\sym{***}\\
+            &     (0.174)         &     (0.175)         &     (0.236)         &     (0.278)         &     (0.189)         \\
 \addlinespace
-Overweight  &      -0.106         &      -0.102         &      -0.155         &      0.0543         &      -0.134         &     -0.0182         \\
-            &     (0.134)         &     (0.123)         &     (0.166)         &     (0.242)         &     (0.131)         &    (0.0268)         \\
+Overweight  &      -0.106         &      -0.102         &      -0.155         &      0.0543         &      -0.134         \\
+            &     (0.134)         &     (0.123)         &     (0.166)         &     (0.242)         &     (0.131)         \\
 \addlinespace
-Health is Good&     -0.0192         &      0.0317         &      -0.316\sym{*}  &       0.578\sym{**} &      -0.599\sym{**} &       0.158\sym{**} \\
-            &     (0.176)         &     (0.177)         &     (0.124)         &     (0.183)         &     (0.186)         &    (0.0566)         \\
+Health is Good&     -0.0192         &      0.0317         &      -0.316\sym{*}  &       0.578\sym{**} &      -0.599\sym{**} \\
+            &     (0.176)         &     (0.177)         &     (0.124)         &     (0.183)         &     (0.186)         \\
 \addlinespace
-Number of Sick Days&       0.106         &     -0.0987         &      -0.213         &      -0.113         &       1.538\sym{***}&     -0.0175         \\
-            &     (0.229)         &     (0.252)         &     (0.240)         &     (0.386)         &     (0.263)         &    (0.0878)         \\
+Number of Sick Days&       0.106         &     -0.0987         &      -0.213         &      -0.113         &       1.538\sym{***}\\
+            &     (0.229)         &     (0.252)         &     (0.240)         &     (0.386)         &     (0.263)         \\
 \addlinespace
-Ever Suspended from School&     -0.0697         &     -0.0642         &     -0.0787         &     -0.0529         &      -0.144         &      0.0357         \\
-            &     (0.135)         &     (0.110)         &     (0.141)         &     (0.115)         &     (0.120)         &    (0.0279)         \\
+Ever Suspended from School&     -0.0697         &     -0.0642         &     -0.0787         &     -0.0529         &      -0.144         \\
+            &     (0.135)         &     (0.110)         &     (0.141)         &     (0.115)         &     (0.120)         \\
 \addlinespace
-Num. of Cigarettes Per Day&      -1.900\sym{*}  &      -1.021         &       0.936         &       3.274\sym{**} &      -0.147         &       1.830         \\
-            &     (0.751)         &     (2.608)         &     (4.067)         &     (1.124)         &     (2.729)         &     (1.195)         \\
+Num. of Cigarettes Per Day&      -1.900\sym{*}  &      -1.021         &       0.936         &       3.274\sym{**} &      -0.147         \\
+            &     (0.751)         &     (2.608)         &     (4.067)         &     (1.124)         &     (2.729)         \\
 \bottomrule
 \end{tabular}
 }
