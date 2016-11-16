@@ -96,7 +96,8 @@ foreach group in /*child adol*/ adult { 							// group: children, adol, adults
 			file write tabfile`cat' " & No Preschool & Other Preschool & No Preschool & Other Preschool \\" _n
 			
 			// loop through outcomes
-			foreach outcome in ${`group'_outcome_`cat'} { 		
+			foreach outcome in ${`group'_outcome_`cat'} { 
+				di "OUTCOME: `outcome'"
 				foreach cohort in ``group'_cohorts' {			
 					matrix `outcome'`cohort' = J(1,2,.)
 					// bootstrap
@@ -107,7 +108,7 @@ foreach group in /*child adol*/ adult { 							// group: children, adol, adults
 							bsample, strata(Male)
 						}
 							// predict probabilities and generate weights
-							mlogit D ${`group'_outcome_`cat'}, base(2) vce(robust) iterate(30)
+							qui mlogit D ${`group'_baseline_vars}, base(2) vce(robust) iterate(30)
 							if e(converged) {		// only proceed if converged
 								if e(k_eq) == 3 { 	// only proceed if 3 outcomes
 									gen weight = .
@@ -120,7 +121,7 @@ foreach group in /*child adol*/ adult { 							// group: children, adol, adults
 							
 									// regress outcome on controls
 									forvalues d = 0/2 {
-										reg `outcome' ${`cohort'_baseline_vars} CAPI if D == `d'
+										qui reg `outcome' ${`cohort'_baseline_vars} CAPI if D == `d'
 										
 										predict Yhat`d' 
 									}
@@ -157,30 +158,40 @@ foreach group in /*child adol*/ adult { 							// group: children, adol, adults
 							}
 							restore
 						}
-						// calculate mean/se for each outcome and cohort
+						// calculate mean/se over bootstraps for each outcome and cohort
 						preserve	
+							clear
 							svmat `outcome'`cohort'
+							
 							forval i = 1/2 {
 								sum `outcome'`cohort'`i'
+								
 								local m`outcome'`cohort'`i' = r(mean)
 								local s`outcome'`cohort'`i' = r(sd)
 								local m`outcome'`cohort'`i' : di %9.2f `m`outcome'`cohort'`i''
 								local s`outcome'`cohort'`i' : di %9.2f `s`outcome'`cohort'`i''
 								
-								// bold significant means
-								else {
-									if abs(`p`i'`outcome'`cohort'' - `m`outcome'`cohort'`i'') > abs(`m`outcome'`cohort'`i'') {
-										local m`outcome'`cohort'`i' "\textbf{`m`outcome'`cohort'`i''}"
-									}
+								// calculate pvalue 
+								gen i`i' = .
+								replace i`i' = 1 if abs(`outcome'`cohort'`i' - `m`outcome'`cohort'`i'') > abs(`p`i'`outcome'`cohort'') & `outcome'`cohort'`i' != . 
+								sum i`i'
+								if r(mean) <= 0.1 {
+									local m`outcome'`cohort'`i' "\textbf{`m`outcome'`cohort'`i''}"
 								}
+								di "pvalue"
+								di r(mean)
 							}
 						restore
 						if ``cohort'_num' == 5 {
-							file write tabfile`cat' "${`outcome'_lab'} & `m`outcome'Adult301' & `m`outcome'Adult302' & `m`outcome'Adult401' & `m`outcome'Adult402' \\" _n
+							di "${`outcome'_lab}"
+							file write tabfile`cat' "${`outcome'_lab} & `m`outcome'Adult301' & `m`outcome'Adult302' & `m`outcome'Adult401' & `m`outcome'Adult402' \\" _n
 							file write tabfile`cat' "	& (`s`outcome'Adult301') & (`s`outcome'Adult302') & (`s`outcome'Adult401') & (`s`outcome'Adult402') \\" _n
 						}
 					}
-			}
+				}
+			file write tabfile`cat' "\bottomrule" _n
+			file write tabfile`cat' "\end{tabular}" _n
+			file close tabfile`cat'
 		}
 	}
 }
