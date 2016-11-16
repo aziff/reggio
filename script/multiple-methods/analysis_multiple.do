@@ -26,7 +26,7 @@ use "${data_reggio}/Reggio_prepared"
 * Include scripts and functions
 include "${here}/../macros" 
 include "${here}/function/multipleanalysis"
-include "${here}/../psm/function/psmweight"
+*include "${here}/../psm/function/psmweight"
 
 * ---------------------------------------------------------------------------- *
 * 								Preparation 								   *
@@ -86,7 +86,7 @@ keep if (Cohort == 1) | (Cohort == 2)
 foreach type in None Stat Reli Other {
 	* Set necessary global variables
 	global X					maternaMuni
-	global comparisonlist		NoneIt BICIt FullIt DidPmIt DidPvIt IPWIt NoneMg BICMg FullMg DidPmMg DidPvMg IPWMg // It => Italians, Mg => Migrants
+	global comparisonlist		NoneIt BICIt FullIt DidPmIt DidPvIt /*IPWIt*/ NoneMg BICMg FullMg DidPmMg DidPvMg /*IPWMg*/ // It => Italians, Mg => Migrants
 	global usegroup				munivs`type'_child
 
 	global XNoneIt				maternaMuni		
@@ -152,10 +152,10 @@ foreach type in None Stat Reli Other {
 
 	foreach type in CN S H B {
 
-		* Compute IPW Weight
+		/* Compute IPW Weight
 		di "Estimating `type' for Children: psmweight"
 		psmweight, yvar("ReggioMaterna") xvars(${child_baseline_vars}) cohort_num(1) school_type("materna")
-		psmweight, yvar("ReggioMaterna") xvars(${child_baseline_vars}) cohort_num(2) school_type("materna") 
+		psmweight, yvar("ReggioMaterna") xvars(${child_baseline_vars}) cohort_num(2) school_type("materna") */
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Children: Multiple Analysis"
@@ -178,7 +178,7 @@ keep if (Cohort == 3)
 foreach type in None Stat Reli Other {
 	* Set necessary global variables
 	global X					maternaMuni
-	global comparisonlist		None BIC Full DidPm DidPv IPW 
+	global comparisonlist		None BIC Full DidPm DidPv /*IPW*/ 
 	global usegroup				munivs`type'_adol
 
 	global XNone				maternaMuni		
@@ -212,8 +212,8 @@ foreach type in None Stat Reli Other {
 
 	foreach type in CN S H B {
 		
-		* Compute IPW Weight
-		psmweight, yvar("ReggioMaterna") xvars(${child_baseline_vars}) cohort_num(3) school_type("materna")
+		/* Compute IPW Weight
+		psmweight, yvar("ReggioMaterna") xvars(${child_baseline_vars}) cohort_num(3) school_type("materna") */
 
 		* Run Multiple Analysis
 		multipleanalysis, type("`type'") comparisonlist("${comparisonlist}") usegroup("${usegroup}") cohort("adol")
@@ -236,7 +236,7 @@ drop if asilo == 1 // dropping those who went to infant-toddler centers
 
 foreach type in None Stat Reli Other {
 	* Set necessary global variables
-	global comparisonlist		None30 BIC30 Full30 DidPm30 DidPv30 IPW30 None40 BIC40 Full40 DidPm40 DidPv40 IPW40
+	global comparisonlist		None30 BIC30 Full30 DidPm30 DidPv30 /*IPW30*/ None40 BIC40 Full40 DidPm40 DidPv40 /*IPW40*/
 
 	global XNone30				maternaMuni		
 	global XBIC30				maternaMuni		
@@ -297,9 +297,9 @@ foreach type in None Stat Reli Other {
 
 	foreach type in E W L H N S R {
 		
-		* Compute IPW Weight
+		/* Compute IPW Weight
 		psmweight, yvar("ReggioMaterna") xvars(${adult_baseline_vars}) cohort_num(4) school_type("materna") // For age-30 cohort
-		psmweight, yvar("ReggioMaterna") xvars(${adult_baseline_vars}) cohort_num(5) school_type("materna") // For age-40 cohort
+		psmweight, yvar("ReggioMaterna") xvars(${adult_baseline_vars}) cohort_num(5) school_type("materna") // For age-40 cohort */
 
 		* Run Multiple Analysis
 		multipleanalysis, type("`type'") comparisonlist("${comparisonlist}") usegroup("${usegroup}") cohort("adult")
