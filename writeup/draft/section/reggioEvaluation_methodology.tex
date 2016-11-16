@@ -102,13 +102,13 @@ Let $Y_{1,i}$ and $Y_{0,i}$ represent counterfactual outcomes for individual, $i
 Y_i = (1-D_i)Y_{0,i} + D_iY_{1,i}.
 \end{equation}
 
-Next, assume that individuals select into treatment status $D_i$ based on a a set of observed baseline characteristics $\boldsymbol{X}$. Under the assumption of strongly ignorable selection into treatment given $\boldsymbol{X}$, and the existence of an estimated propensity score $\hat{\pi({\boldsymbol{X_i}})} = Pr(D=1|\boldsymbol{X_i})$ such that $0<\hat{\pi({\boldsymbol{X_i}})}<1$, we can use standard Inverse Propensity of Treatment Weighting (IPTW) to estimate the average treatment effect $E[Y(1)-Y(0)]$,
+Next, assume that individuals select into treatment status $D_i$ based on a a set of observed baseline characteristics $\boldsymbol{X}$. Under the assumption of strongly ignorable selection into treatment given $\boldsymbol{X}$, and the existence of an estimated propensity score $\hat{\pi({\boldsymbol{X_i}})} = Pr(D_i=1|\boldsymbol{X_i})$ such that $0<\hat{\pi({\boldsymbol{X_i}})}<1$, we can use standard Inverse Propensity of Treatment Weighting (IPTW) to estimate the average treatment effect $E[Y(1)-Y(0)]$,
 
 \begin{equation}\label{eq:IPW}
 \widehat{E[Y(1)-Y(0)]_{IPW}} = \frac{1}{n} \sum_{i=1}^{n} \left \{\frac{D_i Y_i}{\hat{\pi(\boldsymbol{X_i})}} - \frac{(1-D_i)Y_i}{1-\hat{\pi(\boldsymbol{X_i})}}\right \}
 \end{equation}
 
-\noindent Where $\hat{\pi({\boldsymbol{X_i}})} = Pr(D=1|\boldsymbol{X_i})$ is predicted for each individual $i$ using the estimated coefficients obtained from a probit model.
+\noindent Where $\hat{\pi({\boldsymbol{X_i}})} = Pr(D_i=1|\boldsymbol{X_i})$ is predicted for each individual $i$ using the estimated coefficients obtained from a probit model.
 
 In calculating $\widehat{E[Y(1)]}$, the IPTW estimator assigns a higher weight to individuals with characteristics $\boldsymbol{X_i}$ if these individuals are less likely to have been in treatment group $D = 1$. Analogously, in calculating $\widehat{E[Y(0)]}$,  the IPTW estimator assigns a higher weight to individuals with characteristics $\boldsymbol{X_i}$ if these individuals are less likely to have been in treatment group $D = 0$. In this sense, the estimator adjusts for selection on observables by \textit{balancing} the estimation of expected outcomes on $\boldsymbol{X}$.
 
@@ -143,7 +143,7 @@ Y_i = \sum_{j=0}^{3}(\mathbb{1}_{T_i = j}) Y_{j,i}
 
 \noindent The average treatment effect with respect to each control group, $j$, can be defined,
 \begin{equation}
-ATE_j = Y(0) - Y(j) \quad \forall j \in \{1,2,3\}
+ATE_j = E[Y(0) - Y(j)] \quad \forall j \in \{1,2,3\}
 \end{equation}
 Thus, the IPW estimator of the treatment effect with respect to each control group, $j$, can be defined as, 
 
