@@ -82,25 +82,80 @@ Y_i & = \beta_0 + \beta_1 Reggio_i + \beta_2 R_i^P + \beta_3 Reggio_i * R_i^P + 
 \end{eqnarray}
 where $Reggio_i$ is the indicator for $i$ living in Reggio Emilia. In this regression, $\beta_3$ has an interpretation of (Reggio Municipal - Parma Municipal) - (Reggio None - Parma None). The first difference shows the difference between outcomes of those who attended municipal preschools in Reggio Emilia and those who attended municipal preschools in Parma. However, there can be inherent differences between individuals in Reggio Emilia and those in Parma for the age-30 cohort. The second difference is intended to capture the inherent difference in outcomes between two cities and to eliminate the city effect. An analogous interpretation is applied to difference-in-difference comparisons between Reggio Emilia and Padova and considering individuals in the age-40 cohort. 
 
-\subsubsection{Augmented IPW}
-The baseline OLS and difference-in-difference models do not account for selection into the Reggio Approach. In order to account for this, we use propensity score matching.
 
-For each cohort, we first predict the probability of enrolling into the Reggio Approach, $\hat{R}_i$, using only individuals in Reggio Emilia. 
+\subsubsection{Augemented IPW}
 
-Using these estimated coefficients, we calculate $\hat{R}_i^{P}$ for individuals in Parma and Padova, as well as those in Reggio Emilia. Using this predicted $\hat{R}_i$, we define the estimated inverse propensity to enroll in the Reggio Approach, $\hat{\omega}_i$,
+The baseline OLS and difference-in-difference models do not account for selection into the Reggio Approach. We estimate an Augmented Inverse Propensity Weighted (AIPW) estimator in order to account for this.   
 
-\begin{align}
-	\hat{\omega}_i &= 
-	\begin{cases}
-		\frac{1}{\hat{R}_i^{P}} & P_i = 1  \\
-		\frac{1}{1-\hat{R}_i^{P}} & P_i = 0,
-	\end{cases}
-\end{align}
+To begin, consider the following two treatment statuses,
 
-\noindent where $P_i$ indicate the subject attended any preschool type in any city. We fit \eqref{eq:ra-v-none} weighing the individuals with $\omega_i$. We include $P_i$ in the model. This allows us to capture the effect of the Reggio Approach compared to no alternative preschool as well as the additional effect beyond the available alternatives. In Section~\ref{sec:results}, we present the additional effects. That is, using $\hat{\omega}_i$ weights, we present estimates of $\psi_1$ from
-
-\begin{equation}
-	Y_i = \psi_0 + \psi_1 R_i^{P} + \psi_2 P_i + \bm{X}_i \psi + \varepsilon'_i.
+\begin{equation}\label{eq:cases-d}
+D_i = \quad
+\begin{cases}
+1 \quad if \quad &  R_i = 1\text{\quad 		(Attended Reggio Municipal)} \\
+0 \quad if \quad &  R_i \neq 0 \text{\quad 	(From Reggio but did not attend Municipal)} \\
+\end{cases}
+\end{equation}
+~\\
+Let $Y_{1,i}$ and $Y_{0,i}$ represent counterfactual outcomes for individual, $i$, where treatment status is fixed to $D_i=1$ and $D_i=0$ respectively. Under this framework, the realized outcome $Y_i$ is summarized by,
+\begin{equation}\label{eq:roy}
+Y_i = (1-D_i)Y_{0,i} + D_iY_{1,i}.
 \end{equation}
 
+Next, assume that individuals select into treatment status $D_i$ based on a a set of observed baseline characteristics $\boldsymbol{X}$. Under the assumption of strongly ignorable selection into treatment given $\boldsymbol{X}$, and the existence of an estimated propensity score $\hat{\pi({\boldsymbol{X_i}})} = Pr(D_i=1|\boldsymbol{X_i})$ such that $0<\hat{\pi({\boldsymbol{X_i}})}<1$, we can use standard Inverse Propensity of Treatment Weighting (IPTW) to estimate the average treatment effect $E[Y(1)-Y(0)]$,
 
+\begin{equation}\label{eq:IPW}
+\widehat{E[Y(1)-Y(0)]_{IPW}} = \frac{1}{n} \sum_{i=1}^{n} \left \{\frac{D_i Y_i}{\hat{\pi(\boldsymbol{X_i})}} - \frac{(1-D_i)Y_i}{1-\hat{\pi(\boldsymbol{X_i})}}\right \}
+\end{equation}
+
+\noindent Where $\hat{\pi({\boldsymbol{X_i}})} = Pr(D_i=1|\boldsymbol{X_i})$ is predicted for each individual $i$ using the estimated coefficients obtained from a probit model.
+
+In calculating $\widehat{E[Y(1)]}$, the IPTW estimator assigns a higher weight to individuals with characteristics $\boldsymbol{X_i}$ if these individuals are less likely to have been in treatment group $D = 1$. Analogously, in calculating $\widehat{E[Y(0)]}$,  the IPTW estimator assigns a higher weight to individuals with characteristics $\boldsymbol{X_i}$ if these individuals are less likely to have been in treatment group $D = 0$. In this sense, the estimator adjusts for selection on observables by \textit{balancing} the estimation of expected outcomes on $\boldsymbol{X}$.
+
+An issue with the simple IPTW estimator is that the estimates become unstable as the estimated propensities, $\hat{\pi(\boldsymbol{X_i})}$, tend to 0 or 1. We use the following Augmented IPW (AIPW) estimator to correct for this issue. 
+\begin{align}\label{eq:AIPW}
+E[\widehat{Y(1)-Y(0)]}_{AIPW} = \frac{1}{n} \sum_{i=1}^{n} \bigg \{ \bigg[ & \overbrace{\frac{D_i Y_i}{\hat{\pi(\boldsymbol{X_i})}} - \frac{(1-D_i)Y_i}{1-\hat{\pi(\boldsymbol{X_i})}}}^{IPTW} \bigg]- \frac{D_i - \hat{\pi}(\boldsymbol{X_i})}{\hat{\pi}(\boldsymbol{X_i}) (1-\hat{\pi}(\boldsymbol{X_i}))} \nonumber \\[10pt]
+& \bigg[ (1-\hat{\pi}(\boldsymbol{X_i})) E[\hat{Y_i}|D_i=1,\boldsymbol{X_i}] + \hat{\pi}(\boldsymbol{X_i})) E[\hat{Y_i}|D_i=0,\boldsymbol{X_i}] \bigg] \bigg \}
+\end{align}
+
+The AIPW estimator in Equation (\ref{eq:AIPW}) addresses the problem of instability associated with the IPTW estimator near $\hat{\pi(\boldsymbol{X_i})} = 0$ or $1$, by adjusting the weighted estimator with a weighted average of $\hat{Y_i}$ obtained from an OLS regression. For $D_i = 0$, as the IPTW estimate becomes large and negative near $\hat{\pi(\boldsymbol{X_i})} = 1$, the adjustment term becomes large and positive, thereby, \textit{stabilizing} the estimator at these values. Analogously, for $D = 1$, as the IPTW estimate becomes large and positive near $\hat{\pi(\boldsymbol{X_i})} = 0$, the adjustment term becomes large and negative.
+
+\subsubsection{Next Steps: AIPW using multinomial control selection model}
+An issue with the AIPW estimator in Equation (\ref{eq:AIPW}) is that the control group, $D_i=0$, includes all individuals who did not attend Reggio Municipal schools. As a result, we are unable to account for potential heterogeneity in treatment effects with respect to control group individuals who attended different types of preschools. In the rest of this subsection, we present a preliminary framework for capturing this heterogeneity of effects. \textbf{The work is preliminary and we haven't tested the estimators for properties including unbiasedness.}
+
+To account for this heterogeneity, we can start by defining a new variable for treatment status,
+
+\begin{equation}
+T_i = \quad
+\begin{cases}
+0 \quad \text{if \quad (\textit{i} attended Reggio Municipal)} \\
+1 \quad  \text{if \quad (\textit{i} From Reggio and attended no pre-school)} \\
+2 \quad \text{if \quad (\textit{i} attended Reggio State)}  \\
+3 \quad \text{if \quad (\textit{i} attended Reggio Religious)}  \\
+\end{cases}
+\end{equation}
+~\\ ~\\
+Let $Y_{j,i}$ denote the counterfactual outcome for individual $i$ when treatment status $T_i$ is fixed to $j$ $\forall \,  j \, \in \{0,1,2,3\}$. Under this framework, individual $i$'s potential outcomes can be represented as,
+\begin{equation}
+Y_i = \sum_{j=0}^{3}(\mathbb{1}_{T_i = j}) Y_{j,i}
+\end{equation}
+\noindent Where $\mathbb{1}_{T_i=j}$ is an indicator that equals one if the treatment status of individual $i$ is set to $j$.
+
+\noindent The average treatment effect with respect to each control group, $j$, can be defined,
+\begin{equation}
+ATE_j = E[Y(0) - Y(j)] \quad \forall j \in \{1,2,3\}
+\end{equation}
+Thus, the IPW estimator of the treatment effect with respect to each control group, $j$, can be defined as, 
+
+\begin{equation}\label{eq:IPWmulti}
+\widehat{IPW}_j=\widehat{E[Y(0)-Y(j)]}_{IPW} = \frac{1}{n} \sum_{i=1}^{n} \left \{\frac{(\mathbb{1}_{T_i=0}) Y_i}{\hat{\Pi_0}(\boldsymbol{X_i})} - \frac{(\mathbb{1}_{T_i=j})Y_i}{\hat{\Pi_j}(\boldsymbol{X_i})}\right \}
+\end{equation}
+~\\
+\noindent Where $\hat{\Pi_j}(\boldsymbol{X_i}) = Pr(T_i=j|\boldsymbol{X_i}) \quad \forall \, j \in \{0,1,2,3\}$, is predicted for each individual, $i$, using the estimated coefficients obtained from a multinomial logit model. 
+
+Similarly, we may define the AIPW estimator of the treatment effect with respect to each control group, $j$, as,
+
+\begin{align}\label{eq:AIPWmulti}
+\widehat{AIPW_{j}} = E[\widehat{Y(1)-Y(j)]}_{AIPW} =& \frac{1}{n} \sum_{i=1}^{n}\bigg \{ \bigg[ \overbrace{ \frac{(\mathbb{1}_{T_i=0}) Y_i}{\hat{\Pi_0}(\boldsymbol{X_i})} - \frac{(\mathbb{1}_{T_i=j})Y_i}{\hat{\Pi_j}(\boldsymbol{X_i})}}^{IPTW}  \bigg]- \frac{(\mathbb{1}_{T_i=0}) \hat{\Pi}_0(\boldsymbol{X_i}) - (\mathbb{1}_{T_i=j}) \hat{\Pi}_j(\boldsymbol{X_i})}{\hat{\Pi}_0(\boldsymbol{X_i}) \, \hat{\Pi}_j(\boldsymbol{X_i})} \nonumber \\[10pt]
+& \bigg[ \hat{\Pi}_j(\boldsymbol{X_i}) \cdot E[\hat{Y_i}|T_i=0,\boldsymbol{X_i}] +\hat{\Pi}_0(\boldsymbol{X_i}) \cdot E[\hat{Y_i}|T_i=j,\boldsymbol{X_i}] \bigg] \bigg \}
+\end{align}
