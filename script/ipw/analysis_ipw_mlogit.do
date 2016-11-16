@@ -10,12 +10,13 @@ This file:		Propensity score matching for all cohorts
 cap log close
 set more off
 
-global bootstrap = 3
+global bootstrap = 10
+set seed 1234
 
 global klmReggio 	:	env klmReggio
 global git_reggio	:	env git_reggio
 global data_reggio	: 	env data_reggio
-global output_psm	= 	"${git_reggio}/output/psm"
+global output	= 	"${git_reggio}/output/psm"
 global code			= 	"${git_reggio}/script"
 
 // bring in project-level macros
@@ -56,8 +57,8 @@ gen D2 = (D == 2)
 
 // ANALYSIS
 global adult_baseline_vars		Male ///
-								momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
-								numSibling_2 numSibling_more 
+					momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
+					numSibling_2 numSibling_more
 
 local child_cat_groups	CN S H B 
 local adol_cat_groups	CN S H B
@@ -77,70 +78,107 @@ local Adult30_num 		= 4
 local Adult40_num 		= 5
 local Adult50_num 		= 6
 
+
 foreach group in /*child adol*/ adult { 							// group: children, adol, adults
 	foreach school in /*nido*/ materna {							// school: asilo, materna 
-		foreach cohort in ``group'_cohorts' {						// ``group'_cohorts'  cohort: childeren, adolescent, adults 30s, adults 40s, adults 50s
+		// loop through outcome categories
+		foreach cat in ``group'_cat_groups' {
+		
+			// open and prepare file
+			cap file close tabfile`cat'
+			file open tabfile`cat' using "ipw_mlogit`group'_`cat'.tex", write replace
+			file write tabfile`cat' "\begin{tabular}{l c c c c c}" _n
+			file write tabfile`cat' "\toprule" _n
+			file write tabfile`cat' " & \mc{2}{c}{Adults 30s} & \mc{2}{c}{Adults 40s} \\" _n
+			file write tabfile`cat' " & No Preschool & Other Preschool & No Preschool & Other Preschool \\" _n
 			
-					// loop through outcomes
-					foreach cat in ``group'_cat_groups' {					// outcome category (differs by group)			
-			
-						foreach outcome in ${`group'_outcome_`cat'} { 		// outcome (differs by outcome category)
-							matrix `outcome'`cohort' = J(${bootstrap},1,.)
-							// bootstrap
-							forvalues b = 0/$bootstrap {
-							preserve
-								if `b' != 0 { // 0 is point estimate with original sample
-									bsample N
-								}
-								
-								// predict probabilities and generate weights
-								mlogit D ${`group'_outcome_`cat'} if Cohort == ``cohort'_num'
-								
-								drop weight_Cohort``cohort'_num'
-								gen weight_Cohort``cohort'_num' = .
+			// loop through outcomes
+			foreach outcome in ${`group'_outcome_`cat'} { 		// outcome (differs by outcome category)
+				foreach cohort in ``group'_cohorts' {			
+					matrix `outcome'`cohort' = J(1,2,.)
+					// bootstrap
+					forvalues b = 0/$bootstrap {
+						preserve
+						if `b' != 0 { // 0 is point estimate with original sample
+							bsample, strata(Male City)
+						}
+							// predict probabilities and generate weights
+							mlogit D ${`group'_outcome_`cat'} if Cohort == ``cohort'_num' & City == 1, base(2) vce(robust) iterate(30)
+							if e(converged) {	// only proceed if converged
+								if e(k_eq) == 3 { // only proceed if 3 outcomes
+									gen weight = .
 				
-								forvalues d = 0/2 {
+									forvalues d = 0/2 {
 									
-									predict Dhat``cohort'_num'`d' 									if Cohort == ``cohort'_num', outcome(`d')
-									replace weight_Cohort``cohort'_num' = (1 / Dhat``cohort'_num'`d') if D == `d' & Cohort == ``cohort'_num'
-								}
+										predict Dhat``cohort'_num'`d' 									if Cohort == ``cohort'_num', outcome(`d')
+										replace weight = (1 / Dhat``cohort'_num'`d') if D == `d' & Cohort == ``cohort'_num'
+									}
 							
-								// regress outcome on controls
-								forvalues d = 0/2 {
-									reg `outcome' ${`cohort'_baseline_vars} CAPI if Cohort == ``cohort'_num' & D == `d'
-									
-									predict Yhat`d' if Cohort == ``cohort'_num'
-								}
+									// regress outcome on controls
+									forvalues d = 0/2 {
+										reg `outcome' ${`cohort'_baseline_vars} CAPI if Cohort == ``cohort'_num' & D == `d'
+										
+										predict Yhat`d' if Cohort == ``cohort'_num'
+									}
 					
-								// calculate estimator
-								gen tmp2 = Yhat2 + D2/weight_Cohort``cohort'_num' * (`outcome' - Yhat2)
-								forvalues d = 0/1 {
+									// calculate estimator
+									gen tmp2 = Yhat2 + D2/weight * (`outcome' - Yhat2)
+									forvalues d = 0/1 {
 								
-									gen tmp`d' = Yhat`d' + D`d'/weight_Cohort``cohort'_num' * (`outcome' - Yhat`d')
+										gen tmp`d' = Yhat`d' + D`d'/weight * (`outcome' - Yhat`d') if Cohort == ``cohort'_num'
 									
-									gen dr`d'`outcome'``cohort'_num' = tmp2 - tmp`d'
-								}
+										gen dr`d'`outcome'``cohort'_num' = tmp2 - tmp`d' if Cohort == ``cohort'_num'
+										di "results for D = `d'"
+										sum dr`d'`outcome'``cohort'_num' if Cohort == ``cohort'_num'
+									}
 				
-								// store result
-								collapse dr0`outcome'``cohort'_num' dr1`outcome'``cohort'_num' if Cohort == ``cohort'_num'
+									// store result
+									collapse dr0`outcome'``cohort'_num' dr1`outcome'``cohort'_num' if Cohort == ``cohort'_num'
 								
-								mkmat dr`outcome'``cohort'_num', matrix(tmp)
+									// save point estimate
+									if `b' == 0 {
+										forvalues d = 0/1 {
+											local a = `d' + 1 // because matrix changes it
+											sum dr`d'`outcome'  
+											local p`a'`outcome'`cohort' = r(mean)
+										}
+									}
+							
+									mkmat dr0`outcome'``cohort'_num' dr1`outcome'``cohort'_num', matrix(tmp)
 								
-								matrix `outcome'``cohort'_num' = (`outcome'``cohort'_num' \ tmp)
-								matrix drop tmp
-								
-								// drop variables for this bootstrap
-								drop Dhat* Yhat* tmp* dr*
-					
+									matrix `outcome'`cohort' = (`outcome'`cohort' \ tmp)
+									matrix drop tmp
+									matrix list `outcome'`cohort'
+								}
+							}
 							restore
 						}
-
-						// calculate mean for each outcome and cohort
-						matrix list `outcome'``cohort'_num'
-							
-						// calculate standard error for each outcome and cohort
-				}
+						// calculate mean/se for each outcome and cohort
+						preserve	
+							svmat `outcome'`cohort'
+							forval i = 1/2 {
+								sum `outcome'`cohort'`i'
+								local m`outcome'`cohort'`i' = r(mean)
+								local s`outcome'`cohort'`i' = r(sd)
+								local m`outcome'`cohort'`i' : di %9.2f `m`outcome'`cohort'`i''
+								local s`outcome'`cohort'`i' : di %9.2f `s`outcome'`cohort'`i''
+								
+								// bold significant means
+								else {
+									if abs(`p`i'`outcome'`cohort'' - `m`outcome'`cohort'`i'') > abs(`m`outcome'`cohort'`i'') {
+										local m`outcome'`cohort'`i' "\textbf{`m`outcome'`cohort'`i''}"
+									}
+								}
+							}
+						restore
+						if ``cohort'_num' == 5 {
+							file write tabfile`cat' "${`outcome'_lab'} & `m`outcome'Adult301' & `m`outcome'Adult302' & `m`outcome'Adult401' & `m`outcome'Adult302' \\" _n
+							file write tabfile`cat' "	& (`s`outcome'Adult301') & (`s`outcome'Adult302') & (`s`outcome'Adult401') & (`s`outcome'Adult302') \\" _n
+						}
+					}
 			}
+			file write tabfile`cat' "\bottomrule" _n
+			file write tabfile`cat' "\end{tabular}" _n
 		}
 	}
 }
