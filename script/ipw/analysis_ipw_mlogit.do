@@ -78,6 +78,9 @@ local Adult30_num 		= 4
 local Adult40_num 		= 5
 local Adult50_num 		= 6
 
+// only look in Reggio Emilia
+keep if City == 1
+
 
 foreach group in /*child adol*/ adult { 							// group: children, adol, adults
 	foreach school in /*nido*/ materna {							// school: asilo, materna 
@@ -93,47 +96,48 @@ foreach group in /*child adol*/ adult { 							// group: children, adol, adults
 			file write tabfile`cat' " & No Preschool & Other Preschool & No Preschool & Other Preschool \\" _n
 			
 			// loop through outcomes
-			foreach outcome in ${`group'_outcome_`cat'} { 		// outcome (differs by outcome category)
+			foreach outcome in ${`group'_outcome_`cat'} { 		
 				foreach cohort in ``group'_cohorts' {			
 					matrix `outcome'`cohort' = J(1,2,.)
 					// bootstrap
 					forvalues b = 0/$bootstrap {
 						preserve
+						keep if Cohort == ``cohort'_num'
 						if `b' != 0 { // 0 is point estimate with original sample
-							bsample, strata(Male City)
+							bsample, strata(Male)
 						}
 							// predict probabilities and generate weights
-							mlogit D ${`group'_outcome_`cat'} if Cohort == ``cohort'_num' & City == 1, base(2) vce(robust) iterate(30)
-							if e(converged) {	// only proceed if converged
-								if e(k_eq) == 3 { // only proceed if 3 outcomes
+							mlogit D ${`group'_outcome_`cat'}, base(2) vce(robust) iterate(30)
+							if e(converged) {		// only proceed if converged
+								if e(k_eq) == 3 { 	// only proceed if 3 outcomes
 									gen weight = .
 				
 									forvalues d = 0/2 {
 									
-										predict Dhat``cohort'_num'`d' 									if Cohort == ``cohort'_num', outcome(`d')
-										replace weight = (1 / Dhat``cohort'_num'`d') if D == `d' & Cohort == ``cohort'_num'
+										predict Dhat``cohort'_num'`d', outcome(`d')
+										replace weight = (1 / Dhat``cohort'_num'`d') if D == `d' 
 									}
 							
 									// regress outcome on controls
 									forvalues d = 0/2 {
-										reg `outcome' ${`cohort'_baseline_vars} CAPI if Cohort == ``cohort'_num' & D == `d'
+										reg `outcome' ${`cohort'_baseline_vars} CAPI if D == `d'
 										
-										predict Yhat`d' if Cohort == ``cohort'_num'
+										predict Yhat`d' 
 									}
 					
 									// calculate estimator
 									gen tmp2 = Yhat2 + D2/weight * (`outcome' - Yhat2)
 									forvalues d = 0/1 {
 								
-										gen tmp`d' = Yhat`d' + D`d'/weight * (`outcome' - Yhat`d') if Cohort == ``cohort'_num'
+										gen tmp`d' = Yhat`d' + D`d'/weight * (`outcome' - Yhat`d') 
 									
-										gen dr`d'`outcome'``cohort'_num' = tmp2 - tmp`d' if Cohort == ``cohort'_num'
+										gen dr`d'`outcome'``cohort'_num' = tmp2 - tmp`d'
 										di "results for D = `d'"
-										sum dr`d'`outcome'``cohort'_num' if Cohort == ``cohort'_num'
+										sum dr`d'`outcome'``cohort'_num'
 									}
 				
 									// store result
-									collapse dr0`outcome'``cohort'_num' dr1`outcome'``cohort'_num' if Cohort == ``cohort'_num'
+									collapse dr0`outcome'``cohort'_num' dr1`outcome'``cohort'_num' 
 								
 									// save point estimate
 									if `b' == 0 {
@@ -172,13 +176,11 @@ foreach group in /*child adol*/ adult { 							// group: children, adol, adults
 							}
 						restore
 						if ``cohort'_num' == 5 {
-							file write tabfile`cat' "${`outcome'_lab'} & `m`outcome'Adult301' & `m`outcome'Adult302' & `m`outcome'Adult401' & `m`outcome'Adult302' \\" _n
-							file write tabfile`cat' "	& (`s`outcome'Adult301') & (`s`outcome'Adult302') & (`s`outcome'Adult401') & (`s`outcome'Adult302') \\" _n
+							file write tabfile`cat' "${`outcome'_lab'} & `m`outcome'Adult301' & `m`outcome'Adult302' & `m`outcome'Adult401' & `m`outcome'Adult402' \\" _n
+							file write tabfile`cat' "	& (`s`outcome'Adult301') & (`s`outcome'Adult302') & (`s`outcome'Adult401') & (`s`outcome'Adult402') \\" _n
 						}
 					}
 			}
-			file write tabfile`cat' "\bottomrule" _n
-			file write tabfile`cat' "\end{tabular}" _n
 		}
 	}
 }
