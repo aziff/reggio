@@ -118,32 +118,33 @@ E[\widehat{Y(1)-Y(0)]}_{AIPW} = \frac{1}{n} \sum_{i=1}^{n} \bigg \{ \bigg[ & \ov
 & \bigg[ (1-\hat{\pi}(\boldsymbol{X_i})) E[\hat{Y_i}|D_i=1,\boldsymbol{X_i}] + \hat{\pi}(\boldsymbol{X_i})) E[\hat{Y_i}|D_i=0,\boldsymbol{X_i}] \bigg] \bigg \}
 \end{align}
 
-The AIPW estimator in Equation (\ref{eq:AIPW}) addresses the problem of instability associated with the IPTW estimator near $\hat{\pi(\boldsymbol{X_i})} = 0$ or $1$, by adjusting the weighted estimator with a weighted average of $\hat{Y_i}$ obtained from an OLS regression. For $D_i = 0$, as the IPTW estimate becomes large and negative near $\hat{\pi(\boldsymbol{X_i})} = 1$, the adjustment term becomes large and positive, thereby, \textit{stabilizing} the estimator at these values. Analogously, for $D = 1$, as the IPTW estimate becomes large and positive near $\hat{\pi(\boldsymbol{X_i})} = 0$, the adjustment term becomes large and negative.
+The AIPW estimator in Equation (\ref{eq:AIPW}) addresses the problem of instability associated with the IPTW estimator near $\hat{\pi(\boldsymbol{X_i})} = 0$ or $1$, by adjusting the weighted estimator with a weighted average of $\hat{Y_i}$ obtained from an OLS regression. For $D_i = 0$, as the IPTW estimate becomes large and negative near $\hat{\pi(\boldsymbol{X_i})} = 1$, the adjustment term becomes large and positive, thereby, \textit{stabilizing} the estimator at these values. Analogously, for $D = 1$, as the IPTW estimate becomes large and positive near $\hat{\pi(\boldsymbol{X_i})} = 0$, the adjustment term becomes large and negative. 
 
-\subsubsection{Next Steps: AIPW using multinomial control selection model}
-An issue with the AIPW estimator in Equation (\ref{eq:AIPW}) is that the control group, $D_i=0$, includes all individuals who did not attend Reggio Municipal schools. As a result, we are unable to account for potential heterogeneity in treatment effects with respect to control group individuals who attended different types of preschools. In the rest of this subsection, we present a preliminary framework for capturing this heterogeneity of effects. \textbf{The work is preliminary and we haven't tested the estimators for properties including unbiasedness.}
+\cite{Tsiatis_2006}, and \cite{Glynn_2010}, show that the AIPW estimator is an unbiased estimator of the Average Treatment Effect if the propensity score is known. Further, they show that the estimator is consistent if either the propensity score model or the outcome prediction model in the adjustment term is correctly specified. Due to this last property, they refer to the AIPW as a \textit{doubly robust} estimator.
+
+\subsubsection{AIPW using multinomial control selection model}
+An issue with the AIPW estimator in Equation (\ref{eq:AIPW}) is that the control group, $D_i=0$, includes all individuals who did not attend Reggio Municipal schools. As a result, we are unable to account for potential heterogeneity in treatment effects with respect to control group individuals who attended different types of preschools. In the rest of this subsection, we present an extension of the two-outcome AIPW that takes into account the non-binary nature of treatment statuses in our sample. \textbf{Please note that this framework is in its preliminary stages and we feel it might be beneficial to discuss with you.}\footnote{The framework presented here is preliminary in the sense that properties including unbiasedness need to be checked. We are currently searching for existing books and articles that present this extended model. We will present our findings in the next iteration.}
 
 To account for this heterogeneity, we can start by defining a new variable for treatment status,
 
 \begin{equation}
 T_i = \quad
 \begin{cases}
-0 \quad \text{if \quad (\textit{i} attended Reggio Municipal)} \\
+0 \quad \text{if \quad (\textit{i} From Reggio and attended Municipal)} \\
 1 \quad  \text{if \quad (\textit{i} From Reggio and attended no pre-school)} \\
-2 \quad \text{if \quad (\textit{i} attended Reggio State)}  \\
-3 \quad \text{if \quad (\textit{i} attended Reggio Religious)}  \\
+2 \quad \text{if \quad (\textit{i} From Reggio and attended State or Religious)}  \\
 \end{cases}
 \end{equation}
 ~\\ ~\\
-Let $Y_{j,i}$ denote the counterfactual outcome for individual $i$ when treatment status $T_i$ is fixed to $j$ $\forall \,  j \, \in \{0,1,2,3\}$. Under this framework, individual $i$'s potential outcomes can be represented as,
+Let $Y_{j,i}$ denote the counterfactual outcome for individual $i$ when treatment status $T_i$ is fixed to $j$ $\forall \,  j \, \in \{0,1,2\}$. Under this framework, individual $i$'s potential outcomes can be represented as,
 \begin{equation}
-Y_i = \sum_{j=0}^{3}(\mathbb{1}_{T_i = j}) Y_{j,i}
+Y_i = \sum_{j=0}^{2}(\mathbb{1}_{T_i = j}) Y_{j,i}
 \end{equation}
 \noindent Where $\mathbb{1}_{T_i=j}$ is an indicator that equals one if the treatment status of individual $i$ is set to $j$.
 
 \noindent The average treatment effect with respect to each control group, $j$, can be defined,
 \begin{equation}
-ATE_j = E[Y(0) - Y(j)] \quad \forall j \in \{1,2,3\}
+ATE_j = E[Y(0) - Y(j)] \quad \forall j \in \{1,2\}
 \end{equation}
 Thus, the IPW estimator of the treatment effect with respect to each control group, $j$, can be defined as, 
 
@@ -151,11 +152,11 @@ Thus, the IPW estimator of the treatment effect with respect to each control gro
 \widehat{IPW}_j=\widehat{E[Y(0)-Y(j)]}_{IPW} = \frac{1}{n} \sum_{i=1}^{n} \left \{\frac{(\mathbb{1}_{T_i=0}) Y_i}{\hat{\Pi_0}(\boldsymbol{X_i})} - \frac{(\mathbb{1}_{T_i=j})Y_i}{\hat{\Pi_j}(\boldsymbol{X_i})}\right \}
 \end{equation}
 ~\\
-\noindent Where $\hat{\Pi_j}(\boldsymbol{X_i}) = Pr(T_i=j|\boldsymbol{X_i}) \quad \forall \, j \in \{0,1,2,3\}$, is predicted for each individual, $i$, using the estimated coefficients obtained from a multinomial logit model. 
+\noindent Where $\hat{\Pi_j}(\boldsymbol{X_i}) = Pr(T_i=j|\boldsymbol{X_i}) \quad \forall \, j \in \{0,1,2\}$, is predicted for each individual, $i$, using the estimated coefficients obtained from a multinomial logit model. 
 
 Similarly, we may define the AIPW estimator of the treatment effect with respect to each control group, $j$, as,
 
 \begin{align}\label{eq:AIPWmulti}
-\widehat{AIPW_{j}} = E[\widehat{Y(1)-Y(j)]}_{AIPW} =& \frac{1}{n} \sum_{i=1}^{n}\bigg \{ \bigg[ \overbrace{ \frac{(\mathbb{1}_{T_i=0}) Y_i}{\hat{\Pi_0}(\boldsymbol{X_i})} - \frac{(\mathbb{1}_{T_i=j})Y_i}{\hat{\Pi_j}(\boldsymbol{X_i})}}^{IPTW}  \bigg]- \frac{(\mathbb{1}_{T_i=0}) \hat{\Pi}_0(\boldsymbol{X_i}) - (\mathbb{1}_{T_i=j}) \hat{\Pi}_j(\boldsymbol{X_i})}{\hat{\Pi}_0(\boldsymbol{X_i}) \, \hat{\Pi}_j(\boldsymbol{X_i})} \nonumber \\[10pt]
+\widehat{AIPW_{j}} = E[\widehat{Y(1)-Y(j)]}_{AIPW} =& \frac{1}{n} \sum_{i=1}^{n}\bigg \{ \bigg[ \overbrace{ \frac{(\mathbb{1}_{T_i=0}) Y_i}{\hat{\Pi_0}(\boldsymbol{X_i})} - \frac{(\mathbb{1}_{T_i=j})Y_i}{\hat{\Pi_j}(\boldsymbol{X_i})}}^{IPTW}  \bigg]- \frac{(\mathbb{1}_{T_i=0}) \hat{\Pi}_j(\boldsymbol{X_i}) - (\mathbb{1}_{T_i=j}) \hat{\Pi}_0(\boldsymbol{X_i})}{\hat{\Pi}_0(\boldsymbol{X_i}) \, \hat{\Pi}_j(\boldsymbol{X_i})} \nonumber \\[10pt]
 & \bigg[ \hat{\Pi}_j(\boldsymbol{X_i}) \cdot E[\hat{Y_i}|T_i=0,\boldsymbol{X_i}] +\hat{\Pi}_0(\boldsymbol{X_i}) \cdot E[\hat{Y_i}|T_i=j,\boldsymbol{X_i}] \bigg] \bigg \}
 \end{align}
