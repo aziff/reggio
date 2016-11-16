@@ -10,7 +10,7 @@ This file:		Propensity score matching for all cohorts
 cap log close
 set more off
 
-global bootstrap = 10
+global bootstrap = 50
 set seed 1234
 
 global klmReggio 	:	env klmReggio
@@ -172,8 +172,8 @@ foreach group in /*child adol*/ adult { 							// group: children, adol, adults
 								local s`outcome'`cohort'`i' : di %9.2f `s`outcome'`cohort'`i''
 								
 								// calculate pvalue 
-								gen i`i' = .
-								replace i`i' = 1 if abs(`outcome'`cohort'`i' - `m`outcome'`cohort'`i'') > abs(`p`i'`outcome'`cohort'') & `outcome'`cohort'`i' != . 
+								gen i`i' = 0 if `outcome'`cohort'`i' != .
+								replace i`i' = 1 if `outcome'`cohort'`i' - `m`outcome'`cohort'`i'' > `p`i'`outcome'`cohort'' & `outcome'`cohort'`i' != . 
 								sum i`i'
 								if r(mean) <= 0.1 {
 									local m`outcome'`cohort'`i' "\textbf{`m`outcome'`cohort'`i''}"
