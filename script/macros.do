@@ -286,3 +286,8 @@ global cgReddito_5_lab 					Caregiver Income: 50,001-100,000 euros
 global cgReddito_6_lab 					Caregiver Income: 100,001-250,000 euros
 global cgReddito_7_lab 					Caregiver Income: > 250,000 euros
 global cgRelig_lab						Caregiver was religious
+global momBornProvince_lab				Mom born in province
+global dadBornProvince_lab 				Dad born in province
+
+
+								

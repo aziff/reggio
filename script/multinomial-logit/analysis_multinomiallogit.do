@@ -6,7 +6,7 @@ Date:			November 5, 2016
 This file:		Multinomial logit for selection
 */
 
-/*
+
 cap log close
 set more off
 
@@ -28,23 +28,40 @@ use Reggio_prepared, clear
 gen Cohort_tmp = Cohort
 replace Cohort_tmp = 1 if Cohort == 1 | Cohort == 2
 gen migrant_tmp = (Cohort == 2)
-*/ 						
+
+gen grouping = .
+replace grouping = 0 if maternaType == 0
+replace grouping = 1 if maternaType == 1
+replace grouping = 2 if maternaType > 1
+lab var grouping ""
 								
-								
+								 
 global adult_baseline_vars		Male  ///
 								momBornProvince ///
 								dadBornProvince  ///
 								numSibling_1 numSibling_2 numSibling_more cgRelig ///
 								momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  
+								
+foreach var in $adult_baseline_vars {
+	lab var `var' "${`var'_lab}"
+}
 
 local city_val = 1
 foreach city in Reggio Parma Padova {
 	local cohort_val = 4
 	foreach cohort in /*Child Adolesecent*/ Adult30 Adult40 {
 		
-		mlogit maternaType $adult_baseline_vars if Cohort_tmp == `cohort_val' & City == `city_val', baseoutcome(1) iterate(20)
+		mlogit grouping $adult_baseline_vars if Cohort_tmp == `cohort_val' & City == `city_val', baseoutcome(1) iterate(20)
 		
-		outreg using "${output}/mlogit`city'`cohort'", replace  
+		//preserve
+			parmest, norestore omit empty label 
+			// drop if o.
+			// variable names?
+			// export
+		//restore
+		
+		
+		
 		
 		local cohort_val = `cohort_val' + 1
 	}
