@@ -50,55 +50,32 @@ foreach var in $adult_baseline_vars {
 }
 
 local city_val = 1
-foreach city in Reggio /*Parma Padova*/ {
+foreach city in Reggio Parma Padova {
 	local cohort_val = 4
 	foreach cohort in /*Child Adolesecent*/ Adult30 Adult40 {
 		
 		mlogit grouping $adult_baseline_vars if Cohort_tmp == `cohort_val' & City == `city_val', baseoutcome(1) iterate(20)
-		eststo, title(`city'`cohort')
+		eststo `city'`cohort'
 		
-		preserve
-			// put results from lmogit into dataset
-			parmest, norestore omit empty label 
+		foreach o in 0 2 {
+			qui margins, dydx(*) predict(outcome(`o')) post
+			eststo `city'`cohort'`o', title(Outcome `o')
+			estimates restore `city'`cohort'
+		}
+		eststo drop `city'`cohort'
+
+			if "`cohort'" == "Adult40"  {
 			
-			// drop if omitted or empty
-			drop if omit == 1 | empty == 1
-			
-			// drop some unecessary variables
-			drop parm omit empty min95 max95 z
-			
-			// reshape
-			reshape wide estimate stderr p, i(label) j(eq) string
-			
-			// bring standard errors below
-			rename estimate0 est0`cohort_val'_1
-			rename stderr0 est0`cohort_val'_2
-			rename estimate2 est2`cohort_val'_1
-			rename stderr2 est2`cohort_val'_2
-			
-			gen N = _n
-			reshape long est0`cohort_val'_ est2`cohort_val'_ , i(N) j(type) 
-			drop N
-			format est* %9.3f
-			
-			if "`cohort'" == "Adult30" {
-				tempfile `city'`cohort'
-				save	``city'`cohort''
-				restore
-			}
-			else {
-				merge 1:1 type label using ``city'Adult30'
-				order est04_ est24_ est05_ est25_
-				sort type label
-				
-				// export
-				mkmat est*, matrix(`city')
-				tostring(type), replace
-				gen row = label + type
-				levelsof row, local(row)
-				matrix rownames `city' = `row'
-				matrix list `city'
-				esttab matrix(`city') using /home/aziff/Desktop/test2.tex, replace
+				# delimit ;
+				esttab `city'Adult300 `city'Adult302 `city'Adult400 `city'Adult402 using "${output}/mlogit_`city'.tex", 
+						booktabs
+						label
+						frag
+						unstack 
+						nonumbers
+						mtitles("None" "Other" "None" "Other")
+						replace;
+				# delimit cr
 			}
 		local cohort_val = `cohort_val' + 1
 	}
