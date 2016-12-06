@@ -42,7 +42,7 @@ lab var grouping ""
 global adult_baseline_vars		Male  ///
 								momBornProvince ///
 								dadBornProvince  ///
-								numSibling_1 numSibling_2 numSibling_more cgRelig ///
+								numSibling_2 numSibling_more cgRelig ///
 								momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  
 								
 foreach var in $adult_baseline_vars {
@@ -58,7 +58,7 @@ foreach city in Reggio Parma Padova {
 		eststo `city'`cohort'
 		
 		foreach o in 0 2 {
-			qui margins, dydx(*) predict(outcome(`o')) post
+			margins, dydx(*) predict(outcome(`o')) post
 			eststo `city'`cohort'`o', title(Outcome `o')
 			estimates restore `city'`cohort'
 		}
@@ -70,9 +70,10 @@ foreach city in Reggio Parma Padova {
 				esttab `city'Adult300 `city'Adult302 `city'Adult400 `city'Adult402 using "${output}/mlogit_`city'.tex", 
 						booktabs
 						label
-						frag
 						unstack 
 						nonumbers
+						nonotes
+						se
 						mtitles("None" "Other" "None" "Other")
 						replace;
 				# delimit cr
