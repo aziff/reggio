@@ -4,6 +4,9 @@ Authors:		Anna Ziff
 Date:			November 5, 2016
 
 This file:		Multinomial logit for selection
+
+Functions to install:	parmest
+			texsave
 */
 
 
@@ -39,7 +42,7 @@ lab var grouping ""
 global adult_baseline_vars		Male  ///
 								momBornProvince ///
 								dadBornProvince  ///
-								numSibling_1 numSibling_2 numSibling_more cgRelig ///
+								numSibling_2 numSibling_more cgRelig ///
 								momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  
 								
 foreach var in $adult_baseline_vars {
@@ -52,17 +55,29 @@ foreach city in Reggio Parma Padova {
 	foreach cohort in /*Child Adolesecent*/ Adult30 Adult40 {
 		
 		mlogit grouping $adult_baseline_vars if Cohort_tmp == `cohort_val' & City == `city_val', baseoutcome(1) iterate(20)
+		eststo `city'`cohort'
 		
-		//preserve
-			parmest, norestore omit empty label 
-			// drop if o.
-			// variable names?
-			// export
-		//restore
-		
-		
-		
-		
+		foreach o in 0 2 {
+			margins, dydx(*) predict(outcome(`o')) post
+			eststo `city'`cohort'`o', title(Outcome `o')
+			estimates restore `city'`cohort'
+		}
+		eststo drop `city'`cohort'
+
+			if "`cohort'" == "Adult40"  {
+			
+				# delimit ;
+				esttab `city'Adult300 `city'Adult302 `city'Adult400 `city'Adult402 using "${output}/mlogit_`city'.tex", 
+						booktabs
+						label
+						unstack 
+						nonumbers
+						nonotes
+						se
+						mtitles("None" "Other" "None" "Other")
+						replace;
+				# delimit cr
+			}
 		local cohort_val = `cohort_val' + 1
 	}
 	local city_val = `city_val' + 1

@@ -1,0 +1,38 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{4}{c}}
+\toprule
+					& \multicolumn{2}{c}{Adults 30s} & \multicolumn{2}{c}{Adults 40s} \\
+                    &\multicolumn{1}{c}{None}&\multicolumn{1}{c}{Other}&\multicolumn{1}{c}{None}&\multicolumn{1}{c}{Other}\\
+\midrule
+Male                &       0.125\sym{*}  &      -0.117\sym{*}  &      0.0629         &    -0.00297         \\
+                    &    (0.0500)         &    (0.0591)         &    (0.0547)         &    (0.0612)         \\
+\addlinespace
+Mom born in province&   0.0000134         &      0.0222         &      0.0445         &    -0.00102         \\
+                    &    (0.0540)         &    (0.0656)         &    (0.0586)         &    (0.0644)         \\
+\addlinespace
+Dad born in province&      0.0835         &     -0.0469         &      0.0173         &     -0.0537         \\
+                    &    (0.0640)         &    (0.0724)         &    (0.0640)         &    (0.0710)         \\
+\addlinespace
+Has 2 siblings      &       0.140\sym{**} &      -0.150\sym{*}  &      0.0890         &     -0.0104         \\
+                    &    (0.0536)         &    (0.0665)         &    (0.0653)         &    (0.0734)         \\
+\addlinespace
+Has more than 2 siblings&       0.110         &     -0.0787         &       0.103         &     -0.0731         \\
+                    &    (0.0627)         &    (0.0800)         &    (0.0703)         &    (0.0779)         \\
+\addlinespace
+Caregiver was religious&      0.0544         &      0.0287         &      -0.108         &       0.156\sym{*}  \\
+                    &    (0.0567)         &    (0.0665)         &    (0.0618)         &    (0.0681)         \\
+\addlinespace
+Mom Max Edu: Middle School&       1.953         &      -1.588         &       2.515         &      -2.279         \\
+                    &     (203.1)         &     (168.7)         &     (119.0)         &     (104.5)         \\
+\addlinespace
+Mom Max Edu: High School&       2.017         &      -1.618         &       2.624         &      -2.290         \\
+                    &     (203.1)         &     (168.7)         &     (119.0)         &     (104.5)         \\
+\addlinespace
+Mom Max Edu: University&       1.961         &      -1.536         &       2.740         &      -2.359         \\
+                    &     (203.1)         &     (168.7)         &     (119.0)         &     (104.5)         \\
+\midrule
+Observations        &         251         &         251         &         252         &         252         \\
+\bottomrule
+\end{tabular}
+}
