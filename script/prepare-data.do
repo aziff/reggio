@@ -233,14 +233,14 @@ replace maternaAffi = 1 if maternaType_manualFull == "municipal-parmainfanzia"
 replace maternaAffi = 1 if maternaType_manualFull == "municipal-affiliated-SPES"
 
 ** Create interaction terms between school type and adult age cohort (except maternaMuni and age 50)
-foreach type in None Muni Stat Reli Priv Yes {
+foreach type in None Muni Affi Stat Reli Priv Yes {
 	foreach age in Adult30 Adult40 Adult50 {
 		generate xm`type'`age' = materna`type' * Cohort_`age'
 	}
 }
 
 ** Create interaction terms between school type and city (except Reggio and maternaMuni)
-foreach type in None Muni Stat Reli Priv Yes {
+foreach type in None Muni Affi Stat Reli Priv Yes {
 	foreach city in Parma Padova Reggio {
 		generate xm`type'`city' = materna`type' * `city'
 	}
