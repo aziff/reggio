@@ -16,7 +16,7 @@ set seed 1234
 global klmReggio 	:	env klmReggio
 global git_reggio	:	env git_reggio
 global data_reggio	: 	env data_reggio
-global output	= 	"${git_reggio}/output/psm"
+global output	= 	"${git_reggio}/output/"
 global code			= 	"${git_reggio}/script"
 
 // bring in project-level macros
@@ -57,7 +57,7 @@ gen D2 = (D == 2)
 
 // ANALYSIS
 global adult_baseline_vars		Male ///
-					momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
+					momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  ///
 					numSibling_2 numSibling_more
 
 local child_cat_groups	CN S H B 

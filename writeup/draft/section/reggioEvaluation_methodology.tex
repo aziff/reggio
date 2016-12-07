@@ -84,48 +84,46 @@ where $Reggio_i$ is the indicator for $i$ living in Reggio Emilia. In this regre
 
 \subsection{Accounting for Selection into Treatment}
 
-\subsubsection{Investigating Differences in Selection across Cities: A Multinomial Logit Approach}
-We seperately estimate multinomial logit models for each city using preschool choice as the dependent variable, and a vector of baseline characteristics as independent variables. We then make cross-city comparisons of the estimated marginal effects for each baseline characteristic to investigate whether a common set of baseline variables determine selection into Municipal preschool in each city. This analysis provides sample-based insights into parents' perception of the quality of Municipal schools relative to other alternatives available within the same city. Substantial differences in selection across cities would suggest that parents in one city perceive Municipal schools differently than parents in another city, relative to the alternatives available within their respective cities. 
+\subsubsection{Differences in Selection across Cities: Multinomial Logit}
+We estimate multinomial logit models for each city using preschool choice as the dependent variable, and a vector of baseline characteristics as independent variables. We then compare the estimated marginal effects for each baseline characteristic to investigate whether a common set of baseline characteristics determines selection into municipal preschools across the three cities. This analysis highlights characteristics that determine selection into the municipal schools relative to preschool alternatives available within the same city. Substantial differences in selection across cities would suggest that selection into municipal schools differ by city. This could be a result of different parental perceptions of quality, the available slots, or other factors determining demand for municipal schools relative to alternative options. 
 
-To begin, we define the choices avaiable to parents in each city as follows:
+To begin, we define the choices available to parents in each city as follows:
 \begin{equation}
 S_i = \quad
 \begin{cases}
-0 \quad \text{if \quad (\textit{i} Attended Municipal preschool)} \\
-1 \quad  \text{if \quad (\textit{i} Attended an Alternative preschool)} \\
-2 \quad \text{if \quad (\textit{i} Did not attend any preschool)}  \\
+0 \quad \text{if \quad (\textit{i} did not attend any preschool)} \\
+1 \quad  \text{if \quad (\textit{i} attended an alternative preschool)} \\
+2 \quad \text{if \quad (\textit{i} attended a municipal preschool)}  \\
 \end{cases}
 \end{equation}
 
-\noindent We then estimate the following multinomial logit specification seperately for each city:
+\noindent We then estimate the following multinomial logit specification separately for each city:
 
 \begin{equation} \label{eq:log-odds-ratio}
-\nu_r = \text{log} \left(\frac{Pr(S_i=r)}{Pr(S_i=0)}\right) = \beta_0^r + \bm{\beta^r X} + \epsilon_i^r \quad \forall \quad r \in 1,2
+\nu_r = \text{log} \left(\frac{Pr(S_i=r)}{Pr(S_i=2)}\right) = \beta_0^r + \bm{\beta^r X}_i + \epsilon_i^r \quad \forall \quad r \in 0,1
 \end{equation}
 
-where $\bm{X}$ is a vector of baseline characteristics including child's gender, number of child's siblings, religiosity of caregiver, mothers education level, and indicators for whether parents were born in province.
+\noindent where $\bm{X}_i$ is a vector of baseline characteristics including child's gender, number of child's siblings, religiosity of caregiver, mothers education level, and indicators for whether parents were born in province.
 
-The predicted log-odds ratio, $\hat{\nu}$, from (\ref{eq:log-odds-ratio}) can be used to contruct the estimated probability of attending each school type $r$ as follows:
+The predicted log-odds ratio for each alternative option, $\hat{\nu}_r$, from (\ref{eq:log-odds-ratio}) can be used to construct the estimated probability of attending each school type $r$ as follows:
 
 \begin{equation}
 \pi_{i,r} = \frac{\text{exp}(\hat{\nu}_{r,i})}{\sum\limits_{j=0}^{2} \text{exp}(\hat{\nu}_{j,i})} \quad \forall  r \in 0,1,2
 \end{equation}
 
-Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the propensity to attend a school type $r$, $\pi_{r}$, by calculating the partial derivative $\partial \pi_{r}/\partial x_c$.
-
-
+Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the propensity to attend a school type $r$, $\pi_{r}$, by calculating the partial derivative $\partial \pi_{r}/\partial x_c$. These results are reported in Appendix~\ref{appendix:mlogit}.
 
 \subsubsection{Augmented IPW}
 
-The baseline OLS and difference-in-difference models do not account for selection into the Reggio Approach. We estimate an Augmented Inverse Propensity Weighted (AIPW) estimator in order to account for this.   
+The baseline OLS and difference-in-difference models do not account for selection into the Reggio Approach. We estimate an Augmented Inverse Propensity Weighted (AIPW) estimator that builds on the multinomial logit presented above in order to account for selection when estimating the treatment effects.   
 
 To begin, consider the following two treatment statuses,
 
 \begin{equation}\label{eq:cases-d}
 D_i = \quad
 \begin{cases}
-1 \quad if \quad &  R_i = 1\text{\quad 		(Attended Reggio Appraoch)} \\
-0 \quad if \quad &  R_i \neq 0 \text{\quad 	(From Reggio but did not attend Reggio Approach)} \\
+1 \quad if \quad &  R_i = 0 \text{\quad 		($i$ from Reggio Emilia but did not attend Reggio Approach)} \\
+0 \quad if \quad &  R_i \neq 0 \text{\quad 	($i$ from Reggio Emilia and attended the Reggio Approach).} \\
 \end{cases}
 \end{equation}
 ~\\
@@ -156,16 +154,16 @@ The AIPW estimator in Equation (\ref{eq:AIPW}) addresses the problem of instabil
 
 \subsubsection{AIPW Using Multinomial Control Selection Model}
 \label{sec:aipw-mlogit}
-An issue with the AIPW estimator in Equation (\ref{eq:AIPW}) is that the control group, $D_i=0$, includes all individuals who did not attend Reggio Municipal schools. As a result, we are unable to account for potential heterogeneity in treatment effects with respect to control group individuals who attended different types of preschools. In the rest of this subsection, we present an extension of the two-outcome AIPW that takes into account the non-binary nature of treatment statuses in our sample. \textbf{Please note that this framework is in its preliminary stages and we feel it might be beneficial to discuss with you.}\footnote{The framework presented here is preliminary in the sense that properties including unbiasedness need to be checked. We are currently searching for existing books and articles that present this extended model. We will present our findings in the next iteration.}
+An issue with the AIPW estimator in Equation (\ref{eq:AIPW}) is that the control group, $D_i=0$, includes all individuals who did not attend Reggio Municipal schools. As a result, we are unable to account for potential heterogeneity in treatment effects with respect to control group individuals who attended different types of preschools. In the rest of this subsection, we present an extension of the two-outcome AIPW that takes into account the non-binary nature of treatment statuses in our sample. 
 
 To account for this heterogeneity, we can start by defining a new variable for treatment status,
 
 \begin{equation}
 T_i = \quad
 \begin{cases}
-0 \quad \text{if \quad (\textit{i} From Reggio and attended Reggio Approach)} \\
-1 \quad  \text{if \quad (\textit{i} From Reggio and attended no preschool)} \\
-2 \quad \text{if \quad (\textit{i} From Reggio and attended other preschool)}  \\
+0 \quad \text{if \quad (\textit{i} from Reggio Emilia and attended no preschool)} \\
+1 \quad  \text{if \quad (\textit{i} from Reggio Emilia and attended other preschool)} \\
+2 \quad \text{if \quad (\textit{i} from Reggio Emilia and attended Reggio Approach)}  \\
 \end{cases}
 \end{equation}
 ~\\ ~\\
@@ -177,12 +175,12 @@ Y_i = \sum_{j=0}^{2}(\mathbb{1}_{T_i = j}) Y_{j,i}
 
 \noindent The average treatment effect with respect to each control group, $j$, can be defined,
 \begin{equation}
-ATE_j = E[Y(0) - Y(j)] \quad \forall j \in \{1,2\}
+ATE_j = E[Y(2) - Y(j)] \quad \forall j \in \{0,1\}
 \end{equation}
 Thus, the IPW estimator of the treatment effect with respect to each control group, $j$, can be defined as, 
 
 \begin{equation}\label{eq:IPWmulti}
-\widehat{IPW}_j=\widehat{E[Y(0)-Y(j)]}_{IPW} = \frac{1}{n} \sum_{i=1}^{n} \left \{\frac{(\mathbb{1}_{T_i=0}) Y_i}{\hat{\Pi_0}(\boldsymbol{X}_i)} - \frac{(\mathbb{1}_{T_i=j})Y_i}{\hat{\Pi_j}(\boldsymbol{X}_i)}\right \}
+\widehat{IPW}_j=\widehat{E[Y(2)-Y(j)]}_{IPW} = \frac{1}{n} \sum_{i=1}^{n} \left \{\frac{(\mathbb{1}_{T_i=2}) Y_i}{\hat{\Pi_2}(\boldsymbol{X}_i)} - \frac{(\mathbb{1}_{T_i=j})Y_i}{\hat{\Pi_j}(\boldsymbol{X}_i)}\right \}
 \end{equation}
 ~\\
 \noindent Where $\hat{\Pi_j}(\boldsymbol{X}_i) = Pr(T_i=j|\boldsymbol{X}_i) \quad \forall \, j \in \{0,1,2\}$, is predicted for each individual, $i$, using the estimated coefficients obtained from a multinomial logit model. 
@@ -190,6 +188,6 @@ Thus, the IPW estimator of the treatment effect with respect to each control gro
 Similarly, we may define the AIPW estimator of the treatment effect with respect to each control group, $j$, as,
 
 \begin{align}\label{eq:AIPWmulti}
-\widehat{AIPW_{j}} = E[\widehat{Y(0)-Y(j)]}_{AIPW} =& \frac{1}{n} \sum_{i=1}^{n}\bigg \{ \bigg[ \overbrace{ \frac{(\mathbb{1}_{T_i=0}) Y_i}{\hat{\Pi_0}(\boldsymbol{X}_i)} - \frac{(\mathbb{1}_{T_i=j})Y_i}{\hat{\Pi_j}(\boldsymbol{X}_i)}}^{IPTW}  \bigg]- \frac{(\mathbb{1}_{T_i=0}) \hat{\Pi}_j(\boldsymbol{X}_i) - (\mathbb{1}_{T_i=j}) \hat{\Pi}_0(\boldsymbol{X}_i)}{\hat{\Pi}_0(\boldsymbol{X}_i) \, \hat{\Pi}_j(\boldsymbol{X}_i)} \nonumber \\[10pt]
-& \bigg[ \hat{\Pi}_j(\boldsymbol{X}_i) \cdot E[\hat{Y_i}|T_i=0,\boldsymbol{X}_i] +\hat{\Pi}_0(\boldsymbol{X}_i) \cdot E[\hat{Y_i}|T_i=j,\boldsymbol{X}_i] \bigg] \bigg \}
+\widehat{AIPW_{j}} = E[\widehat{Y(2)-Y(j)]}_{AIPW} =& \frac{1}{n} \sum_{i=1}^{n}\bigg \{ \bigg[ \overbrace{ \frac{(\mathbb{1}_{T_i=2}) Y_i}{\hat{\Pi_2}(\boldsymbol{X}_i)} - \frac{(\mathbb{1}_{T_i=j})Y_i}{\hat{\Pi_j}(\boldsymbol{X}_i)}}^{IPTW}  \bigg]- \frac{(\mathbb{1}_{T_i=2}) \hat{\Pi}_j(\boldsymbol{X}_i) - (\mathbb{1}_{T_i=j}) \hat{\Pi}_2(\boldsymbol{X}_i)}{\hat{\Pi}_2(\boldsymbol{X}_i) \, \hat{\Pi}_j(\boldsymbol{X}_i)} \nonumber \\[10pt]
+& \bigg[ \hat{\Pi}_j(\boldsymbol{X}_i) \cdot E[\hat{Y_i}|T_i=2,\boldsymbol{X}_i] +\hat{\Pi}_2(\boldsymbol{X}_i) \cdot E[\hat{Y_i}|T_i=j,\boldsymbol{X}_i] \bigg] \bigg \}
 \end{align}
