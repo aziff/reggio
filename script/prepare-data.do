@@ -43,7 +43,7 @@ use Reggio, clear
 * ---------------------------------------------------------------------------- *
 ** Categories
 local cities                          Reggio Parma Padova
-local school_types                    None Muni Stat Reli Priv
+local school_types                    None Muni Affi Stat Reli Priv
 local school_age_types                Asilo Materna
 local cohorts                         Child Migrants Adol Adult30 Adult40 Adult50 
 
@@ -223,6 +223,14 @@ generate maternaStat = (maternaType == 2)
 generate maternaReli = (maternaType == 3)
 generate maternaPriv = (maternaType == 4)
 generate maternaYes = (maternaType != 0) // For those who attended any type of preschool
+
+* Materna Affiliated
+generate maternaAffi = 0
+replace maternaAffi = 1 if maternaType_manualFull == "municipal until 1990" & Cohort < 4
+replace maternaAffi = 1 if maternaType_manualFull == "municipal-affiliated (was municipal)"
+replace maternaAffi = 1 if maternaType_manualFull == "municipal-affiliated"
+replace maternaAffi = 1 if maternaType_manualFull == "municipal-parmainfanzia"
+replace maternaAffi = 1 if maternaType_manualFull == "municipal-affiliated-SPES"
 
 ** Create interaction terms between school type and adult age cohort (except maternaMuni and age 50)
 foreach type in None Muni Stat Reli Priv Yes {
