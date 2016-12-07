@@ -227,10 +227,15 @@ generate maternaYes = (maternaType != 0) // For those who attended any type of p
 * Materna Affiliated
 generate maternaAffi = 0
 replace maternaAffi = 1 if maternaType_manualFull == "municipal until 1990" & Cohort < 4
+replace maternaMuni = 0 if maternaType_manualFull == "municipal until 1990" & Cohort < 4
 replace maternaAffi = 1 if maternaType_manualFull == "municipal-affiliated (was municipal)"
+replace maternaMuni = 0 if maternaType_manualFull == "municipal-affiliated (was municipal)"
 replace maternaAffi = 1 if maternaType_manualFull == "municipal-affiliated"
+replace maternaMuni = 0 if maternaType_manualFull == "municipal-affiliated"
 replace maternaAffi = 1 if maternaType_manualFull == "municipal-parmainfanzia"
+replace maternaMuni = 0 if maternaType_manualFull == "municipal-parmainfanzia"
 replace maternaAffi = 1 if maternaType_manualFull == "municipal-affiliated-SPES"
+replace maternaMuni = 0 if maternaType_manualFull == "municipal-affiliated-SPES"
 
 ** Create interaction terms between school type and adult age cohort (except maternaMuni and age 50)
 foreach type in None Muni Affi Stat Reli Priv Yes {
@@ -271,10 +276,10 @@ replace Drink = 1 if DrinkNum > 0
 replace DrinkNum = 0 if Drink == 0
 
 // reciprocity
-lab var reciprocity1bin "If someone does me a favor, I am prepared to return it"
-lab var reciprocity2bin "If someone puts me in a difficult situation, I will do the same to him/her"
-lab var reciprocity3bin "I go out of my way to help somebody who has been kind to me before"
-lab var reciprocity4bin "If somebody insults me, I will insult him/her back"
+lab var reciprocity1_bin "If someone does me a favor, I am prepared to return it"
+lab var reciprocity2_bin "If someone puts me in a difficult situation, I will do the same to him/her"
+lab var reciprocity3_bin "I go out of my way to help somebody who has been kind to me before"
+lab var reciprocity4_bin "If somebody insults me, I will insult him/her back"
 
 
 // opinons on work
