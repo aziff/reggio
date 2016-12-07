@@ -94,7 +94,7 @@ global adol_outcome_S 					Friends childinvTalkOut childinvTalkSchool
 global adol_outcome_H            		BMI_obese BMI_overweight childHealthPerc childSickDays ///
 										RiskSuspended Cig 
 								 
-global adol_outcome_B           		difficultiesInterest difficultiesSit dropoutSchool likeSchool_ado_pos MigrTaste_cat Trust sport 
+global adol_outcome_B           		difficultiesInterest difficultiesSit dropoutSchool likeSchool_ado_pos MigrTaste Trust sport 
 								 
 * ----------------------------------------- *											
 * Outcomes for each category: Adult Cohorts *
@@ -253,7 +253,7 @@ global childinvTalkSchool_lab 			Doesn't Talk About School
 global sport_lab 						Days of Sport (Weekly)
 global dropoutSchool_lab 				Go To School
 global likeSchool_ado_pos_lab 			How Much Child Likes School
-global MigrTaste_cat_lab 				Bothered by Migrants
+global MigrTaste_lab 					Bothered by Migrants
 global Trust_lab						Trust Score
 
 global Male_lab							Male
