@@ -43,7 +43,7 @@ use Reggio, clear
 * ---------------------------------------------------------------------------- *
 ** Categories
 local cities                          Reggio Parma Padova
-local school_types                    None Muni Stat Reli Priv
+local school_types                    None Muni Affi Stat Reli Priv
 local school_age_types                Asilo Materna
 local cohorts                         Child Migrants Adol Adult30 Adult40 Adult50 
 
@@ -224,15 +224,28 @@ generate maternaReli = (maternaType == 3)
 generate maternaPriv = (maternaType == 4)
 generate maternaYes = (maternaType != 0) // For those who attended any type of preschool
 
+* Materna Affiliated
+generate maternaAffi = 0
+replace maternaAffi = 1 if maternaType_manualFull == "municipal until 1990" & Cohort < 4
+replace maternaMuni = 0 if maternaType_manualFull == "municipal until 1990" & Cohort < 4
+replace maternaAffi = 1 if maternaType_manualFull == "municipal-affiliated (was municipal)"
+replace maternaMuni = 0 if maternaType_manualFull == "municipal-affiliated (was municipal)"
+replace maternaAffi = 1 if maternaType_manualFull == "municipal-affiliated"
+replace maternaMuni = 0 if maternaType_manualFull == "municipal-affiliated"
+replace maternaAffi = 1 if maternaType_manualFull == "municipal-parmainfanzia"
+replace maternaMuni = 0 if maternaType_manualFull == "municipal-parmainfanzia"
+replace maternaAffi = 1 if maternaType_manualFull == "municipal-affiliated-SPES"
+replace maternaMuni = 0 if maternaType_manualFull == "municipal-affiliated-SPES"
+
 ** Create interaction terms between school type and adult age cohort (except maternaMuni and age 50)
-foreach type in None Muni Stat Reli Priv Yes {
+foreach type in None Muni Affi Stat Reli Priv Yes {
 	foreach age in Adult30 Adult40 Adult50 {
 		generate xm`type'`age' = materna`type' * Cohort_`age'
 	}
 }
 
 ** Create interaction terms between school type and city (except Reggio and maternaMuni)
-foreach type in None Muni Stat Reli Priv Yes {
+foreach type in None Muni Affi Stat Reli Priv Yes {
 	foreach city in Parma Padova Reggio {
 		generate xm`type'`city' = materna`type' * `city'
 	}
@@ -263,10 +276,10 @@ replace Drink = 1 if DrinkNum > 0
 replace DrinkNum = 0 if Drink == 0
 
 // reciprocity
-lab var reciprocity1bin "If someone does me a favor, I am prepared to return it"
-lab var reciprocity2bin "If someone puts me in a difficult situation, I will do the same to him/her"
-lab var reciprocity3bin "I go out of my way to help somebody who has been kind to me before"
-lab var reciprocity4bin "If somebody insults me, I will insult him/her back"
+lab var reciprocity1_bin "If someone does me a favor, I am prepared to return it"
+lab var reciprocity2_bin "If someone puts me in a difficult situation, I will do the same to him/her"
+lab var reciprocity3_bin "I go out of my way to help somebody who has been kind to me before"
+lab var reciprocity4_bin "If somebody insults me, I will insult him/her back"
 
 
 // opinons on work
@@ -690,7 +703,7 @@ label var childSDQ_score        "SDQ score (mom rep.)"
 label var Depression_score      "Depression score (CESD)"
 label var HealthPerc            "Respondent health is good (%)"
 label var childHealthPerc       "Child health is good (%) - mom report"
-label var MigrTaste_cat         "Bothered by migrants (%)"
+label var MigrTaste	           "Bothered by migrants (%)"
 
 label var Age                   "Age"
 label var Age_sq                "Age sq."
@@ -750,15 +763,15 @@ label var LocusControl			"Locus of Control"
 label var Depression_score		"Depression Score"
 label var pos_LocusControl		"Locus of Control - Positive"
 label var pos_Depression_score	"Depression Score - Positive"
-label var binSatisIncome		"Satisfied with Income"
-label var binSatisWork			"Satisfied with Work"
-label var binSatisHealth 		"Satisfied with Health"
-label var binSatisFamily		"Satisfied with Family"
+label var SatisIncome_bin		"Satisfied with Income"
+label var SatisWork_bin			"Satisfied with Work"
+label var SatisHealth_bin 		"Satisfied with Health"
+label var SatisFamily_bin		"Satisfied with Family"
 label var optimist				"Optimistic Look on Life"
-label var reciprocity1bin		"Return a Favor"
-label var reciprocity2bin		"Put Someone in Difficulty"
-label var reciprocity3bin		"Help Someone Who is Kind To Me"
-label var reciprocity4bin 		"Would Insult Someone Back"
+label var reciprocity1_bin		"Return a Favor"
+label var reciprocity2_bin		"Put Someone in Difficulty"
+label var reciprocity3_bin		"Help Someone Who is Kind To Me"
+label var reciprocity4_bin 		"Would Insult Someone Back"
 
 label var MigrTaste				"Favorable to Migrants"
 label var Friends				"Number of Friends"

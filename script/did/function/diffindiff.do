@@ -38,16 +38,6 @@ syntax, type(string) ifcondition(string) comparison(string) keep(varlist)
 	
 	***** Create a local for the label (Going to be filled out in the loop)
 	local coeflabel
-	
-	***** Create a local for footnote that will be included in the output
-	# delimit ;
-	local Note			"\specialcell{\underline{Note:} This table shows the diff-in-diff estimates for ${`comparison'_note}. \\
-									Standard errors are reported in parenthesis. Stars show statistical significance as follows: \\
-									* p < 0.05, ** p < 0.01, *** p < 0.001.}" ;
-	# delimit cr
-	
-	di "Note: `Note'"
-	di "Comparison Note: ${`comparison'_note}"
 
 	***** Loop through the outcomes in a category and store diff-in-diff results
 	foreach var in ${adult_outcome_`type'} {		
@@ -92,6 +82,6 @@ syntax, type(string) ifcondition(string) comparison(string) keep(varlist)
 
 	***** Output the table to the tex file
 	esttab using "${current}/../../output/did/did-`comparison'-`type'.tex", replace se mtitle ///
-				coeflabels(`coeflabel') noobs nonotes addnotes("`Note'") booktabs
+				coeflabels(`coeflabel') noobs nonotes booktabs
 
 end

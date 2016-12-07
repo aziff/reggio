@@ -63,6 +63,8 @@ global bic_adult_baseline_vars		    	Male CAPI momMaxEdu_middle dadMaxEdu_Uni nu
 * ------------------------------------------- *											
 * Outcomes for each category: Younger Cohorts *
 * ------------------------------------------- *
+global child_outcome_M					pos_childSDQ_score BMI_obese likeSchool_child_pos Friends // Main outcomes
+
 global child_outcome_CN         		IQ_factor IQ_score ///
 										pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score 
 								 
@@ -92,7 +94,7 @@ global adol_outcome_S 					Friends childinvTalkOut childinvTalkSchool
 global adol_outcome_H            		BMI_obese BMI_overweight childHealthPerc childSickDays ///
 										RiskSuspended Cig 
 								 
-global adol_outcome_B           		difficultiesInterest difficultiesSit dropoutSchool likeSchool_ado_pos MigrTaste_cat Trust sport 
+global adol_outcome_B           		difficultiesInterest difficultiesSit dropoutSchool likeSchool_ado_pos MigrTaste Trust sport 
 								 
 * ----------------------------------------- *											
 * Outcomes for each category: Adult Cohorts *
@@ -118,7 +120,7 @@ global adult_outcome_N					pos_LocusControl pos_Depression_score Stress StressWo
 										optimist pos_reciprocity neg_reciprocity	
 
 * Social										
-global adult_outcome_S					MigrTaste Friends MigrFriend volunteer /*invFamMeal*/ votedRegional votedNational
+global adult_outcome_S					MigrTaste Friends MigrFriend volunteer /*invFamMeal*/ votedMunicipal votedRegional 
 
 * Religion
 global adult_outcome_R					Faith
@@ -251,7 +253,7 @@ global childinvTalkSchool_lab 			Doesn't Talk About School
 global sport_lab 						Days of Sport (Weekly)
 global dropoutSchool_lab 				Go To School
 global likeSchool_ado_pos_lab 			How Much Child Likes School
-global MigrTaste_cat_lab 				Bothered by Migrants
+global MigrTaste_lab 					Bothered by Migrants
 global Trust_lab						Trust Score
 
 global Male_lab							Male
