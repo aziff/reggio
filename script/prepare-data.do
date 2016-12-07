@@ -763,10 +763,12 @@ label var LocusControl			"Locus of Control"
 label var Depression_score		"Depression Score"
 label var pos_LocusControl		"Locus of Control - Positive"
 label var pos_Depression_score	"Depression Score - Positive"
+/*
 label var SatisIncome_bin		"Satisfied with Income"
 label var SatisWork_bin			"Satisfied with Work"
 label var SatisHealth_bin 		"Satisfied with Health"
 label var SatisFamily_bin		"Satisfied with Family"
+*/
 label var optimist				"Optimistic Look on Life"
 label var reciprocity1_bin		"Return a Favor"
 label var reciprocity2_bin		"Put Someone in Difficulty"
