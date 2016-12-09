@@ -115,7 +115,7 @@ Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the 
 
 \subsubsection{Augmented IPW}
 
-The baseline OLS and difference-in-difference models do not account for selection into the Reggio Approach. We estimate an Augmented Inverse Propensity Weighted (AIPW) estimator that builds on the multinomial logit presented above in order to account for selection when estimating the treatment effects.   
+Although the baseline OLS and difference-in-difference models attempt to account for the selection into the Reggio Approach, regression estimator for ATE may be poorly estimated when the observed values of baseline variables are not similar for the treatment and control groups \citep{Glynn_2010}. We estimate an Augmented Inverse Propensity Weighted (AIPW) estimator that builds on the multinomial logit presented above in order to account for the caveats with the regression estimator.   
 
 To begin, consider the following two treatment statuses,
 
@@ -145,7 +145,7 @@ In calculating $\widehat{E[Y(1)]}$, the IPTW estimator assigns a higher weight t
 An issue with the simple IPTW estimator is that the estimates become unstable as the estimated propensities, $\hat{\pi(\boldsymbol{X}_i)}$, tend to 0 or 1. We use the following Augmented IPW (AIPW) estimator to correct for this issue. 
 \begin{align}\label{eq:AIPW}
 E[\widehat{Y(1)-Y(0)]}_{AIPW} = \frac{1}{n} \sum_{i=1}^{n} \bigg \{ \bigg[ & \overbrace{\frac{D_i Y_i}{\hat{\pi(\boldsymbol{X}_i)}} - \frac{(1-D_i)Y_i}{1-\hat{\pi(\boldsymbol{X}_i)}}}^{IPTW} \bigg]- \frac{D_i - \hat{\pi}(\boldsymbol{X}_i)}{\hat{\pi}(\boldsymbol{X}_i) (1-\hat{\pi}(\boldsymbol{X}_i))} \nonumber \\[10pt]
-& \bigg[ (1-\hat{\pi}(\boldsymbol{X}_i)) E[\hat{Y_i}|D_i=1,\boldsymbol{X}_i] + \hat{\pi}(\boldsymbol{X}_i)) E[\hat{Y_i}|D_i=0,\boldsymbol{X}_i] \bigg] \bigg \}
+& \bigg[ (1-\hat{\pi}(\boldsymbol{X}_i)) E[\hat{Y_i}|D_i=1,\boldsymbol{X}_i] + \hat{\pi}(\boldsymbol{X}_i) E[\hat{Y_i}|D_i=0,\boldsymbol{X}_i] \bigg] \bigg \}
 \end{align}
 
 The AIPW estimator in Equation (\ref{eq:AIPW}) addresses the problem of instability associated with the IPTW estimator near $\hat{\pi(\boldsymbol{X}_i)} = 0$ or $1$, by adjusting the weighted estimator with a weighted average of $\hat{Y_i}$ obtained from an OLS regression. For $D_i = 0$, as the IPTW estimate becomes large and negative near $\hat{\pi(\boldsymbol{X}_i)} = 1$, the adjustment term becomes large and positive, thereby, stabilizing the estimator at these values. Analogously, for $D = 1$, as the IPTW estimate becomes large and positive near $\hat{\pi(\boldsymbol{X}_i)} = 0$, the adjustment term becomes large and negative. 
@@ -188,6 +188,6 @@ Thus, the IPW estimator of the treatment effect with respect to each control gro
 Similarly, we may define the AIPW estimator of the treatment effect with respect to each control group, $j$, as,
 
 \begin{align}\label{eq:AIPWmulti}
-\widehat{AIPW_{j}} = E[\widehat{Y(2)-Y(j)]}_{AIPW} =& \frac{1}{n} \sum_{i=1}^{n}\bigg \{ \bigg[ \overbrace{ \frac{(\mathbb{1}_{T_i=2}) Y_i}{\hat{\Pi_2}(\boldsymbol{X}_i)} - \frac{(\mathbb{1}_{T_i=j})Y_i}{\hat{\Pi_j}(\boldsymbol{X}_i)}}^{IPTW}  \bigg]- \frac{(\mathbb{1}_{T_i=2}) \hat{\Pi}_j(\boldsymbol{X}_i) - (\mathbb{1}_{T_i=j}) \hat{\Pi}_2(\boldsymbol{X}_i)}{\hat{\Pi}_2(\boldsymbol{X}_i) \, \hat{\Pi}_j(\boldsymbol{X}_i)} \nonumber \\[10pt]
+\widehat{AIPW_{j}} = E[\widehat{Y(2)-Y(j)]}_{AIPW} =& \frac{1}{n} \sum_{i=1}^{n}\bigg \{ \bigg[ \overbrace{ \frac{(\mathbb{1}_{T_i=2}) Y_i}{\hat{\Pi_2}(\boldsymbol{X}_i)} - \frac{(\mathbb{1}_{T_i=j})Y_i}{\hat{\Pi_j}(\boldsymbol{X}_i)}}^{IPTW}  \bigg] - \frac{(\mathbb{1}_{T_i=2}) - \hat{\Pi}_2(\boldsymbol{X}_i)}{\hat{\Pi}_2(\boldsymbol{X}_i) \, \hat{\Pi}_j(\boldsymbol{X}_i)} \nonumber \\[10pt]
 & \bigg[ \hat{\Pi}_j(\boldsymbol{X}_i) \cdot E[\hat{Y_i}|T_i=2,\boldsymbol{X}_i] +\hat{\Pi}_2(\boldsymbol{X}_i) \cdot E[\hat{Y_i}|T_i=j,\boldsymbol{X}_i] \bigg] \bigg \}
 \end{align}
