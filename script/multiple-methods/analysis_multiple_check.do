@@ -84,7 +84,7 @@ local Adult50_num 		= 6
 preserve
 keep if (Cohort == 1) | (Cohort == 2) 
 
-foreach type in None Stat Reli Other {
+foreach stype in None Stat Reli Other {
 	* Set necessary global variables
 	global X					maternaMuni
 	global reglist				NoneIt BICIt FullIt DidPmIt DidPvIt /*IPWIt*/ NoneMg BICMg FullMg DidPmMg DidPvMg /*IPWMg*/ // It => Italians, Mg => Migrants
@@ -154,14 +154,14 @@ foreach type in None Stat Reli Other {
 	foreach type in CN /*S*/ H B {
 
 		* Open necessary files
-		file open regression_`type' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_child_`type'.csv", write replace
+		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_child_`type'_`stype'.csv", write replace
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Children: Multiple Analysis"
-		combinedanalysis, type("`type'") reglist("${comparisonlist}") usegroup("${usegroup}") cohort("child")
+		combinedanalysis, stype("`stype'") type("`type'") reglist("${comparisonlist}") usegroup("${usegroup}") cohort("child")
 		
 		* Close necessary files
-		file close regression_`type'
+		file close regression_`type'_`stype'
 	}
 }
 
