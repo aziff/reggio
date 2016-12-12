@@ -25,7 +25,7 @@ use "${data_reggio}/Reggio_prepared"
 
 * Include scripts and functions
 include "${here}/../macros" 
-include "${here}/function/combinedanalysis"
+include "${here}/function/reganalysis"
 include "${here}/function/writematrix"
 
 
@@ -158,7 +158,7 @@ foreach stype in None Stat Reli Other {
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Children: Multiple Analysis"
-		combinedanalysis, stype("`stype'") type("`type'") reglist("${comparisonlist}") usegroup("${usegroup}") cohort("child")
+		reganalysis, stype("`stype'") type("`type'") reglist("${comparisonlist}") usegroup("${usegroup}") cohort("child")
 		
 		* Close necessary files
 		file close regression_`type'_`stype'
