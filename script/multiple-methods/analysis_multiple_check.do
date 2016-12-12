@@ -95,14 +95,12 @@ foreach stype in None Stat Reli Other {
 	global XFullIt				maternaMuni		
 	global XDidPmIt				maternaMuni	Reggio xmMuniReggio	
 	global XDidPvIt				maternaMuni	Reggio xmMuniReggio	
-	global XIPWIt				ReggioMaterna materna
 
 	global XNoneMg				maternaMuni		
 	global XBICMg				maternaMuni		
 	global XFullMg				maternaMuni		
 	global XDidPmMg				maternaMuni	Reggio xmMuniReggio	
 	global XDidPvMg				maternaMuni	Reggio xmMuniReggio	
-	global XIPWMg				ReggioMaterna materna
 
 	global keepNoneIt			maternaMuni
 	global keepBICIt			maternaMuni
@@ -111,7 +109,6 @@ foreach stype in None Stat Reli Other {
 	global keepNoneMg			maternaMuni
 	global keepBICMg			maternaMuni
 	global keepFullMg			maternaMuni
-	global keepIPWMg			ReggioMaterna
 
 	global keepDidPmIt			xmMuniReggio
 	global keepDidPvIt			xmMuniReggio
@@ -131,8 +128,6 @@ foreach stype in None Stat Reli Other {
 	global controlsDidPmMg		${bic_child_baseline_vars}
 	global controlsDidPvIt		${bic_child_baseline_vars}
 	global controlsDidPvMg		${bic_child_baseline_vars}
-	global controlsIPWIt		${bic_child_baseline_vars} [pweight = weight_Cohort1]
-	global controlsIPWMg		${bic_child_baseline_vars} [pweight = weight_Cohort2]
 
 	global ifconditionNoneIt 	(Reggio == 1) & (Cohort_Child == 1)   & (maternaMuni == 1 | materna`type' == 1)
 	global ifconditionBICIt		${ifconditionNoneIt}
@@ -145,10 +140,8 @@ foreach stype in None Stat Reli Other {
 	global ifconditionFull		${ifconditionNoneMg}
 	global ifconditionDidPmIt	(Reggio == 1 | Parma == 1) & (Cohort == 1)   & (maternaMuni == 1 | materna`type' == 1)
 	global ifconditionDidPvIt	(Reggio == 1 | Padova == 1) & (Cohort == 1)   & (maternaMuni == 1 | materna`type' == 1)
-	global ifconditionIPWIt		(sample_materna2 == 1 & Cohort == 1)
 	global ifconditionDidPmMg	(Reggio == 1 | Parma == 1) & (Cohort == 2)   & (maternaMuni == 1 | materna`type' == 1)
 	global ifconditionDidPvMg	(Reggio == 1 | Padova == 1) & (Cohort == 2)   & (maternaMuni == 1 | materna`type' == 1)
-	global ifconditionIPWMg		(sample_materna2 == 1 & Cohort == 2)
 
 
 	foreach type in CN /*S*/ H B {
