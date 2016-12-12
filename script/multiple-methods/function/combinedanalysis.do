@@ -17,7 +17,7 @@ capture program drop combinedanalysis
 capture program define combinedanalysis
 
 version 13
-syntax, type(string) reglist(string) usegroup(string) cohort(string)
+syntax, stype(string) type(string) reglist(string) usegroup(string) cohort(string)
 
 	
 	* ------------------------------------- *
@@ -73,7 +73,7 @@ syntax, type(string) reglist(string) usegroup(string) cohort(string)
 		di "`matnames'"
 		mat colname regression = `matnames'
 		
-		writematrix, output(regression_`type') rowname("`var'") matrix(regression) `header_switch'
+		writematrix, output(regression_`type'_`stype') rowname("`var'") matrix(regression) `header_switch'
 		local header_switch 
 	}
 
