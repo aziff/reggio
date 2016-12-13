@@ -2,7 +2,7 @@
 * Analyzing the Reggio Children Evaluation Survey - OLS and Diff-in-Diff for Adult Cohorts
 * Authors: Jessica Yu Kyung Koh
 * Created: 06/16/2016
-* Edited:  11/08/2016
+* Edited:  12/12/2016
 
 * Note: This execution do file performs diff-in-diff estimates and generates tables
         by using "multipleanalysis" command that is programmed in 
@@ -26,7 +26,9 @@ use "${data_reggio}/Reggio_prepared"
 * Include scripts and functions
 include "${here}/../macros" 
 include "${here}/function/reganalysis"
+include "${here}/function/aipwanalysis"
 include "${here}/function/writematrix"
+include "${here}/../ipw/function/aipw"
 
 
 * ---------------------------------------------------------------------------- *
@@ -48,17 +50,19 @@ global maternaMuniPadova40_c	Padova40
 
 
 ** Preparation for IPW
-drop if(ReggioAsilo == . | ReggioMaterna == .)
+drop if (ReggioAsilo == . | ReggioMaterna == .)
 
-gen sample1 		= (Reggio == 1)
-gen sample_nido2 	= ((Reggio == 1 & ReggioAsilo == 1) 	| (Parma == 1) | (Padova == 1))
-gen sample_materna2 	= ((Reggio == 1 & ReggioMaterna == 1) 	| (Parma == 1) | (Padova == 1))
-gen sample3 		= (Reggio == 1 	| Parma == 1)
-gen sample4 		= (Reggio == 1 	| Padova == 1)
+generate D = 0
+replace  D = 1 			if (ReggioMaterna == 1)
 
-				
+generate D0 = (D == 0)
+generate D1 = (D == 1)
+generate D2 = (D == 2)
+
+global bootstrap = 50
+set seed 1234
+
 * ANALYSIS
-
 local child_cohorts		Child Migrant
 local adol_cohorts		Adolescent
 local adult_cohorts		Adult30 Adult40 Adult50
@@ -76,7 +80,6 @@ local Adult50_num 		= 6
 
 
 
-
 * ---------------------------------------------------------------------------- *
 * 					Reggio Muni vs. None:	Children 						   *
 * ---------------------------------------------------------------------------- *
@@ -84,11 +87,13 @@ local Adult50_num 		= 6
 preserve
 keep if (Cohort == 1) | (Cohort == 2) 
 
+local stype_switch = 1
 foreach stype in None Stat Reli Other {
+	
 	* Set necessary global variables
 	global X					maternaMuni
-	global reglist				NoneIt BICIt FullIt DidPmIt DidPvIt /*IPWIt*/ NoneMg BICMg FullMg DidPmMg DidPvMg /*IPWMg*/ // It => Italians, Mg => Migrants
-	global usegroup				munivs`type'_child
+	global reglist				NoneIt BICIt FullIt DidPmIt DidPvIt NoneMg BICMg FullMg DidPmMg DidPvMg  // It => Italians, Mg => Migrants
+	global aipwlist				WnoneIt WpresIt WnoneMg WpresMg
 
 	global XNoneIt				maternaMuni		
 	global XBICIt				maternaMuni		
@@ -142,20 +147,46 @@ foreach stype in None Stat Reli Other {
 	global ifconditionDidPvIt	(Reggio == 1 | Padova == 1) & (Cohort == 1)   & (maternaMuni == 1 | materna`type' == 1)
 	global ifconditionDidPmMg	(Reggio == 1 | Parma == 1) & (Cohort == 2)   & (maternaMuni == 1 | materna`type' == 1)
 	global ifconditionDidPvMg	(Reggio == 1 | Padova == 1) & (Cohort == 2)   & (maternaMuni == 1 | materna`type' == 1)
-
-
+	global ifconditionWnoneIt   (Reggio == 1) & (Cohort == 1)   & (maternaMuni == 1 | maternaNone == 1)
+	global ifconditionWpresIt 	(Reggio == 1) & (Cohort == 1)   & (maternaMuni == 1 | maternaOther == 1)
+	global ifconditionWnoneMg 	(Reggio == 1) & (Cohort == 2)   & (maternaMuni == 1 | maternaNone == 1)
+	global ifconditionWpresMg	(Reggio == 1) & (Cohort == 2)   & (maternaMuni == 1 | maternaOther == 1)
+	
 	foreach type in CN /*S*/ H B {
 
+		* ----------------------- *
+		* For Regression Analysis *
+		* ----------------------- *
 		* Open necessary files
 		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_child_`type'_`stype'.csv", write replace
 
 		* Run Multiple Analysis
-		di "Estimating `type' for Children: Multiple Analysis"
-		reganalysis, stype("`stype'") type("`type'") reglist("${comparisonlist}") usegroup("${usegroup}") cohort("child")
-		
+		di "Estimating `type' for Children: Regression Analysis"
+		reganalysis, stype("`stype'") type("`type'") reglist("${reglist}") cohort("child")
+	
 		* Close necessary files
 		file close regression_`type'_`stype'
+		
+		
+		* ----------------- *
+		* For AIPW Analysis *
+		* ----------------- *
+		if `stype_switch' == 1 { // Does not depend on `stype', so we only need to run once!
+		
+			* Open necessary files
+			file open aipw_`type' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_child_`type'.csv", write replace
+
+			* Run Multiple Analysis
+			di "Estimating `type' for Children: AIPW Analysis"
+			aipwanalysis, type("`type'") aipwlist("${aipwlist}") cohort("child")
+			
+			* Close necessary files
+			file close aipw_`type'	
+		}
+		
 	}
+	
+	local stype_switch = 0
 }
 
 restore
