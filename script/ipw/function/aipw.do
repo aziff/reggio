@@ -21,8 +21,8 @@ forvalues b = 0/`brep' {
 	}
 
 	***** predict probabilities and generate weights
-	qui probit D`comparison' ${`group'_baseline_vars}, vce(robust) 
-	
+	probit D ${`group'_baseline_vars}, vce(robust) 
+
 	***** only proceed if converged
 	if e(converged) {	
 
@@ -32,7 +32,7 @@ forvalues b = 0/`brep' {
 			predict Dhat``cohort'_num'`d', outcome(`d')
 			replace weight`d' = (1 / Dhat``cohort'_num'`d') 
 
-			qui reg `outcome' ${`cohort'_baseline_vars} CAPI if D`comparison' = `d'
+			qui reg `outcome' ${`cohort'_baseline_vars} CAPI if D = `d'
 			
 			predict Yhat`d'  // predicts for everyone!
 		}
@@ -42,6 +42,7 @@ forvalues b = 0/`brep' {
 		gen tmp0 = Yhat0 + D0/weight * (`outcome' - Yhat0)
 		
 		gen dr`outcome'``cohort'_num' = tmp1 - tmp0
+		
 		di "results for `outcome'"
 		sum dr`outcome'``cohort'_num'
 
@@ -79,7 +80,7 @@ forvalues b = 0/`brep' {
 	if r(mean) <= 0.1 {
 		local m`outcome'`cohort' "\textbf{`m`outcome'`cohort''}"
 	}
-	di "pvalue"
+
 	di r(mean)
 
 	restore
