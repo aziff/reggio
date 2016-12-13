@@ -1,23 +1,23 @@
 /* ---------------------------------------------------------------------------- *
 * Programming a function for the OLS for Reggio analysis (A more general version)
-* Author: Jessica Yu Kyung Koh
+* Author: Anna Ziff, Jessica Yu Kyung Koh
 * Edited: 12/12/2016
 
 * Note: The purpose of this function is to generate csv file that contains
         point estimates, standard errors, p-values, and # of observations for
-		different methodology. Since some methods we use are not regression 
+		AIPW. Since some methods we use are not regression 
 		analysis, we cannot use commands like "estout" or "esttab". 
 		
 		The csv files created will be merged in other do files to produce
-		presentable tables that combine methodologies. 
+		presentable tables that combine different methodologies. 
 * ---------------------------------------------------------------------------- */
 
 
-capture program drop reganalysis
-capture program define reganalysis
+capture program drop aipwanalysis
+capture program define aipwanalysis
 
 version 13
-syntax, stype(string) type(string) reglist(string) cohort(string)
+syntax, type(string) aipwlist(string) cohort(string)
 
 	
 	* ------------------------------------- *
@@ -34,39 +34,45 @@ syntax, stype(string) type(string) reglist(string) cohort(string)
 		local matnames
 	
 		local switch = 1
-		foreach comp in ${reglist} {
+		foreach comp in ${aipwlist} {
+		
 			sum `var' if ${ifcondition`comp'}
 			if r(N) > 0 {
 			
 				di "variable: `var'"
-				* Regress
-				reg `var' ${X`comp'} ${controls`comp'} if ${ifcondition`comp'}, robust
+				* Estimate AIPW
+				preserve
+				
+				keep if ${ifcondition`comp'}
+				aipw, outcome("`var'") brep(${bootstrap}) comparison("`comp'")
+				
+				restore
 				
 				* Save key results to locals
 				mat r = r(table)
-				local itt_`comp' 	= 	r[1,1]
-				local itt_`comp'_se = 	r[2,1]
-				local itt_`comp'_p	=	r[4,1]
-				local itt_`comp'_N	= 	e(N)
+				local aipw_`comp' 	= 	r[1,1]
+				local aipw_`comp'_se = 	r[2,1]
+				local aipw_`comp'_p	=	r[4,1]
 				
 				* Add to the matitems and matnames locals
 				if `switch' == 1 {
-					local matitems `matitems' `itt_`comp'', `itt_`comp'_se', `itt_`comp'_p', `itt_`comp'_N' 
+					local matitems `matitems' `aipw_`comp'', `aipw_`comp'_se', `aipw_`comp'_p'
 				}
 				if `switch' == 0 {
-					local matitems `matitems', `itt_`comp'', `itt_`comp'_se', `itt_`comp'_p', `itt_`comp'_N'  
+					local matitems `matitems', `aipw_`comp'', `aipw_`comp'_se', `aipw_`comp'_p'  
 				}
 				
-				local matnames `matnames' itt_`comp' itt_`comp'_se itt_`comp'_p itt_`comp'_N
+				local matnames `matnames' aipw_`comp' aipw_`comp'_se aipw_`comp'_p 
 				
 				local switch = 0
 			}
 		}	
 	
-		mat regression = [`matitems']
-		mat colname regression = `matnames'
+		mat aipw = [`matitems']
 		
-		writematrix, output(regression_`type'_`stype') rowname("`var'") matrix(regression) `header_switch'
+		mat colname aipw = `matnames'
+		
+		writematrix, output(aipw_`type'_`stype') rowname("`var'") matrix(aipw) `header_switch'
 		local header_switch 
 	}
 	
