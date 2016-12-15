@@ -63,7 +63,7 @@ global bic_adult_baseline_vars		    	Male CAPI momMaxEdu_middle dadMaxEdu_Uni nu
 * ------------------------------------------- *											
 * Outcomes for each category: Younger Cohorts *
 * ------------------------------------------- *
-global child_outcome_M					pos_childSDQ_score BMI_obese likeSchool_child_pos Friends // Main outcomes
+global child_outcome_M					pos_childSDQ_score BMI_obese BMI_overweight childHealthPerc difficultiesInterest difficultiesSit likeSchool_child_pos // Main outcomes
 
 global child_outcome_CN         		IQ_factor IQ_score ///
 										pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score 
@@ -79,7 +79,9 @@ global child_outcome_H 			 		BMI_obese BMI_overweight childHealthPerc childSickD
 
 global child_outcome_B			 		difficultiesInterest difficultiesSit likeSchool_child_pos faceGeneral 
                                  
-                                   
+
+global adol_outcome_M					pos_childSDQ_score pos_SDQ_score pos_Depression_score BMI_obese BMI_overweight childHealthPerc dropoutSchool likeSchool_ado_post Trust sport							 
+				  
 global adol_outcome_CN          		IQ_factor IQ_score ///
 										pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score ///
 										pos_SDQ_score pos_SDQPsoc_score pos_SDQPeer_score pos_SDQHype_score pos_SDQEmot_score pos_SDQCond_score /*LocusControl*/ pos_Depression_score 
@@ -100,6 +102,9 @@ global adol_outcome_B           		difficultiesInterest difficultiesSit dropoutSc
 * Outcomes for each category: Adult Cohorts *
 * ----------------------------------------- *								 
 * Cognitive skills and education
+global adult_outcome_M					highschoolGrad MaxEdu_Uni PA_Empl HrsTot mStatus_married_cohab BMI_Obese ///
+										BMI_overweight pos_LocusControl pos_Depression votedMunicipal votedRegional
+
 global adult_outcome_E					IQ_factor votoMaturita votoUni ///
 										highschoolGrad MaxEdu_Uni MaxEdu_Grad
 
