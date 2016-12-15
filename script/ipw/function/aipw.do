@@ -10,80 +10,118 @@ capture program drop aipw
 capture program define aipw
 
 version 13
-syntax, outcome(string) brep(integer) comparison(string)
+syntax, outcome(string) brep(integer) cohort(string) comparison(string)
 
 ***** Loop through bootstrap
-forvalues b = 0/`brep' {
+matrix `outcome'`cohort' = J(1,1,.)
 
+forvalues b = 0/`brep' {
+	di "for Bootstrap = `b'"
+	
+	preserve
 	***** 0 is point estimate with original sample
 	if `b' != 0 { 
 		bsample, strata(Male)
 	}
-
+	di "summarizing for bootstrap `b'"
+	summ intnr if D == 1
+	local obsN1 = r(N)
+	summ intnr if D == 0
+	local obsN0 = r(N)
+	
+	***** only proceed if there are sufficient observation
+	if (`obsN1' >= 5) & (`obsN0' >= 5) {
 	***** predict probabilities and generate weights
-	probit D ${`group'_baseline_vars}, vce(robust) 
+	probit D ${bic_`cohort'_baseline_vars}, vce(robust) iterate(30)
 
-	***** only proceed if converged
-	if e(converged) {	
-
-		forvalues d = 0/1 {
-			gen weight`d' = .
-
-			predict Dhat``cohort'_num'`d', outcome(`d')
-			replace weight`d' = (1 / Dhat``cohort'_num'`d') 
-
-			qui reg `outcome' ${`cohort'_baseline_vars} CAPI if D = `d'
+		***** only proceed if converged
+		if e(converged) {	
+		
+			di "Predicting for outcome == 1"
+			predict Dhat1
+			summ Dhat1
 			
-			predict Yhat`d'  // predicts for everyone!
-		}
+			gen weight1 = .
+			replace weight1 = (1 / Dhat1) 
+			
+			generate Dhat0 = 1 - Dhat1
+			
+			generate weight0 = .
+			replace weight0 = (1 / Dhat0) 
 
-		***** calculate estimator
-		gen tmp1 = Yhat1 + D1/weight * (`outcome' - Yhat1)
-		gen tmp0 = Yhat0 + D0/weight * (`outcome' - Yhat0)
+			di "Regressing for `outcome' for treated"
+			qui reg `outcome' ${bic_`cohort'_baseline_vars} CAPI if D == 1
+			predict Yhat1  // predicts for everyone!
 		
-		gen dr`outcome'``cohort'_num' = tmp1 - tmp0
+			di "Regressing for `outcome' for control"
+			qui reg `outcome' ${bic_`cohort'_baseline_vars} CAPI if D == 0
+			predict Yhat0  // predicts for everyone!
 		
-		di "results for `outcome'"
-		sum dr`outcome'``cohort'_num'
+			***** calculate estimator
+			gen tmp1 = Yhat1 + D1/weight1 * (`outcome' - Yhat1)
+			gen tmp0 = Yhat0 + D0/weight0 * (`outcome' - Yhat0)
 
-		// store result
-		collapse dr`outcome'``cohort'_num' 
-	
-		// save point estimate
-		if `b' == 0 {
-			sum dr`outcome'  
-			local p`outcome'`cohort' = r(mean)	
+			
+			gen dr`outcome' = tmp1 - tmp0
+			
+			di "results for `outcome'"
+			sum dr`outcome'
+
+			// store result
+			collapse dr`outcome'
+		
+			// save point estimate
+			if `b' == 0 {
+				sum dr`outcome'  
+				global p`outcome' = r(mean)	
+			}
+
+			mkmat dr`outcome', matrix(tmp)
+		
+			di "filling out the matrix"
+			matrix `outcome'`cohort' = (`outcome'`cohort' \ tmp)
+			
+			matrix drop tmp
+			
+			di "Listing outcome cohort matrix"
+			matrix list `outcome'`cohort'
+		
+					
+			}
 		}
-
-		mkmat dr`outcome'``cohort'_num', matrix(tmp)
-	
-		matrix `outcome'`cohort' = (`outcome'`cohort' \ tmp)
-		matrix drop tmp
-		matrix list `outcome'`cohort'
+		restore
+		
 	}
-
+		
+	di "here?"
 	***** calculate mean/se over bootstraps for each outcome and cohort
 	preserve
 	clear
 	svmat `outcome'`cohort'
 	sum `outcome'`cohort'
 	
-	local m`outcome'`cohort' = r(mean)
-	local s`outcome'`cohort' = r(sd)
-	local m`outcome'`cohort' : di %9.2f `m`outcome'`cohort''
-	local s`outcome'`cohort' : di %9.2f `s`outcome'`cohort''
+	if r(N) != 0 {
+		global m`outcome' = r(mean)
+		global s`outcome' = r(sd)
 	
-	***** calculate pvalue 
-	gen i = 0 if `outcome'`cohort' != .
-	replace i = 1 if `outcome'`cohort' - `m`outcome'`cohort'' > `p`outcome'`cohort'' & `outcome'`cohort' != . 
-	sum i
-	if r(mean) <= 0.1 {
-		local m`outcome'`cohort' "\textbf{`m`outcome'`cohort''}"
+		***** calculate pvalue 
+		gen i = 0 if `outcome' != .
+		replace i = 1 if ((`outcome' - ${m`outcome'}) > ${p`outcome'}) & (`outcome' != .) 
+		sum i
+		global pval`outcome' = r(mean)
+	
+	} 
+	else {
+		global p`outcome' = 0
+		global s`outcome' = 0
+		global pval`outcome' = 9999999
 	}
-
-	di r(mean)
-
+	 
 	restore
-
+	
+	di "p`outcome' ${p`outcome'}"
+	di "s`outcome' ${s`outcome'}"
+	di "pval`outcome' ${pval`outcome'}"
+	di "AIPW function successful!"
 
 end
