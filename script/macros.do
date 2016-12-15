@@ -80,7 +80,7 @@ global child_outcome_H 			 		BMI_obese BMI_overweight childHealthPerc childSickD
 global child_outcome_B			 		difficultiesInterest difficultiesSit likeSchool_child_pos faceGeneral 
                                  
 
-global adol_outcome_M					pos_childSDQ_score pos_SDQ_score pos_Depression_score BMI_obese BMI_overweight childHealthPerc dropoutSchool likeSchool_ado_post Trust sport							 
+global adol_outcome_M					pos_childSDQ_score pos_SDQ_score pos_Depression_score BMI_obese BMI_overweight childHealthPerc dropoutSchool likeSchool_ado_pos Trust sport							 
 				  
 global adol_outcome_CN          		IQ_factor IQ_score ///
 										pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score ///
