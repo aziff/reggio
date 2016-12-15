@@ -26,18 +26,24 @@ include "${here}/../macros"
 global cohort				child /*adol adult*/
 global group				Other
 
-global reglistchild			NoneIt BICIt FullIt DidPmIt DidPvIt   // It => Italians, Mg => Migrants
-global aipwlistchild		WnoneIt WpresIt 
-global aipwlistnamechild	AIPWnoneIt AIPWpresIt 
-global reglistchildlp			noneit bicit fullit didpmit didpvit   // It => Italians, Mg => Migrants
+global reglistchild				NoneIt BICIt FullIt DidPmIt DidPvIt   
+global aipwlistchild			WnoneIt WpresIt 
+global aipwlistnamechild		AIPWnoneIt AIPWpresIt 
+global reglistchildlp			noneit bicit fullit didpmit didpvit   
 global aipwlistchildlp			wnoneit wpresit 
 
 
-global reglistadol			None BIC Full DidPm DidPv 
-global aipwlistadol			Wnone Wpres
+global reglistadol				None BIC Full DidPm DidPv 
+global aipwlistadol				Wnone Wpres
+global aipwlistnameadol			AIPWnone AIPWpres
+global reglistadollp			none bic full didpm didpv   
+global aipwlistadollp			wnone wpres 
 
-global reglistadult			None30 BIC30 Full30 DidPm30 DidPv30 None40 BIC40 Full40 // It => Italians, Mg => Migrants
-global aipwlistadult		Wnone30 Wpres30 Wnone40 Wpres40
+global reglistadult				None30 BIC30 Full30 DidPm30 DidPv30 None40 BIC40 Full40 
+global aipwlistadult			Wnone30 Wpres30 Wnone40 Wpres40
+global aipwlistnameadult		AIPWnone30 AIPWpres30 AIPWnone40 AIPWpres40
+global reglistadultlp			none30 bic30 full30 didpm30 didpv30 none40 bic40 full40 
+global aipwlistadultlp			wnone30 wpres30 wnone40 wpres40
 
 
 * ------------------------------------ *
@@ -47,12 +53,12 @@ foreach coh in $cohort {
 	
 	foreach gr in $group {
 	
-		import delimited using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_`coh'_M_`gr'_check.csv", clear
+		import delimited using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_`coh'_M_`gr'.csv", clear
 		
 		tempfile reg_`coh'_`gr'
 		save "`reg_`coh'_`gr''"
 		
-		import delimited using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_`coh'_M_check.csv", clear
+		import delimited using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_`coh'_M.csv", clear
 		merge 1:1 rowname using `reg_`coh'_`gr''
 		
 		drop _merge
