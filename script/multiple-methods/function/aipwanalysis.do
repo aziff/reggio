@@ -44,16 +44,17 @@ syntax, type(string) aipwlist(string) cohort(string)
 				preserve
 				
 				keep if ${ifcondition`comp'}
-				aipw, outcome("`var'") brep(${bootstrap}) comparison("`comp'")
+				aipw, outcome("`var'") brep(${bootstrap}) cohort(`cohort') comparison("`comp'")
 				
 				restore
 				
 				* Save key results to locals
-				mat r = r(table)
-				local aipw_`comp' 	= 	r[1,1]
-				local aipw_`comp'_se = 	r[2,1]
-				local aipw_`comp'_p	=	r[4,1]
+				di "here???"
+				local aipw_`comp' 	= 	${p`var'}
+				local aipw_`comp'_se = 	${s`var'}
+				local aipw_`comp'_p	=	${pval`var'}
 				
+				di "here????"
 				* Add to the matitems and matnames locals
 				if `switch' == 1 {
 					local matitems `matitems' `aipw_`comp'', `aipw_`comp'_se', `aipw_`comp'_p'
@@ -67,12 +68,14 @@ syntax, type(string) aipwlist(string) cohort(string)
 				local switch = 0
 			}
 		}	
-	
+		
+		di "here?????"
 		mat aipw = [`matitems']
 		
 		mat colname aipw = `matnames'
 		
-		writematrix, output(aipw_`type'_`stype') rowname("`var'") matrix(aipw) `header_switch'
+		writematrix, output(aipw_`type') rowname("`var'") matrix(aipw) `header_switch'
+		di "writematrix done?"
 		local header_switch 
 	}
 	
