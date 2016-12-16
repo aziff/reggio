@@ -179,14 +179,14 @@ foreach stype in Other None Stat Reli {
 		
 			* Open necessary files
 			cap file close aipw_`type'_`stype'
-			file open aipw_`type' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adult_`type'.csv", write replace
+			file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adult_`type'_`stype'.csv", write replace
 
 			* Run Multiple Analysis
 			di "Estimating `type' for Children: AIPW Analysis"
-			aipwanalysis, type("`type'") aipwlist("${aipwlist}") cohort("adult")
+			aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adult")
 			
 			* Close necessary files
-			file close aipw_`type'	
+			file close aipw_`type'_`stype'	
 		}
 		
 	}
