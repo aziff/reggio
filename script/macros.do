@@ -7,11 +7,11 @@
 * --------- *
 * Directory *
 * --------- *
-global klmReggio   : env klmReggio
-global data_reggio : env data_reggio
-global git_reggio  : env git_reggio
-global current 	"${git_reggio}/script"
-global output	"${current}/../output"
+*global klmReggio   : env klmReggio
+*global data_reggio : env data_reggio
+*global git_reggio  : env git_reggio
+*global current 	"${git_reggio}/script"
+*global output	"${current}/../output"
 
 
 * -------------- *
