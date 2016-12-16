@@ -53,16 +53,16 @@ replace materna = 1 if school_Linor == "materna"
 generate asilo = 0 
 replace asilo = 1 if school_Linor == "asilo"
 
-generate maternaType_manualFull_new = schooltype_Linor if materna == 1
-generate asiloType_manualFull_new = schooltype_Linor if asilo == 1
+generate maternaType_manualFull_Linor = schooltype_Linor if materna == 1
+generate asiloType_manualFull_Linor = schooltype_Linor if asilo == 1
 
 * Questionnable individual drop
-drop if intnr == 53487100 & maternaType_manualFull_new == "autogestito"
+drop if intnr == 53487100 & maternaType_manualFull_Linor == "autogestito"
 
 * Check duplicates (who went to both asilo and preschool)
 duplicates tag intnr, gen(dup_id)
 sort intnr
-drop *_Linor
+drop schooltype_Linor school_Linor
 
 * Collect id's that have duplicate observation
 levelsof intnr if dup_id == 1, local(dupintnr)
@@ -71,8 +71,8 @@ foreach id in `dupintnr' {
 
 	* Case 1: (materna == 0) & (asilo == 1)
 	di "For id: `id'"
-	levelsof maternaType_manualFull_new if intnr == `id' & materna == 1, local(mtype`id')
-	replace maternaType_manualFull_new = `mtype`id'' if intnr == `id' & materna == 0
+	levelsof maternaType_manualFull_Linor if intnr == `id' & materna == 1, local(mtype`id')
+	replace maternaType_manualFull_Linor = `mtype`id'' if intnr == `id' & materna == 0
 
 	replace materna = 1 if materna == 0 & intnr == `id'
 }
@@ -91,24 +91,28 @@ merge 1:1 intnr using "${data_reggio}/Reggio_prepared"
 drop if _merge == 1
 drop _merge
 
-order intnr maternaType maternaType_manualFull_new asiloType asiloType_manualFull_new
+order intnr maternaType maternaType_manualFull_Linor asiloType asiloType_manualFull_Linor
 
 * -------------------------------------- *
 * Do the replacement based on new column *
 * -------------------------------------- *
-label var maternaType_manualFull_new 	"Preschools reassigned by Linor. If empty, no change"
-label var asiloType_manualFull_new		"Aslio Schools reassigned by Linor. If empty, no change"
+label var maternaType_manualFull_Linor 	"Preschools reassigned by Linor. If empty, no change"
+label var asiloType_manualFull_Linor		"Aslio Schools reassigned by Linor. If empty, no change"
 
 * I need to reconstruct maternaType later
 
-replace maternaMuni = 1 if maternaType_manualFull_new == "municipal"
-replace maternaAffi = 1 if maternaType_manualFull_new == "municipal or municipal affiliated" | maternaType_manualFull_new == "municipal-affiliated" | maternaType_manualFull_new == "municipal-affiliated (nido-scuola)" | maternaType_manualFull_new == "autogestito"
-replace maternaStat = 1 if maternaType_manualFull_new == "state" | maternaType_manualFull_new == "state (was municipal until 1990)"
-replace maternaReli = 1 if maternaType_manualFull_new == "Not-Reggio, province, Religious-fism" | maternaType_manualFull_new == "Religious-fism"
+replace maternaMuni = 1 if maternaType_manualFull_Linor == "municipal"
+replace maternaAffi = 1 if maternaType_manualFull_Linor == "municipal or municipal affiliated" | maternaType_manualFull_Linor == "municipal-affiliated" | maternaType_manualFull_Linor == "municipal-affiliated (nido-scuola)" | maternaType_manualFull_Linor == "autogestito"
+replace maternaStat = 1 if maternaType_manualFull_Linor == "state" | maternaType_manualFull_Linor == "state (was municipal until 1990)"
+replace maternaReli = 1 if maternaType_manualFull_Linor == "Not-Reggio, province, Religious-fism" | maternaType_manualFull_Linor == "Religious-fism"
 
 * To capture individuals who might not have assigned as asilo before
 * YK will work on more specific categorization later.
  
-replace asilo = 1 if asiloType_manualFull_new != ""
+replace asilo = 1 if asiloType_manualFull_Linor != ""
+
+capture drop maternaType_manualFull_verL asiloType_manualFull_verL
+rename maternaType_manualFull_Linor maternaType_manualFull_verL
+rename asiloType_manualFull_Linor asiloType_manualFull_verL
 
 save "${data_reggio}/Reggio_reassigned", replace

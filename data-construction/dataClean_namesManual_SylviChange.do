@@ -124,4 +124,9 @@ replace materna = 1 if maternaType_manualFull_Sylvi == "unknown"
  
 replace asilo = 1 if asiloType_manualFull_Sylvi != ""
 
+
+capture drop maternaType_manualFull_verS asiloType_manualFull_verS
+rename maternaType_manualFull_Sylvi maternaType_manualFull_verS
+rename asiloType_manualFull_Sylvi asiloType_manualFull_verS
+
 save "${data_reggio}/Reggio_reassigned", replace
