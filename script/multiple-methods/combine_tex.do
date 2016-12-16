@@ -23,27 +23,27 @@ include "${here}/../macros"
 * ---------- *
 * Set Macros *
 * ---------- *
-global cohort				child /*adol adult*/
+global cohort				child adol adult
 global group				Other
 
 global reglistchild				NoneIt BICIt FullIt DidPmIt DidPvIt   
-global aipwlistchild			WnoneIt WpresIt 
-global aipwlistnamechild		AIPWnoneIt AIPWpresIt 
+global aipwlistchild			AIPWIt 
+global aipwlistnamechild		AIPWIt 
 global reglistchildlp			noneit bicit fullit didpmit didpvit   
-global aipwlistchildlp			wnoneit wpresit 
+global aipwlistchildlp			aipwit 
 
 
 global reglistadol				None BIC Full DidPm DidPv 
-global aipwlistadol				Wnone Wpres
-global aipwlistnameadol			AIPWnone AIPWpres
+global aipwlistadol				AIPW
+global aipwlistnameadol			AIPW
 global reglistadollp			none bic full didpm didpv   
-global aipwlistadollp			wnone wpres 
+global aipwlistadollp			aipw 
 
 global reglistadult				None30 BIC30 Full30 DidPm30 DidPv30 None40 BIC40 Full40 
-global aipwlistadult			Wnone30 Wpres30 Wnone40 Wpres40
-global aipwlistnameadult		AIPWnone30 AIPWpres30 AIPWnone40 AIPWpres40
+global aipwlistadult			AIPW30 AIPW40
+global aipwlistnameadult		AIPW30 AIPW40
 global reglistadultlp			none30 bic30 full30 didpm30 didpv30 none40 bic40 full40 
-global aipwlistadultlp			wnone30 wpres30 wnone40 wpres40
+global aipwlistadultlp			aipw30 aipw40
 
 
 * ------------------------------------ *

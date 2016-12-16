@@ -99,7 +99,7 @@ foreach stype in  Other None Stat Reli {
 	* Set necessary global variables
 	global X					maternaMuni
 	global reglist				NoneIt BICIt FullIt DidPmIt DidPvIt  // It => Italians, Mg => Migrants
-	global aipwlist				WnoneIt WpresIt 
+	global aipwlist				AIPWIt 
 
 	global XNoneIt				maternaMuni		
 	global XBICIt				maternaMuni		
@@ -129,8 +129,7 @@ foreach stype in  Other None Stat Reli {
 	global ifconditionFullIt	${ifconditionNoneIt}
 	global ifconditionDidPmIt	(Reggio == 1 | Parma == 1)    & (maternaMuni == 1 | materna`type' == 1)
 	global ifconditionDidPvIt	(Reggio == 1 | Padova == 1)    & (maternaMuni == 1 | materna`type' == 1)
-	global ifconditionWnoneIt   (Reggio == 1)   & (maternaMuni == 1 | maternaNone == 1)
-	global ifconditionWpresIt 	(Reggio == 1)  & (maternaMuni == 1 | maternaOther == 1)
+	global ifconditionAIPWIt 	(Reggio == 1)  & (maternaMuni == 1 | materna`type' == 1)
 	
 	foreach type in  M /*CN S H B*/ {
 
