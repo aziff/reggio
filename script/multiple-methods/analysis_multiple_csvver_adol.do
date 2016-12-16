@@ -150,7 +150,7 @@ foreach stype in  Other None Stat Reli {
 		* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
-		if `stype_switch' == 1 { // Does not depend on `stype', so we only need to run once!
+
 		
 			* Open necessary files
 			cap file close aipw_`type'_`stype'
@@ -162,7 +162,7 @@ foreach stype in  Other None Stat Reli {
 			
 			* Close necessary files
 			file close aipw_`type'_`stype'	
-		}
+		
 		
 	}
 	

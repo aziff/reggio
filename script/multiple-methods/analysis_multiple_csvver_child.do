@@ -150,19 +150,19 @@ foreach stype in  Other None Stat Reli {
 		* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
-		if `stype_switch' == 1 { // Does not depend on `stype', so we only need to run once!
-		
-			* Open necessary files
-			file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_child_`type'_`stype'.csv", write replace
 
-			* Run Multiple Analysis
-			di "Estimating `type' for Children: AIPW Analysis"
-			aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("child")
-			
-			* Close necessary files
-			file close aipw_`type'_`stype'	
-		}
 		
+		* Open necessary files
+		file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_child_`type'_`stype'.csv", write replace
+
+		* Run Multiple Analysis
+		di "Estimating `type' for Children: AIPW Analysis"
+		aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("child")
+		
+		* Close necessary files
+		file close aipw_`type'_`stype'	
+	
+	
 	}
 	
 	local stype_switch = 0
