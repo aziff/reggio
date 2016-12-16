@@ -1,35 +1,33 @@
+We present the estimates of the methods described above for a handful of key outcomes. See Appendix~\ref{sec:results} for estimates of more outcomes. Even these main estimates, however, show a pattern. For the younger cohorts, then treatment effects from the OLS specification tend to get more positive as we control for more variables. This indicates that the background variables are necessary for capturing family disadvantage, given that the Reggio Approach prioritized children from disadvantaged families (see Appendix~\ref{sec:survey}). This trend does not appear in the adult cohorts.
+
+The estimates comparing the Reggio Approach to Parma and Padova (difference-in-difference) allow us to consider an alternate control group. In the child cohort, the results comparing the Reggio Approach to Parma tend to be more positive than the results comparing the Reggio Approach to Padova. In the adolescent cohort, this pattern is not as consistent. For example, comparing to Parma, adolescents were 1.57 points more depressed on the depression scale. This is a similar magnitude but the opposite direction of the results within the city of Reggio Emilia. This indicates that the Reggio Approach has a positive effect on mental health relative to other options with Reggio Emilia than options in Parma.
+
+Finally, we consider results from the AIPW estimator, which is another way to capture selection into the Reggio Approach. For most outcomes across cohorts, the treatment effects compared to no preschool are smaller than those compared to a preschool besides the Reggio Approach. This is especially the case for the child cohort and the adult cohorts. One interesting result is that the Reggio Approach has an positive and significant effect on the hours worked per week. Those who attended the Reggio Approach worked more hours than both those who attended other preschools and those who attended no preschool. In the age-40 cohort, individuals who attended the Reggio Approach were less likely to be depressed and more likely to have an internal locus of control compared to both counterfactual scenarios.
+
 
 % ========================================================================= %
 % CHILD COHORT
 
+\begin{landscape}
 
-\subsection{Preschool (Ages 3-6), Child Cohort}
-
-\begin{table}[H] \caption{Estimtation Results for Main Outcomes, Preschools, Child Cohort} \label{ols-M-child-reg}
+\begin{table}[H] \caption{Estimation Results for Main Outcomes, Preschools, Child Cohort} \label{ols-M-child-reg}
 \scalebox{0.9}{\input{../../output/multiple-methods/combinedanalysis/combined_child_M_other}}
 \vspace{1ex} \\
-\footnotesize\raggedright{Note: This table shows the estimates of the coefficient for attending Reggio Approach preschools from multiple methods. Column title indicates the corresponding control set and and model. ``NoneIt'' refers to the OLS estimate with no control variables. ``BICIt'' refers to the OLS estimate with controls selected by Bayesian Information Criterion (BIC) and additional controls for caregiver's religion. ``FullIt'' refers to the OLS estimate with the full set of controls. ``DidPmIt'' refers to the difference-in-difference estimate of (Reggio Muni - Parma Muni) - (Reggio None - Parma None). ``DidPvIt'' refers to the difference-in-difference estimate of (Reggio Muni - Padova Muni) - (Reggio None - Padova None).  ``AIPWnoneIT" refers to AIPW estimate for comparing Reggio Approach children with children in Reggio who did not attend any preschool. ``AIPWpresIT" refers to AIPW estimate for comparing Reggio Approach children with children in Reggio who attended other type of preschool. Robust standard errors are reported in parentheses. Bold number shows that the estimate is statistically significant at the 15\% level.}
+\footnotesize\raggedright{Note: This table shows the estimates of the coefficient for attending Reggio Approach preschools from multiple methods. Column title indicates the corresponding control set and and model. ``NoneIt'' refers to the OLS estimate with no control variables. ``BICIt'' refers to the OLS estimate with controls selected by Bayesian Information Criterion (BIC) and additional controls for caregiver's religion. ``FullIt'' refers to the OLS estimate with the full set of controls. ``DidPmIt'' refers to the difference-in-difference estimate of (Reggio Muni - Parma Muni) - (Reggio None - Parma None). ``DidPvIt'' refers to the difference-in-difference estimate of (Reggio Muni - Padova Muni) - (Reggio None - Padova None).  ``AIPWnoneIt" refers to AIPW estimate for comparing Reggio Approach children with children in Reggio who did not attend any preschool. ``AIPWpresIt" refers to AIPW estimate for comparing Reggio Approach children with children in Reggio who attended other type of preschool. Robust standard errors are reported in parentheses. Bold number shows that the estimate is statistically significant at the 15\% level.}
 
 \end{table}
 
-
-
-\subsection{Preschool (Ages 3-6), Adolescent Cohort}
-
-\begin{table}[H] \caption{Estimtation Results for Main Outcomes, Preschools, Adolescent Cohort} \label{ols-M-adol-reg}
+\begin{table}[H] \caption{Estimation Results for Main Outcomes, Preschools, Adolescent Cohort} \label{ols-M-adol-reg}
 \scalebox{0.9}{\input{../../output/multiple-methods/combinedanalysis/combined_adol_M_other}}
 \vspace{1ex} \\
 \footnotesize\raggedright{Note: This table shows the estimates of the coefficient for attending Reggio Approach preschools from multiple methods. Column title indicates the corresponding control set and and model. ``None'' refers to the OLS estimate with no control variables. ``BIC'' refers to the OLS estimate with controls selected by Bayesian Information Criterion (BIC) and additional controls for caregiver's religion. ``Full'' refers to the OLS estimate with the full set of controls. ``DidPm'' refers to the difference-in-difference estimate of (Reggio Muni - Parma Muni) - (Reggio None - Parma None). ``DidPv'' refers to the difference-in-difference estimate of (Reggio Muni - Padova Muni) - (Reggio None - Padova None).  ``AIPWnone" refers to AIPW estimate for comparing Reggio Approach children with children in Reggio who did not attend any preschool. ``AIPWpres" refers to AIPW estimate for comparing Reggio Approach children with children in Reggio who attended other type of preschool. Robust standard errors are reported in parentheses. Bold number shows that the estimate is statistically significant at the 15\% level.}
 \end{table}
 
 
-
-
-
-\subsection{Preschool (Ages 3-6), Adult Cohort}
-
-\begin{table}[H] \caption{Estimtation Results for Main Outcomes, Preschools, Adult Cohort} \label{ols-M-adult-reg}
+\begin{table}[H] \caption{Estimation Results for Main Outcomes, Preschools, Adult Cohorts} \label{ols-M-adult-reg}
 \scalebox{0.8}{\input{../../output/multiple-methods/combinedanalysis/combined_adult_M_other}}
 \vspace{1ex} \\
 \footnotesize\raggedright{Note: This table shows the estimates of the coefficient for attending Reggio Approach preschools from multiple methods. Column title indicates the corresponding control set and and model. For age-30 cohort, the columns are as follows: ``None30'' refers to the OLS estimate with no control variables. ``BIC30'' refers to the OLS estimate with controls selected by Bayesian Information Criterion (BIC) and additional controls for caregiver's religion. ``Full30'' refers to the OLS estimate with the full set of controls. ``DidPm30'' refers to the difference-in-difference estimate of (Reggio Muni - Parma Muni) - (Reggio None - Parma None). ``DidPv30'' refers to the difference-in-difference estimate of (Reggio Muni - Padova Muni) - (Reggio None - Padova None).  ``AIPWnone30" refers to AIPW estimate for comparing Reggio Approach children with children in Reggio who did not attend any preschool. ``AIPWpres30" refers to AIPW estimate for comparing Reggio Approach children with children in Reggio who attended other type of preschool. Column titles are analogous for age-40 cohort. Robust standard errors are reported in parentheses. Bold number shows that the estimate is statistically significant at the 15\% level.}
 \end{table}
+
+\end{landscape}
