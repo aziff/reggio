@@ -65,7 +65,7 @@ generate D0 = (D == 0)
 generate D1 = (D == 1)
 generate D2 = (D == 2)
 
-global bootstrap = 50
+global bootstrap = 100
 set seed 1234
 
 * ANALYSIS
