@@ -17,7 +17,7 @@ capture program drop aipwanalysis
 capture program define aipwanalysis
 
 version 13
-syntax, type(string) aipwlist(string) cohort(string)
+syntax, stype(string) type(string) aipwlist(string) cohort(string)
 
 	
 	* ------------------------------------- *
@@ -74,7 +74,7 @@ syntax, type(string) aipwlist(string) cohort(string)
 		
 		mat colname aipw = `matnames'
 		
-		writematrix, output(aipw_`type') rowname("`var'") matrix(aipw) `header_switch'
+		writematrix, output(aipw_`type'_`stype') rowname("`var'") matrix(aipw) `header_switch'
 		di "writematrix done?"
 		local header_switch 
 	}
