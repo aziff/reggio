@@ -58,7 +58,7 @@ foreach coh in $cohort {
 		tempfile reg_`coh'_`gr'
 		save "`reg_`coh'_`gr''"
 		
-		import delimited using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_`coh'_M.csv", clear
+		import delimited using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_`coh'_M_`gr'.csv", clear
 		merge 1:1 rowname using `reg_`coh'_`gr''
 		
 		drop _merge
