@@ -124,12 +124,12 @@ foreach stype in  Other None Stat Reli {
 	global controlsDidPmIt		${bic_child_baseline_vars}
 	global controlsDidPvIt		${bic_child_baseline_vars}
 
-	global ifconditionNoneIt 	(Reggio == 1) & (maternaMuni == 1 | materna`type' == 1)
+	global ifconditionNoneIt 	(Reggio == 1) & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionBICIt		${ifconditionNoneIt}
 	global ifconditionFullIt	${ifconditionNoneIt}
-	global ifconditionDidPmIt	(Reggio == 1 | Parma == 1)    & (maternaMuni == 1 | materna`type' == 1)
-	global ifconditionDidPvIt	(Reggio == 1 | Padova == 1)    & (maternaMuni == 1 | materna`type' == 1)
-	global ifconditionAIPWIt 	(Reggio == 1)  & (maternaMuni == 1 | materna`type' == 1)
+	global ifconditionDidPmIt	(Reggio == 1 | Parma == 1)    & (maternaMuni == 1 | materna`stype' == 1)
+	global ifconditionDidPvIt	(Reggio == 1 | Padova == 1)    & (maternaMuni == 1 | materna`stype' == 1)
+	global ifconditionAIPWIt 	(Reggio == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	
 	foreach type in  M /*CN S H B*/ {
 

@@ -100,7 +100,7 @@ foreach stype in  Other None Stat Reli {
 	* Set necessary global variables
 	global X					maternaMuni
 	global reglist				None BIC Full DidPm DidPv // It => Italians, Mg => Migrants
-	global aipwlist				Wnone Wpres
+	global aipwlist				AIPW
 
 	global XNone				maternaMuni		
 	global XBIC					maternaMuni		
@@ -120,13 +120,12 @@ foreach stype in  Other None Stat Reli {
 	global controlsDidPm		${bic_adol_baseline_vars}
 	global controlsDidPv		${bic_adol_baseline_vars}
 
-	global ifconditionNone 		(Reggio == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`type' == 1)
+	global ifconditionNone 		(Reggio == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionBIC		${ifconditionNone}
 	global ifconditionFull		${ifconditionNone}
-	global ifconditionDidPm		(Reggio == 1 | Parma == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`type' == 1)
-	global ifconditionDidPv		(Reggio == 1 | Padova == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`type' == 1)
-	global ifconditionWnone     (Reggio == 1) & (Cohort == 3)   & (maternaMuni == 1 | maternaNone == 1)
-	global ifconditionWpres 	(Reggio == 1) & (Cohort == 3)   & (maternaMuni == 1 | maternaOther == 1)
+	global ifconditionDidPm		(Reggio == 1 | Parma == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
+	global ifconditionDidPv		(Reggio == 1 | Padova == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
+	global ifconditionAIPW 	    (Reggio == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
 
 	
 	
