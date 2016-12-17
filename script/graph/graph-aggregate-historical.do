@@ -20,7 +20,7 @@ foreach cat in Administrative Pedagogical {
 
 	// bring in data
 	cd "${klmReggio}/data_other/Historical_survey"
-	import excel using "Reggio_HistoricalSurveyDATA_2016-12-6_sk.xlsx", sheet("`cat'") cellrange(``cat'_range') clear firstrow
+	import excel using "Reggio_HistoricalSurveyDATA_2016-12-16_az.xlsx", sheet("`cat'") cellrange(``cat'_range') clear firstrow
 
 	// reformat data
 	sxpose, clear force 

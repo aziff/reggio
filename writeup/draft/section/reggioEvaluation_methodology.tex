@@ -1,3 +1,4 @@
+\textbf{[Should we write a less technical and shorter version of the methodology for this memo?]}
 
 Because there are two stages of early childhood interventions, (i) ages 0-3 and (ii) ages 3-6, it is important to consider both when estimating treatment effects of either intervention on later outcomes. Table~\ref{tab:cases-treat} shows the possible cases of receiving early childhood intervention in our data, where 0 indicates not attending and 1 indicates attending. At this stage, we limit the type of infant-toddler centers and preschools to municipal only. 
 
@@ -152,42 +153,42 @@ The AIPW estimator in Equation (\ref{eq:AIPW}) addresses the problem of instabil
 
 \citet{Tsiatis_2006} and \citet{Glynn_2010} show that the AIPW estimator is an unbiased estimator of the Average Treatment Effect if the propensity score is known. Further, they show that the estimator is consistent if either the propensity score model or the outcome prediction model in the adjustment term is correctly specified. Due to this last property, they refer to the AIPW as a doubly robust estimator.
 
-\subsubsection{AIPW Using Multinomial Control Selection Model}
-\label{sec:aipw-mlogit}
-An issue with the AIPW estimator in Equation (\ref{eq:AIPW}) is that the control group, $D_i=0$, includes all individuals who did not attend Reggio Municipal schools. As a result, we are unable to account for potential heterogeneity in treatment effects with respect to control group individuals who attended different types of preschools. In the rest of this subsection, we present an extension of the two-outcome AIPW that takes into account the non-binary nature of treatment statuses in our sample. 
-
-To account for this heterogeneity, we can start by defining a new variable for treatment status,
-
-\begin{equation}
-T_i = \quad
-\begin{cases}
-0 \quad \text{if \quad (\textit{i} from Reggio Emilia and attended no preschool)} \\
-1 \quad  \text{if \quad (\textit{i} from Reggio Emilia and attended other preschool)} \\
-2 \quad \text{if \quad (\textit{i} from Reggio Emilia and attended Reggio Approach)}  \\
-\end{cases}
-\end{equation}
-~\\ ~\\
-Let $Y_{j,i}$ denote the counterfactual outcome for individual $i$ when treatment status $T_i$ is fixed to $j$ $\forall \,  j \, \in \{0,1,2\}$. Under this framework, individual $i$'s potential outcomes can be represented as,
-\begin{equation}
-Y_i = \sum_{j=0}^{2}(\mathbb{1}_{T_i = j}) Y_{j,i}
-\end{equation}
-\noindent Where $\mathbb{1}_{T_i=j}$ is an indicator that equals one if the treatment status of individual $i$ is set to $j$.
-
-\noindent The average treatment effect with respect to each control group, $j$, can be defined,
-\begin{equation}
-ATE_j = E[Y(2) - Y(j)] \quad \forall j \in \{0,1\}
-\end{equation}
-Thus, the IPW estimator of the treatment effect with respect to each control group, $j$, can be defined as, 
-
-\begin{equation}\label{eq:IPWmulti}
-\widehat{IPW}_j=\widehat{E[Y(2)-Y(j)]}_{IPW} = \frac{1}{n} \sum_{i=1}^{n} \left \{\frac{(\mathbb{1}_{T_i=2}) Y_i}{\hat{\Pi_2}(\boldsymbol{X}_i)} - \frac{(\mathbb{1}_{T_i=j})Y_i}{\hat{\Pi_j}(\boldsymbol{X}_i)}\right \}
-\end{equation}
-~\\
-\noindent Where $\hat{\Pi_j}(\boldsymbol{X}_i) = Pr(T_i=j|\boldsymbol{X}_i) \quad \forall \, j \in \{0,1,2\}$, is predicted for each individual, $i$, using the estimated coefficients obtained from a multinomial logit model. 
-
-Similarly, we may define the AIPW estimator of the treatment effect with respect to each control group, $j$, as,
-
-\begin{align}\label{eq:AIPWmulti}
-\widehat{AIPW_{j}} = E[\widehat{Y(2)-Y(j)]}_{AIPW} =& \frac{1}{n} \sum_{i=1}^{n}\bigg \{ \bigg[ \overbrace{ \frac{(\mathbb{1}_{T_i=2}) Y_i}{\hat{\Pi_2}(\boldsymbol{X}_i)} - \frac{(\mathbb{1}_{T_i=j})Y_i}{\hat{\Pi_j}(\boldsymbol{X}_i)}}^{IPTW}  \bigg] - \frac{(\mathbb{1}_{T_i=2}) - \hat{\Pi}_2(\boldsymbol{X}_i)}{\hat{\Pi}_2(\boldsymbol{X}_i) \, \hat{\Pi}_j(\boldsymbol{X}_i)} \nonumber \\[10pt]
-& \bigg[ \hat{\Pi}_j(\boldsymbol{X}_i) \cdot E[\hat{Y_i}|T_i=2,\boldsymbol{X}_i] +\hat{\Pi}_2(\boldsymbol{X}_i) \cdot E[\hat{Y_i}|T_i=j,\boldsymbol{X}_i] \bigg] \bigg \}
-\end{align}
+%\subsubsection{AIPW Using Multinomial Control Selection Model}
+%\label{sec:aipw-mlogit}
+%An issue with the AIPW estimator in Equation (\ref{eq:AIPW}) is that the control group, $D_i=0$, includes all individuals who did not attend Reggio Municipal schools. As a result, we are unable to account for potential heterogeneity in treatment effects with respect to control group individuals who attended different types of preschools. In the rest of this subsection, we present an extension of the two-outcome AIPW that takes into account the non-binary nature of treatment statuses in our sample. 
+%
+%To account for this heterogeneity, we can start by defining a new variable for treatment status,
+%
+%\begin{equation}
+%T_i = \quad
+%\begin{cases}
+%0 \quad \text{if \quad (\textit{i} from Reggio Emilia and attended no preschool)} \\
+%1 \quad  \text{if \quad (\textit{i} from Reggio Emilia and attended other preschool)} \\
+%2 \quad \text{if \quad (\textit{i} from Reggio Emilia and attended Reggio Approach)}  \\
+%\end{cases}
+%\end{equation}
+%~\\ ~\\
+%Let $Y_{j,i}$ denote the counterfactual outcome for individual $i$ when treatment status $T_i$ is fixed to $j$ $\forall \,  j \, \in \{0,1,2\}$. Under this framework, individual $i$'s potential outcomes can be represented as,
+%\begin{equation}
+%Y_i = \sum_{j=0}^{2}(\mathbb{1}_{T_i = j}) Y_{j,i}
+%\end{equation}
+%\noindent Where $\mathbb{1}_{T_i=j}$ is an indicator that equals one if the treatment status of individual $i$ is set to $j$.
+%
+%\noindent The average treatment effect with respect to each control group, $j$, can be defined,
+%\begin{equation}
+%ATE_j = E[Y(2) - Y(j)] \quad \forall j \in \{0,1\}
+%\end{equation}
+%Thus, the IPW estimator of the treatment effect with respect to each control group, $j$, can be defined as, 
+%
+%\begin{equation}\label{eq:IPWmulti}
+%\widehat{IPW}_j=\widehat{E[Y(2)-Y(j)]}_{IPW} = \frac{1}{n} \sum_{i=1}^{n} \left \{\frac{(\mathbb{1}_{T_i=2}) Y_i}{\hat{\Pi_2}(\boldsymbol{X}_i)} - \frac{(\mathbb{1}_{T_i=j})Y_i}{\hat{\Pi_j}(\boldsymbol{X}_i)}\right \}
+%\end{equation}
+%~\\
+%\noindent Where $\hat{\Pi_j}(\boldsymbol{X}_i) = Pr(T_i=j|\boldsymbol{X}_i) \quad \forall \, j \in \{0,1,2\}$, is predicted for each individual, $i$, using the estimated coefficients obtained from a multinomial logit model. 
+%
+%Similarly, we may define the AIPW estimator of the treatment effect with respect to each control group, $j$, as,
+%
+%\begin{align}\label{eq:AIPWmulti}
+%\widehat{AIPW_{j}} = E[\widehat{Y(2)-Y(j)]}_{AIPW} =& \frac{1}{n} \sum_{i=1}^{n}\bigg \{ \bigg[ \overbrace{ \frac{(\mathbb{1}_{T_i=2}) Y_i}{\hat{\Pi_2}(\boldsymbol{X}_i)} - \frac{(\mathbb{1}_{T_i=j})Y_i}{\hat{\Pi_j}(\boldsymbol{X}_i)}}^{IPTW}  \bigg] - \frac{(\mathbb{1}_{T_i=2}) - \hat{\Pi}_2(\boldsymbol{X}_i)}{\hat{\Pi}_2(\boldsymbol{X}_i) \, \hat{\Pi}_j(\boldsymbol{X}_i)} \nonumber \\[10pt]
+%& \bigg[ \hat{\Pi}_j(\boldsymbol{X}_i) \cdot E[\hat{Y_i}|T_i=2,\boldsymbol{X}_i] +\hat{\Pi}_2(\boldsymbol{X}_i) \cdot E[\hat{Y_i}|T_i=j,\boldsymbol{X}_i] \bigg] \bigg \}
+%\end{align}

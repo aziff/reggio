@@ -35,7 +35,14 @@ replace grouping = 1 if maternaType > 1  // OTHER
 replace grouping = 2 if maternaType == 1 // MUNICIPAL
 lab var grouping ""
 								
-// define baseline variables								 
+// define baseline variables			
+global chiado_baseline_vars		Male  ///
+								momBornProvince ///
+								dadBornProvince  ///
+								numSibling_2 numSibling_more cgRelig ///
+								momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni 
+
+					 
 global adult_baseline_vars		Male  ///
 								momBornProvince ///
 								dadBornProvince  ///
@@ -51,10 +58,15 @@ foreach var in $adult_baseline_vars {
 local city_val = 1
 foreach city in Reggio Parma Padova {
 	local cohort_val = 4	// change number if adding in other cohorts
-	foreach cohort in /*Child Adolesecent*/ Adult30 Adult40 /*Adult50*/ {
+	foreach cohort in Child Adolesecent Adult30 Adult40 Adult50 {
 		
 		// multinomial logit
-		mlogit grouping $adult_baseline_vars if Cohort_tmp == `cohort_val' & City == `city_val', baseoutcome(2) iterate(20)
+		if "`cohort'" == "Adult30" | "`cohort'" == "Adult40" {
+			mlogit grouping $adult_baseline_vars if Cohort_tmp == `cohort_val' & City == `city_val', baseoutcome(2) iterate(20)
+		}
+		else {
+			mlogit grouping $chiado_baseline_vars if Cohort_tmp == `cohort_val' & City == `city_val', baseoutcome(2) iterate(20)
+		}
 		eststo `city'`cohort'
 		
 		// calculate marginal effects
@@ -63,11 +75,27 @@ foreach city in Reggio Parma Padova {
 			eststo `city'`cohort'`o', title(Outcome `o')
 			estimates restore `city'`cohort'
 		}
-		eststo drop `city'`cohort'
+		//eststo drop `city'`cohort'
+			// write child/adolescent table
+			if "`cohort'" == "Adolescent"  {
+				cd "${output}"
+				# delimit ;
+				esttab `city'Child0 `city'Child1 `city'Child2 `city'Adolescent0 `city'Adolescent1 `city'Adolescent2 using "mlogit_`city'_chi-ado.tex", 
+						booktabs
+						label
+						unstack 
+						nonumbers
+						nonotes
+						se
+						mtitles("None" "Other" "Municipal" "None" "Other" "Municipal")
+						replace;
+				# delimit cr
+			}
 			
-			// write table
+			
+			// write adult table
 			if "`cohort'" == "Adult40"  {
-			
+				cd "${output}"
 				# delimit ;
 				esttab `city'Adult300 `city'Adult301 `city'Adult302 `city'Adult400 `city'Adult401 `city'Adult402 using "${output}/mlogit_`city'.tex", 
 						booktabs
