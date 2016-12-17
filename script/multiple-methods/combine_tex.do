@@ -27,23 +27,26 @@ global cohort				child adol adult
 global group				Other None Stat Reli
 
 global reglistchild				NoneIt BICIt FullIt DidPmIt DidPvIt   
-global aipwlistchild			AIPWIt 
-global aipwlistnamechild		AIPWIt 
+global aipwlistchild			AIPWIt  
+global fulllistchild			NoneIt BICIt FullIt DidPmIt DidPvIt AIPWIt
 global reglistchildlp			noneit bicit fullit didpmit didpvit   
 global aipwlistchildlp			aipwit 
+global fulllistchildlp			noneit bicit fullit didpmit didpvit aipwit
 
 
 global reglistadol				None BIC Full DidPm DidPv 
 global aipwlistadol				AIPW
-global aipwlistnameadol			AIPW
+global fulllistadol				None Bic Full DidPm DidPv AIPW
 global reglistadollp			none bic full didpm didpv   
 global aipwlistadollp			aipw 
+global fulllistadollp			none bic full didpm didpv aipw
 
 global reglistadult				None30 BIC30 Full30 DidPm30 DidPv30 None40 BIC40 Full40 
 global aipwlistadult			AIPW30 AIPW40
-global aipwlistnameadult		AIPW30 AIPW40
+global fulllistadult			None30 BIC30 Full30 DidPm30 DidPv30 AIPW30 None40 BIC40 Full40 AIPW40
 global reglistadultlp			none30 bic30 full30 didpm30 didpv30 none40 bic40 full40 
 global aipwlistadultlp			aipw30 aipw40
+global fulllistadultlp			none30 bic30 full30 didpm30 didpv30 aipw30 none40 bic40 full40 aipw40
 
 
 * ------------------------------------ *
@@ -78,9 +81,9 @@ foreach coh in $cohort {
 		
 		* Column Names
 		local colname
-		di "reglist: ${reglist`coh'} 	aipwlist: ${aipwlistname`coh'}"
+		di "reglist: ${reglist`coh'} 	aipwlist: ${aipwlist`coh'}"
 		
-		foreach item in ${reglist`coh'} ${aipwlistname`coh'} {
+		foreach item in ${fulllist`coh'} {
 			local colname `colname' & `item'
 		}
 		
@@ -133,14 +136,14 @@ foreach coh in $cohort {
 		
 			* Tex file Point Estimate
 			local `outcome'tex_p 	${`outcome'_lab}
-			foreach item in ${reglist`coh'lp} ${aipwlist`coh'lp} {
+			foreach item in ${fulllist`coh'lp} {
 				local `outcome'tex_p	``outcome'tex_p' & `p`item'`outcome''
 			}
 			
 			* Tex file Standard Error
 			local `outcome'tex_se	
-			foreach item in ${reglist`coh'lp} ${aipwlist`coh'lp}  {
-				local `outcome'tex_se	``outcome'tex_se' & (`se`item'`outcome'')
+			foreach item in ${fulllist`coh'lp}  {
+				local `outcome'tex_se	``outcome'tex_se' & (`se`item'`outcome'' )
 			}
 		
 		
