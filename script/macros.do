@@ -181,6 +181,7 @@ global Depression_score_lab				Depression Score
 
 global pos_LocusControl_lab				Locus of Control - positive
 global pos_Depression_score_lab			Depression Score - positive
+global pos_Depression_lab				Depression Score - positive
 
 global StressWork_lab					Work is Source of Stress
 global Stress_lab						Stress
