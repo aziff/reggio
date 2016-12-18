@@ -625,12 +625,6 @@ lab var pos_reciprocity "dv: Positive reciprocity"
 egen neg_reciprocity = rowmean(reciprocity2 reciprocity4)
 lab var neg_reciprocity "dv: Negative reciprocity"
 
-
-** Generate non-maternaMuni
-generate maternaOther = (maternaMuni != 1)
-lab var maternaOther "dv: Went to non-municipal preschool or no preschool"
-
-
 * ---------------------------------------------------------------------------- *
 * Generate more interaction terms
 global adult_baseline_vars_int	momBornProvince ///
