@@ -41,6 +41,7 @@ syntax, stype(string) type(string) reglist(string) cohort(string)
 				di "variable: `var'"
 				* Regress
 				reg `var' ${X`comp'} ${controls`comp'} if ${ifcondition`comp'}, robust
+				di "Regression specification: reg `var' ${X`comp'} ${controls`comp'} if ${ifcondition`comp'}, robust" 
 				
 				* Save key results to locals
 				mat r = r(table)
