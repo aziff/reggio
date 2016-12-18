@@ -96,23 +96,23 @@ keep if (Cohort == 1) | (Cohort == 2)
 
 local stype_switch = 1
 foreach city in Parma Padova {
-	foreach stype in Other None {
+	foreach stype in Yes {
 		
 		* Set necessary global variables
 		global X					maternaMuni
 		global reglist				NoneIt BICIt FullIt  // It => Italians, Mg => Migrants
 		global aipwlist				AIPWIt 
 
-		global XNoneIt				maternaMuni		
-		global XBICIt				maternaMuni		
-		global XFullIt				maternaMuni		
+		global XNoneIt				maternaYes	
+		global XBICIt				maternaYes		
+		global XFullIt				maternaYes		
 		global XDidPmIt				maternaMuni	Reggio xmMuniReggio	
 		global XDidPvIt				maternaMuni	Reggio xmMuniReggio	
 
 
-		global keepNoneIt			maternaMuni
-		global keepBICIt			maternaMuni
-		global keepFullIt			maternaMuni
+		global keepNoneIt			maternaYes
+		global keepBICIt			maternaYes
+		global keepFullIt			maternaYes
 
 		global keepDidPmIt			xmMuniReggio
 		global keepDidPvIt			xmMuniReggio
@@ -126,10 +126,10 @@ foreach city in Parma Padova {
 		global controlsDidPmIt		${bic_child_baseline_vars}
 		global controlsDidPvIt		${bic_child_baseline_vars}
 
-		global ifconditionNoneIt 	(`city' == 1) & (maternaMuni == 1 | materna`stype' == 1)
+		global ifconditionNoneIt 	(`city' == 1) 
 		global ifconditionBICIt		${ifconditionNoneIt}
 		global ifconditionFullIt	${ifconditionNoneIt}
-		global ifconditionAIPWIt 	(`city' == 1)  & (maternaMuni == 1 | materna`stype' == 1)
+		global ifconditionAIPWIt 	(`city' == 1) 
 		
 		foreach type in  M /*CN S H B*/ {
 
