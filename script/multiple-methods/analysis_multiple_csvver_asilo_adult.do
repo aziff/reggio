@@ -95,7 +95,6 @@ local Adult50_num 		= 6
 ** Keep only the adult cohorts
 preserve
 keep if (Cohort == 4) | (Cohort == 5) | (Cohort == 6)
-drop if asilo == 1 // dropping those who went to infant-toddler centers
 
 local stype_switch = 1
 foreach stype in Other None {
