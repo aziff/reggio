@@ -102,14 +102,36 @@ label var asiloType_manualFull_Linor		"Aslio Schools reassigned by Linor. If emp
 * I need to reconstruct maternaType later
 
 replace maternaMuni = 1 if maternaType_manualFull_Linor == "municipal"
-replace maternaAffi = 1 if maternaType_manualFull_Linor == "municipal or municipal affiliated" | maternaType_manualFull_Linor == "municipal-affiliated" | maternaType_manualFull_Linor == "municipal-affiliated (nido-scuola)" | maternaType_manualFull_Linor == "autogestito"
+replace maternaAffi = 1 if maternaType_manualFull_Linor == "municipal or municipal affiliated" | maternaType_manualFull_Linor == "municipal-affiliated" | maternaType_manualFull_Linor == "municipal-affiliated (nido-scuola)"
 replace maternaStat = 1 if maternaType_manualFull_Linor == "state" | maternaType_manualFull_Linor == "state (was municipal until 1990)"
 replace maternaReli = 1 if maternaType_manualFull_Linor == "Not-Reggio, province, Religious-fism" | maternaType_manualFull_Linor == "Religious-fism"
 
+generate maternaAuto = 0
+replace maternaAuto = 1 if maternaType_manualFull_Linor == "autogestito" // Not defined
+
+replace maternaType = 1 if maternaMuni == 1
+replace maternaType = 2 if maternaStat == 1
+replace maternaType = 3 if maternaReli == 1
+replace maternaType = 4 if maternaPriv == 1
+replace maternaType = 5 if maternaAffi == 1
+replace maternaType = 6 if maternaAuto == 1
+
+lab define Type_val 0 "No Preschool" 1 "Municipal" 2 "State" 3 "Religious" 4 "Private" 5 "Municipal-Affiliated" 6 "Other"
+label values maternaType Type_val
+
 * To capture individuals who might not have assigned as asilo before
-* YK will work on more specific categorization later.
- 
 replace asilo = 1 if asiloType_manualFull_Linor != ""
+
+* Take municipal-affiliated out from municipal (first with the original manualFull column)
+replace asiloType = 5 if asiloType_manualFull == "municipal-affiliated" | asiloType_manualFull == "municipal-affiliated (nido-scuola)" | asiloType_manualFull == "municipal-affiliated (was municipal)" | asiloType_manualFull == "municipal-affiliated-SPES" | asiloType_manualFull == "municipal-parmainfanzia"
+
+* Recode asilo
+replace asiloType = 3 if asiloType_manualFull_Linor == "Not-Reggio, province, Religious-fism" | asiloType_manualFull_Linor == "Religious-fism"
+replace asiloType = 1 if asiloType_manualFull_Linor == "municipal"
+replace asiloType = 6 if asiloType_manualFull_Linor == "autogestito" | asiloType_manualFull_Linor == "unknown"
+replace asiloType = 5 if asiloType_manualFull_Linor == "municipal or municipal affiliated" | asiloType_manualFull_Linor == "municipal-affiliated"  					   
+
+label values asiloType Type_val
 
 capture drop maternaType_manualFull_verL asiloType_manualFull_verL
 rename maternaType_manualFull_Linor maternaType_manualFull_verL

@@ -55,8 +55,8 @@ global Adult50_baseline_vars		 	$adult_baseline_vars
 
 								
 * BIC-selected baseline variables 
-global bic_child_baseline_vars				Male CAPI Cohort_Migrants numSibling_more houseOwn cgMigrant cgReddito_7 cgIslam
-global bic_adol_baseline_vars				Male CAPI momMaxEdu_low dadMaxEdu_Uni numSibling_2 cgCatholic cgIslam
+global bic_child_baseline_vars				Male CAPI asilo Cohort_Migrants numSibling_more houseOwn cgMigrant cgReddito_7 cgIslam
+global bic_adol_baseline_vars				Male CAPI asilo momMaxEdu_low dadMaxEdu_Uni numSibling_2 cgCatholic cgIslam
 global bic_adult_baseline_vars		    	Male CAPI momMaxEdu_middle dadMaxEdu_Uni numSibling_2 numSibling_more cgIslam
 
 
@@ -181,6 +181,7 @@ global Depression_score_lab				Depression Score
 
 global pos_LocusControl_lab				Locus of Control - positive
 global pos_Depression_score_lab			Depression Score - positive
+global pos_Depression_lab				Depression Score - positive
 
 global StressWork_lab					Work is Source of Stress
 global Stress_lab						Stress
