@@ -24,7 +24,7 @@ include "${here}/../macros"
 * Set Macros *
 * ---------- *
 global cohort				child adol adult
-global group				Other None /*Stat Reli*/
+global group				Other None Stat Reli
 
 global reglistchild				NoneIt BICIt FullIt DidPmIt DidPvIt   
 global aipwlistchild			AIPWIt  

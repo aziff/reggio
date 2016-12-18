@@ -65,7 +65,7 @@ generate D0 = (D == 0)
 generate D1 = (D == 1)
 generate D2 = (D == 2)
 
-global bootstrap = 100
+global bootstrap = 70
 set seed 1234
 
 * ANALYSIS
@@ -95,7 +95,7 @@ preserve
 keep if (Cohort == 1) | (Cohort == 2) 
 
 local stype_switch = 1
-foreach stype in Other None Stat Reli Affi {
+foreach stype in Other None {
 	
 	* Set necessary global variables
 	global X					maternaMuni
@@ -151,7 +151,7 @@ foreach stype in Other None Stat Reli Affi {
 		* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
-
+/*
 		
 		* Open necessary files
 		file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_child_`type'_`stype'_drop.csv", write replace
@@ -162,7 +162,7 @@ foreach stype in Other None Stat Reli Affi {
 		
 		* Close necessary files
 		file close aipw_`type'_`stype'	
-	
+	*/
 	
 	}
 	

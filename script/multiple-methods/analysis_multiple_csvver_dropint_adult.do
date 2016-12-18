@@ -66,7 +66,7 @@ generate D0 = (D == 0)
 generate D1 = (D == 1)
 generate D2 = (D == 2)
 
-global bootstrap = 100
+global bootstrap = 70
 set seed 1234
 
 * ANALYSIS
@@ -99,7 +99,7 @@ keep if (Cohort == 4) | (Cohort == 5) | (Cohort == 6)
 drop if asilo == 1 // dropping those who went to infant-toddler centers
 
 local stype_switch = 1
-foreach stype in Other None Stat Reli Affi {
+foreach stype in Other None {
 	
 	* Set necessary global variables
 	global X					maternaMuni
@@ -174,7 +174,7 @@ foreach stype in Other None Stat Reli Affi {
 		* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
-
+/*
 		
 			* Open necessary files
 			cap file close aipw_`type'_`stype'
@@ -186,7 +186,7 @@ foreach stype in Other None Stat Reli Affi {
 			
 			* Close necessary files
 			file close aipw_`type'_`stype'	
-		
+		*/
 		
 	}
 	

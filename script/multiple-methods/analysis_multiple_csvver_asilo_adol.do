@@ -65,7 +65,7 @@ generate D0 = (D == 0)
 generate D1 = (D == 1)
 generate D2 = (D == 2)
 
-global bootstrap = 100
+global bootstrap = 70
 set seed 1234
 
 * ANALYSIS
@@ -147,7 +147,7 @@ foreach stype in  Other None {
 		* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
-
+/*
 		
 			* Open necessary files
 			cap file close aipw_`type'_`stype'
@@ -159,7 +159,7 @@ foreach stype in  Other None {
 			
 			* Close necessary files
 			file close aipw_`type'_`stype'	
-		
+		*/
 		
 	}
 	

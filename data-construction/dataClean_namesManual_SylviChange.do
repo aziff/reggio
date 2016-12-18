@@ -146,12 +146,17 @@ capture drop maternaOther
 generate maternaOther = (maternaMuni != 1) & (maternaNone != 1)
 lab var maternaOther "dv: Went to non-municipal preschool"
 
+*drop asiloNone asiloMuni asiloStat asiloReli asiloPriv asiloOther
+
 generate asiloNone = (asiloType == 0)
 generate asiloMuni = (asiloType == 1)
 generate asiloStat = (asiloType == 2)
 generate asiloReli = (asiloType == 3)
 generate asiloPriv = (asiloType == 4)
+generate asiloAffi = (asiloType == 5)
+generate asiloAuto = (asiloType == 6)
 
 generate asiloOther = (asiloMuni !=1) & (asiloNone != 1)
+label var asiloOther "dv: Went to non-municipal asilo"
 
 save "${data_reggio}/Reggio_reassigned", replace

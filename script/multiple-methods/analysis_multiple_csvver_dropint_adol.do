@@ -65,7 +65,7 @@ generate D0 = (D == 0)
 generate D1 = (D == 1)
 generate D2 = (D == 2)
 
-global bootstrap = 100
+global bootstrap = 70
 set seed 1234
 
 * ANALYSIS
@@ -96,7 +96,7 @@ preserve
 keep if (Cohort == 3)
 
 local stype_switch = 1
-foreach stype in  Other None Stat Reli Affi {
+foreach stype in  Other None {
 	
 	* Set necessary global variables
 	global X					maternaMuni
@@ -150,7 +150,7 @@ foreach stype in  Other None Stat Reli Affi {
 		* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
-
+/*
 		
 			* Open necessary files
 			cap file close aipw_`type'_`stype'
@@ -161,7 +161,7 @@ foreach stype in  Other None Stat Reli Affi {
 			aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adol")
 			
 			* Close necessary files
-			file close aipw_`type'_`stype'	
+			file close aipw_`type'_`stype'	*/
 		
 		
 	}

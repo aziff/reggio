@@ -66,7 +66,7 @@ generate D0 = (D == 0)
 generate D1 = (D == 1)
 generate D2 = (D == 2)
 
-global bootstrap = 100
+global bootstrap = 70
 set seed 1234
 
 * ANALYSIS
@@ -95,7 +95,6 @@ local Adult50_num 		= 6
 ** Keep only the adult cohorts
 preserve
 keep if (Cohort == 4) | (Cohort == 5) | (Cohort == 6)
-drop if asilo == 1 // dropping those who went to infant-toddler centers
 
 local stype_switch = 1
 foreach stype in Other None {
@@ -169,7 +168,7 @@ foreach stype in Other None {
 		* For AIPW Analysis *
 		* ----------------- *
 
-		
+		/*
 			* Open necessary files
 			cap file close aipw_`type'_`stype'
 			file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adult_`type'_`stype'_asilo.csv", write replace
@@ -180,7 +179,7 @@ foreach stype in Other None {
 			
 			* Close necessary files
 			file close aipw_`type'_`stype'	
-		
+		*/
 		
 	}
 	

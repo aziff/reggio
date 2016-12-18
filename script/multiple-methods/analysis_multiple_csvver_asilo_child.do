@@ -65,7 +65,7 @@ generate D0 = (D == 0)
 generate D1 = (D == 1)
 generate D2 = (D == 2)
 
-global bootstrap = 100
+global bootstrap = 70
 set seed 1234
 
 * ANALYSIS
@@ -145,7 +145,7 @@ foreach stype in Other None {
 		* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
-
+/*
 		
 		* Open necessary files
 		file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_child_`type'_`stype'_asilo.csv", write replace
@@ -155,7 +155,7 @@ foreach stype in Other None {
 		aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("child")
 		
 		* Close necessary files
-		file close aipw_`type'_`stype'	
+		file close aipw_`type'_`stype'	*/
 	
 	
 	}
