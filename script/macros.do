@@ -72,7 +72,7 @@ global child_outcome_C	         		IQ_factor IQ_score
 										
 global child_outcome_N					pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score 		 								 
 								 
-global child_outcome_S	 		 		childinvFriends childinvMusic  ///
+global child_outcome_S	 		 		childinvMusic  ///
 										worryHome worryTeacher worryFriend worryMyself 
 								 
 global child_outcome_H 			 		BMI_obese BMI_overweight childHealthPerc childSickDays 

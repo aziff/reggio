@@ -31,6 +31,7 @@ global aipwlistchild			AIPWIt
 global fulllistchild			NoneIt BICIt FullIt DidPmIt DidPvIt AIPWIt
 global reglistchildlp			noneit bicit fullit didpmit didpvit   
 global aipwlistchildlp			aipwit 
+local aipwit_n					bicit
 global fulllistchildlp			noneit bicit fullit didpmit didpvit aipwit
 
 
@@ -39,6 +40,7 @@ global aipwlistadol				AIPW
 global fulllistadol				None Bic Full DidPm DidPv AIPW
 global reglistadollp			none bic full didpm didpv   
 global aipwlistadollp			aipw 
+local aipw_n					bic
 global fulllistadollp			none bic full didpm didpv aipw
 
 global reglistadult				None30 BIC30 Full30 DidPm30 DidPv30 None40 BIC40 Full40 
@@ -46,6 +48,8 @@ global aipwlistadult			AIPW30 AIPW40
 global fulllistadult			None30 BIC30 Full30 DidPm30 DidPv30 AIPW30 None40 BIC40 Full40 AIPW40
 global reglistadultlp			none30 bic30 full30 didpm30 didpv30 none40 bic40 full40 
 global aipwlistadultlp			aipw30 aipw40
+local aipw30_n					bic30
+local aipw40_n					bic40
 global fulllistadultlp			none30 bic30 full30 didpm30 didpv30 aipw30 none40 bic40 full40 aipw40
 
 
@@ -98,6 +102,7 @@ foreach coh in $cohort {
 				levelsof itt_`item' if rowname == "`outcome'", local(p`item'`outcome')
 				levelsof itt_`item'_se if rowname == "`outcome'", local(se`item'`outcome')
 				levelsof itt_`item'_p if rowname == "`outcome'", local(pv`item'`outcome')
+				levelsof itt_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
 				
 				* Format decimal points
 				local p`item'`outcome' : di %9.2f `p`item'`outcome''
@@ -108,6 +113,9 @@ foreach coh in $cohort {
 				if `pv`item'`outcome'' <= 0.15 {			
 					local p`item'`outcome' 	"\textbf{ `p`item'`outcome'' }"
 				}
+				
+				* Number of observations in italic
+				local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
 			}
 			di "regression done"
 			
@@ -118,6 +126,7 @@ foreach coh in $cohort {
 				levelsof aipw_`item' if rowname == "`outcome'", local(p`item'`outcome')
 				levelsof aipw_`item'_se if rowname == "`outcome'", local(se`item'`outcome')
 				levelsof aipw_`item'_p if rowname == "`outcome'", local(pv`item'`outcome')
+				levelsof itt_``item'_n'_n if rowname == "`outcome'", local(n`item'`outcome')
 				
 				* Format decimal points
 				local p`item'`outcome' : di %9.2f `p`item'`outcome''
@@ -125,9 +134,12 @@ foreach coh in $cohort {
 				local pv`item'`outcome' = `pv`item'`outcome''
 				
 				* Boldify if p-value < 0.15
-				if `pv`item'`outcome'' <= 0.15 {
+				if `pv`item'`outcome'' <= 0.10 {
 					local p`item'`outcome' "\textbf{`p`item'`outcome''}"
 				}
+				
+				* Number of observations in italic
+				local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
 			
 			}
 			di "aipw done"
@@ -144,6 +156,12 @@ foreach coh in $cohort {
 			local `outcome'tex_se	
 			foreach item in ${fulllist`coh'lp}  {
 				local `outcome'tex_se	``outcome'tex_se' & (`se`item'`outcome'' )
+			}
+			
+			* Tex file Number of observation
+			local `outcome'tex_N	
+			foreach item in ${fulllist`coh'lp}  {
+				local `outcome'tex_N	``outcome'tex_N' & `n`item'`outcome'' 
 			}
 		
 		
@@ -165,6 +183,9 @@ foreach coh in $cohort {
 			
 			* Standard Error
 			file write tabfile`coh'`gr' "``outcome'tex_se' \\" _n
+			
+			* Number of obs
+			file write tabfile`coh'`gr' "``outcome'tex_N' \\" _n
 		}
 	
 			file write tabfile`coh'`gr' "\bottomrule" _n
