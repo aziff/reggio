@@ -174,7 +174,7 @@ foreach stype in Other None {
 		* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
-
+/*
 		
 			* Open necessary files
 			cap file close aipw_`type'_`stype'
@@ -186,7 +186,7 @@ foreach stype in Other None {
 			
 			* Close necessary files
 			file close aipw_`type'_`stype'	
-		
+		*/
 		
 	}
 	

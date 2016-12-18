@@ -151,7 +151,7 @@ foreach stype in Other None {
 		* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
-
+/*
 		
 		* Open necessary files
 		file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_child_`type'_`stype'_drop.csv", write replace
@@ -162,7 +162,7 @@ foreach stype in Other None {
 		
 		* Close necessary files
 		file close aipw_`type'_`stype'	
-	
+	*/
 	
 	}
 	

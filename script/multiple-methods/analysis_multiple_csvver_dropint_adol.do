@@ -150,7 +150,7 @@ foreach stype in  Other None {
 		* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
-
+/*
 		
 			* Open necessary files
 			cap file close aipw_`type'_`stype'
@@ -161,7 +161,7 @@ foreach stype in  Other None {
 			aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adol")
 			
 			* Close necessary files
-			file close aipw_`type'_`stype'	
+			file close aipw_`type'_`stype'	*/
 		
 		
 	}
