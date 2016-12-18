@@ -55,8 +55,8 @@ global Adult50_baseline_vars		 	$adult_baseline_vars
 
 								
 * BIC-selected baseline variables 
-global bic_child_baseline_vars				Male CAPI Cohort_Migrants numSibling_more houseOwn cgMigrant cgReddito_7 cgIslam
-global bic_adol_baseline_vars				Male CAPI momMaxEdu_low dadMaxEdu_Uni numSibling_2 cgCatholic cgIslam
+global bic_child_baseline_vars				Male CAPI asilo Cohort_Migrants numSibling_more houseOwn cgMigrant cgReddito_7 cgIslam
+global bic_adol_baseline_vars				Male CAPI asilo momMaxEdu_low dadMaxEdu_Uni numSibling_2 cgCatholic cgIslam
 global bic_adult_baseline_vars		    	Male CAPI momMaxEdu_middle dadMaxEdu_Uni numSibling_2 numSibling_more cgIslam
 
 
@@ -72,7 +72,7 @@ global child_outcome_C	         		IQ_factor IQ_score
 										
 global child_outcome_N					pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score 		 								 
 								 
-global child_outcome_S	 		 		childinvFriends childinvMusic  ///
+global child_outcome_S	 		 		childinvMusic  ///
 										worryHome worryTeacher worryFriend worryMyself 
 								 
 global child_outcome_H 			 		BMI_obese BMI_overweight childHealthPerc childSickDays 
@@ -105,11 +105,11 @@ global adol_outcome_B           		difficultiesInterest difficultiesSit dropoutSc
 global adult_outcome_M					highschoolGrad MaxEdu_Uni PA_Empl HrsTot mStatus_married_cohab BMI_obese ///
 										BMI_overweight pos_LocusControl pos_Depression votedMunicipal votedRegional
 
-global adult_outcome_E					IQ_factor votoMaturita votoUni ///
+global adult_outcome_E					IQ_factor votoMaturita  ///
 										highschoolGrad MaxEdu_Uni MaxEdu_Grad
 
 * Employment										
-global adult_outcome_W					PA_Empl SES_self HrsTot WageMonth ///
+global adult_outcome_W					PA_Empl SES_self HrsTot ///
 										Reddito_1 Reddito_2 Reddito_3 Reddito_4 Reddito_5 Reddito_6 Reddito_7
 
 * Living status										

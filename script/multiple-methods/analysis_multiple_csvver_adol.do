@@ -65,7 +65,7 @@ generate D0 = (D == 0)
 generate D1 = (D == 1)
 generate D2 = (D == 2)
 
-global bootstrap = 100
+global bootstrap = 70
 set seed 1234
 
 * ANALYSIS
@@ -95,7 +95,7 @@ preserve
 keep if (Cohort == 3)
 
 local stype_switch = 1
-foreach stype in  Other None Stat Reli {
+foreach stype in  Other None Stat Reli Affi {
 	
 	* Set necessary global variables
 	global X					maternaMuni

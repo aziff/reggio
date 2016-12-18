@@ -43,7 +43,7 @@ use Reggio, clear
 * ---------------------------------------------------------------------------- *
 ** Categories
 local cities                          Reggio Parma Padova
-local school_types                    None Muni Affi Stat Reli Priv
+local school_types                    None Muni Affi Stat Reli Priv Other
 local school_age_types                Asilo Materna
 local cohorts                         Child Migrants Adol Adult30 Adult40 Adult50 
 
@@ -382,9 +382,12 @@ label var cgFamIncome_val "Baseline family income"
 gen cgmStatus_married_cohab = (cgmStatus == 1) | (cgmStatus == 6)
 lab var cgmStatus_married_cohab "Caregiver: married or cohabitating"
 
-// Create more exact hourse worked variable (If cgSES == "Never Worked", then replace cgHrsTot = 0)
+// Create more exact hours worked variable (If cgSES == "Never Worked", then replace cgHrsTot = 0)
 replace cgHrsTot = 0 if cgSES == 0
 lab var cgHrsTot "Caregiver: hours of work per week"
+
+// Create more exact hours worked variable (If PA_Empl == "Unemployed", then replace HrsTot = 0)
+replace HrsTot = 0 if PA_Empl == 0
 
 // Relabel High School Type
 label define hsType_lab 1 "Classic high school" 2 "Science high school" 3 "Language high school" 4 "Art, music, or choir school" 5 "Institute for socio-psycho-pedagogy" 6 "Conservatory" ///
@@ -621,12 +624,6 @@ lab var pos_reciprocity "dv: Positive reciprocity"
 ** Nevative reciprocity
 egen neg_reciprocity = rowmean(reciprocity2 reciprocity4)
 lab var neg_reciprocity "dv: Negative reciprocity"
-
-
-** Generate non-maternaMuni
-generate maternaOther = (maternaMuni != 1)
-lab var maternaOther "dv: Went to non-municipal preschool or no preschool"
-
 
 * ---------------------------------------------------------------------------- *
 * Generate more interaction terms

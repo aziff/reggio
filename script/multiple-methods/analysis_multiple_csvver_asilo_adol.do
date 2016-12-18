@@ -86,50 +86,46 @@ local Adult50_num 		= 6
 
 
 
+
 * ---------------------------------------------------------------------------- *
-* 					Reggio Muni vs. None:	Children 						   *
+* 					Reggio Muni vs. None:	Adolescent						   *
 * ---------------------------------------------------------------------------- *
 ** Keep only the adult cohorts
 preserve
-keep if (Cohort == 1) | (Cohort == 2) 
+keep if (Cohort == 3)
 
 local stype_switch = 1
-foreach stype in Other None Stat Reli Affi {
+foreach stype in  Other None {
 	
 	* Set necessary global variables
-	global X					maternaMuni
-	global reglist				NoneIt BICIt FullIt DidPmIt DidPvIt  // It => Italians, Mg => Migrants
-	global aipwlist				AIPWIt 
+	global X					asiloMuni
+	global reglist				None BIC Full // It => Italians, Mg => Migrants
+	global aipwlist				AIPW
 
-	global XNoneIt				maternaMuni		
-	global XBICIt				maternaMuni		
-	global XFullIt				maternaMuni		
-	global XDidPmIt				maternaMuni	Reggio xmMuniReggio	
-	global XDidPvIt				maternaMuni	Reggio xmMuniReggio	
+	global XNone				asiloMuni		
+	global XBIC					asiloMuni		
+	global XFull				asiloMuni		
 
 
-	global keepNoneIt			maternaMuni
-	global keepBICIt			maternaMuni
-	global keepFullIt			maternaMuni
+	global keepNone				asiloMuni
+	global keepBIC				asiloMuni
+	global keepFull				asiloMuni
 
-	global keepDidPmIt			xmMuniReggio
-	global keepDidPvIt			xmMuniReggio
 
-	global controlsNoneIt
 	global controlsNone
-	global controlsBICIt		${bic_child_baseline_vars}
-	global controlsBIC			${bic_child_baseline_vars}
-	global controlsFullIt		${child_baseline_vars}
-	global controlsFull			${child_baseline_vars}
-	global controlsDidPmIt		${bic_child_baseline_vars}
-	global controlsDidPvIt		${bic_child_baseline_vars}
+	global controlsBIC			${bic_adol_baseline_vars}
+	global controlsFull			${adol_baseline_vars}
+	global controlsDidPm		${bic_adol_baseline_vars}
+	global controlsDidPv		${bic_adol_baseline_vars}
 
-	global ifconditionNoneIt 	(Reggio == 1) & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionBICIt		${ifconditionNoneIt}
-	global ifconditionFullIt	${ifconditionNoneIt}
-	global ifconditionDidPmIt	(Reggio == 1 | Parma == 1)    & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionDidPvIt	(Reggio == 1 | Padova == 1)    & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionAIPWIt 	(Reggio == 1)  & (maternaMuni == 1 | materna`stype' == 1)
+	global ifconditionNone 		(Reggio == 1) & (Cohort == 3)   & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
+	global ifconditionBIC		${ifconditionNone}
+	global ifconditionFull		${ifconditionNone}
+	global ifconditionDidPm		(Reggio == 1 | Parma == 1) & (Cohort == 3)   & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
+	global ifconditionDidPv		(Reggio == 1 | Padova == 1) & (Cohort == 3)   & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
+	global ifconditionAIPW 	    (Reggio == 1) & (Cohort == 3)   & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
+
+	
 	
 	foreach type in  M /*CN S H B*/ {
 
@@ -137,11 +133,12 @@ foreach stype in Other None Stat Reli Affi {
 		* For Regression Analysis *
 		* ----------------------- *
 		* Open necessary files
-		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_child_`type'_`stype'.csv", write replace
+		cap file close regression_`type'_`stype'
+		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_adol_`type'_`stype'_asilo.csv", write replace
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Children: Regression Analysis"
-		reganalysis, stype("`stype'") type("`type'") reglist("${reglist}") cohort("child")
+		reganalysis, stype("`stype'") type("`type'") reglist("${reglist}") cohort("adol")
 	
 		* Close necessary files
 		file close regression_`type'_`stype' 
@@ -150,23 +147,31 @@ foreach stype in Other None Stat Reli Affi {
 		* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
-
+/*
 		
-		* Open necessary files
-		file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_child_`type'_`stype'.csv", write replace
+			* Open necessary files
+			cap file close aipw_`type'_`stype'
+			file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adol_`type'_`stype'_asilo.csv", write replace
 
-		* Run Multiple Analysis
-		di "Estimating `type' for Children: AIPW Analysis"
-		aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("child")
+			* Run Multiple Analysis
+			di "Estimating `type' for Children: AIPW Analysis"
+			aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adol")
+			
+			* Close necessary files
+			file close aipw_`type'_`stype'	
+		*/
 		
-		* Close necessary files
-		file close aipw_`type'_`stype'	
-	
-	
 	}
 	
 	local stype_switch = 0
 }
 
 restore
+
+
+
+
+
+
+
 

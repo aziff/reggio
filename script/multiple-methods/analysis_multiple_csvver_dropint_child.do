@@ -83,7 +83,8 @@ local Adult30_num 		= 4
 local Adult40_num 		= 5
 local Adult50_num 		= 6
 
-
+* Drop questionnable interviewer
+drop if internr == 171 | internr == 172 | internr == 4018 | internr == 4073
 
 
 * ---------------------------------------------------------------------------- *
@@ -94,7 +95,7 @@ preserve
 keep if (Cohort == 1) | (Cohort == 2) 
 
 local stype_switch = 1
-foreach stype in Other None Stat Reli Affi {
+foreach stype in Other None {
 	
 	* Set necessary global variables
 	global X					maternaMuni
@@ -137,7 +138,7 @@ foreach stype in Other None Stat Reli Affi {
 		* For Regression Analysis *
 		* ----------------------- *
 		* Open necessary files
-		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_child_`type'_`stype'.csv", write replace
+		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_child_`type'_`stype'_drop.csv", write replace
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Children: Regression Analysis"
@@ -150,10 +151,10 @@ foreach stype in Other None Stat Reli Affi {
 		* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
-
+/*
 		
 		* Open necessary files
-		file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_child_`type'_`stype'.csv", write replace
+		file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_child_`type'_`stype'_drop.csv", write replace
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Children: AIPW Analysis"
@@ -161,7 +162,7 @@ foreach stype in Other None Stat Reli Affi {
 		
 		* Close necessary files
 		file close aipw_`type'_`stype'	
-	
+	*/
 	
 	}
 	
