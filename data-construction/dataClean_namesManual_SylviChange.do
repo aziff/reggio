@@ -133,11 +133,19 @@ replace maternaType = 6 if maternaAuto == 1
 replace asiloType = 4 if asiloType_manualFull_Sylvi == "private"
 replace asiloType = 6 if asiloType_manualFull_Sylvi == "unknown"					   
 
-lab define Type_val 0 "No Preschool" 1 "Municipal" 2 "State" 3 "Religious" 4 "Private" 5 "Municipal-Affiliated" 6 "Other"
+*lab define Type_val 0 "No Preschool" 1 "Municipal" 2 "State" 3 "Religious" 4 "Private" 5 "Municipal-Affiliated" 6 "Other"
 label values asiloType Type_val
 
 capture drop maternaType_manualFull_verS asiloType_manualFull_verS
 rename maternaType_manualFull_Sylvi maternaType_manualFull_verS
 rename asiloType_manualFull_Sylvi asiloType_manualFull_verS
+
+
+** Generate non-maternaMuni
+capture drop maternaOther
+generate maternaOther = (maternaMuni != 1) & (maternaNone != 1)
+lab var maternaOther "dv: Went to non-municipal preschool"
+
+order maternaMuni maternaOther maternaNone
 
 save "${data_reggio}/Reggio_reassigned", replace
