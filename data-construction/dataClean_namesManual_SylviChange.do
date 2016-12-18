@@ -146,6 +146,12 @@ capture drop maternaOther
 generate maternaOther = (maternaMuni != 1) & (maternaNone != 1)
 lab var maternaOther "dv: Went to non-municipal preschool"
 
-order maternaMuni maternaOther maternaNone
+generate asiloNone = (asiloType == 0)
+generate asiloMuni = (asiloType == 1)
+generate asiloStat = (asiloType == 2)
+generate asiloReli = (asiloType == 3)
+generate asiloPriv = (asiloType == 4)
+
+generate asiloOther = (asiloMuni !=1) & (asiloNone != 1)
 
 save "${data_reggio}/Reggio_reassigned", replace
