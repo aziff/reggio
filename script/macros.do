@@ -105,11 +105,11 @@ global adol_outcome_B           		difficultiesInterest difficultiesSit dropoutSc
 global adult_outcome_M					highschoolGrad MaxEdu_Uni PA_Empl HrsTot mStatus_married_cohab BMI_obese ///
 										BMI_overweight pos_LocusControl pos_Depression votedMunicipal votedRegional
 
-global adult_outcome_E					IQ_factor votoMaturita votoUni ///
+global adult_outcome_E					IQ_factor votoMaturita  ///
 										highschoolGrad MaxEdu_Uni MaxEdu_Grad
 
 * Employment										
-global adult_outcome_W					PA_Empl SES_self HrsTot WageMonth ///
+global adult_outcome_W					PA_Empl SES_self HrsTot ///
 										Reddito_1 Reddito_2 Reddito_3 Reddito_4 Reddito_5 Reddito_6 Reddito_7
 
 * Living status										
