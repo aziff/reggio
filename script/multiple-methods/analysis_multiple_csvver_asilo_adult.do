@@ -21,6 +21,7 @@ global data_reggio : env data_reggio
 global git_reggio  : env git_reggio
 */
 
+
 global klmReggio  	"/mnt/ide0/share/klmReggio"
 global data_reggio	"/mnt/ide0/share/klmReggio/data_survey/data"
 global git_reggio	"/home/yukyungkoh/reggio"
@@ -87,60 +88,78 @@ local Adult50_num 		= 6
 
 
 
+
 * ---------------------------------------------------------------------------- *
-* 					Reggio Muni vs. None:	Adolescent						   *
+* 					Reggio Muni vs. None:	Adult							   *
 * ---------------------------------------------------------------------------- *
 ** Keep only the adult cohorts
 preserve
-keep if (Cohort == 3)
+keep if (Cohort == 4) | (Cohort == 5) | (Cohort == 6)
+drop if asilo == 1 // dropping those who went to infant-toddler centers
 
 local stype_switch = 1
-foreach stype in  Other None Stat Reli Affi {
+foreach stype in Other None {
 	
 	* Set necessary global variables
-	global X					maternaMuni
-	global reglist				None BIC Full DidPm DidPv // It => Italians, Mg => Migrants
-	global aipwlist				AIPW
+	global X					asiloMuni
+	global reglist				None30 BIC30 Full30  None40 BIC40 Full40 // It => Italians, Mg => Migrants
+	global aipwlist				AIPW30 AIPW40 
 
-	global XNone				maternaMuni		
-	global XBIC					maternaMuni		
-	global XFull				maternaMuni		
-	global XDidPm				maternaMuni	Reggio xmMuniReggio	
-	global XDidPv				maternaMuni	Reggio xmMuniReggio	
+	global XNone30				asiloMuni	
+	global XBIC30				asiloMuni		
+	global XFull30				asiloMuni		
 
-	global keepNone				maternaMuni
-	global keepBIC				maternaMuni
-	global keepFull				maternaMuni
-	global keepDidPm			xmMuniReggio
-	global keepDidPv			xmMuniReggio
+	global XNone40				asiloMuni		
+	global XBIC40				asiloMuni	
+	global XFull40				asiloMuni		
 
-	global controlsNone
-	global controlsBIC			${bic_adol_baseline_vars}
-	global controlsFull			${adol_baseline_vars}
-	global controlsDidPm		${bic_adol_baseline_vars}
-	global controlsDidPv		${bic_adol_baseline_vars}
+	global keepNone30			asiloMuni
+	global keepBIC30			masiloMuni
+	global keepFull30			asiloMuni
+	global keepNone40			asiloMuni
+	global keepBIC40			asiloMuni
+	global keepFull40			asiloMuni
 
-	global ifconditionNone 		(Reggio == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionBIC		${ifconditionNone}
-	global ifconditionFull		${ifconditionNone}
-	global ifconditionDidPm		(Reggio == 1 | Parma == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionDidPv		(Reggio == 1 | Padova == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionAIPW 	    (Reggio == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
 
+	global controlsNone30
+	global controlsNone40
+	global controlsBIC30		${bic_adult_baseline_vars}
+	global controlsBIC40		${bic_adult_baseline_vars}
+	global controlsFull30		${adult_baseline_vars}
+	global controlsFull40		${adult_baseline_vars}
+	global controlsDidPm30		${bic_adult_baseline_vars}
+	global controlsDidPv30		${bic_adult_baseline_vars}
+
+
+	global ifconditionNone30 	(Reggio == 1) & (Cohort_Adult30 == 1)  & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
+	global ifconditionBIC30		${ifconditionNone30} 
+	global ifconditionFull30	${ifconditionNone30}
+	global ifconditionDidPm30	(Reggio == 1 | Parma == 1) & (Cohort_Adult30 == 1)  & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
+	global ifconditionDidPv30	(Reggio == 1 | Padova == 1) & (Cohort_Adult30 == 1)  & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
+
+	global ifconditionNone40 	(Reggio == 1) & (Cohort_Adult40 == 1)  & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
+	global ifconditionBIC40		${ifconditionNone40}
+	global ifconditionFull40	${ifconditionNone40}
+	global ifconditionDidPm40	(Reggio == 1 | Parma == 1) & (Cohort_Adult40 == 1)  & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
+	global ifconditionDidPv40	(Reggio == 1 | Padova == 1) & (Cohort_Adult40 == 1)  & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
+	global ifconditionAIPW30 	(Reggio == 1) & (Cohort_Adult30 == 1)   & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
+	global ifconditionAIPW40	(Reggio == 1) & (Cohort_Adult40 == 1)   & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
 	
 	
-	foreach type in  M /*CN S H B*/ {
+	
+	
+	foreach type in  M /*E W L H N S*/ {
 
 		* ----------------------- *
 		* For Regression Analysis *
 		* ----------------------- *
 		* Open necessary files
 		cap file close regression_`type'_`stype'
-		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_adol_`type'_`stype'.csv", write replace
+		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_adult_`type'_`stype'_asilo.csv", write replace
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Children: Regression Analysis"
-		reganalysis, stype("`stype'") type("`type'") reglist("${reglist}") cohort("adol")
+		reganalysis, stype("`stype'") type("`type'") reglist("${reglist}") cohort("adult")
 	
 		* Close necessary files
 		file close regression_`type'_`stype' 
@@ -153,11 +172,11 @@ foreach stype in  Other None Stat Reli Affi {
 		
 			* Open necessary files
 			cap file close aipw_`type'_`stype'
-			file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adol_`type'_`stype'.csv", write replace
+			file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adult_`type'_`stype'_asilo.csv", write replace
 
 			* Run Multiple Analysis
 			di "Estimating `type' for Children: AIPW Analysis"
-			aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adol")
+			aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adult")
 			
 			* Close necessary files
 			file close aipw_`type'_`stype'	
@@ -169,11 +188,3 @@ foreach stype in  Other None Stat Reli Affi {
 }
 
 restore
-
-
-
-
-
-
-
-

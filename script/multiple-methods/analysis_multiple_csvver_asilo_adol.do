@@ -95,24 +95,22 @@ preserve
 keep if (Cohort == 3)
 
 local stype_switch = 1
-foreach stype in  Other None Stat Reli Affi {
+foreach stype in  Other None {
 	
 	* Set necessary global variables
-	global X					maternaMuni
-	global reglist				None BIC Full DidPm DidPv // It => Italians, Mg => Migrants
+	global X					asiloMuni
+	global reglist				None BIC Full // It => Italians, Mg => Migrants
 	global aipwlist				AIPW
 
-	global XNone				maternaMuni		
-	global XBIC					maternaMuni		
-	global XFull				maternaMuni		
-	global XDidPm				maternaMuni	Reggio xmMuniReggio	
-	global XDidPv				maternaMuni	Reggio xmMuniReggio	
+	global XNone				asiloMuni		
+	global XBIC					asiloMuni		
+	global XFull				asiloMuni		
 
-	global keepNone				maternaMuni
-	global keepBIC				maternaMuni
-	global keepFull				maternaMuni
-	global keepDidPm			xmMuniReggio
-	global keepDidPv			xmMuniReggio
+
+	global keepNone				asiloMuni
+	global keepBIC				asiloMuni
+	global keepFull				asiloMuni
+
 
 	global controlsNone
 	global controlsBIC			${bic_adol_baseline_vars}
@@ -120,12 +118,12 @@ foreach stype in  Other None Stat Reli Affi {
 	global controlsDidPm		${bic_adol_baseline_vars}
 	global controlsDidPv		${bic_adol_baseline_vars}
 
-	global ifconditionNone 		(Reggio == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
+	global ifconditionNone 		(Reggio == 1) & (Cohort == 3)   & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
 	global ifconditionBIC		${ifconditionNone}
 	global ifconditionFull		${ifconditionNone}
-	global ifconditionDidPm		(Reggio == 1 | Parma == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionDidPv		(Reggio == 1 | Padova == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionAIPW 	    (Reggio == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
+	global ifconditionDidPm		(Reggio == 1 | Parma == 1) & (Cohort == 3)   & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
+	global ifconditionDidPv		(Reggio == 1 | Padova == 1) & (Cohort == 3)   & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
+	global ifconditionAIPW 	    (Reggio == 1) & (Cohort == 3)   & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
 
 	
 	
@@ -136,7 +134,7 @@ foreach stype in  Other None Stat Reli Affi {
 		* ----------------------- *
 		* Open necessary files
 		cap file close regression_`type'_`stype'
-		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_adol_`type'_`stype'.csv", write replace
+		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_adol_`type'_`stype'_asilo.csv", write replace
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Children: Regression Analysis"
@@ -153,7 +151,7 @@ foreach stype in  Other None Stat Reli Affi {
 		
 			* Open necessary files
 			cap file close aipw_`type'_`stype'
-			file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adol_`type'_`stype'.csv", write replace
+			file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adol_`type'_`stype'_asilo.csv", write replace
 
 			* Run Multiple Analysis
 			di "Estimating `type' for Children: AIPW Analysis"
