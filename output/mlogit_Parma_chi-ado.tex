@@ -1,0 +1,64 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{6}{c}}
+\toprule
+                    &\multicolumn{1}{c}{None}&\multicolumn{1}{c}{Other}&\multicolumn{1}{c}{Municipal}&\multicolumn{1}{c}{None}&\multicolumn{1}{c}{Other}&\multicolumn{1}{c}{Municipal}\\
+\midrule
+Male                &      0.0189         &      0.0192         &     -0.0381         &                     &                     &                     \\
+                    &    (0.0192)         &    (0.0519)         &    (0.0530)         &                     &                     &                     \\
+\addlinespace
+Low birthweight     &      -0.250         &       0.120         &       0.129         &                     &                     &                     \\
+                    &     (40.98)         &     (14.06)         &     (26.92)         &                     &                     &                     \\
+\addlinespace
+Premature birth     &      -0.259         &       0.254         &     0.00491         &                     &                     &                     \\
+                    &     (38.51)         &     (13.22)         &     (25.30)         &                     &                     &                     \\
+\addlinespace
+Mom born in province&      0.0214         &     -0.0299         &     0.00850         &                     &                     &                     \\
+                    &    (0.0211)         &    (0.0610)         &    (0.0624)         &                     &                     &                     \\
+\addlinespace
+Dad born in province&     -0.0453         &      0.0429         &     0.00243         &                     &                     &                     \\
+                    &    (0.0256)         &    (0.0595)         &    (0.0614)         &                     &                     &                     \\
+\addlinespace
+Mother max. edu.: less than middle school&     -0.0556         &       0.215\sym{*}  &      -0.159         &                     &                     &                     \\
+                    &    (0.0310)         &    (0.0990)         &     (0.100)         &                     &                     &                     \\
+\addlinespace
+Mom Max Edu: Middle School&      -0.261         &    -0.00563         &       0.267         &                     &                     &                     \\
+                    &     (45.31)         &     (15.55)         &     (29.77)         &                     &                     &                     \\
+\addlinespace
+Mom Max Edu: High School&     -0.0226         &      0.0513         &     -0.0287         &                     &                     &                     \\
+                    &    (0.0208)         &    (0.0602)         &    (0.0615)         &                     &                     &                     \\
+\addlinespace
+Father max. edu.: less than middle school&      0.0423         &      -0.304\sym{**} &       0.261\sym{**} &                     &                     &                     \\
+                    &    (0.0254)         &    (0.0954)         &    (0.0956)         &                     &                     &                     \\
+\addlinespace
+Father max. edu.: middle school&      -0.243         &       0.201         &      0.0426         &                     &                     &                     \\
+                    &     (38.35)         &     (13.16)         &     (25.19)         &                     &                     &                     \\
+\addlinespace
+Father max. edu.: high school&      0.0332         &     -0.0206         &     -0.0126         &                     &                     &                     \\
+                    &    (0.0220)         &    (0.0608)         &    (0.0622)         &                     &                     &                     \\
+\addlinespace
+Has 2 siblings      &    -0.00530         &     -0.0121         &      0.0174         &                     &                     &                     \\
+                    &    (0.0208)         &    (0.0656)         &    (0.0666)         &                     &                     &                     \\
+\addlinespace
+Has more than 2 siblings&      -0.327         &     -0.0386         &       0.365         &                     &                     &                     \\
+                    &     (25.06)         &     (8.601)         &     (16.46)         &                     &                     &                     \\
+\addlinespace
+Caregiver is Catholic&     -0.0120         &       0.101         &     -0.0894         &                     &                     &                     \\
+                    &    (0.0303)         &     (0.118)         &     (0.118)         &                     &                     &                     \\
+\addlinespace
+dv: Caregiver's religion is Islam&      0.0805\sym{*}  &     -0.0931         &      0.0126         &                     &                     &                     \\
+                    &    (0.0319)         &     (0.208)         &     (0.207)         &                     &                     &                     \\
+\addlinespace
+Caregiver was religious&    -0.00595         &     -0.0425         &      0.0485         &                     &                     &                     \\
+                    &    (0.0371)         &     (0.137)         &     (0.138)         &                     &                     &                     \\
+\addlinespace
+Mother: born outside of Italy&    -0.00360         &     -0.0595         &      0.0631         &                     &                     &                     \\
+                    &    (0.0246)         &     (0.101)         &     (0.102)         &                     &                     &                     \\
+\addlinespace
+Constant            &                     &                     &                     &      0.0157\sym{*}  &       0.528\sym{***}&       0.457\sym{***}\\
+                    &                     &                     &                     &   (0.00781)         &    (0.0313)         &    (0.0313)         \\
+\midrule
+Observations        &         349         &         349         &         349         &         254         &         254         &         254         \\
+\bottomrule
+\end{tabular}
+}
