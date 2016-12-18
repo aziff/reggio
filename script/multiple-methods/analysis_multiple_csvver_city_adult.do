@@ -100,30 +100,30 @@ drop if asilo == 1 // dropping those who went to infant-toddler centers
 
 local stype_switch = 1
 foreach city in Parma Padova {
-	foreach stype in Other None  {
+	foreach stype in Yes {
 		
 		* Set necessary global variables
 		global X					maternaMuni
 		global reglist				None30 BIC30 Full30 None40 BIC40 Full40 // It => Italians, Mg => Migrants
 		global aipwlist				AIPW30 AIPW40 
 
-		global XNone30				maternaMuni		
-		global XBIC30				maternaMuni		
-		global XFull30				maternaMuni		
+		global XNone30				maternaYes		
+		global XBIC30				maternaYes		
+		global XFull30				maternaYes		
 		global XDidPm30				maternaMuni	Reggio xmMuniReggio	
 		global XDidPv30				maternaMuni	Reggio xmMuniReggio	
 
-		global XNone40				maternaMuni		
-		global XBIC40				maternaMuni		
-		global XFull40				maternaMuni		
+		global XNone40				maternaYes	
+		global XBIC40				maternaYes		
+		global XFull40				maternaYes	
 
-		global keepNone30			maternaMuni
-		global keepBIC30			maternaMuni
-		global keepFull30			maternaMuni
+		global keepNone30			maternaYes
+		global keepBIC30			maternaYes
+		global keepFull30			maternaYes
 		global keepIPW30			ReggioMaterna
-		global keepNone40			maternaMuni
-		global keepBIC40			maternaMuni
-		global keepFull40			maternaMuni
+		global keepNone40			maternaYes
+		global keepBIC40			maternaYes
+		global keepFull40			maternaYes
 
 		global keepDidPm30			xmMuniReggio
 		global keepDidPv30			xmMuniReggio
@@ -138,14 +138,14 @@ foreach city in Parma Padova {
 		global controlsDidPv30		${bic_adult_baseline_vars}
 
 
-		global ifconditionNone30 	(`city' == 1) & (Cohort_Adult30 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
+		global ifconditionNone30 	(`city' == 1) & (Cohort_Adult30 == 1) 
 		global ifconditionBIC30		${ifconditionNone30} 
 		global ifconditionFull30	${ifconditionNone30}
-		global ifconditionNone40 	(`city' == 1) & (Cohort_Adult40 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
+		global ifconditionNone40 	(`city' == 1) & (Cohort_Adult40 == 1) 
 		global ifconditionBIC40		${ifconditionNone40}
 		global ifconditionFull40	${ifconditionNone40}
-		global ifconditionAIPW30 	(`city' == 1) & (Cohort_Adult30 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
-		global ifconditionAIPW40	(`city'== 1) & (Cohort_Adult40 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
+		global ifconditionAIPW30 	(`city' == 1) & (Cohort_Adult30 == 1)
+		global ifconditionAIPW40	(`city'== 1) & (Cohort_Adult40 == 1)  
 		
 		
 		
