@@ -26,31 +26,31 @@ include "${here}/../macros"
 global cohort				child adol adult
 global group				Other None /*Stat Reli*/
 
-global reglistchild				NoneIt BICIt FullIt DidPmIt DidPvIt   
+global reglistchild				NoneIt BICIt FullIt   
 global aipwlistchild			AIPWIt  
-global fulllistchild			NoneIt BICIt FullIt DidPmIt DidPvIt
-global reglistchildlp			noneit bicit fullit didpmit didpvit   
+global fulllistchild			NoneIt BICIt FullIt  
+global reglistchildlp			noneit bicit fullit  
 global aipwlistchildlp			aipwit 
 local aipwit_n					bicit
-global fulllistchildlp			noneit bicit fullit didpmit didpvit 
+global fulllistchildlp			noneit bicit fullit 
 
 
-global reglistadol				None BIC Full DidPm DidPv 
+global reglistadol				None BIC Full 
 global aipwlistadol				AIPW
-global fulllistadol				None Bic Full DidPm DidPv
-global reglistadollp			none bic full didpm didpv   
+global fulllistadol				None Bic Full  
+global reglistadollp			none bic full   
 global aipwlistadollp			aipw 
 local aipw_n					bic
-global fulllistadollp			none bic full didpm didpv 
+global fulllistadollp			none bic full 
 
-global reglistadult				None30 BIC30 Full30 DidPm30 DidPv30 None40 BIC40 Full40 
+global reglistadult				None30 BIC30 Full30 None40 BIC40 Full40 
 global aipwlistadult			AIPW30 AIPW40
-global fulllistadult			None30 BIC30 Full30 DidPm30 DidPv30 None40 BIC40 Full40 
-global reglistadultlp			none30 bic30 full30 didpm30 didpv30 none40 bic40 full40 
+global fulllistadult			None30 BIC30 Full30  None40 BIC40 Full40 
+global reglistadultlp			none30 bic30 full30 none40 bic40 full40 
 global aipwlistadultlp			aipw30 aipw40
 local aipw30_n					bic30
 local aipw40_n					bic40
-global fulllistadultlp			none30 bic30 full30 didpm30 didpv30  none40 bic40 full40
+global fulllistadultlp			none30 bic30 full30 none40 bic40 full40
 
 
 * ------------------------------------ *
@@ -60,7 +60,7 @@ foreach coh in $cohort {
 	
 	foreach gr in $group {
 	
-		import delimited using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_`coh'_M_`gr'_drop.csv", clear
+		import delimited using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_`coh'_M_`gr'_asilo.csv", clear
 		
 		
 		* ------------------------- *
@@ -163,7 +163,7 @@ foreach coh in $cohort {
 		* ------------------- *
 		* Now Create Tex file *
 		* ------------------- *
-		file open tabfile`coh'`gr' using "${git_reggio}/output/multiple-methods/combinedanalysis/dropint_`coh'_M_`gr'.tex", write replace
+		file open tabfile`coh'`gr' using "${git_reggio}/output/multiple-methods/combinedanalysis/asilo_`coh'_M_`gr'.tex", write replace
 		file write tabfile`coh'`gr' "\begin{tabular}{`tabular'}" _n
 		file write tabfile`coh'`gr' "\toprule" _n
 		file write tabfile`coh'`gr' " `colname' \\" _n

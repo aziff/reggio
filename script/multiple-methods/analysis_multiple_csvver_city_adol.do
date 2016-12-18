@@ -101,7 +101,7 @@ foreach city in Parma Padova {
 		
 		* Set necessary global variables
 		global X					maternaMuni
-		global reglist				None BIC Full// It => Italians, Mg => Migrants
+		global reglist				None BIC Full // It => Italians, Mg => Migrants
 		global aipwlist				AIPW
 
 		global XNone				maternaMuni		
