@@ -55,8 +55,8 @@ global Adult50_baseline_vars		 	$adult_baseline_vars
 
 								
 * BIC-selected baseline variables 
-global bic_child_baseline_vars				Male CAPI Cohort_Migrants numSibling_more houseOwn cgMigrant cgReddito_7 cgIslam
-global bic_adol_baseline_vars				Male CAPI momMaxEdu_low dadMaxEdu_Uni numSibling_2 cgCatholic cgIslam
+global bic_child_baseline_vars				Male CAPI asilo Cohort_Migrants numSibling_more houseOwn cgMigrant cgReddito_7 cgIslam
+global bic_adol_baseline_vars				Male CAPI asilo momMaxEdu_low dadMaxEdu_Uni numSibling_2 cgCatholic cgIslam
 global bic_adult_baseline_vars		    	Male CAPI momMaxEdu_middle dadMaxEdu_Uni numSibling_2 numSibling_more cgIslam
 
 
