@@ -97,23 +97,18 @@ local stype_switch = 1
 foreach stype in Other None {
 	
 	* Set necessary global variables
-	global X					maternaMuni
+	global X					asiloMuni
 	global reglist				NoneIt BICIt FullIt DidPmIt DidPvIt  // It => Italians, Mg => Migrants
 	global aipwlist				AIPWIt 
 
-	global XNoneIt				maternaMuni		
-	global XBICIt				maternaMuni		
-	global XFullIt				maternaMuni		
-	global XDidPmIt				maternaMuni	Reggio xmMuniReggio	
-	global XDidPvIt				maternaMuni	Reggio xmMuniReggio	
+	global XNoneIt				asiloMuni	
+	global XBICIt				asiloMuni		
+	global XFullIt				asiloMuni	
 
 
-	global keepNoneIt			maternaMuni
-	global keepBICIt			maternaMuni
-	global keepFullIt			maternaMuni
-
-	global keepDidPmIt			xmMuniReggio
-	global keepDidPvIt			xmMuniReggio
+	global keepNoneIt			asiloMuni
+	global keepBICIt			asiloMuni
+	global keepFullIt			asiloMuni
 
 	global controlsNoneIt
 	global controlsNone

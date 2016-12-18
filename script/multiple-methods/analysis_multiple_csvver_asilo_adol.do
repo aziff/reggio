@@ -98,21 +98,19 @@ local stype_switch = 1
 foreach stype in  Other None {
 	
 	* Set necessary global variables
-	global X					maternaMuni
-	global reglist				None BIC Full DidPm DidPv // It => Italians, Mg => Migrants
+	global X					asiloMuni
+	global reglist				None BIC Full // It => Italians, Mg => Migrants
 	global aipwlist				AIPW
 
-	global XNone				maternaMuni		
-	global XBIC					maternaMuni		
-	global XFull				maternaMuni		
-	global XDidPm				maternaMuni	Reggio xmMuniReggio	
-	global XDidPv				maternaMuni	Reggio xmMuniReggio	
+	global XNone				asiloMuni		
+	global XBIC					asiloMuni		
+	global XFull				asiloMuni		
 
-	global keepNone				maternaMuni
-	global keepBIC				maternaMuni
-	global keepFull				maternaMuni
-	global keepDidPm			xmMuniReggio
-	global keepDidPv			xmMuniReggio
+
+	global keepNone				asiloMuni
+	global keepBIC				asiloMuni
+	global keepFull				asiloMuni
+
 
 	global controlsNone
 	global controlsBIC			${bic_adol_baseline_vars}
