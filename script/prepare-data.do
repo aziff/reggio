@@ -668,19 +668,29 @@ foreach var1 in $adult_baseline_vars_int {
 * Standardize high school grade
 
 // create a variable to categorize high school type more broadly
-gen highschoolType_arts = (highschoolType == 3 | highschoolType == 6 | highschoolType == 9)
+gen highschoolType_broad = .
+replace highschoolType_broad = 1 if highschoolType == 1
+replace highschoolType_broad = 2 if highschoolType == 2
+replace highschoolType_broad = 3 if highschoolType == 3
+replace highschoolType_broad = 4 if (highschoolType == 4 | highschoolType == 6 | highschoolType == 9)
+replace highschoolType_broad = 5 if highschoolType == 5
+replace highschoolType_broad = 6 if highschoolType == 7
+replace highschoolType_broad = 7 if highschoolType == 8
 
 gen votoMaturita_std = .
 
 forvalues city = 1/3 {
-	sum votoMaturita if City == `city'
-	local y_se`city' = r(sd)/sqrt(r(N))
-	
-	reg votoMaturita maternaStat maternaReli maternaNone highschoolType_arts if City == `city'
-	predict votoMaturita`city'_stdp, stdp 
+
+	forvalues i = 1/7 {
+		sum votoMaturita if City == `city' & highschoolType_broad == `i'
+		local y_se`city'_`i' = r(sd)/sqrt(r(N))
+	}
+	reg votoMaturita i.highschoolType_broad if City == `city'
 	predict votoMaturita`city', xb
 	
-	replace votoMaturita_std = (votoMaturita - votoMaturita`city')/votoMaturita`city'_stdp if City == `city'
+	forvalues i = 1/7 {
+		replace votoMaturita_std = (votoMaturita - votoMaturita`city')/`y_se`city'_`i'' if City == `city' & highschoolType_broad == `i'
+	}
 }
 	
 sum votoMaturita_std
