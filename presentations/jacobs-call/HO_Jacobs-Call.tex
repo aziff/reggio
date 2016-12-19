@@ -1,0 +1,303 @@
+%%-------------------------------------------------------------------------------------------------
+%%                           Template Notes:
+%% Make sure to have all template files from klmweb/revisions/templates/JJH_Beamer before using
+%% this file. Also please read the Beamer Reference document for typists if you have any questions
+%% on the usage of this template.
+% -------------------------------------------------------------------------------------------------
+\documentclass[dynamic]{JJH-Beamer}
+
+%% -- Extra Packages (Place Packages here if they are not included in the default template)--------
+
+\usepackage{adjustbox}
+\usepackage{booktabs}
+\usepackage{soul}
+\usepackage{tabularx}
+\usepackage{graphicx}
+\usepackage{colortbl}
+\usepackage[para]{threeparttable}
+\usepackage{epstopdf}
+\usepackage{subfig}
+\usepackage{bbding}
+\usepackage{appendixnumberbeamer}
+\usepackage{rotating}
+\usepackage{geometry}
+\usepackage{pdflscape}
+
+%% ------ Extra Preamble Definitions (Place any other extra preamble stuff here) ------------------
+
+\newcommand{\mr}{\multirow}
+\newcommand{\mc}{\multicolumn}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\newcommand{\backupbegin}{
+   \newcounter{finalframe}
+   \setcounter{finalframe}{\value{framenumber}}
+}
+\newcommand{\backupend}{
+   \setcounter{framenumber}{\value{finalframe}}
+}
+
+\newcommand*\leftright[2]{%
+  \leavevmode
+  \rlap{#1}%
+  \hspace{0.5\linewidth}%
+  #2}
+% ------------ Title, author, date (ALWAYS UPDATE THESE THINGS) -----------------------------------
+
+\def \thetitle {Summary of the Reggio Evaluation} % Full title goes here
+
+\def \theshorttitle {Reggio} %Short title goes here
+
+\def \theauthor {Reggio Team} % Author name(s) go here
+
+\def \theshortauthor {Reggio Team} % Short author name(s) go here; should fit on this one line.
+
+\def \thedate {December 20th, 2016} % Date and venue information
+
+\def \eventnotes {\noindent
+\textbf{Date:} Tuesday, December 20th, 2016 \\
+\textbf{Event Title:} Call with the Jacobs Foundation \\
+\textbf{Location:}  \\
+\textbf{Presentation Title:} Summary of the Reggio Evaluation
+} % Other event info, to appear on the front of the private notes
+
+% -------------------------------------------------------------------------------------------------
+
+\begin{document}
+%\renewcommand*{\inserttotalframenumber}{\pageref{lastframe}}
+
+\mode<all>{\theTitlePages} % Macro to insert both title pages DO NOT REMOVE!
+
+%%
+%% ------------------------- Content starts here --------------------------------------------------
+\begin{frame}
+\frametitle{Overview}
+\begin{itemize}
+\item This handout summarizes the process and findings of the evaluation of the Reggio Approach
+\item Empirical results do not emphatically support that the Reggio Approach has strong effects
+\begin{itemize}
+	\item Positive results are found in the adult cohorts when compared to other adults who did not attend preschool
+	\item The Reggio Approach improves some non-cognitive and mental health outcomes of children and adolescents
+\end{itemize}
+\item Historical evidence collected by CEHD indicates that alternative preschools were available and regulated leading to quality alternatives
+\item We also outline issues with the design of the study and data collection 
+\end{itemize}
+
+\end{frame}
+
+% -------------------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Discussion}
+\begin{itemize}
+	\item Historical context
+	\begin{itemize}
+		\item Unpublished historical evidence and empirical results indicate that alternatives were available that had positive effects on children
+		\item Paper records indicate that take-up of these programs was very high in Reggio Emilia and Padova
+		\item Results from our survey indicate that even though the specific combination of components is unique to the Reggio Approach, several components were seen in other programs over time
+	\end{itemize}
+	\item Data limitations
+	\begin{itemize}
+		\item More family characteristics, especially for the adult cohorts, would help better model the effect of the Reggio Approach by accounting for family disadvantage more fully
+		\item Some issues in data collection limit some of the key outcomes such as IQ, school grades, and income
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+% -------------------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Sample}
+\begin{itemize}
+	\item Five age cohorts chosen to capture short-, medium-, and long-term effects and different levels of exposure to the Reggio Approach
+	\begin{itemize}
+		\item Children (b. 2006)
+		\item Adolescents (b. 1994)
+		\item Adults in their 30s (b. 1980-1981)
+		\item Adults in their 40s (b. 1969-1970)
+		\item Adults in their 50s (b. 1954-1959)
+	\end{itemize}
+	\item Individuals sampled from three cities all lived in that same city when they were of preschool age
+		\begin{itemize}
+			\item Reggio Emilia
+			\item Parma
+			\item Padova
+		\end{itemize}
+\end{itemize}
+\end{frame}
+% -------------------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Sample}
+\begin{itemize}
+	\item The sample was selected to be representative to the potential users of infant-toddler centers and preschools
+	\item Available schools include municipal, Catholic, and state schools
+	\item Some individuals in the sample also stayed at home or attended other informal care
+\end{itemize}
+\adjustbox{max height=\dimexpr\textheight-5.5cm\relax,
+           max width=\textwidth}{
+	\input{../../output/available-preschool}}
+\end{frame}
+
+% -------------------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Reggio Approach}
+\begin{itemize}
+	\item The Reggio Approach is the municipal system of Reggio Emilia
+	\begin{itemize}
+		\item Founded in 1963 by Loris Malaguzzi
+	\end{itemize}
+	\item Some characteristics of the Reggio Approach
+	\begin{itemize}
+		\item Educative coordinator (pedagogista)
+		\item Arts specialist (atelierista)
+		\item Project-based learning led by children's interest 
+	\end{itemize}
+\end{itemize}
+\end{frame}
+
+% -------------------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Survey of Programs}
+\begin{itemize}
+	\item In order to understand the alternative programs, we wrote a survey to help structure interviews with administrators and educators in several of the systems in the three cities
+	\item We graph the number of characteristics that the surveyed programs have in common with the Reggio Approach
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Administrative Components}
+\includegraphics[width=0.9\textwidth]{../../output/aggregateAdministrative.eps}
+\end{frame}
+
+\begin{frame}
+\frametitle{Pedagogical Components}
+\includegraphics[width=0.9\textwidth]{../../output/aggregatePedagogical.eps}
+\end{frame}
+
+% -------------------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Summary of Responses}
+\footnotesize
+\begin{itemize}
+	\item Hours of center-based care is one commonality largely shared by the surveyed programs
+	\item  Teachers have dedicated work hours for professional development and documentation
+	\item Municipal schools in the three cities shared priorities of enrolling disadvantaged children
+	\item It was not until the 1980s that at least one other system had a full-time educative coordinator
+	\item Some pedagogical components not in the Reggio Approach: (i) no religious education; (ii) no preset curriculum; and (iii) little influence of Montessori relative to the influence of Malaguzzi. 
+	\item The presence of an arts specialist is more distinctive. This has only been in seen as well in Padova's municipal school since the 1980s. Although, visual arts were used in a preschool setting in all the other programs by the 1980s.  
+\end{itemize}
+\end{frame}
+
+% -------------------------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Historical Records of Preschool Attendance}
+\begin{itemize}
+	\item We additionally unearthed paper records of preschool attendance in Reggio Emilia and Padova
+	\item Attendance in both cities is close to 100\% 
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Number of Children Ages 3-5 Enrolled in Preschool, Reggio Emilia}
+\centering
+\includegraphics[width=0.8\textwidth]{../../output/image/Enrollement_Preschool_RE.pdf}
+\end{frame}
+
+\begin{frame}
+\frametitle{Number of Children Ages 3-5 Enrolled in Preschool, Padova}
+\centering
+\includegraphics[width=0.8\textwidth]{../../output/image/Enrollement_Preschool_Padova.pdf}
+\end{frame}
+
+\begin{frame}
+\frametitle{Percent of Children Ages 3-5 Enrolled in Preschool, Reggio Emilia and Padova}
+\centering
+\includegraphics[width=0.8\textwidth]{../../output/image/Enrollement_Preschool_age3-5.pdf}
+\end{frame}
+% -------------------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Methodology}
+\begin{itemize}
+	\item OLS with varying control sets 
+	\item Difference-in-difference (DiD) across cities 
+	\item AIPW to account for selection into the Reggio Approach beyond OLS and DiD
+	\item Propensity score matching to further test for the presence of selection 
+\end{itemize}
+\end{frame}
+
+% -------------------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Summary of Results}
+\begin{itemize}
+	\item Children
+	\begin{itemize}
+		\item Improved non-cognitive outcome (SDQ)
+	\end{itemize}
+	\item Adolescents
+	\begin{itemize}
+		\item improved non-cognitive and mental health outcomes, less likely to drop out of school, more likely to dislike school, more likely to be unhealthy (obese and less exercise)
+	\end{itemize}
+	\item Adults
+		\begin{itemize}
+		\item The most positive and significant results are seen when compared with adults who attended no preschool
+		\item More likely to be employed (40s) and work more hours (30s and 40s)
+		\item Less depressed and more internal locus of control (40s)
+		\item More likely to vote (40s)
+		\end{itemize}
+\end{itemize}
+\end{frame}
+
+% -------------------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Reggio Approach vs. Non-Reggio Approach, Child Cohort}
+\centering
+\adjustbox{max height=\dimexpr\textheight-5.5cm\relax,
+           max width=\textwidth}{
+\input{../../output/multiple-methods/combinedanalysis/combined_child_M_Other}}
+\end{frame}
+
+\begin{frame}
+\centering
+\frametitle{Reggio Approach vs. Non-Reggio Approach, Adolescent Cohort}
+\adjustbox{max height=\dimexpr\textheight-5.5cm\relax,
+           max width=\textwidth}{
+\input{../../output/multiple-methods/combinedanalysis/combined_adol_M_Other}}
+\end{frame}
+
+\begin{frame}
+\centering
+\frametitle{Reggio Approach vs. Other Preschools, Adult Cohorts}
+\adjustbox{max height=\dimexpr\textheight-5.5cm\relax,
+           max width=\textwidth}{
+\input{../../output/multiple-methods/combinedanalysis/combined_adult_M_Other}}
+\end{frame}
+
+\begin{frame}
+\centering
+\frametitle{Reggio Approach vs. No Preschool, Adult Cohorts}
+\adjustbox{max height=\dimexpr\textheight-5.5cm\relax,
+           max width=\textwidth}{
+\input{../../output/multiple-methods/combinedanalysis/combined_adult_M_None}}
+\end{frame}
+
+
+%%
+%%--------------------------- Content ends here ---------------------------------------------------
+%%
+
+% --------------------- Bibliography hidden with a save box ---------------------------------------
+\mode<all>
+\bibliographystyle{chicago}
+\savebox\hiddenbib{\parbox{\textwidth}{\bibliography{heckman}}}
+
+\end{document} 
