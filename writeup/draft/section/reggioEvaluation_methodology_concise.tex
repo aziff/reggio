@@ -77,7 +77,7 @@ Age-50		& 146 & 0 &	8 & 0 & \textbf{200} & 71 & 0 & 4 & 8 & \textbf{103} & 55 & 
 We adopt a three-pronged approaach to evaluate the effects of the Reggio Approach Preschool intervention. Firstly, in subsection \ref{subsubsection:OLS}, we describe an OLS model that allows us to compare the outcomes of those who attended Municipal Preschool in Reggio to those from Reggio who did not attend Municipal Preschool. In subsection \ref{subsubsection:DID}, we present a Difference-in-Differences approach that allows us to make cross-city comparisons of outcomes for those who attended  Municipal preschool in each city, while controlling for permanent differences between cities. Lastly, subsection \ref{subsection:selection} presents a multinomial logit model to test for the presence of selection into treatment, and an AIPW model that adjusts estimated treatment effects to account for potential selection into treatment.
 
 \subsubsection{Baseline OLS} \label{subsubsection:OLS}
-We perform several within-Reggio comparisons using a baseline OLS model. We compare individuals from Reggio Emilia who attended a Reggio Approach preschool to those in Reggio Emilia who attended (i) any type of preschool, (ii) no preschool, (iii) state preschool, and (iv) religious preschool. We only present estimates of the first comparison  in the main paper. Estimates from the other comparisons are reported in Appendices~\ref{appendix:no-preschool} through~\ref{appendix:religious}. We exclude the cohort of adults in their 50s because the Reggio Approach was not available at that time.
+We perform several within-Reggio comparisons using a baseline OLS model. We compare individuals from Reggio Emilia who attended a Reggio Approach preschool to those in Reggio Emilia who attended (i) any type of preschool, (ii) no preschool, (iii) state preschool, and (iv) religious preschool. We only present estimates of the first comparison  in the main paper. Estimates from the other comparisons are reported in Appendix~\ref{app:comparison-reli-stat}. We exclude the cohort of adults in their 50s because the Reggio Approach was not available at that time.
 
 The basic OLS takes the form, 
 
@@ -126,11 +126,13 @@ The predicted log-odds ratio for each alternative option, $\hat{\nu}_r$, from (\
 \pi_{i,r} = \frac{\text{exp}(\hat{\nu}_{r,i})}{\sum\limits_{j=0}^{2} \text{exp}(\hat{\nu}_{j,i})} \quad \forall  r \in 0,1,2
 \end{equation}
 
-Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the propensity to attend a school type $r$, $\pi_{r}$, by calculating the partial derivative $\partial \pi_{r}/\partial x_c$. These results are reported in Appendix~\ref{appendix:mlogit}.
+Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the propensity to attend a school type $r$, $\pi_{r}$, by calculating the partial derivative $\partial \pi_{r}/\partial x_c$. 
+%These results are reported in Appendix~\ref{appendix:mlogit}.
 
 \subsubsection{Augmented IPW}
 
-Although the baseline OLS and difference-in-difference models attempt to account for the selection into the Reggio Approach, regression estimator for ATE may be poorly estimated when the observed values of baseline variables are not similar for the treatment and control groups \citep{Glynn_2010}. We estimate an Augmented Inverse Propensity Weighted (AIPW) estimator that builds on the multinomial logit presented above in order to account for the caveats with the regression estimator.   
+Although the baseline OLS and difference-in-difference models attempt to account for the selection into the Reggio Approach, regression estimator for ATE may be poorly estimated when the observed values of baseline variables are not similar for the treatment and control groups. We estimate an Augmented Inverse Propensity Weighted (AIPW) estimator that builds on the multinomial logit presented above in order to account for the caveats with the regression estimator.   
+%\citep{Glynn_2010}. 
 
 To begin, consider the following two treatment statuses,
 
