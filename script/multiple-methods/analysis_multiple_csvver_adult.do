@@ -190,7 +190,7 @@ keep if (Cohort == 5)
 drop if asilo == 1 // dropping those who went to infant-toddler centers
 
 local stype_switch = 1
-foreach stype in Other Stat Reli Affi {
+foreach stype in Other Stat Reli {
 	
 	* Set necessary global variables
 	global X					maternaMuni
@@ -218,8 +218,8 @@ foreach stype in Other Stat Reli Affi {
 
 
 	global ifconditionNone40 	(Reggio == 1) & (Cohort_Adult40 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionBIC40		${ifconditionNone30} 
-	global ifconditionFull40	${ifconditionNone30}
+	global ifconditionBIC40		${ifconditionNone40} 
+	global ifconditionFull40	${ifconditionNone40}
 	*global ifconditionDidPm40	(Reggio == 1 | Parma == 1) & (Cohort_Adult40 == 1)  & (maternaOther == 1 | maternaNone == 1)
 	*global ifconditionDidPv40	(Reggio == 1 | Padova == 1) & (Cohort_Adult40 == 1)  & (maternaOther == 1 | maternaNone == 1)
 	global ifconditionAIPW40 	(Reggio == 1) & (Cohort_Adult40 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
@@ -306,8 +306,8 @@ foreach stype in None {
 
 
 	global ifconditionNone40 	(Reggio == 1) & (Cohort_Adult40 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionBIC40		${ifconditionNone30} 
-	global ifconditionFull40	${ifconditionNone30}
+	global ifconditionBIC40		${ifconditionNone40} 
+	global ifconditionFull40	${ifconditionNone40}
 	global ifconditionDidPm40	(Reggio == 1 | Parma == 1) & (Cohort_Adult40 == 1)  & (maternaOther == 1 | maternaNone == 1)
 	global ifconditionDidPv40	(Reggio == 1 | Padova == 1) & (Cohort_Adult40 == 1)  & (maternaOther == 1 | maternaNone == 1)
 	global ifconditionAIPW40 	(Reggio == 1) & (Cohort_Adult40 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
