@@ -8,7 +8,9 @@ This file:		Multinomial logit for selection
 
 
 cap log close
+clear all
 set more off
+set maxvar 3000
 
 global klmReggio 	:	env klmReggio
 global git_reggio	:	env git_reggio
@@ -23,7 +25,7 @@ global output		= 	"${git_reggio}/output"
 
 // prepare variables needed for PSM
 cd $data_reggio
-use Reggio_prepared, clear
+use Reggio_reassigned, clear
 
 gen Cohort_tmp = Cohort
 replace Cohort_tmp = 1 if Cohort == 1 | Cohort == 2
@@ -36,18 +38,27 @@ replace grouping = 2 if maternaType == 1 // MUNICIPAL
 lab var grouping ""
 								
 // define baseline variables			
-global chiado_baseline_vars		Male  ///
-								momBornProvince ///
-								dadBornProvince  ///
-								numSibling_2 numSibling_more cgRelig ///
-								momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni 
+global child_baseline_vars  		Male lowbirthweight birthpremature ///
+					momBornProvince dadBornProvince ///
+					momMaxEdu_low momMaxEdu_middle momMaxEdu_HS   ///
+					dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS  ///
+					numSibling_2 numSibling_more ///
+					cgCatholic cgIslam cgRelig ///
+					cgMigrant 
+								
+								
+global adol_baseline_vars		Male /// 
+					momMaxEdu_middle momMaxEdu_HS   ///
+					numSibling_2 numSibling_more 
+					//cgCatholic cgIslam cgRelig 
+					//cgMigrant 
 
 					 
 global adult_baseline_vars		Male  ///
-								momBornProvince ///
-								dadBornProvince  ///
-								numSibling_2 numSibling_more cgRelig ///
-								momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  
+					momBornProvince ///
+					dadBornProvince  ///
+					numSibling_2 numSibling_more cgRelig ///
+					momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  
 								
 foreach var in $adult_baseline_vars {
 	lab var `var' "${`var'_lab}"
@@ -57,25 +68,34 @@ foreach var in $adult_baseline_vars {
 // multinomial analysis
 local city_val = 1
 foreach city in Reggio Parma Padova {
-	local cohort_val = 4	// change number if adding in other cohorts
-	foreach cohort in Child Adolesecent Adult30 Adult40 Adult50 {
+	local cohort_val = 1	// change number if adding in other cohorts
+	foreach cohort in Child Adolescent /*Adult30 Adult40 Adult50*/ {
+		if ("`cohort'" == "Adult40" & "`city'" == "Reggio") | ("`cohort'" != "Adult40") {
 		
-		// multinomial logit
-		if "`cohort'" == "Adult30" | "`cohort'" == "Adult40" {
-			mlogit grouping $adult_baseline_vars if Cohort_tmp == `cohort_val' & City == `city_val', baseoutcome(2) iterate(20)
-		}
-		else {
-			mlogit grouping $chiado_baseline_vars if Cohort_tmp == `cohort_val' & City == `city_val', baseoutcome(2) iterate(20)
-		}
-		eststo `city'`cohort'
 		
-		// calculate marginal effects
-		forvalues o = 0/2 {
-			margins, dydx(*) predict(outcome(`o')) post
-			eststo `city'`cohort'`o', title(Outcome `o')
-			estimates restore `city'`cohort'
-		}
-		//eststo drop `city'`cohort'
+			if "`cohort'" == "Adolescent" {
+				local cohort_val = 3
+			}
+		
+			// multinomial logit
+			if "`cohort'" == "Adult30" | "`cohort'" == "Adult40" {
+				mlogit grouping $adult_baseline_vars if Cohort_tmp == `cohort_val' & City == `city_val', baseoutcome(2) iterate(20)
+			}
+			else if "`cohort'" == "Adolescent" {
+				mlogit grouping $adolescent_baseline_vars if Cohort_tmp == `cohort_val' & City == `city_val', baseoutcome(2) iterate(20)
+			}
+			else {
+				mlogit grouping $child_baseline_vars if Cohort_tmp == `cohort_val' & City == `city_val', baseoutcome(2) iterate(20)
+			}
+			eststo `city'`cohort'
+		
+			// calculate marginal effects
+			forvalues o = 0/2 {
+				margins, dydx(*) predict(outcome(`o')) post
+				eststo `city'`cohort'`o', title(Outcome `o')
+				estimates restore `city'`cohort'
+			}
+			//eststo drop `city'`cohort'
 			// write child/adolescent table
 			if "`cohort'" == "Adolescent"  {
 				cd "${output}"
@@ -108,7 +128,23 @@ foreach city in Reggio Parma Padova {
 						replace;
 				# delimit cr
 			}
+		}
+		else {
+			cd "${output}"
+			# delimit ;
+			esttab `city'Adult300 `city'Adult301 `city'Adult302 using "${output}/mlogit_`city'.tex", 
+					booktabs
+					label
+					unstack 
+					nonumbers
+					nonotes
+					se
+					mtitles("None" "Other" "Municipal")
+					replace;
+				# delimit cr
+		}
 		local cohort_val = `cohort_val' + 1
+
 	}
 	local city_val = `city_val' + 1
 }
