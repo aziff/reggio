@@ -57,14 +57,16 @@ syntax, stype(string) type(string) aipwlist(string) cohort(string)
 				di "here????"
 				* Add to the matitems and matnames locals
 				if `switch' == 1 {
+					di "here???!?!?!?"
 					local matitems `matitems' `aipw_`comp'', `aipw_`comp'_se', `aipw_`comp'_p'
+					di "Here??"
 				}
 				if `switch' == 0 {
 					local matitems `matitems', `aipw_`comp'', `aipw_`comp'_se', `aipw_`comp'_p'  
 				}
-				
+				di "E?"
 				local matnames `matnames' aipw_`comp' aipw_`comp'_se aipw_`comp'_p 
-				
+				di "?D"
 				local switch = 0
 			}
 		}	
