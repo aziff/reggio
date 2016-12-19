@@ -102,7 +102,7 @@ foreach stype in Other None Stat Reli Affi {
 	
 	* Set necessary global variables
 	global X					maternaMuni
-	global reglist				None30 BIC30 Full30 DidPm30 DidPv30 None40 BIC40 Full40 DidPm40 DidPv40
+	global reglist				None30 BIC30 Full30 DidPm30 DidPv30 
 	global aipwlist				AIPW30 AIPW40 
 
 	global XNone30				maternaMuni		
