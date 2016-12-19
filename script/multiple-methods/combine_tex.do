@@ -24,11 +24,11 @@ include "${here}/../macros"
 * Set Macros *
 * ---------- *
 global cohort					child adol adult30
-global group_child				Other None Stat Reli
-global group_adol				Other None Stat Reli
-global group_adult30			Other None Stat Reli
-global group_adult40			Other Stat Reli				
-
+global groupchild				Other None Stat Reli
+global groupadol				Other None Stat Reli
+global groupadult30		   		Other None Stat Reli
+global groupadult40				Other Stat Reli				
+	
 
 global reglistchild				NoneIt BICIt FullIt DidPmIt DidPvIt   
 global aipwlistchild			AIPWIt  
@@ -37,6 +37,7 @@ global reglistchildlp			noneit bicit fullit didpmit didpvit
 global aipwlistchildlp			aipwit 
 local aipwit_n					bicit
 global fulllistchildlp			noneit bicit fullit aipwit didpmit didpvit
+global childoutcome				$child_outcome_M
 
 
 global reglistadol				None BIC Full DidPm DidPv 
@@ -46,6 +47,7 @@ global reglistadollp			none bic full didpm didpv
 global aipwlistadollp			aipw 
 local aipw_n					bic
 global fulllistadollp			none bic full aipw didpm didpv 
+global adoloutcome				$adol_outcome_M
 
 global reglistadult30			None30 BIC30 Full30 DidPm30 DidPv30 
 global aipwlistadult30			AIPW30 
@@ -54,6 +56,7 @@ global reglistadult30lp			none30 bic30 full30 didpm30 didpv30
 global aipwlistadult30lp		aipw30 
 local aipw30_n					bic30
 global fulllistadult30lp		none30 bic30 full30 aipw30 didpm30 didpv30 
+global adult30outcome			$adult_outcome_M
 
 global reglistadult40			None40 BIC40 Full40 
 global aipwlistadult40			AIPW40 
@@ -62,6 +65,7 @@ global reglistadult40lp			none40 bic40 full40
 global aipwlistadult40lp		aipw40 
 local aipw40_n					bic40
 global fulllistadult40lp		none40 bic40 full40 aipw40
+global adult40outcome			$adult_outcome_M
 
 
 * ------------------------------------ *
@@ -69,7 +73,9 @@ global fulllistadult40lp		none40 bic40 full40 aipw40
 * ------------------------------------ *
 foreach coh in $cohort {
 	
-	foreach gr in $group {
+	foreach gr in ${group`coh'} {
+	
+
 	
 		import delimited using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_`coh'_M_`gr'.csv", clear
 		
@@ -105,7 +111,7 @@ foreach coh in $cohort {
 		di "colname: `colname'"
 		
 		* Estimate
-		foreach outcome in $`coh'_outcome_M {
+		foreach outcome in ${`coh'outcome} {
 			* Regression-based
 			foreach item in ${reglist`coh'lp} {
 				
@@ -114,7 +120,7 @@ foreach coh in $cohort {
 				levelsof itt_`item'_se if rowname == "`outcome'", local(se`item'`outcome')
 				levelsof itt_`item'_p if rowname == "`outcome'", local(pv`item'`outcome')
 				levelsof itt_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
-				
+			
 				* Format decimal points
 				local p`item'`outcome' : di %9.2f `p`item'`outcome''
 				local se`item'`outcome' : di %9.2f `se`item'`outcome''
@@ -188,7 +194,7 @@ foreach coh in $cohort {
 		file write tabfile`coh'`gr' " `colname' \\" _n
 		file write tabfile`coh'`gr' "\midrule" _n
 	
-		foreach outcome in $`coh'_outcome_M {
+		foreach outcome in ${`coh'outcome} {
 			* Point Estimate
 			file write tabfile`coh'`gr' "``outcome'tex_p' \\" _n
 			
@@ -219,11 +225,6 @@ foreach coh in $cohort {
 
 
 
-
-
-
-
-
 * --------------- *
 * For Age-40 None *
 * --------------- *
@@ -231,7 +232,8 @@ foreach coh in $cohort {
 * ---------- *
 * Set Macros *
 * ---------- *
-global group_adult40			None			
+global cohort					adult40
+global groupadult40				None			
 
 global reglistadult40			None40 BIC40 Full40 DidPm40 DidPv40
 global aipwlistadult40			AIPW40 
@@ -240,6 +242,7 @@ global reglistadult40lp			none40 bic40 full40 didpm40 didpv40
 global aipwlistadult40lp		aipw40 
 local aipw40_n					bic40
 global fulllistadult40lp		none40 bic40 full40 aipw40 didpm40 didpv40
+global adult40outcome				$adult_outcome_M
 
 
 * ------------------------------------ *
@@ -247,7 +250,8 @@ global fulllistadult40lp		none40 bic40 full40 aipw40 didpm40 didpv40
 * ------------------------------------ *
 foreach coh in $cohort {
 	
-	foreach gr in $group {
+	foreach gr in ${group`coh'} {
+	
 	
 		import delimited using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_`coh'_M_`gr'.csv", clear
 		
@@ -283,7 +287,7 @@ foreach coh in $cohort {
 		di "colname: `colname'"
 		
 		* Estimate
-		foreach outcome in $`coh'_outcome_M {
+		foreach outcome in ${`coh'outcome} {
 			* Regression-based
 			foreach item in ${reglist`coh'lp} {
 				
@@ -366,7 +370,7 @@ foreach coh in $cohort {
 		file write tabfile`coh'`gr' " `colname' \\" _n
 		file write tabfile`coh'`gr' "\midrule" _n
 	
-		foreach outcome in $`coh'_outcome_M {
+		foreach outcome in ${`coh'outcome} {
 			* Point Estimate
 			file write tabfile`coh'`gr' "``outcome'tex_p' \\" _n
 			

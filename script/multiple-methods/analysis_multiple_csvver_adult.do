@@ -286,15 +286,15 @@ foreach stype in None {
 	global reglist				None40 BIC40 Full40 DidPm40 DidPv40
 	global aipwlist				AIPW40 
 
-	global XNone40				materna		
-	global XBIC40				materna		
-	global XFull40				materna		
+	global XNone40				maternaMuni		
+	global XBIC40				maternaMuni		
+	global XFull40				maternaMuni		
 	global XDidPm40			    materna	Reggio xmMuniReggio	
 	global XDidPv40			    materna	Reggio xmMuniReggio		
 
-	global keepNone40			materna
-	global keepBIC40			materna
-	global keepFull40			materna
+	global keepNone40			maternaMuni
+	global keepBIC40			maternaMuni
+	global keepFull40			maternaMuni
 	global keepDidPm40			xmMuniReggio
 	global keepDidPv40			xmMuniReggio
 
