@@ -131,7 +131,7 @@ foreach stype in Other None Stat Reli Affi {
 	global ifconditionDidPvIt	(Reggio == 1 | Padova == 1)    & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionAIPWIt 	(Reggio == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	
-	foreach type in  M CN S H B {
+	foreach type in  M /*CN S H B*/ {
 
 		* ----------------------- *
 		* For Regression Analysis *
