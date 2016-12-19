@@ -153,7 +153,7 @@ foreach stype in Other None Stat Reli Affi {
 	
 	
 	
-	foreach type in  M /*E W L H N S*/ {
+	foreach type in  M E W L H N S {
 
 		* ----------------------- *
 		* For Regression Analysis *
