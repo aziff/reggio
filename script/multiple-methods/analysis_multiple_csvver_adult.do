@@ -103,7 +103,7 @@ foreach stype in Other None Stat Reli Affi {
 	* Set necessary global variables
 	global X					maternaMuni
 	global reglist				None30 BIC30 Full30 DidPm30 DidPv30 
-	global aipwlist				AIPW30 AIPW40 
+	global aipwlist				AIPW30 
 
 	global XNone30				maternaMuni		
 	global XBIC30				maternaMuni		
@@ -155,16 +155,16 @@ foreach stype in Other None Stat Reli Affi {
 		* ----------------- *
 
 		
-			* Open necessary files
-			cap file close aipw_`type'_`stype'
-			file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adult30_`type'_`stype'.csv", write replace
+		* Open necessary files
+		cap file close aipw_`type'_`stype'
+		file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adult30_`type'_`stype'.csv", write replace
 
-			* Run Multiple Analysis
-			di "Estimating `type' for Children: AIPW Analysis"
-			aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adult")
-			
-			* Close necessary files
-			file close aipw_`type'_`stype'	
+		* Run Multiple Analysis
+		di "Estimating `type' for Children: AIPW Analysis"
+		aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adult")
+		
+		* Close necessary files
+		file close aipw_`type'_`stype'	
 		
 		
 	}
@@ -195,7 +195,7 @@ foreach stype in Other Stat Reli Affi {
 	* Set necessary global variables
 	global X					maternaMuni
 	global reglist				None40 BIC40 Full40
-	global aipwlist				AIPW30 AIPW40 
+	global aipwlist				AIPW40 
 
 	global XNone40				maternaMuni		
 	global XBIC40				maternaMuni		
@@ -284,7 +284,7 @@ foreach stype in None {
 	* Set necessary global variables
 	global X					materna
 	global reglist				None40 BIC40 Full40 DidPm40 DidPv40
-	global aipwlist				AIPW30 AIPW40 
+	global aipwlist				AIPW40 
 
 	global XNone40				materna		
 	global XBIC40				materna		
