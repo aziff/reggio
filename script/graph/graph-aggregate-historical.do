@@ -53,7 +53,7 @@ foreach cat in Administrative Pedagogical {
 	replace city = "Reggio Emilia" 	if tmp_city == 1
 	replace city = "Parma"			if tmp_city == 2
 	replace city = "Padova"			if tmp_city == 3
-
+	
 	foreach var of varlist y* {
 		destring(`var'), replace
 	}
