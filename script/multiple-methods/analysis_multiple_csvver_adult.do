@@ -88,7 +88,7 @@ local Adult50_num 		= 6
 
 
 
-/*
+
 * ---------------------------------------------------------------------------- *
 * 					Reggio Muni vs. None:	Adult	30						   *
 * ---------------------------------------------------------------------------- *
@@ -174,7 +174,7 @@ foreach stype in Other None Stat Reli Affi {
 
 restore
 
-*/
+
 
 
 
@@ -308,8 +308,8 @@ foreach stype in None {
 	global ifconditionNone40 	(Reggio == 1) & (Cohort_Adult40 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionBIC40		${ifconditionNone40} 
 	global ifconditionFull40	${ifconditionNone40}
-	global ifconditionDidPm40	(Reggio == 1 | Parma == 1) & (Cohort_Adult40 == 1)  & (maternaOther == 1 | maternaNone == 1)
-	global ifconditionDidPv40	(Reggio == 1 | Padova == 1) & (Cohort_Adult40 == 1)  & (maternaOther == 1 | maternaNone == 1)
+	global ifconditionDidPm40	((Reggio == 1 & (maternaMuni == 1 | maternaNone == 1)) | (Parma == 1 & (maternaOther == 1 | maternaNone == 1))) & (Cohort_Adult40 == 1) 
+	global ifconditionDidPv40	((Reggio == 1 & (maternaMuni == 1 | maternaNone == 1)) | (Padova == 1 & (maternaOther == 1 | maternaNone == 1))) & (Cohort_Adult40 == 1) 
 	global ifconditionAIPW40 	(Reggio == 1) & (Cohort_Adult40 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
 
 		

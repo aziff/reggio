@@ -105,8 +105,8 @@ foreach stype in  Other None Stat Reli {
 	global XNone				maternaMuni		
 	global XBIC					maternaMuni		
 	global XFull				maternaMuni		
-	global XDidPm				maternaMuni	Reggio xmMuniReggio	
-	global XDidPv				maternaMuni	Reggio xmMuniReggio	
+	global XDidPm				xmMuniReggio maternaMuni Reggio 
+	global XDidPv				xmMuniReggio maternaMuni Reggio 
 
 	global keepNone				maternaMuni
 	global keepBIC				maternaMuni
