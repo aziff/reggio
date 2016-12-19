@@ -167,7 +167,8 @@ E[\widehat{Y(1)-Y(0)]}_{AIPW} = \frac{1}{n} \sum_{i=1}^{n} \bigg \{ \bigg[ & \ov
 
 The AIPW estimator in Equation (\ref{eq:AIPW}) addresses the problem of instability associated with the IPTW estimator near $\hat{\pi(\boldsymbol{X}_i)} = 0$ or $1$, by adjusting the weighted estimator with a weighted average of $\hat{Y_i}$ obtained from an OLS regression. For $D_i = 0$, as the IPTW estimate becomes large and negative near $\hat{\pi(\boldsymbol{X}_i)} = 1$, the adjustment term becomes large and positive, thereby, stabilizing the estimator at these values. Analogously, for $D = 1$, as the IPTW estimate becomes large and positive near $\hat{\pi(\boldsymbol{X}_i)} = 0$, the adjustment term becomes large and negative. 
 
-\citet{Tsiatis_2006} and \citet{Glynn_2010} show that the AIPW estimator is an unbiased estimator of the Average Treatment Effect if the propensity score is known. Further, they show that the estimator is consistent if either the propensity score model or the outcome prediction model in the adjustment term is correctly specified. Due to this last property, they refer to the AIPW as a doubly robust estimator.
+% uncomment once papers in heckman.bib
+%\citet{Tsiatis_2006} and \citet{Glynn_2010} show that the AIPW estimator is an unbiased estimator of the Average Treatment Effect if the propensity score is known. Further, they show that the estimator is consistent if either the propensity score model or the outcome prediction model in the adjustment term is correctly specified. Due to this last property, they refer to the AIPW as a doubly robust estimator.
 
 %\subsubsection{AIPW Using Multinomial Control Selection Model}
 %\label{sec:aipw-mlogit}
