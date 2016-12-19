@@ -108,8 +108,8 @@ foreach stype in Other None Stat Reli Affi {
 	global XNone30				maternaMuni		
 	global XBIC30				maternaMuni		
 	global XFull30				maternaMuni		
-	global XDidPm30				maternaMuni	Reggio xmMuniReggio	
-	global XDidPv30				maternaMuni	Reggio xmMuniReggio		
+	global XDidPm30				xmMuniReggio maternaMuni Reggio 	
+	global XDidPv30				xmMuniReggio maternaMuni Reggio 	
 
 	global keepNone30			maternaMuni
 	global keepBIC30			maternaMuni
@@ -289,8 +289,8 @@ foreach stype in None {
 	global XNone40				maternaMuni		
 	global XBIC40				maternaMuni		
 	global XFull40				maternaMuni		
-	global XDidPm40			    materna	Reggio xmMuniReggio	
-	global XDidPv40			    materna	Reggio xmMuniReggio		
+	global XDidPm40			    xmMuniReggio materna Reggio 	
+	global XDidPv40			    xmMuniReggio materna Reggio 		
 
 	global keepNone40			maternaMuni
 	global keepBIC40			maternaMuni
