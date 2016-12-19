@@ -102,7 +102,7 @@ global adol_outcome_B           		difficultiesInterest difficultiesSit dropoutSc
 * Outcomes for each category: Adult Cohorts *
 * ----------------------------------------- *								 
 * Cognitive skills and education
-global adult_outcome_M					IQ_score IQ_factor highschoolGrad votoMaturita MaxEdu_Uni PA_Empl HrsTot mStatus_married_cohab BMI_obese ///
+global adult_outcome_M					IQ_score IQ_factor highschoolGrad votoMaturita votoMaturita_std MaxEdu_Uni PA_Empl HrsTot mStatus_married_cohab BMI_obese ///
 										BMI_overweight pos_LocusControl pos_Depression votedMunicipal votedRegional
 
 global adult_outcome_E					IQ_factor votoMaturita  ///
