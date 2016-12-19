@@ -664,27 +664,47 @@ foreach var1 in $adult_baseline_vars_int {
 	}
 }
 
+* ---------------------------------------------------------------------------- *
+* Standardize high school grade
+
+// create a variable to categorize high school type more broadly
+gen highschoolType_arts = (highschoolType == 3 | highschoolType == 6 | highschoolType == 9)
+
+gen votoMaturita_std = .
+
+forvalues city = 1/3 {
+	sum votoMaturita if City == `city'
+	local y_se`city' = r(sd)/sqrt(r(N))
+	
+	reg votoMaturita maternaStat maternaReli maternaNone highschoolType_arts if City == `city'
+	predict votoMaturita`city'_stdp, stdp 
+	predict votoMaturita`city', xb
+	
+	replace votoMaturita_std = (votoMaturita - votoMaturita`city')/votoMaturita`city'_stdp if City == `city'
+}
+	
+sum votoMaturita_std
 
 * ---------------------------------------------------------------------------- *
 * Label Variables 
 * ---------------------------------------------------------------------------- *
 
 ** Variable labels
-label var ReggioMaterna        		"RCH preschool"
-label var ReggioAsilo          		"RCH infant-toddler"
+label var ReggioMaterna        	"RCH preschool"
+label var ReggioAsilo          	"RCH infant-toddler"
 
-label var CAPI                		"CAPI"
-label var Cohort_Adult30       		"30 year olds"
-label var Cohort_Adult40       		"40 year olds"
-label var asilo_Attend         		"Any infant-toddler center"
-label var asilo_Municipal      		"Municipal infant-toddler center"
-label var materna_Municipal    		"Municipal preschool"
-label var materna_Religious    		"Religious preschool"
-label var materna_State        		"State preschool"
-label var materna_Private      		"Private preschool"
+label var CAPI                	"CAPI"
+label var Cohort_Adult30       	"30 year olds"
+label var Cohort_Adult40       	"40 year olds"
+label var asilo_Attend         	"Any infant-toddler center"
+label var asilo_Municipal      	"Municipal infant-toddler center"
+label var materna_Municipal    	"Municipal preschool"
+label var materna_Religious    	"Religious preschool"
+label var materna_State        	"State preschool"
+label var materna_Private      	"Private preschool"
 
-label var cgPA_HouseWife       		"Caregiver Housewife"
-label var dadPA_Unempl         		"Father Unemployed" 
+label var cgPA_HouseWife       	"Caregiver Housewife"
+label var dadPA_Unempl         	"Father Unemployed" 
 label var cgmStatus_div         "Caregiver Divorced"
 label var momHome06             "Mom Home at 6"
 label var numSiblings           "Num. Siblings"
@@ -776,7 +796,7 @@ label var MigrTaste				"Favorable to Migrants"
 label var Friends				"Number of Friends"
 label var MigrFriend			"Has Migrant Friends"
 
-
+label var votoMaturita_std		"High school grade -- standardized"
 
 
 
