@@ -64,10 +64,10 @@ foreach cat in Administrative Pedagogical {
 	cd $output
 	# delimit ;
 		graph bar y1960 y1970 y1980 y1990 y2000, 
-			over(type, label(labsize(small))) 
-			over(city) 
+			over(type, label(labsize(small)) relabel(1 `""Catholic-" "Private""')) 
+			over(city, gap(*2.8)) 
 			nofill
-			graphregion(color(white))
+			graphregion(color(white)) ylabel(0 5 10 15, nogrid)
 			legend(rows(1) label(1 1960) label(2 1970) label(3 1980) label(4 1990) label(5 2000));
 	# delimit cr
 
