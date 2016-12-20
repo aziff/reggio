@@ -4,7 +4,7 @@
 %% this file. Also please read the Beamer Reference document for typists if you have any questions
 %% on the usage of this template.
 % -------------------------------------------------------------------------------------------------
-\documentclass[dynamic]{JJH-Beamer}
+\documentclass[static]{JJH-Beamer_PAGENOS}
 
 %% -- Extra Packages (Place Packages here if they are not included in the default template)--------
 
@@ -50,7 +50,7 @@
 
 \def \theshorttitle {Reggio} %Short title goes here
 
-\def \theauthor {Reggio Team} % Author name(s) go here
+\def \theauthor {Reggio Team \\ Please do not circulate} % Author name(s) go here
 
 \def \theshortauthor {Reggio Team} % Short author name(s) go here; should fit on this one line.
 
@@ -58,9 +58,9 @@
 
 \def \eventnotes {\noindent
 \textbf{Date:} Tuesday, December 20th, 2016 \\
-\textbf{Event Title:} Call with the Jacobs Foundation \\
-\textbf{Location:}  \\
-\textbf{Presentation Title:} Summary of the Reggio Evaluation
+\textbf{Event Title:} Call with the Sandro Giuliani, managing director and delegate of the board \\
+\textbf{Presentation Title:} Summary of the Reggio Evaluation \\
+\textbf{Attendees:} Sandro Giuliani and possibly other representatives of the Jacobs Foundation
 } % Other event info, to appear on the front of the private notes
 
 % -------------------------------------------------------------------------------------------------
@@ -81,8 +81,8 @@
 	\item Positive results are found in the adult cohorts when compared to other adults who did not attend preschool
 	\item The Reggio Approach improves some non-cognitive and mental health outcomes for children and adolescents
 \end{itemize}
-\item Historical evidence collected by CEHD indicates that alternative preschools were available and regulated leading to quality alternatives
-\item We also outline issues with the design of the study and data collection 
+\item We collected paper records indicating that alternative preschools were available and regulated leading to quality alternatives
+\item We designed and implemented a survey to help understand the trajectory of the Reggio Approach's administrative and pedagogical components as well as that of the alternative preschools
 \end{itemize}
 
 \end{frame}
@@ -90,14 +90,26 @@
 % -------------------------------------------------------------------------------------------------
 
 \begin{frame}
-\frametitle{Discussion}
+\frametitle{Overview}
 \begin{itemize}
 	\item Historical context
 	\begin{itemize}
 		\item Unpublished historical evidence and empirical results indicate that alternatives were available that had positive effects on children
 		\item Paper records indicate that take-up of these programs was very high in Reggio Emilia and Padova
 		\item Results from our survey indicate that even though the specific combination of components is unique to the Reggio Approach, an increasing number of these components were adopted by other programs over time
+=======
+		\item Results from our survey indicate that even though the specific combination of components is unique to the Reggio Approach, several components were seen in other programs over time
+		\item This historical analysis allowed us to correct some incorrect categorizations of school type in the data
+		\begin{itemize}
+			\item Although this did not drastically alter the results, it improved their accuracy and interpretability
+		\end{itemize}
 	\end{itemize}
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Overview}
+\begin{itemize}
 	\item Data limitations
 	\begin{itemize}
 		\item More family characteristics, especially for the adult cohorts, would help better model the effect of the Reggio Approach by accounting for family disadvantage more fully
@@ -105,8 +117,6 @@
 	\end{itemize}
 \end{itemize}
 \end{frame}
-
-
 % -------------------------------------------------------------------------------------------------
 
 \begin{frame}
@@ -128,18 +138,43 @@
 		\end{itemize}
 \end{itemize}
 \end{frame}
+
 % -------------------------------------------------------------------------------------------------
 
 \begin{frame}
 \frametitle{Sample}
 \begin{itemize}
 	\item The sample was selected to be representative of potential users of infant-toddler centers and preschools
-	\item Available schools include municipal, Catholic, and state schools
+	\item Available schools include municipal, religious, and state schools
 	\item Some individuals in the sample also stayed at home or attended other informal care
 \end{itemize}
+\begin{table}[H]
+\caption{Availability of Preschool, by Cohort, City, and School Type}
 \adjustbox{max height=\dimexpr\textheight-5.5cm\relax,
            max width=\textwidth}{
 	\input{../../output/available-preschool}}
+\end{table}
+\end{frame}
+
+% -------------------------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{Sample}
+\begin{itemize}
+	\item It was not feasible to include those who migrate from the studied cities because the public registries are on the municipal level
+	\item If the Reggio Approach affects migration, this would lead to a biased sample
+	\item The proportion of Italian citizens still living in the city in which they were born is similar across Reggio Emilia, Parma, and Padova
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Sample}
+\begin{table}[H]
+\caption{Proportion of Reference Sample Living in the Same City as Born}
+\adjustbox{max height=\dimexpr\textheight-5.5cm\relax,
+           max width=\textwidth}{
+	\input{../../output/SameCity}}
+\end{table}
 \end{frame}
 
 % -------------------------------------------------------------------------------------------------
@@ -147,11 +182,9 @@
 \begin{frame}
 \frametitle{Reggio Approach}
 \begin{itemize}
-	\item The Reggio Approach is defined as the municipal system of Reggio Emilia
-	\begin{itemize}
-		\item Founded in 1963 by Loris Malaguzzi
-	\end{itemize}
-	\item Some characteristics of the Reggio Approach
+	\item The Reggio Approach is a form of municipal early childhood education designed by Loris Malaguzzi, an educator influenced by the educational practices and psychological theories of Dewey, Piaget, Erikson, Vygotsky, Bronfenbrenner, Kagan, and Gardner
+	\item Malaguzzi, along with Bruno Ciari in Bologna, was one of several left-wing educators within the region of Emilia Romagna who were influenced by these progressive models of education \citep{Cagliari-etal-eds_2016_BOOK_Loris-Malaguzzi}
+	\item Some important characteristics of the Reggio Approach
 	\begin{itemize}
 		\item Educative coordinator (pedagogista)
 		\item Arts specialist (atelierista)
@@ -167,6 +200,7 @@
 \begin{itemize}
 	\item In order to understand the alternative programs, we wrote a survey to help structure interviews with administrators and educators in several of the systems in the three cities
 	\item We graph the number of characteristics that the surveyed non-Reggio Approach programs had in common with the Reggio Approach at different points of time
+	\item We consider 14 administrative components and 16 pedagogical components (not all the pedagogical components are present in the Reggio Approach)
 \end{itemize}
 \end{frame}
 
@@ -176,7 +210,15 @@
 \includegraphics[scale=0.7]{../../output/aggregateAdministrative.eps}
 \end{center}
 \tiny{\textbf{Note:} The first three groups of bars correspond to Padova, the fourth group corresponds to Parma, and the last two groups correspond to Reggio Emilia.}
+=======
+\centering
+\begin{figure}[H]
+\caption{Administrative Components in Common with the Reggio Approach}
+\includegraphics[width=0.7\textwidth]{../../output/aggregateAdministrative.eps}
+\end{figure}
 \end{frame}
+
+% -------------------------------------------------------------------------------------------------
 
 \begin{frame}
 \frametitle{Administrative Components}
@@ -184,6 +226,13 @@
 \includegraphics[scale=0.7]{../../output/aggregatePedagogical.eps}
 \end{center}
 \tiny{\textbf{Note:} The first three groups of bars correspond to Padova, the fourth group corresponds to Parma, and the last two groups correspond to Reggio Emilia.}
+=======
+\frametitle{Pedagogical Components}
+\centering
+\begin{figure}[H]
+\caption{Administrative Components in Common with the Reggio Approach}
+\includegraphics[width=0.7\textwidth]{../../output/aggregatePedagogical.eps}
+\end{figure}
 \end{frame}
 
 
@@ -194,10 +243,10 @@
 \footnotesize
 \begin{itemize}
 	\item Hours of center-based care is one commonality largely shared by the surveyed programs
-	\item  Teachers have dedicated work hours for professional development and documentation
+	\item Teachers have dedicated work hours for professional development and documentation
 	\item Municipal schools in the three cities shared priorities of enrolling disadvantaged children
 	\item It was not until the 1980s that at least one other system had a full-time educative coordinator
-	\item Some pedagogical components not in the Reggio Approach: (i) no religious education; (ii) no preset curriculum; and (iii) little influence of Montessori relative to the influence of Malaguzzi. 
+	\item Some pedagogical components not in the Reggio Approach: (i) no religious education; (ii) no preset curriculum; and (iii) little influence of Montessori relative to the influence of Malaguzzi
 	\item The presence of an arts specialist is more distinctive. Outside of the Reggio Approach, this has only been seen in Padova's municipal school since the 1980s. Although, visual arts were used in a preschool setting in all the other programs by the 1980s.  
 \end{itemize}
 \end{frame}
@@ -217,6 +266,12 @@
 \includegraphics[width=0.8\textwidth]{../../output/image/Enrollement_Preschool_RE.pdf}
 \end{center}
 \tiny{\textbf{Note:} The ``Enrolled in Pre-School" series is not defined for a specific age and could include children outside of the 3-5 range. Therefore, it is possible that the blue line could be greater than the red line at a particular point of time.}
+=======
+\centering
+\begin{figure}[H]
+\caption{Number of Children Ages 3-5 Enrolled in Preschool, Reggio Emilia}
+\includegraphics[width=0.8\textwidth]{../../output/image/Enrollement_Preschool_RE.pdf}
+\end{figure}
 \end{frame}
 
 \begin{frame}
@@ -225,14 +280,29 @@
 \includegraphics[scale=0.36]{../../output/image/Enrollement_Preschool_Padova.pdf}
 \end{center}
 \tiny{\textbf{Note:} A potential reason why there are more enrolled children than total number of children during some years is that the enrollment variable is not restricted to the 3-5 age range. We are further investigating the data sources to confirm that this is the reason that enrollment is greater that the total number of children for some years.}
+=======
+\centering
+\begin{figure}[H]
+\caption{Number of Children Ages 3-5 Enrolled in Preschool, Padova}
+\includegraphics[width=0.8\textwidth]{../../output/image/Enrollement_Preschool_Padova.pdf}
+\end{figure}
+
 \end{frame}
 
 \begin{frame}
 \frametitle{Percent of Children Ages 3-5 Enrolled in Preschool, Reggio Emilia and Padova}
+
 \begin{center}
 \includegraphics[scale=0.33]{../../output/image/Enrollement_Preschool_age3-5.pdf}
 \end{center}
 \tiny{\textbf{Note:} A potential reason why the rate of enrollment is greater than 1 for some years is that the enrollment variable is not restricted to the 3-5 age range. We are further investigating the data sources to confirm that this is the reason that enrollment is greater that the total number of children for some years.}
+=======
+\centering
+\begin{figure}[H]
+\caption{Percent of Children Ages 3-5 Enrolled in Preschool, Reggio Emilia and Padova}
+\includegraphics[width=0.67\textwidth]{../../output/image/Enrollement_Preschool_age3-5.pdf}
+\end{figure}
+
 \end{frame}
 % -------------------------------------------------------------------------------------------------
 
@@ -272,35 +342,93 @@
 % -------------------------------------------------------------------------------------------------
 
 \begin{frame}
+\frametitle{Interpretation of Table Columns}
+\begin{footnotesize}
+\begin{itemize}
+	\item \textbf{None:} OLS estimation with no controls
+	\item \textbf{BIC:} OLS estimation with 4 demographic variables selected by Bayesian Information Criteria in addition to indicators for male and CAPI	
+	\item \textbf{Full:} OLS estimation with the full set of baseline demographic variables 
+	\item \textbf{AIPW:} Augmented Inverse Probability Weighting estimation 
+	\item \textbf{DidPm:} Difference-in-difference estimation with Parma
+	
+		\begin{itemize}
+		\item \underline{Children:} (Reggio Muni - Parma Muni) - (Reggio Other - Parma Other)
+		\item \underline{Adolescents:} (Reggio Muni - Parma Muni) - (Reggio Other - Parma Other) 
+		\item \underline{Age-30:} (Reggio Muni - Parma Muni) - (Reggio Other/None - Parma Other/None)
+		\item \underline{Age-40:} (Reggio Muni - Parma Other) - (Reggio None - Parma None)
+		\end{itemize}
+		
+	\item \textbf{DidPv:} Diff-in-diff estimation with Padova. Analogous for Parma.
+\end{itemize}
+\end{footnotesize}
+\end{frame}
+
+% -------------------------------------------------------------------------------------------------
+
+\begin{frame}
 \frametitle{Reggio Approach vs. Non-Reggio Approach, Child Cohort}
 \centering
+\begin{table}[H]
+\caption{Reggio Approach vs. Non-Reggio Approach, Child Cohort}
 \adjustbox{max height=\dimexpr\textheight-5.5cm\relax,
            max width=\textwidth}{
 \input{../../output/multiple-methods/combinedanalysis/combined_child_M_Other}}
+\end{table}
 \end{frame}
 
 \begin{frame}
-\centering
 \frametitle{Reggio Approach vs. Non-Reggio Approach, Adolescent Cohort}
+\centering
+\begin{table}[H]
+\caption{Reggio Approach vs. Non-Reggio Approach, Adolescent Cohort}
 \adjustbox{max height=\dimexpr\textheight-5.5cm\relax,
            max width=\textwidth}{
 \input{../../output/multiple-methods/combinedanalysis/combined_adol_M_Other}}
+\end{table}
 \end{frame}
 
 \begin{frame}
+\frametitle{Reggio Approach vs. Other Preschools, Age-30 Cohort}
 \centering
-\frametitle{Reggio Approach vs. Other Preschools, Adult Cohorts}
+\begin{table}[H]
+\caption{Reggio Approach vs. Other Preschools, Age-30 Cohort}
 \adjustbox{max height=\dimexpr\textheight-5.5cm\relax,
            max width=\textwidth}{
-\input{../../output/multiple-methods/combinedanalysis/combined_adult_M_Other}}
+\input{../../output/multiple-methods/combinedanalysis/combined_adult30_M_Other}}
+\end{table}
 \end{frame}
 
 \begin{frame}
+\frametitle{Reggio Approach vs. No Preschool, Age-30 Cohort}
 \centering
-\frametitle{Reggio Approach vs. No Preschool, Adult Cohorts}
+\begin{table}[H]
+\caption{Reggio Approach vs. No Preschool, Age-30 Cohort}
 \adjustbox{max height=\dimexpr\textheight-5.5cm\relax,
            max width=\textwidth}{
-\input{../../output/multiple-methods/combinedanalysis/combined_adult_M_None}}
+\input{../../output/multiple-methods/combinedanalysis/combined_adult30_M_None}}
+\end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{Reggio Approach vs. Other Preschools, Age-40 Cohort}
+\centering
+\begin{table}[H]
+\caption{Reggio Approach vs. Other Preschools, Age-40 Cohort}
+\adjustbox{max height=\dimexpr\textheight-5.5cm\relax,
+           max width=\textwidth}{
+\input{../../output/multiple-methods/combinedanalysis/combined_adult40_M_Other}}
+\end{table}
+\end{frame}
+
+\begin{frame}
+\frametitle{Reggio Approach vs. No Preschool, Age-40 Cohort}
+\centering
+\begin{table}[H]
+\caption{Reggio Approach vs. No Preschool, Age-40 Cohort}
+\adjustbox{max height=\dimexpr\textheight-5.5cm\relax,
+           max width=\textwidth}{
+\input{../../output/multiple-methods/combinedanalysis/combined_adult40_M_None}}
+\end{table}
 \end{frame}
 
 
