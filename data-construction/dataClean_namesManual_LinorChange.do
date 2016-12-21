@@ -130,6 +130,9 @@ foreach id in `dupintnr' {
 	di "For id: `id'"
 	levelsof maternaType_manualFull_Linor if intnr == `id' & materna == 1, local(mtype`id')
 	replace maternaType_manualFull_Linor = `mtype`id'' if intnr == `id' & materna == 0
+	
+	levelsof materna_nameManual_Linor if intnr == `id' & materna == 1, local(mname`id')
+	replace materna_nameManual_Linor = `mname`id'' if intnr == `id' & materna == 0
 
 	replace materna = 1 if materna == 0 & intnr == `id'
 }
@@ -137,10 +140,8 @@ foreach id in `dupintnr' {
 * Drop the duplicates as we now have columns for all materna and asilo filled out
 drop if (asilo == 0) & (dup_id == 1) 
 
-drop materna asilo dup_id
-
-
-ddd
+rename flagType flagType_Linor
+drop materna asilo dup_id internr
 
 * -------------------------- *
 * Merge with Reggio_prepared *
@@ -148,12 +149,11 @@ ddd
 
 merge 1:1 intnr using "${data_reggio}/Reggio_prepared"
 
-* Drop if the people are now included in the original Reggio_prepared data
+* Drop if the people are not included in the original Reggio_prepared data
 drop if _merge == 1
-drop _merge
 
-order intnr maternaType maternaType_manualFull_Linor asiloType asiloType_manualFull_Linor
-
+order intnr City Cohort maternaType maternaType_manualFull_Linor asiloType asiloType_manualFull_Linor materna_nameManual_Linor maternaname_manual asilo_nameManual_Linor asiloname_manual
+ddddd
 * -------------------------------------- *
 * Do the replacement based on new column *
 * -------------------------------------- *

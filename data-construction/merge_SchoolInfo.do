@@ -49,7 +49,7 @@ import excel using "ReggioAll_SchoolNames_manual.xlsx", clear firstrow
 
 * Merge with the tempfile
 merge m:1 intnr using `temp_reggio'
-
+ddd
 drop if _merge == 2 // using only
 
 order internr intnr Cohort Birthday City school Stat Comu Pubb Reli Priv DK Type Location name address Address_current
