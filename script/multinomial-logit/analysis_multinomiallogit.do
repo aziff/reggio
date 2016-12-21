@@ -137,6 +137,7 @@ foreach city in Reggio Parma Padova {
 			cd "${output}"
 			# delimit ;
 			esttab `city'Adult300 `city'Adult301 `city'Adult302 using "${output}/mlogit_`city'.tex", 
+					b(3)
 					booktabs
 					label
 					unstack 
