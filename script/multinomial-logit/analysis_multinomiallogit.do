@@ -47,11 +47,13 @@ global child_baseline_vars  		Male lowbirthweight birthpremature ///
 					cgMigrant 
 								
 								
-global adol_baseline_vars		Male /// 
-					momMaxEdu_middle momMaxEdu_HS   ///
-					numSibling_2 numSibling_more 
-					//cgCatholic cgIslam cgRelig 
-					//cgMigrant 
+global adol_baseline_vars		Male lowbirthweight birthpremature ///
+					momBornProvince dadBornProvince ///
+					momMaxEdu_low momMaxEdu_middle momMaxEdu_HS   ///
+					dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS  ///
+					numSibling_2 numSibling_more ///
+					cgCatholic cgIslam cgRelig ///
+					cgMigrant 
 
 					 
 global adult_baseline_vars		Male  ///
@@ -69,7 +71,7 @@ foreach var in $adult_baseline_vars {
 local city_val = 1
 foreach city in Reggio Parma Padova {
 	local cohort_val = 1	// change number if adding in other cohorts
-	foreach cohort in Child Adolescent /*Adult30 Adult40 Adult50*/ {
+	foreach cohort in Child Adolescent Adult30 Adult40 {
 		if ("`cohort'" == "Adult40" & "`city'" == "Reggio") | ("`cohort'" != "Adult40") {
 		
 		
@@ -82,7 +84,7 @@ foreach city in Reggio Parma Padova {
 				mlogit grouping $adult_baseline_vars if Cohort_tmp == `cohort_val' & City == `city_val', baseoutcome(2) iterate(20)
 			}
 			else if "`cohort'" == "Adolescent" {
-				mlogit grouping $adolescent_baseline_vars if Cohort_tmp == `cohort_val' & City == `city_val', baseoutcome(2) iterate(20)
+				mlogit grouping $adol_baseline_vars if Cohort_tmp == `cohort_val' & City == `city_val', baseoutcome(2) iterate(20)
 			}
 			else {
 				mlogit grouping $child_baseline_vars if Cohort_tmp == `cohort_val' & City == `city_val', baseoutcome(2) iterate(20)
@@ -101,6 +103,7 @@ foreach city in Reggio Parma Padova {
 				cd "${output}"
 				# delimit ;
 				esttab `city'Child0 `city'Child1 `city'Child2 `city'Adolescent0 `city'Adolescent1 `city'Adolescent2 using "mlogit_`city'_chi-ado.tex", 
+						b(3)
 						booktabs
 						label
 						unstack 
@@ -118,6 +121,7 @@ foreach city in Reggio Parma Padova {
 				cd "${output}"
 				# delimit ;
 				esttab `city'Adult300 `city'Adult301 `city'Adult302 `city'Adult400 `city'Adult401 `city'Adult402 using "${output}/mlogit_`city'.tex", 
+						b(3)
 						booktabs
 						label
 						unstack 
