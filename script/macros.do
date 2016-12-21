@@ -63,7 +63,7 @@ global bic_adult_baseline_vars		    	Male CAPI momMaxEdu_middle dadMaxEdu_Uni nu
 * ------------------------------------------- *											
 * Outcomes for each category: Younger Cohorts *
 * ------------------------------------------- *
-global child_outcome_M					pos_childSDQ_score BMI_obese BMI_overweight childHealthPerc difficultiesInterest difficultiesSit likeSchool_child_pos // Main outcomes
+global child_outcome_M					IQ_score IQ_factor pos_childSDQ_score BMI_obese BMI_overweight childHealthPerc difficultiesInterest difficultiesSit likeSchool_child_pos // Main outcomes
 
 global child_outcome_CN         		IQ_factor IQ_score ///
 										pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score 
@@ -80,7 +80,7 @@ global child_outcome_H 			 		BMI_obese BMI_overweight childHealthPerc childSickD
 global child_outcome_B			 		difficultiesInterest difficultiesSit likeSchool_child_pos faceGeneral 
                                  
 
-global adol_outcome_M					pos_childSDQ_score pos_SDQ_score pos_Depression_score BMI_obese BMI_overweight childHealthPerc dropoutSchool likeSchool_ado_pos Trust sport							 
+global adol_outcome_M					IQ_score IQ_factor pos_childSDQ_score pos_SDQ_score pos_Depression_score pos_LocusControl BMI_obese BMI_overweight childHealthPerc dropoutSchool likeSchool_ado_pos sport							 
 				  
 global adol_outcome_CN          		IQ_factor IQ_score ///
 										pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score ///
@@ -102,7 +102,7 @@ global adol_outcome_B           		difficultiesInterest difficultiesSit dropoutSc
 * Outcomes for each category: Adult Cohorts *
 * ----------------------------------------- *								 
 * Cognitive skills and education
-global adult_outcome_M					highschoolGrad MaxEdu_Uni PA_Empl HrsTot mStatus_married_cohab BMI_obese ///
+global adult_outcome_M					IQ_score IQ_factor highschoolGrad votoMaturita votoMaturita_std MaxEdu_Uni PA_Empl HrsTot mStatus_married_cohab BMI_obese ///
 										BMI_overweight pos_LocusControl pos_Depression votedMunicipal votedRegional
 
 global adult_outcome_E					IQ_factor votoMaturita  ///
@@ -139,6 +139,7 @@ global adult_outcome_R					Faith
 global IQ_factor_lab 					IQ Factor
 global IQ_score_lab						IQ Score
 global votoMaturita_lab					High School Grade
+global votoMaturita_std_lab				High School Grade (Standardized)
 global votoUni_lab						University Grade
 global highschoolGrad_lab				Graduate from High School
 global MaxEdu_Uni_lab					Max Edu: University

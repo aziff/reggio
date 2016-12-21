@@ -62,9 +62,7 @@ syntax, stype(string) type(string) aipwlist(string) cohort(string)
 				if `switch' == 0 {
 					local matitems `matitems', `aipw_`comp'', `aipw_`comp'_se', `aipw_`comp'_p'  
 				}
-				
 				local matnames `matnames' aipw_`comp' aipw_`comp'_se aipw_`comp'_p 
-				
 				local switch = 0
 			}
 		}	

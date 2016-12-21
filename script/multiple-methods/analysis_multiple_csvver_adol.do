@@ -95,7 +95,7 @@ preserve
 keep if (Cohort == 3)
 
 local stype_switch = 1
-foreach stype in  Other None Stat Reli Affi {
+foreach stype in  Other None Stat Reli {
 	
 	* Set necessary global variables
 	global X					maternaMuni
@@ -105,8 +105,8 @@ foreach stype in  Other None Stat Reli Affi {
 	global XNone				maternaMuni		
 	global XBIC					maternaMuni		
 	global XFull				maternaMuni		
-	global XDidPm				maternaMuni	Reggio xmMuniReggio	
-	global XDidPv				maternaMuni	Reggio xmMuniReggio	
+	global XDidPm				xmMuniReggio maternaMuni Reggio 
+	global XDidPv				xmMuniReggio maternaMuni Reggio 
 
 	global keepNone				maternaMuni
 	global keepBIC				maternaMuni

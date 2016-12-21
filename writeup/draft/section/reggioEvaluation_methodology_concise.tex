@@ -77,7 +77,7 @@ Age-50		& 146 & 0 &	8 & 0 & \textbf{200} & 71 & 0 & 4 & 8 & \textbf{103} & 55 & 
 We adopt a three-pronged approaach to evaluate the effects of the Reggio Approach Preschool intervention. Firstly, in subsection \ref{subsubsection:OLS}, we describe an OLS model that allows us to compare the outcomes of those who attended Municipal Preschool in Reggio to those from Reggio who did not attend Municipal Preschool. In subsection \ref{subsubsection:DID}, we present a Difference-in-Differences approach that allows us to make cross-city comparisons of outcomes for those who attended  Municipal preschool in each city, while controlling for permanent differences between cities. Lastly, subsection \ref{subsection:selection} presents a multinomial logit model to test for the presence of selection into treatment, and an AIPW model that adjusts estimated treatment effects to account for potential selection into treatment.
 
 \subsubsection{Baseline OLS} \label{subsubsection:OLS}
-We perform several within-Reggio comparisons using a baseline OLS model. We compare individuals from Reggio Emilia who attended a Reggio Approach preschool to those in Reggio Emilia who attended (i) any type of preschool, (ii) no preschool, (iii) state preschool, and (iv) religious preschool. We only present estimates of the first comparison  in the main paper. Estimates from the other comparisons are reported in Appendices~\ref{appendix:no-preschool} through~\ref{appendix:religious}. We exclude the cohort of adults in their 50s because the Reggio Approach was not available at that time.
+We perform several within-Reggio comparisons using a baseline OLS model. We compare individuals from Reggio Emilia who attended a Reggio Approach preschool to those in Reggio Emilia who attended (i) any type of preschool, (ii) no preschool, (iii) state preschool, and (iv) religious preschool. We only present estimates of the first comparison  in the main paper. Estimates from the other comparisons are reported in Appendix~\ref{app:comparison-reli-stat}. We exclude the cohort of adults in their 50s because the Reggio Approach was not available at that time.
 
 The basic OLS takes the form, 
 
@@ -126,11 +126,13 @@ The predicted log-odds ratio for each alternative option, $\hat{\nu}_r$, from (\
 \pi_{i,r} = \frac{\text{exp}(\hat{\nu}_{r,i})}{\sum\limits_{j=0}^{2} \text{exp}(\hat{\nu}_{j,i})} \quad \forall  r \in 0,1,2
 \end{equation}
 
-Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the propensity to attend a school type $r$, $\pi_{r}$, by calculating the partial derivative $\partial \pi_{r}/\partial x_c$. These results are reported in Appendix~\ref{appendix:mlogit}.
+Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the propensity to attend a school type $r$, $\pi_{r}$, by calculating the partial derivative $\partial \pi_{r}/\partial x_c$. 
+%These results are reported in Appendix~\ref{appendix:mlogit}.
 
 \subsubsection{Augmented IPW}
 
-Although the baseline OLS and difference-in-difference models attempt to account for the selection into the Reggio Approach, regression estimator for ATE may be poorly estimated when the observed values of baseline variables are not similar for the treatment and control groups \citep{Glynn_2010}. We estimate an Augmented Inverse Propensity Weighted (AIPW) estimator that builds on the multinomial logit presented above in order to account for the caveats with the regression estimator.   
+Although the baseline OLS and difference-in-difference models attempt to account for the selection into the Reggio Approach, regression estimator for ATE may be poorly estimated when the observed values of baseline variables are not similar for the treatment and control groups \citep{Glynn-Quinn_2010_Political-Analysis}. We estimate an Augmented Inverse Propensity Weighted (AIPW) estimator that builds on the multinomial logit presented above in order to account for the caveats with the regression estimator.   
+%\citep{Glynn_2010}. 
 
 To begin, consider the following two treatment statuses,
 
@@ -165,7 +167,7 @@ E[\widehat{Y(1)-Y(0)]}_{AIPW} = \frac{1}{n} \sum_{i=1}^{n} \bigg \{ \bigg[ & \ov
 
 The AIPW estimator in Equation (\ref{eq:AIPW}) addresses the problem of instability associated with the IPTW estimator near $\hat{\pi(\boldsymbol{X}_i)} = 0$ or $1$, by adjusting the weighted estimator with a weighted average of $\hat{Y_i}$ obtained from an OLS regression. For $D_i = 0$, as the IPTW estimate becomes large and negative near $\hat{\pi(\boldsymbol{X}_i)} = 1$, the adjustment term becomes large and positive, thereby, stabilizing the estimator at these values. Analogously, for $D = 1$, as the IPTW estimate becomes large and positive near $\hat{\pi(\boldsymbol{X}_i)} = 0$, the adjustment term becomes large and negative. 
 
-\citet{Tsiatis_2006} and \citet{Glynn_2010} show that the AIPW estimator is an unbiased estimator of the Average Treatment Effect if the propensity score is known. Further, they show that the estimator is consistent if either the propensity score model or the outcome prediction model in the adjustment term is correctly specified. Due to this last property, they refer to the AIPW as a doubly robust estimator.
+\citet{Tsiatis_2006_Semiparametric-Theory} and \citet{Glynn-Quinn_2010_Political-Analysis} show that the AIPW estimator is an unbiased estimator of the Average Treatment Effect if the propensity score is known. Further, they show that the estimator is consistent if either the propensity score model or the outcome prediction model in the adjustment term is correctly specified. Due to this last property, they refer to the AIPW as a doubly robust estimator.
 
 %\subsubsection{AIPW Using Multinomial Control Selection Model}
 %\label{sec:aipw-mlogit}

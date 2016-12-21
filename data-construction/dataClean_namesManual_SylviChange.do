@@ -146,7 +146,7 @@ capture drop maternaOther
 generate maternaOther = (maternaMuni != 1) & (maternaNone != 1)
 lab var maternaOther "dv: Went to non-municipal preschool"
 
-*drop asiloNone asiloMuni asiloStat asiloReli asiloPriv asiloOther
+*drop asiloNone asiloMuni asiloStat asiloReli asiloPriv asiloOther asiloAffi asiloAuto
 
 generate asiloNone = (asiloType == 0)
 generate asiloMuni = (asiloType == 1)
@@ -158,5 +158,48 @@ generate asiloAuto = (asiloType == 6)
 
 generate asiloOther = (asiloMuni !=1) & (asiloNone != 1)
 label var asiloOther "dv: Went to non-municipal asilo"
+
+
+
+* ------------------------------------------- *
+* Recode data based on historical information *
+* ------------------------------------------- *
+/* 	Reggio: No municipal and state for age-50
+			No state for age-40
+	Parma: 	No municipal and state for age-50 and age-40
+	Padova: No municipal and state for age-50 and age-40
+*/
+
+* Reggio
+replace maternaType = 6 if (maternaType == 1) & (Reggio == 1) & (Cohort == 6)
+replace maternaType = 6 if (maternaType == 2) & (Reggio == 1) & (Cohort == 6)
+
+* Parma
+replace maternaType = 6 if (maternaType == 1) & (Parma == 1) & (Cohort == 6)
+replace maternaType = 6 if (maternaType == 2) & (Parma == 1) & (Cohort == 6)
+replace maternaType = 6 if (maternaType == 1) & (Parma == 1) & (Cohort == 5)
+replace maternaType = 6 if (maternaType == 2) & (Parma == 1) & (Cohort == 5)
+
+* Padova
+replace maternaType = 6 if (maternaType == 1) & (Padova == 1) & (Cohort == 6)
+replace maternaType = 6 if (maternaType == 2) & (Padova == 1) & (Cohort == 6)
+replace maternaType = 6 if (maternaType == 1) & (Padova == 1) & (Cohort == 5)
+replace maternaType = 6 if (maternaType == 2) & (Padova == 1) & (Cohort == 5)
+
+
+** Create interaction terms between school type and adult age cohort (except maternaMuni and age 50)
+foreach type in None Muni Affi Stat Reli Priv Yes {
+	foreach age in Adult30 Adult40 Adult50 {
+		replace xm`type'`age' = materna`type' * Cohort_`age'
+	}
+}
+
+** Create interaction terms between school type and city (except Reggio and maternaMuni)
+foreach type in None Muni Affi Stat Reli Priv Yes {
+	foreach city in Parma Padova Reggio {
+		replace xm`type'`city' = materna`type' * `city'
+	}
+}
+
 
 save "${data_reggio}/Reggio_reassigned", replace

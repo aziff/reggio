@@ -50,11 +50,17 @@ forvalues b = 0/`brep' {
 			replace weight0 = (1 / Dhat0) 
 
 			di "Regressing for `outcome' for treated"
-			qui reg `outcome' ${bic_`cohort'_baseline_vars} CAPI if D == 1
+			capture reg `outcome' ${bic_`cohort'_baseline_vars} CAPI if D == 1
+			if _rc {
+				continue
+			}
 			predict Yhat1  // predicts for everyone!
 		
 			di "Regressing for `outcome' for control"
-			qui reg `outcome' ${bic_`cohort'_baseline_vars} CAPI if D == 0
+			capture reg `outcome' ${bic_`cohort'_baseline_vars} CAPI if D == 0
+			if _rc {
+				continue
+			}
 			predict Yhat0  // predicts for everyone!
 		
 			***** calculate estimator

@@ -2,7 +2,8 @@
 *.smcl
 *.DS_Store
 *.zip
-
+*.nav
+*.snm
 *.lot
 *.toc
 *.xwm

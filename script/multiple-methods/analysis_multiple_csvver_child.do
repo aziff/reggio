@@ -104,8 +104,8 @@ foreach stype in Other None Stat Reli Affi {
 	global XNoneIt				maternaMuni		
 	global XBICIt				maternaMuni		
 	global XFullIt				maternaMuni		
-	global XDidPmIt				maternaMuni	Reggio xmMuniReggio	
-	global XDidPvIt				maternaMuni	Reggio xmMuniReggio	
+	global XDidPmIt				xmMuniReggio maternaMuni Reggio 
+	global XDidPvIt				xmMuniReggio maternaMuni Reggio 	
 
 
 	global keepNoneIt			maternaMuni
@@ -127,7 +127,7 @@ foreach stype in Other None Stat Reli Affi {
 	global ifconditionNoneIt 	(Reggio == 1) & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionBICIt		${ifconditionNoneIt}
 	global ifconditionFullIt	${ifconditionNoneIt}
-	global ifconditionDidPmIt	(Reggio == 1 | Parma == 1)    & (maternaMuni == 1 | materna`stype' == 1)
+	global ifconditionDidPmIt	(Reggio == 1 | Parma == 1)    
 	global ifconditionDidPvIt	(Reggio == 1 | Padova == 1)    & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionAIPWIt 	(Reggio == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	

@@ -19,50 +19,107 @@ import excel using "${git_reggio}/data/school-info/merged_ReggioAll_SchoolNames_
 
 destring intnr, replace
 
+
+
+
 * ---------------------------------------- *
 * Clean and generate new school categories *
 * ---------------------------------------- *
 * Keep only the new variables
-keep intnr Type_manualFull Type_manualFull_v2 school_new school_new_v2
+keep intnr Type_manualFull Type_manualFull_v2 school_new school_new_v2 name_manual name_manual_v2 flagType internr
 
-* Only keep the people who are modified
-drop if school_new_v2 == "" & Type_manualFull_v2 == ""
+/* Only keep the people who are modified
+drop if school_new_v2 == "" & Type_manualFull_v2 == "" */
 
-* Generate a new school column
+***** Generate a new school column
 generate school_Linor = school_new_v2
 replace school_Linor = school_new if school_new_v2 == ""
 order intnr school_new school_new_v2 school_Linor
 
-* Drop old school columns
-drop school_new school_new_v2
+	* Drop old school columns
+	drop school_new school_new_v2
 
-* Generate a new schooltype column
+***** Generate a new schooltype column
 generate schooltype_Linor = Type_manualFull_v2
 replace schooltype_Linor = Type_manualFull if Type_manualFull_v2 == ""
+order Type_manualFull Type_manualFull_v2 schooltype_Linor
 
-* Drop old schooltype columns
-drop Type_manualFull Type_manualFull_v2
+	* Drop old schooltype columns
+	drop Type_manualFull Type_manualFull_v2
 
+***** Generate a new school name column
+generate schoolname_Linor = name_manual_v2
+replace schoolname_Linor = name_manual if name_manual_v2 == ""
+	
+	* drop old school name
+	drop name_manual name_manual_v2
 
+	
+	
+	
 * -------------------------------------------------------------- *
 * Generate columns that are consistent with Reggio_prepared data *
 * -------------------------------------------------------------- *
+
+***** Generate school indicator
 generate materna = 0
 replace materna = 1 if school_Linor == "materna"
 
 generate asilo = 0 
 replace asilo = 1 if school_Linor == "asilo"
 
+***** Generate school type variables by asilo and materna
 generate maternaType_manualFull_Linor = schooltype_Linor if materna == 1
 generate asiloType_manualFull_Linor = schooltype_Linor if asilo == 1
 
+***** Generate school name variables by asilo and materna
+generate materna_nameManual_Linor = schoolname_Linor if materna == 1
+generate asilo_nameManual_Linor = schoolname_Linor if asilo == 1
+
 * Questionnable individual drop
-drop if intnr == 53487100 & maternaType_manualFull_Linor == "autogestito"
+*drop if intnr == 53487100 & maternaType_manualFull_Linor == "autogestito"
 
 * Check duplicates (who went to both asilo and preschool)
 duplicates tag intnr, gen(dup_id)
-sort intnr
-drop schooltype_Linor school_Linor
+
+drop schooltype_Linor school_Linor schoolname_Linor
+
+
+
+
+* -------------------- *
+* Deal with duplicates *
+* -------------------- *
+* Dropping duplicates that contain exactly same materna information as other observation
+sort intnr materna materna_nameManual_Linor
+quietly by intnr materna materna_nameManual_Linor: gen dup_materna = cond(_N==1,0,_n) 
+drop if dup_materna == 2 & materna_nameManual_Linor != ""
+drop dup_materna
+
+* Dropping duplicates that contain exactly same asilo information as other observation
+sort intnr asilo asilo_nameManual_Linor
+quietly by intnr asilo asilo_nameManual_Linor: gen dup_asilo = cond(_N==1,0,_n) 
+drop if dup_asilo == 2 & asilo_nameManual_Linor != ""
+drop dup_asilo
+
+browse if dup_id == 1
+
+drop if intnr == .
+
+sort intnr materna
+duplicates tag intnr materna, gen(dup_materna)
+quietly by intnr materna: gen dup_materna2 = cond(_N==1,0,_n)
+
+
+/* There are some people (only few) who reported multiple materna/asilo school names. They probably have attended both schools.
+   The previous protocol was to keep the last one. I will follow the protocol here. 
+*/
+
+drop if dup_materna == 1 & dup_materna2 == 1
+drop dup_materna dup_materna2
+drop dup_id
+
+duplicates tag intnr, gen(dup_id)
 
 * Collect id's that have duplicate observation
 levelsof intnr if dup_id == 1, local(dupintnr)
@@ -81,6 +138,10 @@ foreach id in `dupintnr' {
 drop if (asilo == 0) & (dup_id == 1) 
 
 drop materna asilo dup_id
+
+
+ddd
+
 * -------------------------- *
 * Merge with Reggio_prepared *
 * -------------------------- *
