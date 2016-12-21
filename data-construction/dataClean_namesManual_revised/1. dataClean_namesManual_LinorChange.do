@@ -143,6 +143,9 @@ drop if (asilo == 0) & (dup_id == 1)
 rename flagType flagType_Linor
 drop materna asilo dup_id internr
 
+
+
+
 * -------------------------- *
 * Merge with Reggio_prepared *
 * -------------------------- *
