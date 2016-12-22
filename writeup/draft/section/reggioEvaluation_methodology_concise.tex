@@ -19,20 +19,21 @@ The Reggio Approach includes two stages of early childhood interventions: (i) In
 \end{table}
 
 The distribution of individuals who experienced each combination of the interventions in our data is reported in Table \ref{tab:num-group} for different cohort-city combinations. It is immediately apparent that (1,0) - the case where a child attends Municipal ITC but not the Municipal Preschool - is virtually non-existent over time and across cities.  The (0,0) case, where a child receives neither intervention, demonstrates a sharp decline in frequency between the adult and younger cohorts, and this drop is consistent across cities. We focus the remainder of this paper on the evaluation of the preschool intervention at ages 3-6. We present results and our strategy for evaluating the ITC intervention in appendix \ref{sec:ITC}.
-\begin{table}[H] \caption{Number of Individuals in Each Group} \label{tab:num-group}
-\scalebox{0.77}{
-\begin{tabular}{l|ccccc|ccccc|ccccc}
-\toprule
-			& 		\multicolumn{5}{c}{\textbf{Reggio}}		& 	\multicolumn{5}{|c|}{\textbf{Parma}}	& 			\multicolumn{5}{c}{\textbf{Padova}}				\\
-			& (0,0) & (1,0) & (0,1) & (1,1) & Total & (0,0) & (1,0) & (0,1) & (1,1) & Total  & (0,0) & (1,0) & (0,1) & (1,1) & Total \\ \midrule
-Child		& 2 & 0 & 46 & 117 & \textbf{311} & 5 & 1 & 35 & 100 & \textbf{291} & 2 & 0 & 31 & 36 & \textbf{278} \\
-Migrant		& 4 & 0	& 24 & 26 & \textbf{110} & 4 & 0 & 12 & 23 & \textbf{58} & 5 & 0 & 18 & 16 & \textbf{113} \\
-Adolescent 	& 7 & 0 & 45 &	116 & \textbf{300} & 4 & 0 &49 &61 & \textbf{254} & 1 & 0 &55 & 37 & \textbf{282} \\
-Age-30		& 57 & 0 & 95 &	53 & \textbf{280} & 43 & 0 & 64 &29 & \textbf{251} & 47 & 0 & 25 & 9 & \textbf{251} \\
-Age-40		& 80 & 0 & 97 &	28 & \textbf{285} & 115 & 1 & 35 & 16 & \textbf{254} & 75 & 0 & 25 & 2 & \textbf{252} \\
-Age-50		& 146 & 0 &	8 & 0 & \textbf{200} & 71 & 0 & 4 & 8 & \textbf{103} & 55 & 0 & 11 & 0 & \textbf{146} \\ \bottomrule
-\end{tabular}}
-\end{table}
+
+%\begin{table}[H] \caption{Number of Individuals in Each Group} \label{tab:num-group}
+%\scalebox{0.77}{
+%\begin{tabular}{l|ccccc|ccccc|ccccc}
+%\toprule
+%			& 		\multicolumn{5}{c}{\textbf{Reggio}}		& 	\multicolumn{5}{|c|}{\textbf{Parma}}	& 			\multicolumn{5}{c}{\textbf{Padova}}				\\
+%			& (0,0) & (1,0) & (0,1) & (1,1) & Total & (0,0) & (1,0) & (0,1) & (1,1) %& Total  & (0,0) & (1,0) & (0,1) & (1,1) & Total \\ \midrule
+%Child		& 2 & 0 & 46 & 117 & \textbf{311} & 5 & 1 & 35 & 100 & \textbf{291} & 2 & 0 & 31 & 36 & \textbf{278} \\
+%Migrant		& 4 & 0	& 24 & 26 & \textbf{110} & 4 & 0 & 12 & 23 & \textbf{58} & 5 & 0 & 18 & 16 & \textbf{113} \\
+%Adolescent 	& 7 & 0 & 45 &	116 & \textbf{300} & 4 & 0 &49 &61 & \textbf{254} & 1 & 0 &55 & 37 & \textbf{282} \\
+%Age-30		& 57 & 0 & 95 &	53 & \textbf{280} & 43 & 0 & 64 &29 & \textbf{251} & 47 & 0 & 25 & 9 & \textbf{251} \\
+%Age-40		& 80 & 0 & 97 &	28 & \textbf{285} & 115 & 1 & 35 & 16 & \textbf{254} & 75 & 0 & 25 & 2 & \textbf{252} \\
+%Age-50		& 146 & 0 &	8 & 0 & \textbf{200} & 71 & 0 & 4 & 8 & \textbf{103} & 55 & 0 & 11 & 0 & \textbf{146} \\ \bottomrule
+%\end{tabular}}
+%\end{table}
 
 %\subsection{Estimating Effects of Infant-Toddler Centers}
 %There are two main methods to test the effect of attending infant-toddler centers. The first is to compare people who did not attend infant-toddler care or preschool with people who only attended municipal infant-toddler care. Using the notation in Table~\ref{tab:cases-treat}, this comparison is between (0,0) and (1,0). The second method is to compare people who only attended municipal preschool with people who attended both municipal infant-toddler centers and preschools. That is, to compare (0,1) and (1,1). The hypotheses are formally written as
@@ -74,88 +75,67 @@ Age-50		& 146 & 0 &	8 & 0 & \textbf{200} & 71 & 0 & 4 & 8 & \textbf{103} & 55 & 
 
 
 \subsection{Estimating Effects of Preschools}
-We adopt a three-pronged approaach to evaluate the effects of the Reggio Approach Preschool intervention. Firstly, in subsection \ref{subsubsection:OLS}, we describe an OLS model that allows us to compare the outcomes of those who attended Municipal Preschool in Reggio to those from Reggio who did not attend Municipal Preschool. In subsection \ref{subsubsection:DID}, we present a Difference-in-Differences approach that allows us to make cross-city comparisons of outcomes for those who attended  Municipal preschool in each city, while controlling for permanent differences between cities. Lastly, subsection \ref{subsection:selection} presents a multinomial logit model to test for the presence of selection into treatment, and an AIPW model that adjusts estimated treatment effects to account for potential selection into treatment.
+We adopt multiple approaches to evaluate the effects of the Reggio Approach Preschool intervention. In Section \ref{subsubsection:OLS}, we describe an OLS model that allows us to compare the outcomes of those who attended Municipal Preschool in Reggio to those from Reggio who did not attend Municipal Preschool. In Section \ref{subsubsection:DID}, we present a Difference-in-Differences (DiD) approach that allows us to make cross-city comparisons of outcomes for those who attended  Municipal preschool in each city, while controlling for permanent differences between cities. In Section \ref{subsubsection:psm}, we describe a propensity score matching model to calculate treatment effects. In Section \ref{subsubsection:aipw}, we present an AIPW model that adjusts estimated treatment effects to account for potential selection into treatment.  Lastly, Section \ref{subsection:selection} presents a multinomial logit model to test for the presence of selection into treatment.
 
 \subsubsection{Baseline OLS} \label{subsubsection:OLS}
-We perform several within-Reggio comparisons using a baseline OLS model. We compare individuals from Reggio Emilia who attended a Reggio Approach preschool to those in Reggio Emilia who attended (i) any type of preschool, (ii) no preschool, (iii) state preschool, and (iv) religious preschool. We only present estimates of the first comparison  in the main paper. Estimates from the other comparisons are reported in Appendix~\ref{app:comparison-reli-stat}. We exclude the cohort of adults in their 50s because the Reggio Approach was not available at that time.
+We perform several within-Reggio comparisons using a baseline OLS model. We compare individuals from Reggio Emilia who attended a Reggio Approach preschool to those in Reggio Emilia who attended (i) any type of preschool, (ii) no preschool, (iii) state preschool, and (iv) religious preschool. We only present estimates of the first and second comparisons in the main paper. Estimates from the other comparisons are reported in Appendix~\ref{app:comparison-reli-stat}. We exclude the cohort of adults in their 50s because the Reggio Approach was not available at that time.
 
 The basic OLS takes the form, 
 
 \begin{equation}
-	Y_i = \alpha_0 + \alpha_1 R_i^{P} + \bm{X}_i\gamma + \varepsilon_i
+	Y_i = \alpha_0 + \alpha_1 D_i + \bm{X}_i\gamma + \varepsilon_i
 	\label{eq:ra-v-none}
 \end{equation}
-
-where $i$ indexes individuals in Reggio Emilia, $R_i^{P}$ is an indicator for whether individual $i$ attended municipal preschool in Reggio, $\bm{X}_i$ is a vector of baseline control variables\footnote{These variables are: gender, whether the individual took the computer-assisted (CAPI), number of siblings, an indicator if the mother's maximum education was middle school, an indicator if the father's maximum education is university, and two indicators for the number of siblings (one indicating having two or more siblings, the other indicating having three or more siblings).} selected based on the Bayesian Information Criterion (BIC), and $\varepsilon_i$ is a random disturbance.
+where $i$ indexes individuals having attended preschool in Reggio Emilia, $D_i$ is an indicator for whether individual $i$ attended municipal preschool, $\bm{X}_i$ is a vector of baseline control variables\footnote{These variables are: gender, whether the individual took the computer-assisted (CAPI), number of siblings, an indicator if the mother's maximum education was middle school, an indicator if the father's maximum education is university, and two indicators for the number of siblings (one indicating having two or more siblings, the other indicating having three or more siblings).} selected based on the Bayesian Information Criterion (BIC), and $\varepsilon_i$ is a random disturbance. In equation \ref{eq:ra-v-none}, $\alpha_i$ is the OLS treatment effect estimator.
 
 \subsubsection{Difference-in-Difference}  \label{subsubsection:DID}
 Next, we estimate a Difference-in-Differences model that allows for cross-city comparisons of Municipal preschools while controlling for permanent differences in characteristics between cities. We restrict the analysis to individuals in the age-30 and age-40 cohorts and estimate the model seperately for each cohort. In the main paper, we present comparisons between municipal schools and all other types of preschools pooled together. We present comparisons to specific school types in Appendices~\ref{app:comparison-reli-stat}.
 
 To illustrate, we present the comparison between between Reggio and Parma for those who either attended Municipal preschool or no preschool at all. We can write the estimation equation for this case as follows:
 \begin{eqnarray}  \label{eq:specific2}
-Y_i & = \beta_0 + \beta_1 Reggio_i + \beta_2 R_i^P + \beta_3 Reggio_i * R_i^P + \bm{X}_i\delta + \epsilon_i 
+Y_i & = \beta_0 + \beta_1 Reggio_i + \beta_2 D_i + \beta_3 Reggio_i * D_i + \bm{X}_i\delta + \epsilon_i 
 \end{eqnarray}
-where  Eq.\ref{eq:specific2} is estimated seperately for the age 30 and 40 cohorts, and $Reggio_i$ is the indicator for individual $i$ living in Reggio Emilia. $\beta_3$ is interpreted as the difference that remains between Municipal schools in Reggio and Parma after adjusting for permanent differences between the two cities. In other words, $\beta_3$ amounts to (Reggio Municipal - Parma Municipal) - (Reggio None - Parma None), where the first difference captures the unadjusted(for permanent city differences) difference between Municipal preschools in each city, and the second difference captures the permanent differences between the two cities. Analogous interpretations are applied to difference-in-difference comparisons between Reggio Emilia and Padova.
+where  Equation \ref{eq:specific2} is estimated seperately for the age 30 and 40 cohorts, and $Reggio_i$ is the indicator for individual $i$ having attended preschool in Reggio Emilia. $\beta_3$ is interpreted as the difference that remains between Municipal schools in Reggio and Parma after adjusting for permanent differences between the two cities. In other words, $\beta_3$ is the DiD treatment effect estimator that amounts to (Reggio Municipal - Parma Municipal) - (Reggio None - Parma None), where the first difference captures the unadjusted (for permanent city differences) difference between Municipal preschools in each city, and the second difference captures the permanent differences between the two cities. Analogous interpretations are applied to difference-in-difference comparisons between Reggio Emilia and Padova and comparisons between municipal schools and other school types.
 
-\subsection{Accounting for Selection into Treatment} \label{subsection:selection}
 
-\subsubsection{Differences in Selection across Cities: Multinomial Logit}
-We estimate multinomial logit models for each city using preschool choice as the dependent variable, and a vector of baseline characteristics as independent variables. We then compare the estimated marginal effects for each baseline characteristic to investigate whether a common set of baseline characteristics determines selection into municipal preschools across the three cities. This analysis highlights characteristics that determine selection into the municipal schools relative to preschool alternatives available within the same city. Substantial differences in selection across cities would suggest that selection into municipal schools differ by city. This could be a result of different parental perceptions of quality, the available slots, or other factors determining demand for municipal schools relative to alternative options. 
+\subsubsection{Propensity Score Matching}  \label{subsubsection:psm}
 
-To begin, we define the choices available to parents in each city as follows:
-\begin{equation}
-S_i = \quad
-\begin{cases}
-0 \quad \text{if \quad (\textit{i} did not attend any preschool)} \\
-1 \quad  \text{if \quad (\textit{i} attended an alternative preschool)} \\
-2 \quad \text{if \quad (\textit{i} attended a municipal preschool)}  \\
-\end{cases}
+We estimate propensity score matching model that implements nearest-neighbor matching on an estimated propensity score based on a set of observed baseline characteristics $\boldsymbol{X}_i$. This approach is based on the assumption that adjusting for the propensity score is enough to eliminate all confounding. Formally writing, the average treatment effect is,
+\begin{equation} \label{eq:ATE-PSM}
+E[Y(1)-Y(0)] = E[E[Y_i|D=1, \hat{\pi(\boldsymbol{X}_i)}] - E[Y_i|D=0, \hat{\pi(\boldsymbol{X}_i)}]].
 \end{equation}
+where the propensity score $\hat{\pi({\boldsymbol{X}_i})} = Pr(D_i=1|\boldsymbol{X}_i)$ is predicted for each individual $i$ using the estimated coefficients obtained from a probit model.
 
-\noindent We then estimate the following multinomial logit specification separately for each city:
-
-\begin{equation} \label{eq:log-odds-ratio}
-\nu_r = \text{log} \left(\frac{Pr(S_i=r)}{Pr(S_i=2)}\right) = \beta_0^r + \bm{\beta^r X}_i + \epsilon_i^r \quad \forall \quad r \in 0,1
+The propensity score matching estimator is defined as
+\begin{equation} \label{eq:PSM-estimator}
+\widehat{E[Y(1)-Y(0)]_{PSM}} = \frac{1}{n} \sum_{i=1}^{n} (2D_i -1)(Y_i - \frac{1}{M}\sum_{j \in \mathcal{J}_M(i)}Y_j )
 \end{equation}
+where $M$ is a fixed number of matches per individual and $\mathcal{J}_M(i)$ is a set of matches for individual $i$. The standard errors for this estimator are derived by \cite{Abadie_Imbens_2006_Econometrica}.
 
-\noindent where $\bm{X}_i$ is a vector of baseline characteristics including child's gender, number of child's siblings, religiosity of caregiver, mothers education level, and indicators for whether parents were born in province.
+\subsubsection{Augmented IPW} \label{subsubsection:aipw}
 
-The predicted log-odds ratio for each alternative option, $\hat{\nu}_r$, from (\ref{eq:log-odds-ratio}) can be used to construct the estimated probability of attending each school type $r$ as follows:
-
-\begin{equation}
-\pi_{i,r} = \frac{\text{exp}(\hat{\nu}_{r,i})}{\sum\limits_{j=0}^{2} \text{exp}(\hat{\nu}_{j,i})} \quad \forall  r \in 0,1,2
-\end{equation}
-
-Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the propensity to attend a school type $r$, $\pi_{r}$, by calculating the partial derivative $\partial \pi_{r}/\partial x_c$. 
-%These results are reported in Appendix~\ref{appendix:mlogit}.
-
-\subsubsection{Augmented IPW}
-
-Although the baseline OLS and difference-in-difference models attempt to account for the selection into the Reggio Approach, regression estimator for ATE may be poorly estimated when the observed values of baseline variables are not similar for the treatment and control groups \citep{Glynn-Quinn_2010_Political-Analysis}. We estimate an Augmented Inverse Propensity Weighted (AIPW) estimator that builds on the multinomial logit presented above in order to account for the caveats with the regression estimator.   
+Although the baseline OLS and difference-in-difference models attempt to account for the selection into the Reggio Approach, regression estimator for ATE may be poorly estimated when the observed values of baseline variables are not similar for the treatment and control groups. We estimate an Augmented Inverse Propensity Weighted (AIPW) estimator in order to account for the caveats with the regression estimator.   
 %\citep{Glynn_2010}. 
 
-To begin, consider the following two treatment statuses,
-
-\begin{equation}\label{eq:cases-d}
-D_i = \quad
-\begin{cases}
-1 \quad if \quad &  R_i = 0 \text{\quad 		($i$ from Reggio Emilia but did not attend Reggio Approach)} \\
-0 \quad if \quad &  R_i \neq 0 \text{\quad 	($i$ from Reggio Emilia and attended the Reggio Approach).} \\
-\end{cases}
-\end{equation}
-~\\
+%To begin, consider the following two treatment statuses,
+%\begin{equation}\label{eq:cases-d}
+%D_i = \quad
+%\begin{cases}
+%1 \quad if \quad &  R_i = 0 \text{\quad 		($i$ from Reggio Emilia but did not attend Reggio Approach)} \\
+%0 \quad if \quad &  R_i \neq 0 \text{\quad 	($i$ from Reggio Emilia and attended the Reggio Approach).} \\
+%\end{cases}
+%\end{equation}
+%~\\
 Let $Y_{1,i}$ and $Y_{0,i}$ represent counterfactual outcomes for individual, $i$, where treatment status is fixed to $D_i=1$ and $D_i=0$ respectively. Under this framework, the realized outcome $Y_i$ is summarized by,
 \begin{equation}\label{eq:roy}
 Y_i = (1-D_i)Y_{0,i} + D_iY_{1,i}.
 \end{equation}
 
-Next, assume that individuals select into treatment status $D_i$ based on a a set of observed baseline characteristics $\boldsymbol{X}_i$. Under the assumption of strongly ignorable selection into treatment given $\boldsymbol{X}_i$, and the existence of an estimated propensity score $\hat{\pi({\boldsymbol{X}_i})} = Pr(D_i=1|\boldsymbol{X}_i)$ such that $0<\hat{\pi({\boldsymbol{X}_i})}<1$, we can use standard Inverse Propensity of Treatment Weighting (IPTW) to estimate the average treatment effect $E[Y(1)-Y(0)]$,
+Next, assume that individuals select into treatment status $D_i$ based on a set of observed baseline characteristics $\boldsymbol{X}_i$. Under the assumption of strongly ignorable selection into treatment given $\boldsymbol{X}_i$, and the existence of an estimated propensity score $\hat{\pi({\boldsymbol{X}_i})}$ such that $0<\hat{\pi({\boldsymbol{X}_i})}<1$, we can use standard Inverse Propensity of Treatment Weighting (IPTW) to estimate the average treatment effect $E[Y(1)-Y(0)]$,
 
 \begin{equation}\label{eq:IPW}
 \widehat{E[Y(1)-Y(0)]_{IPW}} = \frac{1}{n} \sum_{i=1}^{n} \left \{\frac{D_i Y_i}{\hat{\pi(\boldsymbol{X}_i)}} - \frac{(1-D_i)Y_i}{1-\hat{\pi(\boldsymbol{X}_i)}}\right \}
 \end{equation}
-
-\noindent Where $\hat{\pi({\boldsymbol{X}_i})} = Pr(D_i=1|\boldsymbol{X}_i)$ is predicted for each individual $i$ using the estimated coefficients obtained from a probit model.
 
 In calculating $\widehat{E[Y(1)]}$, the IPTW estimator assigns a higher weight to individuals with characteristics $\boldsymbol{X}_i$ if these individuals are less likely to have been in treatment group $D = 1$. Analogously, in calculating $\widehat{E[Y(0)]}$,  the IPTW estimator assigns a higher weight to individuals with characteristics $\boldsymbol{X}_i$ if these individuals are less likely to have been in treatment group $D = 0$. In this sense, the estimator adjusts for selection on observables by balancing the estimation of expected outcomes on $\boldsymbol{X}$.
 
@@ -165,9 +145,7 @@ E[\widehat{Y(1)-Y(0)]}_{AIPW} = \frac{1}{n} \sum_{i=1}^{n} \bigg \{ \bigg[ & \ov
 & \bigg[ (1-\hat{\pi}(\boldsymbol{X}_i)) E[\hat{Y_i}|D_i=1,\boldsymbol{X}_i] + \hat{\pi}(\boldsymbol{X}_i) E[\hat{Y_i}|D_i=0,\boldsymbol{X}_i] \bigg] \bigg \}
 \end{align}
 
-The AIPW estimator in Equation (\ref{eq:AIPW}) addresses the problem of instability associated with the IPTW estimator near $\hat{\pi(\boldsymbol{X}_i)} = 0$ or $1$, by adjusting the weighted estimator with a weighted average of $\hat{Y_i}$ obtained from an OLS regression. For $D_i = 0$, as the IPTW estimate becomes large and negative near $\hat{\pi(\boldsymbol{X}_i)} = 1$, the adjustment term becomes large and positive, thereby, stabilizing the estimator at these values. Analogously, for $D = 1$, as the IPTW estimate becomes large and positive near $\hat{\pi(\boldsymbol{X}_i)} = 0$, the adjustment term becomes large and negative. 
-
-\citet{Tsiatis_2006_Semiparametric-Theory} and \citet{Glynn-Quinn_2010_Political-Analysis} show that the AIPW estimator is an unbiased estimator of the Average Treatment Effect if the propensity score is known. Further, they show that the estimator is consistent if either the propensity score model or the outcome prediction model in the adjustment term is correctly specified. Due to this last property, they refer to the AIPW as a doubly robust estimator.
+The AIPW estimator in Equation (\ref{eq:AIPW}) addresses the problem of instability associated with the IPTW estimator near $\hat{\pi(\boldsymbol{X}_i)} = 0$ or $1$, by adjusting the weighted estimator with a weighted average of $\hat{Y_i}$ obtained from an OLS regression. For $D_i = 0$, as the IPTW estimate becomes large and negative near $\hat{\pi(\boldsymbol{X}_i)} = 1$, the adjustment term becomes large and positive, thereby, stabilizing the estimator at these values. Analogously, for $D = 1$, as the IPTW estimate becomes large and positive near $\hat{\pi(\boldsymbol{X}_i)} = 0$, the adjustment term becomes large and negative.\footnote{\citet{Tsiatis_2006_Semiparametric-Theory} and \citet{Glynn-Quinn_2010_Political-Analysis} show that the AIPW estimator is an unbiased estimator of the Average Treatment Effect if the propensity score is known. Further, they show that the estimator is consistent if either the propensity score model or the outcome prediction model in the adjustment term is correctly specified. Due to this last property, they refer to the AIPW as a doubly robust estimator.}  Hence, the AIPW is a way to adjust the potential problem of instability of IPTW.
 
 %\subsubsection{AIPW Using Multinomial Control Selection Model}
 %\label{sec:aipw-mlogit}
@@ -208,3 +186,45 @@ The AIPW estimator in Equation (\ref{eq:AIPW}) addresses the problem of instabil
 %\widehat{AIPW_{j}} = E[\widehat{Y(2)-Y(j)]}_{AIPW} =& \frac{1}{n} \sum_{i=1}^{n}\bigg \{ \bigg[ \overbrace{ \frac{(\mathbb{1}_{T_i=2}) Y_i}{\hat{\Pi_2}(\boldsymbol{X}_i)} - \frac{(\mathbb{1}_{T_i=j})Y_i}{\hat{\Pi_j}(\boldsymbol{X}_i)}}^{IPTW}  \bigg] - \frac{(\mathbb{1}_{T_i=2}) - \hat{\Pi}_2(\boldsymbol{X}_i)}{\hat{\Pi}_2(\boldsymbol{X}_i) \, \hat{\Pi}_j(\boldsymbol{X}_i)} \nonumber \\[10pt]
 %& \bigg[ \hat{\Pi}_j(\boldsymbol{X}_i) \cdot E[\hat{Y_i}|T_i=2,\boldsymbol{X}_i] +\hat{\Pi}_2(\boldsymbol{X}_i) \cdot E[\hat{Y_i}|T_i=j,\boldsymbol{X}_i] \bigg] \bigg \}
 %\end{align}
+
+
+
+
+
+
+
+
+
+
+\subsection{Accounting for Selection into Treatment} \label{subsection:selection}
+
+\subsubsection{Differences in Selection across Cities: Multinomial Logit}
+We estimate multinomial logit models for each city using preschool choice as the dependent variable, and a vector of baseline characteristics as independent variables. We then compare the estimated marginal effects for each baseline characteristic to investigate whether a common set of baseline characteristics determines selection into municipal preschools across the three cities. This analysis highlights characteristics that determine selection into the municipal schools relative to preschool alternatives available within the same city. Substantial differences in selection across cities would suggest that selection into municipal schools differ by city. This could be a result of different parental perceptions of quality, the available slots, or other factors determining demand for municipal schools relative to alternative options. 
+
+To begin, we define the choices available to parents in each city as follows:
+\begin{equation}
+S_i = \quad
+\begin{cases}
+0 \quad \text{if \quad (\textit{i} did not attend any preschool)} \\
+1 \quad  \text{if \quad (\textit{i} attended an alternative preschool)} \\
+2 \quad \text{if \quad (\textit{i} attended a municipal preschool)}  \\
+\end{cases}
+\end{equation}
+
+\noindent We then estimate the following multinomial logit specification separately for each city:
+
+\begin{equation} \label{eq:log-odds-ratio}
+\nu_r = \text{log} \left(\frac{Pr(S_i=r)}{Pr(S_i=2)}\right) = \beta_0^r + \bm{\beta^r X}_i + \epsilon_i^r \quad \forall \quad r \in 0,1
+\end{equation}
+
+\noindent where $\bm{X}_i$ is a vector of baseline characteristics including child's gender, number of child's siblings, religiosity of caregiver, mothers education level, and indicators for whether parents were born in province.
+
+The predicted log-odds ratio for each alternative option, $\hat{\nu}_r$, from (\ref{eq:log-odds-ratio}) can be used to construct the estimated probability of attending each school type $r$ as follows:
+
+\begin{equation}
+\pi_{i,r} = \frac{\text{exp}(\hat{\nu}_{r,i})}{\sum\limits_{j=0}^{2} \text{exp}(\hat{\nu}_{j,i})} \quad \forall  r \in 0,1,2
+\end{equation}
+
+Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the propensity to attend a school type $r$, $\pi_{r}$, by calculating the partial derivative $\partial \pi_{r}/\partial x_c$. 
+%These results are reported in Appendix~\ref{appendix:mlogit}.
+
