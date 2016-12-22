@@ -35,7 +35,7 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 	
 		local switch = 1
 		foreach comp in ${psmlist} {
-			teffects psmatch (`var') (${X`comp'} ${controls`comp'}) if ${ifcondition`comp'}
+			
 			capture teffects psmatch (`var') (${X`comp'} ${controls`comp'}) if ${ifcondition`comp'}
 			if !_rc {
 			
@@ -54,10 +54,28 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 			}
 			else {
 			
-				local psm_`comp' 	= 	.
-				local psm_`comp'_se = 	.
-				local psm_`comp'_p	=	.
-				local psm_`comp'_N	= 	.
+				capture teffects psmatch (`var') (${X`comp'} ${psm_`cohort'_bseline_vars}) if ${ifcondition`comp'}
+				if !_rc {
+				
+					di "variable: `var'"
+					* Regress
+					teffects psmatch (`var') (${X`comp'} ${psm_`cohort'_bseline_vars}) if ${ifcondition`comp'}
+					
+					di "Regression specification: teffects psmatch `var' ${X`comp'} ${psm_`cohort'_bseline_vars} if ${ifcondition`comp'}" 
+					
+					* Save key results to locals
+					mat r = r(table)
+					local psm_`comp' 	= 	r[1,1]
+					local psm_`comp'_se = 	r[2,1]
+					local psm_`comp'_p	=	r[4,1]
+					local psm_`comp'_N	= 	e(N)
+				}
+				else {
+					local psm_`comp' 	= 	.
+					local psm_`comp'_se = 	.
+					local psm_`comp'_p	=	.
+					local psm_`comp'_N	= 	.
+				}
 				
 			}
 			
