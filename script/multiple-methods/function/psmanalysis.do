@@ -40,7 +40,11 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 			
 				di "variable: `var'"
 				* Regress
-				teffects psmatch (`var') (${X`comp'} ${controls`comp'}) if ${ifcondition`comp'}
+				capture teffects psmatch (`var') (${X`comp'} ${controls`comp'}) if ${ifcondition`comp'}
+				if _rc {
+					continue
+				}
+				
 				di "Regression specification: teffects psmatch `var' ${X`comp'} ${controls`comp'} if ${ifcondition`comp'}" 
 				
 				* Save key results to locals
