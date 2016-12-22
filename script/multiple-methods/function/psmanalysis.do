@@ -35,8 +35,9 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 	
 		local switch = 1
 		foreach comp in ${psmlist} {
+			di "here???? before teffect?"
 			capture teffects psmatch (`var') (${X`comp'} ${controls`comp'}) if ${ifcondition`comp'}
-			
+			di "here?"
 			if !_rc {
 			
 				di "variable: `var'"
@@ -64,6 +65,8 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 				
 				local switch = 0
 			}
+			di "Here???"
+			
 		}	
 	
 		mat psmresult = [`matitems']
