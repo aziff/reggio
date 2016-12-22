@@ -34,6 +34,7 @@ use "${data_reggio}/Reggio_reassigned"
 include "${here}/../macros" 
 include "${here}/function/reganalysis"
 include "${here}/function/aipwanalysis"
+include "${here}/function/psmanalysis"
 include "${here}/function/writematrix"
 include "${here}/../ipw/function/aipw"
 
