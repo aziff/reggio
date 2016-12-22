@@ -95,7 +95,7 @@ preserve
 keep if (Cohort == 1) | (Cohort == 2) 
 
 local stype_switch = 1
-foreach stype in Other Stat Reli Affi {
+foreach stype in Other Stat Reli {
 	
 	* Set necessary global variables
 	global X					maternaMuni

@@ -96,7 +96,7 @@ preserve
 keep if (Cohort == 3)
 
 local stype_switch = 1
-foreach stype in  Other {
+foreach stype in Other Stat Reli {
 	
 	* Set necessary global variables
 	global X					maternaMuni
