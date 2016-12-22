@@ -40,8 +40,8 @@ lab var grouping ""
 // define baseline variables			
 global child_baseline_vars  		Male lowbirthweight birthpremature ///
 					momBornProvince dadBornProvince ///
-					momMaxEdu_low momMaxEdu_middle momMaxEdu_HS   ///
-					dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS  ///
+					momMaxEdu_Uni   ///
+					dadMaxEdu_Uni  ///
 					numSibling_2 numSibling_more ///
 					cgCatholic cgIslam cgRelig ///
 					cgMigrant 
@@ -49,8 +49,8 @@ global child_baseline_vars  		Male lowbirthweight birthpremature ///
 								
 global adol_baseline_vars		Male lowbirthweight birthpremature ///
 					momBornProvince dadBornProvince ///
-					momMaxEdu_low momMaxEdu_middle momMaxEdu_HS   ///
-					dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS  ///
+					momMaxEdu_Uni   ///
+					dadMaxEdu_Uni  ///
 					numSibling_2 numSibling_more ///
 					cgCatholic cgIslam cgRelig ///
 					cgMigrant 
@@ -103,13 +103,13 @@ foreach city in Reggio Parma Padova {
 				cd "${output}"
 				# delimit ;
 				esttab `city'Child0 `city'Child1 `city'Child2 `city'Adolescent0 `city'Adolescent1 `city'Adolescent2 using "mlogit_`city'_chi-ado.tex", 
-						b(3)
+						b(%9.2f)
 						booktabs
 						label
 						unstack 
 						nonumbers
 						nonotes
-						se
+						se(%9.2f)
 						mtitles("None" "Other" "Municipal" "None" "Other" "Municipal")
 						replace;
 				# delimit cr
@@ -121,13 +121,13 @@ foreach city in Reggio Parma Padova {
 				cd "${output}"
 				# delimit ;
 				esttab `city'Adult300 `city'Adult301 `city'Adult302 `city'Adult400 `city'Adult401 `city'Adult402 using "${output}/mlogit_`city'.tex", 
-						b(3)
+						b(%9.2f)
 						booktabs
 						label
 						unstack 
 						nonumbers
 						nonotes
-						se
+						se(%9.2f)
 						mtitles("None" "Other" "Municipal" "None" "Other" "Municipal")
 						replace;
 				# delimit cr
@@ -137,13 +137,13 @@ foreach city in Reggio Parma Padova {
 			cd "${output}"
 			# delimit ;
 			esttab `city'Adult300 `city'Adult301 `city'Adult302 using "${output}/mlogit_`city'.tex", 
-					b(3)
 					booktabs
 					label
 					unstack 
 					nonumbers
 					nonotes
-					se
+					se(%9.2f)
+					b(%9.2f)
 					mtitles("None" "Other" "Municipal")
 					replace;
 				# delimit cr
