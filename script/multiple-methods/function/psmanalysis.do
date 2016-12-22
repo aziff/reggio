@@ -35,9 +35,8 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 	
 		local switch = 1
 		foreach comp in ${psmlist} {
-			di "here???? before teffect?"
+			di "here???? before teffect? `var'"
 			capture teffects psmatch (`var') (${X`comp'} ${controls`comp'}) if ${ifcondition`comp'}
-			di "here?"
 			if !_rc {
 			
 				di "variable: `var'"
@@ -52,7 +51,15 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 				local psm_`comp'_se = 	r[2,1]
 				local psm_`comp'_p	=	r[4,1]
 				local psm_`comp'_N	= 	e(N)
+				}
+			else {
+			
+				local psm_`comp' 	= 	.
+				local psm_`comp'_se = 	.
+				local psm_`comp'_p	=	.
+				local psm_`comp'_N	= 	.
 				
+			}
 				* Add to the matitems and matnames locals
 				if `switch' == 1 {
 					local matitems `matitems' `psm_`comp'', `psm_`comp'_se', `psm_`comp'_p', `psm_`comp'_N' 
@@ -64,11 +71,9 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 				local matnames `matnames' psm_`comp' psm_`comp'_se psm_`comp'_p psm_`comp'_N
 				
 				local switch = 0
-			}
-			di "Here???"
+			
 			
 		}	
-	
 		mat psmresult = [`matitems']
 		mat colname psmresult = `matnames'
 		
