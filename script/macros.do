@@ -59,6 +59,9 @@ global bic_child_baseline_vars				Male CAPI asilo Cohort_Migrants numSibling_mor
 global bic_adol_baseline_vars				Male CAPI asilo momMaxEdu_low dadMaxEdu_Uni numSibling_2 cgCatholic cgIslam
 global bic_adult_baseline_vars		    	Male CAPI momMaxEdu_middle dadMaxEdu_Uni numSibling_2 numSibling_more cgIslam
 
+global psm_adol_baseline_vars				Male CAPI dadMaxEdu_Uni numSibling_2 numSibling_more
+global psm_adult_baseline_vars				Male CAPI dadMaxEdu_Uni numSibling_2 numSibling_more cgIslam
+
 
 * ------------------------------------------- *											
 * Outcomes for each category: Younger Cohorts *
