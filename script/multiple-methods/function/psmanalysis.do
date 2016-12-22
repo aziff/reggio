@@ -35,15 +35,13 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 	
 		local switch = 1
 		foreach comp in ${psmlist} {
-			sum `var' if ${ifcondition`comp'}
-			if r(N) > 0 {
+			capture teffects psmatch (`var') (${X`comp'} ${controls`comp'}) if ${ifcondition`comp'}
+			
+			if !_rc {
 			
 				di "variable: `var'"
 				* Regress
-				capture teffects psmatch (`var') (${X`comp'} ${controls`comp'}) if ${ifcondition`comp'}
-				if _rc {
-					continue
-				}
+				teffects psmatch (`var') (${X`comp'} ${controls`comp'}) if ${ifcondition`comp'}
 				
 				di "Regression specification: teffects psmatch `var' ${X`comp'} ${controls`comp'} if ${ifcondition`comp'}" 
 				
