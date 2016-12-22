@@ -99,14 +99,15 @@ foreach stype in Other None Stat Reli Affi {
 	* Set necessary global variables
 	global X					maternaMuni
 	global reglist				NoneIt BICIt FullIt DidPmIt DidPvIt  // It => Italians, Mg => Migrants
+	global psmlist				PSMIt
 	global aipwlist				AIPWIt 
 
-	global XNoneIt				maternaMuni		
+	global XNoneIt				maternaMuni
 	global XBICIt				maternaMuni		
 	global XFullIt				maternaMuni		
 	global XDidPmIt				xmMuniReggio maternaMuni Reggio 
 	global XDidPvIt				xmMuniReggio maternaMuni Reggio 	
-
+	global XPSMIt				maternaMuni
 
 	global keepNoneIt			maternaMuni
 	global keepBICIt			maternaMuni
@@ -114,6 +115,7 @@ foreach stype in Other None Stat Reli Affi {
 
 	global keepDidPmIt			xmMuniReggio
 	global keepDidPvIt			xmMuniReggio
+	global keepPSMIt			maternaMuni
 
 	global controlsNoneIt
 	global controlsNone
@@ -123,10 +125,12 @@ foreach stype in Other None Stat Reli Affi {
 	global controlsFull			${child_baseline_vars}
 	global controlsDidPmIt		${bic_child_baseline_vars}
 	global controlsDidPvIt		${bic_child_baseline_vars}
+	global controlsPSMIt		${bic_child_baseline_vars}
 
 	global ifconditionNoneIt 	(Reggio == 1) & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionBICIt		${ifconditionNoneIt}
 	global ifconditionFullIt	${ifconditionNoneIt}
+	global ifconditionPSMIt		${ifconditionNoneIt}
 	global ifconditionDidPmIt	(Reggio == 1 | Parma == 1)    
 	global ifconditionDidPvIt	(Reggio == 1 | Padova == 1)    & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionAIPWIt 	(Reggio == 1)  & (maternaMuni == 1 | materna`stype' == 1)
@@ -145,6 +149,24 @@ foreach stype in Other None Stat Reli Affi {
 	
 		* Close necessary files
 		file close regression_`type'_`stype' 
+		
+		
+		
+		* ----------------------- *
+		* For PSM Analysis 		  *
+		* ----------------------- *
+		* Open necessary files
+		file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/psm_child_`type'_`stype'.csv", write replace
+
+		* Run Multiple Analysis
+		di "Estimating `type' for Children: PSM Analysis"
+		psmanalysis, stype("`stype'") type("`type'") psmlist("${psmlist}") cohort("child")
+	
+		* Close necessary files
+		file close psm_`type'_`stype'
+		
+		
+		
 		
 		
 		* ----------------- *

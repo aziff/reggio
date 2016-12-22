@@ -101,28 +101,26 @@ foreach stype in  Other None Stat Reli {
 	global X					maternaMuni
 	global reglist				None BIC Full DidPm DidPv // It => Italians, Mg => Migrants
 	global aipwlist				AIPW
+	global psmlist				PSM
 
 	global XNone				maternaMuni		
 	global XBIC					maternaMuni		
 	global XFull				maternaMuni		
+	global XPSM					maternaMuni
 	global XDidPm				xmMuniReggio maternaMuni Reggio 
 	global XDidPv				xmMuniReggio maternaMuni Reggio 
-
-	global keepNone				maternaMuni
-	global keepBIC				maternaMuni
-	global keepFull				maternaMuni
-	global keepDidPm			xmMuniReggio
-	global keepDidPv			xmMuniReggio
 
 	global controlsNone
 	global controlsBIC			${bic_adol_baseline_vars}
 	global controlsFull			${adol_baseline_vars}
+	global controlsPSM			${bic_adol_baseline_vars}
 	global controlsDidPm		${bic_adol_baseline_vars}
 	global controlsDidPv		${bic_adol_baseline_vars}
 
 	global ifconditionNone 		(Reggio == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionBIC		${ifconditionNone}
 	global ifconditionFull		${ifconditionNone}
+	global ifconditionPSM		${ifconditionNone}
 	global ifconditionDidPm		(Reggio == 1 | Parma == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionDidPv		(Reggio == 1 | Padova == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionAIPW 	    (Reggio == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
@@ -144,6 +142,24 @@ foreach stype in  Other None Stat Reli {
 	
 		* Close necessary files
 		file close regression_`type'_`stype' 
+		
+		
+		
+		
+		* ----------------------- *
+		* For PSM Analysis 		  *
+		* ----------------------- *
+		* Open necessary files
+		file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/psm_adol_`type'_`stype'.csv", write replace
+
+		* Run Multiple Analysis
+		di "Estimating `type' for Adult: PSM Analysis"
+		psmanalysis, stype("`stype'") type("`type'") psmlist("${psmlist}") cohort("adol")
+	
+		* Close necessary files
+		file close psm_`type'_`stype'
+		
+		
 		
 		
 		* ----------------- *

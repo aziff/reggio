@@ -104,23 +104,19 @@ foreach stype in Other None Stat Reli Affi {
 	global X					maternaMuni
 	global reglist				None30 BIC30 Full30 DidPm30 DidPv30 
 	global aipwlist				AIPW30 
+	global psmlist				PSM30
 
 	global XNone30				maternaMuni		
 	global XBIC30				maternaMuni		
 	global XFull30				maternaMuni		
+	global XPSM30				maternaMuni
 	global XDidPm30				xmMuniReggio maternaMuni Reggio 	
 	global XDidPv30				xmMuniReggio maternaMuni Reggio 	
-
-	global keepNone30			maternaMuni
-	global keepBIC30			maternaMuni
-	global keepFull30			maternaMuni
-	global keepAIPW30			ReggioMaterna
-	global keepDidPm30			xmMuniReggio
-	global keepDidPv30			xmMuniReggio
 
 	global controlsNone30
 	global controlsBIC30		${bic_adult_baseline_vars}
 	global controlsFull30		${adult_baseline_vars}
+	global controlsPSM30		${bic_adult_baseline_vars}	
 	global controlsDidPm30		${bic_adult_baseline_vars}
 	global controlsDidPv30		${bic_adult_baseline_vars}
 
@@ -128,6 +124,7 @@ foreach stype in Other None Stat Reli Affi {
 	global ifconditionNone30 	(Reggio == 1) & (Cohort_Adult30 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionBIC30		${ifconditionNone30} 
 	global ifconditionFull30	${ifconditionNone30}
+	global ifconditionPSM30		${ifconditionNone30}
 	global ifconditionDidPm30	(Reggio == 1 | Parma == 1) & (Cohort_Adult30 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionDidPv30	(Reggio == 1 | Padova == 1) & (Cohort_Adult30 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionAIPW30 	(Reggio == 1) & (Cohort_Adult30 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
@@ -143,24 +140,40 @@ foreach stype in Other None Stat Reli Affi {
 		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_adult30_`type'_`stype'.csv", write replace
 
 		* Run Multiple Analysis
-		di "Estimating `type' for Children: Regression Analysis"
+		di "Estimating `type' for Adult: Regression Analysis"
 		reganalysis, stype("`stype'") type("`type'") reglist("${reglist}") cohort("adult")
 	
 		* Close necessary files
 		file close regression_`type'_`stype' 
 		
 		
+		
+		* ----------------------- *
+		* For PSM Analysis 		  *
+		* ----------------------- *
+		* Open necessary files
+		file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/psm_adult30_`type'_`stype'.csv", write replace
+
+		* Run Multiple Analysis
+		di "Estimating `type' for Adult: PSM Analysis"
+		psmanalysis, stype("`stype'") type("`type'") psmlist("${psmlist}") cohort("adult")
+	
+		* Close necessary files
+		file close psm_`type'_`stype'
+		
+		
+		
+		
+		
 		* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
-
-		
 		* Open necessary files
 		cap file close aipw_`type'_`stype'
 		file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adult30_`type'_`stype'.csv", write replace
 
 		* Run Multiple Analysis
-		di "Estimating `type' for Children: AIPW Analysis"
+		di "Estimating `type' for Adult: AIPW Analysis"
 		aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adult")
 		
 		* Close necessary files
@@ -196,23 +209,19 @@ foreach stype in Other Stat Reli {
 	global X					maternaMuni
 	global reglist				None40 BIC40 Full40
 	global aipwlist				AIPW40 
+	global psmlist				PSM40
 
 	global XNone40				maternaMuni		
 	global XBIC40				maternaMuni		
 	global XFull40				maternaMuni		
+	global XPSM40				maternaMuni
 	*global XDidPm40			maternaMuni	Reggio xmMuniReggio	
 	*global XDidPv40			maternaMuni	Reggio xmMuniReggio		
-
-	global keepNone40			maternaMuni
-	global keepBIC40			maternaMuni
-	global keepFull40			maternaMuni
-	global keepAIPW40			ReggioMaterna
-	*global keepDidPm40			xmMuniReggio
-	*global keepDidPv40			xmMuniReggio
 
 	global controlsNone40
 	global controlsBIC40		${bic_adult_baseline_vars}
 	global controlsFull40		${adult_baseline_vars}
+	global controlsPSM40		${bic_adult_baseline_vars}
 	global controlsDidPm40		${bic_adult_baseline_vars}
 	global controlsDidPv40		${bic_adult_baseline_vars}
 
@@ -220,6 +229,7 @@ foreach stype in Other Stat Reli {
 	global ifconditionNone40 	(Reggio == 1) & (Cohort_Adult40 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionBIC40		${ifconditionNone40} 
 	global ifconditionFull40	${ifconditionNone40}
+	global ifconditionPSM40		${ifconditionNone40}
 	*global ifconditionDidPm40	(Reggio == 1 | Parma == 1) & (Cohort_Adult40 == 1)  & (maternaOther == 1 | maternaNone == 1)
 	*global ifconditionDidPv40	(Reggio == 1 | Padova == 1) & (Cohort_Adult40 == 1)  & (maternaOther == 1 | maternaNone == 1)
 	global ifconditionAIPW40 	(Reggio == 1) & (Cohort_Adult40 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
@@ -241,6 +251,18 @@ foreach stype in Other Stat Reli {
 		* Close necessary files
 		file close regression_`type'_`stype' 
 		
+		* ----------------------- *
+		* For PSM Analysis 		  *
+		* ----------------------- *
+		* Open necessary files
+		file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/psm_adult40_`type'_`stype'.csv", write replace
+
+		* Run Multiple Analysis
+		di "Estimating `type' for Adult: PSM Analysis"
+		psmanalysis, stype("`stype'") type("`type'") psmlist("${psmlist}") cohort("adult")
+	
+		* Close necessary files
+		file close psm_`type'_`stype'
 		
 		* ----------------- *
 		* For AIPW Analysis *
@@ -285,22 +307,20 @@ foreach stype in None {
 	global X					materna
 	global reglist				None40 BIC40 Full40 DidPm40 DidPv40
 	global aipwlist				AIPW40 
+	global psmlist				PSM40
 
 	global XNone40				maternaMuni		
 	global XBIC40				maternaMuni		
 	global XFull40				maternaMuni		
+	global XPSM40				maternaMuni
 	global XDidPm40			    xmMuniReggio materna Reggio 	
 	global XDidPv40			    xmMuniReggio materna Reggio 		
 
-	global keepNone40			maternaMuni
-	global keepBIC40			maternaMuni
-	global keepFull40			maternaMuni
-	global keepDidPm40			xmMuniReggio
-	global keepDidPv40			xmMuniReggio
 
 	global controlsNone40
 	global controlsBIC40		${bic_adult_baseline_vars}
 	global controlsFull40		${adult_baseline_vars}
+	global controlsPSM40		${bic_adult_baseline_vars}
 	global controlsDidPm40		${bic_adult_baseline_vars}
 	global controlsDidPv40		${bic_adult_baseline_vars}
 
@@ -308,6 +328,7 @@ foreach stype in None {
 	global ifconditionNone40 	(Reggio == 1) & (Cohort_Adult40 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionBIC40		${ifconditionNone40} 
 	global ifconditionFull40	${ifconditionNone40}
+	global ifconditionPSM40		${ifconditionNone40}
 	global ifconditionDidPm40	((Reggio == 1 & (maternaMuni == 1 | maternaNone == 1)) | (Parma == 1 & (maternaOther == 1 | maternaNone == 1))) & (Cohort_Adult40 == 1) 
 	global ifconditionDidPv40	((Reggio == 1 & (maternaMuni == 1 | maternaNone == 1)) | (Padova == 1 & (maternaOther == 1 | maternaNone == 1))) & (Cohort_Adult40 == 1) 
 	global ifconditionAIPW40 	(Reggio == 1) & (Cohort_Adult40 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
@@ -328,6 +349,22 @@ foreach stype in None {
 	
 		* Close necessary files
 		file close regression_`type'_`stype' 
+		
+		
+		
+		* ----------------------- *
+		* For PSM Analysis 		  *
+		* ----------------------- *
+		* Open necessary files
+		file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/psm_adult40_`type'_`stype'.csv", write replace
+
+		* Run Multiple Analysis
+		di "Estimating `type' for Adult: PSM Analysis"
+		psmanalysis, stype("`stype'") type("`type'") psmlist("${psmlist}") cohort("adult")
+	
+		* Close necessary files
+		file close psm_`type'_`stype'
+		
 		
 		
 		* ----------------- *
