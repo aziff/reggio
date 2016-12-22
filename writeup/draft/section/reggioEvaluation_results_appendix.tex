@@ -271,6 +271,81 @@
 \footnotesize\raggedright{Note: This table shows the estimates of the coefficient for attending Reggio Approach preschools from multiple methods. We compare Reggio Approach people with people who attended no preschool. Column title indicates the corresponding control set and and model. For age-30 cohort, the columns are as follows: ``None30'' refers to the OLS estimate with no control variables. ``BIC30'' refers to the OLS estimate with controls selected by Bayesian Information Criterion (BIC) and additional controls for caregiver's religion. ``Full30'' refers to the OLS estimate with the full set of controls. ``DidPm30'' refers to the difference-in-difference estimate of (Reggio Muni - Parma Muni) - (Reggio None - Parma None). ``DidPv30'' refers to the difference-in-difference estimate of (Reggio Muni - Padova Muni) - (Reggio None - Padova None).   Column titles are analogous for age-40 cohort. Robust standard errors are reported in parentheses. Bold number shows that the estimate is statistically significant at the 10\% level. Number of observations used in estimation is reported in italic.}
 \end{table}
 
+% ==============================================================================%
+\subsection{Multinomial Logit}\label{appendix:mlogit}
+% ==============================================================================% 
+
+\begin{table}[H] 
+\centering
+\caption{Multinomial Logit, Child and Adolescent Cohorts, Reggio Emilia} \label{mlogit-chi-ado-RE}
+\begin{adjustbox}{width=\textwidth}
+\begin{threeparttable}
+\input{../../output/mlogit_Reggio_chi-ado_ready.tex}
+\begin{tablenotes}
+\footnotesize\raggedright{Note: This table shows the results from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
+\end{tablenotes}
+\end{threeparttable}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[H] 
+\centering
+\caption{Multinomial Logit, Adult Cohorts, Reggio Emilia} \label{mlogit-adult-RE}
+\begin{adjustbox}{width=\textwidth}
+\begin{threeparttable}
+\input{../../output/mlogit_Reggio_ready.tex}
+\begin{tablenotes}
+\footnotesize\raggedright{Note: This table shows the results from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
+\end{tablenotes}
+\end{threeparttable}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[H] 
+\centering
+\caption{Multinomial Logit, Child and Adolescent Cohorts, Parma} \label{mlogit-chi-ado-PR}
+\begin{adjustbox}{width=\textwidth}
+\begin{threeparttable}
+\input{../../output/mlogit_Parma_chi-ado_ready.tex}
+\begin{tablenotes}
+\footnotesize\raggedright{Note: This table shows the results from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
+\end{tablenotes}
+\end{threeparttable}
+\end{adjustbox}
+\end{table}
+
+\begin{table}[H] 
+\centering
+\caption{Multinomial Logit, Adult Cohorts, Parma} \label{mlogit-adult-PR}
+\begin{threeparttable}
+\input{../../output/mlogit_Parma_ready.tex}
+\begin{tablenotes}
+\footnotesize\raggedright{Note: This table shows the results from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+\begin{table}[H] 
+\centering
+\caption{Multinomial Logit, Child and Adolescent Cohorts, Padova} \label{mlogit-chi-ado-PD}
+\begin{adjustbox}{width=\textwidth}
+\begin{threeparttable}
+\input{../../output/mlogit_Padova_chi-ado_ready.tex}
+\begin{tablenotes}
+\footnotesize\raggedright{Note: This table shows the results from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
+\end{tablenotes}
+\end{threeparttable}
+\end{adjustbox}
+\end{table}
 
 
-
+\begin{table}[H] 
+\centering
+\caption{Multinomial Logit, Adult Cohorts, Padova} \label{mlogit-adult-PD}
+\begin{threeparttable}
+\input{../../output/mlogit_Padova_ready.tex}
+\begin{tablenotes}
+\footnotesize\raggedright{Note: This table shows the results from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
