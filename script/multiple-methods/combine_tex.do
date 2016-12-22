@@ -24,50 +24,55 @@ include "${here}/../macros"
 * Set Macros *
 * ---------- *
 global cohort					child adol adult30 adult40
-global groupchild				Other None Stat Reli
-global groupadol				Other None Stat Reli
-global groupadult30		   		Other None Stat Reli
-global groupadult40				Other Stat Reli				
+global groupchild				Other Stat Reli
+global groupadol				Other 
+global groupadult30		   		Other /*None Stat Reli*/
+global groupadult40				Other /*Stat Reli*/				
 	
 
 global reglistchild				NoneIt BICIt FullIt DidPmIt DidPvIt   
 global aipwlistchild			AIPWIt  
 global psmlistchild				PSMIt
-global fulllistchild			None BIC Full AIPW PSM DidPm DidPv  // order should be same as fulllistchildlp
+global fulllistchild			None BIC Full PSM AIPW DidPm DidPv  // order should be same as fulllistchildlp
 global reglistchildlp			noneit bicit fullit didpmit didpvit   
 global aipwlistchildlp			aipwit 
 global psmlistchildlp			psmit
 local aipwit_n					bicit
-global fulllistchildlp			noneit bicit fullit aipwit psmit didpmit didpvit
+global fulllistchildlp			noneit bicit fullit psmit aipwit didpmit didpvit
 global childoutcome				$child_outcome_M
 
 
 global reglistadol				None BIC Full DidPm DidPv 
 global aipwlistadol				AIPW
-global aipwlistadol				AIPW
-global fulllistadol				None Bic Full AIPW DidPm DidPv  // order should be same as fulllistadollp
+global psmlistadol				PSM
+global fulllistadol				None Bic Full PSM AIPW DidPm DidPv  // order should be same as fulllistadollp
 global reglistadollp			none bic full didpm didpv   
 global aipwlistadollp			aipw 
+global psmlistadollp			psm 
 local aipw_n					bic
-global fulllistadollp			none bic full aipw didpm didpv 
+global fulllistadollp			none bic full psm aipw didpm didpv 
 global adoloutcome				$adol_outcome_M
 
 global reglistadult30			None30 BIC30 Full30 DidPm30 DidPv30 
-global aipwlistadult30			AIPW30 
-global fulllistadult30			None BIC Full AIPW DidPm DidPv   // order should be same as fulllistadultlp
+global aipwlistadult30			AIPW30
+global psmlistadult30			PSM30
+global fulllistadult30			None BIC Full PSM AIPW DidPm DidPv   // order should be same as fulllistadultlp
 global reglistadult30lp			none30 bic30 full30 didpm30 didpv30  
-global aipwlistadult30lp		aipw30 
+global aipwlistadult30lp		aipw30
+global psmlistadult30lp			psm30 
 local aipw30_n					bic30
-global fulllistadult30lp		none30 bic30 full30 aipw30 didpm30 didpv30 
+global fulllistadult30lp		none30 bic30 full30 psm30 aipw30 didpm30 didpv30 
 global adult30outcome			$adult_outcome_M
 
 global reglistadult40			None40 BIC40 Full40 
 global aipwlistadult40			AIPW40 
-global fulllistadult40			None BIC Full AIPW  // order should be same as fulllistadultlp
+global psmlistadult40			PSM40
+global fulllistadult40			None BIC Full PSM AIPW  // order should be same as fulllistadultlp
 global reglistadult40lp			none40 bic40 full40
 global aipwlistadult40lp		aipw40 
+global psmlistadult40lp			psm40 
 local aipw40_n					bic40
-global fulllistadult40lp		none40 bic40 full40 aipw40
+global fulllistadult40lp		none40 bic40 full40 psm40 aipw40
 global adult40outcome			$adult_outcome_M
 
 
@@ -90,12 +95,20 @@ foreach coh in $cohort {
 		
 		drop _merge
 		
+		tempfile reg_`coh'_`gr'
+		save "`reg_`coh'_`gr''"
+		
+		import delimited using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/psm_`coh'_M_`gr'.csv", clear
+		merge 1:1 rowname using `reg_`coh'_`gr''
+		
+		drop _merge
+		
 		
 		* ------------------------- *
 		* Determine the Tex Headers *
 		* ------------------------- *
 		* Tabular
-		local count : word count ${reglist`coh'} ${aipwlist`coh'}
+		local count : word count ${reglist`coh'} ${aipwlist`coh'} ${psmlist`coh'}
 		local tabular 	l
 		
 		foreach num of numlist 1/`count' {
@@ -164,7 +177,34 @@ foreach coh in $cohort {
 			}
 			di "aipw done `gr' `coh'"
 		
-		
+			
+			* PSM-based
+			local num : list sizeof global(psmlist`coh')
+			if `num' != 0 {
+			foreach item in ${psmlist`coh'lp} {
+				
+				* Get the values
+				levelsof psm_`item' if rowname == "`outcome'", local(p`item'`outcome')
+				levelsof psm_`item'_se if rowname == "`outcome'", local(se`item'`outcome')
+				levelsof psm_`item'_p if rowname == "`outcome'", local(pv`item'`outcome')
+				levelsof psm_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
+				
+				* Format decimal points
+				local p`item'`outcome' : di %9.2f `p`item'`outcome''
+				local se`item'`outcome' : di %9.2f `se`item'`outcome''
+				local pv`item'`outcome' = `pv`item'`outcome''
+				
+				* Boldify if p-value < 0.15
+				if `pv`item'`outcome'' <= 0.10 {
+					local p`item'`outcome' "\textbf{`p`item'`outcome''}"
+				}
+				
+				* Number of observations in italic
+				local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
+			
+			}
+			di "psm done `gr' `coh'"
+			}
 		
 			* Tex file Point Estimate
 			local `outcome'tex_p 	${`outcome'_lab}
@@ -240,11 +280,13 @@ global groupadult40				None
 
 global reglistadult40			None40 BIC40 Full40 DidPm40 DidPv40
 global aipwlistadult40			AIPW40 
-global fulllistadult40			None BIC Full AIPW DidPm DidPv // order should be same as fulllistadultlp
+global psmlistadult40			PSM40
+global fulllistadult40			None BIC Full PSM AIPW DidPm DidPv // order should be same as fulllistadultlp
 global reglistadult40lp			none40 bic40 full40 didpm40 didpv40
-global aipwlistadult40lp		aipw40 
+global aipwlistadult40lp		aipw40
+global psmlistadult40lp			psm40 
 local aipw40_n					bic40
-global fulllistadult40lp		none40 bic40 full40 aipw40 didpm40 didpv40
+global fulllistadult40lp		none40 bic40 full40 psm40 aipw40 didpm40 didpv40
 global adult40outcome				$adult_outcome_M
 
 
@@ -266,12 +308,20 @@ foreach coh in $cohort {
 		
 		drop _merge
 		
+		tempfile reg_`coh'_`gr'
+		save "`reg_`coh'_`gr''"
+		
+		import delimited using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/psm_`coh'_M_`gr'.csv", clear
+		merge 1:1 rowname using `reg_`coh'_`gr''
+		
+		drop _merge
+		
 		
 		* ------------------------- *
 		* Determine the Tex Headers *
 		* ------------------------- *
 		* Tabular
-		local count : word count ${reglist`coh'} ${aipwlist`coh'}
+		local count : word count ${reglist`coh'} ${aipwlist`coh'} ${psmlist`coh'}
 		local tabular 	l
 		
 		foreach num of numlist 1/`count' {
@@ -340,6 +390,31 @@ foreach coh in $cohort {
 			}
 			di "aipw done `gr' `coh'"
 		
+		
+			* PSM-based
+			foreach item in ${psmlist`coh'lp} {
+				
+				* Get the values
+				levelsof psm_`item' if rowname == "`outcome'", local(p`item'`outcome')
+				levelsof psm_`item'_se if rowname == "`outcome'", local(se`item'`outcome')
+				levelsof psm_`item'_p if rowname == "`outcome'", local(pv`item'`outcome')
+				levelsof psm_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
+				
+				* Format decimal points
+				local p`item'`outcome' : di %9.2f `p`item'`outcome''
+				local se`item'`outcome' : di %9.2f `se`item'`outcome''
+				local pv`item'`outcome' = `pv`item'`outcome''
+				
+				* Boldify if p-value < 0.15
+				if `pv`item'`outcome'' <= 0.10 {
+					local p`item'`outcome' "\textbf{`p`item'`outcome''}"
+				}
+				
+				* Number of observations in italic
+				local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
+			
+			}
+			di "psm done `gr' `coh'"
 		
 		
 			* Tex file Point Estimate

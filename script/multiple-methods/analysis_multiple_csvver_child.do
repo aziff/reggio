@@ -95,7 +95,7 @@ preserve
 keep if (Cohort == 1) | (Cohort == 2) 
 
 local stype_switch = 1
-foreach stype in Other Stat Reli {
+foreach stype in Other /*Stat Reli*/ {
 	
 	* Set necessary global variables
 	global X					maternaMuni
@@ -136,7 +136,7 @@ foreach stype in Other Stat Reli {
 	global ifconditionDidPvIt	(Reggio == 1 | Padova == 1)    & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionAIPWIt 	(Reggio == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	
-	foreach type in  M /*CN S H B*/ {
+	foreach type in  M CN S H B {
 
 		* ----------------------- *
 		* For Regression Analysis *
