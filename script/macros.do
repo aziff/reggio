@@ -97,7 +97,7 @@ global adol_outcome_N	          		pos_childSDQ_score pos_childSDQPsoc_score pos_
 global adol_outcome_S 					Friends childinvTalkOut childinvTalkSchool
 								 
 global adol_outcome_H            		BMI_obese BMI_overweight childHealthPerc childSickDays ///
-										RiskSuspended Cig 
+										RiskSuspended 
 								 
 global adol_outcome_B           		difficultiesInterest difficultiesSit dropoutSchool likeSchool_ado_pos MigrTaste Trust sport 
 								 
