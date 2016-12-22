@@ -32,15 +32,18 @@ global groupadult40				Other Stat Reli
 
 global reglistchild				NoneIt BICIt FullIt DidPmIt DidPvIt   
 global aipwlistchild			AIPWIt  
-global fulllistchild			None BIC Full AIPW DidPm DidPv  // order should be same as fulllistchildlp
+global psmlistchild				PSMIt
+global fulllistchild			None BIC Full AIPW PSM DidPm DidPv  // order should be same as fulllistchildlp
 global reglistchildlp			noneit bicit fullit didpmit didpvit   
 global aipwlistchildlp			aipwit 
+global psmlistchildlp			psmit
 local aipwit_n					bicit
-global fulllistchildlp			noneit bicit fullit aipwit didpmit didpvit
+global fulllistchildlp			noneit bicit fullit aipwit psmit didpmit didpvit
 global childoutcome				$child_outcome_M
 
 
 global reglistadol				None BIC Full DidPm DidPv 
+global aipwlistadol				AIPW
 global aipwlistadol				AIPW
 global fulllistadol				None Bic Full AIPW DidPm DidPv  // order should be same as fulllistadollp
 global reglistadollp			none bic full didpm didpv   
