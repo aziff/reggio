@@ -1,0 +1,74 @@
+/* ---------------------------------------------------------------------------- *
+* Programming a function for the PSM for Reggio analysis (A more general version)
+* Author: Jessica Yu Kyung Koh
+* Edited: 12/22/2016
+
+* Note: The purpose of this function is to generate csv file that contains
+        point estimates, standard errors, p-values, and # of observations for
+		different methodology. Since some methods we use are not regression 
+		analysis, we cannot use commands like "estout" or "esttab". 
+		
+		The csv files created will be merged in other do files to produce
+		presentable tables that combine methodologies. 
+* ---------------------------------------------------------------------------- */
+
+
+capture program drop psmanalysis
+capture program define psmanalysis
+
+version 13
+syntax, stype(string) type(string) psmlist(string) cohort(string)
+
+	
+	* ------------------------------------- *
+	* For Regression (OLS and Diff-in-Diff) *
+	* ------------------------------------- *
+
+	***** Determine if headers need to be written in output (first observation in each category)
+	local header_switch header
+
+	***** Loop through the outcomes in a category and store OLS and diff-in-diff results for each age group
+	foreach var in ${`cohort'_outcome_`type'} {
+		
+		local matitems	
+		local matnames
+	
+		local switch = 1
+		foreach comp in ${psmlist} {
+			sum `var' if ${ifcondition`comp'}
+			if r(N) > 0 {
+			
+				di "variable: `var'"
+				* Regress
+				teffects psmatch (`var') (${X`comp'} ${controls`comp'}) if ${ifcondition`comp'}
+				di "Regression specification: teffects psmatch `var' ${X`comp'} ${controls`comp'} if ${ifcondition`comp'}" 
+				
+				* Save key results to locals
+				mat r = r(table)
+				local psm_`comp' 	= 	r[1,1]
+				local psm_`comp'_se = 	r[2,1]
+				local psm_`comp'_p	=	r[4,1]
+				local psm_`comp'_N	= 	e(N)
+				
+				* Add to the matitems and matnames locals
+				if `switch' == 1 {
+					local matitems `matitems' `psm_`comp'', `psm_`comp'_se', `psm_`comp'_p', `psm_`comp'_N' 
+				}
+				if `switch' == 0 {
+					local matitems `matitems', `psm_`comp'', `psm_`comp'_se', `psm_`comp'_p', `psm_`comp'_N'  
+				}
+				
+				local matnames `matnames' psm_`comp' psm_`comp'_se psm_`comp'_p psm_`comp'_N
+				
+				local switch = 0
+			}
+		}	
+	
+		mat psmresult = [`matitems']
+		mat colname psmresult = `matnames'
+		
+		writematrix, output(psm_`type'_`stype') rowname("`var'") matrix(psmresult) `header_switch'
+		local header_switch 
+	}
+	
+end
