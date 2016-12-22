@@ -1,7 +1,7 @@
 * --------------------------------------------------------------------------- *
 * Incorporating new school assignment information by Sylvi and Linor
 * Author: Jessica Yu Kyung Koh
-* Date:   12/16/2016
+* Date:   12/22/2016
 * --------------------------------------------------------------------------- *
 
 * Set macro
@@ -156,49 +156,123 @@ merge 1:1 intnr using "${data_reggio}/Reggio_prepared"
 drop if _merge == 1
 
 order intnr City Cohort maternaType maternaType_manualFull_Linor asiloType asiloType_manualFull_Linor materna_nameManual_Linor maternaname_manual asilo_nameManual_Linor asiloname_manual
-ddddd
-* -------------------------------------- *
-* Do the replacement based on new column *
-* -------------------------------------- *
-label var maternaType_manualFull_Linor 	"Preschools reassigned by Linor. If empty, no change"
-label var asiloType_manualFull_Linor		"Aslio Schools reassigned by Linor. If empty, no change"
 
-* I need to reconstruct maternaType later
+* Generate no school info variable
+generate No_schinfo = 0
+replace No_schinfo = 1 if _merge == 2
+lab var No_schinfo "No school info for this individual"
 
-replace maternaMuni = 1 if maternaType_manualFull_Linor == "municipal"
-replace maternaAffi = 1 if maternaType_manualFull_Linor == "municipal or municipal affiliated" | maternaType_manualFull_Linor == "municipal-affiliated" | maternaType_manualFull_Linor == "municipal-affiliated (nido-scuola)"
-replace maternaStat = 1 if maternaType_manualFull_Linor == "state" | maternaType_manualFull_Linor == "state (was municipal until 1990)"
-replace maternaReli = 1 if maternaType_manualFull_Linor == "Not-Reggio, province, Religious-fism" | maternaType_manualFull_Linor == "Religious-fism"
+drop _merge
 
-generate maternaAuto = 0
-replace maternaAuto = 1 if maternaType_manualFull_Linor == "autogestito" // Not defined
 
-replace maternaType = 1 if maternaMuni == 1
-replace maternaType = 2 if maternaStat == 1
-replace maternaType = 3 if maternaReli == 1
-replace maternaType = 4 if maternaPriv == 1
-replace maternaType = 5 if maternaAffi == 1
-replace maternaType = 6 if maternaAuto == 1
+
+
+
+* --------------------------------------- *
+* Materna replacement based on new column *
+* --------------------------------------- *
+label var maternaType_manualFull_Linor 		"Preschool reassigned by Linor."
+label var asiloType_manualFull_Linor		"Aslio School reassigned by Linor."
+label var materna_nameManual_Linor			"Name of preschool reassigned by Linor."
+label var asilo_nameManual_Linor			"Name of aslio School reassigned by Linor."
+
+			
+replace Reggio = 1 if maternaComment =="Living in Parma, attended school in Reggio" & maternaType == 1
+
+label var Reggio "Living in Reggio AND attended preschool in Reggio"
+label var Parma "Living in Parma AND attended preschool in Reggio"
+label var Padova "Living in Padova AND attended preschool in Reggio"
+
+* Replace maternaType to Linor's new version
+replace maternaType = 1 if maternaType_manualFull_Linor == "Municipal" | maternaType_manualFull_Linor == "Not Parma, province, municipal" | ///
+							maternaType_manualFull_Linor == "municipal" | maternaType_manualFull_Linor == "municipal until 1990" | ///
+							maternaType_manualFull_Linor == "not-reggio, province, municipal-affiliated (NOT REGGIO CHILDREN)" 
+						// maternaMuni == 1
+						
+replace maternaType = 2 if maternaType_manualFull_Linor == "Not Parma, outside, Bologna, state" | maternaType_manualFull_Linor == "Not Parma, province, state" | /// 
+							maternaType_manualFull_Linor == "State" | maternaType_manualFull_Linor == "state" | maternaType_manualFull_Linor == "state (was municipal until 1990)"
+							// maternaStat == 1
+							
+replace maternaType = 3 if maternaType_manualFull_Linor == "Not Parma, province, Religious" | maternaType_manualFull_Linor == "Not-Reggio, province, Religious-fism" | ///
+							maternaType_manualFull_Linor == "Religious" | maternaType_manualFull_Linor == "Religious, not-Padova, province" | ///
+							maternaType_manualFull_Linor == "Religious-affiliated" | maternaType_manualFull_Linor == "Religious-fism" | ///
+							maternaType_manualFull_Linor == "Religious-fism-affiliated" | maternaType_manualFull_Linor == "not Parma, outside, Religious" | ///
+							maternaType_manualFull_Linor == "not-reggio, abroad, Religious" | maternaType_manualFull_Linor == "not-reggio, province, Religious"
+							// maternaReli == 1
+
+replace maternaType = 4 if maternaType_manualFull_Linor == "Not Parma, province, private" | maternaType_manualFull_Linor == "Private" | ///
+							maternaType_manualFull_Linor == "private" | maternaType_manualFull_Linor == "private, not-Padova, Abroad" | ///
+							maternaType_manualFull_Linor == "private-affiliated" // maternaPriv == 1
+
+replace maternaType = 5 if maternaType_manualFull_Linor == "municipal or municipal affiliated" | maternaType_manualFull_Linor == "municipal-affiliated (was municipal)" | ///
+							maternaType_manualFull_Linor == "municipal-affiliated" | maternaType_manualFull_Linor == "municipal-affiliated-SPES" | ///
+							maternaType_manualFull_Linor == "municipal-parmainfanzia" | maternaType_manualFull_Linor == "not-reggio, province, municipal-affiliated"
+							// maternaAffi == 1
+
+replace maternaType = 6 if maternaType_manualFull_Linor == "? Unclear" | maternaType_manualFull_Linor == "? state/autogestito?" | ///
+							maternaType_manualFull_Linor == "Not Parma, abroad, state (?)" | maternaType_manualFull_Linor == "autogestito" | ///
+							maternaType_manualFull_Linor == "autogestito UDI" | maternaType_manualFull_Linor == "autogestivo" | ///
+							maternaType_manualFull_Linor == "not-reggio, abroad, state (?)"  
+							// maternaAuto == 1
 
 lab define Type_val 0 "No Preschool" 1 "Municipal" 2 "State" 3 "Religious" 4 "Private" 5 "Municipal-Affiliated" 6 "Other"
 label values maternaType Type_val
 
+
+replace maternaMuni = 1 if maternaType == 1
+replace maternaAffi = 1 if maternaType == 5   
+replace maternaStat = 1 if maternaType == 2
+replace maternaReli = 1 if maternaType == 3
+replace maternaPriv = 1 if maternaType == 4
+
+generate maternaAuto = 0
+replace maternaAuto = 1 if maternaType == 6 // Not defined
+
+
+
+
+* --------------------------------------------------------------------------------------- *
+* Turn City switch off if the individual did not go to preschool in the city of residence *
+* --------------------------------------------------------------------------------------- *
+replace Reggio = 0 if maternaType_manualFull_Linor == "Not-Reggio, province, Religious-fism" | maternaType_manualFull_Linor == "not-reggio, abroad, Religious" | ///
+						maternaType_manualFull_Linor == "not-reggio, abroad, state (?)" | maternaType_manualFull_Linor == "not-reggio, province, Religious" | ///
+						maternaType_manualFull_Linor == "not-reggio, province, municipal-affiliated (NOT REGGIO CHILDREN)" | ///
+						maternaType_manualFull_Linor == "not-reggio, province, municipal-affiliated"
+
+replace Parma = 0 if maternaType_manualFull_Linor == "Not Parma, abroad, state (?)" | maternaType_manualFull_Linor == "Not Parma, outside, Bologna, state" | ///
+						maternaType_manualFull_Linor == "Not Parma, province, Religious" | maternaType_manualFull_Linor == "Not Parma, province, municipal" | ///
+						maternaType_manualFull_Linor == "Not Parma, province, private" | maternaType_manualFull_Linor == "Not Parma, province, state" | ///
+						maternaType_manualFull_Linor == "not Parma, outside, Religious"
+						
+replace Padova = 0 if maternaType_manualFull_Linor == "Religious, not-Padova, province" | maternaType_manualFull_Linor == "private, not-Padova, Abroad"					
+			
+
+
+
+
+* ------------------------------------- *
+* Asilo replacement based on new column *
+* ------------------------------------- *
 * To capture individuals who might not have assigned as asilo before
 replace asilo = 1 if asiloType_manualFull_Linor != ""
 
 * Take municipal-affiliated out from municipal (first with the original manualFull column)
-replace asiloType = 5 if asiloType_manualFull == "municipal-affiliated" | asiloType_manualFull == "municipal-affiliated (nido-scuola)" | asiloType_manualFull == "municipal-affiliated (was municipal)" | asiloType_manualFull == "municipal-affiliated-SPES" | asiloType_manualFull == "municipal-parmainfanzia"
 
-* Recode asilo
+replace asiloType = 1 if asiloType_manualFull_Linor == "municipal" | asiloType_manualFull_Linor == "Municipal" 
 replace asiloType = 3 if asiloType_manualFull_Linor == "Not-Reggio, province, Religious-fism" | asiloType_manualFull_Linor == "Religious-fism"
-replace asiloType = 1 if asiloType_manualFull_Linor == "municipal"
-replace asiloType = 6 if asiloType_manualFull_Linor == "autogestito" | asiloType_manualFull_Linor == "unknown"
-replace asiloType = 5 if asiloType_manualFull_Linor == "municipal or municipal affiliated" | asiloType_manualFull_Linor == "municipal-affiliated"  					   
+replace asiloType = 5 if asiloType_manualFull_Linor == "municipal-affiliated" | asiloType_manualFull_Linor == "municipal-affiliated (nido-scuola)" | asiloType_manualFull_Linor == "municipal-affiliated (was municipal)" |  ///
+							asiloType_manualFull_Linor == "municipal-affiliated-SPES" | asiloType_manualFull_Linor == "municipal-parmainfanzia" | ///
+							asiloType_manualFull_Linor == "municipal or municipal affiliated" 
+replace asiloType = 6 if asiloType_manualFull_Linor == "autogestito" | asiloType_manualFull_Linor == "unknown" | asiloType_manualFull_Linor == "? Unclear" | ///
+							asiloType_manualFull_Linor == "? state/autogestito?" | asiloType_manualFull_Linor == "Educatori-Domiciliari" | asiloType_manualFull_Linor == "spazio-bimbi"
+
+ 					   
 
 label values asiloType Type_val
 
-capture drop maternaType_manualFull_verL asiloType_manualFull_verL
-rename maternaType_manualFull_Linor maternaType_manualFull_verL
-rename asiloType_manualFull_Linor asiloType_manualFull_verL
+rename maternaType_manualFull_Linor maternaType_manualFull_revised1
+rename asiloType_manualFull_Linor asiloType_manualFull_revised1
+rename materna_nameManual_Linor maternaname_manualFull_revised1
+rename asilo_nameManual_Linor asiloname_manualFull_revised1
 
 save "${data_reggio}/Reggio_reassigned", replace
