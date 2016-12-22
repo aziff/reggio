@@ -64,7 +64,7 @@ foreach cat in Administrative Pedagogical {
 	cd $output
 	# delimit ;
 		graph bar y1960 y1970 y1980 y1990 y2000, 
-			over(type, label(labsize(small)) relabel(1 `""Catholic-" "Private""')) 
+			over(type, label(labsize(small)) relabel(1 `"Religious"')) 
 			over(city, gap(*2.8)) 
 			nofill
 			graphregion(color(white)) ylabel(0 5 10 15, nogrid)
