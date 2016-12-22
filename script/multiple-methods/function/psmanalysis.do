@@ -35,7 +35,7 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 	
 		local switch = 1
 		foreach comp in ${psmlist} {
-			di "here???? before teffect? `var'"
+			teffects psmatch (`var') (${X`comp'} ${controls`comp'}) if ${ifcondition`comp'}
 			capture teffects psmatch (`var') (${X`comp'} ${controls`comp'}) if ${ifcondition`comp'}
 			if !_rc {
 			
@@ -51,7 +51,7 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 				local psm_`comp'_se = 	r[2,1]
 				local psm_`comp'_p	=	r[4,1]
 				local psm_`comp'_N	= 	e(N)
-				}
+			}
 			else {
 			
 				local psm_`comp' 	= 	.
@@ -60,18 +60,19 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 				local psm_`comp'_N	= 	.
 				
 			}
-				* Add to the matitems and matnames locals
-				if `switch' == 1 {
-					local matitems `matitems' `psm_`comp'', `psm_`comp'_se', `psm_`comp'_p', `psm_`comp'_N' 
-				}
-				if `switch' == 0 {
-					local matitems `matitems', `psm_`comp'', `psm_`comp'_se', `psm_`comp'_p', `psm_`comp'_N'  
-				}
-				
-				local matnames `matnames' psm_`comp' psm_`comp'_se psm_`comp'_p psm_`comp'_N
-				
-				local switch = 0
 			
+			* Add to the matitems and matnames locals
+			if `switch' == 1 {
+				local matitems `matitems' `psm_`comp'', `psm_`comp'_se', `psm_`comp'_p', `psm_`comp'_N' 
+			}
+			if `switch' == 0 {
+				local matitems `matitems', `psm_`comp'', `psm_`comp'_se', `psm_`comp'_p', `psm_`comp'_N'  
+			}
+			
+			local matnames `matnames' psm_`comp' psm_`comp'_se psm_`comp'_p psm_`comp'_N
+			
+			local switch = 0
+		
 			
 		}	
 		mat psmresult = [`matitems']
