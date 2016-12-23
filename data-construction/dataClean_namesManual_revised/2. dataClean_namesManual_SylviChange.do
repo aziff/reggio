@@ -201,5 +201,12 @@ foreach type in None Muni Affi Stat Reli Priv Yes {
 	}
 }
 
+** Create interaction terms between school type and city (except Reggio and maternaMuni)
+foreach type in None Muni Affi Stat Reli Priv Other {
+	foreach city in Parma Padova Reggio {
+		capture drop variable xa`type'`city'
+		generate xa`type'`city' = asilo`type' * `city'
+	}
+}
 
 save "${data_reggio}/Reggio_reassigned", replace
