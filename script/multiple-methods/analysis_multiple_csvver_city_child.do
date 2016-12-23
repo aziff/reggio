@@ -33,6 +33,7 @@ use "${data_reggio}/Reggio_reassigned"
 include "${here}/../macros" 
 include "${here}/function/reganalysis"
 include "${here}/function/aipwanalysis"
+include "${here}/function/psmanalysis"
 include "${here}/function/writematrix"
 include "${here}/../ipw/function/aipw"
 
@@ -40,21 +41,6 @@ include "${here}/../ipw/function/aipw"
 * ---------------------------------------------------------------------------- *
 * 								Preparation 								   *
 * ---------------------------------------------------------------------------- *
-** Gender condition
-local p_con	
-local m_con		& Male == 1
-local f_con		& Male == 0
-
-** Column names for final table
-global maternaMuni30_c			Muni_Age30
-global maternaMuni40_c			Muni_Age40
-global xmMuniAdult30did_c		DiD
-global maternaMuniParma30_c		Parma30
-global maternaMuniParma40_c		Parma40
-global maternaMuniPadova30_c	Padova30
-global maternaMuniPadova40_c	Padova40
-
-
 ** Preparation for IPW
 drop if (ReggioAsilo == . | ReggioMaterna == .)
 
@@ -83,8 +69,6 @@ local Adult30_num 		= 4
 local Adult40_num 		= 5
 local Adult50_num 		= 6
 
-* Drop questionnable interviewer
-drop if internr == 171 | internr == 172 | internr == 4018 | internr == 4073
 
 
 * ---------------------------------------------------------------------------- *

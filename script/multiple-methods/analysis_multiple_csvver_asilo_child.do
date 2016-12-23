@@ -33,6 +33,7 @@ use "${data_reggio}/Reggio_reassigned"
 include "${here}/../macros" 
 include "${here}/function/reganalysis"
 include "${here}/function/aipwanalysis"
+include "${here}/function/psmanalysis"
 include "${here}/function/writematrix"
 include "${here}/../ipw/function/aipw"
 
@@ -40,21 +41,6 @@ include "${here}/../ipw/function/aipw"
 * ---------------------------------------------------------------------------- *
 * 								Preparation 								   *
 * ---------------------------------------------------------------------------- *
-** Gender condition
-local p_con	
-local m_con		& Male == 1
-local f_con		& Male == 0
-
-** Column names for final table
-global maternaMuni30_c			Muni_Age30
-global maternaMuni40_c			Muni_Age40
-global xmMuniAdult30did_c		DiD
-global maternaMuniParma30_c		Parma30
-global maternaMuniParma40_c		Parma40
-global maternaMuniPadova30_c	Padova30
-global maternaMuniPadova40_c	Padova40
-
-
 ** Preparation for IPW
 drop if (ReggioAsilo == . | ReggioMaterna == .)
 
@@ -76,14 +62,6 @@ local adult_cohorts		Adult30 Adult40 Adult50
 local nido_var			ReggioAsilo
 local materna_var		ReggioMaterna
 
-local Child_num 		= 1
-local Migrant_num 		= 2
-local Adolescent_num 	= 3
-local Adult30_num 		= 4
-local Adult40_num 		= 5
-local Adult50_num 		= 6
-
-
 
 
 * ---------------------------------------------------------------------------- *
@@ -98,17 +76,15 @@ foreach stype in Other None {
 	
 	* Set necessary global variables
 	global X					asiloMuni
-	global reglist				NoneIt BICIt FullIt DidPmIt DidPvIt  // It => Italians, Mg => Migrants
+	global reglist				NoneIt BICIt FullIt // It => Italians, Mg => Migrants
+	global psmlist				PSMIt
 	global aipwlist				AIPWIt 
 
 	global XNoneIt				asiloMuni	
 	global XBICIt				asiloMuni		
 	global XFullIt				asiloMuni	
+	global XPSMIt				asiloMuni
 
-
-	global keepNoneIt			asiloMuni
-	global keepBICIt			asiloMuni
-	global keepFullIt			asiloMuni
 
 	global controlsNoneIt
 	global controlsNone
@@ -116,17 +92,19 @@ foreach stype in Other None {
 	global controlsBIC			${bic_child_baseline_vars}
 	global controlsFullIt		${child_baseline_vars}
 	global controlsFull			${child_baseline_vars}
+	global controlsPSMIt		${bic_child_baseline_vars}
 	global controlsDidPmIt		${bic_child_baseline_vars}
 	global controlsDidPvIt		${bic_child_baseline_vars}
 
 	global ifconditionNoneIt 	(Reggio == 1) & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
 	global ifconditionBICIt		${ifconditionNoneIt}
 	global ifconditionFullIt	${ifconditionNoneIt}
+	global ifconditionPSMIt		${ifconditionNoneIt}
 	global ifconditionDidPmIt	(Reggio == 1 | Parma == 1)    & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
 	global ifconditionDidPvIt	(Reggio == 1 | Padova == 1)    & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
 	global ifconditionAIPWIt 	(Reggio == 1)  & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
 	
-	foreach type in  M /*CN S H B*/ {
+	foreach type in  M  {
 
 		* ----------------------- *
 		* For Regression Analysis *
@@ -140,6 +118,21 @@ foreach stype in Other None {
 	
 		* Close necessary files
 		file close regression_`type'_`stype' 
+		
+		
+		
+		* ----------------------- *
+		* For PSM Analysis 		  *
+		* ----------------------- *
+		* Open necessary files
+		file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/psm_child_`type'_`stype'_asilo.csv", write replace
+
+		* Run Multiple Analysis
+		di "Estimating `type' for Children: PSM Analysis"
+		psmanalysis, stype("`stype'") type("`type'") psmlist("${psmlist}") cohort("child")
+	
+		* Close necessary files
+		file close psm_`type'_`stype'
 		
 		
 		* ----------------- *

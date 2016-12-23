@@ -86,16 +86,12 @@ local Adult50_num 		= 6
 
 
 
-* Drop questionnable interviewer
-drop if internr == 171 | internr == 172 | internr == 4018 | internr == 4073
-
-
 * ---------------------------------------------------------------------------- *
-* 					Reggio Muni vs. None:	Adult							   *
+* 					Reggio Muni vs. None:	Adult 30							   *
 * ---------------------------------------------------------------------------- *
 ** Keep only the adult cohorts
 preserve
-keep if (Cohort == 4) | (Cohort == 5) | (Cohort == 6)
+keep if (Cohort == 4)
 drop if asilo == 1 // dropping those who went to infant-toddler centers
 
 local stype_switch = 1
@@ -104,60 +100,39 @@ foreach city in Parma Padova {
 		
 		* Set necessary global variables
 		global X					maternaMuni
-		global reglist				None30 BIC30 Full30 None40 BIC40 Full40 // It => Italians, Mg => Migrants
-		global aipwlist				AIPW30 AIPW40 
+		global reglist				None30 BIC30 Full30  // It => Italians, Mg => Migrants
+		global aipwlist				AIPW30 
+		global psmlist				PSM30
 
 		global XNone30				maternaYes		
 		global XBIC30				maternaYes		
-		global XFull30				maternaYes		
-		global XDidPm30				maternaMuni	Reggio xmMuniReggio	
-		global XDidPv30				maternaMuni	Reggio xmMuniReggio	
+		global XFull30				maternaYes	
+		global XPSM30				maternaYes	
+		global XAIPW30				maternaYes	
 
-		global XNone40				maternaYes	
-		global XBIC40				maternaYes		
-		global XFull40				maternaYes	
-
-		global keepNone30			maternaYes
-		global keepBIC30			maternaYes
-		global keepFull30			maternaYes
-		global keepIPW30			ReggioMaterna
-		global keepNone40			maternaYes
-		global keepBIC40			maternaYes
-		global keepFull40			maternaYes
-
-		global keepDidPm30			xmMuniReggio
-		global keepDidPv30			xmMuniReggio
 
 		global controlsNone30
-		global controlsNone40
 		global controlsBIC30		${bic_adult_baseline_vars}
-		global controlsBIC40		${bic_adult_baseline_vars}
 		global controlsFull30		${adult_baseline_vars}
-		global controlsFull40		${adult_baseline_vars}
-		global controlsDidPm30		${bic_adult_baseline_vars}
-		global controlsDidPv30		${bic_adult_baseline_vars}
-
+		global controlsPSM30		${bic_adult_baseline_vars}
 
 		global ifconditionNone30 	(`city' == 1) & (Cohort_Adult30 == 1) 
 		global ifconditionBIC30		${ifconditionNone30} 
 		global ifconditionFull30	${ifconditionNone30}
-		global ifconditionNone40 	(`city' == 1) & (Cohort_Adult40 == 1) 
-		global ifconditionBIC40		${ifconditionNone40}
-		global ifconditionFull40	${ifconditionNone40}
+		global ifconditionPSM30		${ifconditionNone30}
 		global ifconditionAIPW30 	(`city' == 1) & (Cohort_Adult30 == 1)
-		global ifconditionAIPW40	(`city'== 1) & (Cohort_Adult40 == 1)  
+
+
 		
 		
-		
-		
-		foreach type in  M /*E W L H N S*/ {
+		foreach type in  M {
 
 			* ----------------------- *
 			* For Regression Analysis *
 			* ----------------------- *
 			* Open necessary files
 			cap file close regression_`type'_`stype'
-			file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_adult_`type'_`stype'_`city'.csv", write replace
+			file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_adult30_`type'_`stype'_`city'.csv", write replace
 
 			* Run Multiple Analysis
 			di "Estimating `type' for Children: Regression Analysis"
@@ -167,21 +142,140 @@ foreach city in Parma Padova {
 			file close regression_`type'_`stype' 
 			
 			
+			
+			* ----------------------- *
+			* For PSM Analysis 		  *
+			* ----------------------- *
+			* Open necessary files
+			cap file close psm_`type'_`stype'
+			file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/psm_adult30_`type'_`stype'_`city'.csv", write replace
+
+			* Run Multiple Analysis
+			di "Estimating `type' for Adult: PSM Analysis"
+			psmanalysis, stype("`stype'") type("`type'") psmlist("${psmlist}") cohort("adult")
+		
+			* Close necessary files
+			file close psm_`type'_`stype'
+				
+				
+				
 			* ----------------- *
 			* For AIPW Analysis *
 			* ----------------- *
+			* Open necessary files
+			cap file close aipw_`type'_`stype'
+			file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adult30_`type'_`stype'_`city'.csv", write replace
 
+			* Run Multiple Analysis
+			di "Estimating `type' for Children: AIPW Analysis"
+			aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adult")
 			
-				* Open necessary files
-				cap file close aipw_`type'_`stype'
-				file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adult_`type'_`stype'_`city'.csv", write replace
+			* Close necessary files
+			file close aipw_`type'_`stype'	
+			
+			
+		}
+		
+		local stype_switch = 0
+	}
+}
+restore
 
-				* Run Multiple Analysis
-				di "Estimating `type' for Children: AIPW Analysis"
-				aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adult")
+
+
+
+
+
+
+
+
+
+* ---------------------------------------------------------------------------- *
+* 					Reggio Muni vs. None:	Adult 40							   *
+* ---------------------------------------------------------------------------- *
+** Keep only the adult cohorts
+preserve
+keep if (Cohort == 5)
+drop if asilo == 1 // dropping those who went to infant-toddler centers
+
+local stype_switch = 1
+foreach city in Parma Padova {
+	foreach stype in Yes {
+		
+		* Set necessary global variables
+		global X					maternaMuni
+		global reglist				None40 BIC40 Full40  // It => Italians, Mg => Migrants
+		global aipwlist				AIPW40 
+		global psmlist				PSM40
+
+		global XNone40				maternaYes		
+		global XBIC40				maternaYes		
+		global XFull40				maternaYes	
+		global XPSM40				maternaYes	
+		global XAIPW40				maternaYes	
+
+
+		global controlsNone40
+		global controlsBIC430		${bic_adult_baseline_vars}
+		global controlsFull40		${adult_baseline_vars}
+		global controlsPSM40		${bic_adult_baseline_vars}
+
+		global ifconditionNone40 	(`city' == 1) & (Cohort_Adult40 == 1) 
+		global ifconditionBIC40		${ifconditionNone40} 
+		global ifconditionFull40	${ifconditionNone40}
+		global ifconditionPSM40		${ifconditionNone40}
+		global ifconditionAIPW40 	(`city' == 1) & (Cohort_Adult40 == 1)
+
+
+		
+		
+		foreach type in  M {
+
+			* ----------------------- *
+			* For Regression Analysis *
+			* ----------------------- *
+			* Open necessary files
+			cap file close regression_`type'_`stype'
+			file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_adult40_`type'_`stype'_`city'.csv", write replace
+
+			* Run Multiple Analysis
+			di "Estimating `type' for Children: Regression Analysis"
+			reganalysis, stype("`stype'") type("`type'") reglist("${reglist}") cohort("adult")
+		
+			* Close necessary files
+			file close regression_`type'_`stype' 
+			
+			
+			
+			* ----------------------- *
+			* For PSM Analysis 		  *
+			* ----------------------- *
+			* Open necessary files
+			cap file close psm_`type'_`stype'
+			file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/psm_adult40_`type'_`stype'_`city'.csv", write replace
+
+			* Run Multiple Analysis
+			di "Estimating `type' for Adult: PSM Analysis"
+			psmanalysis, stype("`stype'") type("`type'") psmlist("${psmlist}") cohort("adult")
+		
+			* Close necessary files
+			file close psm_`type'_`stype'
 				
-				* Close necessary files
-				file close aipw_`type'_`stype'	
+				
+				
+			* ----------------- *
+			* For AIPW Analysis *
+			* ----------------- *
+			* Open necessary files
+			cap file close aipw_`type'_`stype'
+			file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adult40_`type'_`stype'_`city'.csv", write replace
+
+			* Run Multiple Analysis
+			di "Estimating `type' for Children: AIPW Analysis"
+			aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adult")
+			
+			* Close necessary files
+			file close aipw_`type'_`stype'	
 			
 			
 		}

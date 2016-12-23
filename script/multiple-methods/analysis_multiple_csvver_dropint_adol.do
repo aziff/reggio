@@ -88,6 +88,8 @@ local Adult50_num 		= 6
 * Drop questionnable interviewer
 drop if internr == 170 | internr == 171 | internr == 172 | internr == 4018 | internr == 4073
 drop if flagType_Linor == "1"
+
+
 * ---------------------------------------------------------------------------- *
 * 					Reggio Muni vs. None:	Adolescent						   *
 * ---------------------------------------------------------------------------- *
@@ -96,41 +98,39 @@ preserve
 keep if (Cohort == 3)
 
 local stype_switch = 1
-foreach stype in  Other None {
+foreach stype in Other /*Reli*/ {
 	
 	* Set necessary global variables
 	global X					maternaMuni
 	global reglist				None BIC Full DidPm DidPv // It => Italians, Mg => Migrants
 	global aipwlist				AIPW
+	global psmlist				PSM
 
 	global XNone				maternaMuni		
 	global XBIC					maternaMuni		
 	global XFull				maternaMuni		
-	global XDidPm				maternaMuni	Reggio xmMuniReggio	
-	global XDidPv				maternaMuni	Reggio xmMuniReggio	
-
-	global keepNone				maternaMuni
-	global keepBIC				maternaMuni
-	global keepFull				maternaMuni
-	global keepDidPm			xmMuniReggio
-	global keepDidPv			xmMuniReggio
+	global XPSM					maternaMuni
+	global XDidPm				xmMuniReggio maternaMuni Reggio 
+	global XDidPv				xmMuniReggio maternaMuni Reggio 
 
 	global controlsNone
 	global controlsBIC			${bic_adol_baseline_vars}
 	global controlsFull			${adol_baseline_vars}
+	global controlsPSM			${bic_adol_baseline_vars}
 	global controlsDidPm		${bic_adol_baseline_vars}
 	global controlsDidPv		${bic_adol_baseline_vars}
 
 	global ifconditionNone 		(Reggio == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionBIC		${ifconditionNone}
 	global ifconditionFull		${ifconditionNone}
+	global ifconditionPSM		${ifconditionNone}
 	global ifconditionDidPm		(Reggio == 1 | Parma == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionDidPv		(Reggio == 1 | Padova == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionAIPW 	    (Reggio == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
 
 	
 	
-	foreach type in  M /*CN S H B*/ {
+	foreach type in  M CN S H B {
 
 		* ----------------------- *
 		* For Regression Analysis *
@@ -147,34 +147,10 @@ foreach stype in  Other None {
 		file close regression_`type'_`stype' 
 		
 		
-		* ----------------- *
-		* For AIPW Analysis *
-		* ----------------- *
-/*
-		
-			* Open necessary files
-			cap file close aipw_`type'_`stype'
-			file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adol_`type'_`stype'_drop.csv", write replace
-
-			* Run Multiple Analysis
-			di "Estimating `type' for Children: AIPW Analysis"
-			aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adol")
-			
-			* Close necessary files
-			file close aipw_`type'_`stype'	*/
-		
-		
 	}
 	
 	local stype_switch = 0
 }
 
 restore
-
-
-
-
-
-
-
 

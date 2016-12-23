@@ -41,21 +41,6 @@ include "${here}/../ipw/function/aipw"
 * ---------------------------------------------------------------------------- *
 * 								Preparation 								   *
 * ---------------------------------------------------------------------------- *
-** Gender condition
-local p_con	
-local m_con		& Male == 1
-local f_con		& Male == 0
-
-** Column names for final table
-global maternaMuni30_c			Muni_Age30
-global maternaMuni40_c			Muni_Age40
-global xmMuniAdult30did_c		DiD
-global maternaMuniParma30_c		Parma30
-global maternaMuniParma40_c		Parma40
-global maternaMuniPadova30_c	Padova30
-global maternaMuniPadova40_c	Padova40
-
-
 ** Preparation for IPW
 drop if (ReggioAsilo == . | ReggioMaterna == .)
 
@@ -76,13 +61,6 @@ local adult_cohorts		Adult30 Adult40 Adult50
 
 local nido_var			ReggioAsilo
 local materna_var		ReggioMaterna
-
-local Child_num 		= 1
-local Migrant_num 		= 2
-local Adolescent_num 	= 3
-local Adult30_num 		= 4
-local Adult40_num 		= 5
-local Adult50_num 		= 6
 
 
 
