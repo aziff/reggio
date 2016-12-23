@@ -23,35 +23,18 @@ include "${here}/../macros"
 * ---------- *
 * Set Macros *
 * ---------- *
-global cohort				child adol adult
+global cohort				adult30 adult40
 global group				Yes /*Stat Reli*/
 
-global reglistchild				NoneIt BICIt FullIt   
-global aipwlistchild			AIPWIt  
-global fulllistchild			NoneIt BICIt FullIt 
-global reglistchildlp			noneit bicit fullit    
-global aipwlistchildlp			aipwit 
-local aipwit_n					bicit
-global fulllistchildlp			noneit bicit fullit 
+global reglistadult30				None30 BIC30 Full30 
+global fulllistadult30				None30 BIC30 Full30 
+global reglistadult30lp				none30 bic30 full30  
+global fulllistadult30lp			none30 bic30 full30 
 
-
-global reglistadol				None BIC Full
-global aipwlistadol				AIPW
-global fulllistadol				None Bic Full
-global reglistadollp			none bic full   
-global aipwlistadollp			aipw 
-local aipw_n					bic
-global fulllistadollp			none bic full
-
-global reglistadult				None30 BIC30 Full30 None40 BIC40 Full40 
-global aipwlistadult			AIPW30 AIPW40
-global fulllistadult			None30 BIC30 Full30 None40 BIC40 Full40
-global reglistadultlp			none30 bic30 full30 none40 bic40 full40 
-global aipwlistadultlp			aipw30 aipw40
-local aipw30_n					bic30
-local aipw40_n					bic40
-global fulllistadultlp			none30 bic30 full30 none40 bic40 full40
-
+global reglistadult40				None40 BIC40 Full40 
+global fulllistadult40				None40 BIC40 Full40 
+global reglistadult40lp				none40 bic40 full40  
+global fulllistadult40lp			none40 bic40 full40 
 
 * ------------------------------------ *
 * Merge and Create Tex for each cohort *
@@ -68,7 +51,7 @@ foreach city in Parma Padova {
 			* Determine the Tex Headers *
 			* ------------------------- *
 			* Tabular
-			local count : word count ${reglist`coh'} ${aipwlist`coh'}
+			local count : word count ${reglist`coh'} 
 			local tabular 	l
 			
 			foreach num of numlist 1/`count' {
