@@ -84,8 +84,8 @@ local Adult40_num 		= 5
 local Adult50_num 		= 6
 
 * Drop questionnable interviewer
-drop if internr == 171 | internr == 172 | internr == 4018 | internr == 4073
-
+drop if internr == 170 | internr == 171 | internr == 172 | internr == 4018 | internr == 4073
+drop if flagType_Linor == "1"
 
 * ---------------------------------------------------------------------------- *
 * 					Reggio Muni vs. None:	Children 						   *
