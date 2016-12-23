@@ -75,7 +75,7 @@ The distribution of individuals who experienced each combination in our data is 
 
 
 \subsection{Estimating Effects of Preschools}
-We adopt multiple approaches to evaluate the effects of the Reggio Approach preschool intervention. In Section~\ref{subsubsection:OLS}, we describe an OLS model that allows us to compare the outcomes of those who attended municipal preschool in Reggio Emilia to those from Reggio Emilia who did not attend municipal preschool. In Section~\ref{subsubsection:DID}, we present a difference-in-differences (DiD) approach that allows us to make cross-city comparisons for those who attended  municipal preschool in each city, while controlling for permanent differences between cities. In Section~\ref{subsubsection:psm}, we describe a propensity score matching model to calculate treatment effects. In Section~\ref{subsubsection:aipw}, we present an AIPW model that adjusts estimated treatment effects to account for potential selection into treatment. Lastly, Section~\ref{subsection:selection} presents a multinomial logit model to test for the presence of selection into treatment.
+We adopt multiple approaches to evaluate the effects of the Reggio Approach preschool intervention. In Section~\ref{subsubsection:OLS}, we describe an OLS model that allows us to compare the outcomes of those who attended municipal preschool in Reggio Emilia to those from Reggio Emilia who did not attend municipal preschool. In Section~\ref{subsubsection:DID}, we present a difference-in-differences (DiD) approach that allows us to make cross-city comparisons for those who attended  municipal preschool in each city, while controlling for permanent differences between cities. In Section~\ref{subsubsection:psm}, we describe a propensity score matching model to calculate treatment effects nonparametrically. In Section~\ref{subsubsection:aipw}, we present an AIPW model that weights individuals by their propensity to attend municipal preschool. Lastly, Section~\ref{subsection:selection} presents a multinomial logit model to test for the presence of selection into treatment.
 
 \subsubsection{Baseline OLS} \label{subsubsection:OLS}
 We perform several within-Reggio Emilia comparisons using a baseline OLS model. We compare individuals from Reggio Emilia who attended a Reggio Approach preschool to those in Reggio Emilia who attended (i) any type of preschool, (ii) no preschool, (iii) state preschool, and (iv) religious preschool. We only present estimates of the first and second comparisons in the main paper. Estimates from the other comparisons are reported in Appendix~\ref{app:comparison-reli-stat}. We exclude the cohort of adults in their 50s because the Reggio Approach was not available at that time.
@@ -100,7 +100,13 @@ Y_i & = \beta_0 + \beta_1 Reggio_i + \beta_2 D_i + \beta_3 Reggio_i * D_i + \bm{
 
 \subsubsection{Propensity Score Matching}  \label{subsubsection:psm}
 
-We estimate propensity score matching model that implements nearest-neighbor matching on an estimated propensity score based on a set of observed baseline characteristics $\boldsymbol{X}_i$. This approach is based on the assumption that adjusting for the propensity score is enough to eliminate all confounding. Formally writen, the average treatment effect is,
+We estimate propensity score matching model that implements nearest-neighbor matching on an estimated propensity score based on a set of observed baseline characteristics $\boldsymbol{X}_i$. This approach is based on the assumption that adjusting for the propensity score is enough to eliminate all confounding. The benefits of propensity score matching over regression is that it is nonparametric and it reduces the dimensionality of matching to a single dimension.
+
+Let $Y_{1,i}$ and $Y_{0,i}$ represent counterfactual outcomes for individual, $i$, where treatment status is fixed to $D_i=1$ and $D_i=0$ respectively. Under this framework, the realized outcome $Y_i$ is summarized by,
+\begin{equation}\label{eq:roy}
+Y_i = (1-D_i)Y_{0,i} + D_iY_{1,i}.
+\end{equation}
+The average treatment effect under the assumption for propensity score matching is written as:
 \begin{equation} \label{eq:ATE-PSM}
 E[Y(1)-Y(0)] = E[E[Y_i|D=1, \hat{\pi(\boldsymbol{X}_i)}] - E[Y_i|D=0, \hat{\pi(\boldsymbol{X}_i)}]].
 \end{equation}
@@ -114,7 +120,7 @@ where $M$ is a fixed number of matches per individual and $\mathcal{J}_M(i)$ is 
 
 \subsubsection{Augmented IPW} \label{subsubsection:aipw}
 
-Although the baseline OLS and DiD models attempt to account for the selection into the Reggio Approach, the regression estimator for ATE may be poorly estimated when the observed values of baseline variables are not similar for the treatment and control groups. We estimate an Augmented Inverse Propensity Weighted (AIPW) estimator in order to account for this. 
+We estimate an Augmented Inverse Propensity Weighted (AIPW) estimator in order to account for the possibility that regression estimator for ATE may be poorly estimated when the observed values of baseline variables are not similar for the treatment and control groups.
 %\citep{Glynn_2010}. 
 
 %To begin, consider the following two treatment statuses,
@@ -126,12 +132,9 @@ Although the baseline OLS and DiD models attempt to account for the selection in
 %\end{cases}
 %\end{equation}
 %~\\
-Let $Y_{1,i}$ and $Y_{0,i}$ represent counterfactual outcomes for individual, $i$, where treatment status is fixed to $D_i=1$ and $D_i=0$ respectively. Under this framework, the realized outcome $Y_i$ is summarized by,
-\begin{equation}\label{eq:roy}
-Y_i = (1-D_i)Y_{0,i} + D_iY_{1,i}.
-\end{equation}
 
-Next, assume that individuals select into treatment status $D_i$ based on a set of observed baseline characteristics $\boldsymbol{X}_i$. Under the assumption of strongly ignorable selection into treatment given $\boldsymbol{X}_i$, and the existence of an estimated propensity score $\hat{\pi({\boldsymbol{X}_i})}$ such that $0<\hat{\pi({\boldsymbol{X}_i})}<1$, we can use standard Inverse Propensity of Treatment Weighting (IPTW) to estimate the average treatment effect $E[Y(1)-Y(0)]$,
+
+We assume that individuals select into treatment status $D_i$ based on a set of observed baseline characteristics $\boldsymbol{X}_i$. Under the assumption of strongly ignorable selection into treatment given $\boldsymbol{X}_i$, and the existence of an estimated propensity score $\hat{\pi({\boldsymbol{X}_i})}$ such that $0<\hat{\pi({\boldsymbol{X}_i})}<1$, we can use standard Inverse Propensity of Treatment Weighting (IPTW) to estimate the average treatment effect $E[Y(1)-Y(0)]$,
 
 \begin{equation}\label{eq:IPW}
 \widehat{E[Y(1)-Y(0)]_{IPW}} = \frac{1}{n} \sum_{i=1}^{n} \left \{\frac{D_i Y_i}{\hat{\pi(\boldsymbol{X}_i)}} - \frac{(1-D_i)Y_i}{1-\hat{\pi(\boldsymbol{X}_i)}}\right \}
