@@ -134,6 +134,61 @@ global adult_outcome_S					MigrTaste Friends MigrFriend volunteer /*invFamMeal*/
 global adult_outcome_R					Faith
 
 
+* Cognitive skills and education
+global adult30_outcome_M					IQ_score IQ_factor highschoolGrad votoMaturita votoMaturita_std MaxEdu_Uni PA_Empl HrsTot mStatus_married_cohab BMI_obese ///
+										BMI_overweight pos_LocusControl pos_Depression votedMunicipal votedRegional
+
+global adult30_outcome_E					IQ_factor votoMaturita  ///
+										highschoolGrad MaxEdu_Uni 
+
+* Employment										
+global adult30_outcome_W					PA_Empl SES_self HrsTot ///
+										Reddito_1 Reddito_2 Reddito_3 Reddito_4 Reddito_5 
+
+* Living status										
+global adult30_outcome_L					mStatus_married_cohab mStatus_div childrenResp all_houseOwn live_parent
+
+* Health									
+global adult30_outcome_H					Maria /*Smoke*/ Cig BMI BMI_obese BMI_overweight goodHealth HCondition9 SickDays ///
+										/*i_RiskFight i_RiskDUI*/ RiskSuspended Drink1Age							
+
+* Noncognitive										
+global adult30_outcome_N					pos_LocusControl pos_Depression_score Stress StressWork ///
+										SatisIncome SatisWork SatisHealth SatisFamily ///
+										optimist pos_reciprocity neg_reciprocity	
+
+* Social										
+global adult30_outcome_S					MigrTaste Friends MigrFriend volunteer /*invFamMeal*/ votedMunicipal votedRegional 
+
+* Cognitive skills and education
+global adult40_outcome_M					IQ_score IQ_factor highschoolGrad votoMaturita votoMaturita_std MaxEdu_Uni PA_Empl HrsTot mStatus_married_cohab BMI_obese ///
+										BMI_overweight pos_LocusControl pos_Depression votedMunicipal votedRegional
+
+global adult40_outcome_E					IQ_factor votoMaturita  ///
+										highschoolGrad MaxEdu_Uni 
+
+* Employment										
+global adult40_outcome_W					PA_Empl SES_self HrsTot ///
+										Reddito_1 Reddito_2 Reddito_3 Reddito_4 Reddito_5 Reddito_6 
+
+* Living status										
+global adult40_outcome_L					mStatus_married_cohab mStatus_div childrenResp all_houseOwn live_parent
+
+* Health									
+global adult40_outcome_H					Maria /*Smoke*/ Cig BMI BMI_obese BMI_overweight goodHealth HCondition9 SickDays ///
+										/*i_RiskFight i_RiskDUI*/ RiskSuspended Drink1Age							
+
+* Noncognitive										
+global adult40_outcome_N					pos_LocusControl pos_Depression_score Stress StressWork ///
+										SatisIncome SatisWork SatisHealth SatisFamily ///
+										optimist pos_reciprocity neg_reciprocity	
+
+* Social										
+global adult40_outcome_S					MigrTaste Friends MigrFriend volunteer /*invFamMeal*/ votedMunicipal votedRegional 
+
+
+
+
 * ------------------- *
 * Label for variables * 
 * ------------------- *

@@ -26,7 +26,7 @@ include "${here}/../macros"
 global cohort					child adol adult30 adult40
 global groupchild				Other 
 global groupadol				Other 
-global groupadult30		   		None /*None Other Stat Reli*/
+global groupadult30		   		Other /*None Other Stat Reli*/
 global groupadult40				Other /*Stat Reli*/	
 global outcomechild				CN S H B
 global outcomeadol				CN S H B
@@ -59,13 +59,13 @@ global fulllistadollp			none bic full psm aipw didpm didpv
 
 global reglistadult30			None30 BIC30 Full30 DidPm30 DidPv30 
 global aipwlistadult30			AIPW30
-global psmlistadult30			//PSM30
-global fulllistadult30			None BIC Full /*PSM*/ AIPW DidPm DidPv   // order should be same as fulllistadultlp
+global psmlistadult30			PSM30
+global fulllistadult30			None BIC Full PSM AIPW DidPm DidPv   // order should be same as fulllistadultlp
 global reglistadult30lp			none30 bic30 full30 didpm30 didpv30  
 global aipwlistadult30lp		aipw30
 global psmlistadult30lp			psm30 
 local aipw30_n					bic30
-global fulllistadult30lp		none30 bic30 full30 /*psm30*/ aipw30 didpm30 didpv30 
+global fulllistadult30lp		none30 bic30 full30 psm30 aipw30 didpm30 didpv30 
 
 
 global reglistadult40			None40 BIC40 Full40 
@@ -131,6 +131,8 @@ foreach coh in $cohort {
 			
 			* Estimate
 			foreach outcome in ${`coh'_outcome_`out'} {
+			
+				di "for outcome `outcome'"
 				* Regression-based
 				foreach item in ${reglist`coh'lp} {
 					
@@ -206,21 +208,21 @@ foreach coh in $cohort {
 					local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
 				
 				}
-				di "psm done `gr' `coh'"
 				}
-			
+				di "psm done `gr' `coh'"
+				
 				* Tex file Point Estimate
 				local `outcome'tex_p 	${`outcome'_lab}
 				foreach item in ${fulllist`coh'lp} {
 					local `outcome'tex_p	``outcome'tex_p' & `p`item'`outcome''
 				}
-				
+	
 				* Tex file Standard Error
 				local `outcome'tex_se	
 				foreach item in ${fulllist`coh'lp}  {
 					local `outcome'tex_se	``outcome'tex_se' & (`se`item'`outcome'' )
 				}
-				
+			
 				* Tex file Number of observation
 				local `outcome'tex_N	
 				foreach item in ${fulllist`coh'lp}  {
@@ -230,16 +232,17 @@ foreach coh in $cohort {
 			
 			}
 			
-			
+
 			* ------------------- *
 			* Now Create Tex file *
 			* ------------------- *
+				
 			file open tabfile`coh'`gr' using "${git_reggio}/output/multiple-methods/combinedanalysis/combined_`coh'_`out'_`gr'.tex", write replace
 			file write tabfile`coh'`gr' "\begin{tabular}{`tabular'}" _n
 			file write tabfile`coh'`gr' "\toprule" _n
 			file write tabfile`coh'`gr' " `colname' \\" _n
 			file write tabfile`coh'`gr' "\midrule" _n
-		
+
 			foreach outcome in ${`coh'_outcome_`out'} {
 				* Point Estimate
 				file write tabfile`coh'`gr' "``outcome'tex_p' \\" _n
@@ -344,6 +347,7 @@ foreach coh in $cohort {
 			
 			* Estimate
 			foreach outcome in ${`coh'_outcome_`out'} {
+			di "for outcome `outcome'"
 				* Regression-based
 				foreach item in ${reglist`coh'lp} {
 					
