@@ -94,7 +94,6 @@ global fulllistadult40lp		none40 bic40 full40 psm40 aipw40 didpm40 didpv40
 
 
 
-
 * ------------------------------------ *
 * Merge and Create Tex for each cohort *
 * ------------------------------------ *
