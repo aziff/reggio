@@ -79,6 +79,21 @@ local aipw40_n					bic40
 global fulllistadult40lp		none40 bic40 full40 psm40 aipw40
 
 
+global cohort					adult40
+global groupadult40				None			
+
+global reglistadult40			None40 BIC40 Full40 DidPm40 DidPv40
+global aipwlistadult40			AIPW40 
+global psmlistadult40			PSM40
+global fulllistadult40			None BIC Full PSM AIPW DidPm DidPv // order should be same as fulllistadultlp
+global reglistadult40lp			none40 bic40 full40 didpm40 didpv40
+global aipwlistadult40lp		aipw40
+global psmlistadult40lp			psm40 
+local aipw40_n					bic40
+global fulllistadult40lp		none40 bic40 full40 psm40 aipw40 didpm40 didpv40
+
+
+
 
 * ------------------------------------ *
 * Merge and Create Tex for each cohort *
@@ -143,17 +158,19 @@ foreach coh in $cohort {
 					levelsof itt_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
 				
 					* Format decimal points
-					local p`item'`outcome' : di %9.2f `p`item'`outcome''
-					local se`item'`outcome' : di %9.2f `se`item'`outcome''
-					local pv`item'`outcome' = `pv`item'`outcome''
-					
-					* Boldify if p-value < 0.15
-					if `pv`item'`outcome'' <= 0.15 {			
-						local p`item'`outcome' 	"\textbf{ `p`item'`outcome'' }"
+					if !missing("`p`item'`outcome''") {
+						local p`item'`outcome' : di %9.2f `p`item'`outcome''
+						local se`item'`outcome' : di %9.2f `se`item'`outcome''
+						local pv`item'`outcome' = `pv`item'`outcome''
+						
+						* Boldify if p-value < 0.15
+						if `pv`item'`outcome'' <= 0.15 {			
+							local p`item'`outcome' 	"\textbf{ `p`item'`outcome'' }"
+						}
+						
+						* Number of observations in italic
+						local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
 					}
-					
-					* Number of observations in italic
-					local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
 				}
 				di "regression done"
 				
@@ -167,18 +184,19 @@ foreach coh in $cohort {
 					levelsof itt_``item'_n'_n if rowname == "`outcome'", local(n`item'`outcome')
 					
 					* Format decimal points
-					local p`item'`outcome' : di %9.2f `p`item'`outcome''
-					local se`item'`outcome' : di %9.2f `se`item'`outcome''
-					local pv`item'`outcome' = `pv`item'`outcome''
-					
-					* Boldify if p-value < 0.15
-					if `pv`item'`outcome'' <= 0.10 {
-						local p`item'`outcome' "\textbf{`p`item'`outcome''}"
+					if !missing("`p`item'`outcome''") {
+						local p`item'`outcome' : di %9.2f `p`item'`outcome''
+						local se`item'`outcome' : di %9.2f `se`item'`outcome''
+						local pv`item'`outcome' = `pv`item'`outcome''
+						
+						* Boldify if p-value < 0.15
+						if `pv`item'`outcome'' <= 0.10 {
+							local p`item'`outcome' "\textbf{`p`item'`outcome''}"
+						}
+						
+						* Number of observations in italic
+						local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
 					}
-					
-					* Number of observations in italic
-					local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
-				
 				}
 				di "aipw done `gr' `coh'"
 			
@@ -195,18 +213,19 @@ foreach coh in $cohort {
 					levelsof psm_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
 					
 					* Format decimal points
-					local p`item'`outcome' : di %9.2f `p`item'`outcome''
-					local se`item'`outcome' : di %9.2f `se`item'`outcome''
-					local pv`item'`outcome' = `pv`item'`outcome''
-					
-					* Boldify if p-value < 0.15
-					if `pv`item'`outcome'' <= 0.10 {
-						local p`item'`outcome' "\textbf{`p`item'`outcome''}"
+					if !missing("`p`item'`outcome''") {
+						local p`item'`outcome' : di %9.2f `p`item'`outcome''
+						local se`item'`outcome' : di %9.2f `se`item'`outcome''
+						local pv`item'`outcome' = `pv`item'`outcome''
+						
+						* Boldify if p-value < 0.15
+						if `pv`item'`outcome'' <= 0.10 {
+							local p`item'`outcome' "\textbf{`p`item'`outcome''}"
+						}
+						
+						* Number of observations in italic
+						local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
 					}
-					
-					* Number of observations in italic
-					local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
-				
 				}
 				}
 				di "psm done `gr' `coh'"
@@ -260,217 +279,6 @@ foreach coh in $cohort {
 		
 	
 		}
-	}
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-* --------------- *
-* For Age-40 None *
-* --------------- *
-
-* ---------- *
-* Set Macros *
-* ---------- *
-global cohort					adult40
-global groupadult40				None			
-
-global reglistadult40			None40 BIC40 Full40 DidPm40 DidPv40
-global aipwlistadult40			AIPW40 
-global psmlistadult40			PSM40
-global fulllistadult40			None BIC Full PSM AIPW DidPm DidPv // order should be same as fulllistadultlp
-global reglistadult40lp			none40 bic40 full40 didpm40 didpv40
-global aipwlistadult40lp		aipw40
-global psmlistadult40lp			psm40 
-local aipw40_n					bic40
-global fulllistadult40lp		none40 bic40 full40 psm40 aipw40 didpm40 didpv40
-
-
-* ------------------------------------ *
-* Merge and Create Tex for each cohort *
-* ------------------------------------ *
-foreach coh in $cohort {
-	
-	foreach gr in ${group`coh'} {
-		foreach out in ${outcome`coh'} {
-	
-			import delimited using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_`coh'_`out'_`gr'.csv", clear
-			
-			tempfile reg_`coh'_`gr'
-			save "`reg_`coh'_`gr''"
-			
-			import delimited using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_`coh'_`out'_`gr'.csv", clear
-			merge 1:1 rowname using `reg_`coh'_`gr''
-			
-			drop _merge
-			
-			tempfile reg_`coh'_`gr'
-			save "`reg_`coh'_`gr''"
-			
-			import delimited using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/psm_`coh'_`out'_`gr'.csv", clear
-			merge 1:1 rowname using `reg_`coh'_`gr''
-			
-			drop _merge
-			
-			
-			* ------------------------- *
-			* Determine the Tex Headers *
-			* ------------------------- *
-			* Tabular
-			local count : word count ${reglist`coh'} ${aipwlist`coh'} ${psmlist`coh'}
-			local tabular 	l
-			
-			foreach num of numlist 1/`count' {
-				local tabular `tabular' c
-			}
-			di "tabular: `tabular'"
-			
-			* Column Names
-			local colname
-			di "reglist: ${reglist`coh'} 	aipwlist: ${aipwlist`coh'}"
-			
-			foreach item in ${fulllist`coh'} {
-				local colname `colname' & `item'
-			}
-			
-			di "colname: `colname'"
-			
-			* Estimate
-			foreach outcome in ${`coh'_outcome_`out'} {
-			di "for outcome `outcome'"
-				* Regression-based
-				foreach item in ${reglist`coh'lp} {
-					
-					* Get the values
-					levelsof itt_`item' if rowname == "`outcome'", local(p`item'`outcome')
-					levelsof itt_`item'_se if rowname == "`outcome'", local(se`item'`outcome')
-					levelsof itt_`item'_p if rowname == "`outcome'", local(pv`item'`outcome')
-					levelsof itt_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
-					
-					* Format decimal points
-					local p`item'`outcome' : di %9.2f `p`item'`outcome''
-					local se`item'`outcome' : di %9.2f `se`item'`outcome''
-					local pv`item'`outcome' = `pv`item'`outcome''
-					
-					* Boldify if p-value < 0.15
-					if `pv`item'`outcome'' <= 0.15 {			
-						local p`item'`outcome' 	"\textbf{ `p`item'`outcome'' }"
-					}
-					
-					* Number of observations in italic
-					local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
-				}
-				di "regression done"
-				
-				* AIPW-based
-				foreach item in ${aipwlist`coh'lp} {
-					
-					* Get the values
-					levelsof aipw_`item' if rowname == "`outcome'", local(p`item'`outcome')
-					levelsof aipw_`item'_se if rowname == "`outcome'", local(se`item'`outcome')
-					levelsof aipw_`item'_p if rowname == "`outcome'", local(pv`item'`outcome')
-					levelsof itt_``item'_n'_n if rowname == "`outcome'", local(n`item'`outcome')
-					
-					* Format decimal points
-					local p`item'`outcome' : di %9.2f `p`item'`outcome''
-					local se`item'`outcome' : di %9.2f `se`item'`outcome''
-					local pv`item'`outcome' = `pv`item'`outcome''
-					
-					* Boldify if p-value < 0.15
-					if `pv`item'`outcome'' <= 0.10 {
-						local p`item'`outcome' "\textbf{`p`item'`outcome''}"
-					}
-					
-					* Number of observations in italic
-					local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
-				
-				}
-				di "aipw done `gr' `coh'"
-			
-			
-				* PSM-based
-				foreach item in ${psmlist`coh'lp} {
-					
-					* Get the values
-					levelsof psm_`item' if rowname == "`outcome'", local(p`item'`outcome')
-					levelsof psm_`item'_se if rowname == "`outcome'", local(se`item'`outcome')
-					levelsof psm_`item'_p if rowname == "`outcome'", local(pv`item'`outcome')
-					levelsof psm_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
-					
-					* Format decimal points
-					local p`item'`outcome' : di %9.2f `p`item'`outcome''
-					local se`item'`outcome' : di %9.2f `se`item'`outcome''
-					local pv`item'`outcome' = `pv`item'`outcome''
-					
-					* Boldify if p-value < 0.15
-					if `pv`item'`outcome'' <= 0.10 {
-						local p`item'`outcome' "\textbf{`p`item'`outcome''}"
-					}
-					
-					* Number of observations in italic
-					local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
-				
-				}
-				di "psm done `gr' `coh'"
-			
-			
-				* Tex file Point Estimate
-				local `outcome'tex_p 	${`outcome'_lab}
-				foreach item in ${fulllist`coh'lp} {
-					local `outcome'tex_p	``outcome'tex_p' & `p`item'`outcome''
-				}
-				
-				* Tex file Standard Error
-				local `outcome'tex_se	
-				foreach item in ${fulllist`coh'lp}  {
-					local `outcome'tex_se	``outcome'tex_se' & (`se`item'`outcome'' )
-				}
-				
-				* Tex file Number of observation
-				local `outcome'tex_N	
-				foreach item in ${fulllist`coh'lp}  {
-					local `outcome'tex_N	``outcome'tex_N' & `n`item'`outcome'' 
-				}
-			
-			
-			}
-			
-			
-			* ------------------- *
-			* Now Create Tex file *
-			* ------------------- *
-			file open tabfile`coh'`gr' using "${git_reggio}/output/multiple-methods/combinedanalysis/combined_`coh'_`out'_`gr'.tex", write replace
-			file write tabfile`coh'`gr' "\begin{tabular}{`tabular'}" _n
-			file write tabfile`coh'`gr' "\toprule" _n
-			file write tabfile`coh'`gr' " `colname' \\" _n
-			file write tabfile`coh'`gr' "\midrule" _n
-		
-			foreach outcome in ${`coh'_outcome_`out'} {
-				* Point Estimate
-				file write tabfile`coh'`gr' "``outcome'tex_p' \\" _n
-				
-				* Standard Error
-				file write tabfile`coh'`gr' "``outcome'tex_se' \\" _n
-				
-				* Number of obs
-				file write tabfile`coh'`gr' "``outcome'tex_N' \\" _n
-			}
-		
-				file write tabfile`coh'`gr' "\bottomrule" _n
-				file write tabfile`coh'`gr' "\end{tabular}" _n
-				file close tabfile`coh'`gr'
-		}
-		
 	}
 }
 
