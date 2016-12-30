@@ -81,11 +81,11 @@ foreach stype in  Other None {
 
 
 	global controlsNone
-	global controlsBIC			${bic_adol_asilo_baseline_vars}
+	global controlsBIC			${bic_asilo_adol_baseline_vars}
 	global controlsFull			${adol_baseline_vars}
-	global controlsPSM			${bic_adol_asilo_baseline_vars}
-	global controlsDidPm		${bic_adol_asilo_baseline_vars}
-	global controlsDidPv		${bic_adol_asilo_baseline_vars}
+	global controlsPSM			${bic_asilo_adol_baseline_vars}
+	global controlsDidPm		${bic_asilo_adol_baseline_vars}
+	global controlsDidPv		${bic_asilo_adol_baseline_vars}
 
 	global ifconditionNone 		(Reggio == 1) & (Cohort == 3)   & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
 	global ifconditionBIC		${ifconditionNone}
