@@ -26,15 +26,27 @@ include "${here}/../macros"
 global cohort				adult30 adult40
 global group				Yes /*Stat Reli*/
 
-global reglistadult30				None30 BIC30 Full30 
-global fulllistadult30				None30 BIC30 Full30 
-global reglistadult30lp				none30 bic30 full30  
-global fulllistadult30lp			none30 bic30 full30 
+global reglistadult30			None30 BIC30 Full30 
+global aipwlistadult30			AIPW30
+global psmlistadult30			PSM30
+global fulllistadult30			None BIC Full PSM AIPW   // order should be same as fulllistadultlp
+global reglistadult30lp			none30 bic30 full30 
+global aipwlistadult30lp		aipw30
+global psmlistadult30lp			psm30 
+local aipw30_n					bic30
+global fulllistadult30lp		none30 bic30 full30 psm30 aipw30 
 
-global reglistadult40				None40 BIC40 Full40 
-global fulllistadult40				None40 BIC40 Full40 
-global reglistadult40lp				none40 bic40 full40  
-global fulllistadult40lp			none40 bic40 full40 
+
+global reglistadult40			None40 BIC40 Full40 
+global aipwlistadult40			AIPW40 
+global psmlistadult40			PSM40
+global fulllistadult40			None BIC Full PSM AIPW  // order should be same as fulllistadultlp
+global reglistadult40lp			none40 bic40 full40
+global aipwlistadult40lp		aipw40 
+global psmlistadult40lp			psm40 
+local aipw40_n					bic40
+global fulllistadult40lp		none40 bic40 full40 psm40 aipw40
+
 
 * ------------------------------------ *
 * Merge and Create Tex for each cohort *
@@ -46,12 +58,27 @@ foreach city in Parma Padova {
 		
 			import delimited using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_`coh'_M_`gr'_`city'.csv", clear
 			
+			tempfile reg_`coh'_`gr'
+			save "`reg_`coh'_`gr''"
+			
+			import delimited using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_`coh'_M_`gr'_`city'.csv", clear
+			merge 1:1 rowname using `reg_`coh'_`gr''
+			
+			drop _merge
+			
+			tempfile reg_`coh'_`gr'
+			save "`reg_`coh'_`gr''"
+			
+			import delimited using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/psm_`coh'_M_`gr'_`city'.csv", clear
+			merge 1:1 rowname using `reg_`coh'_`gr''
+			
+			drop _merge
 			
 			* ------------------------- *
 			* Determine the Tex Headers *
 			* ------------------------- *
 			* Tabular
-			local count : word count ${reglist`coh'} 
+			local count : word count ${reglist`coh'} ${aipwlist`coh'} ${psmlist`coh'}
 			local tabular 	l
 			
 			foreach num of numlist 1/`count' {
@@ -71,6 +98,7 @@ foreach city in Parma Padova {
 			
 			* Estimate
 			foreach outcome in $`coh'_outcome_M {
+				di "for outcome `outcome'"
 				* Regression-based
 				foreach item in ${reglist`coh'lp} {
 					
@@ -79,7 +107,7 @@ foreach city in Parma Padova {
 					levelsof itt_`item'_se if rowname == "`outcome'", local(se`item'`outcome')
 					levelsof itt_`item'_p if rowname == "`outcome'", local(pv`item'`outcome')
 					levelsof itt_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
-					
+				
 					* Format decimal points
 					local p`item'`outcome' : di %9.2f `p`item'`outcome''
 					local se`item'`outcome' : di %9.2f `se`item'`outcome''
@@ -95,7 +123,7 @@ foreach city in Parma Padova {
 				}
 				di "regression done"
 				
-				/* AIPW-based
+				* AIPW-based
 				foreach item in ${aipwlist`coh'lp} {
 					
 					* Get the values
@@ -118,7 +146,36 @@ foreach city in Parma Padova {
 					local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
 				
 				}
-				di "aipw done `gr' `coh'" */
+				di "aipw done `gr' `coh'"
+			
+				
+				* PSM-based
+				local num : list sizeof global(psmlist`coh')
+				if `num' != 0 {
+				foreach item in ${psmlist`coh'lp} {
+					
+					* Get the values
+					levelsof psm_`item' if rowname == "`outcome'", local(p`item'`outcome')
+					levelsof psm_`item'_se if rowname == "`outcome'", local(se`item'`outcome')
+					levelsof psm_`item'_p if rowname == "`outcome'", local(pv`item'`outcome')
+					levelsof psm_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
+					
+					* Format decimal points
+					local p`item'`outcome' : di %9.2f `p`item'`outcome''
+					local se`item'`outcome' : di %9.2f `se`item'`outcome''
+					local pv`item'`outcome' = `pv`item'`outcome''
+					
+					* Boldify if p-value < 0.15
+					if `pv`item'`outcome'' <= 0.10 {
+						local p`item'`outcome' "\textbf{`p`item'`outcome''}"
+					}
+					
+					* Number of observations in italic
+					local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
+				
+				}
+				}
+				di "psm done `gr' `coh'"
 			
 			
 			

@@ -23,34 +23,30 @@ include "${here}/../macros"
 * ---------- *
 * Set Macros *
 * ---------- *
-global cohort				child adol adult
+global cohort				/*child adol*/ adult30 adult40
 global group				Other None /*Stat Reli*/
 
-global reglistchild				NoneIt BICIt FullIt DidPmIt DidPvIt   
-global aipwlistchild			AIPWIt  
+global reglistchild				NoneIt BICIt FullIt DidPmIt DidPvIt    
 global fulllistchild			NoneIt BICIt FullIt DidPmIt DidPvIt
 global reglistchildlp			noneit bicit fullit didpmit didpvit   
-global aipwlistchildlp			aipwit 
-local aipwit_n					bicit
 global fulllistchildlp			noneit bicit fullit didpmit didpvit 
 
 
 global reglistadol				None BIC Full DidPm DidPv 
-global aipwlistadol				AIPW
 global fulllistadol				None Bic Full DidPm DidPv
 global reglistadollp			none bic full didpm didpv   
-global aipwlistadollp			aipw 
-local aipw_n					bic
 global fulllistadollp			none bic full didpm didpv 
 
-global reglistadult				None30 BIC30 Full30 DidPm30 DidPv30 None40 BIC40 Full40 
-global aipwlistadult			AIPW30 AIPW40
-global fulllistadult			None30 BIC30 Full30 DidPm30 DidPv30 None40 BIC40 Full40 
-global reglistadultlp			none30 bic30 full30 didpm30 didpv30 none40 bic40 full40 
-global aipwlistadultlp			aipw30 aipw40
-local aipw30_n					bic30
-local aipw40_n					bic40
-global fulllistadultlp			none30 bic30 full30 didpm30 didpv30  none40 bic40 full40
+global reglistadult30				None30 BIC30 Full30 DidPm30 DidPv30 
+global fulllistadult30				None30 BIC30 Full30 DidPm30 DidPv30 
+global reglistadult30lp				none30 bic30 full30 didpm30 didpv30
+global fulllistadult30lp			none30 bic30 full30 didpm30 didpv30
+
+
+global reglistadult40				None40 BIC40 Full40
+global fulllistadult40				None40 BIC40 Full40 
+global reglistadult40lp				none40 bic40 full40 
+global fulllistadult40lp			none40 bic40 full40 
 
 
 * ------------------------------------ *
@@ -62,12 +58,13 @@ foreach coh in $cohort {
 	
 		import delimited using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_`coh'_M_`gr'_drop.csv", clear
 		
+		di "FOR cohort `coh' Group `gr'"
 		
 		* ------------------------- *
 		* Determine the Tex Headers *
 		* ------------------------- *
 		* Tabular
-		local count : word count ${reglist`coh'} ${aipwlist`coh'}
+		local count : word count ${reglist`coh'} 
 		local tabular 	l
 		
 		foreach num of numlist 1/`count' {
@@ -88,19 +85,23 @@ foreach coh in $cohort {
 		* Estimate
 		foreach outcome in $`coh'_outcome_M {
 			* Regression-based
+			
 			foreach item in ${reglist`coh'lp} {
+				di "For item `item' `outcome'"
 				
 				* Get the values
 				levelsof itt_`item' if rowname == "`outcome'", local(p`item'`outcome')
 				levelsof itt_`item'_se if rowname == "`outcome'", local(se`item'`outcome')
 				levelsof itt_`item'_p if rowname == "`outcome'", local(pv`item'`outcome')
 				levelsof itt_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
-				
+				di "HERE?"
 				* Format decimal points
 				local p`item'`outcome' : di %9.2f `p`item'`outcome''
+						di "HERE?? `p`item'`outcome''"
 				local se`item'`outcome' : di %9.2f `se`item'`outcome''
+						di "HERE??? `pv`item'`outcome''"
 				local pv`item'`outcome' = `pv`item'`outcome''
-				
+					di "HERE???"
 				* Boldify if p-value < 0.15
 				if `pv`item'`outcome'' <= 0.15 {			
 					local p`item'`outcome' 	"\textbf{ `p`item'`outcome'' }"

@@ -88,8 +88,8 @@ foreach stype in Other None {
 
 	global controlsNoneIt
 	global controlsNone
-	global controlsBICIt		${bic_child_baseline_vars}
-	global controlsBIC			${bic_child_baseline_vars}
+	global controlsBICIt		${bic_asilo_child_baseline_vars}
+	global controlsBIC			${bic_asilo_child_baseline_vars}
 	global controlsFullIt		${child_baseline_vars}
 	global controlsFull			${child_baseline_vars}
 	global controlsPSMIt		${bic_child_baseline_vars}

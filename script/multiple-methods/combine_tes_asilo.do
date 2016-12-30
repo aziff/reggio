@@ -99,7 +99,7 @@ foreach coh in $cohort {
 				local pv`item'`outcome' = `pv`item'`outcome''
 				
 				* Boldify if p-value < 0.15
-				if `pv`item'`outcome'' <= 0.15 {			
+				if `pv`item'`outcome'' <= 0.10 {			
 					local p`item'`outcome' 	"\textbf{ `p`item'`outcome'' }"
 				}
 				
