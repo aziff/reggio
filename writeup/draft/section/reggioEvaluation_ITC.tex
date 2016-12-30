@@ -43,32 +43,45 @@ H_2: &  Y_{0,1} = Y_{1,1}
 \end{eqnarray}
 \noindent where $Y_{i,j}$ is the outcome of the individuals who attended $i \in \{0,1\}$ infant-toddler care and $j \in \{0,1\}$ preschool.
 
-A possible estimation strategy is to limit the sample to a specific city and a specific cohort constrained to the comparison groups needed according to the hypotheses above. To test $H_1$, we estimate the following regression equation:
+A possible estimation strategy is to limit the sample to Reggio and a specific cohort constrained to the comparison groups needed according to the hypotheses above. To test $H_1$, we estimate the following regression equation:
 \begin{eqnarray}
-Y_{i}^{c,h} & = & \alpha + \beta_{0}R_i^{ITC} + \mathbf{X}_i\gamma + \varepsilon_{i}^{c,h}, \\ \nonumber
-& \forall & i \in \text{ \{People in city $c$ and cohort $h$ and in group (0,0) or (1,0)\}}
+Y_{i}^{c,h} & = & \alpha + \beta_{0}R_i^{ITC} + \mathbf{X}_i\gamma + \varepsilon_{i}^{Reggio,h}, \\ \nonumber
+& \forall & i \in \text{ \{People in Reggio and cohort $h$ and in group (0,0) or (1,0)\}}
 \end{eqnarray}
 where $R_i^{ITC}$ is the indicator for attending municipal infant-toddler center and $\mathbf{X_i}$ is the vector of baseline variables for individual $i$. Likewise, to test $H_2$:
 \begin{eqnarray}
-Y_{i}^{c,h} & = & \alpha + \beta_{0}R_i^{ITC} + \mathbf{X}_i\gamma + \varepsilon_{i}^{c,h}, \\ \nonumber
-& \forall & i \in \text{ \{People in city $c$ and cohort $h$ and in group (0,1) or (1,1)\}.}
+Y_{i}^{c,h} & = & \alpha + \beta_{0}R_i^{ITC} + \mathbf{X}_i\gamma + \varepsilon_{i}^{Reggio,h}, \\ \nonumber
+& \forall & i \in \text{ \{People in Reggio and cohort $h$ and in group (0,1) or (1,1)\}.}
 \end{eqnarray}
 
-One caveat of this analysis is that it uses a limited sample size. In our data, these hypotheses cannot be tested under this strategy for many groups. Table~\ref{tab:num-group} shows the number of individuals available for each group necessary for analysis using this strategy. It is impossible to test $H_1$ in our data, because there are almost no people who attended municipal infant-toddler care without attending preschool (the group (1,0)). While it is possible to test $H_2$ for several groups, the number of observations for the group (1,1) is small for the adult cohorts. 
+One caveat of this analysis is that it uses a limited sample size. In our data, these hypotheses cannot be tested under this strategy for many groups. Table~\ref{tab:num-group-2} shows the number of individuals available for each group necessary for analysis using this strategy. It is impossible to test $H_1$ in our data, because there are almost no people who attended municipal infant-toddler care without attending preschool (the group (1,0)). While it is possible to test $H_2$ for several groups, the number of observations for the group (1,1) is small for the adult cohorts. 
 
-In Table \ref{tab:num-group-2}, the groups subject to our estimation are highlighted. Based on the available number of individuals in each cell and the history of the foundation date of municipal infant-toddler care for each city, we decide to test $H_2$ for the highlighted groups.
+In Table \ref{tab:num-group-2}, the groups subject to our estimation are highlighted. Based on the available number of individuals in each cell and the history of the foundation date of municipal infant-toddler care for Reggio, we decide to test $H_2$ for the highlighted groups.
+
+%\begin{table}[H] \caption{Number of Individuals in Each Group} \label{tab:num-group-2}
+%\scalebox{0.77}{
+%\begin{tabular}{l|ccccc|ccccc|ccccc}
+%\toprule
+%			& 		\multicolumn{5}{c}{\textbf{Reggio}}		& 	\multicolumn{5}{|c|}{\textbf{Parma}}	& 			\multicolumn{5}{c}{\textbf{Padova}}				\\
+%			& (0,0) & (1,0) & (0,1) & (1,1) & Total & (0,0) & (1,0) & (0,1) & (1,1) & Total  & (0,0) & (1,0) & (0,1) & (1,1) & Total \\ \midrule
+%Child		& 2 & 0 & \cellcolor{blue!25}46 & \cellcolor{blue!25}117 & \textbf{311} & 5 & 1 & \cellcolor{blue!25}35 & \cellcolor{blue!25}100 & \textbf{291} & 2 & 0 & \cellcolor{blue!25}31 & \cellcolor{blue!25}36 & \textbf{278} \\
+%Migrant		& 4 & 0	& 24 & 26 & \textbf{110} & 4 & 0 & 12 & 23 & \textbf{58} & 5 & 0 & 18 & 16 & \textbf{113} \\
+%Adolescent 	& 7 & 0 & \cellcolor{blue!25}45 &	\cellcolor{blue!25}116 & \textbf{300} & 4 & 0 & \cellcolor{blue!25}49 & \cellcolor{blue!25}61 & \textbf{254} & 1 & 0 & \cellcolor{blue!25}55 & \cellcolor{blue!25}37 & \textbf{282} \\
+%Age-30		& 57 & 0 & \cellcolor{blue!25}95 &	\cellcolor{blue!25}53 & \textbf{280} & 43 & 0 & \cellcolor{blue!25}64 & \cellcolor{blue!25}29 & \textbf{251} & 47 & 0 & 25 & 9 & \textbf{251} \\
+%Age-40		& 80 & 0 & \cellcolor{blue!25}97 &	\cellcolor{blue!25}28 & \textbf{285} & 115 &00 & 0 & 0 & \textbf{254} & 75 & 0 & 0 & 0 & \textbf{252} \\ \bottomrule
+%\end{tabular}}
+%\end{table}
+
 
 \begin{table}[H] \caption{Number of Individuals in Each Group} \label{tab:num-group-2}
 \scalebox{0.77}{
-\begin{tabular}{l|ccccc|ccccc|ccccc}
+\begin{tabular}{lccccc}
 \toprule
-			& 		\multicolumn{5}{c}{\textbf{Reggio}}		& 	\multicolumn{5}{|c|}{\textbf{Parma}}	& 			\multicolumn{5}{c}{\textbf{Padova}}				\\
-			& (0,0) & (1,0) & (0,1) & (1,1) & Total & (0,0) & (1,0) & (0,1) & (1,1) & Total  & (0,0) & (1,0) & (0,1) & (1,1) & Total \\ \midrule
-Child		& 2 & 0 & \cellcolor{blue!25}46 & \cellcolor{blue!25}117 & \textbf{311} & 5 & 1 & \cellcolor{blue!25}35 & \cellcolor{blue!25}100 & \textbf{291} & 2 & 0 & \cellcolor{blue!25}31 & \cellcolor{blue!25}36 & \textbf{278} \\
-Migrant		& 4 & 0	& 24 & 26 & \textbf{110} & 4 & 0 & 12 & 23 & \textbf{58} & 5 & 0 & 18 & 16 & \textbf{113} \\
-Adolescent 	& 7 & 0 & \cellcolor{blue!25}45 &	\cellcolor{blue!25}116 & \textbf{300} & 4 & 0 & \cellcolor{blue!25}49 & \cellcolor{blue!25}61 & \textbf{254} & 1 & 0 & \cellcolor{blue!25}55 & \cellcolor{blue!25}37 & \textbf{282} \\
-Age-30		& 57 & 0 & \cellcolor{blue!25}95 &	\cellcolor{blue!25}53 & \textbf{280} & 43 & 0 & \cellcolor{blue!25}64 & \cellcolor{blue!25}29 & \textbf{251} & 47 & 0 & 25 & 9 & \textbf{251} \\
-Age-40		& 80 & 0 & \cellcolor{blue!25}97 &	\cellcolor{blue!25}28 & \textbf{285} & 115 &00 & 0 & 0 & \textbf{254} & 75 & 0 & 0 & 0 & \textbf{252} \\ \bottomrule
+			& 		\multicolumn{5}{c}{\textbf{Reggio}}		\\
+			& (0,0) & (1,0) & (0,1) & (1,1) & Total \\ \midrule
+Child		& 6 & 0 & \cellcolor{blue!25}66 & \cellcolor{blue!25}94 & \textbf{419} \\
+Adolescent 	& 7 & 0 & \cellcolor{blue!25}39 &	\cellcolor{blue!25}93 & \textbf{299} \\
+Age-30		& 57 & 0 & \cellcolor{blue!25}110 &	\cellcolor{blue!25}47 & \textbf{280} \\
+Age-40		& 80 & 0 & \cellcolor{blue!25}90 &	\cellcolor{blue!25}26 & \textbf{285} \\ \bottomrule
 \end{tabular}}
 \end{table}
-
