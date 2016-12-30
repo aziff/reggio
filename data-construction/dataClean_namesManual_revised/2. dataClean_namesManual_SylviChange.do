@@ -132,13 +132,14 @@ replace maternaType = 6 if maternaAuto == 1
 * Recode asilo
 replace asiloType = 4 if asiloType_manualFull_Sylvi == "private"
 replace asiloType = 6 if asiloType_manualFull_Sylvi == "unknown"					   
+replace asiloType = 6 if Cohort == 5 & (City == 2 | City == 3) & asiloType == 1 // Parma and Padova did not have municipal
 
 *lab define Type_val 0 "No Preschool" 1 "Municipal" 2 "State" 3 "Religious" 4 "Private" 5 "Municipal-Affiliated" 6 "Other"
 label values asiloType Type_val
 
-capture drop maternaType_manualFull_verS asiloType_manualFull_verS
-rename maternaType_manualFull_Sylvi maternaType_manualFull_verS
-rename asiloType_manualFull_Sylvi asiloType_manualFull_verS
+capture drop maternaType_manualFull_verS asiloType_manualFull_revised2
+rename maternaType_manualFull_Sylvi maternaType_manualFull_revised2
+rename asiloType_manualFull_Sylvi asiloType_manualFull_revised2
 
 
 ** Generate non-maternaMuni

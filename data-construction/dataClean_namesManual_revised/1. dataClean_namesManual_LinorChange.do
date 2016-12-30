@@ -76,9 +76,6 @@ generate asiloType_manualFull_Linor = schooltype_Linor if asilo == 1
 generate materna_nameManual_Linor = schoolname_Linor if materna == 1
 generate asilo_nameManual_Linor = schoolname_Linor if asilo == 1
 
-* Questionnable individual drop
-*drop if intnr == 53487100 & maternaType_manualFull_Linor == "autogestito"
-
 * Check duplicates (who went to both asilo and preschool)
 duplicates tag intnr, gen(dup_id)
 

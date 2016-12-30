@@ -1,8 +1,14 @@
-* --------------------------------------------------------------------------- *
+/* --------------------------------------------------------------------------- *
 * Incorporating new school assignment information by Sylvi and Linor
 * Author: Jessica Yu Kyung Koh
 * Date:   12/16/2016
-* --------------------------------------------------------------------------- *
+* Note: This is the driver file that reassigns individual school information according
+        to revisions made by Linor and Sylvi.
+		
+		The first do file includes the revisions on individual school types in Reggio
+		made by Linor. The second do file includes the revisions on individual school
+		types in Padova made by Sylvi.
+* --------------------------------------------------------------------------- */
 
 * Set macro
 clear all
