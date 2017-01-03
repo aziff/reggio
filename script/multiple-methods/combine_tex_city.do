@@ -109,8 +109,8 @@ foreach city in Parma Padova {
 					levelsof itt_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
 				
 					* Format decimal points
-					local p`item'`outcome' : di %9.2f `p`item'`outcome''
-					local se`item'`outcome' : di %9.2f `se`item'`outcome''
+					local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
+					local se`item'`outcome' = string(`se`item'`outcome'', "%9.2f")
 					local pv`item'`outcome' = `pv`item'`outcome''
 					
 					* Boldify if p-value < 0.15
@@ -133,8 +133,8 @@ foreach city in Parma Padova {
 					levelsof itt_``item'_n'_n if rowname == "`outcome'", local(n`item'`outcome')
 					
 					* Format decimal points
-					local p`item'`outcome' : di %9.2f `p`item'`outcome''
-					local se`item'`outcome' : di %9.2f `se`item'`outcome''
+					local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
+					local se`item'`outcome' = string(`se`item'`outcome'', "%9.2f")
 					local pv`item'`outcome' = `pv`item'`outcome''
 					
 					* Boldify if p-value < 0.15
@@ -161,8 +161,8 @@ foreach city in Parma Padova {
 					levelsof psm_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
 					
 					* Format decimal points
-					local p`item'`outcome' : di %9.2f `p`item'`outcome''
-					local se`item'`outcome' : di %9.2f `se`item'`outcome''
+					local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
+					local se`item'`outcome' = string(`se`item'`outcome'', "%9.2f")
 					local pv`item'`outcome' = `pv`item'`outcome''
 					
 					* Boldify if p-value < 0.15
@@ -188,7 +188,7 @@ foreach city in Parma Padova {
 				* Tex file Standard Error
 				local `outcome'tex_se	
 				foreach item in ${fulllist`coh'lp}  {
-					local `outcome'tex_se	``outcome'tex_se' & (`se`item'`outcome'' )
+					local `outcome'tex_se	``outcome'tex_se' & (`se`item'`outcome'')
 				}
 				
 				* Tex file Number of observation
