@@ -28,10 +28,10 @@ global groupchild				Other
 global groupadol				Other 
 global groupadult30		   		Other /*None Other Stat Reli*/
 global groupadult40				Other /*Stat Reli*/	
-global outcomechild				CN S H B
-global outcomeadol				CN S H B
-global outcomeadult30			E W L H N S
-global outcomeadult40			E W L H N S
+global outcomechild				M /*CN S H B*/
+global outcomeadol				M /*CN S H B*/
+global outcomeadult30			M /*E W L H N S*/
+global outcomeadult40			M /*E W L H N S*/
 	
 
 global reglistchild				NoneIt BICIt FullIt DidPmIt DidPvIt   
@@ -158,8 +158,9 @@ foreach coh in $cohort {
 				
 					* Format decimal points
 					if !missing("`p`item'`outcome''") {
-						local p`item'`outcome' : di %9.2f `p`item'`outcome''
-						local se`item'`outcome' : di %9.2f `se`item'`outcome''
+						local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
+						local se`item'`outcome' = string(`se`item'`outcome'', "%9.2f")
+									
 						local pv`item'`outcome' = `pv`item'`outcome''
 						
 						* Boldify if p-value < 0.15
@@ -184,8 +185,8 @@ foreach coh in $cohort {
 					
 					* Format decimal points
 					if !missing("`p`item'`outcome''") {
-						local p`item'`outcome' : di %9.2f `p`item'`outcome''
-						local se`item'`outcome' : di %9.2f `se`item'`outcome''
+						local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
+						local se`item'`outcome' = string(`se`item'`outcome'', "%9.2f")
 						local pv`item'`outcome' = `pv`item'`outcome''
 						
 						* Boldify if p-value < 0.15
@@ -213,8 +214,8 @@ foreach coh in $cohort {
 					
 					* Format decimal points
 					if !missing("`p`item'`outcome''") {
-						local p`item'`outcome' : di %9.2f `p`item'`outcome''
-						local se`item'`outcome' : di %9.2f `se`item'`outcome''
+						local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
+						local se`item'`outcome' = string(`se`item'`outcome'', "%9.2f")
 						local pv`item'`outcome' = `pv`item'`outcome''
 						
 						* Boldify if p-value < 0.15
@@ -238,7 +239,7 @@ foreach coh in $cohort {
 				* Tex file Standard Error
 				local `outcome'tex_se	
 				foreach item in ${fulllist`coh'lp}  {
-					local `outcome'tex_se	``outcome'tex_se' & (`se`item'`outcome'' )
+					local `outcome'tex_se	``outcome'tex_se' & (`se`item'`outcome'')
 				}
 			
 				* Tex file Number of observation
