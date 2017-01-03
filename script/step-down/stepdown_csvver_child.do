@@ -19,15 +19,16 @@ cap log 	close
 cap which rwolf
 if _rc ssc install rwolf
 
+/*
 global klmReggio   : env klmReggio
 global data_reggio : env data_reggio
 global git_reggio  : env git_reggio
+*/
 
-/*
 global klmReggio  	"/mnt/ide0/share/klmReggio"
 global data_reggio	"/mnt/ide0/share/klmReggio/data_survey/data"
 global git_reggio	"/home/yukyungkoh/reggio"
-*/
+
 
 global here : pwd
 
