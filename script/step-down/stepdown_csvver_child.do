@@ -40,6 +40,7 @@ include "${here}/function/sdreganalysis"
 include "${here}/function/sdaipwanalysis"
 include "${here}/function/sdpsmanalysis"
 include "${here}/function/writematrix"
+include "${here}/function/rwolfpsm"
 include "${here}/../ipw/function/aipw"
 
 
