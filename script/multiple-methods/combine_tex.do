@@ -26,7 +26,7 @@ include "${here}/../macros"
 global cohort					child adol adult30 adult40
 global groupchild				Other 
 global groupadol				Other 
-global groupadult30		   		Other /*None Other Stat Reli*/
+global groupadult30		   		None /*None Other Stat Reli*/
 global groupadult40				Other /*Stat Reli*/	
 global outcomechild				M /*CN S H B*/
 global outcomeadol				M /*CN S H B*/
@@ -60,12 +60,12 @@ global fulllistadollp			none bic full psm aipw didpm didpv
 global reglistadult30			None30 BIC30 Full30 DidPm30 DidPv30 
 global aipwlistadult30			AIPW30
 global psmlistadult30			PSM30
-global fulllistadult30			None BIC Full PSM AIPW DidPm DidPv   // order should be same as fulllistadultlp
+global fulllistadult30			None BIC Full /*PSM*/ AIPW DidPm DidPv   // order should be same as fulllistadultlp
 global reglistadult30lp			none30 bic30 full30 didpm30 didpv30  
 global aipwlistadult30lp		aipw30
-global psmlistadult30lp			psm30 
+global psmlistadult30lp			/*psm30*/ 
 local aipw30_n					bic30
-global fulllistadult30lp		none30 bic30 full30 psm30 aipw30 didpm30 didpv30 
+global fulllistadult30lp		none30 bic30 full30 /*psm30*/ aipw30 didpm30 didpv30 
 
 
 global reglistadult40			None40 BIC40 Full40 
@@ -78,7 +78,7 @@ global psmlistadult40lp			psm40
 local aipw40_n					bic40
 global fulllistadult40lp		none40 bic40 full40 psm40 aipw40
 
-
+/*
 global cohort					adult40
 global groupadult40				None			
 
@@ -90,7 +90,7 @@ global reglistadult40lp			none40 bic40 full40 didpm40 didpv40
 global aipwlistadult40lp		aipw40
 global psmlistadult40lp			psm40 
 local aipw40_n					bic40
-global fulllistadult40lp		none40 bic40 full40 psm40 aipw40 didpm40 didpv40
+global fulllistadult40lp		none40 bic40 full40 psm40 aipw40 didpm40 didpv40*/
 
 
 
