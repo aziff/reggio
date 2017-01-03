@@ -13,8 +13,8 @@
 * ---------------------------------------------------------------------------- */
 
 
-capture program drop psmanalysis
-capture program define psmanalysis
+capture program drop sdpsmanalysis
+capture program define sdpsmanalysis
 
 version 13
 syntax, stype(string) type(string) psmlist(string) cohort(string)
@@ -26,6 +26,17 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 
 	***** Determine if headers need to be written in output (first observation in each category)
 	local header_switch header
+	
+	***** Step-down p-value calculation (No need to loop trhough each variable, but need to loop through methods)
+	foreach comp in ${psmlist} {
+		di "Running Romano-Wolf Stepdown Procedure for `comp'"
+		rwolf ${`cohort'_outcome_`type'} if ${ifcondition`comp'}, indepvar(${X`comp'}) controls(${controls`comp'}) method(regress) reps(250) seed(1)
+		
+		foreach var in ${`cohort'_outcome_`type'} {
+			local itt_sd_`var'_`comp' = e(rw_`var')
+		}
+	}
+
 
 	***** Loop through the outcomes in a category and store OLS and diff-in-diff results for each age group
 	foreach var in ${`cohort'_outcome_`type'} {
