@@ -70,7 +70,7 @@ global psm_adult_baseline_vars				Male CAPI dadMaxEdu_Uni numSibling_2 numSiblin
 * ------------------------------------------- *											
 * Outcomes for each category: Younger Cohorts *
 * ------------------------------------------- *
-global child_outcome_M					IQ_score IQ_factor pos_childSDQ_score BMI_obese BMI_overweight childHealthPerc difficultiesInterest difficultiesSit likeSchool_child_pos // Main outcomes
+global child_outcome_M					IQ_score IQ_factor pos_childSDQ_score BMI_obese BMI_overweight childHealthPerc diffInterest diffSit likeSch_child_pos // Main outcomes
 
 global child_outcome_CN         		IQ_factor IQ_score ///
 										pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score 
@@ -84,7 +84,7 @@ global child_outcome_S	 		 		childinvMusic  ///
 								 
 global child_outcome_H 			 		BMI_obese BMI_overweight childHealthPerc childSickDays 
 
-global child_outcome_B			 		difficultiesInterest difficultiesSit likeSchool_child_pos faceGeneral 
+global child_outcome_B			 		diffInterest diffSit likeSch_child_pos faceGeneral 
                                  
 
 global adol_outcome_M					IQ_score IQ_factor pos_childSDQ_score pos_SDQ_score pos_Depression_score pos_LocusControl BMI_obese BMI_overweight childHealthPerc dropoutSchool likeSchool_ado_pos sport							 
@@ -103,7 +103,7 @@ global adol_outcome_S 					Friends childinvTalkOut childinvTalkSchool
 global adol_outcome_H            		BMI_obese BMI_overweight childHealthPerc childSickDays ///
 										RiskSuspended 
 								 
-global adol_outcome_B           		difficultiesInterest difficultiesSit dropoutSchool likeSchool_ado_pos MigrTaste Trust sport 
+global adol_outcome_B           		diffInterest diffSit dropoutSchool likeSchool_ado_pos MigrTaste Trust sport 
 								 
 * ----------------------------------------- *											
 * Outcomes for each category: Adult Cohorts *
@@ -312,8 +312,8 @@ global worryFriend_lab 					Tell Worry to Friends
 global worryMyself_lab 					Keep Worry to Myself	
 global childHealthPerc_lab 				Health is Good
 global childSickDays_lab 				Number of Sick Days
-global difficultiesInterest_lab 		Not Excited to Learn
-global difficultiesSit_lab 				Problems Sitting Still
+global diffInterest_lab 				Not Excited to Learn
+global diffSit_lab 						Problems Sitting Still
 global likeSchool_child_pos_lab 		How Much Child Likes School
 global faceGeneral_lab 					Happy in General
 global Friends_lab						Num. of Friends

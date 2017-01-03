@@ -695,6 +695,15 @@ forvalues city = 1/3 {
 	
 sum votoMaturita_std
 
+
+* Rename is the name is too long
+rename difficultiesInterest 	diffInterest
+rename difficultiesSit			diffSit
+rename likeSchool_child_pos		likeSch_child_pos
+
+
+
+
 * ---------------------------------------------------------------------------- *
 * Label Variables 
 * ---------------------------------------------------------------------------- *
