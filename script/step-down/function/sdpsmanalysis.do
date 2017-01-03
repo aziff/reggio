@@ -30,10 +30,10 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 	***** Step-down p-value calculation (No need to loop trhough each variable, but need to loop through methods)
 	foreach comp in ${psmlist} {
 		di "Running Romano-Wolf Stepdown Procedure for `comp'"
-		rwolf ${`cohort'_outcome_`type'} if ${ifcondition`comp'}, indepvar(${X`comp'}) controls(${controls`comp'}) method(regress) reps(250) seed(1)
+		rwolfpsm ${`cohort'_outcome_`type'} if ${ifcondition`comp'}, indepvar(${X`comp'}) controls(${controls`comp'}) method(teffects psmatch) reps(250) seed(1)
 		
 		foreach var in ${`cohort'_outcome_`type'} {
-			local itt_sd_`var'_`comp' = e(rw_`var')
+			local psm_sd_`var'_`comp' = e(rw_`var')
 		}
 	}
 
@@ -74,13 +74,13 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 			
 			* Add to the matitems and matnames locals
 			if `switch' == 1 {
-				local matitems `matitems' `psm_`comp'', `psm_`comp'_se', `psm_`comp'_p', `psm_`comp'_N' 
+				local matitems `matitems' `psm_`comp'', `psm_`comp'_se', `psm_`comp'_p', `psm_sd_`var'_`comp'', `psm_`comp'_N' 
 			}
 			if `switch' == 0 {
-				local matitems `matitems', `psm_`comp'', `psm_`comp'_se', `psm_`comp'_p', `psm_`comp'_N'  
+				local matitems `matitems', `psm_`comp'', `psm_`comp'_se', `psm_`comp'_p', `psm_sd_`var'_`comp'', `psm_`comp'_N'  
 			}
 			
-			local matnames `matnames' psm_`comp' psm_`comp'_se psm_`comp'_p psm_`comp'_N
+			local matnames `matnames' psm_`comp' psm_`comp'_se psm_`comp'_p psm_`comp'_sdp psm_`comp'_N
 			
 			local switch = 0
 		
