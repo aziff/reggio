@@ -41,6 +41,7 @@ foreach var of varlist `varlist' {
     }
     local t`j' = abs(_b[ATE:r1vs0.`indepvar']/_se[ATE:r1vs0.`indepvar'])
     local n`j' = e(N)-e(rank)
+	di "local n`j' is: `n`j''"
     if `"`method'"'=="areg" local n`j' = e(df_r)
     local cand `cand' `j'
     
@@ -70,7 +71,7 @@ if `j'>1 {
 *-------------------------------------------------------------------------------
 foreach num of numlist 1(1)`j' {
     qui sum b`num'
-    qui replace b`num'=abs((b`num'-r(mean))/r(sd))
+    qui replace b`num'=abs((b`num'-r(mean))/r(sd)) 
 }
 
 *-------------------------------------------------------------------------------
@@ -101,7 +102,7 @@ while length("`cand'")!=0 {
         }
     }
     local prm`maxv's= `pval'
-    if length(`"`prmsm1'"')!=0 local prm`maxv's=max(`prm`maxv's',`prmsm1')
+    if length(`"`prmsm1'"') != 0 local prm`maxv's = max(`prm`maxv's',`prmsm1')
     local p`maxv'   = string(ttail(`n`maxv'',`maxt')*2,"%6.4f")
     local prm`maxv' = string(`prm`maxv's',"%6.4f")
     local prmsm1 = `prm`maxv's'
