@@ -132,7 +132,7 @@ foreach var of varlist `varlist' {
     local ORIG "Original p-value is `p`j''"
     local RW "Romano Wolf p-value is `prm`j''"
     dis "For the variable `var': `ORIG'. `RW'."
-    ereturn scalar rw_`var'=`prm`j's'
+    ereturn scalar rw_`var' = `prm`j's'
 }   
 
 end
