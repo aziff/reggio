@@ -43,7 +43,7 @@ include "${here}/function/writematrix"
 include "${here}/function/rwolfpsm"
 include "${here}/../ipw/function/aipw"
 
-ddddd
+
 * ---------------------------------------------------------------------------- *
 * 								Preparation 								   *
 * ---------------------------------------------------------------------------- *
