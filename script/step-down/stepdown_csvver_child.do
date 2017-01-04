@@ -112,7 +112,7 @@ foreach stype in Other {
 		* ----------------------- *
 		* For Regression Analysis *
 		* ----------------------- *
-		* Open necessary files
+		/* Open necessary files
 		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_child_`type'_`stype'_sd.csv", write replace
 
 		* Run Multiple Analysis
@@ -122,7 +122,7 @@ foreach stype in Other {
 		* Close necessary files
 		file close regression_`type'_`stype' 
 		
-		
+		*/
 	
 		* ----------------------- *
 		* For PSM Analysis 		  *
@@ -140,7 +140,6 @@ foreach stype in Other {
 		
 		
 	/*		
-		
 		* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
