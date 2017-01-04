@@ -107,7 +107,7 @@ foreach stype in Other {
 	global ifconditionDidPv		(Reggio == 1 | Padova == 1)    & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionAIPW	 	(Reggio == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	
-	foreach type in  M CN S H B {
+	foreach type in  M /*CN S H B*/ {
 
 		* ----------------------- *
 		* For Regression Analysis *
@@ -123,7 +123,7 @@ foreach stype in Other {
 		file close regression_`type'_`stype' 
 		
 		
-	/*	
+	
 		* ----------------------- *
 		* For PSM Analysis 		  *
 		* ----------------------- *
@@ -139,7 +139,7 @@ foreach stype in Other {
 		
 		
 		
-		
+	/*		
 		
 		* ----------------- *
 		* For AIPW Analysis *
