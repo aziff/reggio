@@ -128,11 +128,11 @@ foreach stype in Other {
 		* For PSM Analysis 		  *
 		* ----------------------- *
 		* Open necessary files
-		file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/psm_child_`type'_`stype'.csv", write replace
+		file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/psm_child_`type'_`stype'_sd.csv", write replace
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Children: PSM Analysis"
-		psmanalysis, stype("`stype'") type("`type'") psmlist("${psmlist}") cohort("child")
+		sdpsmanalysis, stype("`stype'") type("`type'") psmlist("${psmlist}") cohort("child")
 	
 		* Close necessary files
 		file close psm_`type'_`stype'
