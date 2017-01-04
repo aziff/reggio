@@ -30,7 +30,7 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 	***** Step-down p-value calculation (No need to loop trhough each variable, but need to loop through methods)
 	foreach comp in ${psmlist} {
 		di "Running Romano-Wolf Stepdown Procedure for `comp'"
-		rwolfpsm ${`cohort'_outcome_`type'} if ${ifcondition`comp'}, indepvar(${X`comp'}) controls(${controls`comp'}) method(teffects psmatch) reps(100) seed(1)
+		rwolfpsm ${`cohort'_outcome_`type'} if ${ifcondition`comp'}, indepvar(${X`comp'}) controls(${controls`comp'}) method(teffects psmatch) reps(250) seed(1)
 		
 		di "PSM Stepdown done"
 		foreach var in ${`cohort'_outcome_`type'} {
