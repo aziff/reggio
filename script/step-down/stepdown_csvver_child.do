@@ -74,8 +74,8 @@ foreach stype in Other {
 	* Set necessary global variables
 	global X					maternaMuni
 	global reglist				None BIC Full DidPm DidPv  // It => Italians, Mg => Migrants
-	global psmlist				PSMIt
-	global aipwlist				AIPWIt 
+	global psmlist				PSM
+	global aipwlist				AIPW 
 
 	global XNone				maternaMuni
 	global XBIC					maternaMuni		
