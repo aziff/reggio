@@ -2,7 +2,7 @@
 * Analyzing the Reggio Children Evaluation Survey - Step-Down for Children Cohort (Main Outcomes)
 * Authors: Jessica Yu Kyung Koh
 * Created: 06/16/2016
-* Edited:  01/03/2017
+* Edited:  01/05/2017
 
 * Note: This execution do file performs diff-in-diff estimates and generates tables
         by using "multipleanalysis" command that is programmed in 
@@ -29,7 +29,6 @@ global klmReggio  	"/mnt/ide0/share/klmReggio"
 global data_reggio	"/mnt/ide0/share/klmReggio/data_survey/data"
 global git_reggio	"/home/yukyungkoh/reggio"
 
-
 global here : pwd
 
 use "${data_reggio}/Reggio_reassigned"
@@ -41,6 +40,7 @@ include "${here}/function/sdaipwanalysis"
 include "${here}/function/sdpsmanalysis"
 include "${here}/function/writematrix"
 include "${here}/function/rwolfpsm"
+include "${here}/function/rwolfaipw"
 include "${here}/../ipw/function/aipw"
 
 
@@ -59,7 +59,6 @@ generate D2 = (D == 2)
 
 global bootstrap = 70
 set seed 1234
-
 
 * ---------------------------------------------------------------------------- *
 * 					Reggio Muni vs. None:	Children 						   *
@@ -112,7 +111,7 @@ foreach stype in Other {
 		* ----------------------- *
 		* For Regression Analysis *
 		* ----------------------- *
-		/* Open necessary files
+		* Open necessary files
 		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_child_`type'_`stype'_sd.csv", write replace
 
 		* Run Multiple Analysis
@@ -122,7 +121,7 @@ foreach stype in Other {
 		* Close necessary files
 		file close regression_`type'_`stype' 
 		
-		*/
+	
 	
 		* ----------------------- *
 		* For PSM Analysis 		  *
@@ -139,21 +138,20 @@ foreach stype in Other {
 		
 		
 		
-	/*		
 		* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
 
 		
 		* Open necessary files
-		file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_child_`type'_`stype'.csv", write replace
+		file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_child_`type'_`stype'_sd.csv", write replace
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Children: AIPW Analysis"
 		aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("child")
 		
 		* Close necessary files
-		file close aipw_`type'_`stype'	*/
+		file close aipw_`type'_`stype'	
 	
 	
 	}
