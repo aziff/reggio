@@ -119,13 +119,13 @@ forvalues b = 0/`brep' {
 		tempname b V 	// this notifies Stata that I am going to store something in `b' and `V'
 	
 		matrix `b' = J(1,1,.)
-		matrix `b' = (${p`outcome'})
+		matrix `b' = (${p`outcome'}) 	// coefficient vector
 		matrix rownames `b' = `outcome'
 		matrix colnames `b' = D
 		mat list `b'
 		
 		matrix `V' = J(1,1,.)
-		matrix `V' = ( ${s`outcome'}^2 )
+		matrix `V' = ( ${s`outcome'}^2 ) 	// variance matrix
 		matrix rownames `V' = D
 		matrix colnames `V' = D
 		mat list `V'
@@ -140,13 +140,13 @@ forvalues b = 0/`brep' {
 		tempname b V 	// this notifies Stata that I am going to store something in `b' and `V'
 	
 		matrix `b' = J(1,1,.)
-		matrix `b' = (0)
+		matrix `b' = (0)				// coefficient vector
 		matrix rownames `b' = `outcome'
 		matrix colnames `b' = D
 		display "displaying b matrix: `b'"
 		
 		matrix `V' = J(1,1,.)
-		matrix `V' = (0)
+		matrix `V' = (0)				// variance matrix
 		matrix rownames `V' = D
 		matrix colnames `V' = D
 		display "displaying V matrix: `V'"
