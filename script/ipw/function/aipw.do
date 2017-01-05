@@ -161,8 +161,8 @@ forvalues b = 0/`brep' {
 	di "p`outcome' ${p`outcome'}"
 	di "s`outcome' ${s`outcome'}"
 	di "pval`outcome' ${pval`outcome'}"
-	di "AIPW function successful!"
 	
+	di "AIPW Estimation Result:"
 	ereturn display
 
 end
