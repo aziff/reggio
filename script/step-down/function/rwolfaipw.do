@@ -34,12 +34,12 @@ local cand
 dis "Running `reps' bootstrap replications for each variable.  This may take some time"
 foreach var of varlist `varlist' {
     local ++j
-	cap qui `method' (`var') (`indepvar' `controls') `if' `in' [`weight' `exp'], `options'
+	cap qui `method', outcome(`var') brep(${bootstrap}) cohort(`cohort') comparison("AIPW")
     if _rc!=0 {
         dis as error "Your original `method' does not work.  Please test the `method' and try again."
         exit _rc
     }
-    local t`j' = abs(_b[ATE:r1vs0.`indepvar']/_se[ATE:r1vs0.`indepvar'])
+    local t`j' = abs(_b[D]/_se[D])
     local n`j' = e(N)-e(rank)
 	di "local n`j' is: `n`j''"
     if `"`method'"'=="areg" local n`j' = e(df_r)
@@ -47,10 +47,11 @@ foreach var of varlist `varlist' {
     
     tempfile file`j'
     #delimit ;
-    qui bootstrap b`j'=_b[ATE:r1vs0.`indepvar'], saving(`file`j'') reps(`reps'):
-    `method' (`var') (`indepvar' `controls') `if' `in' [`weight' `exp'], `options';
+    qui bootstrap b`j'=_b[D], saving(`file`j'') reps(`reps'):
+    `method', outcome(`var') brep(${bootstrap}) cohort(`cohort') comparison("AIPW");
     #delimit cr
-    preserve
+    
+	preserve
     qui use `file`j'', clear
     qui gen n=_n
     qui save `file`j'', replace
