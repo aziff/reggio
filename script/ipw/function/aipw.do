@@ -1,13 +1,13 @@
 /* ---------------------------------------------------------------------------- *
 * Programming a function for the OLS for Reggio analysis (A more general version)
 * Author: Anna Ziff, Jessica Yu Kyung Koh
-* Edited: 12/12/2016
+* Edited: 01/04/2017
 
 * Note: This function programs AIPW estimator using probit. 
 * ---------------------------------------------------------------------------- */
 
 capture program drop aipw
-capture program define aipw
+program aipw, eclass
 
 version 13
 syntax, outcome(string) brep(integer) cohort(string) comparison(string)
@@ -131,3 +131,33 @@ forvalues b = 0/`brep' {
 	di "AIPW function successful!"
 
 end
+
+
+
+
+/*
+* ---------------------------------------------------------------------------- *
+
+program myest, eclass
+version 13
+if !replay() {
+		syntax whatever [, whatever Level(cilevel)]
+		marksample touse // see [P] mark
+		perform any other parsing of the user’s estimation request;
+		local depn "dependent variable name"
+		local nobs = number of observations in estimation
+		tempname b V
+		produce coefficient vector ‘b’ and variance–covariance matrix ‘V’
+		ereturn post ‘b’ ‘V’, obs(‘nobs’) depname(‘depn’) esample(‘touse’)
+		ereturn local depvar "‘depn’"
+		store whatever else you want in e()
+		ereturn local cmd "myest" // set e(cmd) last
+	}
+	else { // replay
+		if "‘e(cmd)’"!="myest" error 301
+		syntax [, Level(cilevel)]
+}
+output any header above the coefficient table;
+ereturn display, level(‘level’)
+end
+*/
