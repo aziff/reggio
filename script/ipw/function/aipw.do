@@ -122,11 +122,13 @@ forvalues b = 0/`brep' {
 		matrix `b' = (${p`outcome'})
 		matrix rownames `b' = R
 		matrix colnames `b' = `outcome'
+		display "displaying b matrix: `b'"
 		
 		matrix `V' = J(1,1,.)
 		matrix `V' = ( ${s`outcome'}^2 )
 		matrix rownames `V' = R
 		matrix colnames `V' = `outcome'
+		display "displaying V matrix: `V'"
 	
 	} 
 	else {
@@ -141,17 +143,19 @@ forvalues b = 0/`brep' {
 		matrix `b' = (0)
 		matrix rownames `b' = R
 		matrix colnames `b' = `outcome'
+		display "displaying b matrix: `b'"
 		
 		matrix `V' = J(1,1,.)
 		matrix `V' = (0)
 		matrix rownames `V' = R
 		matrix colnames `V' = `outcome'
+		display "displaying V matrix: `V'"
 		
 	}
 	 
 	restore
 	
-	ereturn post ‘b’ ‘V’
+	ereturn post `b' `V'
 	
 	* Display the results
 	di "p`outcome' ${p`outcome'}"
