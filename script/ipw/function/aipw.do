@@ -31,6 +31,7 @@ forvalues b = 0/`brep' {
 	
 	***** only proceed if there are sufficient observation
 	if (`obsN1' >= 5) & (`obsN0' >= 5) {
+	
 	***** predict probabilities and generate weights
 	probit D ${bic_`cohort'_baseline_vars}, vce(robust) iterate(30)
 
@@ -50,14 +51,14 @@ forvalues b = 0/`brep' {
 			replace weight0 = (1 / Dhat0) 
 
 			di "Regressing for `outcome' for treated"
-			capture reg `outcome' ${bic_`cohort'_baseline_vars} CAPI if D == 1
+			capture reg `outcome' ${bic_`cohort'_baseline_vars} if D == 1
 			if _rc {
 				continue
 			}
 			predict Yhat1  // predicts for everyone!
 		
 			di "Regressing for `outcome' for control"
-			capture reg `outcome' ${bic_`cohort'_baseline_vars} CAPI if D == 0
+			capture reg `outcome' ${bic_`cohort'_baseline_vars} if D == 0
 			if _rc {
 				continue
 			}
@@ -91,7 +92,6 @@ forvalues b = 0/`brep' {
 			
 			di "Listing outcome cohort matrix"
 			matrix list `outcome'`cohort'
-		
 					
 			}
 		}
@@ -99,7 +99,6 @@ forvalues b = 0/`brep' {
 		
 	}
 		
-	di "here?"
 	***** calculate mean/se over bootstraps for each outcome and cohort
 	preserve
 	clear
@@ -115,16 +114,46 @@ forvalues b = 0/`brep' {
 		replace i = 1 if ((`outcome' - ${m`outcome'}) > ${p`outcome'}) & (`outcome' != .) 
 		sum i
 		global pval`outcome' = r(mean)
+		
+		* Store the estimation results to the ereturn e()
+		tempname b V 	// this notifies Stata that I am going to store something in `b' and `V'
+	
+		matrix `b' = J(1,1,.)
+		matrix `b' = (${p`outcome'})
+		matrix rownames `b' = R
+		matrix colnames `b' = `outcome'
+		
+		matrix `V' = J(1,1,.)
+		matrix `V' = ( ${s`outcome'}^2 )
+		matrix rownames `V' = R
+		matrix colnames `V' = `outcome'
 	
 	} 
 	else {
 		global p`outcome' = 0
 		global s`outcome' = 0
 		global pval`outcome' = 9999999
+	
+		* Store the estimation results to the ereturn e()
+		tempname b V 	// this notifies Stata that I am going to store something in `b' and `V'
+	
+		matrix `b' = J(1,1,.)
+		matrix `b' = (0)
+		matrix rownames `b' = R
+		matrix colnames `b' = `outcome'
+		
+		matrix `V' = J(1,1,.)
+		matrix `V' = (0)
+		matrix rownames `V' = R
+		matrix colnames `V' = `outcome'
+		
 	}
 	 
 	restore
 	
+	ereturn post ‘b’ ‘V’
+	
+	* Display the results
 	di "p`outcome' ${p`outcome'}"
 	di "s`outcome' ${s`outcome'}"
 	di "pval`outcome' ${pval`outcome'}"
@@ -135,29 +164,4 @@ end
 
 
 
-/*
-* ---------------------------------------------------------------------------- *
 
-program myest, eclass
-version 13
-if !replay() {
-		syntax whatever [, whatever Level(cilevel)]
-		marksample touse // see [P] mark
-		perform any other parsing of the user’s estimation request;
-		local depn "dependent variable name"
-		local nobs = number of observations in estimation
-		tempname b V
-		produce coefficient vector ‘b’ and variance–covariance matrix ‘V’
-		ereturn post ‘b’ ‘V’, obs(‘nobs’) depname(‘depn’) esample(‘touse’)
-		ereturn local depvar "‘depn’"
-		store whatever else you want in e()
-		ereturn local cmd "myest" // set e(cmd) last
-	}
-	else { // replay
-		if "‘e(cmd)’"!="myest" error 301
-		syntax [, Level(cilevel)]
-}
-output any header above the coefficient table;
-ereturn display, level(‘level’)
-end
-*/
