@@ -120,15 +120,15 @@ forvalues b = 0/`brep' {
 	
 		matrix `b' = J(1,1,.)
 		matrix `b' = (${p`outcome'})
-		matrix rownames `b' = R
-		matrix colnames `b' = `outcome'
-		display "displaying b matrix: `b'"
+		matrix rownames `b' = `outcome'
+		matrix colnames `b' = D
+		mat list `b'
 		
 		matrix `V' = J(1,1,.)
 		matrix `V' = ( ${s`outcome'}^2 )
-		matrix rownames `V' = R
-		matrix colnames `V' = `outcome'
-		display "displaying V matrix: `V'"
+		matrix rownames `V' = D
+		matrix colnames `V' = D
+		mat list `V'
 	
 	} 
 	else {
@@ -141,14 +141,14 @@ forvalues b = 0/`brep' {
 	
 		matrix `b' = J(1,1,.)
 		matrix `b' = (0)
-		matrix rownames `b' = R
-		matrix colnames `b' = `outcome'
+		matrix rownames `b' = `outcome'
+		matrix colnames `b' = D
 		display "displaying b matrix: `b'"
 		
 		matrix `V' = J(1,1,.)
 		matrix `V' = (0)
-		matrix rownames `V' = R
-		matrix colnames `V' = `outcome'
+		matrix rownames `V' = D
+		matrix colnames `V' = D
 		display "displaying V matrix: `V'"
 		
 	}
