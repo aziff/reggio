@@ -1,5 +1,5 @@
 /* --------------------------------------------------------------------------- *
-* Analyzing the Reggio Children Evaluation Survey - Step-Down for Children Cohort (Main Outcomes)
+* Analyzing the Reggio Children Evaluation Survey - Step-Down for Children Cohort 
 * Authors: Jessica Yu Kyung Koh
 * Created: 06/16/2016
 * Edited:  01/05/2017
