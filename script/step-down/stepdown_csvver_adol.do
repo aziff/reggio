@@ -119,6 +119,7 @@ foreach stype in Other {
 	global controlsPSM			${bic_adol_baseline_vars}
 	global controlsDidPm		maternaMuni Reggio ${bic_adol_baseline_vars}
 	global controlsDidPv		maternaMuni Reggio ${bic_adol_baseline_vars}
+	global controlsAIPW			${adol_baseline_vars}
 
 	global ifconditionNone 		(Reggio == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionBIC		${ifconditionNone}

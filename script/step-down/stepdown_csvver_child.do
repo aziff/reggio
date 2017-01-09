@@ -93,6 +93,7 @@ foreach stype in Other {
 	global controlsDidPm		maternaMuni Reggio ${bic_child_baseline_vars}
 	global controlsDidPv		maternaMuni Reggio ${bic_child_baseline_vars}
 	global controlsPSM			${bic_child_baseline_vars}
+	global controlsAIPW			${bic_child_baseline_vars}
 
 	global ifconditionNone 		(Reggio == 1) & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionBIC		${ifconditionNone}
