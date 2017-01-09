@@ -33,7 +33,7 @@ forvalues b = 0/`brep' {
 	if (`obsN1' >= 5) & (`obsN0' >= 5) {
 	
 	***** predict probabilities and generate weights
-	probit D ${bic_`cohort'_baseline_vars}, vce(robust) iterate(30)
+	probit D ${X`comparison'}, vce(robust) iterate(30)
 
 		***** only proceed if converged
 		if e(converged) {	
