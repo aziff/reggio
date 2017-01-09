@@ -70,6 +70,7 @@ foreach stype in Other {
 	global reglist				None BIC Full DidPm DidPv  // It => Italians, Mg => Migrants
 	global psmlist				PSM
 	global aipwlist				AIPW 
+	global cohort				child
 
 	global XNone				maternaMuni
 	global XBIC					maternaMuni		
