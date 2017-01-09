@@ -133,7 +133,7 @@ foreach stype in Other None /*Stat Reli*/ {
 	global ifconditionAIPW30 	(Reggio == 1) & (Cohort_Adult30 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
 
 		
-	foreach type in  M E W L H N S {
+	foreach type in  M /*E W L H N S*/ {
 
 		* ----------------------- *
 		* For Regression Analysis *
@@ -238,7 +238,7 @@ foreach stype in Other /*Stat Reli*/ {
 	global ifconditionAIPW40 	(Reggio == 1) & (Cohort_Adult40 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
 
 		
-	foreach type in  M E W L H N S {
+	foreach type in  M /*E W L H N S*/ {
 
 		* ----------------------- *
 		* For Regression Analysis *
@@ -337,7 +337,7 @@ foreach stype in None {
 	global ifconditionAIPW40 	(Reggio == 1) & (Cohort_Adult40 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
 
 		
-	foreach type in  M E W L H N S {
+	foreach type in  M /*E W L H N S*/ {
 
 		* ----------------------- *
 		* For Regression Analysis *
