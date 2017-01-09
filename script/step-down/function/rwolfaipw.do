@@ -48,7 +48,7 @@ foreach var of varlist `varlist' {
     tempfile file`j'
     #delimit ;
     qui bootstrap b`j'=_b[D], saving(`file`j'') reps(`reps'):
-    `method', outcome(`var') brep(${bootstrap}) cohort(`cohort') comparison("AIPW");
+    `method', outcome(`var') brep(${bootstrap}) cohort(${cohort}) comparison("AIPW");
     #delimit cr
     
 	preserve
