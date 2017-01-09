@@ -34,8 +34,7 @@ local cand
 dis "Running `reps' bootstrap replications for each variable.  This may take some time"
 foreach var of varlist `varlist' {
     local ++j
-	di "`method', outcome(`var') brep(${bootstrap}) cohort(`cohort') comparison("AIPW")"
-	cap `method', outcome(`var') brep(${bootstrap}) cohort(`cohort') comparison("AIPW")
+	cap `method', outcome(`var') brep(${bootstrap}) cohort(${cohort}) comparison("AIPW")
     if _rc!=0 {
         dis as error "Your original `method' does not work.  Please test the `method' and try again."
         exit _rc
