@@ -123,7 +123,6 @@ foreach stype in Other None /*Stat Reli*/ {
 	global controlsDidPm30		maternaMuni Reggio ${bic_adult_baseline_vars}
 	global controlsDidPv30		maternaMuni Reggio ${bic_adult_baseline_vars}
 
-
 	global ifconditionNone30 	(Reggio == 1) & (Cohort_Adult30 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionBIC30		${ifconditionNone30} 
 	global ifconditionFull30	${ifconditionNone30}
