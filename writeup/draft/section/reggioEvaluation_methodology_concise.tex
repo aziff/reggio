@@ -87,7 +87,7 @@ Y_i & = \beta_0 + \beta_1 Reggio_i + \beta_2 D_i + \beta_3 Reggio_i * D_i + \bm{
 
 \subsubsection{Propensity Score Matching}  \label{subsubsection:psm}
 
-We estimate a propensity score matching model that implements nearest-neighbor matching on an estimated propensity score based on a set of observed baseline characteristics $\boldsymbol{X}_i$. This approach is based on the assumption that adjusting for the propensity score is sufficient to eliminate all confounding. The benefits of propensity score matching over regression is that it is nonparametric and it reduces the dimensionality of matching to a single dimension.
+We estimate a propensity score matching model that implements nearest-neighbor matching on an estimated propensity score based on a set of observed baseline characteristics $\boldsymbol{X}_i$. This approach is based on the assumption that adjusting for the propensity score is sufficient to eliminate all confounding. The benefits of propensity score matching over regression is that it is nonparametric. Furthermore, the use of the propensity score allows us to reduce the dimensionality of the matching exercise to a single dimension.
 
 Let $Y_{1,i}$ and $Y_{0,i}$ represent counterfactual outcomes for individual, $i$, where treatment status is fixed to $D_i=1$ and $D_i=0$ respectively. Under this framework, the realized outcome $Y_i$ is summarized by,
 \begin{equation}\label{eq:roy}
