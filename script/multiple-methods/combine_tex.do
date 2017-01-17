@@ -2,7 +2,7 @@
 * Merging CSV's
 * Authors: Jessica Yu Kyung Koh
 * Created: 06/16/2016
-* Edited:  12/15/2016
+* Edited:  01/17/2016
 * --------------------------------------------------------------------------- */
 
 clear all
@@ -24,10 +24,10 @@ include "${here}/../macros"
 * Set Macros *
 * ---------- *
 global cohort					child adol adult30 adult40
-global groupchild				Other 
-global groupadol				Other 
-global groupadult30		   		None /*None Other Stat Reli*/
-global groupadult40				Other /*Stat Reli*/	
+global groupchild				Other Stat Reli
+global groupadol				Other Stat Reli
+global groupadult30		   		None Other Stat Reli
+global groupadult40				Other Stat Reli
 global outcomechild				M /*CN S H B*/
 global outcomeadol				M /*CN S H B*/
 global outcomeadult30			M /*E W L H N S*/
