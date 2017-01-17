@@ -15,16 +15,10 @@ clear all
 cap file 	close outcomes
 cap log 	close
 
-/*
+
 global klmReggio   : env klmReggio
 global data_reggio : env data_reggio
 global git_reggio  : env git_reggio
-*/
-
-
-global klmReggio  	"/mnt/ide0/share/klmReggio"
-global data_reggio	"/mnt/ide0/share/klmReggio/data_survey/data"
-global git_reggio	"/home/yukyungkoh/reggio"
 
 global here : pwd
 
@@ -120,6 +114,7 @@ foreach stype in Other None /*Stat Reli*/ {
 	global controlsPSM30		${bic_adult_baseline_vars}	
 	global controlsDidPm30		${bic_adult_baseline_vars}
 	global controlsDidPv30		${bic_adult_baseline_vars}
+	global controlsAIPW30		${bic_adult_baseline_vars}
 
 
 	global ifconditionNone30 	(Reggio == 1) & (Cohort_Adult30 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
@@ -225,7 +220,7 @@ foreach stype in Other /*Stat Reli*/ {
 	global controlsPSM40		${bic_adult_baseline_vars}
 	global controlsDidPm40		${bic_adult_baseline_vars}
 	global controlsDidPv40		${bic_adult_baseline_vars}
-
+	global controlsAIPW40		${bic_adult_baseline_vars}
 
 	global ifconditionNone40 	(Reggio == 1) & (Cohort_Adult40 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionBIC40		${ifconditionNone40} 
@@ -324,6 +319,7 @@ foreach stype in None {
 	global controlsPSM40		${bic_adult_baseline_vars}
 	global controlsDidPm40		${bic_adult_baseline_vars}
 	global controlsDidPv40		${bic_adult_baseline_vars}
+	global controlsAIPW40		${bic_adult_baseline_vars}
 
 
 	global ifconditionNone40 	(Reggio == 1) & (Cohort_Adult40 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
