@@ -33,16 +33,16 @@ data = data.set_index('intnr')
 data = data.sort_index()
 
 usedata = {}
-usedata['adult'] = data.loc[((data.Cohort==4) | (data.Cohort==5) | (data.Cohort==6)) & (data.Reggio==1), :] 			# Limit to adult cohorts only
+usedata['child'] = data.loc[((data.Cohort==1) | (data.Cohort==2)) & (data.Reggio==1), :] 							# Limit to child cohort in Reggio only
 
 # bring in outcomes files, and find the ABC-only/CARE-only ones
 outcomes = {}
-for cohort in ['adult']:
+for cohort in ['child']:
 	outcomes['{}'.format(cohort)]  = pd.read_csv(paths.outcomes['{}'.format(cohort)] , index_col='variable')
 
 # bring in bank of control variables
 bank = {}
-for cohort in ['adult']:
+for cohort in ['child']:
 	bank['{}'.format(cohort)]  = pd.read_csv(paths.controls['{}'.format(cohort)])
 	bank['{}'.format(cohort)] = list(bank['{}'.format(cohort)].loc[:, 'variable'])
 
@@ -61,7 +61,7 @@ def model_select(data, yvar, xvars, cohort):
 	
 	for i,m in enumerate(models):
 	
-		fmla = '{} ~ Male + CAPI + asilo + {}'.format(yvar, ' + '.join(m))
+		fmla = '{} ~ Male + CAPI + asilo + Cohort_Migrants + {}'.format(yvar, ' + '.join(m))
 		 
 		# perform OLS
 		try:
@@ -92,7 +92,7 @@ def model_select(data, yvar, xvars, cohort):
 best_aic = {}
 best_bic = {}
 	
-for cohort in ['adult']:
+for cohort in ['child']:
 	selection = Parallel(n_jobs=1)(
 		delayed(model_select)(data, yvar, bank['{}'.format(cohort)], cohort) for yvar in outcomes['{}'.format(cohort)].index) 
 	selection = pd.concat(selection, axis=0)
@@ -108,9 +108,9 @@ for cohort in ['adult']:
 	print 'Best AIC:', ('Male', 'CAPI') + best_aic['{}'.format(cohort)]
 	print 'Best BIC:', ('Male', 'CAPI') + best_bic['{}'.format(cohort)]
 
-record = open('best_controls.txt', 'wb')
+record = open('best_controls_child.txt', 'wb')
 
 record.write('The best controls according to AIC and BIC criteria for each age group is: \n')        
-record.write('\n\n Reggio Adult Best AIC: {}'.format(' '.join(('Male', 'CAPI') + best_aic['adult'])))
-record.write('\n Reggio Adult Best BIC: {}'.format(' '.join(('Male', 'CAPI') + best_bic['adult'])))
+record.write('\n Reggio Children Best AIC: {}'.format(' '.join(('Male', 'CAPI', 'asilo', 'Cohort_Migrants') + best_aic['child'])))
+record.write('\n Reggio Children Best BIC: {}'.format(' '.join(('Male', 'CAPI', 'asilo', 'Cohort_Migrants') + best_bic['child'])))
 record.close()
