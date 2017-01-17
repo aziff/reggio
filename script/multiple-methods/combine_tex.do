@@ -23,9 +23,9 @@ include "${here}/../macros"
 * ---------- *
 * Set Macros *
 * ---------- *
-global cohort					child adol adult30 adult40
+global cohort					child adol /*adult30 adult40*/
 global groupchild				Other Stat Reli
-global groupadol				Other Stat Reli
+global groupadol				Other Reli
 global groupadult30		   		None Other Stat Reli
 global groupadult40				Other Stat Reli
 global outcomechild				M /*CN S H B*/

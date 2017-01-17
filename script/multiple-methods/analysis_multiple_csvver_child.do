@@ -116,7 +116,7 @@ foreach stype in Other Stat Reli {
 	
 	foreach type in  M CN S H B {
 
-		* ----------------------- *
+	/*	* ----------------------- *
 		* For Regression Analysis *
 		* ----------------------- *
 		* Open necessary files
@@ -129,7 +129,7 @@ foreach stype in Other Stat Reli {
 		* Close necessary files
 		file close regression_`type'_`stype' 
 		
-		
+		*/
 		
 		* ----------------------- *
 		* For PSM Analysis 		  *
@@ -145,7 +145,7 @@ foreach stype in Other Stat Reli {
 		file close psm_`type'_`stype'
 		
 		
-		
+		/*
 		
 		
 		* ----------------- *
@@ -162,7 +162,7 @@ foreach stype in Other Stat Reli {
 		
 		* Close necessary files
 		file close aipw_`type'_`stype'	
-	
+	 */
 	
 	}
 	
