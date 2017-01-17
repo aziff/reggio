@@ -15,7 +15,8 @@ global here : pwd
 
 
 * Bring in data
-import excel using "${git_reggio}/data/school-info/SK-PADOVA-SOMEPARMA-DATA-CHECK_merged_ReggioAll_SchoolNames_manual.xlsx", sheet(Sheet1) firstrow clear allstring
+*import excel using "${git_reggio}/data/school-info/SK-PADOVA-SOMEPARMA-DATA-CHECK_merged_ReggioAll_SchoolNames_manual.xlsx", sheet(Sheet1) firstrow clear allstring // older version
+import excel using "${git_reggio}/data/school-info/SK-2017-01-13_PADOVA-SOMEPARMA-DATA-CHECK_merged_ReggioAll_SchoolNames_manual_lk.xlsx", sheet(Sheet1) firstrow clear allstring 
 
 destring intnr, replace
 
@@ -44,8 +45,6 @@ replace schooltype_Sylvi = Type_manualFull if Type_manualFull_v2 == ""
 drop Type_manualFull Type_manualFull_v2
 
 
-
-
 * -------------------------------------------------------------- *
 * Generate columns that are consistent with Reggio_prepared data *
 * -------------------------------------------------------------- *
@@ -59,7 +58,9 @@ generate maternaType_manualFull_Sylvi = schooltype_Sylvi if materna == 1
 generate asiloType_manualFull_Sylvi = schooltype_Sylvi if asilo == 1
 
 * Questionnable individual drop
-drop if maternaType_manualFull_Sylvi == "drop"
+drop if maternaType_manualFull_Sylvi == "drop" | maternaType_manualFull_Sylvi == "I think confused reported the same as materna" ///
+		| maternaType_manualFull_Sylvi == "DROP-INTERVIEWER" | maternaType_manualFull_Sylvi == "DROP-INTERVIER?" | maternaType_manualFull_Sylvi == "Recommend drop"
+
 
 * Check duplicates (who went to both asilo and preschool)
 duplicates tag intnr, gen(dup_id)
@@ -113,11 +114,14 @@ label var asiloType_manualFull_Sylvi		"Aslio Schools reassigned by Sylvi. If emp
 * I need to reconstruct maternaType later
 
 replace maternaMuni = 1 if maternaType_manualFull_Sylvi == "municipal"
-replace maternaAffi = 1 if maternaType_manualFull_Sylvi == "muni-other" 
-replace maternaStat = 1 if maternaType_manualFull_Sylvi == "statale" | maternaType_manualFull_Sylvi == "? state/autogestito?"
+replace maternaAffi = 1 if maternaType_manualFull_Sylvi == "muni-other" | maternaType_manualFull_Sylvi == "Municipal-parmainfanzia" ///
+							| maternaType_manualFull_Sylvi == "municipal-affiliated" | maternaType_manualFull_Sylvi == "municipal-parmainfanzia" ///
+							| maternaType_manualFull_Sylvi == "municipal-parmazerosei" | maternaType_manualFull_Sylvi == "parmainfanzia"
+replace maternaStat = 1 if maternaType_manualFull_Sylvi == "statale" | maternaType_manualFull_Sylvi == "? state/autogestito?" | maternaType_manualFull_Sylvi == "state"
 replace maternaReli = 1 if maternaType_manualFull_Sylvi == "religious" | maternaType_manualFull_Sylvi == "Religious-fism-affiliated"
-replace maternaAuto = 0 if maternaType_manualFull_Sylvi == "unknown"
-replace materna = 1 if maternaType_manualFull_Sylvi == "unknown"
+replace maternaPriv = 1 if maternaType_manualFull_Sylvi == "private"
+replace maternaAuto = 1 if maternaType_manualFull_Sylvi == "unknown" | maternaType_manualFull_Sylvi == "UNKNOWN" | maternaType_manualFull_Sylvi == "other"
+replace materna = 1 if maternaType_manualFull_Sylvi == "unknown" 
 
 replace maternaType = 1 if maternaMuni == 1
 replace maternaType = 2 if maternaStat == 1
