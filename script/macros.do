@@ -4,16 +4,6 @@
 * Edited: 2016/08/23
 * ---------------------------------------------------------------------------- * 
 
-* --------- *
-* Directory *
-* --------- *
-*global klmReggio   : env klmReggio
-*global data_reggio : env data_reggio
-*global git_reggio  : env git_reggio
-*global current 	"${git_reggio}/script"
-*global output	"${current}/../output"
-
-
 * -------------- *
 * Classification *
 * -------------- *
@@ -24,8 +14,10 @@ global schools					Municipal State Religious Private None
 * ------------------ *
 * Baseline variables *
 * ------------------ *
-global child_baseline_vars  	Male /*Cohort_Migrants*/ lowbirthweight birthpremature CAPI	momBornProvince momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni cgIslam dadBornProvince dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni numSibling_1 numSibling_2 numSibling_more cgCatholic cgIslam int_cgCatFaith houseOwn cgMigrant cgReddito_1 cgReddito_2 cgReddito_3 cgReddito_4 cgReddito_5 cgReddito_6 cgReddito_7
-								//momWork_fulltime06 momWork_parttime06 momSchool06  
+global child_baseline_vars  	Male /*Cohort_Migrants*/ lowbirthweight birthpremature CAPI	momBornProvince momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni ///
+								dadBornProvince dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni numSibling_1 numSibling_2 numSibling_more cgCatholic cgIslam ///
+								int_cgCatFaith houseOwn cgMigrant cgReddito_1 cgReddito_2 cgReddito_3 cgReddito_4 cgReddito_5 cgReddito_6 cgReddito_7
+								// momWork_fulltime06 momWork_parttime06 momSchool06  
 								// We assume that household income abd family house ownership for children cohorts can be considered as "baseline"
 								
 global adol_baseline_vars  		Male lowbirthweight birthpremature CAPI cgIslam ///
@@ -34,7 +26,7 @@ global adol_baseline_vars  		Male lowbirthweight birthpremature CAPI cgIslam ///
 								dadBornProvince ///
 								dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
 								numSibling_1 numSibling_2 numSibling_more cgCatholic int_cgCatFaith cgMigrant 
-								//momWork_fulltime06 momWork_parttime06 momSchool06		 						
+								// momWork_fulltime06 momWork_parttime06 momSchool06		 						
 								
 								
 global adult_baseline_vars		Male CAPI ///
@@ -43,7 +35,7 @@ global adult_baseline_vars		Male CAPI ///
 								dadBornProvince  ///
 								dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
 								numSibling_1 numSibling_2 numSibling_more cgRelig cgIslam
-								//momWork_fulltime06 momWork_parttime06 momSchool06
+								// momWork_fulltime06 momWork_parttime06 momSchool06
 								
 								
 global Child_baseline_vars				$child_baseline_vars							
@@ -53,24 +45,26 @@ global Adult30_baseline_vars 			$adult_baseline_vars
 global Adult40_baseline_vars 			$adult_baseline_vars
 global Adult50_baseline_vars		 	$adult_baseline_vars
 
-								
-* BIC-selected baseline variables 
-global bic_child_baseline_vars				Male CAPI asilo Cohort_Migrants numSibling_more houseOwn cgMigrant cgReddito_7 cgIslam
-global bic_adol_baseline_vars				Male CAPI asilo momMaxEdu_low dadMaxEdu_Uni numSibling_2 cgCatholic cgIslam
-global bic_adult_baseline_vars		    	Male CAPI momMaxEdu_middle dadMaxEdu_Uni numSibling_2 numSibling_more cgIslam
 
-global bic_asilo_child_baseline_vars				Male CAPI Cohort_Migrants numSibling_more houseOwn cgMigrant cgReddito_7 cgIslam
-global bic_asilo_adol_baseline_vars				Male CAPI momMaxEdu_low dadMaxEdu_Uni numSibling_2 cgCatholic cgIslam
-global bic_asilo_adult_baseline_vars		    	Male CAPI momMaxEdu_middle dadMaxEdu_Uni numSibling_2 numSibling_more cgIslam
+* ------------------------------- *								
+* BIC-selected baseline variables *
+* ------------------------------- *
+* For Preschool
+global bic_child_baseline_vars					Male CAPI asilo Cohort_Migrants numSibling_more houseOwn cgMigrant cgReddito_7
+global bic_adol_baseline_vars					Male CAPI asilo momMaxEdu_low dadMaxEdu_Uni numSibling_2 cgCatholic
+global bic_adult_baseline_vars		    		Male CAPI momMaxEdu_middle dadMaxEdu_Uni numSibling_2 numSibling_more
 
-global psm_adol_baseline_vars				Male CAPI dadMaxEdu_Uni numSibling_2 numSibling_more
-global psm_adult_baseline_vars				Male CAPI dadMaxEdu_Uni numSibling_2 numSibling_more cgIslam
+* For Materna
+global bic_asilo_child_baseline_vars			Male CAPI Cohort_Migrants numSibling_more houseOwn cgMigrant cgReddito_7
+global bic_asilo_adol_baseline_vars				Male CAPI momMaxEdu_low dadMaxEdu_Uni numSibling_2 cgCatholic
+global bic_asilo_adult_baseline_vars		    Male CAPI momMaxEdu_middle dadMaxEdu_Uni numSibling_2 numSibling_more
+
 
 
 * ------------------------------------------- *											
 * Outcomes for each category: Younger Cohorts *
 * ------------------------------------------- *
-global child_outcome_M					IQ_score IQ_factor pos_childSDQ_score BMI_obese BMI_overweight childHealthPerc diffInterest diffSit likeSch_child_pos // Main outcomes
+global child_outcome_M					IQ_factor pos_childSDQ_score BMI_obese BMI_overweight childHealthPerc diffInterest diffSit likeSch_child_pos childFriends candyGame_bin // Main outcomes
 
 global child_outcome_CN         		IQ_factor IQ_score ///
 										pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score 
@@ -80,14 +74,14 @@ global child_outcome_C	         		IQ_factor IQ_score
 global child_outcome_N					pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score 		 								 
 								 
 global child_outcome_S	 		 		childinvMusic  ///
-										worryHome worryTeacher worryFriend worryMyself Friends
+										worryHome worryTeacher worryFriend worryMyself childFriends candyGame_bin
 								 
 global child_outcome_H 			 		BMI_obese BMI_overweight childHealthPerc childSickDays 
 
 global child_outcome_B			 		diffInterest diffSit likeSch_child_pos faceGeneral 
                                  
 
-global adol_outcome_M					IQ_score IQ_factor pos_childSDQ_score pos_SDQ_score pos_Depression_score pos_LocusControl BMI_obese BMI_overweight childHealthPerc dropoutSchool likeSchool_ado_pos sport							 
+global adol_outcome_M					IQ_factor pos_childSDQ_score pos_SDQ_score pos_Depression_score pos_LocusControl BMI_obese BMI_overweight childHealthPerc dropoutSchool likeSchool_ado_pos sport Friends Trust							 
 				  
 global adol_outcome_CN          		IQ_factor IQ_score ///
 										pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score ///
@@ -109,10 +103,10 @@ global adol_outcome_B           		diffInterest diffSit dropoutSchool likeSchool_
 * Outcomes for each category: Adult Cohorts *
 * ----------------------------------------- *								 
 * Cognitive skills and education
-global adult_outcome_M					IQ_score IQ_factor highschoolGrad votoMaturita votoMaturita_std MaxEdu_Uni PA_Empl HrsTot mStatus_married_cohab BMI_obese ///
-										BMI_overweight pos_LocusControl pos_Depression votedMunicipal votedRegional
+global adult_outcome_M					IQ_factor highschoolGrad votoMaturita votoMaturita_std MaxEdu_Uni PA_Empl HrsTot mStatus_married_cohab BMI_obese ///
+										BMI_overweight pos_LocusControl pos_Depression votedMunicipal votedRegional Friends Trust
 
-global adult_outcome_E					IQ_factor votoMaturita  ///
+global adult_outcome_E					IQ_factor IQ_score votoMaturita  ///
 										highschoolGrad MaxEdu_Uni MaxEdu_Grad
 
 * Employment										
@@ -316,6 +310,7 @@ global diffInterest_lab 				Not Excited to Learn
 global diffSit_lab 						Problems Sitting Still
 global likeSchool_child_pos_lab 		How Much Child Likes School
 global faceGeneral_lab 					Happy in General
+global childFriends_lab					Num. of Friends
 global Friends_lab						Num. of Friends
 global childinvTalkOut_lab 				Doesn't Talk About Activities
 global childinvTalkSchool_lab 			Doesn't Talk About School
@@ -324,6 +319,7 @@ global dropoutSchool_lab 				Go To School
 global likeSchool_ado_pos_lab 			How Much Child Likes School
 global MigrTaste_lab 					Bothered by Migrants
 global Trust_lab						Trust Score
+global candyGame_bin_lab				Candy Game: Willing to Share Candies
 
 global Male_lab							Male
 global Cohort_Migrants_lab 				Is a migrant
