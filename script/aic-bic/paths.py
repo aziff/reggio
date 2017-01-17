@@ -4,7 +4,7 @@ from treedict import TreeDict
 filedir = os.path.join(os.path.dirname(__file__))
 
 paths = TreeDict()
-paths.reggio = os.path.join(filedir, '..', '..', 'data', 'Reggio_prepared.dta') # for testing
+paths.reggio = os.path.join(filedir, '..', '..', 'data', 'Reggio_reassigned.dta') # for testing
 paths.outcomes = {}
 paths.outcomes['adult'] = os.path.join(filedir, '..', '..', 'outcome', 'outcomes_adult.csv')
 paths.outcomes['adol'] = os.path.join(filedir, '..', '..', 'outcome', 'outcomes_adol.csv')
