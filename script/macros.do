@@ -117,7 +117,7 @@ global adult_outcome_W					PA_Empl SES_self HrsTot ///
 global adult_outcome_L					mStatus_married_cohab mStatus_div childrenResp all_houseOwn live_parent
 
 * Health									
-global adult_outcome_H					Maria /*Smoke*/ Cig BMI BMI_obese BMI_overweight goodHealth HCondition9 SickDays ///
+global adult_outcome_H					Maria /*Smoke*/ BMI BMI_obese BMI_overweight goodHealth HCondition9 SickDays ///
 										/*i_RiskFight i_RiskDUI*/ RiskSuspended Drink1Age							
 
 * Noncognitive										
