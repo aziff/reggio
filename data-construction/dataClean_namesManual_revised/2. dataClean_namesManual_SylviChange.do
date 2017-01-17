@@ -26,6 +26,9 @@ destring intnr, replace
 * Keep only the new variables
 keep intnr Type_manualFull Type_manualFull_v2 school_new school_new_v2
 
+* Drop interviewer => keep first
+replace Type_manualFull_v2 = "" if Type_manualFull_v2 == "DROP-INTERVIEWER?" | Type_manualFull_v2 == "DROP-INTERVIEWER"
+
 * Only keep the people who are modified
 drop if school_new_v2 == "" & Type_manualFull_v2 == ""
 
@@ -91,7 +94,6 @@ foreach id in `dupintnr' {
 drop if (asilo == 0) & (dup_id == 1) 
 
 drop materna asilo dup_id
-
 
 * -------------------------- *
 * Merge with Reggio_prepared *
