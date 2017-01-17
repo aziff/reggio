@@ -61,7 +61,7 @@ def model_select(data, yvar, xvars, cohort):
 	
 	for i,m in enumerate(models):
 	
-		fmla = '{} ~ Male + CAPI + asilo + {}'.format(yvar, ' + '.join(m))
+		fmla = '{} ~  maternaMuni + Male + CAPI + asilo + {}'.format(yvar, ' + '.join(m))
 		 
 		# perform OLS
 		try:
@@ -105,12 +105,12 @@ for cohort in ['adult']:
 	best_aic["{}".format(cohort)] = model_list[selection.idxmin(axis = 1)[0]]
 	best_bic["{}".format(cohort)] = model_list[selection.idxmin(axis = 1)[1]]
 
-	print 'Best AIC:', ('Male', 'CAPI') + best_aic['{}'.format(cohort)]
-	print 'Best BIC:', ('Male', 'CAPI') + best_bic['{}'.format(cohort)]
+	print 'Best AIC:', ('Male', 'CAPI', 'maternaMuni') + best_aic['{}'.format(cohort)]
+	print 'Best BIC:', ('Male', 'CAPI', 'maternaMuni') + best_bic['{}'.format(cohort)]
 
-record = open('best_controls.txt', 'wb')
+record = open('best_controls_adult.txt', 'wb')
 
 record.write('The best controls according to AIC and BIC criteria for each age group is: \n')        
-record.write('\n\n Reggio Adult Best AIC: {}'.format(' '.join(('Male', 'CAPI') + best_aic['adult'])))
-record.write('\n Reggio Adult Best BIC: {}'.format(' '.join(('Male', 'CAPI') + best_bic['adult'])))
+record.write('\n\n Reggio Adult Best AIC: {}'.format(' '.join(('Male', 'CAPI', 'maternaMuni') + best_aic['adult'])))
+record.write('\n Reggio Adult Best BIC: {}'.format(' '.join(('Male', 'CAPI', 'maternaMuni') + best_bic['adult'])))
 record.close()
