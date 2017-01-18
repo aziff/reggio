@@ -26,6 +26,9 @@ destring intnr, replace
 * Keep only the new variables
 keep intnr Type_manualFull Type_manualFull_v2 school_new school_new_v2
 
+* Drop interviewer => keep first
+replace Type_manualFull_v2 = "" if Type_manualFull_v2 == "DROP-INTERVIEWER?" | Type_manualFull_v2 == "DROP-INTERVIEWER"
+
 * Only keep the people who are modified
 drop if school_new_v2 == "" & Type_manualFull_v2 == ""
 
@@ -92,7 +95,6 @@ drop if (asilo == 0) & (dup_id == 1)
 
 drop materna asilo dup_id
 
-
 * -------------------------- *
 * Merge with Reggio_prepared *
 * -------------------------- *
@@ -113,22 +115,22 @@ label var asiloType_manualFull_Sylvi		"Aslio Schools reassigned by Sylvi. If emp
 
 * I need to reconstruct maternaType later
 
-replace maternaMuni = 1 if maternaType_manualFull_Sylvi == "municipal"
-replace maternaAffi = 1 if maternaType_manualFull_Sylvi == "muni-other" | maternaType_manualFull_Sylvi == "Municipal-parmainfanzia" ///
+replace maternaType = 1 if maternaType_manualFull_Sylvi == "municipal"
+replace maternaType = 5 if maternaType_manualFull_Sylvi == "muni-other" | maternaType_manualFull_Sylvi == "Municipal-parmainfanzia" ///
 							| maternaType_manualFull_Sylvi == "municipal-affiliated" | maternaType_manualFull_Sylvi == "municipal-parmainfanzia" ///
 							| maternaType_manualFull_Sylvi == "municipal-parmazerosei" | maternaType_manualFull_Sylvi == "parmainfanzia"
-replace maternaStat = 1 if maternaType_manualFull_Sylvi == "statale" | maternaType_manualFull_Sylvi == "? state/autogestito?" | maternaType_manualFull_Sylvi == "state"
-replace maternaReli = 1 if maternaType_manualFull_Sylvi == "religious" | maternaType_manualFull_Sylvi == "Religious-fism-affiliated"
-replace maternaPriv = 1 if maternaType_manualFull_Sylvi == "private"
-replace maternaAuto = 1 if maternaType_manualFull_Sylvi == "unknown" | maternaType_manualFull_Sylvi == "UNKNOWN" | maternaType_manualFull_Sylvi == "other"
-replace materna = 1 if maternaType_manualFull_Sylvi == "unknown" 
+replace maternaType = 2 if maternaType_manualFull_Sylvi == "statale" | maternaType_manualFull_Sylvi == "? state/autogestito?" | maternaType_manualFull_Sylvi == "state"
+replace maternaType = 3 if maternaType_manualFull_Sylvi == "religious" | maternaType_manualFull_Sylvi == "Religious-fism-affiliated"
+replace maternaType = 4 if maternaType_manualFull_Sylvi == "private"
+replace maternaType = 6 if maternaType_manualFull_Sylvi == "unknown" | maternaType_manualFull_Sylvi == "UNKNOWN" | maternaType_manualFull_Sylvi == "other"
+replace materna = 1 if maternaType != 0
 
-replace maternaType = 1 if maternaMuni == 1
-replace maternaType = 2 if maternaStat == 1
-replace maternaType = 3 if maternaReli == 1
-replace maternaType = 4 if maternaPriv == 1
-replace maternaType = 5 if maternaAffi == 1
-replace maternaType = 6 if maternaAuto == 1
+replace maternaMuni = 1 if maternaType == 1
+replace maternaAffi = 1 if maternaType == 5   
+replace maternaStat = 1 if maternaType == 2
+replace maternaReli = 1 if maternaType == 3
+replace maternaPriv = 1 if maternaType == 4
+replace maternaAuto = 1 if maternaType == 6 // Not defined
 
 * To capture individuals who might not have assigned as asilo before
 * YK will work on more specific categorization later.

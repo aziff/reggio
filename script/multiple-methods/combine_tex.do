@@ -2,7 +2,7 @@
 * Merging CSV's
 * Authors: Jessica Yu Kyung Koh
 * Created: 06/16/2016
-* Edited:  12/15/2016
+* Edited:  01/17/2016
 * --------------------------------------------------------------------------- */
 
 clear all
@@ -23,11 +23,11 @@ include "${here}/../macros"
 * ---------- *
 * Set Macros *
 * ---------- *
-global cohort					child adol adult30 adult40
-global groupchild				Other 
-global groupadol				Other 
-global groupadult30		   		None /*None Other Stat Reli*/
-global groupadult40				Other /*Stat Reli*/	
+global cohort					child adol /*adult30 adult40*/
+global groupchild				Other Stat Reli
+global groupadol				Other Reli
+global groupadult30		   		None Other Stat Reli
+global groupadult40				Other Stat Reli
 global outcomechild				M /*CN S H B*/
 global outcomeadol				M /*CN S H B*/
 global outcomeadult30			M /*E W L H N S*/
@@ -36,47 +36,47 @@ global outcomeadult40			M /*E W L H N S*/
 
 global reglistchild				NoneIt BICIt FullIt DidPmIt DidPvIt   
 global aipwlistchild			AIPWIt  
-global psmlistchild				PSMIt
-global fulllistchild			None BIC Full PSM AIPW DidPm DidPv  // order should be same as fulllistchildlp
+global psmlistchild				PSMReggio PSMParma PSMPadova
+global fulllistchild			None BIC Full PSM AIPW DidPm PSMPm DidPv PSMPv // order should be same as fulllistchildlp
 global reglistchildlp			noneit bicit fullit didpmit didpvit   
 global aipwlistchildlp			aipwit 
-global psmlistchildlp			psmit
+global psmlistchildlp			psmreggio psmparma psmpadova
 local aipwit_n					bicit
-global fulllistchildlp			noneit bicit fullit psmit aipwit didpmit didpvit
+global fulllistchildlp			noneit bicit fullit psmreggio aipwit didpmit psmparma didpvit psmpadova 
 
 
 
 global reglistadol				None BIC Full DidPm DidPv 
 global aipwlistadol				AIPW
-global psmlistadol				PSM
-global fulllistadol				None Bic Full PSM AIPW DidPm DidPv  // order should be same as fulllistadollp
+global psmlistadol				PSMReggio PSMParma PSMPadova
+global fulllistadol				None Bic Full PSM AIPW DidPm PSMPm DidPv PSMPv  // order should be same as fulllistadollp
 global reglistadollp			none bic full didpm didpv   
 global aipwlistadollp			aipw 
-global psmlistadollp			psm 
+global psmlistadollp			psmreggio psmparma psmpadova 
 local aipw_n					bic
-global fulllistadollp			none bic full psm aipw didpm didpv 
+global fulllistadollp			none bic full psmreggio aipw didpm psmparma didpv psmpadova 
 
 
 global reglistadult30			None30 BIC30 Full30 DidPm30 DidPv30 
 global aipwlistadult30			AIPW30
-global psmlistadult30			PSM30
-global fulllistadult30			None BIC Full /*PSM*/ AIPW DidPm DidPv   // order should be same as fulllistadultlp
+global psmlistadult30			PSM30Reggio PSM30Parma PSM30Padova
+global fulllistadult30			None BIC Full PSM AIPW DidPm PSMPm DidPv PSMPv   // order should be same as fulllistadultlp
 global reglistadult30lp			none30 bic30 full30 didpm30 didpv30  
 global aipwlistadult30lp		aipw30
-global psmlistadult30lp			/*psm30*/ 
+global psmlistadult30lp			psm30reggio psm30parma psm30padova
 local aipw30_n					bic30
-global fulllistadult30lp		none30 bic30 full30 /*psm30*/ aipw30 didpm30 didpv30 
+global fulllistadult30lp		none30 bic30 full30 psm30reggio aipw30 didpm30 psm30parma didpv30 psm30padova
 
 
 global reglistadult40			None40 BIC40 Full40 
 global aipwlistadult40			AIPW40 
-global psmlistadult40			PSM40
-global fulllistadult40			None BIC Full PSM AIPW  // order should be same as fulllistadultlp
+global psmlistadult40			PSM40Reggio PSM40Parma PSM40Padova
+global fulllistadult40			None BIC Full PSM AIPW PSMPm PSMPv // order should be same as fulllistadultlp
 global reglistadult40lp			none40 bic40 full40
 global aipwlistadult40lp		aipw40 
-global psmlistadult40lp			psm40 
+global psmlistadult40lp			psm40reggio psm40parma psm40padova
 local aipw40_n					bic40
-global fulllistadult40lp		none40 bic40 full40 psm40 aipw40
+global fulllistadult40lp		none40 bic40 full40 psm40reggio aipw40 psm40parma psm40padova
 
 /*
 global cohort					adult40
@@ -84,13 +84,13 @@ global groupadult40				None
 
 global reglistadult40			None40 BIC40 Full40 DidPm40 DidPv40
 global aipwlistadult40			AIPW40 
-global psmlistadult40			PSM40
-global fulllistadult40			None BIC Full PSM AIPW DidPm DidPv // order should be same as fulllistadultlp
+global psmlistadult40			PSM40Reggio PSM40Parma PSM40Padova
+global fulllistadult40			None BIC Full PSM AIPW DidPm PSMPm DidPv PSMPv // order should be same as fulllistadultlp
 global reglistadult40lp			none40 bic40 full40 didpm40 didpv40
 global aipwlistadult40lp		aipw40
-global psmlistadult40lp			psm40 
+global psmlistadult40lp			psm40reggio psm40parma psm40padova
 local aipw40_n					bic40
-global fulllistadult40lp		none40 bic40 full40 psm40 aipw40 didpm40 didpv40*/
+global fulllistadult40lp		none40 bic40 full40 psm40reggio aipw40 didpm40 psm40parma didpv40 psm40padova */
 
 
 

@@ -61,7 +61,7 @@ def model_select(data, yvar, xvars, cohort):
 	
 	for i,m in enumerate(models):
 	
-		fmla = '{} ~ Male + CAPI + asilo + Cohort_Migrants + {}'.format(yvar, ' + '.join(m))
+		fmla = '{} ~ maternaMuni + Male + CAPI + asilo + Cohort_Migrants + {}'.format(yvar, ' + '.join(m))
 		 
 		# perform OLS
 		try:
@@ -105,8 +105,8 @@ for cohort in ['child']:
 	best_aic["{}".format(cohort)] = model_list[selection.idxmin(axis = 1)[0]]
 	best_bic["{}".format(cohort)] = model_list[selection.idxmin(axis = 1)[1]]
 
-	print 'Best AIC:', ('Male', 'CAPI') + best_aic['{}'.format(cohort)]
-	print 'Best BIC:', ('Male', 'CAPI') + best_bic['{}'.format(cohort)]
+	print 'Best AIC:', ('Male', 'CAPI' 'asilo', 'maternaMuni') + best_aic['{}'.format(cohort)]
+	print 'Best BIC:', ('Male', 'CAPI' 'asilo', 'maternaMuni') + best_bic['{}'.format(cohort)]
 
 record = open('best_controls_child.txt', 'wb')
 

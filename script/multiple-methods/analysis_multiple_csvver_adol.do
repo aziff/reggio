@@ -15,15 +15,10 @@ clear all
 cap file 	close outcomes
 cap log 	close
 
-/*
+
 global klmReggio   : env klmReggio
 global data_reggio : env data_reggio
 global git_reggio  : env git_reggio
-*/
-
-global klmReggio  	"/mnt/ide0/share/klmReggio"
-global data_reggio	"/mnt/ide0/share/klmReggio/data_survey/data"
-global git_reggio	"/home/yukyungkoh/reggio"
 
 global here : pwd
 
@@ -96,32 +91,39 @@ preserve
 keep if (Cohort == 3)
 
 local stype_switch = 1
-foreach stype in Other /*Reli*/ {
+foreach stype in Other Reli {
 	
 	* Set necessary global variables
 	global X					maternaMuni
 	global reglist				None BIC Full DidPm DidPv // It => Italians, Mg => Migrants
 	global aipwlist				AIPW
-	global psmlist				PSM
+	global psmlist				PSMReggio PSMParma PSMPadova
 
 	global XNone				maternaMuni		
 	global XBIC					maternaMuni		
 	global XFull				maternaMuni		
-	global XPSM					maternaMuni
+	global XPSMReggio			maternaMuni
+	global XPSMParma			Reggio
+	global XPSMPadova			Reggio
 	global XDidPm				xmMuniReggio maternaMuni Reggio 
 	global XDidPv				xmMuniReggio maternaMuni Reggio 
 
 	global controlsNone
 	global controlsBIC			${bic_adol_baseline_vars}
 	global controlsFull			${adol_baseline_vars}
-	global controlsPSM			${bic_adol_baseline_vars}
+	global controlsPSMReggio	${bic_adol_baseline_vars}
+	global controlsPSMParma		${bic_adol_baseline_vars}
+	global controlsPSMPadova	${bic_adol_baseline_vars}
 	global controlsDidPm		${bic_adol_baseline_vars}
 	global controlsDidPv		${bic_adol_baseline_vars}
+	global controlsAIPW			${bic_adol_baseline_vars}
 
 	global ifconditionNone 		(Reggio == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionBIC		${ifconditionNone}
 	global ifconditionFull		${ifconditionNone}
-	global ifconditionPSM		${ifconditionNone}
+	global ifconditionPSMReggio	${ifconditionNone}
+	global ifconditionPSMParma 	((Reggio == 1) & (maternaMuni == 1)) | ((Parma == 1) & (materna`stype'== 1))
+	global ifconditionPSMPadova	((Reggio == 1) & (maternaMuni == 1)) | ((Padova == 1) & (materna`stype' == 1))
 	global ifconditionDidPm		(Reggio == 1 | Parma == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionDidPv		(Reggio == 1 | Padova == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionAIPW 	    (Reggio == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)

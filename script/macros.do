@@ -16,7 +16,7 @@ global schools					Municipal State Religious Private None
 * ------------------ *
 global child_baseline_vars  	Male /*Cohort_Migrants*/ lowbirthweight birthpremature CAPI	momBornProvince momMaxEdu_low momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni ///
 								dadBornProvince dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni numSibling_1 numSibling_2 numSibling_more cgCatholic cgIslam ///
-								int_cgCatFaith houseOwn cgMigrant cgReddito_1 cgReddito_2 cgReddito_3 cgReddito_4 cgReddito_5 cgReddito_6 cgReddito_7
+								int_cgCatFaith houseOwn cgMigrant cgReddito_1 cgReddito_2 cgReddito_3 cgReddito_4 cgReddito_5 cgReddito_6
 								// momWork_fulltime06 momWork_parttime06 momSchool06  
 								// We assume that household income abd family house ownership for children cohorts can be considered as "baseline"
 								
@@ -50,14 +50,14 @@ global Adult50_baseline_vars		 	$adult_baseline_vars
 * BIC-selected baseline variables *
 * ------------------------------- *
 * For Preschool
-global bic_child_baseline_vars					Male CAPI asilo Cohort_Migrants numSibling_more houseOwn cgMigrant cgReddito_7
-global bic_adol_baseline_vars					Male CAPI asilo momMaxEdu_low dadMaxEdu_Uni numSibling_2 cgCatholic
-global bic_adult_baseline_vars		    		Male CAPI momMaxEdu_middle dadMaxEdu_Uni numSibling_2 numSibling_more
+global bic_child_baseline_vars					Male CAPI asilo Cohort_Migrants momMaxEdu_Uni houseOwn cgReddito_3
+global bic_adol_baseline_vars					Male CAPI asilo dadMaxEdu_HS dadMaxEdu_Uni int_cgCatFaith
+global bic_adult_baseline_vars		    		Male CAPI dadMaxEdu_Uni numSibling_2 numSibling_more
 
-* For Materna
-global bic_asilo_child_baseline_vars			Male CAPI Cohort_Migrants numSibling_more houseOwn cgMigrant cgReddito_7
-global bic_asilo_adol_baseline_vars				Male CAPI momMaxEdu_low dadMaxEdu_Uni numSibling_2 cgCatholic
-global bic_asilo_adult_baseline_vars		    Male CAPI momMaxEdu_middle dadMaxEdu_Uni numSibling_2 numSibling_more
+* For Asilo
+global bic_asilo_child_baseline_vars			Male CAPI Cohort_Migrants momMaxEdu_Uni houseOwn cgReddito_3
+global bic_asilo_adol_baseline_vars				Male CAPI dadMaxEdu_HS dadMaxEdu_Uni int_cgCatFaith
+global bic_asilo_adult_baseline_vars		    Male CAPI dadMaxEdu_Uni numSibling_2 numSibling_more
 
 
 
@@ -81,7 +81,7 @@ global child_outcome_H 			 		BMI_obese BMI_overweight childHealthPerc childSickD
 global child_outcome_B			 		diffInterest diffSit likeSch_child_pos faceGeneral 
                                  
 
-global adol_outcome_M					IQ_factor pos_childSDQ_score pos_SDQ_score pos_Depression_score pos_LocusControl BMI_obese BMI_overweight childHealthPerc dropoutSchool likeSchool_ado_pos sport Friends Trust							 
+global adol_outcome_M					IQ_factor pos_childSDQ_score pos_SDQ_score pos_Depression_score pos_LocusControl BMI_obese BMI_overweight childHealthPerc dropoutSchool likeSchool_ado_pos sport Friends volunteer Trust							 
 				  
 global adol_outcome_CN          		IQ_factor IQ_score ///
 										pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score ///
@@ -92,7 +92,7 @@ global adol_outcome_C	          		IQ_factor IQ_score
 global adol_outcome_N	          		pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score ///
 										pos_SDQ_score pos_SDQPsoc_score pos_SDQPeer_score pos_SDQHype_score pos_SDQEmot_score pos_SDQCond_score /*LocusControl*/ pos_Depression_score 					
 										
-global adol_outcome_S 					Friends childinvTalkOut childinvTalkSchool
+global adol_outcome_S 					Friends childinvTalkOut childinvTalkSchool volunteer
 								 
 global adol_outcome_H            		BMI_obese BMI_overweight childHealthPerc childSickDays ///
 										RiskSuspended 
@@ -104,14 +104,14 @@ global adol_outcome_B           		diffInterest diffSit dropoutSchool likeSchool_
 * ----------------------------------------- *								 
 * Cognitive skills and education
 global adult_outcome_M					IQ_factor highschoolGrad votoMaturita votoMaturita_std MaxEdu_Uni PA_Empl HrsTot mStatus_married_cohab BMI_obese ///
-										BMI_overweight pos_LocusControl pos_Depression votedMunicipal votedRegional Friends Trust
+										BMI_overweight pos_LocusControl pos_Depression_score volunteer votedMunicipal votedRegional Friends Trust
 
 global adult_outcome_E					IQ_factor IQ_score votoMaturita  ///
 										highschoolGrad MaxEdu_Uni MaxEdu_Grad
 
 * Employment										
 global adult_outcome_W					PA_Empl SES_self HrsTot ///
-										Reddito_1 Reddito_2 Reddito_3 Reddito_4 Reddito_5 Reddito_6 Reddito_7
+										Reddito_1 Reddito_2 Reddito_3 Reddito_4 Reddito_5 Reddito_6 
 
 * Living status										
 global adult_outcome_L					mStatus_married_cohab mStatus_div childrenResp all_houseOwn live_parent
@@ -134,52 +134,52 @@ global adult_outcome_R					Faith
 
 * Cognitive skills and education
 global adult30_outcome_M					IQ_score IQ_factor highschoolGrad votoMaturita votoMaturita_std MaxEdu_Uni PA_Empl HrsTot mStatus_married_cohab BMI_obese ///
-										BMI_overweight pos_LocusControl pos_Depression votedMunicipal votedRegional
+											BMI_overweight pos_LocusControl pos_Depression votedMunicipal votedRegional
 
 global adult30_outcome_E					IQ_factor votoMaturita  ///
-										highschoolGrad MaxEdu_Uni 
+											highschoolGrad MaxEdu_Uni 
 
 * Employment										
 global adult30_outcome_W					PA_Empl SES_self HrsTot ///
-										Reddito_1 Reddito_2 Reddito_3 Reddito_4 Reddito_5 
+											Reddito_1 Reddito_2 Reddito_3 Reddito_4 Reddito_5 
 
 * Living status										
 global adult30_outcome_L					mStatus_married_cohab mStatus_div childrenResp all_houseOwn live_parent
 
 * Health									
 global adult30_outcome_H					Maria /*Smoke*/ Cig BMI BMI_obese BMI_overweight goodHealth HCondition9 SickDays ///
-										/*i_RiskFight i_RiskDUI*/ RiskSuspended Drink1Age							
+										    /*i_RiskFight i_RiskDUI*/ RiskSuspended Drink1Age							
 
 * Noncognitive										
 global adult30_outcome_N					pos_LocusControl pos_Depression_score Stress StressWork ///
-										SatisIncome SatisWork SatisHealth SatisFamily ///
-										optimist pos_reciprocity neg_reciprocity	
+											SatisIncome SatisWork SatisHealth SatisFamily ///
+											optimist pos_reciprocity neg_reciprocity	
 
 * Social										
 global adult30_outcome_S					MigrTaste Friends MigrFriend volunteer /*invFamMeal*/ votedMunicipal votedRegional 
 
 * Cognitive skills and education
 global adult40_outcome_M					IQ_score IQ_factor highschoolGrad votoMaturita votoMaturita_std MaxEdu_Uni PA_Empl HrsTot mStatus_married_cohab BMI_obese ///
-										BMI_overweight pos_LocusControl pos_Depression votedMunicipal votedRegional
+											BMI_overweight pos_LocusControl pos_Depression votedMunicipal votedRegional
 
 global adult40_outcome_E					IQ_factor votoMaturita  ///
-										highschoolGrad MaxEdu_Uni 
+											highschoolGrad MaxEdu_Uni 
 
 * Employment										
 global adult40_outcome_W					PA_Empl SES_self HrsTot ///
-										Reddito_1 Reddito_2 Reddito_3 Reddito_4 Reddito_5 Reddito_6 
+											Reddito_1 Reddito_2 Reddito_3 Reddito_4 Reddito_5 Reddito_6 
 
 * Living status										
 global adult40_outcome_L					mStatus_married_cohab mStatus_div childrenResp all_houseOwn live_parent
 
 * Health									
 global adult40_outcome_H					Maria /*Smoke*/ Cig BMI BMI_obese BMI_overweight goodHealth HCondition9 SickDays ///
-										/*i_RiskFight i_RiskDUI*/ RiskSuspended Drink1Age							
+											/*i_RiskFight i_RiskDUI*/ RiskSuspended Drink1Age							
 
 * Noncognitive										
 global adult40_outcome_N					pos_LocusControl pos_Depression_score Stress StressWork ///
-										SatisIncome SatisWork SatisHealth SatisFamily ///
-										optimist pos_reciprocity neg_reciprocity	
+											SatisIncome SatisWork SatisHealth SatisFamily ///
+											optimist pos_reciprocity neg_reciprocity	
 
 * Social										
 global adult40_outcome_S					MigrTaste Friends MigrFriend volunteer /*invFamMeal*/ votedMunicipal votedRegional 
@@ -229,8 +229,8 @@ global i_RiskDUI_lab					Drove Under Influence
 global i_RiskFight_lab					Engaged in A Fight 
 global RiskSuspended_lab				Ever Suspended from School
 global Drink1Age_lab					Age At First Drink
-global BMI_obese_lab					Obese
-global BMI_overweight_lab				Overweight
+global BMI_obese_lab					Not Obese
+global BMI_overweight_lab				Not Overweight
 global HCondition9_lab					No Problematic Health Condition
 
 global LocusControl_lab					Locus of Control
@@ -257,6 +257,7 @@ global neg_reciprocity_lab				Negative Reciprocity
 
 global MigrTaste_lab					Favorable to Migrants
 global Friends_lab						Number of Friends
+global childFriends_lab					Number of Friends
 global MigrFriend_lab					Has Migrant Friends
 global volunteer_lab					Volunteers
 global invFamMeal_lab					Child Eats Meal with Fam
