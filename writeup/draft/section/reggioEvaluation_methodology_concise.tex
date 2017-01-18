@@ -37,7 +37,7 @@ The propensity score matching estimator is defined as
 \begin{equation} \label{eq:PSM-estimator}
 \widehat{E[Y(1)-Y(0)]_{PSM}} = \frac{1}{n} \sum_{i=1}^{n} (2D_i -1)(Y_i - \frac{1}{M}\sum_{j \in \mathcal{J}_M(i)}Y_j )
 \end{equation}
-where $M$ is a fixed number of matches per individual and $\mathcal{J}_M(i)$ is a set of matches for individual $i$. The standard errors for this estimator are derived by \cite{Abadie_Imbens_2006_Econometrica}.
+where $M$ is a fixed number of matches per individual based on the propensity score and $\mathcal{J}_M(i)$ is a set of matches for individual $i$. The standard errors for this estimator are derived by \cite{Abadie_Imbens_2006_Econometrica}.
 
 \subsubsection{Augmented IPW} \label{subsubsection:aipw}
 
