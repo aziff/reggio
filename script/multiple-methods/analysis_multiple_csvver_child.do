@@ -72,7 +72,7 @@ foreach stype in Other Stat Reli {
 	* Set necessary global variables
 	global X					maternaMuni
 	global reglist				NoneIt BICIt FullIt DidPmIt DidPvIt  // It => Italians, Mg => Migrants
-	global psmlist				PSMReggio PSMParma PSMPadova
+	global psmlist				PSMR PSMPm PSMPv
 	global aipwlist				AIPWIt 
 
 	global XNoneIt				maternaMuni
@@ -80,9 +80,9 @@ foreach stype in Other Stat Reli {
 	global XFullIt				maternaMuni		
 	global XDidPmIt				xmMuniReggio maternaMuni Reggio 
 	global XDidPvIt				xmMuniReggio maternaMuni Reggio 	
-	global XPSMReggio			maternaMuni
-	global XPSMParma			Reggio
-	global XPSMPadova			Reggio
+	global XPSMR				maternaMuni
+	global XPSMPm				Reggio
+	global XPSMPv				Reggio
 
 	global keepNoneIt			maternaMuni
 	global keepBICIt			maternaMuni
@@ -99,9 +99,9 @@ foreach stype in Other Stat Reli {
 	global controlsFull			${child_baseline_vars}
 	global controlsDidPmIt		${bic_child_baseline_vars}
 	global controlsDidPvIt		${bic_child_baseline_vars}
-	global controlsPSMReggio	${bic_child_baseline_vars}
-	global controlsPSMParma		${bic_child_baseline_vars}
-	global controlsPSMPadova	${bic_child_baseline_vars}
+	global controlsPSMR			${bic_child_baseline_vars}
+	global controlsPSMPm		${bic_child_baseline_vars}
+	global controlsPSMPv		${bic_child_baseline_vars}
 	global controlsAIPWIt		${bic_child_baseline_vars}
 	
 	local  Other_psm			materna
@@ -111,9 +111,9 @@ foreach stype in Other Stat Reli {
 	global ifconditionNoneIt 	(Reggio == 1) & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionBICIt		${ifconditionNoneIt}
 	global ifconditionFullIt	${ifconditionNoneIt}
-	global ifconditionPSMReggio	${ifconditionNoneIt}
-	global ifconditionPSMParma 	((Reggio == 1) & (maternaMuni == 1)) | ((Parma == 1) & (``stype'_psm' == 1))
-	global ifconditionPSMPadova	((Reggio == 1) & (maternaMuni == 1)) | ((Padova == 1) & (``stype'_psm' == 1))
+	global ifconditionPSMR		${ifconditionNoneIt}
+	global ifconditionPSMPm		((Reggio == 1) & (maternaMuni == 1)) | ((Parma == 1) & (``stype'_psm' == 1))
+	global ifconditionPSMPv		((Reggio == 1) & (maternaMuni == 1)) | ((Padova == 1) & (``stype'_psm' == 1))
 	global ifconditionDidPmIt	(Reggio == 1 | Parma == 1)    
 	global ifconditionDidPvIt	(Reggio == 1 | Padova == 1)    & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionAIPWIt 	(Reggio == 1)  & (maternaMuni == 1 | materna`stype' == 1)
