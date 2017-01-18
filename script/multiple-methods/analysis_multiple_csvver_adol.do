@@ -121,7 +121,7 @@ foreach stype in Other Reli {
 	global ifconditionNone 		(Reggio == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionBIC		${ifconditionNone}
 	global ifconditionFull		${ifconditionNone}
-	global ifconditionPSMReggio	${ifconditionNoneIt}
+	global ifconditionPSMReggio	${ifconditionNone}
 	global ifconditionPSMParma 	((Reggio == 1) & (maternaMuni == 1)) | ((Parma == 1) & (materna`stype'== 1))
 	global ifconditionPSMPadova	((Reggio == 1) & (maternaMuni == 1)) | ((Padova == 1) & (materna`stype' == 1))
 	global ifconditionDidPm		(Reggio == 1 | Parma == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
