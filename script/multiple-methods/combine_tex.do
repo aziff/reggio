@@ -59,24 +59,24 @@ global fulllistadollp			none bic full psmreggio aipw didpm psmparma didpv psmpad
 
 global reglistadult30			None30 BIC30 Full30 DidPm30 DidPv30 
 global aipwlistadult30			AIPW30
-global psmlistadult30			PSM30Reggio PSM30Parma PSM30Padova
+global psmlistadult30			PSM30R PSM30Pm PSM30Pv
 global fulllistadult30			None BIC Full PSM AIPW DidPm PSMPm DidPv PSMPv   // order should be same as fulllistadultlp
 global reglistadult30lp			none30 bic30 full30 didpm30 didpv30  
 global aipwlistadult30lp		aipw30
-global psmlistadult30lp			psm30reggio psm30parma psm30padova
+global psmlistadult30lp			psm30r psm30pm psm30pv
 local aipw30_n					bic30
-global fulllistadult30lp		none30 bic30 full30 psm30reggio aipw30 didpm30 psm30parma didpv30 psm30padova
+global fulllistadult30lp		none30 bic30 full30 psm30r aipw30 didpm30 psm30pm didpv30 psm30pv
 
 
 global reglistadult40			None40 BIC40 Full40 
 global aipwlistadult40			AIPW40 
-global psmlistadult40			PSM40Reggio PSM40Parma PSM40Padova
+global psmlistadult40			PSM40R PSM40Pm PSM40Pv
 global fulllistadult40			None BIC Full PSM AIPW PSMPm PSMPv // order should be same as fulllistadultlp
 global reglistadult40lp			none40 bic40 full40
 global aipwlistadult40lp		aipw40 
-global psmlistadult40lp			psm40reggio psm40parma psm40padova
+global psmlistadult40lp			psm40r psm40pm psm40pv
 local aipw40_n					bic40
-global fulllistadult40lp		none40 bic40 full40 psm40reggio aipw40 psm40parma psm40padova
+global fulllistadult40lp		none40 bic40 full40 psm40r aipw40 psm40pm psm40pv
 
 /*
 global cohort					adult40
@@ -84,13 +84,13 @@ global groupadult40				None
 
 global reglistadult40			None40 BIC40 Full40 DidPm40 DidPv40
 global aipwlistadult40			AIPW40 
-global psmlistadult40			PSM40Reggio PSM40Parma PSM40Padova
+global psmlistadult40			PSM40R PSM40Pm PSM40Pv
 global fulllistadult40			None BIC Full PSM AIPW DidPm PSMPm DidPv PSMPv // order should be same as fulllistadultlp
 global reglistadult40lp			none40 bic40 full40 didpm40 didpv40
 global aipwlistadult40lp		aipw40
-global psmlistadult40lp			psm40reggio psm40parma psm40padova
+global psmlistadult40lp			psm40r psm40pm psm40pv
 local aipw40_n					bic40
-global fulllistadult40lp		none40 bic40 full40 psm40reggio aipw40 didpm40 psm40parma didpv40 psm40padova */
+global fulllistadult40lp		none40 bic40 full40 psm40r aipw40 didpm40 psm40pm didpv40 psm40pv */
 
 * ------------------------------------ *
 * Merge and Create Tex for each cohort *
