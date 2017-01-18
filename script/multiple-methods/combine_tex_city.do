@@ -109,17 +109,19 @@ foreach city in Parma Padova {
 					levelsof itt_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
 				
 					* Format decimal points
-					local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
-					local se`item'`outcome' = string(`se`item'`outcome'', "%9.2f")
-					local pv`item'`outcome' = `pv`item'`outcome''
-					
-					* Boldify if p-value < 0.15
-					if `pv`item'`outcome'' <= 0.15 {			
-						local p`item'`outcome' 	"\textbf{ `p`item'`outcome'' }"
+					if !missing("`p`item'`outcome''") {
+						local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
+						local se`item'`outcome' = string(`se`item'`outcome'', "%9.2f")
+						local pv`item'`outcome' = `pv`item'`outcome''
+						
+						* Boldify if p-value < 0.15
+						if `pv`item'`outcome'' <= 0.15 {			
+							local p`item'`outcome' 	"\textbf{ `p`item'`outcome'' }"
+						}
+						
+						* Number of observations in italic
+						local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
 					}
-					
-					* Number of observations in italic
-					local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
 				}
 				di "regression done"
 				
@@ -133,17 +135,19 @@ foreach city in Parma Padova {
 					levelsof itt_``item'_n'_n if rowname == "`outcome'", local(n`item'`outcome')
 					
 					* Format decimal points
-					local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
-					local se`item'`outcome' = string(`se`item'`outcome'', "%9.2f")
-					local pv`item'`outcome' = `pv`item'`outcome''
-					
-					* Boldify if p-value < 0.15
-					if `pv`item'`outcome'' <= 0.10 {
-						local p`item'`outcome' "\textbf{`p`item'`outcome''}"
+					if !missing("`p`item'`outcome''") {
+						local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
+						local se`item'`outcome' = string(`se`item'`outcome'', "%9.2f")
+						local pv`item'`outcome' = `pv`item'`outcome''
+						
+						* Boldify if p-value < 0.15
+						if `pv`item'`outcome'' <= 0.10 {
+							local p`item'`outcome' "\textbf{`p`item'`outcome''}"
+						}
+						
+						* Number of observations in italic
+						local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
 					}
-					
-					* Number of observations in italic
-					local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
 				
 				}
 				di "aipw done `gr' `coh'"
@@ -155,25 +159,26 @@ foreach city in Parma Padova {
 				foreach item in ${psmlist`coh'lp} {
 					
 					* Get the values
+					
 					levelsof psm_`item' if rowname == "`outcome'", local(p`item'`outcome')
 					levelsof psm_`item'_se if rowname == "`outcome'", local(se`item'`outcome')
 					levelsof psm_`item'_p if rowname == "`outcome'", local(pv`item'`outcome')
 					levelsof psm_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
 					
 					* Format decimal points
-					local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
-					local se`item'`outcome' = string(`se`item'`outcome'', "%9.2f")
-					local pv`item'`outcome' = `pv`item'`outcome''
-					
-					* Boldify if p-value < 0.15
-					if `pv`item'`outcome'' <= 0.10 {
-						local p`item'`outcome' "\textbf{`p`item'`outcome''}"
+					if !missing("`p`item'`outcome''") {
+						local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
+						local se`item'`outcome' = string(`se`item'`outcome'', "%9.2f")
+						local pv`item'`outcome' = `pv`item'`outcome''
+						
+						* Boldify if p-value < 0.15
+						if `pv`item'`outcome'' <= 0.10 {
+							local p`item'`outcome' "\textbf{`p`item'`outcome''}"
+						}
+						
+						* Number of observations in italic
+						local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
 					}
-					
-					* Number of observations in italic
-					local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
-				
-				}
 				}
 				di "psm done `gr' `coh'"
 			
