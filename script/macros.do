@@ -133,8 +133,8 @@ global adult_outcome_R					Faith
 
 
 * Cognitive skills and education
-global adult30_outcome_M					IQ_score IQ_factor highschoolGrad votoMaturita votoMaturita_std MaxEdu_Uni PA_Empl HrsTot mStatus_married_cohab BMI_obese ///
-											BMI_overweight pos_LocusControl pos_Depression votedMunicipal votedRegional
+global adult30_outcome_M					IQ_factor highschoolGrad votoMaturita votoMaturita_std MaxEdu_Uni PA_Empl HrsTot mStatus_married_cohab BMI_obese ///
+											BMI_overweight pos_LocusControl pos_Depression_score votedMunicipal votedRegional
 
 global adult30_outcome_E					IQ_factor votoMaturita  ///
 											highschoolGrad MaxEdu_Uni 
@@ -159,8 +159,8 @@ global adult30_outcome_N					pos_LocusControl pos_Depression_score Stress Stress
 global adult30_outcome_S					MigrTaste Friends MigrFriend volunteer /*invFamMeal*/ votedMunicipal votedRegional 
 
 * Cognitive skills and education
-global adult40_outcome_M					IQ_score IQ_factor highschoolGrad votoMaturita votoMaturita_std MaxEdu_Uni PA_Empl HrsTot mStatus_married_cohab BMI_obese ///
-											BMI_overweight pos_LocusControl pos_Depression votedMunicipal votedRegional
+global adult40_outcome_M					IQ_factor highschoolGrad votoMaturita votoMaturita_std MaxEdu_Uni PA_Empl HrsTot mStatus_married_cohab BMI_obese ///
+											BMI_overweight pos_LocusControl pos_Depression_score votedMunicipal votedRegional
 
 global adult40_outcome_E					IQ_factor votoMaturita  ///
 											highschoolGrad MaxEdu_Uni 
@@ -309,7 +309,7 @@ global childHealthPerc_lab 				Health is Good
 global childSickDays_lab 				Number of Sick Days
 global diffInterest_lab 				Not Excited to Learn
 global diffSit_lab 						Problems Sitting Still
-global likeSchool_child_pos_lab 		How Much Child Likes School
+global likeSch_child_pos_lab 		How Much Child Likes School
 global faceGeneral_lab 					Happy in General
 global childFriends_lab					Num. of Friends
 global Friends_lab						Num. of Friends
