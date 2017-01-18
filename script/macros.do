@@ -117,7 +117,7 @@ global adult_outcome_W					PA_Empl SES_self HrsTot ///
 global adult_outcome_L					mStatus_married_cohab mStatus_div childrenResp all_houseOwn live_parent
 
 * Health									
-global adult_outcome_H					Maria /*Smoke*/ BMI BMI_obese BMI_overweight goodHealth HCondition9 SickDays ///
+global adult_outcome_H					Maria /*Smoke*/ Cig BMI BMI_obese BMI_overweight goodHealth HCondition9 SickDays ///
 										/*i_RiskFight i_RiskDUI*/ RiskSuspended Drink1Age							
 
 * Noncognitive										
@@ -257,6 +257,7 @@ global neg_reciprocity_lab				Negative Reciprocity
 
 global MigrTaste_lab					Favorable to Migrants
 global Friends_lab						Number of Friends
+global childFriends_lab					Number of Friends
 global MigrFriend_lab					Has Migrant Friends
 global volunteer_lab					Volunteers
 global invFamMeal_lab					Child Eats Meal with Fam
