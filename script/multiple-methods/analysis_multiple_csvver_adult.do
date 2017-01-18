@@ -215,7 +215,7 @@ foreach stype in Other Stat Reli {
 	global X					maternaMuni
 	global reglist				None40 BIC40 Full40
 	global aipwlist				AIPW40 
-	global psmlist				PSM40R 
+	global psmlist				PSM40R PSM40Pm PSM40Pv
 
 	global XNone40				maternaMuni		
 	global XBIC40				maternaMuni		
