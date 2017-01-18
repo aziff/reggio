@@ -59,9 +59,9 @@ forvalues b = 0/`brep' {
 		
 			di "Regressing for `outcome' for control"
 			capture reg `outcome' ${controls`comparison'} if D == 0
-			if _rc {
-				continue
-			}
+			*if _rc {
+			*	continue
+			*}
 			predict Yhat0  // predicts for everyone!
 		
 			***** calculate estimator
