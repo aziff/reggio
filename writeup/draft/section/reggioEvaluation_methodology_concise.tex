@@ -23,13 +23,13 @@ where $i$ indexes individuals having attended preschool in Reggio Emilia, $D_i$ 
 
 In order to complement the OLS analysis, we also estimate a propensity score matching model that implements nearest-neighbor matching on an estimated propensity score based on a BIC-selected set of observed baseline characteristics $\boldsymbol{X}_i$. This approach is based on the assumption that two individuals with a very similar propensity score have the same level of unobservable characteristics, so that selection into treatment is determined solely by the estimated propensity score. %The benefits of propensity score matching over regression is that it is nonparametric. Furthermore, the use of the propensity score allows us to reduce the dimensionality of the matching exercise to a single dimension.
 
-Let $Y_{1,i}$ and $Y_{0,i}$ represent counterfactual outcomes for individual, $i$, where treatment status is fixed to $D_i=1$ and $D_i=0$ respectively. Under this framework, the realized outcome $Y_i$ is summarized by,
-\begin{equation}\label{eq:roy}
-Y_i = (1-D_i)Y_{0,i} + D_iY_{1,i}.
-\end{equation}
-The average treatment effect under the assumption for propensity score matching is written as:
+%Let $Y_{1,i}$ and $Y_{0,i}$ represent counterfactual outcomes for individual, $i$, where treatment status is fixed to $D_i=1$ and $D_i=0$ respectively. Under this framework, the realized outcome $Y_i$ is summarized by,
+%\begin{equation}\label{eq:roy}
+%Y_i = (1-D_i)Y_{0,i} + D_iY_{1,i}.
+%\end{equation}
+The average treatment effect (ATE) under the assumption for propensity score matching is written as:
 \begin{equation} \label{eq:ATE-PSM}
-E[Y(1)-Y(0)] = E[E[Y_i|D=1, \hat{\pi(\boldsymbol{X}_i)}] - E[Y_i|D=0, \hat{\pi(\boldsymbol{X}_i)}]].
+E[Y(1)-Y(0)] = E[E[Y_i|D_i=1, \hat{\pi(\boldsymbol{X}_i)}] - E[Y_i|D_i=0, \hat{\pi(\boldsymbol{X}_i)}]].
 \end{equation}
 where the propensity score $\hat{\pi({\boldsymbol{X}_i})} = Pr(D_i=1|\boldsymbol{X}_i)$ is predicted for each individual $i$ using the estimated coefficients obtained from a probit model.
 
@@ -41,9 +41,7 @@ where $M$ is a fixed number of matches per individual and $\mathcal{J}_M(i)$ is 
 
 \subsubsection{Augmented IPW} \label{subsubsection:aipw}
 
-As another way of complementing the OLS estimates, we estimate an Augmented Inverse Propensity Weighted (AIPW) estimator in order to account for the possibility that regression estimator for ATE may be poorly estimated when the observed values of baseline variables are not similar for the treatment and control groups.
-
-As in propensity score matching, we assume that individuals select into treatment status $D_i$ based on a BIC-selected set of observed baseline characteristics $\boldsymbol{X}_i$. Under the assumption of strongly ignorable selection into treatment given $\boldsymbol{X}_i$, and the existence of an estimated propensity score $\hat{\pi({\boldsymbol{X}_i})}$ such that $0<\hat{\pi({\boldsymbol{X}_i})}<1$, the AIPW estimator for the average treatment effect $E[Y(1)-Y(0)]$ is defined as:
+As another way of complementing the OLS estimates, we estimate an Augmented Inverse Propensity Weighted (AIPW) estimator. As in propensity score matching, we assume that individuals select into treatment status $D_i$ based on a BIC-selected set of observed baseline characteristics $\boldsymbol{X}_i$. Under the assumption of strongly ignorable selection into treatment given $\boldsymbol{X}_i$, and the existence of an estimated propensity score $\hat{\pi({\boldsymbol{X}_i})}$ such that $0<\hat{\pi({\boldsymbol{X}_i})}<1$, the AIPW estimator for the average treatment effect $E[Y(1)-Y(0)]$ is defined as:
 
 \begin{align}\label{eq:AIPW}
 E[\widehat{Y(1)-Y(0)]}_{AIPW} = \frac{1}{n} \sum_{i=1}^{n} \bigg \{ \bigg[ & \overbrace{\frac{D_i Y_i}{\hat{\pi(\boldsymbol{X}_i)}} - \frac{(1-D_i)Y_i}{1-\hat{\pi(\boldsymbol{X}_i)}}}^{IPTW} \bigg]- \frac{D_i - \hat{\pi}(\boldsymbol{X}_i)}{\hat{\pi}(\boldsymbol{X}_i) (1-\hat{\pi}(\boldsymbol{X}_i))} \nonumber \\[10pt]
@@ -54,7 +52,7 @@ Note that the first part of the AIPW estimator equals to the Inverse Propensity 
 
 
 \subsection{Across-City Comparison} \label{sec:across-city-analysis}
-\subsubsection{Difference-in-difference}  \label{subsubsection:DID}
+\subsubsection{Difference-in-Difference}  \label{subsubsection:DID}
 Next, we estimate a difference-in-difference (DiD) model that allows for cross-city comparisons of municipal preschools while controlling for permanent differences in characteristics between cities. Similar to the OLS model, we estimate the parameters separately for each cohort. In the main paper, we present comparisons between municipal schools and (i) all other types of preschools pooled together or (ii) no preschool. We present comparisons to specific school types in Appendices~\ref{app:comparison-reli-stat}. %We exclude age-50 cohort as municipal childcare systems were not available for all three cities. %%PB This is the same as before, no need to repeat 
 For age-40 cohort, we only compare people who attended Reggio Approach preschools with people in Parma or Padova who attended any type of preschools because municipal childcare systems were not available in both Parma and Padova. 
 
@@ -62,5 +60,14 @@ To illustrate, we present the comparison between between Reggio Emilia and Parma
 \begin{eqnarray}  \label{eq:specific2}
 Y_i & = \beta_0 + \beta_1 Reggio_i + \beta_2 D_i + \beta_3 Reggio_i * D_i + \bm{X}_i\delta + \epsilon_i
 \end{eqnarray}
-\noindent where $Reggio_i$ is the indicator for individual $i$ having attended preschool in Reggio Emilia and $\beta_3$ is interpreted as the difference that remains between municipal schools in Reggio Emilia and Parma after adjusting for permanent differences between the two cities. In other words, $\beta_3$ is the DiD treatment effect estimator that amounts to (Reggio Emilia municipal - Parma municipal) - (Reggio Emilia none - Parma none), where the first difference captures the unadjusted (for permanent city differences) difference between municipal preschools in each city, and the second difference captures the permanent differences between the two cities. Analogous interpretations are applied to DiD comparisons between Reggio Emilia and Padova and comparisons between municipal schools and other school types.
+\noindent where $Reggio_i$ is the indicator for individual $i$ having attended preschool in Reggio Emilia and $D_i$ is the indicator for attending municipal preschool. $\beta_3$ is interpreted as the difference that remains between municipal schools in Reggio Emilia and Parma after adjusting for permanent differences between the two cities. In other words, $\beta_3$ is the DiD treatment effect estimator that amounts to (Reggio Emilia municipal - Parma municipal) - (Reggio Emilia none - Parma none), where the first difference captures the unadjusted (for permanent city differences) difference between municipal preschools in each city, and the second difference captures the permanent differences between the two cities. Analogous interpretations are applied to DiD comparisons between Reggio Emilia and Padova and comparisons between municipal schools and other school types. This approach is based on the assumption that municipal preschools in Parma and Padova are most similar to the Reggio Approach than other preschools.
 
+\subsubsection{Propensity Score Matching}
+
+The DiD model presented in Section \ref{subsubsection:DID} estimates the effect of municipal preschools relative to other types of preschool or no preschool across cities. However, the municipal preschools in Parma and Padova may not be analogous to the Reggio Approach preschools. In order to complement the DiD analysis, we estimate the propensity score matching model to match people who attended the Reggio Approach preschools with people in Parma or Padova who attended (i) all types of preschools pooled together, including municipal preschools, or (ii) no preschool. 
+
+To illustrate, the propensity score matching estimator for the comparison between Reggio Approach and all types of pooled together in Parma is formally written as:
+\begin{equation} \label{eq:PSM-estimator-across-city}
+\widehat{E[Y(1)-Y(0)]_{PSM}} = \frac{1}{n} \sum_{i=1}^{n} (2Reggio_i -1)(Y_i - \frac{1}{M}\sum_{j \in \mathcal{J}_M(i)}Y_j )\} 
+\end{equation}
+where $i$ is limited to (i) people in Reggio who attended Reggio Approach preschools and (ii) people in Parma who attended any preschool. The purpose is to match Reggio Approach people with people who have similar propensity scores but have attended preschool in Parma. We assume that the latter group is similar to the Reggio Approach people except that they are not exposed to the Reggio Approach. By comparing the outcomes across the matches, the propensity score matching model estimates the effect of the Reggio Approach. 
