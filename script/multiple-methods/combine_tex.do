@@ -23,7 +23,7 @@ include "${here}/../macros"
 * ---------- *
 * Set Macros *
 * ---------- *
-global cohort					child adol /*adult30 adult40*/
+global cohort					child adol adult30 adult40
 global groupchild				Other Stat Reli
 global groupadol				Other Reli
 global groupadult30		   		None Other Stat Reli
@@ -92,8 +92,6 @@ global psmlistadult40lp			psm40reggio psm40parma psm40padova
 local aipw40_n					bic40
 global fulllistadult40lp		none40 bic40 full40 psm40reggio aipw40 didpm40 psm40parma didpv40 psm40padova */
 
-
-
 * ------------------------------------ *
 * Merge and Create Tex for each cohort *
 * ------------------------------------ *
@@ -145,6 +143,7 @@ foreach coh in $cohort {
 			
 			* Estimate
 			foreach outcome in ${`coh'_outcome_`out'} {
+				
 			
 				di "for outcome `outcome'"
 				* Regression-based
