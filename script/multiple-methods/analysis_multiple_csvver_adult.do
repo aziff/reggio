@@ -125,8 +125,8 @@ foreach stype in Other None Stat Reli {
 	global ifconditionBIC30			${ifconditionNone30} 
 	global ifconditionFull30		${ifconditionNone30}
 	global ifconditionPSM30Reggio	${ifconditionNone30}
-	global ifconditionPSM30Parma 	((Reggio == 1) & (maternaMuni == 1)) | ((Parma == 1) & (materna`stype') == 1))
-	global ifconditionPSM30Padova	((Reggio == 1) & (maternaMuni == 1)) | ((Padova == 1) & (materna`stype') == 1))
+	global ifconditionPSM30Parma 	((Reggio == 1) & (maternaMuni == 1)) | ((Parma == 1) & (materna`stype' == 1))
+	global ifconditionPSM30Padova	((Reggio == 1) & (maternaMuni == 1)) | ((Padova == 1) & (materna`stype' == 1))
 	global ifconditionDidPm30		(Reggio == 1 | Parma == 1) & (Cohort_Adult30 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionDidPv30		(Reggio == 1 | Padova == 1) & (Cohort_Adult30 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionAIPW30 		(Reggio == 1) & (Cohort_Adult30 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
@@ -236,8 +236,8 @@ foreach stype in Other Stat Reli {
 	global ifconditionBIC40			${ifconditionNone40} 
 	global ifconditionFull40		${ifconditionNone40}
 	global ifconditionPSM40Reggio	${ifconditionNone40}
-	global ifconditionPSM40Parma 	((Reggio == 1) & (maternaMuni == 1)) | ((Parma == 1) & (materna`stype') == 1))
-	global ifconditionPSM40Padova	((Reggio == 1) & (maternaMuni == 1)) | ((Padova == 1) & (materna`stype') == 1))
+	global ifconditionPSM40Parma 	((Reggio == 1) & (maternaMuni == 1)) | ((Parma == 1) & (materna`stype' == 1))
+	global ifconditionPSM40Padova	((Reggio == 1) & (maternaMuni == 1)) | ((Padova == 1) & (materna`stype' == 1))
 	*global ifconditionDidPm40	(Reggio == 1 | Parma == 1) & (Cohort_Adult40 == 1)  & (maternaOther == 1 | maternaNone == 1)
 	*global ifconditionDidPv40	(Reggio == 1 | Padova == 1) & (Cohort_Adult40 == 1)  & (maternaOther == 1 | maternaNone == 1)
 	global ifconditionAIPW40 	(Reggio == 1) & (Cohort_Adult40 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
@@ -342,8 +342,8 @@ foreach stype in None {
 	global ifconditionBIC40			${ifconditionNone40} 
 	global ifconditionFull40		${ifconditionNone40}
 	global ifconditionPSM40Reggio	${ifconditionNone40}
-	global ifconditionPSM40Parma 	((Reggio == 1) & (maternaMuni == 1)) | ((Parma == 1) & (materna`stype') == 1))
-	global ifconditionPSM40Padova	((Reggio == 1) & (maternaMuni == 1)) | ((Padova == 1) & (materna`stype') == 1))
+	global ifconditionPSM40Parma 	((Reggio == 1) & (maternaMuni == 1)) | ((Parma == 1) & (materna`stype' == 1))
+	global ifconditionPSM40Padova	((Reggio == 1) & (maternaMuni == 1)) | ((Padova == 1) & (materna`stype' == 1))
 	global ifconditionDidPm40		((Reggio == 1 & (maternaMuni == 1 | maternaNone == 1)) | (Parma == 1 & (maternaOther == 1 | maternaNone == 1))) & (Cohort_Adult40 == 1) 
 	global ifconditionDidPv40		((Reggio == 1 & (maternaMuni == 1 | maternaNone == 1)) | (Padova == 1 & (maternaOther == 1 | maternaNone == 1))) & (Cohort_Adult40 == 1) 
 	global ifconditionAIPW40 		(Reggio == 1) & (Cohort_Adult40 == 1)   & (maternaMuni == 1 | materna`stype' == 1)

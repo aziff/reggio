@@ -108,15 +108,15 @@ foreach stype in Other Stat Reli {
 	global ifconditionBICIt		${ifconditionNoneIt}
 	global ifconditionFullIt	${ifconditionNoneIt}
 	global ifconditionPSMReggio	${ifconditionNoneIt}
-	global ifconditionPSMParma 	((Reggio == 1) & (maternaMuni == 1)) | ((Parma == 1) & (materna`stype') == 1))
-	global ifconditionPSMPadova	((Reggio == 1) & (maternaMuni == 1)) | ((Padova == 1) & (materna`stype') == 1))
+	global ifconditionPSMParma 	((Reggio == 1) & (maternaMuni == 1)) | ((Parma == 1) & (materna`stype' == 1))
+	global ifconditionPSMPadova	((Reggio == 1) & (maternaMuni == 1)) | ((Padova == 1) & (materna`stype' == 1))
 	global ifconditionDidPmIt	(Reggio == 1 | Parma == 1)    
 	global ifconditionDidPvIt	(Reggio == 1 | Padova == 1)    & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionAIPWIt 	(Reggio == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	
 	foreach type in  M CN S H B {
 
-	/*	* ----------------------- *
+		* ----------------------- *
 		* For Regression Analysis *
 		* ----------------------- *
 		* Open necessary files
@@ -129,7 +129,7 @@ foreach stype in Other Stat Reli {
 		* Close necessary files
 		file close regression_`type'_`stype' 
 		
-		*/
+		
 		
 		* ----------------------- *
 		* For PSM Analysis 		  *
@@ -145,7 +145,7 @@ foreach stype in Other Stat Reli {
 		file close psm_`type'_`stype'
 		
 		
-		/*
+		
 		
 		
 		* ----------------- *
@@ -162,7 +162,7 @@ foreach stype in Other Stat Reli {
 		
 		* Close necessary files
 		file close aipw_`type'_`stype'	
-	 */
+	
 	
 	}
 	
