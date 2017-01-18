@@ -38,7 +38,7 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 			
 			di "For comparison `comp'"
 			di "teffects psmatch (`var') (${X`comp'} ${controls`comp'}) if ${ifcondition`comp'}"
-			capture teffects psmatch (`var') (${X`comp'} ${controls`comp'}) if ${ifcondition`comp'}
+			teffects psmatch (`var') (${X`comp'} ${controls`comp'}) if ${ifcondition`comp'}
 			if !_rc {
 			
 				di "variable: `var'"
