@@ -15,15 +15,10 @@ clear all
 cap file 	close outcomes
 cap log 	close
 
-/*
+
 global klmReggio   : env klmReggio
 global data_reggio : env data_reggio
 global git_reggio  : env git_reggio
-*/
-
-global klmReggio  	"/mnt/ide0/share/klmReggio"
-global data_reggio	"/mnt/ide0/share/klmReggio/data_survey/data"
-global git_reggio	"/home/yukyungkoh/reggio"
 
 global here : pwd
 
@@ -109,6 +104,7 @@ foreach city in Parma Padova {
 		global controlsFull			${child_baseline_vars}
 		global controlsDidPmIt		${bic_child_baseline_vars}
 		global controlsDidPvIt		${bic_child_baseline_vars}
+		global controlsAIPWIt		${bic_child_baseline_vars}
 
 		global ifconditionNoneIt 	(`city' == 1) 
 		global ifconditionBICIt		${ifconditionNoneIt}
