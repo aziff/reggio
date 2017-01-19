@@ -519,6 +519,11 @@ replace BMI_overweight = 1 if childBMI >= 26.09993 & childBMI < 31.0288 & Male =
 
 
 
+* Recode BMI obese and overweight so that 1 is socially positive and 0 is socially negative
+recode BMI_obese		(0 = 1) (1 = 0)
+recode BMI_overweight 	(0 = 1) (1 = 0)
+
+
 // Mother work/school variable
 label define momWork_lab 1 "Yes, worked full-time" 2 "Yes, worked part-time" 3 "Yes, went to school" 4 "No, stayed at home" 
 label values momWorking06 momWork_lab

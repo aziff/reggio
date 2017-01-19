@@ -96,17 +96,20 @@ foreach coh in $cohort {
 				levelsof itt_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
 				di "HERE?"
 				* Format decimal points
-				local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
-				local se`item'`outcome' = string(`se`item'`outcome'', "%9.2f")
-				local pv`item'`outcome' = `pv`item'`outcome''
-					di "HERE???"
-				* Boldify if p-value < 0.15
-				if `pv`item'`outcome'' <= 0.15 {			
-					local p`item'`outcome' 	"\textbf{ `p`item'`outcome'' }"
+				if !missing("`p`item'`outcome''") {
+					local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
+					local se`item'`outcome' = string(`se`item'`outcome'', "%9.2f")
+					local pv`item'`outcome' = `pv`item'`outcome''
+
+					* Boldify if p-value < 0.15
+					if `pv`item'`outcome'' <= 0.15 {			
+						local p`item'`outcome' 	"\textbf{ `p`item'`outcome'' }"
+					}
+					
+					
+					* Number of observations in italic
+					local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
 				}
-				
-				* Number of observations in italic
-				local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
 			}
 			di "regression done"
 			

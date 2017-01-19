@@ -36,6 +36,8 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 		local switch = 1
 		foreach comp in ${psmlist} {
 			
+			di "For comparison `comp'"
+			di "teffects psmatch (`var') (${X`comp'} ${controls`comp'}) if ${ifcondition`comp'}"
 			capture teffects psmatch (`var') (${X`comp'} ${controls`comp'}) if ${ifcondition`comp'}
 			if !_rc {
 			

@@ -33,7 +33,7 @@ forvalues b = 0/`brep' {
 	if (`obsN1' >= 5) & (`obsN0' >= 5) {
 	
 	***** predict probabilities and generate weights
-	probit D ${X`comparison'}, vce(robust) iterate(30)
+	probit D ${controls`comparison'}, vce(robust) iterate(30)
 
 		***** only proceed if converged
 		if e(converged) {	
@@ -51,17 +51,17 @@ forvalues b = 0/`brep' {
 			replace weight0 = (1 / Dhat0) 
 
 			di "Regressing for `outcome' for treated"
-			capture reg `outcome' ${bic_`cohort'_baseline_vars} if D == 1
+			capture reg `outcome' ${controls`comparison'} if D == 1
 			if _rc {
 				continue
 			}
 			predict Yhat1  // predicts for everyone!
 		
 			di "Regressing for `outcome' for control"
-			capture reg `outcome' ${bic_`cohort'_baseline_vars} if D == 0
-			if _rc {
-				continue
-			}
+			capture reg `outcome' ${controls`comparison'} if D == 0
+			*if _rc {
+			*	continue
+			*}
 			predict Yhat0  // predicts for everyone!
 		
 			***** calculate estimator

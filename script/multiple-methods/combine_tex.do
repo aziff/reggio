@@ -2,7 +2,7 @@
 * Merging CSV's
 * Authors: Jessica Yu Kyung Koh
 * Created: 06/16/2016
-* Edited:  12/15/2016
+* Edited:  01/17/2016
 * --------------------------------------------------------------------------- */
 
 clear all
@@ -24,75 +24,73 @@ include "${here}/../macros"
 * Set Macros *
 * ---------- *
 global cohort					child adol adult30 adult40
-global groupchild				Other 
-global groupadol				Other 
-global groupadult30		   		None /*None Other Stat Reli*/
-global groupadult40				Other /*Stat Reli*/	
-global outcomechild				M /*CN S H B*/
-global outcomeadol				M /*CN S H B*/
-global outcomeadult30			M /*E W L H N S*/
-global outcomeadult40			M /*E W L H N S*/
+global groupchild				Other /*Stat Reli*/
+global groupadol				Other /* Reli*/
+global groupadult30		   		None Other /*Stat Reli*/
+global groupadult40				Other /*Stat Reli*/
+global outcomechild				M CN S H B
+global outcomeadol				M CN S H B
+global outcomeadult30			M E W L H N S
+global outcomeadult40			M E W L H N S
 	
 
 global reglistchild				NoneIt BICIt FullIt DidPmIt DidPvIt   
 global aipwlistchild			AIPWIt  
-global psmlistchild				PSMIt
-global fulllistchild			None BIC Full PSM AIPW DidPm DidPv  // order should be same as fulllistchildlp
+global psmlistchild				PSMR PSMPm PSMPv
+global fulllistchild			None BIC Full PSM AIPW DidPm PSMPm DidPv PSMPv // order should be same as fulllistchildlp
 global reglistchildlp			noneit bicit fullit didpmit didpvit   
 global aipwlistchildlp			aipwit 
-global psmlistchildlp			psmit
+global psmlistchildlp			psmr psmpm psmpv
 local aipwit_n					bicit
-global fulllistchildlp			noneit bicit fullit psmit aipwit didpmit didpvit
+global fulllistchildlp			noneit bicit fullit psmr aipwit didpmit psmpm didpvit psmpv 
 
 
 
 global reglistadol				None BIC Full DidPm DidPv 
 global aipwlistadol				AIPW
-global psmlistadol				PSM
-global fulllistadol				None Bic Full PSM AIPW DidPm DidPv  // order should be same as fulllistadollp
+global psmlistadol				PSMR PSMPm PSMPv
+global fulllistadol				None Bic Full PSM AIPW DidPm PSMPm DidPv PSMPv  // order should be same as fulllistadollp
 global reglistadollp			none bic full didpm didpv   
 global aipwlistadollp			aipw 
-global psmlistadollp			psm 
+global psmlistadollp			psmr psmpm psmpv 
 local aipw_n					bic
-global fulllistadollp			none bic full psm aipw didpm didpv 
+global fulllistadollp			none bic full psmr aipw didpm psmpm didpv psmpv 
 
 
 global reglistadult30			None30 BIC30 Full30 DidPm30 DidPv30 
 global aipwlistadult30			AIPW30
-global psmlistadult30			PSM30
-global fulllistadult30			None BIC Full /*PSM*/ AIPW DidPm DidPv   // order should be same as fulllistadultlp
+global psmlistadult30			PSM30R PSM30Pm PSM30Pv
+global fulllistadult30			None BIC Full PSM AIPW DidPm PSMPm DidPv PSMPv   // order should be same as fulllistadultlp
 global reglistadult30lp			none30 bic30 full30 didpm30 didpv30  
 global aipwlistadult30lp		aipw30
-global psmlistadult30lp			/*psm30*/ 
+global psmlistadult30lp			psm30r psm30pm psm30pv
 local aipw30_n					bic30
-global fulllistadult30lp		none30 bic30 full30 /*psm30*/ aipw30 didpm30 didpv30 
+global fulllistadult30lp		none30 bic30 full30 psm30r aipw30 didpm30 psm30pm didpv30 psm30pv
 
 
 global reglistadult40			None40 BIC40 Full40 
 global aipwlistadult40			AIPW40 
-global psmlistadult40			PSM40
-global fulllistadult40			None BIC Full PSM AIPW  // order should be same as fulllistadultlp
+global psmlistadult40			PSM40R PSM40Pm PSM40Pv
+global fulllistadult40			None BIC Full PSM AIPW PSMPm PSMPv // order should be same as fulllistadultlp
 global reglistadult40lp			none40 bic40 full40
 global aipwlistadult40lp		aipw40 
-global psmlistadult40lp			psm40 
+global psmlistadult40lp			psm40r psm40pm psm40pv
 local aipw40_n					bic40
-global fulllistadult40lp		none40 bic40 full40 psm40 aipw40
+global fulllistadult40lp		none40 bic40 full40 psm40r aipw40 psm40pm psm40pv
 
-/*
+
 global cohort					adult40
 global groupadult40				None			
 
 global reglistadult40			None40 BIC40 Full40 DidPm40 DidPv40
 global aipwlistadult40			AIPW40 
-global psmlistadult40			PSM40
-global fulllistadult40			None BIC Full PSM AIPW DidPm DidPv // order should be same as fulllistadultlp
+global psmlistadult40			PSM40R PSM40Pm PSM40Pv
+global fulllistadult40			None BIC Full PSM AIPW DidPm PSMPm DidPv PSMPv // order should be same as fulllistadultlp
 global reglistadult40lp			none40 bic40 full40 didpm40 didpv40
 global aipwlistadult40lp		aipw40
-global psmlistadult40lp			psm40 
+global psmlistadult40lp			psm40r psm40pm psm40pv
 local aipw40_n					bic40
-global fulllistadult40lp		none40 bic40 full40 psm40 aipw40 didpm40 didpv40*/
-
-
+global fulllistadult40lp		none40 bic40 full40 psm40r aipw40 didpm40 psm40pm didpv40 psm40pv 
 
 * ------------------------------------ *
 * Merge and Create Tex for each cohort *
@@ -145,6 +143,7 @@ foreach coh in $cohort {
 			
 			* Estimate
 			foreach outcome in ${`coh'_outcome_`out'} {
+				
 			
 				di "for outcome `outcome'"
 				* Regression-based
@@ -157,7 +156,7 @@ foreach coh in $cohort {
 					levelsof itt_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
 				
 					* Format decimal points
-					if !missing("`p`item'`outcome''") {
+					if !missing("`p`item'`outcome''") & !missing("`se`item'`outcome''") {
 						local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
 						local se`item'`outcome' = string(`se`item'`outcome'', "%9.2f")
 									
@@ -184,7 +183,7 @@ foreach coh in $cohort {
 					levelsof itt_``item'_n'_n if rowname == "`outcome'", local(n`item'`outcome')
 					
 					* Format decimal points
-					if !missing("`p`item'`outcome''") {
+					if !missing("`p`item'`outcome''") & !missing("`se`item'`outcome''")  {
 						local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
 						local se`item'`outcome' = string(`se`item'`outcome'', "%9.2f")
 						local pv`item'`outcome' = `pv`item'`outcome''
@@ -213,7 +212,7 @@ foreach coh in $cohort {
 					levelsof psm_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
 					
 					* Format decimal points
-					if !missing("`p`item'`outcome''") {
+					if !missing("`p`item'`outcome''") & !missing("`se`item'`outcome''")  {
 						local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
 						local se`item'`outcome' = string(`se`item'`outcome'', "%9.2f")
 						local pv`item'`outcome' = `pv`item'`outcome''

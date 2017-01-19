@@ -15,15 +15,11 @@ clear all
 cap file 	close outcomes
 cap log 	close
 
-/*
+
 global klmReggio   : env klmReggio
 global data_reggio : env data_reggio
 global git_reggio  : env git_reggio
-*/
 
-global klmReggio  	"/mnt/ide0/share/klmReggio"
-global data_reggio	"/mnt/ide0/share/klmReggio/data_survey/data"
-global git_reggio	"/home/yukyungkoh/reggio"
 
 global here : pwd
 
@@ -130,7 +126,7 @@ foreach stype in Other /*Reli*/ {
 
 	
 	
-	foreach type in  M CN S H B {
+	foreach type in  M {
 
 		* ----------------------- *
 		* For Regression Analysis *

@@ -8,6 +8,8 @@
 \input{preamble}
 \setcounter{table}{0}
 \renewcommand{\thetable}{A\arabic{table}}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{A\arabic{figure}}
 
 \externaldocument{reggioEvaluation_main}
 
@@ -26,12 +28,11 @@
 
 \section{Historical Survey}
 \label{sec:survey}
-\subsection{Full Survey}
-\includepdf[pages=-]{section/CEHD-ECE-Italy_SurveyQuestionnaire-ENGLISH_2016-10-24_sk}
+\input{section/reggioEvaluation_survey}
 
 \section{Description of Early Childhood Programs in Italy}
 \label{sec:programdes}
-\input{section/reggioEvaluation_survey}
+\input{section/reggioEvaluation_schooldescription}
 
 \section{Additional Information on Data}
 \label{sec:data-app}

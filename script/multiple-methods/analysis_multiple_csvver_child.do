@@ -15,15 +15,9 @@ clear all
 cap file 	close outcomes
 cap log 	close
 
-/*
 global klmReggio   : env klmReggio
 global data_reggio : env data_reggio
 global git_reggio  : env git_reggio
-*/
-
-global klmReggio  	"/mnt/ide0/share/klmReggio"
-global data_reggio	"/mnt/ide0/share/klmReggio/data_survey/data"
-global git_reggio	"/home/yukyungkoh/reggio"
 
 global here : pwd
 
@@ -73,12 +67,12 @@ preserve
 keep if (Cohort == 1) | (Cohort == 2) 
 
 local stype_switch = 1
-foreach stype in Other /*Stat Reli*/ {
+foreach stype in Other Stat Reli {
 	
 	* Set necessary global variables
 	global X					maternaMuni
 	global reglist				NoneIt BICIt FullIt DidPmIt DidPvIt  // It => Italians, Mg => Migrants
-	global psmlist				PSMIt
+	global psmlist				PSMR PSMPm PSMPv
 	global aipwlist				AIPWIt 
 
 	global XNoneIt				maternaMuni
@@ -86,7 +80,9 @@ foreach stype in Other /*Stat Reli*/ {
 	global XFullIt				maternaMuni		
 	global XDidPmIt				xmMuniReggio maternaMuni Reggio 
 	global XDidPvIt				xmMuniReggio maternaMuni Reggio 	
-	global XPSMIt				maternaMuni
+	global XPSMR				maternaMuni
+	global XPSMPm				Reggio
+	global XPSMPv				Reggio
 
 	global keepNoneIt			maternaMuni
 	global keepBICIt			maternaMuni
@@ -94,7 +90,6 @@ foreach stype in Other /*Stat Reli*/ {
 
 	global keepDidPmIt			xmMuniReggio
 	global keepDidPvIt			xmMuniReggio
-	global keepPSMIt			maternaMuni
 
 	global controlsNoneIt
 	global controlsNone
@@ -104,12 +99,21 @@ foreach stype in Other /*Stat Reli*/ {
 	global controlsFull			${child_baseline_vars}
 	global controlsDidPmIt		${bic_child_baseline_vars}
 	global controlsDidPvIt		${bic_child_baseline_vars}
-	global controlsPSMIt		${bic_child_baseline_vars}
+	global controlsPSMR			${bic_child_baseline_vars}
+	global controlsPSMPm		${bic_child_baseline_vars}
+	global controlsPSMPv		${bic_child_baseline_vars}
+	global controlsAIPWIt		${bic_child_baseline_vars}
+	
+	local  Other_psm			materna
+	local  Stat_psm				maternaStat
+	local  Reli_psm				maternaReli
 
 	global ifconditionNoneIt 	(Reggio == 1) & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionBICIt		${ifconditionNoneIt}
 	global ifconditionFullIt	${ifconditionNoneIt}
-	global ifconditionPSMIt		${ifconditionNoneIt}
+	global ifconditionPSMR		${ifconditionNoneIt}
+	global ifconditionPSMPm		((Reggio == 1) & (maternaMuni == 1)) | ((Parma == 1) & (``stype'_psm' == 1))
+	global ifconditionPSMPv		((Reggio == 1) & (maternaMuni == 1)) | ((Padova == 1) & (``stype'_psm' == 1))
 	global ifconditionDidPmIt	(Reggio == 1 | Parma == 1)    
 	global ifconditionDidPvIt	(Reggio == 1 | Padova == 1)    & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionAIPWIt 	(Reggio == 1)  & (maternaMuni == 1 | materna`stype' == 1)

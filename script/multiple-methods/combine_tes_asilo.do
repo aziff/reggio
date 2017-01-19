@@ -27,7 +27,7 @@ global cohort					child adol adult30 adult40
 global group					Other None 
 
 global reglistchild				NoneIt BICIt FullIt   	 
-global fulllistchild			NoneIt BICIt FullIt  
+global fulllistchild			None BIC Full 
 global reglistchildlp			noneit bicit fullit  
 global aipwlistchildlp			psmit 
 local aipwit_n					bicit
@@ -40,13 +40,13 @@ global reglistadollp			none bic full
 global fulllistadollp			none bic full 
 
 global reglistadult30				None30 BIC30 Full30
-global fulllistadult30				None30 BIC30 Full30 
+global fulllistadult30				None BIC Full 
 global reglistadult30lp				none30 bic30 full30 
 global fulllistadult30lp			none30 bic30 full30
 
 
 global reglistadult40				None40 BIC40 Full40
-global fulllistadult40				None40 BIC40 Full40 
+global fulllistadult40				None BIC Full 
 global reglistadult40lp				none40 bic40 full40 
 global fulllistadult40lp			none40 bic40 full40
 
@@ -94,17 +94,19 @@ foreach coh in $cohort {
 				levelsof itt_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
 				
 				* Format decimal points
-				local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
-				local se`item'`outcome' = string(`se`item'`outcome'', "%9.2f")
-				local pv`item'`outcome' = `pv`item'`outcome''
-				
-				* Boldify if p-value < 0.15
-				if `pv`item'`outcome'' <= 0.10 {			
-					local p`item'`outcome' 	"\textbf{ `p`item'`outcome'' }"
+				if !missing("`p`item'`outcome''") {
+					local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
+					local se`item'`outcome' = string(`se`item'`outcome'', "%9.2f")
+					local pv`item'`outcome' = `pv`item'`outcome''
+					
+					* Boldify if p-value < 0.15
+					if `pv`item'`outcome'' <= 0.15 {			
+						local p`item'`outcome' 	"\textbf{ `p`item'`outcome'' }"
+					}
+					
+					* Number of observations in italic
+					local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
 				}
-				
-				* Number of observations in italic
-				local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
 			}
 			di "regression done"
 			

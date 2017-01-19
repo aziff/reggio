@@ -15,16 +15,10 @@ clear all
 cap file 	close outcomes
 cap log 	close
 
-/*
+
 global klmReggio   : env klmReggio
 global data_reggio : env data_reggio
 global git_reggio  : env git_reggio
-*/
-
-
-global klmReggio  	"/mnt/ide0/share/klmReggio"
-global data_reggio	"/mnt/ide0/share/klmReggio/data_survey/data"
-global git_reggio	"/home/yukyungkoh/reggio"
 
 global here : pwd
 
@@ -105,30 +99,41 @@ foreach stype in Other None /*Stat Reli*/ {
 	global X					maternaMuni
 	global reglist				None30 BIC30 Full30 DidPm30 DidPv30 
 	global aipwlist				AIPW30 
-	global psmlist				PSM30
+	global psmlist				PSM30R PSM30Pm PSM30Pv
 
 	global XNone30				maternaMuni		
 	global XBIC30				maternaMuni		
 	global XFull30				maternaMuni		
-	global XPSM30				maternaMuni
+	global XPSM30R				maternaMuni
+	global XPSM30Pm				Reggio
+	global XPSM30Pv				Reggio
 	global XDidPm30				xmMuniReggio maternaMuni Reggio 	
 	global XDidPv30				xmMuniReggio maternaMuni Reggio 	
 
 	global controlsNone30
 	global controlsBIC30		${bic_adult_baseline_vars}
 	global controlsFull30		${adult_baseline_vars}
-	global controlsPSM30		${bic_adult_baseline_vars}	
+	global controlsPSM30R		${bic_adult_baseline_vars}
+	global controlsPSM30Pm		${bic_adult_baseline_vars}
+	global controlsPSM30Pv		${bic_adult_baseline_vars}
 	global controlsDidPm30		${bic_adult_baseline_vars}
 	global controlsDidPv30		${bic_adult_baseline_vars}
+	global controlsAIPW30		${bic_adult_baseline_vars}
+	
+	local  Other_psm			materna
+	local  None_psm				maternaNone
+	local  Stat_psm				maternaStat
+	local  Reli_psm				maternaReli
 
-
-	global ifconditionNone30 	(Reggio == 1) & (Cohort_Adult30 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionBIC30		${ifconditionNone30} 
-	global ifconditionFull30	${ifconditionNone30}
-	global ifconditionPSM30		${ifconditionNone30}
-	global ifconditionDidPm30	(Reggio == 1 | Parma == 1) & (Cohort_Adult30 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionDidPv30	(Reggio == 1 | Padova == 1) & (Cohort_Adult30 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionAIPW30 	(Reggio == 1) & (Cohort_Adult30 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
+	global ifconditionNone30 		(Reggio == 1) & (Cohort_Adult30 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
+	global ifconditionBIC30			${ifconditionNone30} 
+	global ifconditionFull30		${ifconditionNone30}
+	global ifconditionPSM30R		${ifconditionNone30}
+	global ifconditionPSM30Pm	 	((Reggio == 1) & (maternaMuni == 1)) | ((Parma == 1) & (``stype'_psm' == 1))
+	global ifconditionPSM30Pv		((Reggio == 1) & (maternaMuni == 1)) | ((Padova == 1) & (``stype'_psm' == 1))
+	global ifconditionDidPm30		(Reggio == 1 | Parma == 1) & (Cohort_Adult30 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
+	global ifconditionDidPv30		(Reggio == 1 | Padova == 1) & (Cohort_Adult30 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
+	global ifconditionAIPW30 		(Reggio == 1) & (Cohort_Adult30 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
 
 		
 	foreach type in  M E W L H N S {
@@ -210,33 +215,43 @@ foreach stype in Other /*Stat Reli*/ {
 	global X					maternaMuni
 	global reglist				None40 BIC40 Full40
 	global aipwlist				AIPW40 
-	global psmlist				PSM40
+	global psmlist				PSM40R PSM40Pm PSM40Pv
 
 	global XNone40				maternaMuni		
 	global XBIC40				maternaMuni		
 	global XFull40				maternaMuni		
-	global XPSM40				maternaMuni
+	global XPSM40R				maternaMuni
+	global XPSM40Pm				Reggio
+	global XPSM40Pv				Reggio
 	*global XDidPm40			maternaMuni	Reggio xmMuniReggio	
 	*global XDidPv40			maternaMuni	Reggio xmMuniReggio		
 
 	global controlsNone40
 	global controlsBIC40		${bic_adult_baseline_vars}
 	global controlsFull40		${adult_baseline_vars}
-	global controlsPSM40		${bic_adult_baseline_vars}
+	global controlsPSM40R		${bic_adult_baseline_vars}
+	global controlsPSM40Pm		${bic_adult_baseline_vars}
+	global controlsPSM40Pv		${bic_adult_baseline_vars}
 	global controlsDidPm40		${bic_adult_baseline_vars}
 	global controlsDidPv40		${bic_adult_baseline_vars}
+	global controlsAIPW40		${bic_adult_baseline_vars}
+	
+	local  Other_psm			materna
+	local  Stat_psm				maternaStat
+	local  Reli_psm				maternaReli
 
-
-	global ifconditionNone40 	(Reggio == 1) & (Cohort_Adult40 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionBIC40		${ifconditionNone40} 
-	global ifconditionFull40	${ifconditionNone40}
-	global ifconditionPSM40		${ifconditionNone40}
-	*global ifconditionDidPm40	(Reggio == 1 | Parma == 1) & (Cohort_Adult40 == 1)  & (maternaOther == 1 | maternaNone == 1)
-	*global ifconditionDidPv40	(Reggio == 1 | Padova == 1) & (Cohort_Adult40 == 1)  & (maternaOther == 1 | maternaNone == 1)
-	global ifconditionAIPW40 	(Reggio == 1) & (Cohort_Adult40 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
+	global ifconditionNone40 		(Reggio == 1) & (Cohort_Adult40 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
+	global ifconditionBIC40			${ifconditionNone40} 
+	global ifconditionFull40		${ifconditionNone40}
+	global ifconditionPSM40R		${ifconditionNone40}
+	global ifconditionPSM40Pm	 	((Reggio == 1) & (maternaMuni == 1)) | ((Parma == 1) & (``stype'_psm' == 1))
+	global ifconditionPSM40Pv		((Reggio == 1) & (maternaMuni == 1)) | ((Padova == 1) & (``stype'_psm' == 1))
+	*global ifconditionDidPm40		(Reggio == 1 | Parma == 1) & (Cohort_Adult40 == 1)  & (maternaOther == 1 | maternaNone == 1)
+	*global ifconditionDidPv40		(Reggio == 1 | Padova == 1) & (Cohort_Adult40 == 1)  & (maternaOther == 1 | maternaNone == 1)
+	global ifconditionAIPW40 		(Reggio == 1) & (Cohort_Adult40 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
 
 		
-	foreach type in  M E W L H N S {
+	foreach type in  M E W L H N S  {
 
 		* ----------------------- *
 		* For Regression Analysis *
@@ -308,12 +323,14 @@ foreach stype in None {
 	global X					materna
 	global reglist				None40 BIC40 Full40 DidPm40 DidPv40
 	global aipwlist				AIPW40 
-	global psmlist				PSM40
+	global psmlist				PSM40R PSM40Pm PSM40Pv 
 
 	global XNone40				maternaMuni		
 	global XBIC40				maternaMuni		
 	global XFull40				maternaMuni		
-	global XPSM40				maternaMuni
+	global XPSM40R				maternaMuni
+	global XPSM40Pm				Reggio
+	global XPSM40Pv				Reggio
 	global XDidPm40			    xmMuniReggio materna Reggio 	
 	global XDidPv40			    xmMuniReggio materna Reggio 		
 
@@ -321,18 +338,23 @@ foreach stype in None {
 	global controlsNone40
 	global controlsBIC40		${bic_adult_baseline_vars}
 	global controlsFull40		${adult_baseline_vars}
-	global controlsPSM40		${bic_adult_baseline_vars}
+	global controlsPSM40R		${bic_adult_baseline_vars}
+	global controlsPSM40Pm		${bic_adult_baseline_vars}
+	global controlsPSM40Pv		${bic_adult_baseline_vars}
 	global controlsDidPm40		${bic_adult_baseline_vars}
 	global controlsDidPv40		${bic_adult_baseline_vars}
+	global controlsAIPW40		${bic_adult_baseline_vars}
 
 
-	global ifconditionNone40 	(Reggio == 1) & (Cohort_Adult40 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionBIC40		${ifconditionNone40} 
-	global ifconditionFull40	${ifconditionNone40}
-	global ifconditionPSM40		${ifconditionNone40}
-	global ifconditionDidPm40	((Reggio == 1 & (maternaMuni == 1 | maternaNone == 1)) | (Parma == 1 & (maternaOther == 1 | maternaNone == 1))) & (Cohort_Adult40 == 1) 
-	global ifconditionDidPv40	((Reggio == 1 & (maternaMuni == 1 | maternaNone == 1)) | (Padova == 1 & (maternaOther == 1 | maternaNone == 1))) & (Cohort_Adult40 == 1) 
-	global ifconditionAIPW40 	(Reggio == 1) & (Cohort_Adult40 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
+	global ifconditionNone40 		(Reggio == 1) & (Cohort_Adult40 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
+	global ifconditionBIC40			${ifconditionNone40} 
+	global ifconditionFull40		${ifconditionNone40}
+	global ifconditionPSM40R		${ifconditionNone40}
+	global ifconditionPSM40Pm	 	((Reggio == 1) & (maternaMuni == 1)) | ((Parma == 1) & (materna`stype' == 1))
+	global ifconditionPSM40Pv		((Reggio == 1) & (maternaMuni == 1)) | ((Padova == 1) & (materna`stype' == 1))
+	global ifconditionDidPm40		((Reggio == 1 & (maternaMuni == 1 | maternaNone == 1)) | (Parma == 1 & (maternaOther == 1 | maternaNone == 1))) & (Cohort_Adult40 == 1) 
+	global ifconditionDidPv40		((Reggio == 1 & (maternaMuni == 1 | maternaNone == 1)) | (Padova == 1 & (maternaOther == 1 | maternaNone == 1))) & (Cohort_Adult40 == 1) 
+	global ifconditionAIPW40 		(Reggio == 1) & (Cohort_Adult40 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
 
 		
 	foreach type in  M E W L H N S {
