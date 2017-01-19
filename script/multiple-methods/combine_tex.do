@@ -36,25 +36,25 @@ global outcomeadult40			M E W L H N S
 
 global reglistchild				NoneIt BICIt FullIt DidPmIt DidPvIt   
 global aipwlistchild			AIPWIt  
-global psmlistchild				PSMReggio PSMParma PSMPadova
+global psmlistchild				PSMR PSMPm PSMPv
 global fulllistchild			None BIC Full PSM AIPW DidPm PSMPm DidPv PSMPv // order should be same as fulllistchildlp
 global reglistchildlp			noneit bicit fullit didpmit didpvit   
 global aipwlistchildlp			aipwit 
-global psmlistchildlp			psmreggio psmparma psmpadova
+global psmlistchildlp			psmr psmpm psmpv
 local aipwit_n					bicit
-global fulllistchildlp			noneit bicit fullit psmreggio aipwit didpmit psmparma didpvit psmpadova 
+global fulllistchildlp			noneit bicit fullit psmr aipwit didpmit psmpm didpvit psmpv 
 
 
 
 global reglistadol				None BIC Full DidPm DidPv 
 global aipwlistadol				AIPW
-global psmlistadol				PSMReggio PSMParma PSMPadova
+global psmlistadol				PSMR PSMPm PSMPv
 global fulllistadol				None Bic Full PSM AIPW DidPm PSMPm DidPv PSMPv  // order should be same as fulllistadollp
 global reglistadollp			none bic full didpm didpv   
 global aipwlistadollp			aipw 
-global psmlistadollp			psmreggio psmparma psmpadova 
+global psmlistadollp			psmr psmpm psmpv 
 local aipw_n					bic
-global fulllistadollp			none bic full psmreggio aipw didpm psmparma didpv psmpadova 
+global fulllistadollp			none bic full psmr aipw didpm psmpm didpv psmpv 
 
 
 global reglistadult30			None30 BIC30 Full30 DidPm30 DidPv30 
@@ -78,7 +78,7 @@ global psmlistadult40lp			psm40r psm40pm psm40pv
 local aipw40_n					bic40
 global fulllistadult40lp		none40 bic40 full40 psm40r aipw40 psm40pm psm40pv
 
-/*
+
 global cohort					adult40
 global groupadult40				None			
 
@@ -91,7 +91,7 @@ global aipwlistadult40lp		aipw40
 global psmlistadult40lp			psm40r psm40pm psm40pv
 local aipw40_n					bic40
 global fulllistadult40lp		none40 bic40 full40 psm40r aipw40 didpm40 psm40pm didpv40 psm40pv 
-*/
+
 * ------------------------------------ *
 * Merge and Create Tex for each cohort *
 * ------------------------------------ *
@@ -156,7 +156,7 @@ foreach coh in $cohort {
 					levelsof itt_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
 				
 					* Format decimal points
-					if !missing("`p`item'`outcome''") {
+					if !missing("`p`item'`outcome''") & !missing("`se`item'`outcome''") {
 						local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
 						local se`item'`outcome' = string(`se`item'`outcome'', "%9.2f")
 									
@@ -183,7 +183,7 @@ foreach coh in $cohort {
 					levelsof itt_``item'_n'_n if rowname == "`outcome'", local(n`item'`outcome')
 					
 					* Format decimal points
-					if !missing("`p`item'`outcome''") {
+					if !missing("`p`item'`outcome''") & !missing("`se`item'`outcome''")  {
 						local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
 						local se`item'`outcome' = string(`se`item'`outcome'', "%9.2f")
 						local pv`item'`outcome' = `pv`item'`outcome''
@@ -212,7 +212,7 @@ foreach coh in $cohort {
 					levelsof psm_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
 					
 					* Format decimal points
-					if !missing("`p`item'`outcome''") {
+					if !missing("`p`item'`outcome''") & !missing("`se`item'`outcome''")  {
 						local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
 						local se`item'`outcome' = string(`se`item'`outcome'', "%9.2f")
 						local pv`item'`outcome' = `pv`item'`outcome''
