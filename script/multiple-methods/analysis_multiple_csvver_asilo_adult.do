@@ -106,7 +106,7 @@ foreach stype in None {
 		* ----------------------- *
 		* Open necessary files
 		cap file close regression_`type'_`stype'
-		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_adult30`type'_`stype'_asilo.csv", write replace
+		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_adult30_`type'_`stype'_asilo.csv", write replace
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Children: Regression Analysis"
@@ -216,7 +216,7 @@ foreach stype in None {
 		* ----------------------- *
 		* Open necessary files
 		cap file close regression_`type'_`stype'
-		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_adult40`type'_`stype'_asilo.csv", write replace
+		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_adult40_`type'_`stype'_asilo.csv", write replace
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Children: Regression Analysis"
