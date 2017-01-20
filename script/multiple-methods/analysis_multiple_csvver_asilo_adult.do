@@ -59,7 +59,7 @@ preserve
 keep if (Cohort == 4) | (Cohort == 5)
 
 local stype_switch = 1
-foreach stype in Other None {
+foreach stype in None {
 	
 	* Set necessary global variables
 	global X					asiloMuni
@@ -183,7 +183,7 @@ preserve
 keep if (Cohort == 4) | (Cohort == 5)
 
 local stype_switch = 1
-foreach stype in Other None {
+foreach stype in None {
 	
 	* Set necessary global variables
 	global X					asiloMuni
