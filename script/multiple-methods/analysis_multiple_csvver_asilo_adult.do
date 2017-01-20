@@ -110,7 +110,7 @@ foreach stype in Other None {
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Children: Regression Analysis"
-		reganalysis, stype("`stype'") type("`type'") reglist("${reglist}") cohort("adult")
+		reganalysis, stype("`stype'") type("`type'") reglist("${reglist}") cohort("adult30")
 	
 		* Close necessary files
 		file close regression_`type'_`stype' 
@@ -220,7 +220,7 @@ foreach stype in Other None {
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Children: Regression Analysis"
-		reganalysis, stype("`stype'") type("`type'") reglist("${reglist}") cohort("adult")
+		reganalysis, stype("`stype'") type("`type'") reglist("${reglist}") cohort("adult40")
 	
 		* Close necessary files
 		file close regression_`type'_`stype' 
