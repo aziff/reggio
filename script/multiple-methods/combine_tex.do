@@ -24,14 +24,14 @@ include "${here}/../macros"
 * Set Macros *
 * ---------- *
 global cohort					child adol adult30 adult40
-global groupchild				Other /*Stat Reli*/
-global groupadol				Other /* Reli*/
+global groupchild				Other Stat Reli
+global groupadol				Stat  Reli Other
 global groupadult30		   		None Other /*Stat Reli*/
 global groupadult40				Other /*Stat Reli*/
-global outcomechild				M CN S H B
-global outcomeadol				M CN S H B
-global outcomeadult30			M E W L H N S
-global outcomeadult40			M E W L H N S
+global outcomechild				M /*CN S H B*/
+global outcomeadol				M /*CN S H B*/
+global outcomeadult30			M /*E W L H N S*/
+global outcomeadult40			M /*E W L H N S*/
 	
 
 global reglistchild				NoneIt BICIt FullIt DidPmIt DidPvIt   
@@ -78,7 +78,7 @@ global psmlistadult40lp			psm40r psm40pm psm40pv
 local aipw40_n					bic40
 global fulllistadult40lp		none40 bic40 full40 psm40r aipw40 psm40pm psm40pv
 
-
+/*
 global cohort					adult40
 global groupadult40				None			
 
@@ -90,7 +90,7 @@ global reglistadult40lp			none40 bic40 full40 didpm40 didpv40
 global aipwlistadult40lp		aipw40
 global psmlistadult40lp			psm40r psm40pm psm40pv
 local aipw40_n					bic40
-global fulllistadult40lp		none40 bic40 full40 psm40r aipw40 didpm40 psm40pm didpv40 psm40pv 
+global fulllistadult40lp		none40 bic40 full40 psm40r aipw40 didpm40 psm40pm didpv40 psm40pv */
 
 * ------------------------------------ *
 * Merge and Create Tex for each cohort *

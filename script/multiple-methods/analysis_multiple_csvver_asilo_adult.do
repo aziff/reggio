@@ -115,7 +115,7 @@ foreach stype in Other None {
 		* Close necessary files
 		file close regression_`type'_`stype' 
 		
-		
+	/*	
 		* ----------------------- *
 		* For PSM Analysis 		  *
 		* ----------------------- *
@@ -127,7 +127,7 @@ foreach stype in Other None {
 		psmanalysis, stype("`stype'") type("`type'") psmlist("${psmlist}") cohort("adult")
 	
 		* Close necessary files
-		file close psm_`type'_`stype'
+		file close psm_`type'_`stype'*/
 		
 		
 		
@@ -226,7 +226,7 @@ foreach stype in Other None {
 		file close regression_`type'_`stype' 
 		
 		
-		* ----------------------- *
+		/* ----------------------- *
 		* For PSM Analysis 		  *
 		* ----------------------- *
 		* Open necessary files
@@ -238,7 +238,7 @@ foreach stype in Other None {
 	
 		* Close necessary files
 		file close psm_`type'_`stype'
-		
+		*/
 		
 		
 		
