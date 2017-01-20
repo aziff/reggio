@@ -56,7 +56,7 @@ foreach out in `outcomes' {
 	coefplot `interview`out'', keep(maternaMuni) vertical bycoefs bylabels(`labels`out'')
 }
 restore
-
+*/
 
 * ---------------------------------------------------------------------------- *
 * 					Reggio Muni vs. All:	Adolescent		 				   *
@@ -66,7 +66,7 @@ preserve
 keep if (Cohort == 3) 
 
 * Set necessary global variables
-local	outcomes			/*pos_childSDQ_score*/ BMI_obese
+local	outcomes			pos_childSDQ_score /*BMI_obese*/
 local	controls			${bic_adol_baseline_vars}
 
 levelsof internr, local(list_interviewer)
@@ -88,7 +88,7 @@ foreach out in `outcomes' {
 }
 restore
 
-
+/*
 * ---------------------------------------------------------------------------- *
 * 					Reggio:	Adult-30						 				   *
 * ---------------------------------------------------------------------------- *
@@ -116,7 +116,7 @@ foreach out in `outcomes' {
 foreach out in `outcomes' {
 	coefplot `interview`out'', keep(maternaMuni) vertical bycoefs bylabels(`labels`out'')
 }
-restore */
+restore 
 
 * ---------------------------------------------------------------------------- *
 * 					Reggio:	Adult-40						 				   *
@@ -145,4 +145,4 @@ foreach out in `outcomes' {
 foreach out in `outcomes' {
 	coefplot `interview`out'', keep(maternaMuni) vertical bycoefs bylabels(`labels`out'')
 }
-restore
+restore*/
