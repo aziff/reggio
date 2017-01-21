@@ -11,11 +11,37 @@
 
 \section{Sensitivity Analysis}
 
-When checking data, we come across several interviewers that show some trends in questionable recordings on school assignment. Table \ref{tab:question-interviewers} reports ID's of the questionable interviewers and examples of concerns noted for each interviewers. 
+When checking data, we come across several interviewers that show some trends in questionable recordings on school assignment. Table \ref{tab:num-interview} reports the number of interviews each interviewer did. Table \ref{tab:question-interviewers} reports ID's of the questionable interviewers and examples of concerns noted for each interviewers. 
 
 Since dropping all the questionable interviewers significantly decreases sample size so that we lose statistical power, we carry out alternative sensitivity analysis as follows. We select two outcomes for each age cohort, and run OLS regression with treatment indicator and BIC-selected control set dropping each of all interviewers. Sample is limited to people in Reggio Emilia only. We explore how the coefficient on treatment indicator changes when we drop different interviewers. Figures \ref{fig:child-sensitivity-interviewer} - \ref{fig:adult40-sensitivity-interviewer} plot the OLS coefficient on the treatment indicator and its standard error for each case of dropping interviewer marked on the horizontal axis.
 
+\begin{table}[H] \caption{Number of Interviews by Each Interviewer} \label{tab:num-interview}
+\begin{tabular}{ll|ll|ll|ll}
+\toprule
+ID	&	Interviews	&	ID	&	Interviews	&	ID	&	Interviews	&	ID	&	Interviews	\\	\midrule
+166	&	4	&	855	&	8	&	4014	&	13	&	4057	&	6	\\	
+167	&	74	&	1369	&	20	&	4015	&	5	&	4058	&	13	\\	
+168	&	7	&	2437	&	87	&	4017	&	4	&	4059	&	35	\\	
+169	&	1	&	2502	&	7	&	4018	&	390	&	4060	&	25	\\	
+170	&	114	&	2506	&	28	&	4019	&	12	&	4063	&	21	\\	
+171	&	130	&	2509	&	22	&	4020	&	3	&	4065	&	80	\\	
+172	&	91	&	2511	&	30	&	4026	&	8	&	4072	&	8	\\	
+173	&	119	&	2525	&	35	&	4035	&	56	&	4073	&	217	\\	
+176	&	35	&	2526	&	140	&	4037	&	118	&	4075	&	6	\\	
+177	&	47	&	2544	&	144	&	4040	&	24	&	4076	&	7	\\	
+178	&	11	&	2562	&	20	&	4041	&	8	&	4077	&	92	\\	
+183	&	10	&	2593	&	21	&	4042	&	26	&	4078	&	16	\\	
+184	&	232	&	2594	&	18	&	4043	&	70	&	4082	&	27	\\	
+185	&	160	&	2596	&	16	&	4044	&	41	&	4087	&	10	\\	
+186	&	175	&	2597	&	62	&	4045	&	21	&	4089	&	10	\\	
+187	&	125	&	2712	&	4	&	4046	&	34	&	4091	&	226	\\	
+192	&	16	&	2718	&	8	&	4047	&	6	&	4092	&	4	\\	
+193	&	36	&	2747	&	65	&	4053	&	4	&	4096	&	51	\\	
+195	&	7	&	2752	&	7	&	4054	&	39	&	4097	&	9	\\	
+196	&	5	&	2753	&	114	&	4056	&	19	&		&		\\	\bottomrule
+\end{tabular}
 
+\end{table}
 
 \begin{table}[H]
 \begin{footnotesize}
