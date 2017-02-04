@@ -21,14 +21,14 @@ Table~\ref{tab:cases-treat} shows the four possible combinations of intervention
 \begin{table}[H]
 \caption{Possible Cases of Treatment} \label{tab:cases-treat}
 \begin{tabular}{C{1.8cm} R{0.7cm} C{2cm} C{2cm}}
-  
+
 		& & \multicolumn{2}{c}{Preschool (Ages 3-6)} \\
-		& & 0 & 1 \\ \cline{3-4}            
+		& & 0 & 1 \\ \cline{3-4}
         								 &  & \multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{} \\
-        							& 0 & \multicolumn{1}{|c|}{(0,0)} & \multicolumn{1}{c|}{(0,1)} \\ 
+        							& 0 & \multicolumn{1}{|c|}{(0,0)} & \multicolumn{1}{c|}{(0,1)} \\
         				ITC				&  & \multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{} \\ \cline{3-4}
                         (Age 0-3)  		&  & \multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{} \\
-        								& 1 & \multicolumn{1}{|c|}{(1,0)} & \multicolumn{1}{c|}{(1,1)} \\ 
+        								& 1 & \multicolumn{1}{|c|}{(1,0)} & \multicolumn{1}{c|}{(1,1)} \\
         								&  & \multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{} \\ \cline{3-4}
 \end{tabular}
 \begin{flushleft}
@@ -38,23 +38,23 @@ Table~\ref{tab:cases-treat} shows the four possible combinations of intervention
 
 There are two main methods to test the effect of attending infant-toddler centers. The first is to compare people who did not attend infant-toddler care or preschool with people who only attended municipal infant-toddler care. Using the notation in Table~\ref{tab:cases-treat}, this comparison is between (0,0) and (1,0). The second method is to compare people who only attended municipal preschool with people who attended both municipal infant-toddler centers and preschools. That is, to compare (0,1) and (1,1). The hypotheses are formally written as
 \begin{eqnarray}
-H_1: &  Y_{0,0} = Y_{1,0} \\ 
-H_2: &  Y_{0,1} = Y_{1,1} 
+H_1: &  Y_{0,0} = Y_{1,0} \\
+H_2: &  Y_{0,1} = Y_{1,1}
 \end{eqnarray}
 \noindent where $Y_{i,j}$ is the outcome of the individuals who attended $i \in \{0,1\}$ infant-toddler care and $j \in \{0,1\}$ preschool.
 
 A possible estimation strategy is to limit the sample to Reggio and a specific cohort constrained to the comparison groups needed according to the hypotheses above. To test $H_1$, we estimate the following regression equation:
 \begin{eqnarray}
-Y_{i}^{c,h} & = & \alpha + \beta_{0}R_i^{ITC} + \mathbf{X}_i\gamma + \varepsilon_{i}^{Reggio,h}, \\ \nonumber
+Y_{i}^{c,h} & = & \alpha + \beta_{0}R_i^{ITC} + \mathbf{X}_i \bm{\gamma} + \varepsilon_{i}^{Reggio,h}, \\ \nonumber
 & \forall & i \in \text{ \{People in Reggio and cohort $h$ and in group (0,0) or (1,0)\}}
 \end{eqnarray}
 where $R_i^{ITC}$ is the indicator for attending municipal infant-toddler center and $\mathbf{X_i}$ is the vector of baseline variables for individual $i$. Likewise, to test $H_2$:
 \begin{eqnarray}
-Y_{i}^{c,h} & = & \alpha + \beta_{0}R_i^{ITC} + \mathbf{X}_i\gamma + \varepsilon_{i}^{Reggio,h}, \\ \nonumber
+Y_{i}^{c,h} & = & \alpha + \beta_{0}R_i^{ITC} + \mathbf{X}_i \bm{\gamma} + \varepsilon_{i}^{Reggio,h}, \\ \nonumber
 & \forall & i \in \text{ \{People in Reggio and cohort $h$ and in group (0,1) or (1,1)\}.}
 \end{eqnarray}
 
-One caveat of this analysis is that it uses a limited sample size. In our data, these hypotheses cannot be tested under this strategy for many groups. Table~\ref{tab:num-group-2} shows the number of individuals available for each group necessary for analysis using this strategy. It is impossible to test $H_1$ in our data, because there are almost no people who attended municipal infant-toddler care without attending preschool (the group (1,0)). While it is possible to test $H_2$ for several groups, the number of observations for the group (1,1) is small for the adult cohorts. 
+One caveat of this analysis is that it uses a limited sample size. In our data, these hypotheses cannot be tested under this strategy for many groups. Table~\ref{tab:num-group-2} shows the number of individuals available for each group necessary for analysis using this strategy. It is impossible to test $H_1$ in our data, because there are almost no people who attended municipal infant-toddler care without attending preschool (the group (1,0)). While it is possible to test $H_2$ for several groups, the number of observations for the group (1,1) is small for the adult cohorts.
 
 In Table \ref{tab:num-group-2}, the groups subject to our estimation are highlighted. Based on the available number of individuals in each cell and the history of the foundation date of municipal infant-toddler care for Reggio, we decide to test $H_2$ for the highlighted groups.
 
