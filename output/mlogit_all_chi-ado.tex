@@ -1,0 +1,52 @@
+{
+\def\sym#1{\ifmmode^{#1}\else\(^{#1}\)\fi}
+\begin{tabular}{l*{6}{c}}
+\toprule
+                    &\multicolumn{1}{c}{None}&\multicolumn{1}{c}{Other}&\multicolumn{1}{c}{Municipal}&\multicolumn{1}{c}{None}&\multicolumn{1}{c}{Other}&\multicolumn{1}{c}{Municipal}\\
+\midrule
+City                &        0.00         &        0.13\sym{***}&       -0.13\sym{***}&       -0.01         &        0.13\sym{***}&       -0.12\sym{***}\\
+                    &      (0.00)         &      (0.02)         &      (0.02)         &      (0.01)         &      (0.02)         &      (0.02)         \\
+\addlinespace
+Male                &        0.01         &        0.00         &       -0.01         &        0.02         &        0.02         &       -0.03         \\
+                    &      (0.01)         &      (0.03)         &      (0.03)         &      (0.01)         &      (0.03)         &      (0.03)         \\
+\addlinespace
+Low birthweight     &       -0.22         &        0.03         &        0.19         &        0.01         &       -0.14         &        0.12         \\
+                    &     (10.59)         &      (6.50)         &      (4.09)         &      (0.02)         &      (0.09)         &      (0.09)         \\
+\addlinespace
+Premature birth     &       -0.22         &        0.18         &        0.05         &        0.01         &       -0.01         &       -0.00         \\
+                    &     (10.69)         &      (6.56)         &      (4.13)         &      (0.02)         &      (0.07)         &      (0.07)         \\
+\addlinespace
+Mom born in province&       -0.01         &        0.02         &       -0.01         &       -0.00         &       -0.03         &        0.04         \\
+                    &      (0.01)         &      (0.04)         &      (0.04)         &      (0.01)         &      (0.04)         &      (0.04)         \\
+\addlinespace
+Dad born in province&       -0.02         &        0.01         &        0.01         &       -0.02         &        0.07\sym{*}  &       -0.06         \\
+                    &      (0.01)         &      (0.04)         &      (0.03)         &      (0.01)         &      (0.04)         &      (0.04)         \\
+\addlinespace
+Mom Max Edu: University&        0.00         &       -0.04         &        0.04         &       -0.03         &        0.02         &        0.01         \\
+                    &      (0.01)         &      (0.03)         &      (0.03)         &      (0.02)         &      (0.04)         &      (0.04)         \\
+\addlinespace
+Father max. edu.: university&       -0.00         &        0.03         &       -0.02         &        0.02         &       -0.01         &       -0.01         \\
+                    &      (0.01)         &      (0.04)         &      (0.04)         &      (0.01)         &      (0.04)         &      (0.04)         \\
+\addlinespace
+Has 2 siblings      &        0.01         &       -0.02         &        0.02         &        0.01         &        0.06         &       -0.06         \\
+                    &      (0.01)         &      (0.04)         &      (0.04)         &      (0.01)         &      (0.04)         &      (0.04)         \\
+\addlinespace
+Has more than 2 siblings&       -0.00         &       -0.12\sym{*}  &        0.12\sym{*}  &        0.01         &        0.01         &       -0.02         \\
+                    &      (0.01)         &      (0.05)         &      (0.05)         &      (0.01)         &      (0.07)         &      (0.07)         \\
+\addlinespace
+Caregiver is Catholic&       -0.02         &        0.08         &       -0.06         &       -0.02         &        0.19         &       -0.17         \\
+                    &      (0.02)         &      (0.06)         &      (0.06)         &      (0.02)         &      (0.18)         &      (0.18)         \\
+\addlinespace
+dv: Caregiver's religion is Islam&        0.01         &        0.04         &       -0.05         &       -0.32         &        0.52         &       -0.21         \\
+                    &      (0.01)         &      (0.06)         &      (0.06)         &   (5378.57)         &   (2970.82)         &   (2408.61)         \\
+\addlinespace
+Caregiver was religious&       -0.00         &       -0.00         &        0.00         &        0.02         &       -0.14         &        0.11         \\
+                    &      (0.02)         &      (0.07)         &      (0.06)         &      (0.02)         &      (0.19)         &      (0.19)         \\
+\addlinespace
+Mother: born outside of Italy&       -0.00         &        0.01         &       -0.00         &        0.14\sym{***}&        5.07\sym{***}&       -5.21\sym{***}\\
+                    &      (0.01)         &      (0.05)         &      (0.05)         &      (0.04)         &      (0.28)         &      (0.28)         \\
+\midrule
+Observations        &        1161         &        1161         &        1161         &         836         &         836         &         836         \\
+\bottomrule
+\end{tabular}
+}
