@@ -4,10 +4,10 @@ Our dataset contains cohorts of individuals raised in Parma and Padova, in addit
 
 All three cities are in Northern Italy with Parma and Reggio Emilia being in the same state and Padova being in the neighboring one. In addition to geographic proximity, they have similar populations as seen in Figure~\ref{fig:population}. Although the population in Padova is higher than in Parma and Reggio Emilia, the trends are similar across time. These similar trends can also be seen in the migration rates between the three cities (Figure~\ref{fig:emigr-immigr}). Although emigration rate is highest in Padova and net migration rate is highest in Reggio for most of the years, general trends in emigration and immigration in similar in all cities. Trends in foreign migration are almost identical in three cities. 
 
-The similarities between the cities are also seen in economic terms. Reggio Emilia has an average per-capita income of 25,226 euros, Parma of 28,437, and Padova of 29,915 in 2011 \citep{Comuni-Italiani_2017_Redditi-Ipref-per-Regione-2011}. Other economic information, such as unemployment, is similar across the cities as well. We present more information on the three cities in Appendix~\ref{sec:data-app}.
+The similarities between the cities are also seen in economic terms. Reggio Emilia has an average per-capita income of 25,226 euros, Parma of 28,437, and Padova of 29,915 in 2011 \citep{Comuni-Italiani_2017_Redditi-Ipref-per-Regione-2011}. Other economic information, such as unemployment, is similar across the cities as well. We present more information on the three cities in Appendix~\ref{sec:data-app}. 
 
 \begin{figure}[H]
-      \centering
+      \begin{center}
         \begin{subfigure}[t]{0.49\textwidth}
           \includegraphics[width=\textwidth]{../../output/image/population.eps}
 \caption{Population}
@@ -25,12 +25,12 @@ The similarities between the cities are also seen in economic terms. Reggio Emil
             \caption{Natural Rate}
         \end{subfigure}
       \caption{Population Statistics}  \label{fig:population}
+      \end{center}
+      \raggedright Note: See Appendix~\ref{sec:data-app} for more information on these data and the sources.
     \end{figure}
 
-\textbf{[JJH: Can we test for equality across cities?]}
-
 \begin{figure}[H]
-      \centering
+      \begin{center}
         \begin{subfigure}[t]{0.49\textwidth}
           \includegraphics[width=\textwidth]{../../output/image/emigration.eps}
             \caption{Emigration}
@@ -51,6 +51,25 @@ The similarities between the cities are also seen in economic terms. Reggio Emil
           \includegraphics[width=\textwidth]{../../output/image/netforeignmig.eps}
         \caption{Net Foreign Migration}
         \end{subfigure}
-
       \caption{Migration Statistics}  \label{fig:emigr-immigr}
+      \end{center}
+         \raggedright  Note: See Appendix~\ref{sec:data-app} for more information on these data and the sources.
     \end{figure}
+   
+   \textbf{[JJH: Can we test for equality across cities?][We moved these figures from the appendix to help show the similarity between the cities. We also started a table below summarizing these variables aggregating across years. We test for equality here. Is this what you had in mind?]}
+    We summarize the main population statistics in Table~\ref{tab:pop-summary} in which we present the mean and standard deviations of the population, birth rate, death rate, and net migration across years.
+    
+
+    \begin{table}[H]
+    \centering
+    \caption{Summarizing Population Statistics Across Cities}
+    \begin{threeparttable}
+	\label{tab:pop-summary}
+	\input{../../output/mean-se-demographics}
+\begin{tablenotes}
+\item \footnotesize Note: This table summarizes the average of population statistics across available years by city. We use a $t$-test to compare the means and bold those that are significant at least at the 0.05 level. Standard deviations are reported in parentheses. See Appendix~\ref{sec:data-app} for more information on these data and the sources.
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+	
+    
