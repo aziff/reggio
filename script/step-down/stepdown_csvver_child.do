@@ -145,7 +145,7 @@ foreach stype in Other {
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Children: AIPW Analysis"
-		aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("child")
+		sdaipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("child")
 		
 		* Close necessary files
 		file close aipw_`type'_`stype'	
