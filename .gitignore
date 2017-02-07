@@ -1,4 +1,5 @@
 *.synctex.gz
+*.synctex.gz(busy)
 *.smcl
 *.DS_Store
 *.zip
