@@ -131,7 +131,7 @@ foreach stype in Other {
 
 	
 	
-	foreach type in  M /*CN S H B*/ {
+	foreach type in  M CN S H B {
 
 		* ----------------------- *
 		* For Regression Analysis *
@@ -166,7 +166,7 @@ foreach stype in Other {
 		
 		
 		
-		* ----------------- *
+		/* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
 
@@ -181,7 +181,7 @@ foreach stype in Other {
 			
 			* Close necessary files
 			file close aipw_`type'_`stype'	
-		
+		*/
 		
 	}
 	

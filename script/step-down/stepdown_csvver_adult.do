@@ -133,7 +133,7 @@ foreach stype in Other None /*Stat Reli*/ {
 	global ifconditionAIPW30 	(Reggio == 1) & (Cohort_Adult30 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
 
 		
-	foreach type in  M /*E W L H N S*/ {
+	foreach type in  M E W L H N S {
 
 		* ----------------------- *
 		* For Regression Analysis *
@@ -167,7 +167,7 @@ foreach stype in Other None /*Stat Reli*/ {
 		
 		
 		
-		
+		/*
 		* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
@@ -180,7 +180,7 @@ foreach stype in Other None /*Stat Reli*/ {
 		sdaipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adult")
 		
 		* Close necessary files
-		file close aipw_`type'_`stype'	
+		file close aipw_`type'_`stype'	*/
 		
 		
 	}
@@ -239,7 +239,7 @@ foreach stype in Other /*Stat Reli*/ {
 	global ifconditionAIPW40 	(Reggio == 1) & (Cohort_Adult40 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
 
 		
-	foreach type in  M /*E W L H N S*/ {
+	foreach type in  M E W L H N S {
 
 		* ----------------------- *
 		* For Regression Analysis *
@@ -268,7 +268,7 @@ foreach stype in Other /*Stat Reli*/ {
 		* Close necessary files
 		file close psm_`type'_`stype'
 		
-		* ----------------- *
+		/* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
 			* Open necessary files
@@ -280,7 +280,7 @@ foreach stype in Other /*Stat Reli*/ {
 			sdaipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adult")
 			
 			* Close necessary files
-			file close aipw_`type'_`stype'	
+			file close aipw_`type'_`stype'	*/
 		
 		
 	}
@@ -339,7 +339,7 @@ foreach stype in None {
 	global ifconditionAIPW40 	(Reggio == 1) & (Cohort_Adult40 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
 
 		
-	foreach type in  M /*E W L H N S*/ {
+	foreach type in  M E W L H N S {
 
 		* ----------------------- *
 		* For Regression Analysis *
@@ -372,7 +372,7 @@ foreach stype in None {
 		
 		
 		
-		* ----------------- *
+	/*	* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
 			* Open necessary files
@@ -384,7 +384,7 @@ foreach stype in None {
 			sdaipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adult")
 			
 			* Close necessary files
-			file close aipw_`type'_`stype'	
+			file close aipw_`type'_`stype'	*/
 		
 		
 	}
