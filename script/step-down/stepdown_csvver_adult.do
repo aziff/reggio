@@ -140,7 +140,7 @@ foreach stype in Other None /*Stat Reli*/ {
 		* ----------------------- *
 		* Open necessary files
 		cap file close regression_`type'_`stype'
-		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_adult30_`type'_`stype'_sd.csv", write replace
+		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/reg_adult30_`type'_`stype'_sd.csv", write replace
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Adult: Regression Analysis"
@@ -155,7 +155,7 @@ foreach stype in Other None /*Stat Reli*/ {
 		* For PSM Analysis 		  *
 		* ----------------------- *
 		* Open necessary files
-		file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/psm_adult30_`type'_`stype'_sd.csv", write replace
+		file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/psm_adult30_`type'_`stype'_sd.csv", write replace
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Adult: PSM Analysis"
@@ -173,7 +173,7 @@ foreach stype in Other None /*Stat Reli*/ {
 		* ----------------- *
 		* Open necessary files
 		cap file close aipw_`type'_`stype'
-		file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adult30_`type'_`stype'_sd.csv", write replace
+		file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/aipw_adult30_`type'_`stype'_sd.csv", write replace
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Adult: AIPW Analysis"
@@ -246,7 +246,7 @@ foreach stype in Other /*Stat Reli*/ {
 		* ----------------------- *
 		* Open necessary files
 		cap file close regression_`type'_`stype'
-		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_adult40_`type'_`stype'_sd.csv", write replace
+		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/reg_adult40_`type'_`stype'_sd.csv", write replace
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Children: Regression Analysis"
@@ -259,7 +259,7 @@ foreach stype in Other /*Stat Reli*/ {
 		* For PSM Analysis 		  *
 		* ----------------------- *
 		* Open necessary files
-		file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/psm_adult40_`type'_`stype'_sd.csv", write replace
+		file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/psm_adult40_`type'_`stype'_sd.csv", write replace
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Adult: PSM Analysis"
@@ -273,7 +273,7 @@ foreach stype in Other /*Stat Reli*/ {
 		* ----------------- *
 			* Open necessary files
 			cap file close aipw_`type'_`stype'
-			file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adult40_`type'_`stype'_sd.csv", write replace
+			file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/aipw_adult40_`type'_`stype'_sd.csv", write replace
 
 			* Run Multiple Analysis
 			di "Estimating `type' for Children: AIPW Analysis"
@@ -346,7 +346,7 @@ foreach stype in None {
 		* ----------------------- *
 		* Open necessary files
 		cap file close regression_`type'_`stype'
-		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_adult40_`type'_`stype'_sd.csv", write replace
+		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/reg_adult40_`type'_`stype'_sd.csv", write replace
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Children: Regression Analysis"
@@ -361,7 +361,7 @@ foreach stype in None {
 		* For PSM Analysis 		  *
 		* ----------------------- *
 		* Open necessary files
-		file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/psm_adult40_`type'_`stype'_sd.csv", write replace
+		file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/psm_adult40_`type'_`stype'_sd.csv", write replace
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Adult: PSM Analysis"
@@ -377,7 +377,7 @@ foreach stype in None {
 		* ----------------- *
 			* Open necessary files
 			cap file close aipw_`type'_`stype'
-			file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adult40_`type'_`stype'_sd.csv", write replace
+			file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/aipw_adult40_`type'_`stype'_sd.csv", write replace
 
 			* Run Multiple Analysis
 			di "Estimating `type' for Children: AIPW Analysis"

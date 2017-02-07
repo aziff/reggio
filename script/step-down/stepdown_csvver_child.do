@@ -109,7 +109,7 @@ foreach stype in Other {
 		* For Regression Analysis *
 		* ----------------------- *
 		* Open necessary files
-		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/reg_child_`type'_`stype'_sd.csv", write replace
+		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/reg_child_`type'_`stype'_sd.csv", write replace
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Children: Regression Analysis"
@@ -124,7 +124,7 @@ foreach stype in Other {
 		* For PSM Analysis 		  *
 		* ----------------------- *
 		* Open necessary files
-		file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/psm_child_`type'_`stype'_sd.csv", write replace
+		file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/psm_child_`type'_`stype'_sd.csv", write replace
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Children: PSM Analysis"
@@ -141,7 +141,7 @@ foreach stype in Other {
 
 		
 		* Open necessary files
-		file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_child_`type'_`stype'_sd.csv", write replace
+		file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/aipw_child_`type'_`stype'_sd.csv", write replace
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Children: AIPW Analysis"
