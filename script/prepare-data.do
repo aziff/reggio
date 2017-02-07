@@ -705,8 +705,23 @@ sum votoMaturita_std
 rename difficultiesInterest 	diffInterest
 rename difficultiesSit			diffSit
 rename likeSchool_child_pos		likeSch_child_pos
-
-
+rename pos_Depression_score		pos_Depress
+rename likeSchool_ado_pos		likeSch_ado_pos
+rename pos_childSDQPsoc_score	pos_cSDQPsoc
+rename pos_childSDQPeer_score	pos_cSDQPeer
+rename pos_childSDQHype_score	pos_cSDQHype
+rename pos_childSDQEmot_score	pos_cSDQEmot
+rename pos_childSDQCond_score	pos_cSDQCond
+rename pos_SDQPsoc_score 		pos_SDQPsoc
+rename pos_SDQPeer_score 		pos_SDQPeer
+rename pos_SDQHype_score 		pos_SDQHype
+rename pos_SDQEmot_score 		pos_SDQEmot
+rename pos_SDQCond_score		pos_SDQCond
+rename childinvTalkOut 			cTalkOut
+rename childinvTalkSchool		cTalkSchool
+rename mStatus_married_cohab	mar_cohab
+rename pos_reciprocity 			pos_reci
+rename neg_reciprocity			neg_reci
 
 
 * ---------------------------------------------------------------------------- *
@@ -780,7 +795,7 @@ label var yrCity				"Migrants: year entered city"
 label var ageCity				"Migrants: age entered city"
 label var cgMigrant				"Mother: born outside of Italy"
 
-label var mStatus_married_cohab "Married or Cohabitating"
+label var mar_cohab "Married or Cohabitating"
 label var childrenResp			"Num. of Children in House"
 label var all_houseOwn			"Own House"
 label var live_parent			"Live With Parents"
@@ -803,7 +818,7 @@ label var Drink1Age				"Age At First Drink"
 label var LocusControl			"Locus of Control"
 label var Depression_score		"Depression Score"
 label var pos_LocusControl		"Locus of Control - Positive"
-label var pos_Depression_score	"Depression Score - Positive"
+label var pos_Depress	"Depression Score - Positive"
 /*
 label var SatisIncome_bin		"Satisfied with Income"
 label var SatisWork_bin			"Satisfied with Work"

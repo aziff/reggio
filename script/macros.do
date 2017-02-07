@@ -67,11 +67,11 @@ global bic_asilo_adult_baseline_vars		    Male CAPI dadMaxEdu_Uni numSibling_2 n
 global child_outcome_M					IQ_factor pos_childSDQ_score BMI_obese BMI_overweight childHealthPerc diffInterest diffSit likeSch_child_pos childFriends candyGame_bin // Main outcomes
 
 global child_outcome_CN         		IQ_factor IQ_score ///
-										pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score 
+										pos_childSDQ_score pos_cSDQPsoc pos_cSDQPeer pos_cSDQHype pos_cSDQEmot pos_cSDQCond 
 								 
 global child_outcome_C	         		IQ_factor IQ_score
 										
-global child_outcome_N					pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score 		 								 
+global child_outcome_N					pos_childSDQ_score pos_cSDQPsoc pos_cSDQPeer pos_cSDQHype pos_cSDQEmot pos_cSDQCond 	 								 
 								 
 global child_outcome_S	 		 		childinvMusic  ///
 										worryHome worryTeacher worryFriend worryMyself childFriends candyGame_bin
@@ -81,30 +81,30 @@ global child_outcome_H 			 		BMI_obese BMI_overweight childHealthPerc childSickD
 global child_outcome_B			 		diffInterest diffSit likeSch_child_pos faceGeneral 
                                  
 
-global adol_outcome_M					IQ_factor pos_childSDQ_score pos_SDQ_score pos_Depression_score pos_LocusControl BMI_obese BMI_overweight childHealthPerc dropoutSchool likeSchool_ado_pos sport Friends volunteer Trust							 
+global adol_outcome_M					IQ_factor pos_childSDQ_score pos_SDQ_score pos_Depress pos_LocusControl BMI_obese BMI_overweight childHealthPerc dropoutSchool likeSch_ado_pos sport Friends volunteer Trust							 
 				  
 global adol_outcome_CN          		IQ_factor IQ_score ///
-										pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score ///
-										pos_SDQ_score pos_SDQPsoc_score pos_SDQPeer_score pos_SDQHype_score pos_SDQEmot_score pos_SDQCond_score /*LocusControl*/ pos_Depression_score 
+										pos_childSDQ_score pos_cSDQPsoc pos_cSDQPeer pos_cSDQHype pos_cSDQEmot pos_cSDQCond  ///
+										pos_SDQ_score pos_SDQPsoc pos_SDQPeer pos_SDQHype pos_SDQEmot pos_SDQCond /*LocusControl*/ pos_Depress 
 
 global adol_outcome_C	          		IQ_factor IQ_score
 
-global adol_outcome_N	          		pos_childSDQ_score pos_childSDQPsoc_score pos_childSDQPeer_score pos_childSDQHype_score pos_childSDQEmot_score pos_childSDQCond_score ///
-										pos_SDQ_score pos_SDQPsoc_score pos_SDQPeer_score pos_SDQHype_score pos_SDQEmot_score pos_SDQCond_score /*LocusControl*/ pos_Depression_score 					
+global adol_outcome_N	          		pos_childSDQ_score pos_cSDQPsoc pos_cSDQPeer pos_cSDQHype pos_cSDQEmot pos_cSDQCond  ///
+										pos_SDQ_score pos_SDQPsoc pos_SDQPeer pos_SDQHype pos_SDQEmot pos_SDQCond /*LocusControl*/ pos_Depress 					
 										
-global adol_outcome_S 					Friends childinvTalkOut childinvTalkSchool volunteer
+global adol_outcome_S 					Friends cTalkOut cSchool volunteer
 								 
 global adol_outcome_H            		BMI_obese BMI_overweight childHealthPerc childSickDays ///
 										RiskSuspended 
 								 
-global adol_outcome_B           		diffInterest diffSit dropoutSchool likeSchool_ado_pos MigrTaste Trust sport 
+global adol_outcome_B           		diffInterest diffSit dropoutSchool likeSch_ado_pos MigrTaste Trust sport 
 								 
 * ----------------------------------------- *											
 * Outcomes for each category: Adult Cohorts *
 * ----------------------------------------- *								 
 * Cognitive skills and education
-global adult_outcome_M					IQ_factor highschoolGrad votoMaturita votoMaturita_std MaxEdu_Uni PA_Empl HrsTot mStatus_married_cohab BMI_obese ///
-										BMI_overweight pos_LocusControl pos_Depression_score volunteer votedMunicipal votedRegional Friends Trust
+global adult_outcome_M					IQ_factor highschoolGrad votoMaturita votoMaturita_std MaxEdu_Uni PA_Empl HrsTot mar_cohab BMI_obese ///
+										BMI_overweight pos_LocusControl pos_Depress volunteer votedMunicipal votedRegional Friends Trust
 
 global adult_outcome_E					IQ_factor IQ_score votoMaturita  ///
 										highschoolGrad MaxEdu_Uni MaxEdu_Grad
@@ -114,16 +114,16 @@ global adult_outcome_W					PA_Empl SES_self HrsTot ///
 										Reddito_1 Reddito_2 Reddito_3 Reddito_4 Reddito_5 Reddito_6 
 
 * Living status										
-global adult_outcome_L					mStatus_married_cohab mStatus_div childrenResp all_houseOwn live_parent
+global adult_outcome_L					mar_cohab mStatus_div childrenResp all_houseOwn live_parent
 
 * Health									
 global adult_outcome_H					Maria /*Smoke*/ Cig BMI BMI_obese BMI_overweight goodHealth HCondition9 SickDays ///
 										/*i_RiskFight i_RiskDUI*/ RiskSuspended Drink1Age							
 
 * Noncognitive										
-global adult_outcome_N					pos_LocusControl pos_Depression_score Stress StressWork ///
+global adult_outcome_N					pos_LocusControl pos_Depress Stress StressWork ///
 										SatisIncome SatisWork SatisHealth SatisFamily ///
-										optimist pos_reciprocity neg_reciprocity	
+										optimist pos_reci neg_reci	
 
 * Social										
 global adult_outcome_S					MigrTaste Friends MigrFriend volunteer /*invFamMeal*/ votedMunicipal votedRegional 
@@ -133,8 +133,8 @@ global adult_outcome_R					Faith
 
 
 * Cognitive skills and education
-global adult30_outcome_M					IQ_factor highschoolGrad votoMaturita votoMaturita_std MaxEdu_Uni PA_Empl HrsTot mStatus_married_cohab BMI_obese ///
-											BMI_overweight pos_LocusControl pos_Depression_score votedMunicipal votedRegional
+global adult30_outcome_M					IQ_factor highschoolGrad votoMaturita votoMaturita_std MaxEdu_Uni PA_Empl HrsTot mar_cohab BMI_obese ///
+											BMI_overweight pos_LocusControl pos_Depress volunteer votedMunicipal votedRegional Friends Trust
 
 global adult30_outcome_E					IQ_factor votoMaturita  ///
 											highschoolGrad MaxEdu_Uni 
@@ -144,42 +144,42 @@ global adult30_outcome_W					PA_Empl SES_self HrsTot ///
 											Reddito_1 Reddito_2 Reddito_3 Reddito_4 Reddito_5 
 
 * Living status										
-global adult30_outcome_L					mStatus_married_cohab mStatus_div childrenResp all_houseOwn live_parent
+global adult30_outcome_L					mar_cohab mStatus_div childrenResp all_houseOwn live_parent
 
 * Health									
 global adult30_outcome_H					Maria /*Smoke*/ Cig BMI BMI_obese BMI_overweight goodHealth HCondition9 SickDays ///
 										    /*i_RiskFight i_RiskDUI*/ RiskSuspended Drink1Age							
 
 * Noncognitive										
-global adult30_outcome_N					pos_LocusControl pos_Depression_score Stress StressWork ///
+global adult30_outcome_N					pos_LocusControl pos_Depress Stress StressWork ///
 											SatisIncome SatisWork SatisHealth SatisFamily ///
-											optimist pos_reciprocity neg_reciprocity	
+											optimist pos_reci neg_reci	
 
 * Social										
 global adult30_outcome_S					MigrTaste Friends MigrFriend volunteer /*invFamMeal*/ votedMunicipal votedRegional 
 
-* Cognitive skills and education
-global adult40_outcome_M					IQ_factor highschoolGrad votoMaturita votoMaturita_std MaxEdu_Uni PA_Empl HrsTot mStatus_married_cohab BMI_obese ///
-											BMI_overweight pos_LocusControl pos_Depression_score votedMunicipal votedRegional
+* Age-40
+global adult40_outcome_M					IQ_factor highschoolGrad votoMaturita votoMaturita_std MaxEdu_Uni PA_Empl HrsTot mar_cohab BMI_obese ///
+											BMI_overweight pos_LocusControl pos_Depress volunteer votedMunicipal votedRegional Friends Trust
 
 global adult40_outcome_E					IQ_factor votoMaturita  ///
 											highschoolGrad MaxEdu_Uni 
 
 * Employment										
 global adult40_outcome_W					PA_Empl SES_self HrsTot ///
-											Reddito_1 Reddito_2 Reddito_3 Reddito_4 Reddito_5 Reddito_6 
+											Reddito_1 Reddito_2 Reddito_3 Reddito_4 Reddito_5 
 
 * Living status										
-global adult40_outcome_L					mStatus_married_cohab mStatus_div childrenResp all_houseOwn live_parent
+global adult40_outcome_L					mar_cohab mStatus_div childrenResp all_houseOwn live_parent
 
 * Health									
 global adult40_outcome_H					Maria /*Smoke*/ Cig BMI BMI_obese BMI_overweight goodHealth HCondition9 SickDays ///
-											/*i_RiskFight i_RiskDUI*/ RiskSuspended Drink1Age							
+										    /*i_RiskFight i_RiskDUI*/ RiskSuspended Drink1Age							
 
 * Noncognitive										
-global adult40_outcome_N					pos_LocusControl pos_Depression_score Stress StressWork ///
+global adult40_outcome_N					pos_LocusControl pos_Depress Stress StressWork ///
 											SatisIncome SatisWork SatisHealth SatisFamily ///
-											optimist pos_reciprocity neg_reciprocity	
+											optimist pos_reci neg_reci	
 
 * Social										
 global adult40_outcome_S					MigrTaste Friends MigrFriend volunteer /*invFamMeal*/ votedMunicipal votedRegional 
@@ -213,7 +213,7 @@ global Reddito_5_lab					Income: 50,001-100,000 Euros
 global Reddito_6_lab					Income: 100,001-250,000 Euros
 global Reddito_7_lab					Income: More than 250,000 Euros
 
-global mStatus_married_cohab_lab 		Married or Cohabitating
+global mar_cohab_lab 					Married or Cohabitating
 global childrenResp_lab					Num. of Children in House
 global all_houseOwn_lab					Own House
 global live_parent_lab					Live With Parents
@@ -237,7 +237,7 @@ global LocusControl_lab					Locus of Control
 global Depression_score_lab				Depression Score
 
 global pos_LocusControl_lab				Locus of Control - positive
-global pos_Depression_score_lab			Depression Score - positive
+global pos_Depress_lab					Depression Score - positive
 global pos_Depression_lab				Depression Score - positive
 
 global StressWork_lab					Work is Source of Stress
@@ -252,8 +252,8 @@ global reciprocity1_lab					Return Favor
 global reciprocity2_lab					Put Someone in Difficulty
 global reciprocity3_lab					Help Someone Kind To Me
 global reciprocity4_lab 				Insult Back
-global pos_reciprocity_lab				Positive Reciprocity
-global neg_reciprocity_lab				Negative Reciprocity
+global pos_reci_lab						Positive Reciprocity
+global neg_reci_lab						Negative Reciprocity
 
 global MigrTaste_lab					Favorable to Migrants
 global Friends_lab						Number of Friends
@@ -267,19 +267,19 @@ global votedRegional_lab				Ever Voted for Regional
 global votedNational_lab				Ever Voted for National
 
 global pos_SDQ_score_lab				SDQ Composite
-global pos_SDQEmot_score_lab			SDQ Emotional
-global pos_SDQCond_score_lab			SDQ Conduct
-global pos_SDQHype_score_lab			SDQ Hyper
-global pos_SDQPeer_score_lab			SDQ Peer problems
-global pos_SDQPsoc_score_lab			SDQ Pro-social
+global pos_SDQEmot_lab					SDQ Emotional
+global pos_SDQCond_lab					SDQ Conduct
+global pos_SDQHype_lab					SDQ Hyper
+global pos_SDQPeer_lab					SDQ Peer problems
+global pos_SDQPsoc_lab					SDQ Pro-social
 global SDQPsoc_score_lab				SDQ Pro-social
 
 global pos_childSDQ_score_lab			SDQ Composite - Child
-global pos_childSDQEmot_score_lab		SDQ Emotional - Child
-global pos_childSDQCond_score_lab		SDQ Conduct - Child
-global pos_childSDQHype_score_lab		SDQ Hyper - Child
-global pos_childSDQPeer_score_lab		SDQ Peer problems - Child
-global pos_childSDQPsoc_score_lab		SDQ Pro-social - Child
+global pos_cSDQEmot_lab					SDQ Emotional - Child
+global pos_cSDQCond_lab					SDQ Conduct - Child
+global pos_cSDQHype_lab					SDQ Hyper - Child
+global pos_cSDQPeer_lab					SDQ Peer problems - Child
+global pos_cSDQPsoc_lab					SDQ Pro-social - Child
 global childSDQPsoc_score_lab			SDQ Pro-social - Child
 
 global distAsiloMunicipal1_lab			Closest Municipal Asilo
@@ -309,15 +309,15 @@ global childHealthPerc_lab 				Health is Good
 global childSickDays_lab 				Number of Sick Days
 global diffInterest_lab 				Not Excited to Learn
 global diffSit_lab 						Problems Sitting Still
-global likeSch_child_pos_lab 		How Much Child Likes School
+global likeSch_child_pos_lab 			How Much Child Likes School
 global faceGeneral_lab 					Happy in General
 global childFriends_lab					Num. of Friends
 global Friends_lab						Num. of Friends
-global childinvTalkOut_lab 				Doesn't Talk About Activities
-global childinvTalkSchool_lab 			Doesn't Talk About School
+global cTalkOut_lab 					Doesn't Talk About Activities
+global cTalkSchool_lab 					Doesn't Talk About School
 global sport_lab 						Days of Sport (Weekly)
 global dropoutSchool_lab 				Go To School
-global likeSchool_ado_pos_lab 			How Much Child Likes School
+global likeSch_ado_pos_lab 				How Much Child Likes School
 global MigrTaste_lab 					Bothered by Migrants
 global Trust_lab						Trust Score
 global candyGame_bin_lab				Candy Game: Willing to Share Candies
