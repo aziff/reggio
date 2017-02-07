@@ -92,7 +92,7 @@ global adol_outcome_C	          		IQ_factor IQ_score
 global adol_outcome_N	          		pos_childSDQ_score pos_cSDQPsoc pos_cSDQPeer pos_cSDQHype pos_cSDQEmot pos_cSDQCond  ///
 										pos_SDQ_score pos_SDQPsoc pos_SDQPeer pos_SDQHype pos_SDQEmot pos_SDQCond /*LocusControl*/ pos_Depress 					
 										
-global adol_outcome_S 					Friends cTalkOut cSchool volunteer
+global adol_outcome_S 					Friends cTalkOut cTalkSchool volunteer
 								 
 global adol_outcome_H            		BMI_obese BMI_overweight childHealthPerc childSickDays ///
 										RiskSuspended 
