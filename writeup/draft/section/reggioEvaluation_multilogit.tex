@@ -29,7 +29,7 @@ The predicted log-odds ratio for each alternative option, $\hat{\nu}_r$, from (\
 
 Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the propensity to attend a school type $r$, $\pi_{r}$, by calculating the partial derivative $\partial \pi_{r}/\partial x_c$. These results are reported in Appendix~\ref{appendix:mlogit}.
 
-\textbf{[JJH: Where is the table testing equality across towns? We should report.]}
+\textbf{[JJH: Where is the table testing equality across towns? We should report.][We have included a table that displays the multinomial results pooling the sample across cities and including a city indicator along with the other variables. We are continuing to work on these estimates. Please see Table~\ref{mlogit_all_chi-ado} and Table~\ref{mlogit_all}.]}
 
 
 
@@ -113,3 +113,27 @@ Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the 
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
+
+\begin{table}[H]
+\centering
+\caption{Multinomial Logit, Child and Adolescent Cohorts,  All Cities} \label{mlogit_all_chi-ado}
+\begin{threeparttable}
+\input{../../output/mlogit_all_chi-ado.tex}
+\begin{tablenotes}
+\footnotesize\raggedright{Note: This table shows the results from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\caption{Multinomial Logit, Adult Cohorts,  All Cities} \label{mlogit_all}
+\begin{threeparttable}
+\input{../../output/mlogit_all.tex}
+\begin{tablenotes}
+\footnotesize\raggedright{Note: This table shows the results from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
+\end{tablenotes}
+\end{threeparttable}
+\end{table}
+
