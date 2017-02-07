@@ -135,7 +135,7 @@ foreach stype in Other {
 		
 		
 		
-	/*	* ----------------- *
+		* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
 
@@ -149,7 +149,7 @@ foreach stype in Other {
 		
 		* Close necessary files
 		file close aipw_`type'_`stype'	
-	*/
+	
 	
 	}
 	
