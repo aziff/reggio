@@ -78,7 +78,7 @@ global psmlistadult40lp			psm40 /*psm40r psm40pm psm40pv*/
 local aipw40_n					bic40
 global fulllistadult40lp		none40 bic40 full40 psm40 /*psm40r psm40pm psm40pv*/
 
-
+/*
 global cohort					adult40
 global groupadult40				None			
 
@@ -90,7 +90,7 @@ global reglistadult40lp			none40 bic40 full40 didpm40 didpv40
 global aipwlistadult40lp		aipw40
 global psmlistadult40lp			psm40 /*psm40r psm40pm psm40pv*/
 local aipw40_n					bic40
-global fulllistadult40lp		none40 bic40 full40 psm40 didpm40 didpv40 /*didpm40 psm40pm didpv40 psm40pv */ 
+global fulllistadult40lp		none40 bic40 full40 psm40 didpm40 didpv40 /*didpm40 psm40pm didpv40 psm40pv */ */
 
 * ------------------------------------ *
 * Merge and Create Tex for each cohort *
@@ -157,11 +157,11 @@ foreach coh in $cohort {
 					levelsof itt_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
 				
 					* Format decimal points
-					if !missing("`p`item'`outcome''") & !missing("`pv`item'`outcome''") {
+					if !missing("`p`item'`outcome''")  & !missing("`pv`item'`outcome''") {
 						local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
 						local sd`item'`outcome' = string(`sd`item'`outcome'', "%9.2f")
-									
-						local pv`item'`outcome' = `pv`item'`outcome''
+						local pv`item'`outcome' = string(`pv`item'`outcome'', "%9.2f")
+								
 						
 						/* Boldify if p-value < 0.15
 						if `pv`item'`outcome'' <= 0.15 {			
@@ -188,10 +188,10 @@ foreach coh in $cohort {
 					levelsof psm_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
 					
 					* Format decimal points
-					if !missing("`p`item'`outcome''") & !missing("`se`item'`outcome''")  {
+					if !missing("`p`item'`outcome''") & !missing("`pv`item'`outcome''") {
 						local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
 						local sd`item'`outcome' = string(`sd`item'`outcome'', "%9.2f")
-						local pv`item'`outcome' = `pv`item'`outcome''
+						local pv`item'`outcome' = string(`pv`item'`outcome'', "%9.2f")
 						
 					}
 				}
@@ -205,13 +205,13 @@ foreach coh in $cohort {
 				}
 	
 				* Tex file P-Value
-				local `outcome'tex_pv	Unadjusted
+				local `outcome'tex_pv	\quad \textit{Unadjusted P-Value}
 				foreach item in ${fulllist`coh'lp}  {
 					local `outcome'tex_pv	``outcome'tex_pv' & (`pv`item'`outcome'')
 				}
 			
 				* Tex file Stepdown P-Value 
-				local `outcome'tex_sd	Stepdown
+				local `outcome'tex_sd	\quad \textit{Stepdown P-Value}
 				foreach item in ${fulllist`coh'lp}  {
 					local `outcome'tex_sd	``outcome'tex_sd' & (`sd`item'`outcome'')
 				}
