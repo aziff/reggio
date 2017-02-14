@@ -1,7 +1,7 @@
 /* ---------------------------------------------------------------------------- *
-* Programming a function for the PSM for Reggio analysis (A more general version)
+* Programming a function for the Kernel Matching for Reggio analysis (A more general version)
 * Author: Jessica Yu Kyung Koh
-* Edited: 12/22/2016
+* Edited: 02/14/2016
 
 * Note: The purpose of this function is to generate csv file that contains
         point estimates, standard errors, p-values, and # of observations for
@@ -13,8 +13,8 @@
 * ---------------------------------------------------------------------------- */
 
 
-capture program drop psmanalysis
-capture program define psmanalysis
+capture program drop kernelanalysis
+capture program define kernelanalysis
 
 version 13
 syntax, stype(string) type(string) psmlist(string) cohort(string)
@@ -37,50 +37,50 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 		foreach comp in ${psmlist} {
 			
 			di "For comparison `comp'"
-			di "teffects psmatch (`var') (${X`comp'} ${controls`comp'}) if ${ifcondition`comp'}"
-			capture teffects psmatch (`var') (${X`comp'} ${controls`comp'}) if ${ifcondition`comp'}
+			di "psmatch2 ${X`comp'} ${controls`comp'} if ${ifcondition`comp'}, kernel k(epan) out(`var')"
+			capture psmatch2 ${X`comp'} ${controls`comp'} if ${ifcondition`comp'}, kernel k(epan) out(`var')
 			if !_rc {
 			
 				di "variable: `var'"
-				* Regress
-				teffects psmatch (`var') (${X`comp'} ${controls`comp'}) if ${ifcondition`comp'}
+				* Perform matching
+				psmatch2 ${X`comp'} ${controls`comp'} if ${ifcondition`comp'}, kernel k(epan) out(`var')
 				
-				di "Regression specification: teffects psmatch `var' ${X`comp'} ${controls`comp'} if ${ifcondition`comp'}" 
+				di "Kernel matching specification: psmatch2 ${X`comp'} ${controls`comp'} if ${ifcondition`comp'}, kernel k(epan) out(`var')" 
 				
 				* Save key results to locals
 				mat r = r(table)
-				local psm_`comp' 	= 	r[1,1]
-				local psm_`comp'_se = 	r[2,1]
-				local psm_`comp'_p	=	r[4,1]
-				local psm_`comp'_N	= 	e(N)
+				local kn_`comp' 	= 	r(att_`var')
+				local kn_`comp'_se  = 	r(seatt_`var')
+				local kn_`comp'_p	=	2*ttail(df, abs(r(att_`var')/r(seatt_`var')))
+				local kn_`comp'_N	= 	e(N)
 			}
 			else {
 
-					local psm_`comp' 	= 	.
-					local psm_`comp'_se = 	.
-					local psm_`comp'_p	=	.
-					local psm_`comp'_N	= 	.
+					local kn_`comp' 	= 	.
+					local kn_`comp'_se = 	.
+					local kn_`comp'_p	=	.
+					local kn_`comp'_N	= 	.
 		
 			}
 			
 			* Add to the matitems and matnames locals
 			if `switch' == 1 {
-				local matitems `matitems' `psm_`comp'', `psm_`comp'_se', `psm_`comp'_p', `psm_`comp'_N' 
+				local matitems `matitems' `kn_`comp'', `kn_`comp'_se', `kn_`comp'_p', `kn_`comp'_N' 
 			}
 			if `switch' == 0 {
-				local matitems `matitems', `psm_`comp'', `psm_`comp'_se', `psm_`comp'_p', `psm_`comp'_N'  
+				local matitems `matitems', `kn_`comp'', `kn_`comp'_se', `kn_`comp'_p', `kn_`comp'_N'  
 			}
 			
-			local matnames `matnames' psm_`comp' psm_`comp'_se psm_`comp'_p psm_`comp'_N
+			local matnames `matnames' kn_`comp' kn_`comp'_se kn_`comp'_p kn_`comp'_N
 			
 			local switch = 0
 		
 			
 		}	
-		mat psmresult = [`matitems']
-		mat colname psmresult = `matnames'
+		mat knresult = [`matitems']
+		mat colname knresult = `matnames'
 		
-		writematrix, output(psm_`type'_`stype') rowname("`var'") matrix(psmresult) `header_switch'
+		writematrix, output(kn_`type'_`stype') rowname("`var'") matrix(knresult) `header_switch'
 		local header_switch 
 	}
 	
