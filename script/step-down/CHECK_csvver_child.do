@@ -104,7 +104,7 @@ foreach stype in Other {
 	global ifconditionBIC		${ifconditionNone}
 	global ifconditionFull		${ifconditionNone}
 	global ifconditionPSM		${ifconditionNone}
-	global ifconditionKM		${ifconditionNoneIt}
+	global ifconditionKM		${ifconditionNone}
 	global ifconditionDidPm		(Reggio == 1 | Parma == 1)    
 	global ifconditionDidPv		(Reggio == 1 | Padova == 1)    & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionAIPW	 	(Reggio == 1)  & (maternaMuni == 1 | materna`stype' == 1)
