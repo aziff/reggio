@@ -35,7 +35,7 @@ global fulllistchildlp			noneit bicit fullit
 
 
 global reglistadol				None BIC Full 
-global fulllistadol				None Bic Full  
+global fulllistadol				None BIC Full  
 global reglistadollp			none bic full   
 global fulllistadollp			none bic full 
 

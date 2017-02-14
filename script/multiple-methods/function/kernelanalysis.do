@@ -34,7 +34,7 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 		local matnames
 	
 		local switch = 1
-		foreach comp in ${psmlist} {
+		foreach comp in ${kernellist} {
 			
 			di "For comparison `comp'"
 			di "psmatch2 ${X`comp'} ${controls`comp'} if ${ifcondition`comp'}, kernel k(epan) out(`var')"
@@ -51,7 +51,7 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 				mat r = r(table)
 				local kn_`comp' 	= 	r(att_`var')
 				local kn_`comp'_se  = 	r(seatt_`var')
-				local kn_`comp'_p	=	2*ttail(df, abs(r(att_`var')/r(seatt_`var')))
+				local kn_`comp'_p	=	2*ttail(e(df_r), abs(r(att_`var')/r(seatt_`var')))
 				local kn_`comp'_N	= 	e(N)
 			}
 			else {
@@ -80,7 +80,7 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 		mat knresult = [`matitems']
 		mat colname knresult = `matnames'
 		
-		writematrix, output(kn_`type'_`stype') rowname("`var'") matrix(knresult) `header_switch'
+		writematrix, output(kern_`type'_`stype') rowname("`var'") matrix(knresult) `header_switch'
 		local header_switch 
 	}
 	
