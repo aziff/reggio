@@ -34,9 +34,11 @@ include "${here}/../macros"
 include "${here}/function/sdreganalysis"
 include "${here}/function/sdaipwanalysis"
 include "${here}/function/sdpsmanalysis"
+include "${here}/function/sdkernelanalysis"
 include "${here}/function/writematrix"
 include "${here}/function/rwolfpsm"
 include "${here}/function/rwolfaipw"
+include "${here}/function/rwolfkernel"
 include "${here}/../ipw/function/aipw"
 
 
@@ -104,30 +106,51 @@ foreach stype in Other {
 	global X					maternaMuni
 	global reglist				None BIC Full DidPm DidPv // It => Italians, Mg => Migrants
 	global aipwlist				AIPW
-	global psmlist				PSM
+	global psmlist				PSMR PSMPm PSMPv
+	global kernellist			KMR KMPm KMPv
 
 	global XNone				maternaMuni		
 	global XBIC					maternaMuni		
 	global XFull				maternaMuni		
-	global XPSM					maternaMuni
 	global XDidPm				xmMuniReggio 
 	global XDidPv				xmMuniReggio 
+	global XPSMR				maternaMuni
+	global XPSMPm				Reggio
+	global XPSMPv				Reggio
+	global XKMR					maternaMuni
+	global XKMPm				Reggio
+	global XKMPv				Reggio
 
 	global controlsNone
 	global controlsBIC			${bic_adol_baseline_vars}
 	global controlsFull			${adol_baseline_vars}
-	global controlsPSM			${bic_adol_baseline_vars}
 	global controlsDidPm		maternaMuni Reggio ${bic_adol_baseline_vars}
 	global controlsDidPv		maternaMuni Reggio ${bic_adol_baseline_vars}
-	global controlsAIPW			${adol_baseline_vars}
+	global controlsAIPW			${bic_adol_baseline_vars}
+	global controlsPSMR			${bic_adol_baseline_vars}
+	global controlsPSMPm		${bic_adol_baseline_vars}
+	global controlsPSMPv		${bic_adol_baseline_vars}
+	global controlsKMR			${bic_adol_baseline_vars}
+	global controlsKMPm			${bic_adol_baseline_vars}
+	global controlsKMPv			${bic_adol_baseline_vars}
+	global controlsAIPW			${bic_adol_baseline_vars}
+	
+	local  Other_psm			materna
+	local  Stat_psm				maternaStat
+	local  Reli_psm				maternaReli
 
-	global ifconditionNone 		(Reggio == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
+	global ifconditionNone 		(Reggio == 1)   & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionBIC		${ifconditionNone}
 	global ifconditionFull		${ifconditionNone}
-	global ifconditionPSM		${ifconditionNone}
-	global ifconditionDidPm		(Reggio == 1 | Parma == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionDidPv		(Reggio == 1 | Padova == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionAIPW 	    (Reggio == 1) & (Cohort == 3)   & (maternaMuni == 1 | materna`stype' == 1)
+	global ifconditionPSMR		${ifconditionNone}
+	global ifconditionPSMPm 	((Reggio == 1) & (maternaMuni == 1)) | ((Parma == 1) & (``stype'_psm' == 1))
+	global ifconditionPSMPv		((Reggio == 1) & (maternaMuni == 1)) | ((Padova == 1) & (``stype'_psm' == 1))
+	global ifconditionKMR		${ifconditionNone}
+	global ifconditionKMPm 		((Reggio == 1) & (maternaMuni == 1)) | ((Parma == 1) & (``stype'_psm' == 1))
+	global ifconditionKMPv		((Reggio == 1) & (maternaMuni == 1)) | ((Padova == 1) & (``stype'_psm' == 1))
+	global ifconditionDidPm		(Reggio == 1 | Parma == 1) & (maternaMuni == 1 | materna`stype' == 1)
+	global ifconditionDidPv		(Reggio == 1 | Padova == 1) & (maternaMuni == 1 | materna`stype' == 1)
+	global ifconditionAIPW 	    (Reggio == 1) & (maternaMuni == 1 | materna`stype' == 1)
 
 	
 	
@@ -164,24 +187,34 @@ foreach stype in Other {
 		file close psm_`type'_`stype'
 		
 		
+		* ----------------------- *
+		* For Kernel Analysis 	  *
+		* ----------------------- *
+		* Open necessary files
+		file open kern_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/kern_adol_`type'_`stype'.csv", write replace
+
+		* Run Multiple Analysis
+		di "Estimating `type' for Children: PSM Analysis"
+		sdkernelanalysis, stype("`stype'") type("`type'") kernellist("${kernellist}") cohort("adol")
+	
+		* Close necessary files
+		file close kern_`type'_`stype'
 		
 		
 		* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
+		* Open necessary files
+		cap file close aipw_`type'_`stype'
+		file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/aipw_adol_`type'_`stype'_sd.csv", write replace
 
+		* Run Multiple Analysis
+		di "Estimating `type' for Children: AIPW Analysis"
+		sdaipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adol")
 		
-			* Open necessary files
-			cap file close aipw_`type'_`stype'
-			file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/aipw_adol_`type'_`stype'_sd.csv", write replace
-
-			* Run Multiple Analysis
-			di "Estimating `type' for Children: AIPW Analysis"
-			sdaipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adol")
-			
-			* Close necessary files
-			file close aipw_`type'_`stype'	
-		
+		* Close necessary files
+		file close aipw_`type'_`stype'	
+	
 	}
 	
 	local stype_switch = 0
