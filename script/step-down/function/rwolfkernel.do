@@ -1,7 +1,7 @@
 /* ---------------------------------------------------------------------------- *
-* Modifying the Existing "rwolf" Command
+* Modifying the Existing "rwolf" Command for Kernel Matching
 * Author: Jessica Yu Kyung Koh
-* Edited: 01/03/2016
+* Edited: 02/14/2016
 
 * Note: The purpose of this do file is to modify the existing rwolf command to 
         accomodate more general commands other than reg/probit/logit.
