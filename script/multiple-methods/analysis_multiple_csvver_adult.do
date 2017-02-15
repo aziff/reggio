@@ -393,16 +393,16 @@ foreach stype in None {
 		* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
-			* Open necessary files
-			cap file close aipw_`type'_`stype'
-			file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adult40_`type'_`stype'.csv", write replace
+		* Open necessary files
+		cap file close aipw_`type'_`stype'
+		file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adult40_`type'_`stype'.csv", write replace
 
-			* Run Multiple Analysis
-			di "Estimating `type' for Children: AIPW Analysis"
-			aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adult")
-			
-			* Close necessary files
-			file close aipw_`type'_`stype'	
+		* Run Multiple Analysis
+		di "Estimating `type' for Children: AIPW Analysis"
+		aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adult")
+		
+		* Close necessary files
+		file close aipw_`type'_`stype'	
 		
 		
 	}
