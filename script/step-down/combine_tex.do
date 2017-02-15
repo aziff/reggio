@@ -159,17 +159,17 @@ foreach coh in $cohort {
 					* Format decimal points
 					if !missing("`p`item'`outcome''")  & !missing("`pv`item'`outcome''") {
 						local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
+						local pvn`item'`outcome' = `sd`item'`outcome''
 						local sd`item'`outcome' = string(`sd`item'`outcome'', "%9.2f")
+						
 						local pv`item'`outcome' = string(`pv`item'`outcome'', "%9.2f")
 								
 						
-						/* Boldify if p-value < 0.15
-						if `pv`item'`outcome'' <= 0.15 {			
+						*Boldify if p-value < 0.15
+						if `pvn`item'`outcome'' <= 0.15 {			
 							local p`item'`outcome' 	"\textbf{ `p`item'`outcome'' }"
 						}
 						
-						* Number of observations in italic
-						local n`item'`outcome' "\textit{ `n`item'`outcome'' }" */
 					}
 				}
 				di "regression done"
@@ -190,8 +190,15 @@ foreach coh in $cohort {
 					* Format decimal points
 					if !missing("`p`item'`outcome''") & !missing("`pv`item'`outcome''") {
 						local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
+						local pvn`item'`outcome' = `sd`item'`outcome''
 						local sd`item'`outcome' = string(`sd`item'`outcome'', "%9.2f")
+						
 						local pv`item'`outcome' = string(`pv`item'`outcome'', "%9.2f")
+						
+						*Boldify if p-value < 0.15
+						if `pvn`item'`outcome'' <= 0.15 {			
+							local p`item'`outcome' 	"\textbf{ `p`item'`outcome'' }"
+						}
 						
 					}
 				}

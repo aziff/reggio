@@ -157,7 +157,7 @@ foreach stype in Other Stat Reli {
 		* Close necessary files
 		file close psm_`type'_`stype' 
 		
-		
+	/*	
 		
 		* ----------------------- *
 		* For Kernel Analysis 	  *
@@ -170,7 +170,7 @@ foreach stype in Other Stat Reli {
 		sdkernelanalysis, stype("`stype'") type("`type'") kernellist("${kernellist}") cohort("child")
 	
 		* Close necessary files
-		file close kern_`type'_`stype'
+		file close kern_`type'_`stype' */
 	
 	
 	}
