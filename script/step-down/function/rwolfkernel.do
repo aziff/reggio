@@ -34,6 +34,7 @@ local cand
 dis "Running `reps' bootstrap replications for each variable.  This may take some time"
 foreach var of varlist `varlist' {
     local ++j
+	di "Specification: cap qui `method' `indepvar' `controls' `if' `in' [`weight' `exp'], kernel k(epan) out(`var')"
 	cap qui `method' `indepvar' `controls' `if' `in' [`weight' `exp'], kernel k(epan) out(`var')
     if _rc!=0 {
         dis as error "Your original `method' does not work.  Please test the `method' and try again."

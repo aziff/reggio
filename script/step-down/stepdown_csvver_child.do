@@ -127,7 +127,7 @@ foreach stype in Other Stat Reli {
 	
 	foreach type in  M CN S H B {
 
-		* ----------------------- *
+	/*	* ----------------------- *
 		* For Regression Analysis *
 		* ----------------------- *
 		* Open necessary files
@@ -153,7 +153,7 @@ foreach stype in Other Stat Reli {
 		sdpsmanalysis, stype("`stype'") type("`type'") psmlist("${psmlist}") cohort("child")
 	
 		* Close necessary files
-		file close psm_`type'_`stype'
+		file close psm_`type'_`stype' */
 		
 		
 		
