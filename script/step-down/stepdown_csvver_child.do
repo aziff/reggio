@@ -62,7 +62,7 @@ set seed 1234
 * ---------------------------------------------------------------------------- *
 ** Keep only the adult cohorts
 preserve
-keep if (Cohort == 1) | (Cohort == 2)  // check if I need to include migrant cohort
+keep if (Cohort == 1)  //| (Cohort == 2)  check if I need to include migrant cohort
 
 local stype_switch = 1
 foreach stype in Other {
@@ -98,8 +98,8 @@ foreach stype in Other {
 	global controlsNone
 	global controlsBIC			${bic_child_baseline_vars}
 	global controlsFull			${child_baseline_vars}
-	global controlsDidPm		maternaMuni Reggio ${bic_child_baseline_vars}
-	global controlsDidPv		maternaMuni Reggio ${bic_child_baseline_vars}
+	global controlsDidPm		maternaMuni Reggio ${bic_child_baseline_did_vars}
+	global controlsDidPv		maternaMuni Reggio ${bic_child_baseline_did_vars}
 	global controlsPSMR			${bic_child_baseline_vars}
 	global controlsPSMPm		${bic_child_baseline_vars}
 	global controlsPSMPv		${bic_child_baseline_vars}

@@ -133,8 +133,8 @@ foreach stype in Other None /*Stat Reli*/ {
 	global controlsKM30R		${bic_adult_baseline_vars}
 	global controlsKM30Pm		${bic_adult_baseline_vars}
 	global controlsKM30Pv		${bic_adult_baseline_vars}	
-	global controlsDidPm30		maternaMuni Reggio ${bic_adult_baseline_vars}
-	global controlsDidPv30		maternaMuni Reggio ${bic_adult_baseline_vars}
+	global controlsDidPm30		maternaMuni Reggio ${bic_adult_baseline_did_vars}
+	global controlsDidPv30		maternaMuni Reggio ${bic_adult_baseline_did_vars}
 	global controlsAIPW30		${bic_adult_baseline_vars}	
 
 	local  Other_psm			materna
@@ -254,8 +254,8 @@ foreach stype in Other /*Stat Reli*/ {
 	global controlsKM40R		${bic_adult_baseline_vars}
 	global controlsKM40Pm		${bic_adult_baseline_vars}
 	global controlsKM40Pv		${bic_adult_baseline_vars}
-	global controlsDidPm40		${bic_adult_baseline_vars}
-	global controlsDidPv40		${bic_adult_baseline_vars}
+	global controlsDidPm40		${bic_adult_baseline_did_vars}
+	global controlsDidPv40		${bic_adult_baseline_did_vars}
 	global controlsAIPW40		${bic_adult_baseline_vars}
 
 
@@ -383,8 +383,8 @@ foreach stype in None {
 	global controlsKM40R		${bic_adult_baseline_vars}
 	global controlsKM40Pm		${bic_adult_baseline_vars}
 	global controlsKM40Pv		${bic_adult_baseline_vars}	
-	global controlsDidPm40		materna Reggio ${bic_adult_baseline_vars}
-	global controlsDidPv40		materna Reggio ${bic_adult_baseline_vars}
+	global controlsDidPm40		materna Reggio ${bic_adult_baseline_did_vars}
+	global controlsDidPv40		materna Reggio ${bic_adult_baseline_did_vars}
 	global controlsAIPW40		${bic_adult_baseline_vars}
 
 
