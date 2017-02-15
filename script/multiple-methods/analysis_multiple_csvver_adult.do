@@ -116,8 +116,8 @@ foreach stype in Other None /*Stat Reli*/ {
 	global controlsPSM30R		${bic_adult_baseline_vars}
 	global controlsPSM30Pm		${bic_adult_baseline_vars}
 	global controlsPSM30Pv		${bic_adult_baseline_vars}
-	global controlsDidPm30		${bic_adult_baseline_vars}
-	global controlsDidPv30		${bic_adult_baseline_vars}
+	global controlsDidPm30		${bic_adult_baseline_did_vars}
+	global controlsDidPv30		${bic_adult_baseline_did_vars}
 	global controlsAIPW30		${bic_adult_baseline_vars}
 	
 	local  Other_psm			materna
@@ -232,8 +232,8 @@ foreach stype in Other /*Stat Reli*/ {
 	global controlsPSM40R		${bic_adult_baseline_vars}
 	global controlsPSM40Pm		${bic_adult_baseline_vars}
 	global controlsPSM40Pv		${bic_adult_baseline_vars}
-	global controlsDidPm40		${bic_adult_baseline_vars}
-	global controlsDidPv40		${bic_adult_baseline_vars}
+	global controlsDidPm40		${bic_adult_baseline_did_vars}
+	global controlsDidPv40		${bic_adult_baseline_did_vars}
 	global controlsAIPW40		${bic_adult_baseline_vars}
 	
 	local  Other_psm			materna
@@ -341,8 +341,8 @@ foreach stype in None {
 	global controlsPSM40R		${bic_adult_baseline_vars}
 	global controlsPSM40Pm		${bic_adult_baseline_vars}
 	global controlsPSM40Pv		${bic_adult_baseline_vars}
-	global controlsDidPm40		${bic_adult_baseline_vars}
-	global controlsDidPv40		${bic_adult_baseline_vars}
+	global controlsDidPm40		${bic_adult_baseline_did_vars}
+	global controlsDidPv40		${bic_adult_baseline_did_vars}
 	global controlsAIPW40		${bic_adult_baseline_vars}
 
 

@@ -97,8 +97,8 @@ foreach stype in Other Stat Reli {
 	global controlsBIC			${bic_child_baseline_vars}
 	global controlsFullIt		${child_baseline_vars}
 	global controlsFull			${child_baseline_vars}
-	global controlsDidPmIt		${bic_child_baseline_vars}
-	global controlsDidPvIt		${bic_child_baseline_vars}
+	global controlsDidPmIt		${bic_child_baseline_did_vars}
+	global controlsDidPvIt		${bic_child_baseline_did_vars}
 	global controlsPSMR			${bic_child_baseline_vars}
 	global controlsPSMPm		${bic_child_baseline_vars}
 	global controlsPSMPv		${bic_child_baseline_vars}

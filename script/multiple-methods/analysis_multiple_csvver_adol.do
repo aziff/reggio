@@ -114,8 +114,8 @@ foreach stype in Other Reli Stat {
 	global controlsPSMR			${bic_adol_baseline_vars}
 	global controlsPSMPm		${bic_adol_baseline_vars}
 	global controlsPSMPv		${bic_adol_baseline_vars}
-	global controlsDidPm		${bic_adol_baseline_vars}
-	global controlsDidPv		${bic_adol_baseline_vars}
+	global controlsDidPm		${bic_adol_baseline_did_vars}
+	global controlsDidPv		${bic_adol_baseline_did_vars}
 	global controlsAIPW			${bic_adol_baseline_vars}
 	
 	local  Other_psm			materna
@@ -172,19 +172,17 @@ foreach stype in Other Reli Stat {
 		* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
+		* Open necessary files
+		cap file close aipw_`type'_`stype'
+		file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adol_`type'_`stype'.csv", write replace
 
+		* Run Multiple Analysis
+		di "Estimating `type' for Children: AIPW Analysis"
+		aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adol")
 		
-			* Open necessary files
-			cap file close aipw_`type'_`stype'
-			file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adol_`type'_`stype'.csv", write replace
-
-			* Run Multiple Analysis
-			di "Estimating `type' for Children: AIPW Analysis"
-			aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adol")
-			
-			* Close necessary files
-			file close aipw_`type'_`stype'	
-		
+		* Close necessary files
+		file close aipw_`type'_`stype'	
+	
 		
 	}
 	
