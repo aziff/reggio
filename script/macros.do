@@ -36,7 +36,7 @@ global adult_baseline_vars		Male CAPI ///
 								dadMaxEdu_low dadMaxEdu_middle dadMaxEdu_HS dadMaxEdu_Uni  ///
 								numSibling_1 numSibling_2 numSibling_more cgRelig cgIslam
 								// momWork_fulltime06 momWork_parttime06 momSchool06
-								
+															
 								
 global Child_baseline_vars				$child_baseline_vars							
 global Migrant_baseline_vars			$child_baseline_vars yrCity ageCity
@@ -50,14 +50,24 @@ global Adult50_baseline_vars		 	$adult_baseline_vars
 * BIC-selected baseline variables *
 * ------------------------------- *
 * For Preschool
-global bic_child_baseline_vars					Male CAPI asilo Cohort_Migrants momMaxEdu_Uni houseOwn cgReddito_3
+*global bic_child_baseline_vars					Male CAPI asilo Cohort_Migrants momMaxEdu_Uni houseOwn cgReddito_3
+global bic_child_baseline_vars					Male CAPI asilo momMaxEdu_Uni houseOwn cgReddito_3
 global bic_adol_baseline_vars					Male CAPI asilo dadMaxEdu_HS dadMaxEdu_Uni int_cgCatFaith
 global bic_adult_baseline_vars		    		Male CAPI dadMaxEdu_Uni numSibling_2 numSibling_more
 
+global bic_child_baseline_did_vars				maternaMuni##Male maternaMuni##CAPI maternaMuni##asilo maternaMuni##momMaxEdu_Uni maternaMuni##houseOwn maternaMuni##cgReddito_3
+global bic_adol_baseline_did_vars				maternaMuni##Male maternaMuni##CAPI maternaMuni##asilo maternaMuni##dadMaxEdu_HS maternaMuni##dadMaxEdu_Uni maternaMuni##int_cgCatFaith
+global bic_adult_baseline_did_vars		    	maternaMuni##Male maternaMuni##CAPI maternaMuni##dadMaxEdu_Uni maternaMuni##numSibling_2 maternaMuni##numSibling_more
+
 * For Asilo
-global bic_asilo_child_baseline_vars			Male CAPI Cohort_Migrants momMaxEdu_Uni houseOwn cgReddito_3
+*global bic_asilo_child_baseline_vars			Male CAPI Cohort_Migrants momMaxEdu_Uni houseOwn cgReddito_3
+global bic_asilo_child_baseline_vars			Male CAPI momMaxEdu_Uni houseOwn cgReddito_3
 global bic_asilo_adol_baseline_vars				Male CAPI dadMaxEdu_HS dadMaxEdu_Uni int_cgCatFaith
 global bic_asilo_adult_baseline_vars		    Male CAPI dadMaxEdu_Uni numSibling_2 numSibling_more
+
+global bic_asilo_child_baseline_did				maternaMuni##Male maternaMuni##CAPI maternaMuni##momMaxEdu_Uni maternaMuni##houseOwn maternaMuni##cgReddito_3
+global bic_asilo_adol_baseline_did				maternaMuni##Male maternaMuni##CAPI maternaMuni##dadMaxEdu_HS maternaMuni##dadMaxEdu_Uni maternaMuni##int_cgCatFaith
+global bic_asilo_adult_baseline_did				maternaMuni##Male maternaMuni##CAPI maternaMuni##dadMaxEdu_Uni maternaMuni##numSibling_2 maternaMuni##numSibling_more
 
 
 

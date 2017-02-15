@@ -15,11 +15,9 @@ clear all
 cap file 	close outcomes
 cap log 	close
 
-* Capture install commands 
+* Capture install rwolf command (for Romano-Wolf stepdown procedure) exists
 cap which rwolf
 if _rc ssc install rwolf
-cap which psmatch2
-if _rc ssc install psmatch2
 
 global klmReggio   : env klmReggio
 global data_reggio : env data_reggio
@@ -128,49 +126,19 @@ foreach stype in Other Stat Reli {
 	global ifconditionAIPW	 	(Reggio == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	
 	foreach type in  M CN S H B {
-
-		* ----------------------- *
-		* For Regression Analysis *
-		* ----------------------- *
+		
+		* ----------------- *
+		* For AIPW Analysis *
+		* ----------------- *
 		* Open necessary files
-		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/reg_child_`type'_`stype'_sd.csv", write replace
+		file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/aipw_child_`type'_`stype'_sd.csv", write replace
 
 		* Run Multiple Analysis
-		di "Estimating `type' for Children: Regression Analysis"
-		sdreganalysis, stype("`stype'") type("`type'") reglist("${reglist}") cohort("child")
-	
+		di "Estimating `type' for Children: AIPW Analysis"
+		sdaipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("child")
+		
 		* Close necessary files
-		file close regression_`type'_`stype' 
-		
-	
-	
-		* ----------------------- *
-		* For PSM Analysis 		  *
-		* ----------------------- *
-		* Open necessary files
-		file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/psm_child_`type'_`stype'_sd.csv", write replace
-
-		* Run Multiple Analysis
-		di "Estimating `type' for Children: PSM Analysis"
-		sdpsmanalysis, stype("`stype'") type("`type'") psmlist("${psmlist}") cohort("child")
-	
-		* Close necessary files
-		file close psm_`type'_`stype' 
-		
-		
-		
-		* ----------------------- *
-		* For Kernel Analysis 	  *
-		* ----------------------- *
-		* Open necessary files
-		file open kern_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/kern_child_`type'_`stype'.csv", write replace
-
-		* Run Multiple Analysis
-		di "Estimating `type' for Children: Kernel Analysis"
-		sdkernelanalysis, stype("`stype'") type("`type'") kernellist("${kernellist}") cohort("child")
-	
-		* Close necessary files
-		file close kern_`type'_`stype'
+		file close aipw_`type'_`stype'	
 	
 	
 	}

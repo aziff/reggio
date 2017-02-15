@@ -15,11 +15,9 @@ clear all
 cap file 	close outcomes
 cap log 	close
 
-* Capture install commands 
+* Capture install rwolf command (for Romano-Wolf stepdown procedure) exists
 cap which rwolf
 if _rc ssc install rwolf
-cap which psmatch2
-if _rc ssc install psmatch2
 
 global klmReggio   : env klmReggio
 global data_reggio : env data_reggio
@@ -64,7 +62,7 @@ set seed 1234
 * ---------------------------------------------------------------------------- *
 ** Keep only the adult cohorts
 preserve
-keep if (Cohort == 1)  //| (Cohort == 2)  check if I need to include migrant cohort
+keep if (Cohort == 2)  // check if I need to include migrant cohort
 
 local stype_switch = 1
 foreach stype in Other Stat Reli {
@@ -133,7 +131,7 @@ foreach stype in Other Stat Reli {
 		* For Regression Analysis *
 		* ----------------------- *
 		* Open necessary files
-		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/reg_child_`type'_`stype'_sd.csv", write replace
+		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/reg_migr_`type'_`stype'_sd.csv", write replace
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Children: Regression Analysis"
@@ -148,14 +146,14 @@ foreach stype in Other Stat Reli {
 		* For PSM Analysis 		  *
 		* ----------------------- *
 		* Open necessary files
-		file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/psm_child_`type'_`stype'_sd.csv", write replace
+		file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/psm_migr_`type'_`stype'_sd.csv", write replace
 
 		* Run Multiple Analysis
 		di "Estimating `type' for Children: PSM Analysis"
 		sdpsmanalysis, stype("`stype'") type("`type'") psmlist("${psmlist}") cohort("child")
 	
 		* Close necessary files
-		file close psm_`type'_`stype' 
+		file close psm_`type'_`stype'
 		
 		
 		
@@ -163,10 +161,10 @@ foreach stype in Other Stat Reli {
 		* For Kernel Analysis 	  *
 		* ----------------------- *
 		* Open necessary files
-		file open kern_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/kern_child_`type'_`stype'.csv", write replace
+		file open kern_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/kern_migr_`type'_`stype'.csv", write replace
 
 		* Run Multiple Analysis
-		di "Estimating `type' for Children: Kernel Analysis"
+		di "Estimating `type' for Children: PSM Analysis"
 		sdkernelanalysis, stype("`stype'") type("`type'") kernellist("${kernellist}") cohort("child")
 	
 		* Close necessary files

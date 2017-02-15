@@ -148,8 +148,8 @@ foreach stype in Other Reli Stat {
 	global controlsPSMR			${bic_adol_baseline_vars}
 	global controlsPSMPm		${bic_adol_baseline_vars}
 	global controlsPSMPv		${bic_adol_baseline_vars}
-	global controlsDidPm		${bic_adol_baseline_vars}
-	global controlsDidPv		${bic_adol_baseline_vars}
+	global controlsDidPm		${bic_adol_baseline_did_vars}
+	global controlsDidPv		${bic_adol_baseline_did_vars}
 	global controlsAIPW			${bic_adol_baseline_vars}
 	global controlsIV			${bic_adol_baseline_vars}
 	
@@ -218,7 +218,6 @@ foreach stype in Other Reli Stat {
 		
 		* Close necessary files
 		file close aipw_`type'_`stype'	
-
 	
 		* ----------------------- *
 		* For IV Analysis *
@@ -233,7 +232,6 @@ foreach stype in Other Reli Stat {
 	
 		* Close necessary files
 		file close iv_`type'_`stype' 
-			
 	}
 	
 	local stype_switch = 0
