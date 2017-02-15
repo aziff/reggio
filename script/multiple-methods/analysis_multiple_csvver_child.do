@@ -187,7 +187,21 @@ foreach stype in Other Stat Reli {
 	
 		* Close necessary files
 		file close psm_`type'_`stype'
-				
+			
+			
+		* ----------------------- *
+		* For IV Analysis *
+		* ----------------------- *
+		* Open necessary files
+		cap file close iv_`type'_`stype'
+		file open iv_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/iv_child_`type'_`stype'.csv", write replace
+
+		* Run Multiple Analysis
+		di "Estimating `type' for Adult: IV Analysis"
+		ivanalysis, stype("`stype'") type("`type'") ivlist("${ivlist}") cohort("child")
+	
+		* Close necessary files
+		file close iv_`type'_`stype' 	
 		
 		* ----------------- *
 		* For AIPW Analysis *
@@ -203,19 +217,7 @@ foreach stype in Other Stat Reli {
 		file close aipw_`type'_`stype'	
 		
 		
-		* ----------------------- *
-		* For IV Analysis *
-		* ----------------------- *
-		* Open necessary files
-		cap file close iv_`type'_`stype'
-		file open iv_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/iv_child_`type'_`stype'.csv", write replace
-
-		* Run Multiple Analysis
-		di "Estimating `type' for Adult: IV Analysis"
-		ivanalysis, stype("`stype'") type("`type'") ivlist("${ivlist}") cohort("child")
-	
-		* Close necessary files
-		file close iv_`type'_`stype' 
+		
 					
 	}
 	
