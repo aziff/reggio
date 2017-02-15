@@ -15,9 +15,11 @@ clear all
 cap file 	close outcomes
 cap log 	close
 
-* Capture install rwolf command (for Romano-Wolf stepdown procedure) exists
+* Capture install commands 
 cap which rwolf
 if _rc ssc install rwolf
+cap which psmatch2
+if _rc ssc install psmatch2
 
 global klmReggio   : env klmReggio
 global data_reggio : env data_reggio
@@ -153,7 +155,7 @@ foreach stype in Other Stat Reli {
 		sdpsmanalysis, stype("`stype'") type("`type'") psmlist("${psmlist}") cohort("child")
 	
 		* Close necessary files
-		file close psm_`type'_`stype'
+		file close psm_`type'_`stype' 
 		
 		
 		

@@ -93,17 +93,16 @@ global cohort			adol
 
 
 * ---------------------------------------------------------------------------- *
-* 					Reggio Muni vs. None:	Adolescent						   *
+* 					Comparison with Age-50 Cohort							   *
 * ---------------------------------------------------------------------------- *
 ** Keep only the adult cohorts
 preserve
-keep if (Cohort == 4) | (Cohort == 5) 
+keep if (Cohort == 3) | (Cohort == 4) | (Cohort == 5) 
 
 local stype_switch = 1
 foreach stype in Other Stat Reli {
 	
 	* Set necessary global variables
-	global X					maternaMuni
 	global reglist				None BIC Full DidPm DidPv // It => Italians, Mg => Migrants
 	global aipwlist				AIPW
 	global psmlist				PSMR PSMPm PSMPv
