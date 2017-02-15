@@ -17,7 +17,7 @@ capture program drop sdkernelanalysis
 capture program define sdkernelanalysis
 
 version 13
-syntax, stype(string) type(string) psmlist(string) cohort(string)
+syntax, stype(string) type(string) kernellist(string) cohort(string)
 
 	
 	* ------------- *
