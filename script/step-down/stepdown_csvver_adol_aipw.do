@@ -155,52 +155,20 @@ foreach stype in Other Stat Reli {
 	
 	
 	foreach type in  M CN S H B {
-
-		* ----------------------- *
-		* For Regression Analysis *
-		* ----------------------- *
+		
+		* ----------------- *
+		* For AIPW Analysis *
+		* ----------------- *
 		* Open necessary files
-		cap file close regression_`type'_`stype'
-		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/reg_adol_`type'_`stype'_sd.csv", write replace
+		cap file close aipw_`type'_`stype'
+		file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/aipw_adol_`type'_`stype'_sd.csv", write replace
 
 		* Run Multiple Analysis
-		di "Estimating `type' for Children: Regression Analysis"
-		sdreganalysis, stype("`stype'") type("`type'") reglist("${reglist}") cohort("adol")
-	
+		di "Estimating `type' for Children: AIPW Analysis"
+		sdaipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adol")
+		
 		* Close necessary files
-		file close regression_`type'_`stype' 
-		
-		
-		
-		
-		* ----------------------- *
-		* For PSM Analysis 		  *
-		* ----------------------- *
-		* Open necessary files
-		file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/psm_adol_`type'_`stype'_sd.csv", write replace
-
-		* Run Multiple Analysis
-		di "Estimating `type' for Adult: PSM Analysis"
-		sdpsmanalysis, stype("`stype'") type("`type'") psmlist("${psmlist}") cohort("adol")
-	
-		* Close necessary files
-		file close psm_`type'_`stype'
-		
-		
-		* ----------------------- *
-		* For Kernel Analysis 	  *
-		* ----------------------- *
-		* Open necessary files
-		file open kern_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/kern_adol_`type'_`stype'.csv", write replace
-
-		* Run Multiple Analysis
-		di "Estimating `type' for Children: PSM Analysis"
-		sdkernelanalysis, stype("`stype'") type("`type'") kernellist("${kernellist}") cohort("adol")
-	
-		* Close necessary files
-		file close kern_`type'_`stype'
-		
-		
+		file close aipw_`type'_`stype'	
 	
 	}
 	

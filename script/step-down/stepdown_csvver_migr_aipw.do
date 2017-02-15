@@ -62,7 +62,7 @@ set seed 1234
 * ---------------------------------------------------------------------------- *
 ** Keep only the adult cohorts
 preserve
-keep if (Cohort == 1)  //| (Cohort == 2)  check if I need to include migrant cohort
+keep if (Cohort == 2) // check if I need to include migrant cohort
 
 local stype_switch = 1
 foreach stype in Other Stat Reli {
@@ -126,49 +126,19 @@ foreach stype in Other Stat Reli {
 	global ifconditionAIPW	 	(Reggio == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	
 	foreach type in  M CN S H B {
-
-		* ----------------------- *
-		* For Regression Analysis *
-		* ----------------------- *
+		
+		* ----------------- *
+		* For AIPW Analysis *
+		* ----------------- *
 		* Open necessary files
-		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/reg_child_`type'_`stype'_sd.csv", write replace
+		file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/aipw_migr_`type'_`stype'_sd.csv", write replace
 
 		* Run Multiple Analysis
-		di "Estimating `type' for Children: Regression Analysis"
-		sdreganalysis, stype("`stype'") type("`type'") reglist("${reglist}") cohort("child")
-	
+		di "Estimating `type' for Children: AIPW Analysis"
+		sdaipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("child")
+		
 		* Close necessary files
-		file close regression_`type'_`stype' 
-		
-	
-	
-		* ----------------------- *
-		* For PSM Analysis 		  *
-		* ----------------------- *
-		* Open necessary files
-		file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/psm_child_`type'_`stype'_sd.csv", write replace
-
-		* Run Multiple Analysis
-		di "Estimating `type' for Children: PSM Analysis"
-		sdpsmanalysis, stype("`stype'") type("`type'") psmlist("${psmlist}") cohort("child")
-	
-		* Close necessary files
-		file close psm_`type'_`stype'
-		
-		
-		
-		* ----------------------- *
-		* For Kernel Analysis 	  *
-		* ----------------------- *
-		* Open necessary files
-		file open kern_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/kern_child_`type'_`stype'.csv", write replace
-
-		* Run Multiple Analysis
-		di "Estimating `type' for Children: PSM Analysis"
-		sdkernelanalysis, stype("`stype'") type("`type'") kernellist("${kernellist}") cohort("child")
-	
-		* Close necessary files
-		file close kern_`type'_`stype'
+		file close aipw_`type'_`stype'	
 	
 	
 	}
