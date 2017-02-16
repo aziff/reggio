@@ -139,6 +139,10 @@ foreach stype in Other Stat Reli {
 	global controlsAIPW40		${bic_adult_baseline_vars}
 
 
+		local  Other_psm			materna
+	local  Stat_psm				maternaStat
+	local  Reli_psm				maternaReli
+	
 	global ifconditionNone40 	(Reggio == 1) & (Cohort_Adult40 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionBIC40		${ifconditionNone40} 
 	global ifconditionFull40	${ifconditionNone40}
