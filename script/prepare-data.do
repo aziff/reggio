@@ -700,6 +700,25 @@ forvalues city = 1/3 {
 	
 sum votoMaturita_std
 
+* ---------------------------------------------------------------------------- *
+* Preparing cost data to use as instrument
+* ---------------------------------------------------------------------------- *
+/*We use _3 fees for materna because they correspond to when children were aged
+3-the age when materna begins. _2 and _1 fees correspond to ages 2 and 1 respectively.*/
+
+foreach  t in Muni Reli Stat{
+	gen effective_medianFee_materna`t' = Fees_med_full_materna`t'_3
+}
+
+
+/* We use _1 fees for asilo because they correspond to when children were aged 0-1.
+_2 and _3 are less relevant because they correspond to fees during the years after
+first year of Asilo.*/
+
+foreach  t in Muni Reli{
+	gen effective_medianFee_asilo`t' = Fees_med_full_asilo`t'_1
+} 
+
 
 * Rename is the name is too long
 rename difficultiesInterest 	diffInterest
