@@ -128,7 +128,7 @@ foreach stype in Other {
 		file open iv_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/iv_adol_`type'_`stype'_sd.csv", write replace
 
 		* Run Multiple Analysis
-		di "Estimating `type' for Children: Regression Analysis"
+		di "Estimating `type' for Children: IV Analysis"
 		sdivanalysis, stype("`stype'") type("`type'") ivlist("${ivlist}") cohort("adol")
 	
 		* Close necessary files
