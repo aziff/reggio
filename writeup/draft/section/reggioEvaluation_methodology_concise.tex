@@ -2,19 +2,20 @@ Since no single analytic approach is best, we consider several methodologies to 
 
 Our analysis is carried out in two dimensions. First, we compare the Reggio Approach with other childcare systems within the city of Reggio Emilia. Section~\ref{sec:within-city-analysis} presents various methodologies used to estimate the treatment effects of the Reggio Approach with a restriction of the sample to individuals within the city of Reggio Emilia. Second, we estimate the effect of Reggio Approach relative to other childcare systems across cities. Section~\ref{sec:across-city-analysis} presents methodologies used for the across-city analysis.
 
-The Reggio Approach includes interventions at two different age ranges: (i) infant-toddler centers between ages 0-3, and (ii) preschool between ages 3-6. We note that our analysis of the infant-toddler centers is more limited compared to our preschool analysis because attendance of infant-toddler centers was very low in the adult cohorts, and virtually no other type of center provided child-care for children younger than three. Regardless, we present our method to analyze the effect of the Reggio Approach in Section~\ref{subsubsection:itc}.
+The Reggio Approach includes interventions at two different age ranges: (i) infant-toddler centers between ages 0-3, and (ii) preschool between ages 3-6. We note that our analysis of the infant-toddler centers is more limited compared to our preschool analysis because attendance of infant-toddler centers was very low in the adult cohorts, and virtually no other type of center provided child-care for children younger than three. Even though we focus on preschool, we present our method to analyze the effect of the Reggio Approach infant-toddler care in Section~\ref{subsubsection:itc}.
 
-\textbf{[JJH: Then this is a great -- clean -- comparison. Group, we should feature more.][We now include an analysis of age-50.]}. 
+\textbf{[JJH: Then this is a great -- clean -- comparison. Group, we should feature more.][We now include an analysis of infant-toddler care.]}. 
 
-\textbf{[JJH: Can we evaluate this within cohorts?]} \textbf{[Team: We provide these within-cohort evaluations in the appendix. We have changed the text in this paragraph to make this clearer. Would you prefer to have it in the main paper?] [JJH: Yes, if possible.][We have included these results. Please see Section~\ref{subsubsection:itc} for a description of the analysis and Section~REFER for a description of the results. Overall, the results are weak: there are few significant effects and several are negative such as cognitive skills.]}
+\textbf{[JJH: Can we evaluate this within cohorts?]} \textbf{[Team: We provide these within-cohort evaluations in the appendix. We have changed the text in this paragraph to make this clearer. Would you prefer to have it in the main paper?] [JJH: Yes, if possible.][We moved these results to the main paper.]}
 
 \subsection{Within-City Analysis} \label{sec:within-city-analysis}
 
 \subsubsection{OLS Framework to Evaluate Preschool} 
 \label{subsubsection:OLS}
 
-We perform several within-Reggio Emilia comparisons using a baseline OLS model. We compare individuals from Reggio Emilia who attended a Reggio Approach preschool to those in Reggio Emilia who attended (i) any other type of preschool (state, religious, municipal-affiliated, and other), (ii) no preschool at all, (iii) state preschool, and (iv) religious preschool. We only present estimates of the first and second comparisons in the main paper. Estimates from comparisons to specific school types are reported in Appendix~\ref{app:comparison-reli-stat}. \textbf{[JJH: Why? Please present in text.]} 
-For the children cohort (age 5), it is not possible to compare Reggio Approach preschools with no preschool because of small sample size for those who did not attend any preschool (See Table \ref{tab:sample}). We analyze the age-50 cohort using a separate framework given that the Reggio Approach was not available for those individuals (Section~\ref{subsubsection:age50}). \textbf{[JJH: But this gives us a good baseline no-treatment approach.][We now include this analysis.]}
+We perform several within-Reggio Emilia comparisons using a baseline OLS model. We compare individuals from Reggio Emilia who attended a Reggio Approach preschool to those in Reggio Emilia who attended (i) any other type of preschool (state, religious, municipal-affiliated, and other), (ii) no preschool at all, (iii) state preschool, and (iv) religious preschool. We only present estimates of the first two comparisons in the main paper to focus on the main hypotheses of the effectiveness of the Reggio Approach. The estimates of comparisons to specific school types are reported in Appendix~\ref{app:comparison-reli-stat} and summarized in Section~\ref{sec:result}. \textbf{[JJH: Why? Please present in text.][We edited this to explain why we have other comparisons in the appendix. We also added to the description of results to summarize the results.]} 
+
+For the children cohort (age 5), it is not possible to compare Reggio Approach preschools with no preschool because of small sample size for those who did not attend any preschool (See Table~\ref{tab:sample}). For the age-50 cohort, we compare against other adult cohorts because the age-50 cohort preceded the Reggio Approach. \textbf{[JJH: But this gives us a good baseline no-treatment approach.][We now include this analysis.]}
 
 The basic OLS takes the form,
 
@@ -24,9 +25,10 @@ The basic OLS takes the form,
 \end{equation}
 where $i$ indexes individuals having attended any preschool in Reggio Emilia, $D_i$ is an indicator for whether individual $i$ attended municipal preschool, $\bm{X}_i$ is a vector of baseline control variables, and $\varepsilon_i$ is a random disturbance. Estimations for three specifications for $\bm{X}_i$ are reported: (i) no baseline control, (ii) baseline variables selected by the Bayesian Information Criterion (BIC)\footnote{Since the set of baseline variables are different for child, adolescent, and adult cohorts, we use separate model selections. For \emph{child cohort}, the \emph{a priori} designated control variables are male, CAPI, infant-toddler center attendance, and migrant indicators, and the BIC-selected variables are (i) mother graduated university, (2) family owns house, and (3) family income 10,000-25,000. For the \emph{adolescent cohort}, the fixed variables are male, CAPI, infant-toddler center attendance indicators and BIC-selected variables are (i) high school is father's maximum education, (ii) university is father's maximum education, and (iii) caregiver is catholic and faithful. For \emph{adult cohorts}, the fixed variables are male and CAPI indicators, and BIC-selected variables are (i) university is father's maximum education and (ii) number of siblings.} in addition to indicators for male, CAPI, and infant-toddler center attendance, and (iii) the full set of available baseline variables. In Equation~\eqref{eq:ra-v-none}, $\alpha_1$ represents the mean differences in outcomes between the Reggio Approach and the other preschool types in Reggio Emilia, conditional on $\bm{X}$. Under the assumption that, conditional on $\bm{X}$, there is no systematic selection of individuals into the treatment $D_i$, this parameter estimates the causal treatment effect of the Reggio Approach on outcome $Y$.
 
-\subsubsection{OLS Framework to Evaluate Infant-toddler Care} \label{subsubsection:itc}
+\subsubsection{OLS Framework to Evaluate Infant-toddler Care}
+\label{subsubsection:itc}
 
-Table~\ref{tab:cases-treat} shows the four possible combinations of interventions that a child could potentially receive, where 0 indicates not attending and 1 indicates attending. Here, 1 indicates attending a municipal infant-toddler center of preschool, and 0 includes those who who did not attend any childcare as well as those who attended non-municipal childcare.
+We analyze the effectiveness of Reggio Approach infant-toddler care within the city of Reggio Emilia and accounting for subsequent preschool experiences. Table~\ref{tab:cases-treat} shows the four possible combinations of interventions that a child could receive, where 1 indicates attending a municipal program and 0 indicates not attending any childcare or attending a non-municipal program.
 
 \begin{table}[H]
 \caption{Possible Cases of Treatment} \label{tab:cases-treat}
@@ -53,20 +55,14 @@ H_2: &  Y_{0,1} = Y_{1,1} &\text{\quad Effect of infant-toddler care with subseq
 \end{eqnarray}
 \noindent where $Y_{i,j}$ is the outcome of the individuals who attended $i \in \{0,1\}$ infant-toddler care and $j \in \{0,1\}$ preschool.
 
-We limit the sample to Reggio Emilia and a specific cohort constrained to the comparison groups needed to test the hypotheses above. To test $H_1$, we estimate $\beta_{0}$ in the following equation:
-\begin{eqnarray}
-Y_{i}^{c,h} & = & \alpha + \beta_{0}R_i^{ITC} + \mathbf{X}_i \bm{\gamma} + \varepsilon_{i}^{Reggio,h}, \\ \nonumber
-& \forall & i \in \text{ \{Individuals in Reggio Emilia, cohort $h$, and in group (0,0) or (1,0)\}}
-\end{eqnarray}
-where $R_i^{ITC}$ is the indicator for attending municipal infant-toddler center and $\mathbf{X}_i$ is the vector of baseline variables for individual $i$. Likewise, to test $H_2$, we estimate
-\begin{eqnarray}
-Y_{i}^{c,h} & = & \alpha + \beta_{0}R_i^{ITC} + \mathbf{X}_i \bm{\gamma} + \varepsilon_{i}^{Reggio,h}, \\ \nonumber
-& \forall & i \in \text{ \{Individuals in Reggio Emilia, cohort $h$, and in group (0,1) or (1,1)\}.}
-\end{eqnarray}
+We limit the sample to Reggio Emilia and a specific cohort constrained to the comparison groups needed to test the hypotheses above. To test these hypotheses, we would estimate $\beta_{0}$ in the following equation:
+\begin{equation}
+Y_{i}^{c,h} = \alpha + \beta_{0}R_i^{ITC} + \mathbf{X}_i \bm{\gamma} + \varepsilon_{i}^{Reggio,h}
+\end{equation}
 
-One caveat of this analysis is that it uses a limited sample size. In our data, these hypotheses cannot be tested for many groups. Table~\ref{tab:num-group-2} shows the number of individuals available for each group necessary for this strategy. It is impossible to test $H_1$ in our data, because there are almost no people who attended municipal infant-toddler care without attending preschool (the group (1,0)). While it is possible to test $H_2$ for several groups, the number of observations for the group (1,1) is small for the adult cohorts.
+where $R_i^{ITC}$ is the indicator for attending municipal infant-toddler center and $\mathbf{X}_i$ is the vector of baseline variables for individual $i$. To test $H_1$, we would estimate $\beta_0$ for all cohort-$h$ individuals in Reggio Emilia who were in groups (0,0) or (1,0). That is, those who did not attend preschool. To test $H_2$, we would estimate $\beta_0$ in the same equation for all cohort-$h$ individuals in Reggio Emilia who were in groups (0,1) or (1,1). 
 
-In Table \ref{tab:num-group-2}, the groups subject to our estimation are highlighted. Based on the available number of individuals in each cell and the history of municipal infant-toddler care for Reggio Emilia, we test $H_2$ for the highlighted groups.
+One caveat of this analysis is that it uses a limited sample size. In our data, these hypotheses cannot be tested for many groups. Table~\ref{tab:num-group-2} shows the number of individuals available for each group necessary for this strategy. It is impossible to test $H_1$ in our data, because there are almost no individuals who attended municipal infant-toddler care without attending preschool (group (1,0)). While it is possible to test $H_2$ for several groups, the number of observations for the group (1,1) is small for the adult cohorts. Table~\ref{tab:num-group-2} highlights the groups that we use for estimation. 
 
 \begin{table}[H] \caption{Number of Individuals in Each Group} \label{tab:num-group-2}
 \scalebox{0.77}{
@@ -83,7 +79,7 @@ Age-40		& 80 & 0 & \cellcolor{blue!25}90 &	\cellcolor{blue!25}26 & \textbf{285} 
 
 \subsubsection{Propensity Score Matching}  \label{subsubsection:psm}
 
-In order to complement the OLS analysis, we also estimate a propensity score matching model that implements nearest-neighbor matching on an estimated propensity score based on a BIC-selected set of observed baseline characteristics $\boldsymbol{X}_i$. Propensity score analysis is a version of non-parametric OLS and conditions on the same set of $\bm{X}$ variables as in OLS. This approach is based on the assumption that two individuals with a very similar propensity score have the same level of unobservable characteristics, so that selection into treatment is determined solely by the estimated propensity score. \textbf{[Team: Our discussion of effects on outcomes in the results and discussion sections only takes into account outcomes that are robust across different regressions.  We have added text in the results section to make this more explicit.] [JJH: What does ``robust'' mean? OLS and propensity score should have the same outcomes.]} 
+In order to complement the OLS analysis, we also estimate a propensity score matching model that implements nearest-neighbor matching on an estimated propensity score based on a BIC-selected set of observed baseline characteristics $\boldsymbol{X}_i$. Propensity score analysis is a version of non-parametric OLS and conditions on the same set of $\bm{X}$ variables as in OLS. This approach is based on the assumption that two individuals with a very similar propensity score have the same level of unobservable characteristics, so that selection into treatment is determined solely by the estimated propensity score. \textbf{[Team: Our discussion of effects on outcomes in the results and discussion sections only takes into account outcomes that are robust across different regressions.  We have added text in the results section to make this more explicit.] [JJH: What does ``robust'' mean? OLS and propensity score should have the same outcomes.][Yes, we use the same outcomes. We highlight the robustness of the estimates across methods in the results section and have included kernel density matching for additional robustness checking.]} 
 
 The average treatment effect (ATE) under the assumption for propensity score matching is written as:
 \begin{equation} \label{eq:ATE-PSM}
@@ -95,16 +91,16 @@ The propensity score matching estimator is defined as
 \begin{equation} \label{eq:PSM-estimator}
 \widehat{E[Y(1)-Y(0)]_{PSM}} = \frac{1}{n} \sum_{i=1}^{n} (2D_i -1)(Y_i - \frac{1}{M}\sum_{j \in \mathcal{J}_M(i)}Y_j )
 \end{equation}
-where $M$ is a fixed number of matches per individual based on the propensity score and $\mathcal{J}_M(i)$ is a set of matches for individual $i$. The standard errors for this estimator are derived by \cite{Abadie_Imbens_2006_Econometrica}. \textbf{[JJH: Why did we not do kernel matching?][We have added kernel matching. Please see Section~REFER.}
+where $M$ is a fixed number of matches per individual based on the propensity score and $\mathcal{J}_M(i)$ is a set of matches for individual $i$. The standard errors for this estimator are derived by \cite{Abadie_Imbens_2006_Econometrica}. \textbf{[JJH: Why did we not do kernel matching?][We have added kernel matching.]}
 
 \subsection{Across-City Comparisons} \label{sec:across-city-analysis}
 \subsubsection{Difference-in-Difference}  \label{subsubsection:DID}
 
-\textbf{[JJH: Age-50 cohort comparisons isolate cross-city effects since no program was in place anywhere.]}
+\textbf{[JJH: Age-50 cohort comparisons isolate cross-city effects since no program was in place anywhere.][We now include this analysis.]}
 
-We first estimate a difference-in-difference (DiD) model that allows for cross-city comparisons of municipal preschools while controlling for permanent differences in characteristics across cities. Similar to the OLS model, we estimate the parameters separately for each cohort. In the main paper, we present comparisons between municipal schools and (i) all other types of preschools pooled together or (ii) no preschool. We present comparisons to specific school types in Appendices~\ref{app:comparison-reli-stat}. \textbf{[JJH: We should summarize in text.]}. 
+We first estimate a difference-in-difference (DiD) model that allows for cross-city comparisons of municipal preschools while controlling for permanent differences in characteristics across cities. Similar to the OLS model, we estimate the parameters separately for each cohort. We only estimate parameters across cohorts when considering the age-50 cohort. This is because there was no program in place in any of the cities, allowing us to compare the other adult cohorts to a those who did not have the opportunity to participate in early childhood education. In the main paper, we present comparisons between municipal schools and (i) all other types of preschools pooled together or (ii) no preschool. We present comparisons to specific school types in Appendices~\ref{app:comparison-reli-stat} and summarize the results in Section~\ref{sec:result}. \textbf{[JJH: We should summarize in text.][We have added summaries of these results in the results section.]}. 
 
-For the age-40 cohort, we only compare people who attended Reggio Approach preschools with people in Parma or Padova who attended any type of preschools because municipal childcare systems were not available in both Parma and Padova. \textbf{[JJH: (?) Why is this different from 30 -- it's Reggio vs any preschool.]}
+For the age-40 cohort, we compare individuals who attended Reggio Approach preschools with those in Parma or Padova who attended any type of preschools. This is because municipal childcare systems were not available in Parma and Padova for the age-40 cohort. \textbf{[JJH: (?) Why is this different from 30 -- it's Reggio vs any preschool.][For the younger cohorts, we compare the difference between the municipal program and alternative preschools across cities. We also compare the difference between the municipal program and not attending preschool across cities. However, at age 40, Parma and Padova did not have municipal systems. For this cohort, we compare: (Reggio Approach - no preschool in Reggio Emilia) - (Other preschools in Parma - no preschool in Parma). We do the same for Padova. We edited this paragraph to try to clarify this difference.]}
 
 To illustrate, we present the comparison between between Reggio Emilia and Parma for those who either attended municipal preschool or no preschool at all. The estimation equation for this case as follows:
 \begin{eqnarray}  \label{eq:specific2}
@@ -122,4 +118,4 @@ To illustrate, the propensity score matching estimator for the comparison betwee
 \item The distance variable is not an appropriate instrument for adult cohorts because distance is calculated from residence at time of interview which could be different than residence when individual was attending childcare.
 \item We explored cost as an instrument, but weren't able to find the schedule of costs for adult cohorts.
 \end{enumerate*}
-] [JJH: But report the IV estimates in an appendix and test if they are different from propensity score -- use the likely valid instruments.]} 
+] [JJH: But report the IV estimates in an appendix and test if they are different from propensity score -- use the likely valid instruments.][We have included this analysis in Appendix~\ref{sec:iv}.]} 
