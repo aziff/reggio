@@ -6,10 +6,10 @@ The Reggio Approach includes interventions at two different age ranges: (i) infa
 
 \textbf{[JJH: Then this is a great -- clean -- comparison. Group, we should feature more.][We have included an analysis of age-50. Please see Section~\ref{subsubsection:age50}.]}. 
 
-\textbf{[JJH: Can we evaluate this within cohorts?]} \textbf{[Team: We provide these within-cohort evaluations in the appendix. We have changed the text in this paragraph to make this clearer. Would you prefer to have it in the main paper?] [JJH: Yes, if possible.][We have included these results. Please see Section~REFER for a description of the analysis and Section~\ref{subsubsection:itc} for a description of the results. Overall, the results are weak: there are few significant effects and several are negative such as cognitive skills.]}
+\textbf{[JJH: Can we evaluate this within cohorts?]} \textbf{[Team: We provide these within-cohort evaluations in the appendix. We have changed the text in this paragraph to make this clearer. Would you prefer to have it in the main paper?] [JJH: Yes, if possible.][We have included these results. Please see Section~\ref{subsubsection:itc} for a description of the analysis and Section~REFER for a description of the results. Overall, the results are weak: there are few significant effects and several are negative such as cognitive skills.]}
 
 \subsection{Within-City Analysis} \label{sec:within-city-analysis}
-\subsubsection{OLS Framework to Evaluate Reggio Approach Preschool} \label{subsubsection:OLS}
+\subsubsection{OLS Framework to Evaluate Preschool} \label{subsubsection:OLS}
 We perform several within-Reggio Emilia comparisons using a baseline OLS model. We compare individuals from Reggio Emilia who attended a Reggio Approach preschool to those in Reggio Emilia who attended (i) any other type of preschool (state, religious, municipal-affiliated, and other), (ii) no preschool at all, (iii) state preschool, and (iv) religious preschool. We only present estimates of the first and second comparisons in the main paper. Estimates from the other comparisons are reported in Appendix~\ref{app:comparison-reli-stat}. \textbf{[JJH: Why? Please present in text.]} %We do not compare Reggio Approach preschools with municipal-affiliated or other types of preschools due to small sample size (See Table \ref{tab:sample}).
 For the children cohort (age 5), it is not possible to compare Reggio Approach preschools with no preschool because of small sample size for those who did not attend any preschool (See Table \ref{tab:sample}). We analyze the age-50 cohort using a separate framework given that the Reggio Approach was not available for those individuals (Section~\ref{subsubsection:age50}). \textbf{[JJH: But this gives us a good baseline no-treatment approach.][We now include this analysis below.]}
 
@@ -23,7 +23,7 @@ where $i$ indexes individuals having attended any preschool in Reggio Emilia, $D
 
 \subsubsection{OLS Framework to Evaluate Infant-toddler Care} \label{subsubsection:itc}
 
-Table~\ref{tab:cases-treat} shows the four possible combinations of interventions that a child could potentially receive, where 0 indicates not attending and 1 indicates attending. It is important to note that the 1 case only includes those who attended Municipal institutions, and 0 includes those who who didn't attend any childcare as well as those who attended non-Municipal childcare.
+Table~\ref{tab:cases-treat} shows the four possible combinations of interventions that a child could potentially receive, where 0 indicates not attending and 1 indicates attending. Here, 1 indicates attending a municipal infant-toddler center of preschool, and 0 includes those who who did not attend any childcare as well as those who attended non-municipal childcare.
 
 \begin{table}[H]
 \caption{Possible Cases of Treatment} \label{tab:cases-treat}
@@ -39,29 +39,29 @@ Table~\ref{tab:cases-treat} shows the four possible combinations of intervention
         								&  & \multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{} \\ \cline{3-4}
 \end{tabular}
 \begin{flushleft}
-\footnotesize{Note:} We only consider municipal ITCs (infant-toddler-centers, ages 0-3) and preschools (ages 3-6). (0,0): did not attend any municipal school for both ages 0-3 and 3-6; (1,0): attended a municipal school for ages 0-3 but did \textit{not} attend for ages 3-6; (0,1): did \textit{not} attend a municipal school for ages 0-3 but did attend for ages 3-6; (1,1): attended a municipal school for both ages 0-3 and 3-6.
+\footnotesize{Note:} We only consider municipal infant-toddler-centers (ages 0-3) and preschools (ages 3-6). (0,0): did not attend any municipal school for both ages 0-3 and 3-6; (1,0): attended a municipal school for ages 0-3 but did \textit{not} attend for ages 3-6; (0,1): did \textit{not} attend a municipal school for ages 0-3 but did attend for ages 3-6; (1,1): attended a municipal school for both ages 0-3 and 3-6.
 \end{flushleft}
 \end{table}
 
 There are two main methods to test the effect of attending infant-toddler centers. The first is to compare people who did not attend infant-toddler care or preschool with people who only attended municipal infant-toddler care. Using the notation in Table~\ref{tab:cases-treat}, this comparison is between (0,0) and (1,0). The second method is to compare people who only attended municipal preschool with people who attended both municipal infant-toddler centers and preschools. That is, to compare (0,1) and (1,1). The hypotheses are formally written as
 \begin{eqnarray}
-H_1: &  Y_{0,0} = Y_{1,0} \\
-H_2: &  Y_{0,1} = Y_{1,1}
+H_1: &  Y_{0,0} = Y_{1,0} &\text{\quad Effect of infant-toddler care with no subsequent preschool}\\
+H_2: &  Y_{0,1} = Y_{1,1} &\text{\quad Effect of infant-toddler care with subsequent preschool}
 \end{eqnarray}
 \noindent where $Y_{i,j}$ is the outcome of the individuals who attended $i \in \{0,1\}$ infant-toddler care and $j \in \{0,1\}$ preschool.
 
-We limit the sample to Reggio and a specific cohort constrained to the comparison groups needed according to the hypotheses above. To test $H_1$, we estimate the following regression equation:
+We limit the sample to Reggio Emilia and a specific cohort constrained to the comparison groups needed to test the hypotheses above. To test $H_1$, we estimate $\beta_{0}$ in the following equation:
 \begin{eqnarray}
 Y_{i}^{c,h} & = & \alpha + \beta_{0}R_i^{ITC} + \mathbf{X}_i \bm{\gamma} + \varepsilon_{i}^{Reggio,h}, \\ \nonumber
-& \forall & i \in \text{ \{Individuals in Reggio Emilia and cohort $h$ and in group (0,0) or (1,0)\}}
+& \forall & i \in \text{ \{Individuals in Reggio Emilia, cohort $h$, and in group (0,0) or (1,0)\}}
 \end{eqnarray}
-where $R_i^{ITC}$ is the indicator for attending municipal infant-toddler center and $\mathbf{X_i}$ is the vector of baseline variables for individual $i$. Likewise, to test $H_2$:
+where $R_i^{ITC}$ is the indicator for attending municipal infant-toddler center and $\mathbf{X}_i$ is the vector of baseline variables for individual $i$. Likewise, to test $H_2$, we estimate
 \begin{eqnarray}
 Y_{i}^{c,h} & = & \alpha + \beta_{0}R_i^{ITC} + \mathbf{X}_i \bm{\gamma} + \varepsilon_{i}^{Reggio,h}, \\ \nonumber
-& \forall & i \in \text{ \{Individuals in Reggio Emilia and cohort $h$ and in group (0,1) or (1,1)\}.}
+& \forall & i \in \text{ \{Individuals in Reggio Emilia, cohort $h$, and in group (0,1) or (1,1)\}.}
 \end{eqnarray}
 
-One caveat of this analysis is that it uses a limited sample size. In our data, these hypotheses cannot be tested under this strategy for many groups. Table~\ref{tab:num-group-2} shows the number of individuals available for each group necessary for analysis using this strategy. It is impossible to test $H_1$ in our data, because there are almost no people who attended municipal infant-toddler care without attending preschool (the group (1,0)). While it is possible to test $H_2$ for several groups, the number of observations for the group (1,1) is small for the adult cohorts.
+One caveat of this analysis is that it uses a limited sample size. In our data, these hypotheses cannot be tested for many groups. Table~\ref{tab:num-group-2} shows the number of individuals available for each group necessary for this strategy. It is impossible to test $H_1$ in our data, because there are almost no people who attended municipal infant-toddler care without attending preschool (the group (1,0)). While it is possible to test $H_2$ for several groups, the number of observations for the group (1,1) is small for the adult cohorts.
 
 In Table \ref{tab:num-group-2}, the groups subject to our estimation are highlighted. Based on the available number of individuals in each cell and the history of municipal infant-toddler care for Reggio Emilia, we test $H_2$ for the highlighted groups.
 
@@ -98,7 +98,7 @@ The propensity score matching estimator is defined as
 \begin{equation} \label{eq:PSM-estimator}
 \widehat{E[Y(1)-Y(0)]_{PSM}} = \frac{1}{n} \sum_{i=1}^{n} (2D_i -1)(Y_i - \frac{1}{M}\sum_{j \in \mathcal{J}_M(i)}Y_j )
 \end{equation}
-where $M$ is a fixed number of matches per individual based on the propensity score and $\mathcal{J}_M(i)$ is a set of matches for individual $i$. The standard errors for this estimator are derived by \cite{Abadie_Imbens_2006_Econometrica}. \textbf{[JJH: Why did we not do kernel matching?]}
+where $M$ is a fixed number of matches per individual based on the propensity score and $\mathcal{J}_M(i)$ is a set of matches for individual $i$. The standard errors for this estimator are derived by \cite{Abadie_Imbens_2006_Econometrica}. \textbf{[JJH: Why did we not do kernel matching?][We have added kernel matching. Please see Section~REFER.}
 
 \subsubsection{Augmented IPW} \label{subsubsection:aipw}
 
