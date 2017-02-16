@@ -31,15 +31,22 @@ if `"`method'"'=="" local method regress
 *-------------------------------------------------------------------------------
 local j=0
 local cand
+local varlistreal
 dis "Running `reps' bootstrap replications for each variable.  This may take some time"
 foreach var of varlist `varlist' {
-    local ++j
+    
 	di "Specification: cap qui `method' `indepvar' `controls' `if' `in' [`weight' `exp'], kernel k(epan) out(`var')"
 	cap `method' `indepvar' `controls' `if' `in' [`weight' `exp'], kernel k(epan) out(`var')
     if _rc!=0 {
         dis as error "Your original `method' does not work.  Please test the `method' and try again."
-        exit _rc
+        ereturn scalar rw_`var' = .
+		continue
+		*exit _rc
     }
+	
+	local ++j
+	local varlistreal `varlistreal' `var'
+	
     local t`j' = abs(r(att_`var')/r(seatt_`var'))
     local n`j' = e(N)-e(rank)
 	di "local n`j' is: `n`j''"
@@ -129,7 +136,7 @@ restore
 *-------------------------------------------------------------------------------
 local j=0
 dis _newline
-foreach var of varlist `varlist' {
+foreach var of varlist `varlistreal' {
     local ++j
     local ORIG "Original p-value is `p`j''"
     local RW "Romano Wolf p-value is `prm`j''"
