@@ -29,7 +29,7 @@ syntax, stype(string) type(string) ivlist(string) cohort(string)
 	***** Step-down p-value calculation (No need to loop trhough each variable, but need to loop through methods)
 	foreach comp in ${ivlist} {
 		di "Running Romano-Wolf Stepdown Procedure for `comp'"
-		rwolfiv ${`cohort'_outcome_`type'} if ${ifcondition`comp'}, indepvar(${X`comp'}) controls(${controls`comp'}) method(ivregress 2sls) reps(250) seed(1)
+		rwolfiv ${`cohort'_outcome_`type'} if ${ifcondition`comp'}, indepvar(${endog}) controls(${controls`comp'}) method(ivregress 2sls) reps(250) seed(1)
 		
 		foreach var in ${`cohort'_outcome_`type'} {
 			local iv_sd_`var'_`comp' = e(rw_`var')
