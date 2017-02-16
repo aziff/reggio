@@ -19,6 +19,9 @@ cap log 	close
 * Capture install rwolf command (for Romano-Wolf stepdown procedure) exists
 cap which rwolf
 if _rc ssc install rwolf
+cap which psmatch2
+if _rc ssc install psmatch2
+
 
 global klmReggio   : env klmReggio
 global data_reggio : env data_reggio
@@ -109,7 +112,7 @@ foreach stype in Other None Stat Reli {
 	global X					maternaMuni
 	global reglist				None30 BIC30 Full30 DidPm30 DidPv30 
 	global aipwlist				AIPW30 
-	global psmlist				PSM30R PSM30Pm PSM30Pv
+	global psmlist				/*PSM30R PSM30Pm*/ PSM30Pv
 	global kernellist			KM30R KM30Pm KM30Pv
 
 	global XNone30				maternaMuni		
@@ -171,7 +174,7 @@ foreach stype in Other None Stat Reli {
 	
 		* Close necessary files
 		file close regression_`type'_`stype' 
-		
+	
 		
 		
 		* ----------------------- *
@@ -187,7 +190,7 @@ foreach stype in Other None Stat Reli {
 		* Close necessary files
 		file close psm_`type'_`stype'
 		
-		
+	
 		* ----------------------- *
 		* For Kernel Analysis 	  *
 		* ----------------------- *
