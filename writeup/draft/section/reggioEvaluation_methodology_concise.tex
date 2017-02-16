@@ -100,37 +100,6 @@ The propensity score matching estimator is defined as
 \end{equation}
 where $M$ is a fixed number of matches per individual based on the propensity score and $\mathcal{J}_M(i)$ is a set of matches for individual $i$. The standard errors for this estimator are derived by \cite{Abadie_Imbens_2006_Econometrica}. \textbf{[JJH: Why did we not do kernel matching?][We have added kernel matching. Please see Section~REFER.}
 
-\subsubsection{Augmented IPW} \label{subsubsection:aipw}
-
-\textbf{[JJH: Very ad hoc.]}
-
-As another way of testing the OLS estimates, we estimate an Augmented Inverse Propensity Weighted (AIPW) estimator. As in propensity score matching, we assume that individuals select into treatment status $D_i$ based on a BIC-selected set of observed baseline characteristics $\boldsymbol{X}_i$. Under the assumption of strongly ignorable selection into treatment given $\boldsymbol{X}_i$, and the existence of an estimated propensity score $\hat{\pi({\boldsymbol{X}_i})}$ such that $0<\hat{\pi({\boldsymbol{X}_i})}<1$, the AIPW estimator for the average treatment effect $E[Y(1)-Y(0)]$ is defined as:
-
-\begin{align}\label{eq:AIPW}
-E[\widehat{Y(1)-Y(0)]}_{AIPW} &= \frac{1}{n} \sum_{i=1}^{n} \bigg \{ \bigg[ \overbrace{\frac{D_i Y_i}{\hat{\pi(\boldsymbol{X}_i)}} - \frac{(1-D_i)Y_i}{1-\hat{\pi(\boldsymbol{X}_i)}}}^{IPTW} \bigg] \\[10pt]
-& - \frac{D_i - \hat{\pi}(\boldsymbol{X}_i)}{\hat{\pi}(\boldsymbol{X}_i) (1-\hat{\pi}(\boldsymbol{X}_i))} \nonumber \bigg[ (1-\hat{\pi}(\boldsymbol{X}_i)) E[\hat{Y_i}|D_i=1,\boldsymbol{X}_i] + \hat{\pi}(\boldsymbol{X}_i) E[\hat{Y_i}|D_i=0,\boldsymbol{X}_i] \bigg] \bigg \}
-\end{align}
-
-\textbf{[JJH: This term must multiply $[\;] E$ (term) $=0$?? So you add a mean zero term.]}
-
-\noindent \textbf{[JJH: ? Seems wrong -- this weighting I need to see. I honestly do not know this method -- Can I see it? ]} \textbf{[Team: The weight $\left[-\frac{D_i - \hat{\pi}(\boldsymbol{X}_i)}{\hat{\pi}(\boldsymbol{X}_i) (1-\hat{\pi}(\boldsymbol{X}_i))}\right]$ is meant to stabilize the IPTW term by offsetting large values of the IPTW term near $\hat{\pi(\boldsymbol{X}_i)} = 0$ or $1$ with large values of the weight (which takes the opposite sign of the IPTW term): \textbf{[JJH: This looks very ad hoc? Can I see a rigorous justification for this? Does it affect results much?]} \\
-\begin{align*}
-	\text{Weight} = \left[-\frac{D_i - \hat{\pi}(\boldsymbol{X}_i)}{\hat{\pi}(\boldsymbol{X}_i) (1-\hat{\pi}(\boldsymbol{X}_i))}\right] =
-	 \begin{cases}
-		-\frac{1}{\hat{\pi}(\boldsymbol{X}_i)}, &\text{if  } D_i=1 \\
-		\frac{1}{1-\hat{\pi}(\boldsymbol{X}_i)}, &\text{if  } D_i=0
-	\end{cases} \\[10pt]
-	\text{IPTW}= \left[\frac{D_i Y_i}{\hat{\pi(\boldsymbol{X}_i)}} - \frac{(1-D_i)Y_i}{1-\hat{\pi(\boldsymbol{X}_i)}}\right]=
-	 \begin{cases}
-		\frac{Y_i}{\hat{\pi}(\boldsymbol{X}_i)}, &\text{if  } D_i=1 \\
-		-\frac{Y_i}{1-\hat{\pi}(\boldsymbol{X}_i)}, &\text{if  } D_i=0
-	\end{cases}
-\end{align*}
-]}\\
-
-Note that the first part of the AIPW estimator equals to the Inverse Propensity of Treatment Weighting (IPTW) estimator, which adjusts for selection on observable by assigning a higher weight to individuals with characteristics $\boldsymbol{X}_i$ if these individuals are less likely to have been in treatment group $D = 1$ and assigning a higher weight to individuals with characteristics $\boldsymbol{X}_i$ if these individuals are less likely to have been in treatment group $D = 0$. The AIPW estimator further addresses the problem of instability associated with the IPTW estimator near $\hat{\pi(\boldsymbol{X}_i)} = 0$ or $1$, by adjusting the weighted estimator with a weighted average of $\hat{Y_i}$ obtained from an OLS regression. For $D_i = 0$, as the IPTW estimate becomes large and negative near $\hat{\pi(\boldsymbol{X}_i)} = 1$, \textbf{[JJH: Do we ever have this problem?][We do not have this issue. We added kernel density and can remove this section.]} the adjustment term becomes large and positive, thereby, stabilizing the estimator at these values. Analogously, for $D = 1$, as the IPTW estimate becomes large and positive near $\hat{\pi(\boldsymbol{X}_i)} = 0$, the adjustment term becomes large and negative.\footnote{\citet{Tsiatis_2006_Semiparametric-Theory} and \citet{Glynn-Quinn_2010_Political-Analysis} \textbf{[JJH: I need these papers!] [Typist: Glynn and Quinn (2010) has been printed for you again and Tsiatis (2006) is a book which was checked out and given to you on Monday 2/6. We have also printed Ch.13 for you per the researchers' request.]} show that the AIPW estimator is an unbiased estimator of the Average Treatment Effect if the propensity score is known \textbf{[JJH: Which it is not!]}. Further, they show that the estimator is consistent if either the propensity score model or the outcome prediction model in the adjustment term is correctly specified. Due to this last property, they refer to the AIPW as a doubly robust estimator.}  Hence, the AIPW is a way to adjust the potential instability of IPTW. \textbf{[JJH: We estimate $p$! This is extremely \emph{ad hoc}! Can you give me a reference or proof?][We sent the references. We can remove this section given that it is does not add much that propensity score matching doesn't already accomplish.]}
-
-
 \subsection{Across-City Comparisons} \label{sec:across-city-analysis}
 \subsubsection{Difference-in-Difference}  \label{subsubsection:DID}
 
