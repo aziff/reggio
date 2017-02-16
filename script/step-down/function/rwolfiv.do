@@ -7,8 +7,8 @@
         accomodate more general commands other than reg/probit/logit.
 * ---------------------------------------------------------------------------- */
 
-cap program drop rwolfpsm
-program rwolfpsm, eclass
+cap program drop rwolfiv
+program rwolfiv, eclass
 
 vers 11.0
 #delimit ;
