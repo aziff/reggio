@@ -19,6 +19,9 @@ cap log 	close
 * Capture install rwolf command (for Romano-Wolf stepdown procedure) exists
 cap which rwolf
 if _rc ssc install rwolf
+cap which psmatch2
+if _rc ssc install psmatch2
+
 
 global klmReggio   : env klmReggio
 global data_reggio : env data_reggio
