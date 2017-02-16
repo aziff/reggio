@@ -103,7 +103,7 @@ keep if (Cohort == 4)
 drop if asilo == 1 // dropping those who went to infant-toddler centers
 
 local stype_switch = 1
-foreach stype in /*Other None*/ Stat /*Reli*/ {
+foreach stype in Other None Stat Reli {
 	
 	* Set necessary global variables
 	global X					maternaMuni
@@ -171,7 +171,7 @@ foreach stype in /*Other None*/ Stat /*Reli*/ {
 	
 		* Close necessary files
 		file close regression_`type'_`stype' 
-		
+	
 		
 		
 		* ----------------------- *
@@ -187,7 +187,7 @@ foreach stype in /*Other None*/ Stat /*Reli*/ {
 		* Close necessary files
 		file close psm_`type'_`stype'
 		
-		
+	
 		* ----------------------- *
 		* For Kernel Analysis 	  *
 		* ----------------------- *
