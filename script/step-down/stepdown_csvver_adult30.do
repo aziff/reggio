@@ -103,13 +103,13 @@ keep if (Cohort == 4)
 drop if asilo == 1 // dropping those who went to infant-toddler centers
 
 local stype_switch = 1
-foreach stype in Other None Stat Reli {
+foreach stype in /*Other None*/ Stat /*Reli*/ {
 	
 	* Set necessary global variables
 	global X					maternaMuni
 	global reglist				None30 BIC30 Full30 DidPm30 DidPv30 
 	global aipwlist				AIPW30 
-	global psmlist				PSM30R PSM30Pm PSM30Pv
+	global psmlist				/*PSM30R PSM30Pm*/ PSM30Pv
 	global kernellist			KM30R KM30Pm KM30Pv
 
 	global XNone30				maternaMuni		
