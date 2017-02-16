@@ -131,7 +131,7 @@ foreach stype in None Other Reli {
 	global ifconditionKM30		(Reggio == 1) & ((Cohort == 4) | (Cohort == 6)) & (maternaMuni == 1 | materna`stype' == 1)
 	
 
-	foreach type in  M CN S H B {
+	foreach type in  M E W L H N S {
 
 		* ----------------------- *
 		* For Regression Analysis *
