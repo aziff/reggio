@@ -93,7 +93,7 @@ local Adult50_num 		= 6
 
 global cohort			adult
 
-
+/*
 * ---------------------------------------------------------------------------- *
 * 					Comparison with Age-50 Cohort (NO DID)					   *
 * ---------------------------------------------------------------------------- *
@@ -185,7 +185,7 @@ foreach stype in None Other Reli {
 restore
 
 
-
+*/
 
 
 
@@ -231,7 +231,7 @@ foreach stype in Other {
 	global ifconditionPvDiD30	((Reggio == 1) & (Cohort == 4) & (maternaMuni == 1 | maternaNone == 1)) | ((Padova == 1) & (Cohort == 6))
 	
 
-	foreach type in  M CN S H B {
+	foreach type in   M E W L H N S {
 
 		* ----------------------- *
 		* For Regression Analysis *
