@@ -30,10 +30,15 @@ global groupadol				Stat  Reli Other
 global outcomechild				M /*CN S H B*/
 global outcomeadol				M /*CN S H B*/
 
-global ivlistchild				IVchild
+global ivlistchild				ivit
 global fulllistchild			IV
-global ivlistchildlp			ivchild
-global fulllistchildlp			ivchild
+global ivlistchildlp			ivit
+global fulllistchildlp			ivit
+
+global ivlistadol				iv
+global fulllistadol				IV
+global ivlistadollp				iv
+global fulllistadollp			iv
 
 * ------------------------------------ *
 * Merge and Create Tex for each cohort *
@@ -79,25 +84,25 @@ foreach coh in $cohort {
 				foreach item in ${ivlist`coh'lp} {
 					
 					* Get the values
-					levelsof itt_`item' if rowname == "`outcome'", local(p`item'`outcome')
-					levelsof itt_`item'_se if rowname == "`outcome'", local(se`item'`outcome')
-					levelsof itt_`item'_p if rowname == "`outcome'", local(pv`item'`outcome')
-					levelsof itt_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
+					levelsof iv_`item' if rowname == "`outcome'", local(p`item'`outcome')
+					levelsof iv_`item'_sdp if rowname == "`outcome'", local(sd`item'`outcome')
+					levelsof iv_`item'_p if rowname == "`outcome'", local(pv`item'`outcome')
+					levelsof iv_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
 				
 					* Format decimal points
-					if !missing("`p`item'`outcome''") & !missing("`se`item'`outcome''") {
+					if !missing("`p`item'`outcome''")  & !missing("`pv`item'`outcome''") {
 						local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
-						local se`item'`outcome' = string(`se`item'`outcome'', "%9.2f")
-									
-						local pv`item'`outcome' = `pv`item'`outcome''
+						local pvn`item'`outcome' = `sd`item'`outcome''
+						local sd`item'`outcome' = string(`sd`item'`outcome'', "%9.2f")
 						
-						* Boldify if p-value < 0.15
-						if `pv`item'`outcome'' <= 0.15 {			
+						local pv`item'`outcome' = string(`pv`item'`outcome'', "%9.2f")
+								
+						
+						*Boldify if p-value < 0.15
+						if `pvn`item'`outcome'' <= 0.15 {			
 							local p`item'`outcome' 	"\textbf{ `p`item'`outcome'' }"
 						}
 						
-						* Number of observations in italic
-						local n`item'`outcome' "\textit{ `n`item'`outcome'' }"
 					}
 				}
 				di "regression done"
@@ -129,7 +134,7 @@ foreach coh in $cohort {
 			* Now Create Tex file *
 			* ------------------- *
 				
-			file open tabfile`coh'`gr' using "${git_reggio}/output/multiple-methods/combinedanalysis/combined_`coh'_`out'_`gr'.tex", write replace
+			file open tabfile`coh'`gr' using "${git_reggio}/output/multiple-methods/stepdown/combined_`coh'_`out'_`gr'_iv.tex", write replace
 			file write tabfile`coh'`gr' "\begin{tabular}{`tabular'}" _n
 			file write tabfile`coh'`gr' "\toprule" _n
 			file write tabfile`coh'`gr' " `colname' \\" _n
