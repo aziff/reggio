@@ -112,7 +112,7 @@ foreach stype in Other None Stat Reli {
 	global X					maternaMuni
 	global reglist				None30 BIC30 Full30 DidPm30 DidPv30 
 	global aipwlist				AIPW30 
-	global psmlist				/*PSM30R PSM30Pm*/ PSM30Pv
+	global psmlist				PSM30R PSM30Pm PSM30Pv
 	global kernellist			KM30R KM30Pm KM30Pv
 
 	global XNone30				maternaMuni		
