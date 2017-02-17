@@ -67,7 +67,7 @@ foreach coh in $cohort {
 			
 			* Column Names
 			local colname
-			di "reglist: ${reglist`coh'} 	aipwlist: ${aipwlist`coh'}"
+			di "reglist: ${ivlist`coh'} "
 			
 			foreach item in ${fulllist`coh'} {
 				local colname `colname' & `item'
