@@ -861,4 +861,4 @@ label var votoMaturita_std		"High school grade -- standardized"
 
 // save as Reggio_prepareddata
 cd "${data_reggio}"
-save Reggio_prepared.dta, replace
+saveold Reggio_prepared.dta, replace

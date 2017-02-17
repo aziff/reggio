@@ -272,4 +272,4 @@ rename asiloType_manualFull_Linor asiloType_manualFull_revised1
 rename materna_nameManual_Linor maternaname_manualFull_revised1
 rename asilo_nameManual_Linor asiloname_manualFull_revised1
 
-save "${data_reggio}/Reggio_reassigned", replace
+saveold "${data_reggio}/Reggio_reassigned", replace

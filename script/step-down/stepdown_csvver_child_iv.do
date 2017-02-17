@@ -34,6 +34,7 @@ use "${data_reggio}/Reggio_reassigned"
 include "${here}/../macros" 
 include "${here}/function/sdreganalysis"
 include "${here}/function/sdivanalysis"
+include "${here}/function/ivanalysisfirststage"
 include "${here}/function/sdaipwanalysis"
 include "${here}/function/sdpsmanalysis"
 include "${here}/function/sdkernelanalysis"
@@ -78,26 +79,6 @@ foreach st in Municipal Private Religious State{
 	gen distMaterna`st'1_sq = distMaterna`st'1^2
 }
 
-*Cost Instrument* 
-/* Decided not to use because we get very little 
-variation in cost. Cost is designed to vary by parent's income, but
-we don't have a complete income variable (missing data). Further, our 
-cost data doesn't capture variation in cost by school, only by school-type
-
-local maternaCost
-foreach t in Muni /*Reli Stat*/{
-	rename Fees_med_full_materna`t'_3 effective_medianFee_materna`t'
-	local maternaCost `maternaCost' effective_medianFee_materna`t'
-} 			/*_3, _2 and _1 correspond to ages 3, 2 and 1 respectively */
-
-local asiloCost
-foreach  t in Muni Reli{
-	rename Fees_med_full_asilo`t'_1 effective_medianFee_asilo`t'
-	local asiloCost `asiloCost' effective_medianFee_asilo`t'
-} 			/*_3, _2 and _1 correspond to ages 3, 2 and 1 respectively */
-*/
-
-
 * ---------------------------------------------------------------------------- *
 * 					Reggio Muni vs. None:	Children 						   *
 * ---------------------------------------------------------------------------- *
@@ -119,9 +100,31 @@ foreach stype in Other {
 								distMaternaMunicipal1 distMaternaPrivate1 distMaternaReligious1 distMaternaState1 ///
 								distMaternaMunicipal1_sq distMaternaPrivate1_sq distMaternaReligious1_sq distMaternaState1_sq
 	
+	*Label instruments					
+	foreach t in Municipal Private State Religious{
+		global distMaterna`t'1_lab Dist. `t'
+		global distMaterna`t'1_sq_lab Dist. `t' sq.
+	}
+	global score_lab Reggio Score
+	
+	
+		
+	* ----------------------- *
+	* For First Stage *
+	* ----------------------- *
+	* Open necessary files
+	file open ivfirststage_child using "${git_reggio}/output/multiple-methods/stepdown/csv/ivfirststage_child.csv", write replace
+
+	* Run First Stage Analysis
+	di "Estimating First Stage for Children: IV Analysis"
+	firstStageIV, stype("`stype'") ivlist("${ivlist}") cohort("child")
+
+	* Close necessary files
+	file close ivfirststage_child
+	
+	
 	
 	foreach type in  M CN S H B {
-
 		* ----------------------- *
 		* For Regression Analysis *
 		* ----------------------- *
@@ -138,7 +141,6 @@ foreach stype in Other {
 	
 	
 	}
-	
 	local stype_switch = 0
 }
 

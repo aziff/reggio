@@ -18,7 +18,6 @@ capture program define sdivanalysis
 version 13
 syntax, stype(string) type(string) ivlist(string) cohort(string)
 
-	
 	* ------------------------------------- *
 	* For IV 								*
 	* ------------------------------------- *
@@ -42,12 +41,18 @@ syntax, stype(string) type(string) ivlist(string) cohort(string)
 		
 		local matitems	
 		local matnames
+		
+		local firstStageItems
+		local firstStageNames
 	
 		local switch = 1
 		foreach comp in ${ivlist} {
 			sum `var' if ${ifcondition`comp'}
-			if r(N) > 0 {
-			
+			if r(N) > 0 {				
+				
+				*-------------*
+				*Second Stage:
+				*-------------*
 				di "variable: `var'"
 				* Regress
 				ivregress 2sls `var' ${controls`comp'} ($endog = $IVinstruments) if ${ifcondition`comp'}, robust first

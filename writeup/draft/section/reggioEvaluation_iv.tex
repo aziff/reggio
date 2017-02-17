@@ -1,9 +1,12 @@
 % ==============================================================================%
 %writeup
 % ==============================================================================%
-
-
-
+We attempt to correct for selection bias by estimating an instrumental variables model using a two-stage least squares approach. The approach involves estimating the following system of equations:
+\begin{align}
+D_i &= \alpha_0 + \bm{Z_i \alpha} + \bm{X_i \delta} + \nu_i \label{eq:first-stage}\\
+Y_i &= \beta_0 + \beta_1 \hat{D_i} + \bm{X_i \gamma} + \epsilon_i \label{eq:second-stage}
+\end{align}
+where Eq.(\ref{eq:first-stage}) corresponds to the first-stage, Eq.(\ref{eq:second-stage}) corresponds to the second stage, $D_i$ is an indicator for attending a Reggio Approach preschool, $\hat{D_i}$ is the predicted values for $D_i$ obtained from the first-stage regression, $\bm{Z_i}$ is a vector of instruments, $\bm{X_i}$ is a vector of controls, and $Y_i$ is the outcome. The vector of instruments, $\bm{Z_i}$, includes four variables measuring the distance between an individual's residence and the closest Municipal, State, Religious and Private preschools; the squared terms for each of the four distance instruments; and a variable that approximates a score used by the Reggio Approach preschools to rank applicants and allocate them to the available slots \footnote{The score is calculated as a function of number of siblings, parents' employment status, parents' migrant status, whether parents were adoptive or custodial, whether both parents are present in household, and distance to grandparents' residence. The score was constructed using weights published in }.
 % ==============================================================================%
 \subsection{Estimation Results}\label{appendix:iv}
 % ==============================================================================%
