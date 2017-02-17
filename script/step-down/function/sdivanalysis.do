@@ -81,6 +81,7 @@ syntax, stype(string) type(string) ivlist(string) cohort(string)
 	
 		mat iv = [`matitems']
 		mat colname iv = `matnames'
+		di "colname: mat colname iv = `matnames'"
 		
 		writematrix, output(iv_`type'_`stype') rowname("`var'") matrix(iv) `header_switch'
 		local header_switch 
