@@ -45,6 +45,9 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 				* Regress
 				teffects psmatch (`var') (${X`comp'} ${controls`comp'}) if ${ifcondition`comp'}
 				
+				* Storing estimates to test equality between psm and iv
+				estimates store psm_`var', title(estimated coef. from psm of "`var'" as outcome) 
+				
 				di "Regression specification: teffects psmatch `var' ${X`comp'} ${controls`comp'} if ${ifcondition`comp'}" 
 				
 				* Save key results to locals

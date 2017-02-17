@@ -42,6 +42,9 @@ syntax, stype(string) type(string) ivlist(string) cohort(string)
 				ivregress 2sls `var' ${controls`comp'} ($endog = $IVinstruments) if ${ifcondition`comp'}, robust first
 				di "IV specification: ivregress 2sls `var' ${controls`comp'} (${endog} = $IVinstruments) if ${ifcondition`comp'}, robust" 
 				
+				* Storing estimates to test equality between psm and iv
+				estimates store iv_`var', title(estimated coef. from iv of "`var'" as outcome) 
+				
 				* Save key results to locals
 				mat r = r(table)
 				local iv_`comp' 	= 	r[1,1]
