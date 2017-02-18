@@ -81,7 +81,7 @@ preserve
 keep if (Cohort == 3)  //| (Cohort == 2)  check if I need to include migrant cohort
 
 local stype_switch = 1
-foreach stype in Other {
+foreach stype in Other Reli Stat{
 	
 	* Set necessary global variables
 	global ivlist				IV
@@ -105,7 +105,7 @@ foreach stype in Other {
 	* For First Stage *
 	* ----------------------- *
 	* Open necessary files
-	file open ivfirststage_adol using "${git_reggio}/output/multiple-methods/stepdown/csv/ivfirststage_adol.csv", write replace
+	file open ivfirststage_adol using "${git_reggio}/output/multiple-methods/stepdown/csv/ivfirststage_adol_`stype'.csv", write replace
 
 	* Run First Stage Analysis
 	di "Estimating First Stage for Adol: IV Analysis"
