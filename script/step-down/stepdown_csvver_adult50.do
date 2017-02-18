@@ -93,7 +93,7 @@ local Adult50_num 		= 6
 
 global cohort			adult
 
-/*
+
 * ---------------------------------------------------------------------------- *
 * 					Comparison with Age-50 Cohort (NO DID)					   *
 * ---------------------------------------------------------------------------- *
@@ -123,12 +123,12 @@ foreach stype in None Other Reli {
 	global controlsKM40			${bic_adult_baseline_vars}
 	global controlsKM30			${bic_adult_baseline_vars}
 
-	global ifconditionOLS40		(Reggio == 1) & ((Cohort == 5) | (Cohort == 6)) & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionOLS30		(Reggio == 1) & ((Cohort == 4) | (Cohort == 6)) & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionNNPSM40	(Reggio == 1) & ((Cohort == 5) | (Cohort == 6)) & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionNNPSM30	(Reggio == 1) & ((Cohort == 4) | (Cohort == 6)) & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionKM40		(Reggio == 1) & ((Cohort == 5) | (Cohort == 6)) & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionKM30		(Reggio == 1) & ((Cohort == 4) | (Cohort == 6)) & (maternaMuni == 1 | materna`stype' == 1)
+	global ifconditionOLS40		(Reggio == 1) & (((Cohort == 5) & (maternaMuni == 1)) | ((Cohort == 6) & (materna`stype' == 1)))
+	global ifconditionOLS30		(Reggio == 1) & (((Cohort == 4) & (maternaMuni == 1)) | ((Cohort == 6) & (materna`stype' == 1)))
+	global ifconditionNNPSM40	(Reggio == 1) & (((Cohort == 5) & (maternaMuni == 1)) | ((Cohort == 6) & (materna`stype' == 1)))
+	global ifconditionNNPSM30	(Reggio == 1) & (((Cohort == 4) & (maternaMuni == 1)) | ((Cohort == 6) & (materna`stype' == 1)))
+	global ifconditionKM40		(Reggio == 1) & (((Cohort == 5) & (maternaMuni == 1)) | ((Cohort == 6) & (materna`stype' == 1)))
+	global ifconditionKM30		(Reggio == 1) & (((Cohort == 4) & (maternaMuni == 1)) | ((Cohort == 6) & (materna`stype' == 1)))
 	
 
 	foreach type in  M E W L H N S {
@@ -185,7 +185,7 @@ foreach stype in None Other Reli {
 restore
 
 
-*/
+
 
 
 
@@ -215,12 +215,12 @@ foreach stype in Other {
 	global XPvDiD40				xmMuniReggio
 	global XPvDiD30				xmMuniReggio
 	
-	global controlsRDiD40		maternaMuni Cohort_Adult40 ${bic_adol_baseline_did_vars}
-	global controlsRDiD30		maternaMuni Cohort_Adult30 ${bic_adol_baseline_did_vars}
-	global controlsPmDiD40		maternaMuni Reggio ${bic_adol_baseline_did_vars}
-	global controlsPmDiD30		maternaMuni Reggio ${bic_adol_baseline_did_vars}
-	global controlsPvDiD40		maternaMuni Reggio ${bic_adol_baseline_did_vars}
-	global controlsPvDiD30		maternaMuni Reggio ${bic_adol_baseline_did_vars}
+	global controlsRDiD40		materna Cohort_Adult40 ${bic_adol_baseline_did_vars}
+	global controlsRDiD30		materna Cohort_Adult30 ${bic_adol_baseline_did_vars}
+	global controlsPmDiD40		materna Reggio ${bic_adol_baseline_did_vars}
+	global controlsPmDiD30		materna Reggio ${bic_adol_baseline_did_vars}
+	global controlsPvDiD40		materna Reggio ${bic_adol_baseline_did_vars}
+	global controlsPvDiD30		materna Reggio ${bic_adol_baseline_did_vars}
 	
 
 	global ifconditionRDiD40	(Reggio == 1) & (((Cohort == 5) & (maternaMuni == 1 | maternaNone == 1)) | (Cohort == 6))
