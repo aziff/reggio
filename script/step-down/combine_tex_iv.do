@@ -24,8 +24,8 @@ include "${here}/../macros"
 * Set Macros *
 * ---------- *
 global cohort					child adol 
-global groupchild				Other Stat Reli
-global groupadol				Stat  Reli Other
+global groupchild				Other 
+global groupadol				Other
 
 global outcomechild				M /*CN S H B*/
 global outcomeadol				M /*CN S H B*/
@@ -48,7 +48,7 @@ foreach coh in $cohort {
 	foreach gr in ${group`coh'} {
 		foreach out in ${outcome`coh'} {
 		
-			import delimited using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/iv_`coh'_`out'_`gr'.csv", clear
+			import delimited using "${git_reggio}/output/multiple-methods/stepdown/csv/iv_`coh'_`out'_`gr'_sd.csv", clear
 			
 			tempfile iv_`coh'_`gr'
 			save "`iv_`coh'_`gr''"
