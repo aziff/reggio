@@ -1,17 +1,172 @@
-% ==============================================================================%
-%writeup
-% ==============================================================================%
+%-----------------------------we--------------------------------------------------------------------------------------------%
+% writeup
+%-------------------------------------------------------------------------------------------------------------------------%
 We attempt to correct for selection bias by estimating an instrumental variables model using a two-stage least squares approach. The approach involves estimating the following system of equations:
 \begin{align}
 D_i &= \alpha_0 + \bm{Z_i \alpha} + \bm{X_i \delta} + \nu_i \label{eq:first-stage}\\
 Y_i &= \beta_0 + \beta_1 \hat{D_i} + \bm{X_i \gamma} + \epsilon_i \label{eq:second-stage}
 \end{align}
-where Eq.(\ref{eq:first-stage}) corresponds to the first stage, Eq.(\ref{eq:second-stage}) corresponds to the second stage, $D_i$ is an indicator for attending a Reggio Approach preschool, $\hat{D_i}$ is the predicted values for $D_i$ obtained from the first-stage regression, $\bm{Z_i}$ is a vector of instruments, $\bm{X_i}$ is a vector of controls, and $Y_i$ is the outcome. The vector of instruments, $\bm{Z_i}$, includes four variables measuring the distance between individuals' residence and the closest Municipal, State, Religious and Private preschools; the squared terms for each of the four distance instruments; and a variable that approximates the score used by the Reggio Approach preschools to rank applicants and allocate available slots \footnote{The score is calculated as a function of number of siblings, parents' employment status, parents' migrant status, whether parents were adoptive or custodial, whether both parents are present in household, and distance to grandparents' residence. The score was constructed using weights published by the \citet{Reggio-Emilia_2012_Criteria-admission-2013-14}.}.
+where Eq.(\ref{eq:first-stage}) corresponds to the first stage, Eq.(\ref{eq:second-stage}) corresponds to the second stage, $D_i$ is an indicator for attending a Reggio Approach preschool, $\hat{D_i}$ is the predicted values for $D_i$ obtained from the first-stage regression, $\bm{Z_i}$ is a vector of instruments, $\bm{X_i}$ is the vector of BIC-selected baseline controls, and $Y_i$ is the outcome. The vector of instruments, $\bm{Z_i}$, includes four variables measuring the distance between individuals' residence and the closest Municipal, State, Religious and Private preschools; the squared terms for each of the four distance instruments; and a variable that approximates the score used by the Reggio Approach preschools to rank applicants and allocate available slots based on baseline background characteristics \footnote{The score is calculated as a function of number of siblings, parents' employment status, parents' migrant status, whether parents were adoptive or custodial, whether both parents are present in household, and distance to grandparents' residence. The score was constructed using weights published by the \citet{Reggio-Emilia_2012_Criteria-admission-2013-14}.}. Cost of attendance was explored as as a potential instrument. It is not included in the analysis because preschool fees are determined based on household income and our data suffers from missing income data.
+
+The IV analysis is only presented for children and adolescents due to the invalidity of instruments for adults. The distance instruments, which are constructed based on the residential address reported during time of interview, become increasingly unreliable as respondents age because individuals are more likely to leave their childhood homes and establish new residences as they enter adulthood. The score instrument is constructed using guidelines published in 2012. This instrument becomes increasingly unreliable with age of respondent because the weighting scheme used to allocate available slots to children is likely to have evolved over time as a result of changes in economic, social, demographic and cultural conditions.
+
+Section \ref{appendix:iv-first} presents results from the first stage estimation. The results are generally insignificant and show that the instruments are weak predictors of enrollment in Reggio Approach preschools. Given the weak first stage, the IV estimation is unlikely to have substantially corrected for potential bias stemming from selection into Reggio Approach preschools. Second stage results are presented in Section \ref{appendix:iv-second} alongside analogous results estimated using Propensity Score Matching and Kernel Matching approaches for comparison. We use a \textit{z-test} to formally test for differences between the IV estimates and estimates from Propensity Score Matching and Kernel Matching approaches. The PSM and Kernel columns are marked with daggers, $\bm{\dagger}$, to denote rejection of the null of no difference between IV and comparison estimates at different significance levels.
+
+%-------------------------------------------------------------------------------------------------------------------------%
+\subsection{Estimation Results - First Stage}\label{appendix:iv-first}
+%-------------------------------------------------------------------------------------------------------------------------%
+\begin{table}[H]
+\centering
+\scalebox{.9}{
+\begin{threeparttable}
+	\caption{First Stage IV Estimates, Comparison to Non-RA preschools within Reggio Emilia}\label{iv-first-child}
+	\input{../../output/multiple-methods/stepdown/ivfirststage_Other}
+\begin{tablenotes}
+Note: This table presents first stage estimates for the IV approach corresponding to Eq.(\ref{eq:first-stage}). The columns labeled Child and Adol present estimates corresponding to the children and adolescent cohorts respectively. Robust standard errors are reported in parantheses below the point estimates. ***, **, and * indicate significance of the estimated coefficients at the 1\%, 5\%, and 10\% levels respectively. 
+\end{tablenotes}
+\end{threeparttable}
+}
+\end{table}
 
 
 
+%-------------------------------------------------------------------------------------------------------------------------%
+\subsection{Estimation Results - Second Stage}\label{appendix:iv-second}
+%-------------------------------------------------------------------------------------------------------------------------%
+\subsubsection{Child Cohort}
+
+\begin{table}[H]
+\centering
+\scalebox{.8}{
+\begin{threeparttable}
+	\caption{Second Stage IV Estimation Results for Main Outcomes, Comparison to Non-RA preschools within Reggio Emilia}\label{iv-M-child}
+	\input{../../output/multiple-methods/stepdown/ivresults_child_M_Other}
+\begin{tablenotes}
+Note: The column labeled IV presents second stage IV estimates corresponding to Eq.(\ref{eq:second-stage}). Below each estimated coefficient is an unadjusted p-value and a stepdown p-value. The columns labeled PSM and Kernel report analogous estimates generated using the corresponding methodologies. ***, **, and * indicate significance of the coefficients at the 1\%, 5\%, and 10\% levels respectively. $\dagger \dagger \dagger$, $\dagger \dagger$, and $\dagger$ denote significance at the 1\%, 5\%, and 10\% level respectively for the \textit{z-test} of the null that no difference exists between the IV estimates and the estimates generated by the corresponding alternative methodologies.
+\end{tablenotes}
+\end{threeparttable}
+}
+\end{table}
+
+\begin{table}[H]
+\centering
+\scalebox{.8}{
+\begin{threeparttable}
+	\caption{Second Stage IV Estimation Results for Cognitive Outcomes, Comparison to Non-RA preschools within Reggio Emilia}\label{iv-CN-child}
+	\input{../../output/multiple-methods/stepdown/ivresults_child_CN_Other}
+\begin{tablenotes}
+Note: The column labeled IV presents second stage IV estimates corresponding to Eq.(\ref{eq:second-stage}). Below each estimated coefficient is an unadjusted p-value and a stepdown p-value. The columns labeled PSM and Kernel report analogous estimates generated using the corresponding methodologies. ***, **, and * indicate significance of the coefficients at the 1\%, 5\%, and 10\% levels respectively. $\dagger \dagger \dagger$, $\dagger \dagger$, and $\dagger$ denote significance at the 1\%, 5\%, and 10\% level respectively for the \textit{z-test} of the null that no difference exists between the IV estimates and the estimates generated by the corresponding alternative methodologies.
+\end{tablenotes}
+\end{threeparttable}
+}
+\end{table}
+
+\begin{table}[H]
+\centering
+\scalebox{.8}{
+\begin{threeparttable}
+	\caption{Second Stage IV Estimation Results for Social Outcomes, Comparison to Non-RA preschools within Reggio Emilia}\label{iv-S-child}
+	\input{../../output/multiple-methods/stepdown/ivresults_child_S_Other}
+\begin{tablenotes}
+Note: The column labeled IV presents second stage IV estimates corresponding to Eq.(\ref{eq:second-stage}). Below each estimated coefficient is an unadjusted p-value and a stepdown p-value. The columns labeled PSM and Kernel report analogous estimates generated using the corresponding methodologies. ***, **, and * indicate significance of the coefficients at the 1\%, 5\%, and 10\% levels respectively. $\dagger \dagger \dagger$, $\dagger \dagger$, and $\dagger$ denote significance at the 1\%, 5\%, and 10\% level respectively for the \textit{z-test} of the null that no difference exists between the IV estimates and the estimates generated by the corresponding alternative methodologies.
+\end{tablenotes}
+\end{threeparttable}
+}
+\end{table}
+
+\begin{table}[H]
+\centering
+\scalebox{.8}{
+\begin{threeparttable}
+	\caption{Second Stage IV Estimation Results for Health Outcomes, Comparison to Non-RA preschools within Reggio Emilia}\label{iv-H-child}
+	\input{../../output/multiple-methods/stepdown/ivresults_child_H_Other}
+\begin{tablenotes}
+Note: The column labeled IV presents second stage IV estimates corresponding to Eq.(\ref{eq:second-stage}). Below each estimated coefficient is an unadjusted p-value and a stepdown p-value. The columns labeled PSM and Kernel report analogous estimates generated using the corresponding methodologies. ***, **, and * indicate significance of the coefficients at the 1\%, 5\%, and 10\% levels respectively. $\dagger \dagger \dagger$, $\dagger \dagger$, and $\dagger$ denote significance at the 1\%, 5\%, and 10\% level respectively for the \textit{z-test} of the null that no difference exists between the IV estimates and the estimates generated by the corresponding alternative methodologies.
+\end{tablenotes}
+\end{threeparttable}
+}
+\end{table}
+
+\newpage
+\begin{table}[H]
+\centering
+\scalebox{.8}{
+\begin{threeparttable}
+	\caption{Second Stage IV Estimation Results for Behavioral Outcomes, Comparison to Non-RA preschools within Reggio Emilia}\label{iv-B-child}
+	\input{../../output/multiple-methods/stepdown/ivresults_child_B_Other}
+\begin{tablenotes}
+Note: The column labeled IV presents second stage IV estimates corresponding to Eq.(\ref{eq:second-stage}). Below each estimated coefficient is an unadjusted p-value and a stepdown p-value. The columns labeled PSM and Kernel report analogous estimates generated using the corresponding methodologies. ***, **, and * indicate significance of the coefficients at the 1\%, 5\%, and 10\% levels respectively. $\dagger \dagger \dagger$, $\dagger \dagger$, and $\dagger$ denote significance at the 1\%, 5\%, and 10\% level respectively for the \textit{z-test} of the null that no difference exists between the IV estimates and the estimates generated by the corresponding alternative methodologies.
+\end{tablenotes}
+\end{threeparttable}
+}
+\end{table}
+%-------------------------------------------------------------------------------------------------------
+\subsubsection{Adolescent Cohort}
+
+\begin{table}[H]
+\centering
+\scalebox{.8}{
+\begin{threeparttable}
+	\caption{Second Stage IV Estimation Results for Main Outcomes, Comparison to Non-RA preschools within Reggio Emilia}\label{iv-M-adol}
+	\input{../../output/multiple-methods/stepdown/ivresults_adol_M_Other}
+\begin{tablenotes}
+Note: The column labeled IV presents second stage IV estimates corresponding to Eq.(\ref{eq:second-stage}). Below each estimated coefficient is an unadjusted p-value and a stepdown p-value. The columns labeled PSM and Kernel report analogous estimates generated using the corresponding methodologies. ***, **, and * indicate significance of the coefficients at the 1\%, 5\%, and 10\% levels respectively. $\dagger \dagger \dagger$, $\dagger \dagger$, and $\dagger$ denote significance at the 1\%, 5\%, and 10\% level respectively for the \textit{z-test} of the null that no difference exists between the IV estimates and the estimates generated by the corresponding alternative methodologies.
+\end{tablenotes}
+\end{threeparttable}
+}
+\end{table}
+
+\begin{table}[H]
+\centering
+\scalebox{.8}{
+\begin{threeparttable}
+	\caption{Second Stage IV Estimation Results for Cognitive Outcomes, Comparison to Non-RA preschools within Reggio Emilia}\label{iv-CN-adol}
+	\input{../../output/multiple-methods/stepdown/ivresults_adol_CN_Other}
+\begin{tablenotes}
+Note: The column labeled IV presents second stage IV estimates corresponding to Eq.(\ref{eq:second-stage}). Below each estimated coefficient is an unadjusted p-value and a stepdown p-value. The columns labeled PSM and Kernel report analogous estimates generated using the corresponding methodologies. ***, **, and * indicate significance of the coefficients at the 1\%, 5\%, and 10\% levels respectively. $\dagger \dagger \dagger$, $\dagger \dagger$, and $\dagger$ denote significance at the 1\%, 5\%, and 10\% level respectively for the \textit{z-test} of the null that no difference exists between the IV estimates and the estimates generated by the corresponding alternative methodologies.
+\end{tablenotes}
+\end{threeparttable}
+}
+\end{table}
+
+\begin{table}[H]
+\centering
+\scalebox{.8}{
+\begin{threeparttable}
+	\caption{Second Stage IV Estimation Results for Social Outcomes, Comparison to Non-RA preschools within Reggio Emilia}\label{iv-S-adol}
+	\input{../../output/multiple-methods/stepdown/ivresults_adol_S_Other}
+\begin{tablenotes}
+Note: The column labeled IV presents second stage IV estimates corresponding to Eq.(\ref{eq:second-stage}). Below each estimated coefficient is an unadjusted p-value and a stepdown p-value. The columns labeled PSM and Kernel report analogous estimates generated using the corresponding methodologies. ***, **, and * indicate significance of the coefficients at the 1\%, 5\%, and 10\% levels respectively. $\dagger \dagger \dagger$, $\dagger \dagger$, and $\dagger$ denote significance at the 1\%, 5\%, and 10\% level respectively for the \textit{z-test} of the null that no difference exists between the IV estimates and the estimates generated by the corresponding alternative methodologies.
+\end{tablenotes}
+\end{threeparttable}
+}
+\end{table}
+
+\begin{table}[H]
+\centering
+\scalebox{.8}{
+\begin{threeparttable}
+	\caption{Second Stage IV Estimation Results for Health Outcomes, Comparison to Non-RA preschools within Reggio Emilia}\label{iv-H-adol}
+	\input{../../output/multiple-methods/stepdown/ivresults_adol_H_Other}
+\begin{tablenotes}
+Note: The column labeled IV presents second stage IV estimates corresponding to Eq.(\ref{eq:second-stage}). Below each estimated coefficient is an unadjusted p-value and a stepdown p-value. The columns labeled PSM and Kernel report analogous estimates generated using the corresponding methodologies. ***, **, and * indicate significance of the coefficients at the 1\%, 5\%, and 10\% levels respectively. $\dagger \dagger \dagger$, $\dagger \dagger$, and $\dagger$ denote significance at the 1\%, 5\%, and 10\% level respectively for the \textit{z-test} of the null that no difference exists between the IV estimates and the estimates generated by the corresponding alternative methodologies.
+\end{tablenotes}
+\end{threeparttable}
+}
+\end{table}
+
+\begin{table}[H]
+\centering
+\scalebox{.8}{
+\begin{threeparttable}
+	\caption{Second Stage IV Estimation Results for Behavioral Outcomes, Comparison to Non-RA preschools within Reggio Emilia}\label{iv-B-adol}
+	\input{../../output/multiple-methods/stepdown/ivresults_adol_B_Other}
+\begin{tablenotes}
+Note: The column labeled IV presents second stage IV estimates corresponding to Eq.(\ref{eq:second-stage}). Below each estimated coefficient is an unadjusted p-value and a stepdown p-value. The columns labeled PSM and Kernel report analogous estimates generated using the corresponding methodologies. ***, **, and * indicate significance of the coefficients at the 1\%, 5\%, and 10\% levels respectively. $\dagger \dagger \dagger$, $\dagger \dagger$, and $\dagger$ denote significance at the 1\%, 5\%, and 10\% level respectively for the \textit{z-test} of the null that no difference exists between the IV estimates and the estimates generated by the corresponding alternative methodologies.
+\end{tablenotes}
+\end{threeparttable}
+}
+\end{table}
 
 
-% ==============================================================================%
-\subsection{Estimation Results}\label{appendix:iv}
-% ==============================================================================%
+
