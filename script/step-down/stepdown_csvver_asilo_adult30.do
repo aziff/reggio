@@ -83,10 +83,10 @@ foreach stype in None /*Other*/ {
 	global XKM					asiloMuni
 
 	global controlsNone
-	global controlsBIC			${bic_asilo_adult_baseline_vars}
+	global controlsBIC			${bic_asilo_adult30_baseline_vars}
 	global controlsFull			${adult_baseline_vars}
-	global controlsPSM			${bic_asilo_adult_baseline_vars}
-	global controlsKM			${bic_asilo_adult_baseline_vars}
+	global controlsPSM			${bic_asilo_adult30_baseline_vars}
+	global controlsKM			${bic_asilo_adult30_baseline_vars}
 
 	global ifconditionNone	 	(Reggio == 1) & (((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1)))
 	global ifconditionBIC		${ifconditionNone}

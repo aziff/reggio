@@ -36,7 +36,7 @@ dis "Running `reps' bootstrap replications for each variable.  This may take som
 foreach var of varlist `varlist' {
     
 	dis "Estimating for `var'"
-	/*cap qui*/ `method' (`var') (`indepvar' `controls') `if' `in' [`weight' `exp'], `options'
+	cap qui `method' (`var') (`indepvar' `controls') `if' `in' [`weight' `exp'], `options'
     if _rc!=0 {
         dis as error "Your original `method' does not work for `var'.  Please test the `method' and try again."
         ereturn scalar rw_`var' = .
