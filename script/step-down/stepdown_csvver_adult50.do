@@ -95,6 +95,67 @@ global cohort			adult
 
 
 * ---------------------------------------------------------------------------- *
+* 					Comparison with Age-50 Cohort (DID)						   *
+* ---------------------------------------------------------------------------- *
+** Keep only the adult cohorts
+preserve
+keep if (Cohort == 4) | (Cohort == 5) | (Cohort == 6) 
+
+local stype_switch = 1
+foreach stype in Other {
+	
+	* Set necessary global variables
+	global reglist				RDiD40 RDiD30 PmDiD40 PmDiD30 PvDiD40 PvDiD30
+	
+	global XRDiD40				xmMuniReggio
+	global XRDiD30				xmMuniReggio
+	global XPmDiD40				xmMuniReggio
+	global XPmDiD30				xmMuniReggio
+	global XPvDiD40				xmMuniReggio
+	global XPvDiD30				xmMuniReggio
+	
+	global controlsRDiD40		materna Cohort_Adult40 ${bic_adol_baseline_did_vars}
+	global controlsRDiD30		materna Cohort_Adult30 ${bic_adol_baseline_did_vars}
+	global controlsPmDiD40		materna Reggio ${bic_adol_baseline_did_vars}
+	global controlsPmDiD30		materna Reggio ${bic_adol_baseline_did_vars}
+	global controlsPvDiD40		materna Reggio ${bic_adol_baseline_did_vars}
+	global controlsPvDiD30		materna Reggio ${bic_adol_baseline_did_vars}
+	
+
+	global ifconditionRDiD40	(Reggio == 1) & (((Cohort == 5) & (maternaMuni == 1 | maternaNone == 1)) | (Cohort == 6))
+	global ifconditionRDiD30	(Reggio == 1) & (((Cohort == 4) & (maternaMuni == 1 | maternaNone == 1)) | (Cohort == 6))
+	global ifconditionPmDiD40	((Reggio == 1) & (Cohort == 5) & (maternaMuni == 1 | maternaNone == 1)) | ((Parma == 1) & (Cohort == 6))
+	global ifconditionPmDiD30	((Reggio == 1) & (Cohort == 4) & (maternaMuni == 1 | maternaNone == 1)) | ((Parma == 1) & (Cohort == 6))
+	global ifconditionPvDiD40	((Reggio == 1) & (Cohort == 5) & (maternaMuni == 1 | maternaNone == 1)) | ((Padova == 1) & (Cohort == 6))
+	global ifconditionPvDiD30	((Reggio == 1) & (Cohort == 4) & (maternaMuni == 1 | maternaNone == 1)) | ((Padova == 1) & (Cohort == 6))
+	
+
+	foreach type in   M E W L H N S {
+
+		* ----------------------- *
+		* For Regression Analysis *
+		* ----------------------- *
+		* Open necessary files
+		cap file close regression_`type'_`stype'
+		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/did_adult50_`type'_`stype'_sd.csv", write replace
+
+		* Run Multiple Analysis
+		di "Estimating `type' for Adult-50: Regression Analysis"
+		sdreganalysis, stype("`stype'") type("`type'") reglist("${reglist}") cohort("adult")
+	
+		* Close necessary files
+		file close regression_`type'_`stype' 
+		
+		
+	}
+	
+	local stype_switch = 0
+}
+
+restore
+
+
+* ---------------------------------------------------------------------------- *
 * 					Comparison with Age-50 Cohort (NO DID)					   *
 * ---------------------------------------------------------------------------- *
 ** Keep only the adult cohorts
@@ -186,74 +247,6 @@ restore
 
 
 
-
-
-
-
-
-
-
-
-
-* ---------------------------------------------------------------------------- *
-* 					Comparison with Age-50 Cohort (DID)						   *
-* ---------------------------------------------------------------------------- *
-** Keep only the adult cohorts
-preserve
-keep if (Cohort == 4) | (Cohort == 5) | (Cohort == 6) 
-
-local stype_switch = 1
-foreach stype in Other {
-	
-	* Set necessary global variables
-	global reglist				RDiD40 RDiD30 PmDiD40 PmDiD30 PvDiD40 PvDiD30
-	
-	global XRDiD40				xmMuniReggio
-	global XRDiD30				xmMuniReggio
-	global XPmDiD40				xmMuniReggio
-	global XPmDiD30				xmMuniReggio
-	global XPvDiD40				xmMuniReggio
-	global XPvDiD30				xmMuniReggio
-	
-	global controlsRDiD40		materna Cohort_Adult40 ${bic_adol_baseline_did_vars}
-	global controlsRDiD30		materna Cohort_Adult30 ${bic_adol_baseline_did_vars}
-	global controlsPmDiD40		materna Reggio ${bic_adol_baseline_did_vars}
-	global controlsPmDiD30		materna Reggio ${bic_adol_baseline_did_vars}
-	global controlsPvDiD40		materna Reggio ${bic_adol_baseline_did_vars}
-	global controlsPvDiD30		materna Reggio ${bic_adol_baseline_did_vars}
-	
-
-	global ifconditionRDiD40	(Reggio == 1) & (((Cohort == 5) & (maternaMuni == 1 | maternaNone == 1)) | (Cohort == 6))
-	global ifconditionRDiD30	(Reggio == 1) & (((Cohort == 4) & (maternaMuni == 1 | maternaNone == 1)) | (Cohort == 6))
-	global ifconditionPmDiD40	((Reggio == 1) & (Cohort == 5) & (maternaMuni == 1 | maternaNone == 1)) | ((Parma == 1) & (Cohort == 6))
-	global ifconditionPmDiD30	((Reggio == 1) & (Cohort == 4) & (maternaMuni == 1 | maternaNone == 1)) | ((Parma == 1) & (Cohort == 6))
-	global ifconditionPvDiD40	((Reggio == 1) & (Cohort == 5) & (maternaMuni == 1 | maternaNone == 1)) | ((Padova == 1) & (Cohort == 6))
-	global ifconditionPvDiD30	((Reggio == 1) & (Cohort == 4) & (maternaMuni == 1 | maternaNone == 1)) | ((Padova == 1) & (Cohort == 6))
-	
-
-	foreach type in   M E W L H N S {
-
-		* ----------------------- *
-		* For Regression Analysis *
-		* ----------------------- *
-		* Open necessary files
-		cap file close regression_`type'_`stype'
-		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/did_adult50_`type'_`stype'_sd.csv", write replace
-
-		* Run Multiple Analysis
-		di "Estimating `type' for Adult-50: Regression Analysis"
-		sdreganalysis, stype("`stype'") type("`type'") reglist("${reglist}") cohort("adult")
-	
-		* Close necessary files
-		file close regression_`type'_`stype' 
-		
-		
-	}
-	
-	local stype_switch = 0
-}
-
-restore
 
 
 
