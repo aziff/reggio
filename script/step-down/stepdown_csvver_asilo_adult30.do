@@ -67,7 +67,7 @@ preserve
 keep if (Cohort == 4)  
 
 local stype_switch = 1
-foreach stype in None Other {
+foreach stype in None /*Other*/ {
 	
 	* Set necessary global variables
 	global X					asiloMuni
@@ -97,7 +97,7 @@ foreach stype in None Other {
 	global ifconditionDidPv		(Reggio == 1 | Padova == 1)    & (((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))) */
 
 	
-	foreach type in  M CN S H B {
+	foreach type in  M E W L H N S {
 
 		* ----------------------- *
 		* For Regression Analysis *
