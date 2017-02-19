@@ -29,7 +29,7 @@ In order to complement the OLS analysis, we also estimate two matching models: (
 
 The average treatment effect (ATE) under the assumption for propensity score matching is written as:
 \begin{equation} \label{eq:ATE-PSM}
-E[Y(1)-Y(0)] = E[E[Y_i|D_i=1, \hat{\pi(\boldsymbol{X}_i)}] - E[Y_i|D_i=0, \hat{\pi(\boldsymbol{X}_i)}]].
+E[Y(1)-Y(0)] = E\bigg[E\big[Y_i|D_i=1, \hat{\pi(\boldsymbol{X}_i)}\big] - E\big[Y_i|D_i=0, \hat{\pi(\boldsymbol{X}_i)}\big]\bigg].
 \end{equation}
 where the propensity score $\hat{\pi({\boldsymbol{X}_i})} = Pr(D_i=1|\boldsymbol{X}_i)$ is predicted for each individual $i$ using the estimated coefficients obtained from a probit model. We average over sample $\bm{X}$ to evaluate the average treatment effect.
 
