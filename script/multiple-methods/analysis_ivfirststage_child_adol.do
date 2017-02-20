@@ -63,6 +63,7 @@ foreach stype in Other /*Reli Stat*/ {
 	foreach cohort in child adol{	
 		local N				= n_`cohort'[1]
 		local r	: di %3.2f `= r_`cohort'[1]'
+		local f	: di %3.2f `= f_`cohort'[1]'
 
 		forvalues i = 1/`totalvars'{
 			
@@ -91,12 +92,14 @@ foreach stype in Other /*Reli Stat*/ {
 			}
 		}
 		if "`cohort'" == "child"{
-			local row_N			N			& & `N'
-			local row_R			R$^2$ 		& & `r'	
+			local row_N			N					& & `N'
+			local row_R			R$^2$ 				& & `r'	
+			local row_f			\textit{F}-stat		& & `f'
 		}
 		if "`cohort'" == "adol"{
 			local row_N			`row_N'		& & `N'
 			local row_R			`row_R'		& & `r'		
+			local row_f			`row_f'		& & `f'
 		}
 	}
 	
@@ -106,6 +109,7 @@ foreach stype in Other /*Reli Stat*/ {
 	}
 	
 	file write tabfile "\midrule" _n	
+	file write tabfile "`row_f' \\" _n
 	file write tabfile "`row_R' \\" _n
 	file write tabfile "`row_N' \\" _n	
 	
