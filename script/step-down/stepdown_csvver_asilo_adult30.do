@@ -59,6 +59,9 @@ generate D2 = (D == 2)
 global bootstrap = 70
 set seed 1234
 
+* Generate asilo interaction variable
+generate xaReggioMuni = Reggio * asiloMuni
+
 * ---------------------------------------------------------------------------- *
 * 					Reggio Muni vs. None:	Adolescent						   *
 * ---------------------------------------------------------------------------- *
@@ -67,11 +70,11 @@ preserve
 keep if (Cohort == 4)  
 
 local stype_switch = 1
-foreach stype in None /*Other*/ {
+foreach stype in None Other {
 	
 	* Set necessary global variables
 	global X					asiloMuni
-	global reglist				None BIC Full // It => Italians, Mg => Migrants
+	global reglist				None BIC Full DidPm DidPv // It => Italians, Mg => Migrants
 	global psmlist				PSM
 	global kernellist			KM
 	global cohort				adol
@@ -81,20 +84,25 @@ foreach stype in None /*Other*/ {
 	global XFull				asiloMuni	
 	global XPSM					asiloMuni
 	global XKM					asiloMuni
+	global XDidPm				xaReggioMuni
+	global XDidPv				xaReggioMuni
 
 	global controlsNone
 	global controlsBIC			${bic_asilo_adult30_baseline_vars}
 	global controlsFull			${adult_baseline_vars}
 	global controlsPSM			${bic_asilo_adult30_baseline_vars}
 	global controlsKM			${bic_asilo_adult30_baseline_vars}
+	global controlsDidPm		Reggio asiloMuni ${bic_asilo_adult30_baseline_vars}
+	global controlsDidPv		Reggio asiloMuni ${bic_asilo_adult30_baseline_vars}
 
-	global ifconditionNone	 	(Reggio == 1) & (((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1)))
+
+	global ifconditionNone	 	(Reggio == 1) & (((asiloNone == 1) & (materna`stype' == 1)) | ((asiloMuni == 1) & (materna`stype' == 1)))
 	global ifconditionBIC		${ifconditionNone}
 	global ifconditionFull		${ifconditionNone}
 	global ifconditionPSM		${ifconditionNone}
 	global ifconditionKM		${ifconditionNone}
-	/*global ifconditionDidPm		(Reggio == 1 | Parma == 1)    & (((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1)))
-	global ifconditionDidPv		(Reggio == 1 | Padova == 1)    & (((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))) */
+	global ifconditionDidPm		(Reggio == 1 | Parma == 1)    & (((asiloNone == 1) & (materna`stype' == 1)) | ((asiloMuni == 1) & (materna`stype' == 1)))
+	global ifconditionDidPv		(Reggio == 1 | Padova == 1)    & (((asiloNone == 1) & (materna`stype' == 1)) | ((asiloMuni == 1) & (materna`stype' == 1))) 
 
 	
 	foreach type in  M E W L H N S {
