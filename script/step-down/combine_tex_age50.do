@@ -27,21 +27,25 @@ global cohort					adult50
 global groupadult50				Other
 global outcomeadult50			M E W L H N S
 	
-global didlistadult50			RDiD40 RDiD30 PmDiD40 PmDiD30 PvDiD40 PvDiD30
+global didlistadult50			RDiD40 RDiD30 /*PmDiD40 PmDiD30 PvDiD40 PvDiD30*/
 global reglistadult50			OLS40 OLS30
-global psmlistadult50			NNPSM40 NNPSM30
-global kernellistadult50		KM40 KM30
+/*global psmlistadult50			NNPSM40 NNPSM30
+global kernellistadult50		KM40 KM30*/
 
-global didlistadult50lp			rdid40 rdid30 pmdid40 pmdid30 pvdid40 pvdid30
+global didlistadult50lp			rdid40 rdid30 /*pmdid40 pmdid30 pvdid40 pvdid30*/
 global reglistadult50lp			ols40 ols30
-global psmlistadult50lp			nnpsm40 nnpsm30
-global kernellistadult50lp		km40 km30
+/*global psmlistadult50lp		nnpsm40 nnpsm30
+global kernellistadult50lp		km40 km30*/
 
+/*
 global fulllistadult50			OLS30 PSM30 KM30 RDiD30 PmDiD30 PvDiD30 OLS40 PSM40 KM40 RDiD40 PmDiD40 PvDiD40 
 global fulllistadult50lp		ols30 nnpsm30 km30 rdid30 pmdid30 pvdid30 ols40 nnpsm40 km40 rdid40 pmdid40 pvdid40
 
 global firstlineadult50			\multicolumn{6}{c}{With Age-30} & \multicolumn{6}{c}{With Age-40}      
-global clineadult50				\cmidrule(lr){2-7} \cmidrule(lr){8-13} 
+global clineadult50				\cmidrule(lr){2-7} \cmidrule(lr){8-13} */
+
+global fulllistadult50			OLS30 RDiD30 OLS40 RDiD40
+global fulllistadult50lp		ols30 rdid30 ols40 rdid40
 
 * ------------------------------------ *
 * Merge and Create Tex for each cohort *
@@ -62,6 +66,7 @@ foreach coh in $cohort {
 			
 			drop _merge
 			
+			/*
 			tempfile reg_`coh'_`gr'
 			save "`reg_`coh'_`gr''"
 			
@@ -79,7 +84,7 @@ foreach coh in $cohort {
 			merge 1:1 rowname using `reg_`coh'_`gr''
 			
 			drop _merge
-			
+			*/
 			
 			* ------------------------- *
 			* Determine the Tex Headers *
@@ -156,7 +161,7 @@ foreach coh in $cohort {
 				di "regression done"
 				
 			
-				
+				/*
 				* PSM-based
 				local num : list sizeof global(psmlist`coh')
 				if `num' != 0 {
@@ -257,7 +262,7 @@ foreach coh in $cohort {
 						}
 					}
 				}
-				di "psm done `gr' `coh'"
+				di "psm done `gr' `coh'" */
 				
 				* Tex file Point Estimate
 				local `outcome'tex_p 	${`outcome'_lab}
@@ -287,8 +292,8 @@ foreach coh in $cohort {
 			file open tabfile`coh'`gr' using "${git_reggio}/output/multiple-methods/stepdown/combined_`coh'_`out'_`gr'_sd.tex", write replace
 			file write tabfile`coh'`gr' "\begin{tabular}{`tabular'}" _n
 			file write tabfile`coh'`gr' "\toprule" _n
-			file write tabfile`coh'`gr' "& ${firstline`coh'} \\"
-			file write tabfile`coh'`gr' "${cline`coh'}" _n
+			/*file write tabfile`coh'`gr' "& ${firstline`coh'} \\"
+			file write tabfile`coh'`gr' "${cline`coh'}" _n */
 			file write tabfile`coh'`gr' " `colname' \\" _n
 			file write tabfile`coh'`gr' "\midrule" _n
 
