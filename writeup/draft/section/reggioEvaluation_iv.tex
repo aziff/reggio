@@ -1,7 +1,7 @@
 %-----------------------------we--------------------------------------------------------------------------------------------%
 % writeup
 %-------------------------------------------------------------------------------------------------------------------------%
-It is possible our estimates suffer from self-selection bias as parents' preschool choices for their children could depend on unobserved characteristics that also affect the outcomes of interest. We attempt to control for such potential selection by estimating an instrumental variables model using two-stage least squares. We estimate the following system of equations:
+It is possible our estimates suffer from self-selection bias as parents' preschool choices for children could depend on unobserved characteristics that also affect the outcomes of interest. We attempt to control for such potential selection by estimating an instrumental variables model using two-stage least squares. We estimate the following system of equations:
 \begin{align}
 D_i &= \alpha_0 + \bm{Z}_i \bm{\alpha} + \bm{X}_i \bm{\delta} + \nu_i \label{eq:first-stage}\\
 Y_i &= \beta_0 + \beta_1 \hat{D_i} + \bm{X}_i \bm{\gamma} + \epsilon_i \label{eq:second-stage}
