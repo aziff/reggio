@@ -70,7 +70,7 @@ preserve
 keep if (Cohort == 3)  
 
 local stype_switch = 1
-foreach stype in None Other {
+foreach stype in Muni Other {
 	
 	* Set necessary global variables
 	global X					asiloMuni
