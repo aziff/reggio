@@ -1,0 +1,67 @@
+% Potential Outline for Methodology section
+
+\input{preamble}
+
+
+\begin{document}
+
+\section{Overview of Analysis}
+\label{sec:Analysis}
+
+\begin{itemize}
+	\item Introduce Potential Outcomes Model (POMS) to lay the framework for how we want to view our overall analysis.
+	\begin{itemize}
+		\item The idea behind including it all the way up here is twofold. Firstly, it lets the reader know that POMS applies to both ITC and preschools. Secondly, we can reference POMS and use it to define the various ATE estimators later on without having to define it in those later sections.
+		\item Try to define $D_i$ in a flexible way so that we can easily use same indicator for comparisons that use various control groups.
+	\end{itemize} 
+	\item Let reader know that we will take a two-pronged approach to analyzing results. Section \ref{sec:ITC} will present methods and analysis for ITC, and Section \ref{sec:pre} will present methods and analysis for preschools.
+\end{itemize}
+~\\ ~\\
+
+\section{Analysis of Infant-Toddler Centers [8-10 pages]}
+\label{sec:ITC}
+\begin{itemize}
+	\item Insert section that talks about the two hypotheses, and how only one of them can be tested due to data restrictions
+	\item Talk about how we are only estimating within-Reggio Emilia comparisons (is this still true?)
+	\item Talk about what we hope to understand from these within-Reggio Emilia comparisons
+\end{itemize}
+\subsection{Estimation} \label{sec:ITCestimations}
+Introduce the following methods:
+\begin{itemize}
+	\item OLS
+	\item PSM
+	\item Kernel
+\end{itemize}
+
+\subsection{Results and Discussion} 
+\begin{itemize}
+	\item 4 pages of tables for children, adol, age30 and age40
+	\item 1-2 pages of discussion of tables
+\end{itemize}
+\newpage
+
+\section{Analysis of  Preschools} 
+\label{sec:pre}
+Having taken care of ITC, let us now focus on preschools
+\begin{itemize}
+	\item Talk about how our preschool analysis is going to be much richer than the ITC analysis because of less restrictive data.
+	\item Firstly, less restrictive data will improve within-Reggio Emilia comparisons as we can add adults to these comparisons 
+	\begin{itemize}
+		\item Refer back to Section \ref{sec:ITCestimations} and say that the biggest differences in the within-city analysis is that we now have all adult cohorts. We can also define an additional comparison group i.e., state.
+	\end{itemize}
+	\item More importantly, we are now able to add cross-city comparisons.
+	\begin{itemize}
+		\item Talk briefly about advantages of cross-city comparisons
+		\item Use this as a transition into section \ref{sec:preestimations} that introduces methodology for our cross-city comparisons
+	\end{itemize}
+\end{itemize}
+
+\subsection{Estimation} \label{sec:preestimations}
+\begin{itemize}
+	\item Diff-in-Diff
+	\item Cross-city PSM
+\end{itemize}
+
+\subsection{Results and Discussion} ~\\ ~\\
+
+\end{document}
