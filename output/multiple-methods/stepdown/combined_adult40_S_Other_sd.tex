@@ -1,24 +1,25 @@
-\begin{tabular}{l c c c c c}
+\begin{tabular}{l c c c c c c c c c}
 \toprule
- & None & BIC & Full & PSM \\
+& \multicolumn{5}{c}{Within Reggio} & \multicolumn{2}{c}{With Parma} & \multicolumn{2}{c}{With Padova} \\\cmidrule(lr){2-6} \cmidrule(lr){7-8} \cmidrule(lr){9-10}
+ & None & BIC & Full & PSMR & KMR & PSMPm & KMPm & PSMPv & KMPv \\
 \midrule
-Bothered by Migrants & 0.03 & 0.06 & 0.04 & -0.00 \\
-\quad \textit{Unadjusted P-Value} & (0.71) & (0.55) & (0.65) & (0.99) \\
-\quad \textit{Stepdown P-Value} & (0.91) & (0.94) & (0.95) & (0.99) \\
-Num. of Friends & 1.39 & 0.95 & 1.09 & 0.88 \\
-\quad \textit{Unadjusted P-Value} & (0.15) & (0.34) & (0.29) & (0.44) \\
-\quad \textit{Stepdown P-Value} & (0.65) & (0.80) & (0.67) & (0.85) \\
-Has Migrant Friends & 0.00 & -0.04 & -0.04 & -0.09 \\
-\quad \textit{Unadjusted P-Value} & (1.00) & (0.61) & (0.57) & (0.29) \\
-\quad \textit{Stepdown P-Value} & (0.91) & (0.94) & (0.92) & (0.75) \\
-Volunteers & 0.05 & 0.01 & 0.03 & -0.01 \\
-\quad \textit{Unadjusted P-Value} & (0.23) & (0.75) & (0.54) & (0.93) \\
-\quad \textit{Stepdown P-Value} & (0.77) & (0.94) & (0.90) & (0.85) \\
-Ever Voted for Municipal & -0.07 & 0.07 & 0.06 & 0.09 \\
-\quad \textit{Unadjusted P-Value} & (0.38) & (0.28) & (0.38) & (0.15) \\
-\quad \textit{Stepdown P-Value} & (0.88) & (0.80) & (0.81) & (0.60) \\
-Ever Voted for Regional & -0.05 & 0.08 & 0.07 & 0.10 \\
-\quad \textit{Unadjusted P-Value} & (0.53) & (0.23) & (0.34) & (0.17) \\
-\quad \textit{Stepdown P-Value} & (0.91) & (0.76) & (0.77) & (0.60) \\
+Bothered by Migrants & 0.03 & 0.06 & 0.04 & -0.00 & 0.05 & -0.07 & -0.03 & 0.19 & 0.26 \\
+\quad \textit{Unadjusted P-Value} & (0.71) & (0.55) & (0.65) & (0.99) & (0.58) & (0.52) & (0.79) & (0.05)*** & (0.01)*** \\
+\quad \textit{Stepdown P-Value} & (0.91) & (0.94) & (0.95) & (0.99) & (0.98) & (0.74) & (0.97) & (0.26) & (0.07)** \\
+Num. of Friends & 1.39 & 0.95 & 1.09 & 0.88 & 1.42 & 0.47 & 0.25 & 0.39 & 0.16 \\
+\quad \textit{Unadjusted P-Value} & (0.15)* & (0.34) & (0.29) & (0.44) & (0.16) & (0.61) & (0.80) & (0.67) & (0.88) \\
+\quad \textit{Stepdown P-Value} & (0.65) & (0.80) & (0.67) & (0.85) & (0.67) & (0.74) & (0.97) & (0.91) & (0.90) \\
+Has Migrant Friends & 0.00 & -0.04 & -0.04 & -0.09 & -0.05 & 0.08 & 0.07 & 0.09 & 0.13 \\
+\quad \textit{Unadjusted P-Value} & (1.00) & (0.61) & (0.57) & (0.29) & (0.61) & (0.32) & (0.34) & (0.19) & (0.08)** \\
+\quad \textit{Stepdown P-Value} & (0.91) & (0.94) & (0.92) & (0.75) & (0.98) & (0.65) & (0.67) & (0.51) & (0.30) \\
+Volunteers & 0.05 & 0.01 & 0.03 & -0.01 & -0.00 & -0.07 & -0.09 & -0.01 & -0.03 \\
+\quad \textit{Unadjusted P-Value} & (0.23) & (0.75) & (0.54) & (0.93) & (0.96) & (0.21) & (0.12)* & (0.88) & (0.50) \\
+\quad \textit{Stepdown P-Value} & (0.77) & (0.94) & (0.90) & (0.85) & (0.98) & (0.60) & (0.39) & (0.91) & (0.78) \\
+Ever Voted for Municipal & -0.07 & 0.07 & 0.06 & 0.09 & 0.04 & 0.14 & 0.13 & 0.07 & 0.07 \\
+\quad \textit{Unadjusted P-Value} & (0.38) & (0.28) & (0.38) & (0.15)* & (0.69) & (0.05)*** & (0.08)** & (0.30) & (0.36) \\
+\quad \textit{Stepdown P-Value} & (0.88) & (0.80) & (0.81) & (0.60) & (0.98) & (0.21) & (0.37) & (0.65) & (0.78) \\
+Ever Voted for Regional & -0.05 & 0.08 & 0.07 & 0.10 & 0.04 & 0.27 & 0.25 & 0.14 & 0.19 \\
+\quad \textit{Unadjusted P-Value} & (0.53) & (0.23) & (0.34) & (0.17) & (0.67) & (0.00)*** & (0.00)*** & (0.05)** & (0.01)*** \\
+\quad \textit{Stepdown P-Value} & (0.91) & (0.76) & (0.77) & (0.60) & (0.98) & (0.00)*** & (0.00)*** & (0.26) & (0.06)** \\
 \bottomrule
 \end{tabular}

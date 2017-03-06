@@ -20,9 +20,9 @@ version 13
 syntax, stype(string) type(string) psmlist(string) cohort(string)
 
 	
-	* ------------------------------------- *
-	* For Regression (OLS and Diff-in-Diff) *
-	* ------------------------------------- *
+	* ------------- *
+	* For Matching  *
+	* ------------- *
 
 	***** Determine if headers need to be written in output (first observation in each category)
 	local header_switch header
@@ -44,6 +44,9 @@ syntax, stype(string) type(string) psmlist(string) cohort(string)
 				di "variable: `var'"
 				* Regress
 				teffects psmatch (`var') (${X`comp'} ${controls`comp'}) if ${ifcondition`comp'}
+				
+				* Storing estimates to test equality between psm and iv
+				estimates store psm_`var', title(estimated coef. from psm of "`var'" as outcome) 
 				
 				di "Regression specification: teffects psmatch `var' ${X`comp'} ${controls`comp'} if ${ifcondition`comp'}" 
 				

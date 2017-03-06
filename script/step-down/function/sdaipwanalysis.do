@@ -30,12 +30,17 @@ syntax, stype(string) type(string) aipwlist(string) cohort(string)
 	***** Step-down p-value calculation (No need to loop trhough each variable, but need to loop through methods)
 	foreach comp in ${aipwlist} {
 		di "Running Romano-Wolf Stepdown Procedure for `comp'"
+		preserve 
+		
+		keep if ${ifcondition`comp'}
 		rwolfaipw ${`cohort'_outcome_`type'} if ${ifcondition`comp'}, indepvar(D) controls(${controls`comp'}) method(aipw) reps(100) seed(1)
 		
-		di "PSM Stepdown done"
+		di "AIPW Stepdown done"
 		foreach var in ${`cohort'_outcome_`type'} {
 			local aipw_sd_`var'_`comp' = e(rw_`var')
 		}
+		
+		restore
 	}
 	
 

@@ -116,8 +116,8 @@ foreach stype in Other None /*Stat Reli*/ {
 	global controlsPSM30R		${bic_adult_baseline_vars}
 	global controlsPSM30Pm		${bic_adult_baseline_vars}
 	global controlsPSM30Pv		${bic_adult_baseline_vars}
-	global controlsDidPm30		${bic_adult_baseline_vars}
-	global controlsDidPv30		${bic_adult_baseline_vars}
+	global controlsDidPm30		${bic_adult_baseline_did_vars}
+	global controlsDidPv30		${bic_adult_baseline_did_vars}
 	global controlsAIPW30		${bic_adult_baseline_vars}
 	
 	local  Other_psm			materna
@@ -232,8 +232,8 @@ foreach stype in Other /*Stat Reli*/ {
 	global controlsPSM40R		${bic_adult_baseline_vars}
 	global controlsPSM40Pm		${bic_adult_baseline_vars}
 	global controlsPSM40Pv		${bic_adult_baseline_vars}
-	global controlsDidPm40		${bic_adult_baseline_vars}
-	global controlsDidPv40		${bic_adult_baseline_vars}
+	global controlsDidPm40		${bic_adult_baseline_did_vars}
+	global controlsDidPv40		${bic_adult_baseline_did_vars}
 	global controlsAIPW40		${bic_adult_baseline_vars}
 	
 	local  Other_psm			materna
@@ -341,8 +341,8 @@ foreach stype in None {
 	global controlsPSM40R		${bic_adult_baseline_vars}
 	global controlsPSM40Pm		${bic_adult_baseline_vars}
 	global controlsPSM40Pv		${bic_adult_baseline_vars}
-	global controlsDidPm40		${bic_adult_baseline_vars}
-	global controlsDidPv40		${bic_adult_baseline_vars}
+	global controlsDidPm40		${bic_adult_baseline_did_vars}
+	global controlsDidPv40		${bic_adult_baseline_did_vars}
 	global controlsAIPW40		${bic_adult_baseline_vars}
 
 
@@ -393,16 +393,16 @@ foreach stype in None {
 		* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
-			* Open necessary files
-			cap file close aipw_`type'_`stype'
-			file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adult40_`type'_`stype'.csv", write replace
+		* Open necessary files
+		cap file close aipw_`type'_`stype'
+		file open aipw_`type'_`stype' using "${git_reggio}/output/multiple-methods/combinedanalysis/csv/aipw_adult40_`type'_`stype'.csv", write replace
 
-			* Run Multiple Analysis
-			di "Estimating `type' for Children: AIPW Analysis"
-			aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adult")
-			
-			* Close necessary files
-			file close aipw_`type'_`stype'	
+		* Run Multiple Analysis
+		di "Estimating `type' for Children: AIPW Analysis"
+		aipwanalysis, stype("`stype'") type("`type'") aipwlist("${aipwlist}") cohort("adult")
+		
+		* Close necessary files
+		file close aipw_`type'_`stype'	
 		
 		
 	}
