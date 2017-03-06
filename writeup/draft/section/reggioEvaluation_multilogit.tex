@@ -1,5 +1,3 @@
-
-
 \subsection{Differences in Selection across Cities}
 We estimate multinomial logit models for each city using choice of preschool type as the dependent variable, and a vector of baseline characteristics as independent variables. We then compare the estimated marginal effects for each baseline characteristic to investigate whether a common set of baseline characteristics determines selection into municipal preschools across the three cities. This analysis highlights characteristics that determine selection into the municipal schools relative to preschool alternatives available within the same city. Substantial differences in selection across cities would suggest that selection into municipal schools differ by city. This could be a result of different parental perceptions of quality, the available slots, or other factors determining demand for municipal schools relative to alternative options.
 
@@ -16,18 +14,22 @@ S_i = \quad
 \noindent We then estimate the following multinomial logit specification separately for each city:
 
 \begin{equation} \label{eq:log-odds-ratio}
-\nu_r = \text{log} \left(\frac{Pr(S_i=r)}{Pr(S_i=2)}\right) = \beta_0^r +  \bm{X}_i\bm{\beta}^r + \epsilon_i^r \quad \forall \quad r \in 0,1
+\nu_r = \text{log} \left(\frac{\Pr(S_i=r)}{\Pr(S_i=2)}\right) = \beta_0^r +  \bm{X}_i\bm{\beta}^r + \epsilon_i^r \quad \forall \quad r \in \{0,1\}
 \end{equation}
 
 \noindent where $\bm{X}_i$ is a vector of baseline characteristics including child's gender, number of child's siblings, religiosity of caregiver, mothers education level, and indicators for whether parents were born in province.
 
-The predicted log-odds ratio for each alternative option, $\hat{\nu}_r$, from (\ref{eq:log-odds-ratio}) can be used to construct the estimated probability of attending each school type $r$ as follows:
+The predicted log-odds ratio for each alternative option, $\hat{\nu}_r$, from (\ref{eq:log-odds-ratio}) can be used to construct the estimated probability of attending each school type $r$, $\hat{\pi}_{i,r}$, as follows:
 
 \begin{equation}
-\pi_{i,r} = \frac{\text{exp}(\hat{\nu}_{r,i})}{\sum\limits_{j=0}^{2} \text{exp}(\hat{\nu}_{j,i})} \quad \forall  r \in 0,1,2
+\hat{\pi}_{i,r} = \frac{\text{exp}(\hat{\nu}_{r,i})}{\sum\limits_{j=0}^{2} \text{exp}(\hat{\nu}_{j,i})} \quad \forall  r \in \{0,1,2\}.
 \end{equation}
 
-Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the propensity to attend a school type $r$, $\pi_{r}$, by calculating the partial derivative $\partial \pi_{r}/\partial x_c$. These results are reported in Appendix~\ref{appendix:mlogit}.
+Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the propensity to attend a school type $r$, $\pi_{r}$, by calculating the partial derivative $\partial \pi_{r}/\partial x_c$. These results are reported in Appendix~\ref{appendix:mlogit}. Comparisons across coefficients across cities are given in Tables~\ref{mlogit_all_chi-ado} and~\ref{mlogit_all}.
+
+\textbf{[JJH: Group, I asked for comparisons across the \ul{coefficients} of the choice probabilities across cities and an F-test for equality, i.e. $\beta^r$ same in all cities? Test equality.]}
+
+\textbf{[We are working on this.]}
 
 
 % ==============================================================================%
