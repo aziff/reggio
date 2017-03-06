@@ -75,31 +75,43 @@ foreach stype in Muni Other {
 	* Set necessary global variables
 	global X					asiloMuni
 	global reglist				None BIC Full DidPm DidPv 
-	global psmlist				PSM
-	global kernellist			KM
+	global psmlist				PSMR PSMPm PSMPv
+	global kernellist			KMR PSMPm PSMPv
 	global cohort				adol
 
 	global XNone				asiloMuni	
 	global XBIC					asiloMuni		
 	global XFull				asiloMuni	
-	global XPSM					asiloMuni
-	global XKM					asiloMuni
+	global XPSMR				asiloMuni
+	global XPSMPm				asiloMuni
+	global XPSMPv				asiloMuni
+	global XKMR					asiloMuni
+	global XKMPm				asiloMuni
+	global XKMPv				asiloMuni
 	global XDidPm				xaReggioMuni
 	global XDidPv				xaReggioMuni
 
 	global controlsNone
 	global controlsBIC			${bic_asilo_adol_baseline_vars}
 	global controlsFull			${adol_baseline_vars}
-	global controlsPSM			${bic_asilo_adol_baseline_vars}
-	global controlsKM			${bic_asilo_adol_baseline_vars}
+	global controlsPSMR			${bic_asilo_adol_baseline_vars}
+	global controlsPSMPm		${bic_asilo_adol_baseline_vars}
+	global controlsPSMPv		${bic_asilo_adol_baseline_vars}
+	global controlsKMR			${bic_asilo_adol_baseline_vars}
+	global controlsKMPm			${bic_asilo_adol_baseline_vars}
+	global controlsKMPv			${bic_asilo_adol_baseline_vars}
 	global controlsDidPm		Reggio asiloMuni ${bic_asilo_adol_baseline_vars}
 	global controlsDidPv		Reggio asiloMuni ${bic_asilo_adol_baseline_vars}
 
 	global ifconditionNone	 	(Reggio == 1) & (((asiloNone == 1) & (materna`stype' == 1)) | ((asiloMuni == 1) & (materna`stype' == 1)))
 	global ifconditionBIC		${ifconditionNone}
 	global ifconditionFull		${ifconditionNone}
-	global ifconditionPSM		${ifconditionNone}
-	global ifconditionKM		${ifconditionNone}
+	global ifconditionPSMR		${ifconditionNone}
+	global ifconditionPSMPm		((Reggio == 1) & (asiloMuni == 1) & (materna`stype' == 1)) | ((Parma == 1) & (asiloNone == 1) & (materna`stype' == 1)) 
+	global ifconditionPSMPv		((Reggio == 1) & (asiloMuni == 1) & (materna`stype' == 1)) | ((Padova == 1) & (asiloNone == 1) & (materna`stype' == 1)) 
+	global ifconditionKMR		${ifconditionNone}
+	global ifconditionKMPm		((Reggio == 1) & (asiloMuni == 1) & (materna`stype' == 1)) | ((Parma == 1) & (asiloNone == 1) & (materna`stype' == 1)) 
+	global ifconditionKMPv		((Reggio == 1) & (asiloMuni == 1) & (materna`stype' == 1)) | ((Padova == 1) & (asiloNone == 1) & (materna`stype' == 1))
 	global ifconditionDidPm		(Reggio == 1 | Parma == 1)    & (((asiloNone == 1) & (materna`stype' == 1)) | ((asiloMuni == 1) & (materna`stype' == 1)))
 	global ifconditionDidPv		(Reggio == 1 | Padova == 1)    & (((asiloNone == 1) & (materna`stype' == 1)) | ((asiloMuni == 1) & (materna`stype' == 1))) 
 

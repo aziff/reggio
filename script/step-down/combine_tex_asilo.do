@@ -24,9 +24,9 @@ include "${here}/../macros"
 * Set Macros *
 * ---------- *
 global cohort					child adol adult30 adult40
-global groupchild				None
-global groupadol				None
-global groupadult30		   		None
+global groupchild				Muni
+global groupadol				Muni
+global groupadult30		   		Muni
 global groupadult40				None
 global outcomechild				M CN S H B
 global outcomeadol				M CN S H B
@@ -34,32 +34,32 @@ global outcomeadult30			M E W L H N S
 global outcomeadult40			M E W L H N S
 	
 
-global reglistchild				None BIC Full   
+global reglistchild				None BIC Full DidPm DidPv  
 global psmlistchild				PSM
 global kernellistchild			KM
-global fulllistchild			None BIC Full PSM KM // order should be same as fulllistchildlp
-global reglistchildlp			none bic full 
+global fulllistchild			None BIC Full PSM KM DidPm DidPv // order should be same as fulllistchildlp
+global reglistchildlp			none bic full didpm didpv
 global psmlistchildlp			psm
 global kernellistchildlp		km
-global fulllistchildlp			none bic full psm km
+global fulllistchildlp			none bic full psm km didpm didpv
 
-global reglistadol				None BIC Full   
+global reglistadol				None BIC Full DidPm DidPv  
 global psmlistadol				PSM
 global kernellistadol			KM
-global fulllistadol				None BIC Full PSM KM // order should be same as fulllistchildlp
-global reglistadollp			none bic full 
+global fulllistadol				None BIC Full PSM KM DidPm DidPv // order should be same as fulllistchildlp
+global reglistadollp			none bic full didpm didpv
 global psmlistadollp			psm
 global kernellistadollp			km
-global fulllistadollp			none bic full psm km
+global fulllistadollp			none bic full psm km didpm didpv
 
-global reglistadult30			None BIC Full   
+global reglistadult30			None BIC Full DidPm DidPv
 global psmlistadult30			PSM
 global kernellistault30			KM
-global fulllistadult30			None BIC Full PSM KM // order should be same as fulllistchildlp
-global reglistadult30lp			none bic full 
+global fulllistadult30			None BIC Full PSM KM DidPm DidPv // order should be same as fulllistchildlp
+global reglistadult30lp			none bic full didpm didpv
 global psmlistadult30lp			psm
 global kernellistadult30lp		km
-global fulllistadult30lp		none bic full psm km
+global fulllistadult30lp		none bic full psm km didpm didpv
 
 global reglistadult40			None BIC Full   
 global psmlistadult40			PSM
