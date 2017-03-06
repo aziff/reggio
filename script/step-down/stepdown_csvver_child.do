@@ -67,11 +67,11 @@ preserve
 keep if (Cohort == 1)  //| (Cohort == 2)  check if I need to include migrant cohort
 
 local stype_switch = 1
-foreach stype in Other Stat Reli {
+foreach stype in /*Other Stat Reli */ Affi {
 	
 	* Set necessary global variables
 	global X					maternaMuni
-	global reglist				None BIC Full DidPm DidPv  // It => Italians, Mg => Migrants
+	global reglist				None BIC Full /*DidPm DidPv*/  // It => Italians, Mg => Migrants
 	global psmlist				PSMR PSMPm PSMPv
 	global kernellist			KMR KMPm KMPv
 	global aipwlist				AIPW 
@@ -113,6 +113,7 @@ foreach stype in Other Stat Reli {
 	local  Other_psm			materna
 	local  Stat_psm				maternaStat
 	local  Reli_psm				maternaReli
+	local  Affi_psm				maternaAffi
 
 	global ifconditionNone 		(Reggio == 1) & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionBIC		${ifconditionNone}
@@ -157,7 +158,7 @@ foreach stype in Other Stat Reli {
 		* Close necessary files
 		file close psm_`type'_`stype' 
 		
-	/*	
+		
 		
 		* ----------------------- *
 		* For Kernel Analysis 	  *
@@ -170,7 +171,7 @@ foreach stype in Other Stat Reli {
 		sdkernelanalysis, stype("`stype'") type("`type'") kernellist("${kernellist}") cohort("child")
 	
 		* Close necessary files
-		file close kern_`type'_`stype' */
+		file close kern_`type'_`stype' 
 	
 	
 	}
