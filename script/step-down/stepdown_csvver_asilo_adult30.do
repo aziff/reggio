@@ -74,9 +74,9 @@ foreach stype in Muni Other {
 	
 	* Set necessary global variables
 	global X					asiloMuni
-	global reglist				None BIC Full DidPm DidPv // It => Italians, Mg => Migrants
-	global psmlist				PSMR PSMPm PSMPv
-	global kernellist			KMR PSMPm PSMPv
+	global reglist				None BIC Full DidPm // It => Italians, Mg => Migrants
+	global psmlist				PSMR PSMPm 
+	global kernellist			KMR PSMPm 
 	global cohort				adult
 
 	global XNone				asiloMuni	
