@@ -117,7 +117,7 @@ foreach stype in Muni Other {
 	global ifconditionDidPv		(Reggio == 1 | Padova == 1)    & (((asiloNone == 1) & (materna`stype' == 1)) | ((asiloMuni == 1) & (materna`stype' == 1))) 
 
 	
-	foreach type in  M E W L H N S {
+	foreach type in  M /*E W L H N S*/ {
 
 		* ----------------------- *
 		* For Regression Analysis *
