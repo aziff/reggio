@@ -221,8 +221,8 @@ foreach stype in Affi {
 	global controlsBICPv		${bic_child_baseline_vars}
 
 	global ifconditionBICR		(Reggio == 1) & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionBICPm		((Reggio == 1) & (maternaMuni == 1)) | ((Parma == 1) & (``stype'_psm' == 1))
-	global ifconditionBICPv		((Reggio == 1) & (maternaMuni == 1)) | ((Padova == 1) & (``stype'_psm' == 1))
+	global ifconditionBICPm		((Reggio == 1) & (maternaMuni == 1)) | ((Parma == 1) & (materna`stype' == 1))
+	global ifconditionBICPv		((Reggio == 1) & (maternaMuni == 1)) | ((Padova == 1) & (materna`stype' == 1))
 	
 	foreach type in  M CN S H B {
 
