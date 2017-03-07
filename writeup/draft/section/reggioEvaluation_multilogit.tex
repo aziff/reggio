@@ -25,11 +25,9 @@ The predicted log-odds ratio for each alternative option, $\hat{\nu}_r$, from (\
 \hat{\pi}_{i,r} = \frac{\text{exp}(\hat{\nu}_{r,i})}{\sum\limits_{j=0}^{2} \text{exp}(\hat{\nu}_{j,i})} \quad \forall  r \in \{0,1,2\}.
 \end{equation}
 
-Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the propensity to attend a school type $r$, $\pi_{r}$, by calculating the partial derivative $\partial \pi_{r}/\partial x_c$. These results are reported in Appendix~\ref{appendix:mlogit}. Comparisons across coefficients across cities are given in Tables~\ref{mlogit_all_chi-ado} and~\ref{mlogit_all}.
+Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the propensity to attend a school type $r$, $\pi_{r}$, by calculating the partial derivative $\partial \pi_{r}/\partial x_c$. These results are reported in Appendix~\ref{appendix:mlogit}. Comparisons across coefficients across cities are given in Tables~\ref{mlogit_coeff_child} through~\ref{mlogit_coeff_asilo_age40}.
 
-\textbf{[JJH: Group, I asked for comparisons across the \ul{coefficients} of the choice probabilities across cities and an F-test for equality, i.e. $\beta^r$ same in all cities? Test equality.]}
-
-\textbf{[We are working on this.]}
+\textbf{[JJH: Group, I asked for comparisons across the \ul{coefficients} of the choice probabilities across cities and an F-test for equality, i.e. $\beta^r$ same in all cities? Test equality.][We have added tables to display the coefficients and test the difference between the interaction terms of Parma and Padova. The differences are much more pronounced when looking at selection into infant-toddler care between the two cities, relative to Reggio Emilia.]}
 
 
 % ==============================================================================%
@@ -45,7 +43,7 @@ Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the 
 \begin{threeparttable}
 \input{../../output/mlogit_Reggio_chi-ado_ready.tex}
 \begin{tablenotes}
-\footnotesize\raggedright{Note: This table shows the results from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
+\footnotesize\raggedright{Note: This table shows the marginal effects from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
 \end{tablenotes}
 \end{threeparttable}
 \end{adjustbox}
@@ -58,7 +56,7 @@ Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the 
 \begin{threeparttable}
 \input{../../output/mlogit_Reggio_ready.tex}
 \begin{tablenotes}
-\footnotesize\raggedright{Note: This table shows the results from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
+\footnotesize\raggedright{Note: This table shows the marginal effects from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
 \end{tablenotes}
 \end{threeparttable}
 \end{adjustbox}
@@ -71,7 +69,7 @@ Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the 
 \begin{threeparttable}
 \input{../../output/mlogit_Parma_chi-ado_ready.tex}
 \begin{tablenotes}
-\footnotesize\raggedright{Note: This table shows the results from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
+\footnotesize\raggedright{Note: This table shows the marginal effects from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
 \end{tablenotes}
 \end{threeparttable}
 \end{adjustbox}
@@ -83,7 +81,7 @@ Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the 
 \begin{threeparttable}
 \input{../../output/mlogit_Parma_ready.tex}
 \begin{tablenotes}
-\footnotesize\raggedright{Note: This table shows the results from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
+\footnotesize\raggedright{Note: This table shows the marginal effects from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -95,7 +93,7 @@ Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the 
 \begin{threeparttable}
 \input{../../output/mlogit_Padova_chi-ado_ready.tex}
 \begin{tablenotes}
-\footnotesize\raggedright{Note: This table shows the results from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
+\footnotesize\raggedright{Note: This table shows the marginal effects from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
 \end{tablenotes}
 \end{threeparttable}
 \end{adjustbox}
@@ -108,18 +106,18 @@ Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the 
 \begin{threeparttable}
 \input{../../output/mlogit_Padova_ready.tex}
 \begin{tablenotes}
-\footnotesize\raggedright{Note: This table shows the results from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
+\footnotesize\raggedright{Note: This table shows the marginal effects from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
 \begin{table}[H]
 \centering
-\caption{Multinomial Logit, Child Cohort,  All Cities} \label{mlogit_coeff_child}
+\caption{Multinomial Logit, Child Cohort, Preschool, All Cities} \label{mlogit_coeff_child}
 \begin{threeparttable}
 \input{../../output/mlogit_coeff_child.tex}
 \begin{tablenotes}
-\footnotesize\raggedright{Note: This table shows the coefficients from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
+\footnotesize\raggedright{Note: This table shows the coefficients from a multinomial logit that uses baseline characteristics to predict enrollment in non-municipal preschool or no preschool, relative to enrollment in municipal preschool. The column titled ``None'' displays the coefficients of attending no preschool. Similarly, the column titled ``Other'' displays the same coefficients for attending a non-municipal preschool. Estimates with a * indicate significance at the 10\% level. Bolded  estimates indicate that the interaction terms of Parma and Padova are significantly different at the 10\% level.}
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -127,11 +125,11 @@ Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the 
 
 \begin{table}[H]
 \centering
-\caption{Multinomial Logit, Adolescent Cohort,  All Cities} \label{mlogit_coeff_adol}
+\caption{Multinomial Logit, Adolescent Cohort, Preschool,  All Cities} \label{mlogit_coeff_adol}
 \begin{threeparttable}
 \input{../../output/mlogit_coeff_adol.tex}
 \begin{tablenotes}
-\footnotesize\raggedright{Note: This table shows the coefficients from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
+\footnotesize\raggedright{Note: This table shows the coefficients from a multinomial logit that uses baseline characteristics to predict enrollment in non-municipal preschool or no preschool, relative to enrollment in municipal preschool. The column titled ``None'' displays the coefficients of attending no preschool. Similarly, the column titled ``Other'' displays the same coefficients for attending a non-municipal preschool. Estimates with a * indicate significance at the 10\% level. Bolded  estimates indicate that the interaction terms of Parma and Padova are significantly different at the 10\% level.}
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -139,22 +137,22 @@ Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the 
 
 \begin{table}[H]
 \centering
-\caption{Multinomial Logit, Age-30 Cohort,  All Cities} \label{mlogit_coeff_age30}
+\caption{Multinomial Logit, Age-30 Cohort, Preschool, All Cities} \label{mlogit_coeff_age30}
 \begin{threeparttable}
 \input{../../output/mlogit_coeff_age30.tex}
 \begin{tablenotes}
-\footnotesize\raggedright{Note: This table shows the coefficients from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
+\footnotesize\raggedright{Note: This table shows the coefficients from a multinomial logit that uses baseline characteristics to predict enrollment in non-municipal preschool or no preschool, relative to enrollment in municipal preschool. The column titled ``None'' displays the coefficients of attending no preschool. Similarly, the column titled ``Other'' displays the same coefficients for attending a non-municipal preschool. Estimates with a * indicate significance at the 10\% level. Bolded  estimates indicate that the interaction terms of Parma and Padova are significantly different at the 10\% level.}
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
 
 \begin{table}[H]
 \centering
-\caption{Multinomial Logit, Age-40 Cohort,  All Cities} \label{mlogit_coeff_age40}
+\caption{Multinomial Logit, Age-40 Cohort, Preschool,  All Cities} \label{mlogit_coeff_age40}
 \begin{threeparttable}
 \input{../../output/mlogit_coeff_age40.tex}
 \begin{tablenotes}
-\footnotesize\raggedright{Note: This table shows the coefficients from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
+\footnotesize\raggedright{Note: This table shows the coefficients from a multinomial logit that uses baseline characteristics to predict enrollment in non-municipal preschool or no preschool, relative to enrollment in municipal preschool. The column titled ``None'' displays the coefficients of attending no preschool. Similarly, the column titled ``Other'' displays the same coefficients for attending a non-municipal preschool. Estimates with a * indicate significance at the 10\% level. Bolded  estimates indicate that the interaction terms of Parma and Padova are significantly different at the 10\% level.}
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -165,7 +163,7 @@ Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the 
 \begin{threeparttable}
 \input{../../output/mlogit_coeff_asilo_child.tex}
 \begin{tablenotes}
-\footnotesize\raggedright{Note: This table shows the coefficients from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
+\footnotesize\raggedright{Note: This table shows the coefficients from a multinomial logit that uses baseline characteristics to predict enrollment in non-municipal infant-toddler care or no infant-toddler care, relative to enrollment in municipal infant-toddler care. The column titled ``None'' displays the coefficients of attending no preschool. Similarly, the column titled ``Other'' displays the same coefficients for attending a non-municipal infant-toddler care. Estimates with a * indicate significance at the 10\% level. Bolded  estimates indicate that the interaction terms of Parma and Padova are significantly different at the 10\% level.}
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -177,7 +175,7 @@ Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the 
 \begin{threeparttable}
 \input{../../output/mlogit_coeff_asilo_adol.tex}
 \begin{tablenotes}
-\footnotesize\raggedright{Note: This table shows the coefficients from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
+\footnotesize\raggedright{Note: This table shows the coefficients from a multinomial logit that uses baseline characteristics to predict enrollment in non-municipal infant-toddler care or no infant-toddler care, relative to enrollment in municipal infant-toddler care. The column titled ``None'' displays the coefficients of attending no preschool. Similarly, the column titled ``Other'' displays the same coefficients for attending a non-municipal infant-toddler care. Estimates with a * indicate significance at the 10\% level. Bolded  estimates indicate that the interaction terms of Parma and Padova are significantly different at the 10\% level.}
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -189,7 +187,7 @@ Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the 
 \begin{threeparttable}
 \input{../../output/mlogit_coeff_asilo_age30.tex}
 \begin{tablenotes}
-\footnotesize\raggedright{Note: This table shows the coefficients from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
+\footnotesize\raggedright{Note: This table shows the coefficients from a multinomial logit that uses baseline characteristics to predict enrollment in non-municipal infant-toddler care or no infant-toddler care, relative to enrollment in municipal infant-toddler care. The column titled ``None'' displays the coefficients of attending no preschool. Similarly, the column titled ``Other'' displays the same coefficients for attending a non-municipal infant-toddler care. Estimates with a * indicate significance at the 10\% level. Bolded  estimates indicate that the interaction terms of Parma and Padova are significantly different at the 10\% level.}
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
@@ -200,7 +198,7 @@ Finally, we estimate the impact of each characteristic $x_c$ of $\bm{X}$ on the 
 \begin{threeparttable}
 \input{../../output/mlogit_coeff_asilo_age40.tex}
 \begin{tablenotes}
-\footnotesize\raggedright{Note: This table shows the coefficients from a multinomial logit that uses baseline characteristics to predict enrollment in municipal preschool, other preschool, or no preschool. The columns titled ``None'' display the marginal effects and standard errors of attending no preschool. Similarly, the columns titled ``Other'' display the same estimates for attending a non-municipal preschool and those titled ``Municipal" display estimates for attending a municipal school. Standard errors are reported in parentheses. Stars show statistical significance as follows: * $p < 0.05$, ** $p < 0.01$, *** $p < 0.001$.}
+\footnotesize\raggedright{Note: This table shows the coefficients from a multinomial logit that uses baseline characteristics to predict enrollment in non-municipal infant-toddler care or no infant-toddler care, relative to enrollment in municipal infant-toddler care. The column titled ``None'' displays the coefficients of attending no preschool. Similarly, the column titled ``Other'' displays the same coefficients for attending a non-municipal infant-toddler care. Estimates with a * indicate significance at the 10\% level. Bolded  estimates indicate that the interaction terms of Parma and Padova are significantly different at the 10\% level.}
 \end{tablenotes}
 \end{threeparttable}
 \end{table}
