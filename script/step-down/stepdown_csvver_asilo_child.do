@@ -76,7 +76,7 @@ foreach stype in Muni Other {
 	global X					asiloMuni
 	global reglist				None BIC Full DidPm DidPv // It => Italians, Mg => Migrants
 	global psmlist				PSMR PSMPm PSMPv
-	global kernellist			KMR PSMPm PSMPv
+	global kernellist			KMR KMPm KMPv
 	global cohort				child
 
 	global XNone				asiloMuni	

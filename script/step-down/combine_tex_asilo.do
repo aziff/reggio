@@ -28,20 +28,22 @@ global groupchild				Muni
 global groupadol				Muni
 global groupadult30		   		Muni
 global groupadult40				None
-global outcomechild				M CN S H B
-global outcomeadol				M CN S H B
-global outcomeadult30			M E W L H N S
-global outcomeadult40			M E W L H N S
+global outcomechild				M /*CN S H B*/
+global outcomeadol				M /*CN S H B*/
+global outcomeadult30			M /*E W L H N S*/
+global outcomeadult40			M /*E W L H N S*/
 	
 
 global reglistchild				None BIC Full DidPm DidPv  
-global psmlistchild				PSM
-global kernellistchild			KM
-global fulllistchild			None BIC Full PSM KM DidPm DidPv // order should be same as fulllistchildlp
+global psmlistchild				PSMR PSMPm PSMPv
+global kernellistchild			KMR KMPm KMPv
+global fulllistchild			None BIC Full PSM KM DidPm PSMPm KMPm DidPv  // order should be same as fulllistchildlp
 global reglistchildlp			none bic full didpm didpv
 global psmlistchildlp			psm
 global kernellistchildlp		km
 global fulllistchildlp			none bic full psm km didpm didpv
+global firstlinechild			\multicolumn{5}{c}{Within Reggio} & \multicolumn{3}{c}{With Parma} & \multicolumn{3}{c}{With Padova}     
+global clinechild				\cmidrule(lr){2-6} \cmidrule(lr){7-9} \cmidrule(lr){10-12}
 
 global reglistadol				None BIC Full DidPm DidPv  
 global psmlistadol				PSM
@@ -61,6 +63,7 @@ global psmlistadult30lp			psm
 global kernellistadult30lp		km
 global fulllistadult30lp		none bic full psm km didpm didpv
 
+/*
 global reglistadult40			None BIC Full   
 global psmlistadult40			PSM
 global kernellistault40			KM
@@ -68,7 +71,7 @@ global fulllistadult40			None BIC Full PSM KM // order should be same as fulllis
 global reglistadult40lp			none bic full 
 global psmlistadult40lp			psm
 global kernellistadult40lp		km
-global fulllistadult40lp		none bic full psm km
+global fulllistadult40lp		none bic full psm km */
 
 * ------------------------------------ *
 * Merge and Create Tex for each cohort *
