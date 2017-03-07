@@ -38,30 +38,31 @@ replace grouping = 2 if maternaType == 1 // MUNICIPAL
 lab var grouping ""
 								
 // define baseline variables			
-global child_baseline_vars  		Male lowbirthweight birthpremature ///
-					momBornProvince dadBornProvince ///
-					momMaxEdu_Uni   ///
-					dadMaxEdu_Uni  ///
-					numSibling_2 numSibling_more ///
-					cgCatholic cgIslam cgRelig ///
-					cgMigrant 
+global child_baseline_vars		Male lowbirthweight birthpremature 	///
+					momMaxEdu_UniorGrad			///
+					cgReddito_above50k 			///
+					cgCatholic int_cgCatFaith		///
+					momBornProvince migrant 		///
+					numSibling_2 numSibling_more	
 								
 								
-global adol_baseline_vars		Male lowbirthweight birthpremature ///
-					momBornProvince dadBornProvince ///
-					momMaxEdu_Uni   ///
-					dadMaxEdu_Uni  ///
-					numSibling_2 numSibling_more ///
-					cgCatholic cgIslam cgRelig ///
-					cgMigrant 
+global adol_baseline_vars		Male lowbirthweight birthpremature 	///
+					momMaxEdu_UniorGrad 			///
+					cgReddito_above50k 			///
+					cgCatholic int_cgCatFaith		///
+					momBornProvince cgMigrant		///
+					numSibling_2 numSibling_more 
 
 					 
-global adult_baseline_vars		Male  ///
-					momBornProvince ///
-					dadBornProvince  ///
-					numSibling_2 numSibling_more cgRelig ///
-					momMaxEdu_middle momMaxEdu_HS momMaxEdu_Uni  
-								
+global adult_baseline_vars		Male  					///
+					momMaxEdu_HS momMaxEdu_UniorGrad	///
+					cgRelig					///
+					momBornProvince dadBornProvince		///
+					numSibling_2 numSibling_more
+					
+gen momMaxEdu_UniorGrad = (momMaxEdu_Uni == 1 | momMaxEdu_Grad == 1)
+gen cgReddito_above50k	= (cgReddito_5 == 1 | cgReddito_6 == 1 | cgReddito_7 == 1)
+												
 foreach var in $adult_baseline_vars {
 	lab var `var' "${`var'_lab}"
 }
