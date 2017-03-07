@@ -59,6 +59,7 @@ generate D2 = (D == 2)
 global bootstrap = 70
 set seed 1234
 
+/*
 * ---------------------------------------------------------------------------- *
 * 					Reggio Muni vs. None:	Children 						   *
 * ---------------------------------------------------------------------------- *
@@ -67,11 +68,11 @@ preserve
 keep if (Cohort == 1)  //| (Cohort == 2)  check if I need to include migrant cohort
 
 local stype_switch = 1
-foreach stype in /*Other Stat Reli */ Affi {
+foreach stype in Other Stat Reli {
 	
 	* Set necessary global variables
 	global X					maternaMuni
-	global reglist				None BIC Full /*DidPm DidPv*/  // It => Italians, Mg => Migrants
+	global reglist				None BIC Full DidPm DidPv  // It => Italians, Mg => Migrants
 	global psmlist				PSMR PSMPm PSMPv
 	global kernellist			KMR KMPm KMPv
 	global aipwlist				AIPW 
@@ -181,3 +182,67 @@ foreach stype in /*Other Stat Reli */ Affi {
 
 restore
 
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+* ---------------------------------------------------------------------------- *
+* 					Reggio Muni vs. Affi:	Children 						   *
+* ---------------------------------------------------------------------------- *
+** Keep only the adult cohorts
+preserve
+keep if (Cohort == 1)  //| (Cohort == 2)  check if I need to include migrant cohort
+
+local stype_switch = 1
+foreach stype in Affi {
+	
+	* Set necessary global variables
+	global X					maternaMuni
+	global reglist				BICR BICPm BICPv 
+	global cohort				child
+
+	global XBICR				maternaMuni
+	global XBICPm				maternaMuni		
+	global XBICPv				maternaMuni		
+	
+	global controlsBICR			${bic_child_baseline_vars}
+	global controlsBICPm		${bic_child_baseline_vars}
+	global controlsBICPv		${bic_child_baseline_vars}
+
+	global ifconditionBICR		(Reggio == 1) & (maternaMuni == 1 | materna`stype' == 1)
+	global ifconditionBICPm		((Reggio == 1) & (maternaMuni == 1)) | ((Parma == 1) & (materna`stype' == 1))
+	global ifconditionBICPv		((Reggio == 1) & (maternaMuni == 1)) | ((Padova == 1) & (materna`stype' == 1))
+	
+	foreach type in  M CN S H B {
+
+		* ----------------------- *
+		* For Regression Analysis *
+		* ----------------------- *
+		* Open necessary files
+		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/reg_child_`type'_`stype'_sd.csv", write replace
+
+		* Run Multiple Analysis
+		di "Estimating `type' for Children: Regression Analysis"
+		sdreganalysis, stype("`stype'") type("`type'") reglist("${reglist}") cohort("child")
+	
+		* Close necessary files
+		file close regression_`type'_`stype' 
+		
+	
+	}
+	
+	local stype_switch = 0
+}
+
+restore

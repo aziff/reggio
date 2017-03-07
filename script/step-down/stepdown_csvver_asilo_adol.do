@@ -76,7 +76,7 @@ foreach stype in Muni Other {
 	global X					asiloMuni
 	global reglist				None BIC Full DidPm DidPv 
 	global psmlist				PSMR PSMPm PSMPv
-	global kernellist			KMR PSMPm PSMPv
+	global kernellist			KMR KMPm KMPv
 	global cohort				adol
 
 	global XNone				asiloMuni	
@@ -116,7 +116,7 @@ foreach stype in Muni Other {
 	global ifconditionDidPv		(Reggio == 1 | Padova == 1)    & (((asiloNone == 1) & (materna`stype' == 1)) | ((asiloMuni == 1) & (materna`stype' == 1))) 
 
 	
-	foreach type in  M CN S H B {
+	foreach type in  M /*CN S H B*/ {
 
 		* ----------------------- *
 		* For Regression Analysis *

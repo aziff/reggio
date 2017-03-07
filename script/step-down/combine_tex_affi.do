@@ -23,59 +23,14 @@ include "${here}/../macros"
 * ---------- *
 * Set Macros *
 * ---------- *
-global cohort					child adol adult30 adult40
-global groupchild				Muni
-global groupadol				Muni
-global groupadult30		   		Muni
-global groupadult40				None
-global outcomechild				M /*CN S H B*/
-global outcomeadol				M /*CN S H B*/
-global outcomeadult30			M /*E W L H N S*/
-global outcomeadult40			M /*E W L H N S*/
-	
+global cohort					child 
+global groupchild				Affi
+global outcomechild				M CN S H B	
 
-global reglistchild				None BIC Full DidPm DidPv  
-global psmlistchild				PSMR PSMPm PSMPv
-global kernellistchild			KMR KMPm KMPv
-global fulllistchild			None BIC Full PSM KM DidPm PSMPm KMPm DidPv PSMPv KMPv // order should be same as fulllistchildlp
-global reglistchildlp			none bic full didpm didpv
-global psmlistchildlp			psmr psmpm psmpv
-global kernellistchildlp		kmr kmpm kmpv
-global fulllistchildlp			none bic full psmr kmr didpm psmpm kmpm didpv psmpv kmpv
-global firstlinechild			\multicolumn{5}{c}{Within Reggio} & \multicolumn{3}{c}{With Parma} & \multicolumn{3}{c}{With Padova}     
-global clinechild				\cmidrule(lr){2-6} \cmidrule(lr){7-9} \cmidrule(lr){10-12}
-
-global reglistadol				None BIC Full DidPm DidPv  
-global psmlistadol				PSMR PSMPm PSMPv
-global kernellistadol			KMR KMPm KMPv
-global fulllistadol				None BIC Full PSM KM DidPm PSMPm KMPm DidPv PSMPv KMPv // order should be same as fulllistchildlp
-global reglistadollp			none bic full didpm didpv
-global psmlistadollp			psmr psmpm psmpv
-global kernellistadollp			kmr kmpm kmpv
-global fulllistadollp			none bic full psmr kmr didpm psmpm kmpm didpv psmpv kmpv
-global firstlineadol			\multicolumn{5}{c}{Within Reggio} & \multicolumn{3}{c}{With Parma} & \multicolumn{3}{c}{With Padova}     
-global clineadol				\cmidrule(lr){2-6} \cmidrule(lr){7-9} \cmidrule(lr){10-12}
-
-
-global reglistadult30			None BIC Full DidPm DidPv  
-global psmlistadult30			PSMR PSMPm PSMPv
-global kernellistadult30		KMR KMPm KMPv
-global fulllistadult30			None BIC Full PSM KM DidPm PSMPm KMPm DidPv PSMPv KMPv // order should be same as fulllistchildlp
-global reglistadult30lp			none bic full didpm didpv
-global psmlistadult30lp			psmr psmpm psmpv
-global kernellistadult30lp		kmr kmpm kmpv
-global fulllistadult30lp		none bic full psmr kmr didpm psmpm kmpm didpv psmpv kmpv
-global firstlineadult30			\multicolumn{5}{c}{Within Reggio} & \multicolumn{3}{c}{With Parma} & \multicolumn{3}{c}{With Padova}     
-global clineadult30				\cmidrule(lr){2-6} \cmidrule(lr){7-9} \cmidrule(lr){10-12}
-/*
-global reglistadult40			None BIC Full   
-global psmlistadult40			PSM
-global kernellistault40			KM
-global fulllistadult40			None BIC Full PSM KM // order should be same as fulllistchildlp
-global reglistadult40lp			none bic full 
-global psmlistadult40lp			psm
-global kernellistadult40lp		km
-global fulllistadult40lp		none bic full psm km */
+global reglistchild				BICR BICPm BICPv   
+global fulllistchild			OLSR OLSPm OLSPv // order should be same as fulllistchildlp
+global reglistchildlp			bicr bicpm bicpv 
+global fulllistchildlp			bicr bicpm bicpv
 
 * ------------------------------------ *
 * Merge and Create Tex for each cohort *
@@ -86,23 +41,11 @@ foreach coh in $cohort {
 		foreach out in ${outcome`coh'} {
 		
 			di "Importing for `coh' `gr' `out'"
-			import delimited using "${git_reggio}/output/multiple-methods/stepdown/csv/reg_`coh'_`out'_`gr'_asilo_sd.csv", clear
+			import delimited using "${git_reggio}/output/multiple-methods/stepdown/csv/reg_`coh'_`out'_`gr'_sd.csv", clear
 			
 			tempfile reg_`coh'_`gr'
 			save "`reg_`coh'_`gr''"
 			
-			import delimited using "${git_reggio}/output/multiple-methods/stepdown/csv/psm_`coh'_`out'_`gr'_asilo_sd.csv", clear
-			merge 1:1 rowname using `reg_`coh'_`gr''
-			
-			drop _merge
-			
-			tempfile reg_`coh'_`gr'
-			save "`reg_`coh'_`gr''"
-			
-			import delimited using "${git_reggio}/output/multiple-methods/stepdown/csv/kern_`coh'_`out'_`gr'_asilo_sd.csv", clear
-			merge 1:1 rowname using `reg_`coh'_`gr''
-			
-			drop _merge
 			
 			
 			
@@ -309,13 +252,12 @@ foreach coh in $cohort {
 			* Now Create Tex file *
 			* ------------------- *
 				
-			file open tabfile`coh'`gr' using "${git_reggio}/output/multiple-methods/stepdown/combined_`coh'_`out'_`gr'_asilo_sd.tex", write replace
+			file open tabfile`coh'`gr' using "${git_reggio}/output/multiple-methods/stepdown/combined_`coh'_`out'_`gr'_sd.tex", write replace
 			file write tabfile`coh'`gr' "\begin{tabular}{`tabular'}" _n
 			file write tabfile`coh'`gr' "\toprule" _n
-			file write tabfile`coh'`gr' "& ${firstline`coh'} \\"
-			file write tabfile`coh'`gr' "${cline`coh'}" _n
 			file write tabfile`coh'`gr' " `colname' \\" _n
 			file write tabfile`coh'`gr' "\midrule" _n
+
 			foreach outcome in ${`coh'_outcome_`out'} {
 				* Point Estimate
 				file write tabfile`coh'`gr' "``outcome'tex_p' \\" _n
