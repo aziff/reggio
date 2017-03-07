@@ -172,6 +172,7 @@ foreach cohort in Child Adolescent Adult30 Adult40 {
 	}
 	
 	file write tabfile "\bottomrule" _n
+	file write tabfile "\end{tabular}" _n
 	file write tabfile "% This mlogit converged? ``cohort_short'_conv'" _n
 	file write tabfile "% This file is generated using reggio/script/multinomial-logit/analysis_mlogit_interaction.do" _n
 	file close tabfile
