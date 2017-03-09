@@ -1,0 +1,55 @@
+% This file: 			Draft Compiling New Information and Analysis
+% Contributors: 		Pietro Biroli, Daniela Del Boca, Linor Kiknadze,
+%					Yu Kyung Koh, Sylvi Kuperman, Sidharth Moktan,
+%					Chiara Pronzato, Anna Ziff
+% Original date: 		10/3/16
+% Project: 			Reggio Evaluation
+
+\input{preamble}
+\setcounter{table}{0}
+\renewcommand{\thetable}{A\arabic{table}}
+\setcounter{figure}{0}
+\renewcommand{\thefigure}{A\arabic{figure}}
+
+\externaldocument{reggioEvaluation_main_2017-03-08a_sjs}
+
+\begin{document}
+
+\title{\Large \textbf{Additional Materials}}
+\author{\normalsize Reggio Team}
+\date{\normalsize Original version: October 3, 2016 \\ Current version: \today}
+\maketitle
+
+\tableofcontents
+
+\doublespacing
+
+\begin{appendices}
+
+\section{Survey of Content of Preschool Program}\label{sec:survey}
+\input{section/reggioEvaluation_survey}
+
+\section{Description of Early Childhood Programs in Italy}\label{sec:programdes}
+\input{section/reggioEvaluation_schooldescription}
+
+\section{Additional Information on Outcome and Baseline Data}\label{sec:data-app}
+\input{section/reggioEvaluation_data_appendix}
+
+\section{Additional Results for Preschools (ages 3-6)}\label{sec:results}
+\input{section/reggioEvaluation_results_appendix}
+
+\section{Multinomial Logit}\label{sec:multi-logit}
+\input{section/reggioEvaluation_multilogit}
+\clearpage
+
+\section{Instrumental Variables}\label{sec:iv}
+\input{section/reggioEvaluation_iv}
+\clearpage
+
+
+\end{appendices}
+
+\bibliography{heckman}
+\bibliographystyle{chicago}
+
+\end{document}
