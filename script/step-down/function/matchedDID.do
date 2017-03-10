@@ -32,7 +32,7 @@ foreach city in Reggio `compCity'{
 	*------------------------------------------*
 	if "`matchmethod'" == "kernel"{			
 		di "Specification: capture psmatch2 `treatDummy' `controls' if (`cohortCond' & `cityCond') `in' `weight' `exp', kernel k(epan) out(`varlist')"		
-		capture noisily: psmatch2 `treatDummy' `controls' if (`cohortCond' & `cityCond'), kernel k(epan) out(`varlist')
+		capture: psmatch2 `treatDummy' `controls' if (`cohortCond' & `cityCond'), kernel k(epan) out(`varlist')
 
 		if _rc!=0 {
 			dis as error "Failed when computing `matchmethod'-diff between Reggio & `city' (`cohortCond')."
@@ -53,7 +53,7 @@ foreach city in Reggio `compCity'{
 		di "Specification: psmatch2 `treatDummy' `controls' if (`cohortCond' & `cityCond'), neighbor(3) out(`varlist')
 		capture: psmatch2 `treatDummy' `controls' if (`cohortCond' & `cityCond'), neighbor(3) out(`varlist')
 		
-		*capture noisily: teffects psmatch (`varlist') (`treatDummy' `controls') if (`cohortCond' & `cityCond')
+		*capture: teffects psmatch (`varlist') (`treatDummy' `controls') if (`cohortCond' & `cityCond')
 			/*	We choose psmatch2 over teffects because the latter doesn't store e(rank), which we need for rwolf step down.
 				teffects is generally preferable because it computes the Abadie&Imbens SE estimators that account for estimated
 				propensity scores. This is not an issue here as we don't use analytical SE. We bootstrap the SEs. */
@@ -65,7 +65,7 @@ foreach city in Reggio `compCity'{
 			*exit _rc
 		}
 		
-		* The commented block below applies to teffects *
+		* The commented block below applies to teffects, which we aren't using *
 		
 	/*	mat r = r(table)
 		local att`city' = r[1,1]
@@ -180,12 +180,12 @@ ereturn scalar rank = min(`rank_Reggio',`rank_`compCity_bs'')
 end
 *=========================================================================================*
 * Sample query for matchedDID_bs
-
+/*
 #delimit ;	
 matchedDID_bs IQ_factor,	treatDummy_bs(maternaMuni) controls_bs(Male CAPI dadMaxEdu_Uni numSibling_2 numSibling_more) 
 							matchmethod_bs(kernel) compCity_bs(Parma) cohortCond_bs(Cohort_Adult30 == 1) seed(1) reps(2);
 #delimit cr
-
+*/
 * Sample query for matchedDID
 /*
 #delimit ;	

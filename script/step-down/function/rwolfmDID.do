@@ -1,6 +1,6 @@
 /* ---------------------------------------------------------------------------- *
-* Modifying the Existing "rwolf" Command for Kernel Matching
-* Author: Jessica Yu Kyung Koh
+* Modifying the Existing "rwolf" Command for matched-DID estimation
+* Author: Jessica Yu Kyung Koh & Sidharth Moktan
 * Edited: 02/14/2016
 
 * Note: The purpose of this do file is to modify the existing rwolf command to 
@@ -61,9 +61,6 @@ foreach var of varlist `varlist' {
     */
 	
     tempfile file`j'
-	
-	
-	
 	
 	#delimit ;	
 	bootstrap 	b`j'=e(mDID)	
