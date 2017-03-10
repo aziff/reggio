@@ -29,7 +29,7 @@ global git_reggio  : env git_reggio
 
 
 global here : pwd
-
+di "$here"
 use "${data_reggio}/Reggio_reassigned"
 
 * Include scripts and functions
@@ -42,6 +42,9 @@ include "${here}/function/writematrix"
 include "${here}/function/rwolfpsm"
 include "${here}/function/rwolfaipw"
 include "${here}/function/rwolfkernel"
+include "${here}/function/sd_mDID_analysis"
+include "${here}/function/matchedDID"
+include "${here}/function/rwolfmDID"
 include "${here}/../ipw/function/aipw"
 
 
@@ -114,6 +117,7 @@ foreach stype in Other None Stat Reli {
 	global aipwlist				AIPW30 
 	global psmlist				PSM30R PSM30Pm PSM30Pv
 	global kernellist			KM30R KM30Pm KM30Pv
+	global matchedDIDlist		mDID30
 
 	global XNone30				maternaMuni		
 	global XBIC30				maternaMuni		
@@ -125,8 +129,9 @@ foreach stype in Other None Stat Reli {
 	global XKM30Pm				Reggio
 	global XKM30Pv				Reggio
 	global XDidPm30				xmMuniReggio 	
-	global XDidPv30				xmMuniReggio  	
-
+	global XDidPv30				xmMuniReggio
+	global XmDID30				maternaMuni
+	
 	global controlsNone30
 	global controlsBIC30		${bic_adult_baseline_vars}
 	global controlsFull30		${adult_baseline_vars}
@@ -139,6 +144,7 @@ foreach stype in Other None Stat Reli {
 	global controlsDidPm30		maternaMuni Reggio ${bic_adult_baseline_did_vars}
 	global controlsDidPv30		maternaMuni Reggio ${bic_adult_baseline_did_vars}
 	global controlsAIPW30		${bic_adult_baseline_vars}	
+	global controlsmDID30		${bic_adult_baseline_vars}	
 
 	local  Other_psm			materna
 	local  None_psm				maternaNone
@@ -157,12 +163,10 @@ foreach stype in Other None Stat Reli {
 	global ifconditionDidPm30			(Reggio == 1 | Parma == 1) & (Cohort_Adult30 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionDidPv30			(Reggio == 1 | Padova == 1) & (Cohort_Adult30 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionAIPW30 			(Reggio == 1) & (Cohort_Adult30 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionmatchedDIDPm30 	(Reggio == 1 | Parma == 1) & (Cohort_Adult30 == 1)
-	global ifconditionmatchedDIDPv30 	(Reggio == 1 | Padova == 1) & (Cohort_Adult30 == 1)
-
-		
-	foreach type in  M E W L H N S {
-
+	global cohortcond_mDID30 			(Cohort_Adult30 == 1)
+			
+	foreach type in  M /*E W L H N S*/ {
+/*
 		* ----------------------- *
 		* For Regression Analysis *
 		* ----------------------- *
@@ -205,7 +209,24 @@ foreach stype in Other None Stat Reli {
 	
 		* Close necessary files
 		file close kern_`type'_`stype'
-		
+	*/	
+	
+		* ------------------------ *
+		* For Matched DID Analysis *
+		* ------------------------ *
+		foreach compCity in Parma Padova{
+			foreach mm in kernel psm{
+				* Open necessary files
+				file open mDID_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/mDID`mm'_adult30_`compCity'_`type'_`stype'.csv", write replace
+
+				* Run Multiple Analysis
+				di "Estimating `type' for Children: Matched DID Analysis"
+				sd_mDID_analysis, stype("`stype'") type("`type'") cohort("adult") comparisonCity("`compCity'") matchingmethod("`mm'")
+			
+				* Close necessary files
+				file close mDID_`type'_`stype'
+			}
+		}
 	}
 	
 	local stype_switch = 0

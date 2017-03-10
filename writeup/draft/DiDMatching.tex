@@ -1,0 +1,27 @@
+% This file: 			Draft Compiling New Information and Analysis
+% Contributors: 		Pietro Biroli, Daniela Del Boca, Linor Kiknadze,
+%					Yu Kyung Koh, Sylvi Kuperman, Sidharth Moktan,
+%					Chiara Pronzato, Anna Ziff
+% Original date: 		10/3/16
+% Project: 			Reggio Evaluation
+
+\input{preamble}
+
+\externaldocument{reggioEvaluation_appendix}
+
+\begin{document}
+\section{Notes for Difference-in-Differences Matching}
+
+We use the difference-in-differences matching estimator developed in \cite{Heckman_Ichimura_etal_1998_Econometrica} and specified in \cite{Smith_Todd_2005_JOE} \footnote{We implement the repeated cross-section version of the estimator} to make cross-city comparisons between Municipal preschools in Reggio Emilia and Municipal preschools in non-Reggio Emilia cities, while controlling for treatment-invariant differences between the cities. To illustrate, we use Parma as our comparison city. The analysis involves estimating the following estimator:
+
+\begin{align} \label{eq:kernelDID}
+\widehat{ATE}_{DID-Kernel} = \underbrace{\frac{1}{n_{RM}} \cdot \sum_{i \in RM} \bigg\{ Y_i - \sum_{j \in PM} W(i,j) \cdot Y_j \bigg\}}_{\textbf{A}} - \overbrace{\frac{1}{n_{RN}} \cdot \sum_{k \in RN} \bigg\{ Y_k - \sum_{l \in PN} W(k,l) \cdot Y_l \bigg\}}^{\textbf{B}}
+\end{align}
+where the subscripts $RM$, $RN$, $PM$, and $PN$ correspond to Reggio Municipal, Reggio None, Parma Municipal and Parma None; and $W(\cdot,\cdot)$ are Epanechnikov kernel weights based on the Mahalanobis distance between the indexed individuals. The first matched-difference, \textbf{A}, captures the difference in outcomes between individuals who attended Municipal preschool in Reggio Emilia and Parma. The second matched-difference, \textbf{B}, captures differences in outcomes between people who did not attend preschool in the two cities. Since neither group received treatment in the second differenced term, we can interpret this term as capturing the average effect of differences between individuals from Reggio Emilia and Parma that are independent of any differences in preschool quality between the two cities. To the extent that these non-preschool differences are invariant to treatment, subtracting \textbf{B} from \textbf{A} in Equation (\ref{eq:kernelDID}) removes the bias stemming from differences between individuals from the two cities. This allows us to interpret the estimated difference-in-differences as capturing the effect of attending Municipal preschool in Reggio Emilia relative to Municipal preschool in Parma.
+
+
+\bibliography{heckman}
+\bibliographystyle{chicago}
+
+
+\end{document}
