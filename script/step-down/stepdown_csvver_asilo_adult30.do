@@ -117,9 +117,26 @@ foreach stype in Muni Other {
 	global ifconditionDidPv		(Reggio == 1 | Padova == 1)    & (((asiloNone == 1) & (materna`stype' == 1)) | ((asiloMuni == 1) & (materna`stype' == 1))) 
 
 	
+	*--------------------*
+	* matchedDID Globals
+	*--------------------*
+	global matchedDIDlist					mDIDasiloAdult30PM 
+	
+	*Analysis 1:
+	global mainCity_mDIDasiloAdult30PM			Reggio
+	global mainCohort_mDIDasiloAdult30PM		Adult30
+	global mainTreat_mDIDasiloAdult30PM			asiloMuni
+	global mainControl_mDIDasiloAdult30PM		asiloNone
+	global compCity_mDIDasiloAdult30PM			Parma
+	global compCohort_mDIDasiloAdult30PM		Adult30
+	global compTreat_mDIDasiloAdult30PM			asiloMuni
+	global compControl_mDIDasiloAdult30PM		asiloNone
+	global controlsmDIDasiloAdult30PM			${bic_asilo_adol_baseline_vars}
+	global pre_restrict							& materna`stype' == 1
+	
 	foreach type in  M /*E W L H N S*/ {
 
-		* ----------------------- *
+		/* ----------------------- *
 		* For Regression Analysis *
 		* ----------------------- *
 		* Open necessary files
@@ -161,7 +178,28 @@ foreach stype in Muni Other {
 	
 		* Close necessary files
 		file close kern_`type'_`stype' 
+	*/
 	
+			foreach mm in kernel psm{
+			foreach comp_in in ${matchedDIDlist}{
+				* ------------------------ *
+				* For Matched DID Analysis *
+				* ------------------------ *
+				* Open necessary files
+				#delimit ;
+				file open mDID_`type'_`stype' using 
+				"${git_reggio}/output/multiple-methods/stepdown/csv/mDID`mm'_${mainCohort_`comp_in'}_${compCity_`comp_in'}_`type'_`stype'_asilo.csv", 
+				write replace;
+				#delimit cr
+				
+				* Run Multiple Analysis
+				di "Estimating `type' for ${mainCohort_`comp_in'}: Matched DID Analysis"
+				sd_mDID_analysis, stype("`stype'") type("`type'") cohort("adol") comp("`comp_in'") matchingmethod("`mm'") 
+			
+				* Close necessary files
+				file close mDID_`type'_`stype'
+			}
+		}
 	
 	}
 	
