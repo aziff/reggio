@@ -23,7 +23,10 @@ include "${here}/../macros"
 * ---------- *
 * Set Macros *
 * ---------- *
-global cohort					child adol adult30 adult40
+
+local mdidon = 0
+
+global cohort					child adol 
 global groupchild				Muni
 global groupadol				Muni
 global groupadult30		   		Muni
@@ -34,48 +37,75 @@ global outcomeadult30			M /*E W L H N S*/
 global outcomeadult40			M /*E W L H N S*/
 	
 
-global reglistchild				None BIC Full DidPm DidPv  
-global psmlistchild				PSMR PSMPm PSMPv
+global reglistchild				None BIC Full DidPm DidPv    
+global psmlistchild				PSMR 
 global kernellistchild			KMR KMPm KMPv
-global fulllistchild			None BIC Full PSM KM DidPm PSMPm KMPm DidPv PSMPv KMPv // order should be same as fulllistchildlp
-global reglistchildlp			none bic full didpm didpv
-global psmlistchildlp			psmr psmpm psmpv
-global kernellistchildlp		kmr kmpm kmpv
-global fulllistchildlp			none bic full psmr kmr didpm psmpm kmpm didpv psmpv kmpv
+global didpmlistchild			MDIDPM
+global didpvlistchild			MDIDPV
+global fulllistchild			None BIC Full PSMR KMR DidPm KMDidPm KMPm DidPv KMDidPv KMPv // order should be same as fulllistchildlp
+global reglistchildlp			none bic full didpm didpv   
+global psmlistchildlp			psmr 
+global didpmlistchildlp			mdidpm
+global didpvlistchildlp			mdidpv
+global kernellistchildlp		kmr	kmpm kmpv
+global fulllistchildlp			none bic full psmr kmr didpm mdidpm kmpm didpv mdidpv kmpv 
 global firstlinechild			\multicolumn{5}{c}{Within Reggio} & \multicolumn{3}{c}{With Parma} & \multicolumn{3}{c}{With Padova}     
 global clinechild				\cmidrule(lr){2-6} \cmidrule(lr){7-9} \cmidrule(lr){10-12}
 
-global reglistadol				None BIC Full DidPm DidPv  
-global psmlistadol				PSMR PSMPm PSMPv
+
+global reglistadol				None BIC Full DidPm DidPv    
+global psmlistadol				PSMR 
 global kernellistadol			KMR KMPm KMPv
-global fulllistadol				None BIC Full PSM KM DidPm PSMPm KMPm DidPv PSMPv KMPv // order should be same as fulllistchildlp
-global reglistadollp			none bic full didpm didpv
-global psmlistadollp			psmr psmpm psmpv
-global kernellistadollp			kmr kmpm kmpv
-global fulllistadollp			none bic full psmr kmr didpm psmpm kmpm didpv psmpv kmpv
+global didpmlistadol			MDIDPM
+global didpvlistadol			MDIDPV
+global fulllistadol				None BIC Full PSMR KMR DidPm KMDidPm KMPm DidPv KMDidPv KMPv // order should be same as fulllistchildlp
+global reglistadollp			none bic full didpm didpv   
+global psmlistadollp			psmr 
+global didpmlistadollp			mdidpm
+global didpvlistadollp			mdidpv
+global kernellistadollp			kmr	kmpm kmpv
+global fulllistadollp			none bic full psmr kmr didpm mdidpm kmpm didpv mdidpv kmpv 
 global firstlineadol			\multicolumn{5}{c}{Within Reggio} & \multicolumn{3}{c}{With Parma} & \multicolumn{3}{c}{With Padova}     
 global clineadol				\cmidrule(lr){2-6} \cmidrule(lr){7-9} \cmidrule(lr){10-12}
 
 
-global reglistadult30			None BIC Full DidPm DidPv  
-global psmlistadult30			PSMR PSMPm PSMPv
-global kernellistadult30		KMR KMPm KMPv
-global fulllistadult30			None BIC Full PSM KM DidPm PSMPm KMPm DidPv PSMPv KMPv // order should be same as fulllistchildlp
-global reglistadult30lp			none bic full didpm didpv
-global psmlistadult30lp			psmr psmpm psmpv
-global kernellistadult30lp		kmr kmpm kmpv
-global fulllistadult30lp		none bic full psmr kmr didpm psmpm kmpm didpv psmpv kmpv
-global firstlineadult30			\multicolumn{5}{c}{Within Reggio} & \multicolumn{3}{c}{With Parma} & \multicolumn{3}{c}{With Padova}     
-global clineadult30				\cmidrule(lr){2-6} \cmidrule(lr){7-9} \cmidrule(lr){10-12}
-/*
-global reglistadult40			None BIC Full   
-global psmlistadult40			PSM
-global kernellistault40			KM
-global fulllistadult40			None BIC Full PSM KM // order should be same as fulllistchildlp
-global reglistadult40lp			none bic full 
-global psmlistadult40lp			psm
-global kernellistadult40lp		km
-global fulllistadult40lp		none bic full psm km */
+if `mdidon' == 0 {
+	global cohort					adult30 adult40
+
+	global reglistadult30			None BIC Full DidPm  
+	global psmlistadult30			PSMR 
+	global kernellistadult30		KMR KMPm 
+	global didpmlistadult30			
+	global didpvlistadult30			
+	global fulllistadult30			None BIC Full PSM KM DidPm KMPm // order should be same as fulllistchildlp
+	global reglistadult30lp			none bic full didpm didpv
+	global psmlistadult30lp			psmr psmpm psmpv
+	global kernellistadult30lp		kmr kmpm kmpv
+	global fulllistadult30lp		none bic full psmr kmr didpm kmpm 
+	global firstlineadult30			\multicolumn{5}{c}{Within Reggio} & \multicolumn{3}{c}{With Parma}     
+	global clineadult30				\cmidrule(lr){2-6} \cmidrule(lr){7-8} 
+
+	global reglistadult40			None BIC Full   
+	global psmlistadult40			PSM
+	global kernellistault40			KM
+	global didpmlistadult40			
+	global didpvlistadult40		
+	global fulllistadult40			None BIC Full PSM KM // order should be same as fulllistchildlp
+	global reglistadult40lp			none bic full 
+	global psmlistadult40lp			psm
+	global kernellistadult40lp		km
+	global fulllistadult40lp		none bic full psm km 
+}
+
+
+
+* ---------------------------------- *
+* Capitalize cohort for matching did *
+* ---------------------------------- *
+local child_m		Child
+local adol_m		Adol
+local adult30_m		Adult30
+local adult40_m 	Adult40
 
 * ------------------------------------ *
 * Merge and Create Tex for each cohort *
@@ -104,13 +134,36 @@ foreach coh in $cohort {
 			
 			drop _merge
 			
+			tempfile reg_`coh'_`gr'
+			save "`reg_`coh'_`gr''"
+			
+			if `mdidon' == 1 { // Only run for yes did Age-40
+				import delimited using "${git_reggio}/output/multiple-methods/stepdown/csv/mDIDkernel_``coh'_m'_Parma_`out'_`gr'_asilo.csv", clear
+				foreach spec in b se p sdp n {				// Rename columns to avoid conflicts in merge
+					rename mdid_reggio_`spec' 	mdid_mdidpm_`spec'
+				}
+				merge 1:1 rowname using `reg_`coh'_`gr''
+				
+				drop _merge
+				
+				tempfile reg_`coh'_`gr'
+				save "`reg_`coh'_`gr''"
+				
+				import delimited using "${git_reggio}/output/multiple-methods/stepdown/csv/mDIDkernel_``coh'_m'_Padova_`out'_`gr'_asilo.csv", clear
+				foreach spec in b se p sdp n {				// Rename columns to avoid conflicts in merge
+					rename mdid_reggio_`spec' 	mdid_mdidpv_`spec'
+				}
+				merge 1:1 rowname using `reg_`coh'_`gr''
+				
+				drop _merge
+			}
 			
 			
 			* ------------------------- *
 			* Determine the Tex Headers *
 			* ------------------------- *
 			* Tabular
-			local count : word count ${reglist`coh'} ${psmlist`coh'} ${kernellist`coh'}
+			local count : word count ${fulllist`coh'}
 			local tabular 	l
 			
 			foreach num of numlist 1/`count' {
@@ -283,6 +336,57 @@ foreach coh in $cohort {
 					}
 				}
 				di "psm done `gr' `coh'"
+				
+				
+				
+				* DID-Matching-based
+				if `mdidon' != 0 {
+					foreach item in ${didpmlist`coh'lp} ${didpvlist`coh'lp} {
+						
+						* Get the values
+						levelsof mdid_`item'_b if rowname == "`outcome'", local(p`item'`outcome')
+						levelsof mdid_`item'_sdp if rowname == "`outcome'", local(sd`item'`outcome')
+						levelsof mdid_`item'_p if rowname == "`outcome'", local(pv`item'`outcome')
+						levelsof mdid_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
+						
+						* Format decimal points
+						if !missing("`p`item'`outcome''")  & !missing("`pv`item'`outcome''") {
+							* Store p-values into another macro
+							local pvn`item'`outcome' = `pv`item'`outcome''
+							local sdn`item'`outcome' = `sd`item'`outcome''
+						
+							* Stringify the numbers to limit the decimal points
+							local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
+							local sd`item'`outcome' = string(`sd`item'`outcome'', "%9.2f")
+							local pv`item'`outcome' = string(`pv`item'`outcome'', "%9.2f")
+									
+							* Wrap parentheses around p-values
+							local pv`item'`outcome' 	(`pv`item'`outcome'')
+							local sd`item'`outcome'		(`sd`item'`outcome'')
+							
+							*Put stars according to the significance level 
+							if `pvn`item'`outcome'' <= 0.05 {			
+								local pv`item'`outcome' 	"`pv`item'`outcome''***"
+							}
+							if `pvn`item'`outcome'' <= 0.10 & `pvn`item'`outcome'' > 0.05 {			
+								local pv`item'`outcome' 	"`pv`item'`outcome''**"
+							}
+							if `pvn`item'`outcome'' <= 0.15 & `pvn`item'`outcome'' > 0.10 {			
+								local pv`item'`outcome' 	"`pv`item'`outcome''*"
+							}
+							if `sdn`item'`outcome'' <= 0.05 {			
+								local sd`item'`outcome' 	"`sd`item'`outcome''***"
+							}
+							if `sdn`item'`outcome'' <= 0.10 & `sdn`item'`outcome'' > 0.05 {			
+								local sd`item'`outcome' 	"`sd`item'`outcome''**"
+							}
+							if `sdn`item'`outcome'' <= 0.05 & `sdn`item'`outcome'' > 0.10 {			
+								local sd`item'`outcome' 	"`sd`item'`outcome''*"
+							}					
+						}
+					}
+				}
+				di "did matching done `gr' `coh'"
 				
 				* Tex file Point Estimate
 				local `outcome'tex_p 	${`outcome'_lab}
