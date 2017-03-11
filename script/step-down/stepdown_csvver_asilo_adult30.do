@@ -28,6 +28,7 @@ global git_reggio  : env git_reggio
 
 global here : pwd
 
+
 use "${data_reggio}/Reggio_reassigned"
 
 * Include scripts and functions
@@ -40,6 +41,9 @@ include "${here}/function/writematrix"
 include "${here}/function/rwolfpsm"
 include "${here}/function/rwolfaipw"
 include "${here}/function/rwolfkernel"
+include "${here}/function/sd_mDID_analysis"
+include "${here}/function/matchedDID"
+include "${here}/function/rwolfmDID"
 include "${here}/../ipw/function/aipw"
 
 
