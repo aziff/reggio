@@ -1,195 +1,168 @@
 /* ---------------------------------------------------------------------------- *
 * Creating program to compute kernel- or PSM nearest-neighbor-matched DID
 * Author: Sidharth Moktan
-* Edited: 03/09/2017
+* Edited: 03/10/2017
 
 * Note: This do file includes both basic and bootstrapped versions of matchedDID
-	estimators. The basic version will be called in the rwolf do file. The 
-	bootstrapped version will be called in the sd do file.
+	estimators. The basic version only provides the DID point estimates without
+	SEs. This basic version will be called in the rwolf do file. The bootstrapped
+	version takes the above basic function and computes bootstrapped SEs and pvalues
+	on the point estimates. This bs version will be called in the sd do file.
 * ---------------------------------------------------------------------------- */
-
+*==========================================================================*
+* Basic matchedDID function to compute DID point estimate (no SE or pvalues)
+*==========================================================================*
 cap program drop matchedDID
 program matchedDID, eclass
 
-vers 11.0
-#delimit ;
-syntax 	varlist(min=1 max=1 fv ts),
-		treatDummy(varlist min=1 max=1 fv ts)
-		controls(varlist min=1 fv ts) 
-		matchmethod(string)
-		compCity(namelist min=1 max=2)
-		cohortCond(string)
-		[seed(numlist integer >0 max=1)
-		reps(integer 100)]	;
-#delimit cr
-
-cap set seed `seed'
-
-foreach city in Reggio `compCity'{
-	local cityCond `city' == 1
-	*------------------------------------------*
-	*** Computing kernel-matched differences ***
-	*------------------------------------------*
-	if "`matchmethod'" == "kernel"{			
-		di "Specification: capture psmatch2 `treatDummy' `controls' if (`cohortCond' & `cityCond') `in' `weight' `exp', kernel k(epan) out(`varlist')"		
-		capture: psmatch2 `treatDummy' `controls' if (`cohortCond' & `cityCond'), kernel k(epan) out(`varlist')
-
+	vers 11.0
+	#delimit ;
+	syntax 	varlist(min=1 max=1 fv ts),
+			mainCity(string) mainCohort(string) mainTreat(string) mainControl(string)
+			compCity(string) compCohort(string) compTreat(string) compControl(string)
+			controls(varlist min=1 fv ts) matchmethod(string);
+	#delimit cr
+	cap set seed `seed'
+	*-------------------------------------------------------------------*
+	*** Computing PSM-Nearest-Neighbor- or kernel-matched differences ***
+	*-------------------------------------------------------------------*
+	foreach grp in main comp{
+		if ("`matchmethod'" == "kernel") local matchCond kernel k(epan)
+		if ("`matchmethod'" == "psm") local matchCond neighbor(3)
+		
+		#delimit ;
+		capture: psmatch2 	``grp'Treat' `controls' 
+							if (``grp'City'==1 & Cohort_``grp'Cohort'==1 & (``grp'Treat'==1|``grp'Control'==1) ${pre_restrict}), 
+							`matchCond' out(`varlist');		/*${pre_restrict} is only for asilo*/
+		#delimit cr
+		
 		if _rc!=0 {
-			dis as error "Failed when computing `matchmethod'-diff between Reggio & `city' (`cohortCond')."
+			dis as error "Failed when computing `matchmethod'-diff between `mainCity'(`mainCohort') & `compCity'(`compCohort')."
 			ereturn scalar did = .
 			continue
-			*exit _rc
 		}
 		
-		local att`city' = r(att_`varlist')
-		local N_`city' = e(N)
-		local rank_`city' = e(rank)
+		* Storing DID point estimate, N, and rank of cov-matrix
+		local att`grp' = r(att_`varlist')
+		local N_`grp' = e(N)
+		local rank_`grp' = e(rank)
 	}
+	
+	*-----------------------------------------------------------------*
+	*** Computing diff-in-diff using matched-differences from above ***
+	*-----------------------------------------------------------------*
+	local mDID = `attmain' - `attcomp'
 
-	*--------------------------------------------------------*
-	*** Computing PSM nearest-neighbor-matched differences ***
-	*--------------------------------------------------------*
-	if "`matchmethod'" == "psm"{	
-		di "Specification: psmatch2 `treatDummy' `controls' if (`cohortCond' & `cityCond'), neighbor(3) out(`varlist')
-		capture: psmatch2 `treatDummy' `controls' if (`cohortCond' & `cityCond'), neighbor(3) out(`varlist')
-		
-		*capture: teffects psmatch (`varlist') (`treatDummy' `controls') if (`cohortCond' & `cityCond')
-			/*	We choose psmatch2 over teffects because the latter doesn't store e(rank), which we need for rwolf step down.
-				teffects is generally preferable because it computes the Abadie&Imbens SE estimators that account for estimated
-				propensity scores. This is not an issue here as we don't use analytical SE. We bootstrap the SEs. */
-		
-		if _rc!=0 {
-			dis as error "Failed when computing `matchmethod'-diff between Reggio & `city'(`cohortCond')."
-			ereturn did = .
-			continue
-			*exit _rc
-		}
-		
-		* The commented block below applies to teffects, which we aren't using *
-		
-	/*	mat r = r(table)
-		local att`city' = r[1,1]
-		local rank_`city' = e(rank)	*/
-				
-		local att`city' = r(att_`varlist')
-		local N_`city' = e(N)
-		local rank_`city' = e(rank)
-	}
-}	
-*--------------------------------------------------------------------------*
-*** Computing diff-in-diff using matched-differences from above ***
-*--------------------------------------------------------------------------*
-local mDID = `attReggio' - `att`compCity''
+	* Deleting all unnecessary scalars and macros
+	ereturn clear
+	return clear
 
-* Deleting all unnecessary scalars and macros
-ereturn clear
-return clear
-
-* Storing relevant scalars for use in other programs
-ereturn scalar mDID = `mDID'
-ereturn scalar N_Reggio = `N_Reggio'
-ereturn scalar N_`compCity' = `N_`compCity''
-ereturn scalar rank_Reggio = `rank_Reggio'
-ereturn scalar rank_`compCity' = `rank_`compCity''
+	* Storing relevant scalars for use in other programs
+	ereturn scalar mDID = `mDID'
+	ereturn scalar N_main = `N_main'
+	ereturn scalar N_comp = `N_comp'
+	ereturn scalar rank_main = `rank_main'
+	ereturn scalar rank_comp = `rank_comp'
 
 end
 
 
-*=========================================================================================*
-* Program to compute bootstrapped SEs and p-values usiing matchedDID program from above
-*=========================================================================================*
+*=====================================================================================*
+* Program to compute bootstrapped SEs and p-values using matchedDID program from above
+*=====================================================================================*
 cap program drop matchedDID_bs
 program matchedDID_bs, eclass
 
-vers 11.0
-#delimit ;
-syntax 	varlist(min=1 max=1 fv ts),
-		treatDummy_bs(varlist min=1 max=1 fv ts) 
-		controls_bs(varlist min=1 fv ts) 
-		matchmethod_bs(string)
-		compCity_bs(namelist min=1 max=2)
-		cohortCond_bs(string)
-		seed(numlist integer >0 max=1)
-		[reps(integer 5)]
-		;
-#delimit cr
+	vers 11.0
+	#delimit ;
+	syntax 	varlist(min=1 max=1 fv ts),
+			mainCity_bs(string) mainCohort_bs(string) mainTreat_bs(string) mainControl_bs(string)
+			compCity_bs(string) compCohort_bs(string) compTreat_bs(string) compControl_bs(string)
+			controls_bs(varlist min=1 fv ts)
+			matchmethod_bs(string)
+			[seed(numlist integer>0 max=1) reps(integer 5)];
+	#delimit cr
+	cap set seed `seed'
+	preserve
+	*----------------------------------------*
+	*Running Bootstrap on matchedDID function*
+	*----------------------------------------*
+	#delimit ;	
+	bootstrap 	DID=e(mDID)															/* Specifying BS options for reps, seed and estimate storage */
+				N_main=e(N_main)
+				N_comp=e(N_comp)
+				rank_main=e(rank_main)
+				rank_comp=e(rank_comp),
+				reps(`reps') strata(City Cohort) saving(bsestimates, replace):		
+				
+	matchedDID `varlist',	mainCity(`mainCity_bs') mainCohort(`mainCohort_bs') mainTreat(`mainTreat_bs') mainControl(`mainControl_bs')
+							compCity(`compCity_bs') compCohort(`compCohort_bs') compTreat(`compTreat_bs') compControl(`compControl_bs')
+							controls(`controls_bs')	matchmethod(`matchmethod_bs');
+	
 
-cap set seed `seed'
+	#delimit cr
+	
+	*---------------------------------------------------*
+	*Computing relevant statistics from bootstrap output*
+	*---------------------------------------------------*
+	mat rawEst = e(b)		/* BS stores observed values for DID, N, and rank in e(b) (because of the way options were specified) */ 
 
-*------------------------------------------*
-*Running Bootstrap on matching-DID function*
-*------------------------------------------*
-#delimit ;	
-bootstrap 	DID=e(mDID)	
-			N_Reggio=e(N_Reggio)
-			N_`compCity_bs'=e(N_`compCity_bs')
-			rank_Reggio=e(rank_Reggio)
-			rank_`compCity_bs'=e(rank_`compCity_bs'),
-			reps(`reps') strata(City Cohort):
+	* Loop over the 5 different estimates in e(b) and store estimates in locals 
+	foreach est in DID N_main N_comp rank_main rank_comp{	
+		mat `est' = rawEst[1,"`est'"]	/* We define matrices twice(here and few lines above) because we can refer to cells by column name */
+		local `est' = `est'[1,1]	
+	}
 
-matchedDID `varlist', 	treatDummy(`treatDummy_bs') controls(`controls_bs') 
-						matchmethod(`matchmethod_bs') compCity(`compCity_bs') 
-						cohortCond(`cohortCond_bs');
-#delimit cr
+	*se*
+	mat se = e(se)
+	local se = se[1,1]
 
-*---------------------------------------------------*
-*Computing relevant statistics from bootstrap output*
-*---------------------------------------------------*
-mat beta = e(b)
-mat beta = beta[1,"DID"]
-local beta = beta[1,1]
+	*p-value*
+	use bsestimates, clear
+	sum DID
+	gen pindicator = (abs(`DID')<abs(DID-r(mean)))	
+	sum pindicator
+	local p = r(mean)
 
-mat se = e(se)
-local se = se[1,1]
+	restore
 
-local z = `beta'/`se'
-local p=2*(1-normal(abs(`z')))
+	*-----------------------------------------------------*
+	* Storing relevant statistics from computations above *
+	*-----------------------------------------------------*
+	* Get rid of unnecessary estimates from storage
+	ereturn clear
+	return clear
 
-mat N_Reggio = e(b)
-mat N_Reggio = N_Reggio[1,"N_Reggio"]
-local N_Reggio = N_Reggio[1,1]
+	*Storing statistics in e(scalar) for later use in sdanalysis file*
+	ereturn scalar beta = `DID'
+	ereturn scalar se = `se'
+	ereturn scalar p = `p'
 
-mat N_`compCity_bs' = e(b)
-mat N_`compCity_bs' = N_`compCity_bs'[1,"N_`compCity_bs'"]
-local N_`compCity_bs' = N_`compCity_bs'[1,1]
+	ereturn scalar N_main = `N_main'
+	ereturn scalar N_comp = `N_comp'
+	ereturn scalar N = `N_main'+`N_comp'		
 
-mat rank_Reggio = e(b)
-mat rank_Reggio = rank_Reggio[1,"rank_Reggio"]
-local rank_Reggio = rank_Reggio[1,1]
-
-mat rank_`compCity_bs' = e(b)
-mat rank_`compCity_bs' = rank_`compCity_bs'[1,"rank_`compCity_bs'"]
-local rank_`compCity_bs' = rank_`compCity_bs'[1,1]
-
-ereturn clear
-return clear
-
-*Storing relevant statistics in e(scalar) for later use in sdanalysis file*
-ereturn scalar beta = `beta'
-ereturn scalar se = `se'
-ereturn scalar p = `p'
-
-ereturn scalar N_Reggio = `N_Reggio'
-ereturn scalar N_`compCity_bs' = `N_`compCity_bs''
-ereturn scalar N = `N_Reggio'+`N_`compCity_bs''		
-
-ereturn scalar rank_Reggio = `rank_Reggio'
-ereturn scalar rank_`compCity_bs' = `rank_`compCity_bs''
-ereturn scalar rank = min(`rank_Reggio',`rank_`compCity_bs'')
-
+	ereturn scalar rank_main = `rank_main'
+	ereturn scalar rank_comp = `rank_comp'
+	ereturn scalar rank = min(`rank_main',`rank_comp')
+*/
 end
 *=========================================================================================*
-* Sample query for matchedDID_bs
 /*
 #delimit ;	
-matchedDID_bs IQ_factor,	treatDummy_bs(maternaMuni) controls_bs(Male CAPI dadMaxEdu_Uni numSibling_2 numSibling_more) 
-							matchmethod_bs(kernel) compCity_bs(Parma) cohortCond_bs(Cohort_Adult30 == 1) seed(1) reps(2);
-#delimit cr
-*/
-* Sample query for matchedDID
+
+* Sample query for matchedDID_bs;
+matchedDID_bs 	IQ_factor,
+				mainCity_bs(Reggio) mainCohort_bs(Adult30) mainTreat_bs(maternaMuni) mainControl_bs(maternaNone)
+				compCity_bs(Parma) compCohort_bs(Adult30) compTreat_bs(maternaMuni) compControl_bs(maternaNone)
+				controls_bs(Male CAPI dadMaxEdu_Uni numSibling_2 numSibling_more)
+				matchmethod_bs(kernel) seed(1) reps(5);
 /*
-#delimit ;	
-matchedDID IQ_factor,	treatDummy(maternaMuni) controls(Male CAPI dadMaxEdu_Uni numSibling_2 numSibling_more) 
-							matchmethod(kernel) compCity(Parma) cohortCond(Cohort_Adult30 == 1) seed(1) reps(2);
-#delimit cr
+matchedDID	 	votoMaturita,
+				mainCity(Reggio) mainCohort(Adult30) mainTreat(maternaMuni) mainControl(maternaNone)
+				compCity(Parma) compCohort(Adult30) compTreat(maternaMuni) compControl(maternaNone)
+				controls(Male CAPI dadMaxEdu_Uni numSibling_2 numSibling_more)
+				matchmethod(kernel);
 */
+#delimit cr
+

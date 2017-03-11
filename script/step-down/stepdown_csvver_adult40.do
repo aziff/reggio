@@ -39,6 +39,9 @@ include "${here}/function/writematrix"
 include "${here}/function/rwolfpsm"
 include "${here}/function/rwolfaipw"
 include "${here}/function/rwolfkernel"
+include "${here}/function/sd_mDID_analysis"
+include "${here}/function/matchedDID"
+include "${here}/function/rwolfmDID"
 include "${here}/../ipw/function/aipw"
 
 
@@ -94,7 +97,7 @@ global cohort			adult
 
 
 
-
+/*
 * ---------------------------------------------------------------------------- *
 * 					Reggio Muni vs. None:	Adult40		NO DID				   *
 * ---------------------------------------------------------------------------- *
@@ -112,7 +115,7 @@ foreach stype in Other Reli {
 	global aipwlist				AIPW40 
 	global psmlist				PSM40R PSM40Pm PSM40Pv
 	global kernellist			KM40R KM40Pm KM40Pv
-
+		
 	global XNone40				maternaMuni		
 	global XBIC40				maternaMuni		
 	global XFull40				maternaMuni		
@@ -123,7 +126,8 @@ foreach stype in Other Reli {
 	global XKM40Pm				Reggio
 	global XKM40Pv				Reggio
 	*global XDidPm40			maternaMuni	Reggio xmMuniReggio	
-	*global XDidPv40			maternaMuni	Reggio xmMuniReggio		
+	*global XDidPv40			maternaMuni	Reggio xmMuniReggio
+	
 
 	global controlsNone40
 	global controlsBIC40		${bic_adult_baseline_vars}
@@ -137,9 +141,9 @@ foreach stype in Other Reli {
 	global controlsDidPm40		${bic_adult_baseline_did_vars}
 	global controlsDidPv40		${bic_adult_baseline_did_vars}
 	global controlsAIPW40		${bic_adult_baseline_vars}
+	
 
-
-		local  Other_psm			materna
+	local  Other_psm			materna
 	local  Stat_psm				maternaStat
 	local  Reli_psm				maternaReli
 	
@@ -153,10 +157,9 @@ foreach stype in Other Reli {
 	global ifconditionKM40Pm	((Reggio == 1) & (maternaMuni == 1)) | ((Parma == 1) & (``stype'_psm' == 1))
 	global ifconditionKM40Pv	((Reggio == 1) & (maternaMuni == 1)) | ((Padova == 1) & (``stype'_psm' == 1))
 	global ifconditionAIPW40 	(Reggio == 1) & (Cohort_Adult40 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
-
 		
 	foreach type in  M E W L H N S {
-
+	/*
 		* ----------------------- *
 		* For Regression Analysis *
 		* ----------------------- *
@@ -199,6 +202,23 @@ foreach stype in Other Reli {
 		* Close necessary files
 		file close kern_`type'_`stype'
 		
+		*/
+		* ------------------------ *
+		* For Matched DID Analysis *
+		* ------------------------ *
+		foreach compCity in Parma Padova{
+			foreach mm in kernel psm{
+				* Open necessary files
+				file open mDID_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/mDID`mm'_adult40_`compCity'_`type'_`stype'.csv", write replace
+
+				* Run Multiple Analysis
+				di "Estimating `type' for Children: Matched DID Analysis"
+				sd_mDID_analysis, stype("`stype'") type("`type'") cohort("adult") comparisonCity("`compCity'") matchingmethod("`mm'")
+			
+				* Close necessary files
+				file close mDID_`type'_`stype'
+			}
+		}
 		
 	}
 	
@@ -207,7 +227,7 @@ foreach stype in Other Reli {
 
 restore
 
-
+*/
 
 
 
@@ -271,9 +291,37 @@ foreach stype in None {
 	global ifconditionDidPv40	((Reggio == 1 & (maternaMuni == 1 | maternaNone == 1)) | (Padova == 1 & (maternaOther == 1 | maternaNone == 1))) & (Cohort_Adult40 == 1) 
 	global ifconditionAIPW40 	(Reggio == 1) & (Cohort_Adult40 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
 
+	
+	*--------------------*
+	* matchedDID Globals
+	*--------------------*
+	global matchedDIDlist			mDID40PM mDID40PV
+	
+	*Analysis 1:
+	global mainCity_mDID40PM		Reggio
+	global mainCohort_mDID40PM		Adult40
+	global mainTreat_mDID40PM		maternaMuni
+	global mainControl_mDID40PM		maternaNone
+	global compCity_mDID40PM		Parma
+	global compCohort_mDID40PM		Adult40
+	global compTreat_mDID40PM		maternaOther
+	global compControl_mDID40PM		maternaNone
+	global controlsmDID40PM			${bic_adult_baseline_vars}	
+	global pre_restrict				/* Only include for asilo*/
+	
+	*Analysis 2:
+	global mainCity_mDID40PV		Reggio
+	global mainCohort_mDID40PV		Adult40
+	global mainTreat_mDID40PV		maternaMuni
+	global mainControl_mDID40PV		maternaNone
+	global compCity_mDID40PV		Padova
+	global compCohort_mDID40PV		Adult40
+	global compTreat_mDID40PV		maternaOther
+	global compControl_mDID40PV		maternaNone
+	global controlsmDID40PV			${bic_adult_baseline_vars}	
 		
 	foreach type in  M E W L H N S {
-
+	/*
 		* ----------------------- *
 		* For Regression Analysis *
 		* ----------------------- *
@@ -317,9 +365,28 @@ foreach stype in None {
 	
 		* Close necessary files
 		file close kern_`type'_`stype'
+		*/
 		
-		
-		
+		foreach mm in kernel psm{
+			foreach comp_in in ${matchedDIDlist}{
+				* ------------------------ *
+				* For Matched DID Analysis *
+				* ------------------------ *
+				* Open necessary files
+				#delimit ;
+				file open mDID_`type'_`stype' using 
+				"${git_reggio}/output/multiple-methods/stepdown/csv/mDID`mm'_${mainCohort_`comp_in'}_${compCity_`comp_in'}_`type'_`stype'.csv", 
+				write replace;
+				#delimit cr
+				
+				* Run Multiple Analysis
+				di "Estimating `type' for ${mainCohort_`comp_in'}: Matched DID Analysis"
+				sd_mDID_analysis, stype("`stype'") type("`type'") cohort("adult") comp("`comp_in'") matchingmethod("`mm'") 
+			
+				* Close necessary files
+				file close mDID_`type'_`stype'
+			}
+		}		
 	}
 	
 	local stype_switch = 0

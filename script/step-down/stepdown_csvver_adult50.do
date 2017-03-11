@@ -41,6 +41,9 @@ include "${here}/function/writematrix"
 include "${here}/function/rwolfpsm"
 include "${here}/function/rwolfaipw"
 include "${here}/function/rwolfkernel"
+include "${here}/function/sd_mDID_analysis"
+include "${here}/function/matchedDID"
+include "${here}/function/rwolfmDID"
 include "${here}/../ipw/function/aipw"
 
 
@@ -129,9 +132,80 @@ foreach stype in Other {
 	global ifconditionPvDiD40	((Reggio == 1) & (Cohort == 5) & (maternaMuni == 1 | maternaNone == 1)) | ((Padova == 1) & (Cohort == 6))
 	global ifconditionPvDiD30	((Reggio == 1) & (Cohort == 4) & (maternaMuni == 1 | maternaNone == 1)) | ((Padova == 1) & (Cohort == 6))
 	
-
+	*--------------------*
+	* matchedDID Globals
+	*--------------------*
+	global matchedDIDlist			mDID_30RE_50RE mDID_40RE_50RE mDID_30RE_50PM mDID_40RE_50PM mDID_30RE_50PV mDID_40RE_50PV
+	
+	*Analysis 1:
+	global mainCity_mDID_30RE_50RE			Reggio
+	global mainCohort_mDID_30RE_50RE		Adult30
+	global mainTreat_mDID_30RE_50RE			maternaMuni
+	global mainControl_mDID_30RE_50RE		maternaNone
+	global compCity_mDID_30RE_50RE			Reggio
+	global compCohort_mDID_30RE_50RE		Adult50
+	global compTreat_mDID_30RE_50RE			maternaOther
+	global compControl_mDID_30RE_50RE		maternaNone
+	global controlsmDID_30RE_50RE			${bic_adult_baseline_vars}	
+	global pre_restrict						/* Only include for asilo*/
+	
+	*Analysis 2:
+	global mainCity_mDID_40RE_50RE			Reggio
+	global mainCohort_mDID_40RE_50RE		Adult40
+	global mainTreat_mDID_40RE_50RE			maternaMuni
+	global mainControl_mDID_40RE_50RE		maternaNone
+	global compCity_mDID_40RE_50RE			Reggio
+	global compCohort_mDID_40RE_50RE		Adult50
+	global compTreat_mDID_40RE_50RE			maternaOther
+	global compControl_mDID_40RE_50RE		maternaNone
+	global controlsmDID_40RE_50RE			${bic_adult_baseline_vars}		
+	
+	*Analysis 3:
+	global mainCity_mDID_30RE_50PM			Reggio
+	global mainCohort_mDID_30RE_50PM		Adult30
+	global mainTreat_mDID_30RE_50PM			maternaMuni
+	global mainControl_mDID_30RE_50PM		maternaNone
+	global compCity_mDID_30RE_50PM			Parma
+	global compCohort_mDID_30RE_50PM		Adult50
+	global compTreat_mDID_30RE_50PM			maternaOther
+	global compControl_mDID_30RE_50PM		maternaNone
+	global controlsmDID_30RE_50PM			${bic_adult_baseline_vars}	
+	
+	*Analysis 4:
+	global mainCity_mDID_40RE_50PM			Reggio
+	global mainCohort_mDID_40RE_50PM		Adult40
+	global mainTreat_mDID_40RE_50PM			maternaMuni
+	global mainControl_mDID_40RE_50PM		maternaNone
+	global compCity_mDID_40RE_50PM			Padova
+	global compCohort_mDID_40RE_50PM		Adult50
+	global compTreat_mDID_40RE_50PM			maternaOther
+	global compControl_mDID_40RE_50PM		maternaNone
+	global controlsmDID_40RE_50PM			${bic_adult_baseline_vars}		
+	
+	*Analysis 5:
+	global mainCity_mDID_30RE_50PV			Reggio
+	global mainCohort_mDID_30RE_50PV		Adult30
+	global mainTreat_mDID_30RE_50PV			maternaMuni
+	global mainControl_mDID_30RE_50PV		maternaNone
+	global compCity_mDID_30RE_50PV			Padova
+	global compCohort_mDID_30RE_50PV		Adult50
+	global compTreat_mDID_30RE_50PV			maternaOther
+	global compControl_mDID_30RE_50PV		maternaNone
+	global controlsmDID_30RE_50PV			${bic_adult_baseline_vars}	
+	
+	*Analysis 6:
+	global mainCity_mDID_40RE_50PV			Reggio
+	global mainCohort_mDID_40RE_50PV		Adult40
+	global mainTreat_mDID_40RE_50PV			maternaMuni
+	global mainControl_mDID_40RE_50PV		maternaNone
+	global compCity_mDID_40RE_50PV			Padova
+	global compCohort_mDID_40RE_50PV		Adult50
+	global compTreat_mDID_40RE_50PV			maternaOther
+	global compControl_mDID_40RE_50PV		maternaNone
+	global controlsmDID_40RE_50PV			${bic_adult_baseline_vars}		
+	
 	foreach type in   M E W L H N S {
-
+/*
 		* ----------------------- *
 		* For Regression Analysis *
 		* ----------------------- *
@@ -145,7 +219,28 @@ foreach stype in Other {
 	
 		* Close necessary files
 		file close regression_`type'_`stype' 
-		
+	*/
+	
+		foreach mm in kernel psm{
+			foreach comp_in in ${matchedDIDlist}{
+				* ------------------------ *
+				* For Matched DID Analysis *
+				* ------------------------ *
+				* Open necessary files
+				#delimit ;
+				file open mDID_`type'_`stype' using 
+				"${git_reggio}/output/multiple-methods/stepdown/csv/mDID`mm'_${compCohort_`comp_in'}_${compCity_`comp_in'}_`type'_`stype'_alt.csv", 
+				write replace;
+				#delimit cr
+				
+				* Run Multiple Analysis
+				di "Estimating `type' for ${mainCohort_`comp_in'}: Matched DID Analysis"
+				sd_mDID_analysis, stype("`stype'") type("`type'") cohort("adult") comp("`comp_in'") matchingmethod("`mm'") 
+			
+				* Close necessary files
+				file close mDID_`type'_`stype'
+			}
+		}		
 		
 	}
 	
@@ -154,7 +249,7 @@ foreach stype in Other {
 
 restore
 
-
+/*
 * ---------------------------------------------------------------------------- *
 * 					Comparison with Age-50 Cohort (NO DID)					   *
 * ---------------------------------------------------------------------------- *

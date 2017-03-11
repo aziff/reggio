@@ -12,21 +12,14 @@ program rwolfmDID, eclass
 
 vers 11.0
 #delimit ;
-syntax varlist(min=1 fv ts numeric),
-treatDummy_rw(varlist min=1 max=1 fv ts) 
-controls_rw(varlist min=1 fv ts) 
-matchmethod_rw(string)
-compCity_rw(namelist min=1 max=2)
-cohortCond_rw(string)
-seed(numlist integer >0 max=1)
-[reps(integer 5)]
-;
-
+syntax 	varlist(min=1 fv ts),
+		mainCity_rw(string) mainCohort_rw(string) mainTreat_rw(string) mainControl_rw(string)
+		compCity_rw(string) compCohort_rw(string) compTreat_rw(string) compControl_rw(string)
+		controls_rw(varlist min=1 fv ts) matchmethod_rw(string)
+		[seed(numlist integer>0 max=1) reps(integer 5)];
 #delimit cr
 cap set seed `seed'
 if `"`method'"'=="" local method regress
-
-
 *-------------------------------------------------------------------------------
 *--- Run bootstrap reps to create null Studentized distribution
 *-------------------------------------------------------------------------------
@@ -37,79 +30,53 @@ dis "Running `reps' bootstrap replications for each variable.  This may take som
 foreach var of varlist `varlist' {
     
 	#delimit ;	
-	cap matchedDID `var', 	treatDummy(`treatDummy_rw') controls(`controls_rw') 
-							matchmethod(`matchmethod_rw') compCity(`compCity_rw') 
-							cohortCond(`cohortCond_rw');
+	cap matchedDID `var',	mainCity(`mainCity_rw') mainCohort(`mainCohort_rw') mainTreat(`mainTreat_rw') mainControl(`mainControl_rw')
+							compCity(`compCity_rw') compCohort(`compCohort_rw') compTreat(`compTreat_rw') compControl(`compControl_rw')
+							controls(`controls_rw')	matchmethod(`matchmethod_rw');
 	#delimit cr    
 	if _rc!=0 {
-        dis as error "nonBS matchedDID failed for outcome:`var', when comparing Reggio and `compCity'."
+        dis as error "nonBS matchedDID failed for outcome:`var', when comparing `mainCity' and `compCity'."
         ereturn scalar rw_`var' = .
 		continue
-		*exit _rc
     }
 	
 	local ++j
 	local varlistreal `varlistreal' `var'
-	
-	* This is shifted below bootstrap because we need bs to estimate SE and pvalues *
-	/*
-    local t`j' = abs(r(att_`var')/r(seatt_`var'))
-    local n`j' = e(N)-e(rank)
-	di "local n`j' is: `n`j''"
-    if `"`method'"'=="areg" local n`j' = e(df_r)
-    local cand `cand' `j'
-    */
-	
-    tempfile file`j'
-	
+	 tempfile file`j'
+	 
+	 
 	#delimit ;	
-	bootstrap 	b`j'=e(mDID)	
-				N_Reggio=e(N_Reggio)
-				N_`compCity_rw'=e(N_`compCity_rw')
-				rank_Reggio=e(rank_Reggio)
-				rank_`compCity_rw'=e(rank_`compCity_rw'),
-				saving(`file`j'')
-				reps(`reps') strata(City Cohort):
-
-	matchedDID `var',	treatDummy(`treatDummy_rw') controls(`controls_rw') 
-						matchmethod(`matchmethod_rw') compCity(`compCity_rw') 
-						cohortCond(`cohortCond_rw');
+	bootstrap 	DID=e(mDID)															
+				N_main=e(N_main)
+				N_comp=e(N_comp)
+				rank_main=e(rank_main)
+				rank_comp=e(rank_comp),
+				reps(`reps') strata(City Cohort) saving(`file`j''):		
+				
+	matchedDID `var',		mainCity(`mainCity_rw') mainCohort(`mainCohort_rw') mainTreat(`mainTreat_rw') mainControl(`mainControl_rw')
+							compCity(`compCity_rw') compCohort(`compCohort_rw') compTreat(`compTreat_rw') compControl(`compControl_rw')
+							controls(`controls_rw')	matchmethod(`matchmethod_rw');
 	#delimit cr
 	
 	*Computing relevant statistics
-	mat beta = e(b)
-	mat beta = beta[1,"b`j'"]
-	local beta = beta[1,1]
+	mat rawEst = e(b)		/* BS stores observed values for DID, N, and rank in e(b) (because of the way options were specified) */ 
 
+	* Loop over the 5 different estimates in e(b) and store estimates in locals 
+	foreach est in DID N_main N_comp rank_main rank_comp{	
+		mat `est' = rawEst[1,"`est'"]	/* We define matrices twice(here and few lines above) because we can refer to cells by column name */
+		local `est' = `est'[1,1]
+	}
+
+
+	*se*
 	mat se = e(se)
 	local se = se[1,1]
-
-	mat N_Reggio = e(b)
-	mat N_Reggio = N_Reggio[1,"N_Reggio"]
-	local N_Reggio = N_Reggio[1,1]
-
-	mat N_`compCity_rw' = e(b)
-	mat N_`compCity_rw' = N_`compCity_rw'[1,"N_`compCity_rw'"]
-	local N_`compCity_rw' = N_`compCity_rw'[1,1]
-
-	mat rank_Reggio = e(b)
-	mat rank_Reggio = rank_Reggio[1,"rank_Reggio"]
-	local rank_Reggio = rank_Reggio[1,1]
-
-	mat rank_`compCity_rw' = e(b)
-	mat rank_`compCity_rw' = rank_`compCity_rw'[1,"rank_`compCity_rw'"]
-	local rank_`compCity_rw' = rank_`compCity_rw'[1,1]
-	
 	
 	* The N and rank defined immediately underneath will be used for rw procedure
-	local N = `N_Reggio'+`N_`compCity_rw''		
-	local rank = min(`rank_Reggio',`rank_`compCity_rw'')
-
-	ereturn clear
-	return clear
+	local N = `N_main'+`N_comp'		
+	local rank = min(`rank_main',`rank_comp')
 	
-	
-	local t`j' = abs(`beta'/`se')
+	local t`j' = abs(`DID'/`se')
 	local n`j' = `N'-`rank'
 	
 	di "local n`j' is: `n`j''"
@@ -119,6 +86,7 @@ foreach var of varlist `varlist' {
 	preserve
     qui use `file`j'', clear
     qui gen n=_n
+	gen b`j' = DID
     qui save `file`j'', replace
     restore
 }
@@ -203,3 +171,13 @@ foreach var of varlist `varlistreal' {
 }   
 
 end
+
+/*
+#delimit ;
+rwolfmDID	 	IQ_factor highschoolGrad votoMaturita ,
+				mainCity_rw(Reggio) mainCohort_rw(Adult30) mainTreat_rw(maternaMuni) mainControl_rw(maternaNone)
+				compCity_rw(Parma) compCohort_rw(Adult30) compTreat_rw(maternaMuni) compControl_rw(maternaNone)
+				controls_rw(Male CAPI dadMaxEdu_Uni numSibling_2 numSibling_more)
+				matchmethod_rw(kernel) seed(1) reps(50);
+#delimit cr
+*/

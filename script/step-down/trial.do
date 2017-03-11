@@ -117,7 +117,6 @@ foreach stype in Other None Stat Reli {
 	global aipwlist				AIPW30 
 	global psmlist				PSM30R PSM30Pm PSM30Pv
 	global kernellist			KM30R KM30Pm KM30Pv
-	global matchedDIDlist		mDID30
 
 	global XNone30				maternaMuni		
 	global XBIC30				maternaMuni		
@@ -130,7 +129,6 @@ foreach stype in Other None Stat Reli {
 	global XKM30Pv				Reggio
 	global XDidPm30				xmMuniReggio 	
 	global XDidPv30				xmMuniReggio
-	global XmDID30				maternaMuni
 	
 	global controlsNone30
 	global controlsBIC30		${bic_adult_baseline_vars}
@@ -144,7 +142,6 @@ foreach stype in Other None Stat Reli {
 	global controlsDidPm30		maternaMuni Reggio ${bic_adult_baseline_did_vars}
 	global controlsDidPv30		maternaMuni Reggio ${bic_adult_baseline_did_vars}
 	global controlsAIPW30		${bic_adult_baseline_vars}	
-	global controlsmDID30		${bic_adult_baseline_vars}	
 
 	local  Other_psm			materna
 	local  None_psm				maternaNone
@@ -163,65 +160,47 @@ foreach stype in Other None Stat Reli {
 	global ifconditionDidPm30			(Reggio == 1 | Parma == 1) & (Cohort_Adult30 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionDidPv30			(Reggio == 1 | Padova == 1) & (Cohort_Adult30 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionAIPW30 			(Reggio == 1) & (Cohort_Adult30 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
-	global cohortcond_mDID30 			(Cohort_Adult30 == 1)
-			
+	
+	*--------------------*
+	* matchedDID Globals
+	*--------------------*
+	global matchedDIDlist			mDID30PM mDID30PV
+	
+	*Analysis 1:
+	global mainCity_mDID30PM		Reggio
+	global mainCohort_mDID30PM		Adult30
+	global mainTreat_mDID30PM		maternaMuni
+	global mainControl_mDID30PM		materna`stype'
+	global compCity_mDID30PM		Parma
+	global compCohort_mDID30PM		Adult30
+	global compTreat_mDID30PM		maternaMuni
+	global compControl_mDID30PM		maternaOther
+	global controlsmDID30PM			${bic_adult_baseline_vars}	
+	
+	*Analysis 2:
+	global mainCity_mDID30PV		Reggio
+	global mainCohort_mDID30PV		Adult30
+	global mainTreat_mDID30PV		maternaMuni
+	global mainControl_mDID30PV		materna`stype'
+	global compCity_mDID30PV		Padova
+	global compCohort_mDID30PV		Adult30
+	global compTreat_mDID30PV		maternaMuni
+	global compControl_mDID30PV		maternaOther
+	global controlsmDID30PV			${bic_adult_baseline_vars}	
+	
+
 	foreach type in  M /*E W L H N S*/ {
-/*
-		* ----------------------- *
-		* For Regression Analysis *
-		* ----------------------- *
-		* Open necessary files
-		cap file close regression_`type'_`stype'
-		file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/reg_adult30_`type'_`stype'_sd.csv", write replace
-
-		* Run Multiple Analysis
-		di "Estimating `type' for Adult: Regression Analysis"
-		sdreganalysis, stype("`stype'") type("`type'") reglist("${reglist}") cohort("adult")
-	
-		* Close necessary files
-		file close regression_`type'_`stype' 
-	
-		
-		
-		* ----------------------- *
-		* For PSM Analysis 		  *
-		* ----------------------- *
-		* Open necessary files
-		file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/psm_adult30_`type'_`stype'_sd.csv", write replace
-
-		* Run Multiple Analysis
-		di "Estimating `type' for Adult: PSM Analysis"
-		sdpsmanalysis, stype("`stype'") type("`type'") psmlist("${psmlist}") cohort("adult")
-	
-		* Close necessary files
-		file close psm_`type'_`stype'
-		
-	
-		* ----------------------- *
-		* For Kernel Analysis 	  *
-		* ----------------------- *
-		* Open necessary files
-		file open kern_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/kern_adult30_`type'_`stype'.csv", write replace
-
-		* Run Multiple Analysis
-		di "Estimating `type' for Children: PSM Analysis"
-		sdkernelanalysis, stype("`stype'") type("`type'") kernellist("${kernellist}") cohort("adult")
-	
-		* Close necessary files
-		file close kern_`type'_`stype'
-	*/	
-	
-		* ------------------------ *
-		* For Matched DID Analysis *
-		* ------------------------ *
-		foreach compCity in Parma Padova{
-			foreach mm in kernel psm{
+		foreach mm in kernel psm{
+			foreach comp_in in ${matchedDIDlist}{
+				* ------------------------ *
+				* For Matched DID Analysis *
+				* ------------------------ *
 				* Open necessary files
-				file open mDID_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/mDID`mm'_adult30_`compCity'_`type'_`stype'.csv", write replace
+				file open mDID_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/mDID`mm'_${mainCohort_`comp_in'}_${compCity_`comp_in'}_`type'_`stype'.csv", write replace
 
 				* Run Multiple Analysis
-				di "Estimating `type' for Children: Matched DID Analysis"
-				sd_mDID_analysis, stype("`stype'") type("`type'") cohort("adult") comparisonCity("`compCity'") matchingmethod("`mm'")
+				di "Estimating `type' for ${mainCohort_`comp_in'}: Matched DID Analysis"
+				sd_mDID_analysis, stype("`stype'") type("`type'") cohort("adult") comp("`comp_in'") matchingmethod("`mm'") 
 			
 				* Close necessary files
 				file close mDID_`type'_`stype'

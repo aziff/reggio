@@ -39,6 +39,9 @@ include "${here}/function/writematrix"
 include "${here}/function/rwolfpsm"
 include "${here}/function/rwolfaipw"
 include "${here}/function/rwolfkernel"
+include "${here}/function/sd_mDID_analysis"
+include "${here}/function/matchedDID"
+include "${here}/function/rwolfmDID"
 include "${here}/../ipw/function/aipw"
 
 
@@ -151,10 +154,37 @@ foreach stype in Other Stat Reli {
 	global ifconditionDidPm		(Reggio == 1 | Parma == 1) & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionDidPv		(Reggio == 1 | Padova == 1) & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionAIPW 	    (Reggio == 1) & (maternaMuni == 1 | materna`stype' == 1)
-
 	
+	*--------------------*
+	* matchedDID Globals
+	*--------------------*
+	global matchedDIDlist				mDIDAdolPM mDIDAdolPV
 	
+	*Analysis 1:
+	global mainCity_mDIDAdolPM			Reggio
+	global mainCohort_mDIDAdolPM		Adol
+	global mainTreat_mDIDAdolPM			maternaMuni
+	global mainControl_mDIDAdolPM		materna`stype'
+	global compCity_mDIDAdolPM			Parma
+	global compCohort_mDIDAdolPM		Adol
+	global compTreat_mDIDAdolPM			maternaMuni
+	global compControl_mDIDAdolPM		maternaOther
+	global controlsmDIDAdolPM			${bic_adol_baseline_vars}
+	global pre_restrict					/* Only include for asilo*/
+	
+	*Analysis 2:
+	global mainCity_mDIDAdolPV			Reggio
+	global mainCohort_mDIDAdolPV		Adol
+	global mainTreat_mDIDAdolPV			maternaMuni
+	global mainControl_mDIDAdolPV		materna`stype'
+	global compCity_mDIDAdolPV			Padova
+	global compCohort_mDIDAdolPV		Adol
+	global compTreat_mDIDAdolPV			maternaMuni
+	global compControl_mDIDAdolPV		maternaOther
+	global controlsmDIDAdolPV			${bic_adol_baseline_vars}
+		
 	foreach type in  M CN S H B {
+	/*
 
 		* ----------------------- *
 		* For Regression Analysis *
@@ -199,7 +229,29 @@ foreach stype in Other Stat Reli {
 	
 		* Close necessary files
 		file close kern_`type'_`stype'
-		
+*/	
+
+		* ------------------------ *
+		* For Matched DID Analysis *
+		* ------------------------ *
+		foreach mm in kernel psm{
+			foreach comp_in in ${matchedDIDlist}{
+				
+				* Open necessary files
+				#delimit ;
+				file open mDID_`type'_`stype' using 
+				"${git_reggio}/output/multiple-methods/stepdown/csv/mDID`mm'_${mainCohort_`comp_in'}_${compCity_`comp_in'}_`type'_`stype'.csv", 
+				write replace;
+				#delimit cr
+				
+				* Run Multiple Analysis
+				di "Estimating `type' for ${mainCohort_`comp_in'}: Matched DID Analysis"
+				sd_mDID_analysis, stype("`stype'") type("`type'") cohort("adol") comp("`comp_in'") matchingmethod("`mm'") 
+			
+				* Close necessary files
+				file close mDID_`type'_`stype'
+			}
+		}	
 		
 	
 	}

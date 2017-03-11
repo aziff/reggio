@@ -40,6 +40,9 @@ include "${here}/function/writematrix"
 include "${here}/function/rwolfpsm"
 include "${here}/function/rwolfaipw"
 include "${here}/function/rwolfkernel"
+include "${here}/function/sd_mDID_analysis"
+include "${here}/function/matchedDID"
+include "${here}/function/rwolfmDID"
 include "${here}/../ipw/function/aipw"
 
 
@@ -59,7 +62,6 @@ generate D2 = (D == 2)
 global bootstrap = 70
 set seed 1234
 
-/*
 * ---------------------------------------------------------------------------- *
 * 					Reggio Muni vs. None:	Children 						   *
 * ---------------------------------------------------------------------------- *
@@ -128,9 +130,37 @@ foreach stype in Other Stat Reli {
 	global ifconditionDidPm		(Reggio == 1 | Parma == 1)    
 	global ifconditionDidPv		(Reggio == 1 | Padova == 1)    & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionAIPW	 	(Reggio == 1)  & (maternaMuni == 1 | materna`stype' == 1)
-	
-	foreach type in  M CN S H B {
 
+	*--------------------*
+	* matchedDID Globals
+	*--------------------*
+	global matchedDIDlist				mDIDChildPM mDIDChildPV
+	
+	*Analysis 1:
+	global mainCity_mDIDChildPM			Reggio
+	global mainCohort_mDIDChildPM		Child
+	global mainTreat_mDIDChildPM		maternaMuni
+	global mainControl_mDIDChildPM		materna`stype'
+	global compCity_mDIDChildPM			Parma
+	global compCohort_mDIDChildPM		Child
+	global compTreat_mDIDChildPM		maternaMuni
+	global compControl_mDIDChildPM		materna`stype'
+	global controlsmDIDChildPM			${bic_child_baseline_vars}
+	global pre_restrict					/* Only include for asilo*/
+	
+	*Analysis 2:
+	global mainCity_mDIDChildPV			Reggio
+	global mainCohort_mDIDChildPV		Child
+	global mainTreat_mDIDChildPV		maternaMuni
+	global mainControl_mDIDChildPV		materna`stype'
+	global compCity_mDIDChildPV			Padova
+	global compCohort_mDIDChildPV		Child
+	global compTreat_mDIDChildPV		maternaMuni
+	global compControl_mDIDChildPV		materna`stype'
+	global controlsmDIDChildPV			${bic_child_baseline_vars}
+		
+	foreach type in  M CN S H B {
+	/*
 		* ----------------------- *
 		* For Regression Analysis *
 		* ----------------------- *
@@ -173,17 +203,38 @@ foreach stype in Other Stat Reli {
 	
 		* Close necessary files
 		file close kern_`type'_`stype' 
-	
-	
+		*/
+		
+		* ------------------------ *
+		* For Matched DID Analysis *
+		* ------------------------ *
+		foreach mm in kernel psm{
+			foreach comp_in in ${matchedDIDlist}{				
+			
+			* Open necessary files
+				#delimit ;
+				file open mDID_`type'_`stype' using 
+				"${git_reggio}/output/multiple-methods/stepdown/csv/mDID`mm'_${mainCohort_`comp_in'}_${compCity_`comp_in'}_`type'_`stype'.csv", 
+				write replace;
+				#delimit cr
+				
+				* Run Multiple Analysis
+				di "Estimating `type' for Children: Matched DID Analysis"
+				sd_mDID_analysis, stype("`stype'") type("`type'") cohort("child") comp("`comp_in'") matchingmethod("`mm'") 
+			
+				* Close necessary files
+				file close mDID_`type'_`stype'
+			}
+		}	
 	}
 	
 	local stype_switch = 0
 }
 
 restore
+/*
 
 
-*/
 
 
 

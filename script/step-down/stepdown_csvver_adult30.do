@@ -42,9 +42,10 @@ include "${here}/function/writematrix"
 include "${here}/function/rwolfpsm"
 include "${here}/function/rwolfaipw"
 include "${here}/function/rwolfkernel"
+include "${here}/function/sd_mDID_analysis"
+include "${here}/function/matchedDID"
+include "${here}/function/rwolfmDID"
 include "${here}/../ipw/function/aipw"
-
-
 
 * ---------------------------------------------------------------------------- *
 * 								Preparation 								   *
@@ -125,7 +126,7 @@ foreach stype in Other None Stat Reli {
 	global XKM30Pm				Reggio
 	global XKM30Pv				Reggio
 	global XDidPm30				xmMuniReggio 	
-	global XDidPv30				xmMuniReggio  	
+	global XDidPv30				xmMuniReggio  
 
 	global controlsNone30
 	global controlsBIC30		${bic_adult_baseline_vars}
@@ -157,12 +158,37 @@ foreach stype in Other None Stat Reli {
 	global ifconditionDidPm30			(Reggio == 1 | Parma == 1) & (Cohort_Adult30 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionDidPv30			(Reggio == 1 | Padova == 1) & (Cohort_Adult30 == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionAIPW30 			(Reggio == 1) & (Cohort_Adult30 == 1)   & (maternaMuni == 1 | materna`stype' == 1)
-	global ifconditionmatchedDIDPm30 	(Reggio == 1 | Parma == 1) & (Cohort_Adult30 == 1)
-	global ifconditionmatchedDIDPv30 	(Reggio == 1 | Padova == 1) & (Cohort_Adult30 == 1)
 
+	*--------------------*
+	* matchedDID Globals
+	*--------------------*
+	global matchedDIDlist			mDID30PM mDID30PV
+	
+	*Analysis 1:
+	global mainCity_mDID30PM		Reggio
+	global mainCohort_mDID30PM		Adult30
+	global mainTreat_mDID30PM		maternaMuni
+	global mainControl_mDID30PM		materna`stype'
+	global compCity_mDID30PM		Parma
+	global compCohort_mDID30PM		Adult30
+	global compTreat_mDID30PM		maternaMuni
+	global compControl_mDID30PM		materna`stype'
+	global controlsmDID30PM			${bic_adult_baseline_vars}	
+	global pre_restrict				/* Only include for asilo*/
+	
+	*Analysis 2:
+	global mainCity_mDID30PV		Reggio
+	global mainCohort_mDID30PV		Adult30
+	global mainTreat_mDID30PV		maternaMuni
+	global mainControl_mDID30PV		materna`stype'
+	global compCity_mDID30PV		Padova
+	global compCohort_mDID30PV		Adult30
+	global compTreat_mDID30PV		maternaMuni
+	global compControl_mDID30PV		materna`stype'
+	global controlsmDID30PV			${bic_adult_baseline_vars}	
 		
 	foreach type in  M E W L H N S {
-
+	/*
 		* ----------------------- *
 		* For Regression Analysis *
 		* ----------------------- *
@@ -205,7 +231,29 @@ foreach stype in Other None Stat Reli {
 	
 		* Close necessary files
 		file close kern_`type'_`stype'
+		*/
 		
+		* ------------------------ *
+		* For Matched DID Analysis *
+		* ------------------------ *
+		foreach mm in kernel psm{
+			foreach comp_in in ${matchedDIDlist}{
+				
+				* Open necessary files
+				#delimit ;
+				file open mDID_`type'_`stype' using 
+				"${git_reggio}/output/multiple-methods/stepdown/csv/mDID`mm'_${mainCohort_`comp_in'}_${compCity_`comp_in'}_`type'_`stype'.csv",
+				write replace;
+				#delimit cr
+				
+				* Run Multiple Analysis
+				di "Estimating `type' for ${mainCohort_`comp_in'}: Matched DID Analysis"
+				sd_mDID_analysis, stype("`stype'") type("`type'") cohort("adult") comp("`comp_in'") matchingmethod("`mm'") 
+			
+				* Close necessary files
+				file close mDID_`type'_`stype'
+			}
+		}
 	}
 	
 	local stype_switch = 0
