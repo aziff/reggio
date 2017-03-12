@@ -6,7 +6,6 @@
 * Note: The purpose of this do file is to modify the existing rwolf command to 
         accomodate more general commands other than reg/probit/logit.
 * ---------------------------------------------------------------------------- */
-include "${here}/function/matchedDID"
 cap program drop rwolfmDID
 program rwolfmDID, eclass
 
