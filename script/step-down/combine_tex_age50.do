@@ -29,15 +29,15 @@ global outcomeadult50			M E W L H N S
 	
 global didlistadult50			DiD40 DiD30 
 global reglistadult50			OLS40 OLS30
-global did30listadult50			MDID30
-global did40listadult50			MDID40
+global did30listadult50			KMDID30
+global did40listadult50			KMDID40
 
 global didlistadult50lp			did40 did30 
 global reglistadult50lp			ols40 ols30
 global did30listadult50lp		mdid30
 global did40listadult50lp		mdid40
 
-global fulllistadult50			OLS30 DiD30 MDiD30 OLS40 DiD40 MDiD40
+global fulllistadult50			OLS30 DiD30 KMDiD30 OLS40 DiD40 KMDiD40
 global fulllistadult50lp		ols30 did30 mdid30 ols40 did40 mdid40
 
 
