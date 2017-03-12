@@ -6,7 +6,7 @@
 * Note: The purpose of this do file is to modify the existing rwolf command to 
         accomodate more general commands other than reg/probit/logit.
 * ---------------------------------------------------------------------------- */
-
+include "${here}/function/matchedDID"
 cap program drop rwolfmDID
 program rwolfmDID, eclass
 
@@ -46,49 +46,71 @@ foreach var of varlist `varlist' {
 	 
 	 
 	#delimit ;	
-	bootstrap 	DID=e(mDID)															
-				N_main=e(N_main)
-				N_comp=e(N_comp)
-				rank_main=e(rank_main)
-				rank_comp=e(rank_comp),
-				reps(`reps') strata(City Cohort) saving(`file`j''):		
-				
+	capture: bootstrap 		DID=e(mDID)															
+							N_main=e(N_main)
+							N_comp=e(N_comp)
+							rank_main=e(rank_main)
+							rank_comp=e(rank_comp),
+							reps(`reps') strata(City Cohort) saving(`file`j''):		
+							
 	matchedDID `var',		mainCity(`mainCity_rw') mainCohort(`mainCohort_rw') mainTreat(`mainTreat_rw') mainControl(`mainControl_rw')
 							compCity(`compCity_rw') compCohort(`compCohort_rw') compTreat(`compTreat_rw') compControl(`compControl_rw')
 							controls(`controls_rw')	matchmethod(`matchmethod_rw');
 	#delimit cr
-	
-	*Computing relevant statistics
-	mat rawEst = e(b)		/* BS stores observed values for DID, N, and rank in e(b) (because of the way options were specified) */ 
 
-	* Loop over the 5 different estimates in e(b) and store estimates in locals 
-	foreach est in DID N_main N_comp rank_main rank_comp{	
-		mat `est' = rawEst[1,"`est'"]	/* We define matrices twice(here and few lines above) because we can refer to cells by column name */
-		local `est' = `est'[1,1]
-	}
-
-
-	*se*
-	mat se = e(se)
-	local se = se[1,1]
-	
-	* The N and rank defined immediately underneath will be used for rw procedure
-	local N = `N_main'+`N_comp'		
-	local rank = min(`rank_main',`rank_comp')
-	
-	local t`j' = abs(`DID'/`se')
-	local n`j' = `N'-`rank'
-	
-	di "local n`j' is: `n`j''"
-    *if `"`method'"'=="areg" local n`j' = e(df_r)
-    local cand `cand' `j'
+	if _rc!=0 {
+		dis as error "Failed when bootstrapping `matchmethod_rw'-diff between `mainCity_rw'(`mainCohort_rw') & `compCity_rw'(`compCohort_rw')."
+		local se = .
+		local N = .
+		local rank = .
+		local t`j' = .
+		local n`j' = .
+		local cand `cand'
 		
-	preserve
-    qui use `file`j'', clear
-    qui gen n=_n
-	gen b`j' = DID
-    qui save `file`j'', replace
-    restore
+		preserve
+		qui use `file`j'', clear
+		qui gen n=_n
+		gen b`j' = .
+		qui save `file`j'', replace
+		restore
+	
+		continue
+	}
+	
+	
+		*Computing relevant statistics
+		mat rawEst = e(b)		/* BS stores observed values for DID, N, and rank in e(b) (because of the way options were specified) */ 
+
+		* Loop over the 5 different estimates in e(b) and store estimates in locals 
+		foreach est in DID N_main N_comp rank_main rank_comp{	
+			mat `est' = rawEst[1,"`est'"]	/* We define matrices twice(here and few lines above) because we can refer to cells by column name */
+			local `est' = `est'[1,1]
+		}
+
+
+		*se*
+		mat se = e(se)
+		local se = se[1,1]
+		
+		* The N and rank defined immediately underneath will be used for rw procedure
+		local N = `N_main'+`N_comp'		
+		local rank = min(`rank_main',`rank_comp')
+		
+		local t`j' = abs(`DID'/`se')
+		local n`j' = `N'-`rank'
+		
+		di "local n`j' is: `n`j''"
+		*if `"`method'"'=="areg" local n`j' = e(df_r)
+		local cand `cand' `j'
+			
+		preserve
+		qui use `file`j'', clear
+		qui gen n=_n
+		gen b`j' = DID
+		qui save `file`j'', replace
+		restore
+	
+
 }
 
 preserve
@@ -162,6 +184,10 @@ restore
 *-------------------------------------------------------------------------------
 local j=0
 dis _newline
+
+ereturn clear
+return clear
+
 foreach var of varlist `varlistreal' {
     local ++j
     local ORIG "Original p-value is `p`j''"
@@ -172,12 +198,19 @@ foreach var of varlist `varlistreal' {
 
 end
 
-/*
+
+* Example of syntax when caling function
+preserve
+
+keep if (Cohort == 4) 
+drop if asilo == 1 // dropping those who went to infant-toddler centers
+drop if (ReggioAsilo == . | ReggioMaterna == .)
+
 #delimit ;
-rwolfmDID	 	IQ_factor highschoolGrad votoMaturita ,
-				mainCity_rw(Reggio) mainCohort_rw(Adult30) mainTreat_rw(maternaMuni) mainControl_rw(maternaNone)
-				compCity_rw(Parma) compCohort_rw(Adult30) compTreat_rw(maternaMuni) compControl_rw(maternaNone)
+rwolfmDID	 	IQ_factor IQ_score votoMaturita	highschoolGrad MaxEdu_Uni MaxEdu_Grad,
+				mainCity_rw(Reggio) mainCohort_rw(Adult30) mainTreat_rw(maternaMuni) mainControl_rw(maternaOther)
+				compCity_rw(Padova) compCohort_rw(Adult30) compTreat_rw(maternaMuni) compControl_rw(maternaOther)
 				controls_rw(Male CAPI dadMaxEdu_Uni numSibling_2 numSibling_more)
-				matchmethod_rw(kernel) seed(1) reps(50);
+				matchmethod_rw(psm) seed(1) reps(25);
 #delimit cr
 */

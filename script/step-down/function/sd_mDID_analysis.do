@@ -28,11 +28,11 @@ local header_switch header
 
 di "Running Romano-Wolf Stepdown Procedure for `comp'_`city'"
 #delimit ;
-rwolfmDID	 	${`cohort'_outcome_`type'},
-				mainCity_rw(${mainCity_`comp'}) mainCohort_rw(${mainCohort_`comp'}) mainTreat_rw(${mainTreat_`comp'}) mainControl_rw(${mainControl_`comp'})
-				compCity_rw(${compCity_`comp'}) compCohort_rw(${compCohort_`comp'}) compTreat_rw(${compTreat_`comp'}) compControl_rw(${compControl_`comp'})
-				controls_rw(${controls`comp'}) matchmethod_rw(`matchingmethod')
-				seed(1) reps(250);
+rwolfmDID	 ${`cohort'_outcome_`type'},
+			mainCity_rw(${mainCity_`comp'}) mainCohort_rw(${mainCohort_`comp'}) mainTreat_rw(${mainTreat_`comp'}) mainControl_rw(${mainControl_`comp'})
+			compCity_rw(${compCity_`comp'}) compCohort_rw(${compCohort_`comp'}) compTreat_rw(${compTreat_`comp'}) compControl_rw(${compControl_`comp'})
+			controls_rw(${controls`comp'}) matchmethod_rw(`matchingmethod')
+			seed(1) reps(250);
 #delimit cr			
 
 di "Kernel Matching Stepdown done"
@@ -49,11 +49,11 @@ foreach var in ${`cohort'_outcome_`type'} {
 	local switch = 1
 	
 	#delimit ;
-	matchedDID_bs 	`var',
-					mainCity_bs(${mainCity_`comp'}) mainCohort_bs(${mainCohort_`comp'}) mainTreat_bs(${mainTreat_`comp'}) mainControl_bs(${mainControl_`comp'})
-					compCity_bs(${compCity_`comp'}) compCohort_bs(${compCohort_`comp'}) compTreat_bs(${compTreat_`comp'}) compControl_bs(${compControl_`comp'})
-					controls_bs(${controls`comp'}) matchmethod_bs(`matchingmethod')
-					seed(1) reps(100);
+	capture: matchedDID_bs 	`var',
+							mainCity_bs(${mainCity_`comp'}) mainCohort_bs(${mainCohort_`comp'}) mainTreat_bs(${mainTreat_`comp'}) mainControl_bs(${mainControl_`comp'})
+							compCity_bs(${compCity_`comp'}) compCohort_bs(${compCohort_`comp'}) compTreat_bs(${compTreat_`comp'}) compControl_bs(${compControl_`comp'})
+							controls_bs(${controls`comp'}) matchmethod_bs(`matchingmethod')
+							seed(1) reps(100);
 	#delimit cr			
 	
 	* Save key results to locals

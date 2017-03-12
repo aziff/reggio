@@ -38,7 +38,12 @@ program matchedDID, eclass
 		
 		if _rc!=0 {
 			dis as error "Failed when computing `matchmethod'-diff between `mainCity'(`mainCohort') & `compCity'(`compCohort')."
-			ereturn scalar did = .
+			ereturn scalar mDID = .
+			ereturn scalar N_main = .
+			ereturn scalar N_comp = .
+			ereturn scalar rank_main = .
+			ereturn scalar rank_comp = .
+
 			continue
 		}
 		
@@ -88,12 +93,12 @@ program matchedDID_bs, eclass
 	*Running Bootstrap on matchedDID function*
 	*----------------------------------------*
 	#delimit ;	
-	bootstrap 	DID=e(mDID)															/* Specifying BS options for reps, seed and estimate storage */
-				N_main=e(N_main)
-				N_comp=e(N_comp)
-				rank_main=e(rank_main)
-				rank_comp=e(rank_comp),
-				reps(`reps') strata(City Cohort) saving(bsestimates, replace):		
+	capture: bootstrap 		DID=e(mDID)											/* Specifying BS options for reps, seed and estimate storage */
+							N_main=e(N_main)
+							N_comp=e(N_comp)
+							rank_main=e(rank_main)
+							rank_comp=e(rank_comp),
+							reps(`reps') strata(City Cohort) saving(bsestimates, replace):		
 				
 	matchedDID `varlist',	mainCity(`mainCity_bs') mainCohort(`mainCohort_bs') mainTreat(`mainTreat_bs') mainControl(`mainControl_bs')
 							compCity(`compCity_bs') compCohort(`compCohort_bs') compTreat(`compTreat_bs') compControl(`compControl_bs')
@@ -101,6 +106,17 @@ program matchedDID_bs, eclass
 	
 
 	#delimit cr
+	
+	if _rc!=0 {
+		dis as error "Failed when bootstrapping `matchmethod_bs'-diff between `mainCity_bs'(`mainCohort_bs') & `compCity_bs'(`compCohort_bs')."
+		ereturn scalar beta = .
+		ereturn scalar se = .
+		ereturn scalar p = .
+		ereturn scalar N = .
+		ereturn scalar rank = .
+		
+		continue
+	}
 	
 	*---------------------------------------------------*
 	*Computing relevant statistics from bootstrap output*
@@ -165,4 +181,3 @@ matchedDID	 	votoMaturita,
 				matchmethod(kernel);
 */
 #delimit cr
-
