@@ -122,7 +122,7 @@ global adult_outcome_E					IQ_factor IQ_score votoMaturita  ///
 
 * Employment										
 global adult_outcome_W					PA_Empl SES_self HrsTot ///
-										Reddito_1 Reddito_2 Reddito_3 Reddito_4 Reddito_5 
+										Reddito_1 Reddito_2 Reddito_3 Reddito_4  
 
 * Living status										
 global adult_outcome_L					mar_cohab mStatus_div childrenResp all_houseOwn live_parent
@@ -152,7 +152,7 @@ global adult30_outcome_E					IQ_factor votoMaturita  ///
 
 * Employment										
 global adult30_outcome_W					PA_Empl SES_self HrsTot ///
-											Reddito_1 Reddito_2 Reddito_3 Reddito_4 Reddito_5 
+											Reddito_1 Reddito_2 Reddito_3 Reddito_4 
 
 * Living status										
 global adult30_outcome_L					mar_cohab mStatus_div childrenResp all_houseOwn live_parent
