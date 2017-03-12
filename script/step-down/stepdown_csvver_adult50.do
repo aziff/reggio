@@ -107,9 +107,9 @@ keep if (Cohort == 4) | (Cohort == 5) | (Cohort == 6)
 local stype_switch = 1
 foreach stype in Other {
 	
-	* Interact age30 or age40 and maternaMuni
-	generate int30Muni = Cohort_Adult30 * maternaMuni
-	generate int40Muni = Cohort_Adult40 * maternaMuni
+	* Interact age30 or age40 and materna
+	generate int30Muni = Cohort_Adult30 * materna
+	generate int40Muni = Cohort_Adult40 * materna
 	
 	* Set necessary global variables
 	global reglist				RDiD40 RDiD30
@@ -242,9 +242,9 @@ foreach stype in Other {
 				sd_mDID_analysis, stype("`stype'") type("`type'") cohort("adult") comp("`comp_in'") matchingmethod("`mm'") 
 			
 				* Close necessary files
-				file close mDID_`type'_`stype' */
+				file close mDID_`type'_`stype' 
 			}
-		}		
+		}		*/
 		
 	}
 	
