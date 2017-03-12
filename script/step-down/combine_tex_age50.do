@@ -27,25 +27,20 @@ global cohort					adult50
 global groupadult50				Other
 global outcomeadult50			M E W L H N S
 	
-global didlistadult50			RDiD40 RDiD30 /*PmDiD40 PmDiD30 PvDiD40 PvDiD30*/
+global didlistadult50			DiD40 DiD30 
 global reglistadult50			OLS40 OLS30
-/*global psmlistadult50			NNPSM40 NNPSM30
-global kernellistadult50		KM40 KM30*/
+global did30listadult50			MDID30
+global did40listadult50			MDID40
 
-global didlistadult50lp			rdid40 rdid30 /*pmdid40 pmdid30 pvdid40 pvdid30*/
+global didlistadult50lp			did40 did30 
 global reglistadult50lp			ols40 ols30
-/*global psmlistadult50lp		nnpsm40 nnpsm30
-global kernellistadult50lp		km40 km30*/
+global did30listadult50lp		mdid30
+global did40listadult50lp		mdid40
 
-/*
-global fulllistadult50			OLS30 PSM30 KM30 RDiD30 PmDiD30 PvDiD30 OLS40 PSM40 KM40 RDiD40 PmDiD40 PvDiD40 
-global fulllistadult50lp		ols30 nnpsm30 km30 rdid30 pmdid30 pvdid30 ols40 nnpsm40 km40 rdid40 pmdid40 pvdid40
+global fulllistadult50			OLS30 DiD30 MDiD30 OLS40 DiD40 MDiD40
+global fulllistadult50lp		ols30 did30 mdid30 ols40 did40 mdid40
 
-global firstlineadult50			\multicolumn{6}{c}{With Age-30} & \multicolumn{6}{c}{With Age-40}      
-global clineadult50				\cmidrule(lr){2-7} \cmidrule(lr){8-13} */
 
-global fulllistadult50			OLS30 RDiD30 OLS40 RDiD40
-global fulllistadult50lp		ols30 rdid30 ols40 rdid40
 
 * ------------------------------------ *
 * Merge and Create Tex for each cohort *
@@ -66,12 +61,13 @@ foreach coh in $cohort {
 			
 			drop _merge
 			
-			/*
 			tempfile reg_`coh'_`gr'
 			save "`reg_`coh'_`gr''"
-			
-			di "Importing for `coh' `gr' `out' - KERN"
-			import delimited using "${git_reggio}/output/multiple-methods/stepdown/csv/kern_`coh'_`out'_None.csv", clear
+
+			import delimited using "${git_reggio}/output/multiple-methods/stepdown/csv/mDIDkernel_Adult50_Adult40_Reggio_`out'_`gr'_alt.csv", clear
+			foreach spec in b se p sdp n {				// Rename columns to avoid conflicts in merge
+				rename mdid_reggio_`spec' 	mdid_mdid40_`spec'
+			}
 			merge 1:1 rowname using `reg_`coh'_`gr''
 			
 			drop _merge
@@ -79,18 +75,20 @@ foreach coh in $cohort {
 			tempfile reg_`coh'_`gr'
 			save "`reg_`coh'_`gr''"
 			
-			di "Importing for `coh' `gr' `out' - PSM"
-			import delimited using "${git_reggio}/output/multiple-methods/stepdown/csv/psm_`coh'_`out'_None_sd.csv", clear
+			import delimited using "${git_reggio}/output/multiple-methods/stepdown/csv/mDIDkernel_Adult50_Adult30_Reggio_`out'_`gr'_alt.csv", clear
+			foreach spec in b se p sdp n {				// Rename columns to avoid conflicts in merge
+				rename mdid_reggio_`spec' 	mdid_mdid30_`spec'
+			}
 			merge 1:1 rowname using `reg_`coh'_`gr''
 			
 			drop _merge
-			*/
+			
 			
 			* ------------------------- *
 			* Determine the Tex Headers *
 			* ------------------------- *
 			* Tabular
-			local count : word count ${didlist`coh'} ${reglist`coh'} ${psmlist`coh'} ${kernellist`coh'}
+			local count : word count ${didlist`coh'} ${reglist`coh'} ${did30list`coh'} ${did40list`coh'}
 			local tabular 	l
 			
 			foreach num of numlist 1/`count' {
@@ -100,7 +98,6 @@ foreach coh in $cohort {
 			
 			* Column Names
 			local colname
-			di "reglist: ${reglist`coh'} 	psmlist: ${aipwlist`coh'}   kernellist: ${kernellist`coh'}"
 			
 			foreach item in ${fulllist`coh'} {
 				local colname `colname' & `item'
@@ -160,109 +157,55 @@ foreach coh in $cohort {
 				}
 				di "regression done"
 				
+				
+				* DID-matching-based
 			
-				/*
-				* PSM-based
-				local num : list sizeof global(psmlist`coh')
-				if `num' != 0 {
-					foreach item in ${psmlist`coh'lp} {
+				foreach item in ${didpmlist`coh'lp} ${didpvlist`coh'lp} {
+					
+					* Get the values
+					levelsof mdid_`item'_b if rowname == "`outcome'", local(p`item'`outcome')
+					levelsof mdid_`item'_sdp if rowname == "`outcome'", local(sd`item'`outcome')
+					levelsof mdid_`item'_p if rowname == "`outcome'", local(pv`item'`outcome')
+					levelsof mdid_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
+					
+					* Format decimal points
+					if !missing("`p`item'`outcome''")  & !missing("`pv`item'`outcome''") {
+						* Store p-values into another macro
+						local pvn`item'`outcome' = `pv`item'`outcome''
+						local sdn`item'`outcome' = `sd`item'`outcome''
+					
+						* Stringify the numbers to limit the decimal points
+						local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
+						local sd`item'`outcome' = string(`sd`item'`outcome'', "%9.2f")
+						local pv`item'`outcome' = string(`pv`item'`outcome'', "%9.2f")
+								
+						* Wrap parentheses around p-values
+						local pv`item'`outcome' 	(`pv`item'`outcome'')
+						local sd`item'`outcome'		(`sd`item'`outcome'')
 						
-						* Get the values
-						levelsof psm_`item' if rowname == "`outcome'", local(p`item'`outcome')
-						levelsof psm_`item'_sdp if rowname == "`outcome'", local(sd`item'`outcome')
-						levelsof psm_`item'_p if rowname == "`outcome'", local(pv`item'`outcome')
-						levelsof psm_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
-						
-						* Format decimal points
-						if !missing("`p`item'`outcome''")  & !missing("`pv`item'`outcome''") {
-							* Store p-values into another macro
-							local pvn`item'`outcome' = `pv`item'`outcome''
-							local sdn`item'`outcome' = `sd`item'`outcome''
-						
-							* Stringify the numbers to limit the decimal points
-							local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
-							local sd`item'`outcome' = string(`sd`item'`outcome'', "%9.2f")
-							local pv`item'`outcome' = string(`pv`item'`outcome'', "%9.2f")
-									
-							* Wrap parentheses around p-values
-							local pv`item'`outcome' 	(`pv`item'`outcome'')
-							local sd`item'`outcome'		(`sd`item'`outcome'')
-							
-							*Put stars according to the significance level 
-							if `pvn`item'`outcome'' <= 0.05 {			
-								local pv`item'`outcome' 	"`pv`item'`outcome''***"
-							}
-							if `pvn`item'`outcome'' <= 0.10 & `pvn`item'`outcome'' > 0.05 {			
-								local pv`item'`outcome' 	"`pv`item'`outcome''**"
-							}
-							if `pvn`item'`outcome'' <= 0.15 & `pvn`item'`outcome'' > 0.10 {			
-								local pv`item'`outcome' 	"`pv`item'`outcome''*"
-							}
-							if `sdn`item'`outcome'' <= 0.05 {			
-								local sd`item'`outcome' 	"`sd`item'`outcome''***"
-							}
-							if `sdn`item'`outcome'' <= 0.10 & `sdn`item'`outcome'' > 0.05 {			
-								local sd`item'`outcome' 	"`sd`item'`outcome''**"
-							}
-							if `sdn`item'`outcome'' <= 0.05 & `sdn`item'`outcome'' > 0.10 {			
-								local sd`item'`outcome' 	"`sd`item'`outcome''*"
-							}						
+						*Put stars according to the significance level 
+						if `pvn`item'`outcome'' <= 0.05 {			
+							local pv`item'`outcome' 	"`pv`item'`outcome''***"
 						}
+						if `pvn`item'`outcome'' <= 0.10 & `pvn`item'`outcome'' > 0.05 {			
+							local pv`item'`outcome' 	"`pv`item'`outcome''**"
+						}
+						if `pvn`item'`outcome'' <= 0.15 & `pvn`item'`outcome'' > 0.10 {			
+							local pv`item'`outcome' 	"`pv`item'`outcome''*"
+						}
+						if `sdn`item'`outcome'' <= 0.05 {			
+							local sd`item'`outcome' 	"`sd`item'`outcome''***"
+						}
+						if `sdn`item'`outcome'' <= 0.10 & `sdn`item'`outcome'' > 0.05 {			
+							local sd`item'`outcome' 	"`sd`item'`outcome''**"
+						}
+						if `sdn`item'`outcome'' <= 0.05 & `sdn`item'`outcome'' > 0.10 {			
+							local sd`item'`outcome' 	"`sd`item'`outcome''*"
+						}					
 					}
 				}
-				di "psm done `gr' `coh'"
-				
-				
-				
-				* Kernel-based
-				local num : list sizeof global(kernellist`coh')
-				if `num' != 0 {
-					foreach item in ${kernellist`coh'lp} {
-						
-						* Get the values
-						levelsof kn_`item' if rowname == "`outcome'", local(p`item'`outcome')
-						levelsof kn_`item'_sdp if rowname == "`outcome'", local(sd`item'`outcome')
-						levelsof kn_`item'_p if rowname == "`outcome'", local(pv`item'`outcome')
-						levelsof kn_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
-						
-						* Format decimal points
-						if !missing("`p`item'`outcome''")  & !missing("`pv`item'`outcome''") {
-							* Store p-values into another macro
-							local pvn`item'`outcome' = `pv`item'`outcome''
-							local sdn`item'`outcome' = `sd`item'`outcome''
-						
-							* Stringify the numbers to limit the decimal points
-							local p`item'`outcome' = string(`p`item'`outcome'', "%9.2f")
-							local sd`item'`outcome' = string(`sd`item'`outcome'', "%9.2f")
-							local pv`item'`outcome' = string(`pv`item'`outcome'', "%9.2f")
-									
-							* Wrap parentheses around p-values
-							local pv`item'`outcome' 	(`pv`item'`outcome'')
-							local sd`item'`outcome'		(`sd`item'`outcome'')
-							
-							*Put stars according to the significance level 
-							if `pvn`item'`outcome'' <= 0.05 {			
-								local pv`item'`outcome' 	"`pv`item'`outcome''***"
-							}
-							if `pvn`item'`outcome'' <= 0.10 & `pvn`item'`outcome'' > 0.05 {			
-								local pv`item'`outcome' 	"`pv`item'`outcome''**"
-							}
-							if `pvn`item'`outcome'' <= 0.15 & `pvn`item'`outcome'' > 0.10 {			
-								local pv`item'`outcome' 	"`pv`item'`outcome''*"
-							}
-							if `sdn`item'`outcome'' <= 0.05 {			
-								local sd`item'`outcome' 	"`sd`item'`outcome''***"
-							}
-							if `sdn`item'`outcome'' <= 0.10 & `sdn`item'`outcome'' > 0.05 {			
-								local sd`item'`outcome' 	"`sd`item'`outcome''**"
-							}
-							if `sdn`item'`outcome'' <= 0.05 & `sdn`item'`outcome'' > 0.10 {			
-								local sd`item'`outcome' 	"`sd`item'`outcome''*"
-							}					
-						}
-					}
-				}
-				di "psm done `gr' `coh'" */
+			
+				di "did matching done `gr' `coh'"
 				
 				* Tex file Point Estimate
 				local `outcome'tex_p 	${`outcome'_lab}
