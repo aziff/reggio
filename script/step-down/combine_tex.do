@@ -108,6 +108,8 @@ if `switch40' == 0 {
 	global groupadult40				Other Reli		
 	global reglistadult40			None40 BIC40 Full40 
 	global psmlistadult40			PSM40R 
+	global didpmlistadult40			
+	global didpvlistadult40			
 	global kernellistadult40		KM40R KM40Pm KM40Pv
 	global fulllistadult40			None BIC Full PSMR KMR KMPm KMPv // order should be same as fulllistadultlp
 	global reglistadult40lp			none40 bic40 full40
