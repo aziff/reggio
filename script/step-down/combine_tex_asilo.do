@@ -49,7 +49,7 @@ global didpmlistchildlp			mdidpm
 global didpvlistchildlp			mdidpv
 global kernellistchildlp		kmr	kmpm kmpv
 global fulllistchildlp			none bic full psmr kmr didpm mdidpm kmpm didpv mdidpv kmpv 
-global firstlinechild			\multicolumn{5}{c}{Within Reggio} & \multicolumn{3}{c}{With Parma} & \multicolumn{3}{c}{With Padova}     
+global firstlinechild			& \multicolumn{5}{c}{Within Reggio} & \multicolumn{3}{c}{With Parma} & \multicolumn{3}{c}{With Padova} \\    
 global clinechild				\cmidrule(lr){2-6} \cmidrule(lr){7-9} \cmidrule(lr){10-12}
 
 
@@ -65,7 +65,7 @@ global didpmlistadollp			mdidpm
 global didpvlistadollp			mdidpv
 global kernellistadollp			kmr	kmpm kmpv
 global fulllistadollp			none bic full psmr kmr didpm mdidpm kmpm didpv mdidpv kmpv 
-global firstlineadol			\multicolumn{5}{c}{Within Reggio} & \multicolumn{3}{c}{With Parma} & \multicolumn{3}{c}{With Padova}     
+global firstlineadol			& \multicolumn{5}{c}{Within Reggio} & \multicolumn{3}{c}{With Parma} & \multicolumn{3}{c}{With Padova} \\    
 global clineadol				\cmidrule(lr){2-6} \cmidrule(lr){7-9} \cmidrule(lr){10-12}
 
 
@@ -82,7 +82,7 @@ if `mdidon' == 0 {
 	global psmlistadult30lp			psmr psmpm psmpv
 	global kernellistadult30lp		kmr kmpm kmpv
 	global fulllistadult30lp		none bic full psmr kmr didpm kmpm 
-	global firstlineadult30			\multicolumn{5}{c}{Within Reggio} & \multicolumn{3}{c}{With Parma}     
+	global firstlineadult30			& \multicolumn{5}{c}{Within Reggio} & \multicolumn{2}{c}{With Parma}  \\  
 	global clineadult30				\cmidrule(lr){2-6} \cmidrule(lr){7-8} 
 
 	global reglistadult40			None BIC Full   
@@ -95,6 +95,8 @@ if `mdidon' == 0 {
 	global psmlistadult40lp			psm
 	global kernellistadult40lp		km
 	global fulllistadult40lp		none bic full psm km 
+	global firstlineadult40			 
+	global clineadult40				 
 }
 
 
@@ -416,7 +418,7 @@ foreach coh in $cohort {
 			file open tabfile`coh'`gr' using "${git_reggio}/output/multiple-methods/stepdown/combined_`coh'_`out'_`gr'_asilo_sd.tex", write replace
 			file write tabfile`coh'`gr' "\begin{tabular}{`tabular'}" _n
 			file write tabfile`coh'`gr' "\toprule" _n
-			file write tabfile`coh'`gr' "& ${firstline`coh'} \\"
+			file write tabfile`coh'`gr' "${firstline`coh'}"
 			file write tabfile`coh'`gr' "${cline`coh'}" _n
 			file write tabfile`coh'`gr' " `colname' \\" _n
 			file write tabfile`coh'`gr' "\midrule" _n

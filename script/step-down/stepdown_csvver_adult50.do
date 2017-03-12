@@ -135,7 +135,7 @@ foreach stype in Other {
 	*--------------------*
 	* matchedDID Globals
 	*--------------------*
-	global matchedDIDlist			mDID_30RE_50RE mDID_40RE_50RE mDID_30RE_50PM mDID_40RE_50PM mDID_30RE_50PV mDID_40RE_50PV
+	global matchedDIDlist			mDID_30RE_50RE /*mDID_40RE_50RE mDID_30RE_50PM mDID_40RE_50PM mDID_30RE_50PV mDID_40RE_50PV*/
 	
 	*Analysis 1:
 	global mainCity_mDID_30RE_50RE			Reggio
@@ -229,7 +229,7 @@ foreach stype in Other {
 				* Open necessary files
 				#delimit ;
 				file open mDID_`type'_`stype' using 
-				"${git_reggio}/output/multiple-methods/stepdown/csv/mDID`mm'_${compCohort_`comp_in'}_${compCity_`comp_in'}_`type'_`stype'_alt.csv", 
+				"${git_reggio}/output/multiple-methods/stepdown/csv/mDID`mm'_${compCohort_`comp_in'}_${mainCohort_`comp_in'}_${compCity_`comp_in'}_`type'_`stype'.csv", 
 				write replace;
 				#delimit cr
 				

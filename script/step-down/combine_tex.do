@@ -26,9 +26,9 @@ include "${here}/../macros"
 local switch40 = 1
 
 global cohort					child adol /*adult30*/ adult40
-global groupchild				Other /*Stat Reli*/
+global groupchild				Other Stat Reli
 global groupadol				Other Stat Reli
-global groupadult30		   		None Other /*Stat Reli*/
+global groupadult30		   		None Other Stat Reli
 global groupadult40				None
 global outcomechild				M CN S H B
 global outcomeadol				M CN S H B
