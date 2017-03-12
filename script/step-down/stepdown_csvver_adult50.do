@@ -121,12 +121,12 @@ foreach stype in Other {
 	global XPvDiD40				xmMuniReggio
 	global XPvDiD30				xmMuniReggio
 	
-	global controlsRDiD40		materna Cohort_Adult40 ${bic_adol_baseline_did_vars}
-	global controlsRDiD30		materna Cohort_Adult30 ${bic_adol_baseline_did_vars}
-	global controlsPmDiD40		materna Reggio ${bic_adol_baseline_did_vars}
-	global controlsPmDiD30		materna Reggio ${bic_adol_baseline_did_vars}
-	global controlsPvDiD40		materna Reggio ${bic_adol_baseline_did_vars}
-	global controlsPvDiD30		materna Reggio ${bic_adol_baseline_did_vars}
+	global controlsRDiD40		materna Cohort_Adult40 ${bic_adult_baseline_vars}
+	global controlsRDiD30		materna Cohort_Adult30 ${bic_adult_baseline_vars}
+	global controlsPmDiD40		materna Reggio ${bic_adult_baseline_did_vars}
+	global controlsPmDiD30		materna Reggio ${bic_adult_baseline_did_vars}
+	global controlsPvDiD40		materna Reggio ${bic_adult_baseline_did_vars}
+	global controlsPvDiD30		materna Reggio ${bic_adult_baseline_did_vars}
 	
 
 	global ifconditionRDiD40	(Reggio == 1) & (((Cohort == 5) & (maternaMuni == 1 | maternaNone == 1)) | ((Cohort == 6) & (maternaOther == 1 | maternaNone == 1)))
