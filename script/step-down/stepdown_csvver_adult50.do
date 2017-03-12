@@ -107,11 +107,15 @@ keep if (Cohort == 4) | (Cohort == 5) | (Cohort == 6)
 local stype_switch = 1
 foreach stype in Other {
 	
-	* Set necessary global variables
-	global reglist				RDiD40 RDiD30 PmDiD40 PmDiD30 PvDiD40 PvDiD30
+	* Interact age30 or age40 and maternaMuni
+	generate int30Muni = Cohort_Adult30 * maternaMuni
+	generate int40Muni = Cohort_Adult40 * maternaMuni
 	
-	global XRDiD40				xmMuniReggio
-	global XRDiD30				xmMuniReggio
+	* Set necessary global variables
+	global reglist				RDiD40 RDiD30
+	
+	global XRDiD40				int40Muni
+	global XRDiD30				int30Muni
 	global XPmDiD40				xmMuniReggio
 	global XPmDiD30				xmMuniReggio
 	global XPvDiD40				xmMuniReggio
@@ -125,8 +129,8 @@ foreach stype in Other {
 	global controlsPvDiD30		materna Reggio ${bic_adol_baseline_did_vars}
 	
 
-	global ifconditionRDiD40	(Reggio == 1) & (((Cohort == 5) & (maternaMuni == 1 | maternaNone == 1)) | (Cohort == 6))
-	global ifconditionRDiD30	(Reggio == 1) & (((Cohort == 4) & (maternaMuni == 1 | maternaNone == 1)) | (Cohort == 6))
+	global ifconditionRDiD40	(Reggio == 1) & (((Cohort == 5) & (maternaMuni == 1 | maternaNone == 1)) | ((Cohort == 6) & (maternaOther == 1 | maternaNone == 1)))
+	global ifconditionRDiD30	(Reggio == 1) & (((Cohort == 4) & (maternaMuni == 1 | maternaNone == 1)) | ((Cohort == 6) & (maternaOther == 1 | maternaNone == 1)))
 	global ifconditionPmDiD40	((Reggio == 1) & (Cohort == 5) & (maternaMuni == 1 | maternaNone == 1)) | ((Parma == 1) & (Cohort == 6))
 	global ifconditionPmDiD30	((Reggio == 1) & (Cohort == 4) & (maternaMuni == 1 | maternaNone == 1)) | ((Parma == 1) & (Cohort == 6))
 	global ifconditionPvDiD40	((Reggio == 1) & (Cohort == 5) & (maternaMuni == 1 | maternaNone == 1)) | ((Padova == 1) & (Cohort == 6))
@@ -205,7 +209,7 @@ foreach stype in Other {
 	global controlsmDID_40RE_50PV			${bic_adult_baseline_vars}		
 	
 	foreach type in   M E W L H N S {
-/*
+
 		* ----------------------- *
 		* For Regression Analysis *
 		* ----------------------- *
@@ -219,8 +223,8 @@ foreach stype in Other {
 	
 		* Close necessary files
 		file close regression_`type'_`stype' 
-	*/
 	
+	/*
 		foreach mm in kernel psm{
 			foreach comp_in in ${matchedDIDlist}{
 				* ------------------------ *
@@ -238,7 +242,7 @@ foreach stype in Other {
 				sd_mDID_analysis, stype("`stype'") type("`type'") cohort("adult") comp("`comp_in'") matchingmethod("`mm'") 
 			
 				* Close necessary files
-				file close mDID_`type'_`stype'
+				file close mDID_`type'_`stype' */
 			}
 		}		
 		
