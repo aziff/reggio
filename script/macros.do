@@ -118,11 +118,11 @@ global adult_outcome_M					IQ_factor highschoolGrad votoMaturita votoMaturita_st
 										BMI_overweight pos_LocusControl pos_Depress volunteer votedMunicipal votedRegional Friends Trust
 
 global adult_outcome_E					IQ_factor IQ_score votoMaturita  ///
-										highschoolGrad MaxEdu_Uni MaxEdu_Grad
+										highschoolGrad MaxEdu_Uni 
 
 * Employment										
 global adult_outcome_W					PA_Empl SES_self HrsTot ///
-										Reddito_1 Reddito_2 Reddito_3 Reddito_4 Reddito_5 Reddito_6 
+										Reddito_1 Reddito_2 Reddito_3 Reddito_4 Reddito_5 
 
 * Living status										
 global adult_outcome_L					mar_cohab mStatus_div childrenResp all_houseOwn live_parent
