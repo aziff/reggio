@@ -198,7 +198,7 @@ foreach var of varlist `varlistreal' {
 end
 
 
-* Example of syntax when caling function
+/* Example of syntax when caling function
 preserve
 
 keep if (Cohort == 4) 
