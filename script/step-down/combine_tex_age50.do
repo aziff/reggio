@@ -32,13 +32,15 @@ global reglistadult50			OLS40 OLS30
 global did30listadult50			KMDID30
 global did40listadult50			KMDID40
 
-global didlistadult50lp			did40 did30 
+global didlistadult50lp			rdid40 rdid30 
 global reglistadult50lp			ols40 ols30
 global did30listadult50lp		mdid30
 global did40listadult50lp		mdid40
 
 global fulllistadult50			OLS30 DiD30 KMDiD30 OLS40 DiD40 KMDiD40
-global fulllistadult50lp		ols30 did30 mdid30 ols40 did40 mdid40
+global fulllistadult50lp		ols30 rdid30 mdid30 ols40 rdid40 mdid40
+global firstlineadult50			\multicolumn{3}{c}{Within Age-30} & \multicolumn{3}{c}{With Age-40}     
+global clineadult50				\cmidrule(lr){2-4} \cmidrule(lr){5-7} 
 
 
 
@@ -75,7 +77,7 @@ foreach coh in $cohort {
 			tempfile reg_`coh'_`gr'
 			save "`reg_`coh'_`gr''"
 			
-			import delimited using "${git_reggio}/output/multiple-methods/stepdown/csv/mDIDkernel_Adult50_Adult30_Reggio_`out'_`gr'_alt.csv", clear
+			import delimited using "${git_reggio}/output/multiple-methods/stepdown/csv/mDIDkernel_Adult50_Adult30_Reggio_`out'_`gr'.csv", clear
 			foreach spec in b se p sdp n {				// Rename columns to avoid conflicts in merge
 				rename mdid_reggio_`spec' 	mdid_mdid30_`spec'
 			}
@@ -160,7 +162,7 @@ foreach coh in $cohort {
 				
 				* DID-matching-based
 			
-				foreach item in ${didpmlist`coh'lp} ${didpvlist`coh'lp} {
+				foreach item in ${did30list`coh'lp} ${did40list`coh'lp} {
 					
 					* Get the values
 					levelsof mdid_`item'_b if rowname == "`outcome'", local(p`item'`outcome')
@@ -168,6 +170,8 @@ foreach coh in $cohort {
 					levelsof mdid_`item'_p if rowname == "`outcome'", local(pv`item'`outcome')
 					levelsof mdid_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
 					
+					
+				
 					* Format decimal points
 					if !missing("`p`item'`outcome''")  & !missing("`pv`item'`outcome''") {
 						* Store p-values into another macro
@@ -235,8 +239,8 @@ foreach coh in $cohort {
 			file open tabfile`coh'`gr' using "${git_reggio}/output/multiple-methods/stepdown/combined_`coh'_`out'_`gr'_sd.tex", write replace
 			file write tabfile`coh'`gr' "\begin{tabular}{`tabular'}" _n
 			file write tabfile`coh'`gr' "\toprule" _n
-			/*file write tabfile`coh'`gr' "& ${firstline`coh'} \\"
-			file write tabfile`coh'`gr' "${cline`coh'}" _n */
+			file write tabfile`coh'`gr' "& ${firstline`coh'} \\"
+			file write tabfile`coh'`gr' "${cline`coh'}" _n 
 			file write tabfile`coh'`gr' " `colname' \\" _n
 			file write tabfile`coh'`gr' "\midrule" _n
 

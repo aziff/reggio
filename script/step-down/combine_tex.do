@@ -23,7 +23,7 @@ include "${here}/../macros"
 * ---------- *
 * Set Macros *
 * ---------- *
-local switch40 = 1
+local switch40 = 0
 
 global cohort					child adol /*adult30*/ adult40
 global groupchild				Other Stat Reli
@@ -117,7 +117,7 @@ if `switch40' == 0 {
 	global kernellistadult40lp		km40r km40pm km40pv
 	global fulllistadult40lp		none40 bic40 full40 psm40r km40r km40pm km40pv
 	global firstlineadult40			\multicolumn{5}{c}{Within Reggio} & With Parma & With Padova
-	global clineadult40				\cmidrule(lr){2-6} \cmidrule(lr){7} \cmidrule(lr){8}
+	global clineadult40				\cmidrule(lr){2-6} \cmidrule(lr){7-7} \cmidrule(lr){8-8}
 }
 
 
