@@ -23,16 +23,16 @@ include "${here}/../macros"
 * ---------- *
 * Set Macros *
 * ---------- *
-local switch40 = 0
+local switch40 = 1
 
-global cohort					child adol /*adult30*/ adult40
+global cohort					/*child adol adult30 adult40*/ adult30
 global groupchild				Other Stat Reli
 global groupadol				Other Stat Reli
-global groupadult30		   		None Other Stat Reli
+global groupadult30		   		None Other /*Stat Reli*/
 global groupadult40				None
 global outcomechild				M CN S H B
 global outcomeadol				M CN S H B
-global outcomeadult30			M E W L H N S
+global outcomeadult30			M /*E W L H N S*/
 global outcomeadult40			M E W L H N S
 	
 
@@ -161,6 +161,7 @@ foreach coh in $cohort {
 			save "`reg_`coh'_`gr''"
 			
 			if `switch40' == 1 { // Only run for yes did Age-40
+				di "Importing kernel Parma: `coh' `gr' `out'"
 				import delimited using "${git_reggio}/output/multiple-methods/stepdown/csv/mDIDkernel_``coh'_m'_Parma_`out'_`gr'.csv", clear
 				foreach spec in b se p sdp n {				// Rename columns to avoid conflicts in merge
 					rename mdid_reggio_`spec' 	mdid_mdidpm_`spec'
@@ -172,6 +173,7 @@ foreach coh in $cohort {
 				tempfile reg_`coh'_`gr'
 				save "`reg_`coh'_`gr''"
 				
+				di "Importing kernel Padova: `coh' `gr' `out'"
 				import delimited using "${git_reggio}/output/multiple-methods/stepdown/csv/mDIDkernel_``coh'_m'_Padova_`out'_`gr'.csv", clear
 				foreach spec in b se p sdp n {				// Rename columns to avoid conflicts in merge
 					rename mdid_reggio_`spec' 	mdid_mdidpv_`spec'
