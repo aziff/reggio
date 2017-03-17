@@ -25,8 +25,8 @@ include "${here}/../macros"
 * ---------- *
 
 global cohort					adult30 adult40
-global groupadult30		   		Yes Muni
-global groupadult40				Yes Muni
+global groupadult30		   		Yes 
+global groupadult40				Yes 
 global outcomeadult30			M
 global outcomeadult40			M 
 	
@@ -54,7 +54,7 @@ global fulllistadult40lp		none30 bic30 full30 psm30 km30
 * ------------------------------------ *
 * Merge and Create Tex for each cohort *
 * ------------------------------------ *
-foreach city in Parma Padova {
+foreach city in /*Parma Padova*/ Reggio {
 	foreach coh in $cohort {
 		
 		foreach gr in ${group`coh'} {

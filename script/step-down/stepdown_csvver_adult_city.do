@@ -53,8 +53,8 @@ keep if (Cohort == 4)
 drop if asilo == 1 // dropping those who went to infant-toddler centers
 
 local stype_switch = 1
-foreach city in Parma Padova {
-	foreach stype in Yes Muni {
+foreach city in Reggio /*Parma Padova*/ {
+	foreach stype in Yes /*Muni*/ {
 		
 		* Set necessary global variables
 		global X					maternaMuni
@@ -156,8 +156,8 @@ keep if (Cohort == 5)
 drop if asilo == 1 // dropping those who went to infant-toddler centers
 
 local stype_switch = 1
-foreach city in Parma Padova {
-	foreach stype in Yes Muni {
+foreach city in Reggio /*Parma Padova*/ {
+	foreach stype in Yes /*Muni*/ {
 		
 		* Set necessary global variables
 		global X					maternaMuni
