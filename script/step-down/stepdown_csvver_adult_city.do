@@ -195,7 +195,7 @@ foreach city in Parma Padova {
 			* ----------------------- *
 			* Open necessary files
 			cap file close regression_`type'_`stype'
-			file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/reg_adult30_`type'_`stype'_`city'_sd.csv", write replace
+			file open regression_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/reg_adult40_`type'_`stype'_`city'_sd.csv", write replace
 
 			* Run Multiple Analysis
 			di "Estimating `type' for Adult: Regression Analysis"
@@ -210,7 +210,7 @@ foreach city in Parma Padova {
 			* For PSM Analysis 		  *
 			* ----------------------- *
 			* Open necessary files
-			file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/psm_adult30_`type'_`stype'_`city'_sd.csv", write replace
+			file open psm_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/psm_adult40_`type'_`stype'_`city'_sd.csv", write replace
 
 			* Run Multiple Analysis
 			di "Estimating `type' for Adult: PSM Analysis"
@@ -224,7 +224,7 @@ foreach city in Parma Padova {
 			* For Kernel Analysis 	  *
 			* ----------------------- *
 			* Open necessary files
-			file open kern_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/kern_adult30_`type'_`stype'_`city'_sd.csv", write replace
+			file open kern_`type'_`stype' using "${git_reggio}/output/multiple-methods/stepdown/csv/kern_adult40_`type'_`stype'_`city'_sd.csv", write replace
 
 			* Run Multiple Analysis
 			di "Estimating `type' for Children: PSM Analysis"

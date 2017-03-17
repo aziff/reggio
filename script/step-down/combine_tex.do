@@ -28,11 +28,11 @@ local switch40 = 1
 global cohort					/*child adol adult30 adult40*/ adult30
 global groupchild				Other Stat Reli
 global groupadol				Other Stat Reli
-global groupadult30		   		None Other /*Stat Reli*/
+global groupadult30		   		Stat Reli /*None Other Stat Reli*/
 global groupadult40				None
 global outcomechild				M CN S H B
 global outcomeadol				M CN S H B
-global outcomeadult30			M /*E W L H N S*/
+global outcomeadult30			/*M E W L H N S*/ M
 global outcomeadult40			M E W L H N S
 	
 
