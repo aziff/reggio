@@ -2,7 +2,7 @@
 * Analyzing the Reggio Children Evaluation Survey - OLS and Diff-in-Diff for Adult Cohorts
 * Authors: Jessica Yu Kyung Koh
 * Created: 06/16/2016
-* Edited:  10/31/2016
+* Edited:  04/27/2017
 
 * Note: This execution do file performs diff-in-diff estimates and generates tables
         by using "multipleanalysis" command that is programmed in 
@@ -26,67 +26,72 @@ use "${data_reggio}/Reggio_reassigned"
 * Include scripts and functions
 include "${here}/../macros" 
 
+	
+	global XDidPm				xmMuniReggio
+	global XDidPv				xmMuniReggio 	
+
+
+	global controlsFull			${child_baseline_vars}
+	global controlsDidPm		maternaMuni Reggio ${bic_child_baseline_did_vars}
+
 /*
 * ---------------------------------------------------------------------------- *
-* 					Reggio Muni vs. All:	Children		 				   *
+* 					Reggio Parma DiD:	Children			 				   *
 * ---------------------------------------------------------------------------- *
 ** Keep only the adult cohorts
 preserve
 keep if (Cohort == 1) | (Cohort == 2) 
 
 * Set necessary global variables
-local	outcomes			/*pos_childSDQ_score*/ BMI_obese	
-local	controls			${bic_child_baseline_vars}
+local	outcomes			pos_childSDQ_score BMI_obese
+local	controls			maternaMuni Reggio ${bic_child_baseline_did_vars}
 
 levelsof internr, local(list_interviewer)
 
 foreach out in `outcomes' {
 	foreach i in `list_interviewer' {
 		di "for outcome: `outcome' and interviewer `i'"
-		regress `out' maternaMuni `controls' if (internr != `i') & (Reggio == 1) & (maternaMuni == 1 | maternaOther == 1)
+		regress `out' xmMuniReggio `controls' if (internr != `i') & (Reggio == 1 | Parma == 1) & (maternaMuni == 1 | maternaOther == 1)
 		estimates store `out'`i'
 		local interview`out' `interview`out'' `out'`i' ||
 		local labels`out' `labels`out'' `i'
 	}
 }
 
-di "interviewpos_childSDQ_score: `interviewpos_childSDQ_score'"
-
 foreach out in `outcomes' {
-	coefplot `interview`out'', keep(maternaMuni) vertical bycoefs bylabels(`labels`out'')
+	coefplot `interview`out'', keep(xmMuniReggio) vertical bycoefs bylabels(`labels`out'')
 }
 restore
 
 
 * ---------------------------------------------------------------------------- *
-* 					Reggio Muni vs. All:	Adolescent		 				   *
+* 					Reggio Parma DiD:	Adolescent			 				   *
 * ---------------------------------------------------------------------------- *
-** Keep only the adult cohorts
+
 preserve
 keep if (Cohort == 3) 
 
 * Set necessary global variables
-local	outcomes			pos_childSDQ_score /*BMI_obese*/
-local	controls			${bic_adol_baseline_vars}
+local	outcomes			pos_childSDQ_score BMI_obese	
+local	controls			maternaMuni Reggio ${bic_adol_baseline_did_vars}
 
 levelsof internr, local(list_interviewer)
 
 foreach out in `outcomes' {
 	foreach i in `list_interviewer' {
 		di "for outcome: `outcome' and interviewer `i'"
-		regress `out' maternaMuni `controls' if (internr != `i') & (Reggio == 1) & (maternaMuni == 1 | maternaOther == 1)
+		regress `out' xmMuniReggio `controls' if (internr != `i') & (Reggio == 1 | Parma == 1) & (maternaMuni == 1 | maternaOther == 1)
 		estimates store `out'`i'
 		local interview`out' `interview`out'' `out'`i' ||
 		local labels`out' `labels`out'' `i'
 	}
 }
 
-di "interviewpos_childSDQ_score: `interviewpos_childSDQ_score'"
-
 foreach out in `outcomes' {
-	coefplot `interview`out'', keep(maternaMuni) vertical bycoefs bylabels(`labels`out'')
+	coefplot `interview`out'', keep(xmMuniReggio) vertical bycoefs bylabels(`labels`out'')
 }
 restore
+
 
 
 * ---------------------------------------------------------------------------- *
@@ -95,18 +100,17 @@ restore
 ** Keep only the adult cohorts
 preserve
 keep if (Cohort == 4) 
-drop if asilo == 1 
 
 * Set necessary global variables
-local	outcomes			/*votoMaturita*/ BMI_obese
-local	controls			${bic_adult_baseline_vars}
+local	outcomes			votoMaturita /*BMI_obese*/	
+local	controls			maternaMuni Reggio ${bic_addult_baseline_did_vars}
 
 levelsof internr, local(list_interviewer)
 
 foreach out in `outcomes' {
 	foreach i in `list_interviewer' {
 		di "for outcome: `outcome' and interviewer `i'"
-		regress `out' maternaMuni `controls' if (internr != `i') & (Reggio == 1) & (maternaMuni == 1 | maternaOther == 1)
+		regress `out' xmMuniReggio `controls' if (internr != `i') & (Reggio == 1 | Parma == 1) & (maternaMuni == 1 | maternaOther == 1)
 		estimates store `out'`i'
 		local interview`out' `interview`out'' `out'`i' ||
 		local labels`out' `labels`out'' `i'
@@ -114,9 +118,12 @@ foreach out in `outcomes' {
 }
 
 foreach out in `outcomes' {
-	coefplot `interview`out'', keep(maternaMuni) vertical bycoefs bylabels(`labels`out'')
+	coefplot `interview`out'', keep(xmMuniReggio) vertical bycoefs bylabels(`labels`out'')
 }
-restore 
+restore
+
+*/
+
 
 * ---------------------------------------------------------------------------- *
 * 					Reggio:	Adult-40						 				   *
@@ -124,18 +131,17 @@ restore
 ** Keep only the adult cohorts
 preserve
 keep if (Cohort == 5) 
-drop if asilo == 1 
 
 * Set necessary global variables
-local	outcomes			votoMaturita /*BMI_obese*/
-local	controls			${bic_adult_baseline_vars}
+local	outcomes			/*votoMaturita*/ BMI_obese	
+local	controls			maternaMuni Reggio ${bic_addult_baseline_did_vars}
 
 levelsof internr, local(list_interviewer)
 
 foreach out in `outcomes' {
 	foreach i in `list_interviewer' {
 		di "for outcome: `outcome' and interviewer `i'"
-		regress `out' maternaMuni `controls' if (internr != `i') & (Reggio == 1) & (maternaMuni == 1 | maternaOther == 1)
+		regress `out' xmMuniReggio `controls' if (internr != `i') & (Reggio == 1 | Parma == 1) & (maternaMuni == 1 | maternaOther == 1)
 		estimates store `out'`i'
 		local interview`out' `interview`out'' `out'`i' ||
 		local labels`out' `labels`out'' `i'
@@ -143,6 +149,6 @@ foreach out in `outcomes' {
 }
 
 foreach out in `outcomes' {
-	coefplot `interview`out'', keep(maternaMuni) vertical bycoefs bylabels(`labels`out'')
+	coefplot `interview`out'', keep(xmMuniReggio) vertical bycoefs bylabels(`labels`out'')
 }
-restore*/
+restore

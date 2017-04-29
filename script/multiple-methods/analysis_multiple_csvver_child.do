@@ -100,7 +100,7 @@ preserve
 keep if (Cohort == 1) | (Cohort == 2) 
 
 local stype_switch = 1
-foreach stype in Other Stat Reli {
+foreach stype in Other /* Stat Reli */ {
 	
 	* Set necessary global variables
 	global X					maternaMuni
@@ -159,8 +159,8 @@ foreach stype in Other Stat Reli {
 								distMaternaMunicipal1 distMaternaPrivate1 distMaternaReligious1 distMaternaState1 ///
 								distMaternaMunicipal1_sq distMaternaPrivate1_sq distMaternaReligious1_sq distMaternaState1_sq
 	
-	foreach type in  M CN S H B {
-
+	foreach type in  M /* CN S H B */ {
+/*
 		* ----------------------- *
 		* For Regression Analysis *
 		* ----------------------- *
@@ -186,7 +186,7 @@ foreach stype in Other Stat Reli {
 		psmanalysis, stype("`stype'") type("`type'") psmlist("${psmlist}") cohort("child")
 	
 		* Close necessary files
-		file close psm_`type'_`stype'
+		file close psm_`type'_`stype'	*/
 			
 			
 		* ----------------------- *
@@ -203,7 +203,7 @@ foreach stype in Other Stat Reli {
 		* Close necessary files
 		file close iv_`type'_`stype' 	
 		
-		* ----------------- *
+	/*	* ----------------- *
 		* For AIPW Analysis *
 		* ----------------- *
 		* Open necessary files
@@ -215,7 +215,7 @@ foreach stype in Other Stat Reli {
 		
 		* Close necessary files
 		file close aipw_`type'_`stype'	
-		
+		*/
 		
 		
 					

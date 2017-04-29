@@ -11,36 +11,12 @@
 
 \section{Sensitivity Analysis}
 
-When checking data, we come across several interviewers that show some trends in questionable recordings on school assignment. Table \ref{tab:num-interview} reports the number of interviews each interviewer did. Table \ref{tab:question-interviewers} reports ID's of the questionable interviewers and examples of concerns noted for each interviewers. 
+While checking data, we have come across several interviewers that show some trends in questionable recordings on school assignment. Table \ref{tab:num-interview} reports the number of interviews each interviewer did. Table \ref{tab:question-interviewers} reports ID's of the questionable interviewers and examples of concerns noted for each interviewers. 
 
-Since dropping all the questionable interviewers significantly decreases sample size so that we lose statistical power, we carry out alternative sensitivity analysis as follows. We select two outcomes for each age cohort, and run OLS regression with treatment indicator and BIC-selected control set dropping each of all interviewers. Sample is limited to people in Reggio Emilia only. We explore how the coefficient on treatment indicator changes when we drop different interviewers. Figures \ref{fig:child-sensitivity-interviewer} - \ref{fig:adult40-sensitivity-interviewer} plot the OLS coefficient on the treatment indicator and its standard error for each case of dropping interviewer marked on the horizontal axis.
+Since dropping all the questionable interviewers significantly decreases sample size so that the statistical power is lost, we carry out alternative sensitivity analysis as follows. We select two outcomes for each age cohort, and run OLS regression with treatment indicator and BIC-selected control set dropping each of all interviewers. Sample is limited to people in Reggio Emilia only. We explore how the coefficient on treatment indicator changes when we drop different interviewers. Figures \ref{fig:child-sensitivity-interviewer} - \ref{fig:adult40-sensitivity-interviewer} plot the OLS coefficient on the treatment indicator and its standard error for each case of dropping interviewer marked on the horizontal axis.
 
 \begin{table}[H] \caption{Number of Interviews by Each Interviewer} \label{tab:num-interview}
-\begin{tabular}{ll|ll|ll|ll}
-\toprule
-ID	&	Interviews	&	ID	&	Interviews	&	ID	&	Interviews	&	ID	&	Interviews	\\	\midrule
-166	&	4	&	855	&	8	&	4014	&	13	&	4057	&	6	\\	
-167	&	74	&	1369	&	20	&	4015	&	5	&	4058	&	13	\\	
-168	&	7	&	2437	&	87	&	4017	&	4	&	4059	&	35	\\	
-169	&	1	&	2502	&	7	&	4018	&	390	&	4060	&	25	\\	
-170	&	114	&	2506	&	28	&	4019	&	12	&	4063	&	21	\\	
-171	&	130	&	2509	&	22	&	4020	&	3	&	4065	&	80	\\	
-172	&	91	&	2511	&	30	&	4026	&	8	&	4072	&	8	\\	
-173	&	119	&	2525	&	35	&	4035	&	56	&	4073	&	217	\\	
-176	&	35	&	2526	&	140	&	4037	&	118	&	4075	&	6	\\	
-177	&	47	&	2544	&	144	&	4040	&	24	&	4076	&	7	\\	
-178	&	11	&	2562	&	20	&	4041	&	8	&	4077	&	92	\\	
-183	&	10	&	2593	&	21	&	4042	&	26	&	4078	&	16	\\	
-184	&	232	&	2594	&	18	&	4043	&	70	&	4082	&	27	\\	
-185	&	160	&	2596	&	16	&	4044	&	41	&	4087	&	10	\\	
-186	&	175	&	2597	&	62	&	4045	&	21	&	4089	&	10	\\	
-187	&	125	&	2712	&	4	&	4046	&	34	&	4091	&	226	\\	
-192	&	16	&	2718	&	8	&	4047	&	6	&	4092	&	4	\\	
-193	&	36	&	2747	&	65	&	4053	&	4	&	4096	&	51	\\	
-195	&	7	&	2752	&	7	&	4054	&	39	&	4097	&	9	\\	
-196	&	5	&	2753	&	114	&	4056	&	19	&		&		\\	\bottomrule
-\end{tabular}
-
+\scalebox{0.8}{\input{../../../output/numRespondents_byInterviewer}}
 \end{table}
 
 \begin{table}[H]
@@ -49,74 +25,204 @@ ID	&	Interviews	&	ID	&	Interviews	&	ID	&	Interviews	&	ID	&	Interviews	\\	\midrul
 \begin{tabular}{L{2cm} L{2cm} L{11cm}} 
 \toprule						
 Interviewer ID	&	Total \# of Interviews Conducted	&	Examples of Concerns Noted	\\	\midrule
-170	&	114	&	Attendance at a School Type is Mentioned, School Name is reported, and Street is reported, but for Cohorts that could not have attended: a) becauses that school was not yet constructed when they were eligible to attend; or b) the school they report existed on another street at the time they were eligible to attend. 	\\	\midrule
-171	&	130	&	Attendance at a School Type is Mentioned, School Name is reported, and Street is reported, but for Cohorts that could not have attended: a) becauses that school was not yet constructed when they were eligible to attend; or b) the school they report existed on another street at the time they were eligible to attend. 	\\	\midrule
-172	&	92	&	Attendance at a School Type is Mentioned, School Name is reported, and Street is reported, but for Cohorts that could not have attended: a) becauses that school was not yet constructed when they were eligible to attend; or b) the school they report existed on another street at the time they were eligible to attend. 	\\	\midrule
-186	&	175	&	Reports that 23 people, all in the Age 30 Cohort, are living in Parma as adults but attended preschool in Reggio Emilia. The school type, school name, and school address are all reported, and reported consistently (none of the 23 is unable to provide a name or address). Another concern noted for this interviewer includes 17 observations in which all report attending the same school name on the same address but none of the 17 can report the actual school name (just "Comunale Stirone" referencing the school type and street address Stirone)	\\	\midrule
-4018	&	390	&	This interviewer worked a lot in Parma, and we do not have municipal archives for school enrollment, thus we cannot be 100\% certain that the observations are questionable. because we cannot reconstruct the history of each school (i.e. date opened, school type, school address, whether rebuilt under a new name, etc). Some concerns are observations that conflict with the history provided by Parma, for example, reporting attendance at an asilo before asilos were first created. Another concern  is the total number of people who report a school name and address for a school that didn't yet exist or existed under a different name when the respondent was eligible to attend. The pattern of these errors is questionable.  In Reggio, there are fewer concerns with this interviewer	\\	\midrule
-4073	&	217	&	This interviewer worked exclusively in Parma, for which we have no municipal archives. One concern is the very unusual number of observations in which no school name is reported, but an address is provided; for Adolescents, this is very surprising. For Age 30 it's also surprising. For Age 40 and 50, less surprising, but still this pattern is very different from the observations of other interviewers. Regardless, without a complete history of Parma, it's not possible to assign school types by street address or neighborhood alone as several different types of schools are generally in the same neighborhood or street.	\\	\bottomrule
+170	&	114	&	There are cases where attendance at a school type is mentioned, school name is reported, and school address is reported for cohorts that could not have attended due to following reasons: a) that school was not yet constructed when they were eligible to attend; or b) the school they report existed on another street at the time they were eligible to attend. 	\\	\midrule
+171	&	130	&	There are cases where attendance at a school type is mentioned, school name is reported, and school address is reported for cohorts that could not have attended due to following reasons: a) that school was not yet constructed when they were eligible to attend; or b) the school they report existed on another street at the time they were eligible to attend. 	\\	\midrule
+172	&	92	&	There are cases where attendance at a school type is mentioned, school name is reported, and school address is reported for cohorts that could not have attended due to following reasons: a) that school was not yet constructed when they were eligible to attend; or b) the school they report existed on another street at the time they were eligible to attend. 	\\	\midrule
+186	&	175	&	Reports that 23 people, all in the Age-30 Cohort, are living in Parma as adults but attended preschool in Reggio Emilia. The school type, school name, and school address are all reported. None of the 23 is unable to provide a name or address. Another concern noted for this interviewer includes 17 observations in which all report attending the same school name on the same address but none of the 17 can report the actual school name (just "Comunale Stirone" referencing the school type and street address Stirone)	\\	\midrule
+4018	&	390	&	This interviewer worked a lot in Parma, and we do not have municipal archives for school enrollment, thus we cannot be 100\% certain that the observations are questionable. because we cannot reconstruct the history of each school (i.e. date opened, school type, school address, whether rebuilt under a new name, etc). Some concerns are observations that conflict with the history provided by Parma, for example, reporting attendance at an asilo before asilos were first created. Another concern  is the total number of people who report a school name and address for a school that didn't yet exist or existed under a different name when the respondent was eligible to attend. The pattern of these errors is questionable.  In Reggio, there are fewer concerns with this interviewer.	\\	\midrule
+4073	&	217	&	This interviewer worked exclusively in Parma, for which we have no municipal archives. One concern is the very unusual number of observations in which no school name is reported, but an address is provided; for Adolescents and Age-30 cohorts, this is very surprising. For Age 40 and 50, it is less surprising, but still this pattern is very different from the observations of other interviewers. Regardless, without a complete history of Parma, it's not possible to assign school types by street address or neighborhood alone as several different types of schools are generally in the same neighborhood or street.	\\	\bottomrule
 
 \end{tabular}
 
 \end{footnotesize}
 \end{table}
 
+
+\subsection{Within Reggio Emilia Analysis} \label{sec:within-RE-analysis}
+
     \begin{figure}[H]
       \centering
-        \begin{subfigure}[t]{0.81\textwidth}
+        \begin{subfigure}[t]{0.75\textwidth}
           \includegraphics[width=\textwidth]{../../../output/image/coef-interviewer-child-pos_childSDQ_score.eps}       
 \caption{Outcome: Positive SDQ Score}        
         \end{subfigure}
-        \begin{subfigure}[t]{0.81\textwidth}
+        \begin{subfigure}[t]{0.75\textwidth}
           \includegraphics[width=\textwidth]{../../../output/image/coef-interviewer-child-BMI_obese.eps}       
  \caption{Outcome: Not Obese}        
         \end{subfigure}
-      \caption{Child Cohort: Droping Each Interviewer}  \label{fig:child-sensitivity-interviewer}
+      \caption{Child Cohort: Droping Each Interviewer, Within Reggio Emilia Analysis}  \label{fig:child-sensitivity-interviewer}
     \end{figure}
 
     \begin{figure}[H]
       \centering
-        \begin{subfigure}[t]{0.81\textwidth}
+        \begin{subfigure}[t]{0.75\textwidth}
           \includegraphics[width=\textwidth]{../../../output/image/coef-interviewer-adol-pos_childSDQ_score.eps}       
 \caption{Outcome: Positive SDQ Score}        
         \end{subfigure}
-        \begin{subfigure}[t]{0.81\textwidth}
+        \begin{subfigure}[t]{0.75\textwidth}
           \includegraphics[width=\textwidth]{../../../output/image/coef-interviewer-adol-BMI_obese.eps}       
  \caption{Outcome: Not Obese}        
         \end{subfigure}
-      \caption{Adolescent Cohort: Droping Each Interviewer}  \label{fig:adol-sensitivity-interviewer}
+      \caption{Adolescent Cohort: Droping Each Interviewer, Within Reggio Emilia Analysis}  \label{fig:adol-sensitivity-interviewer}
     \end{figure}
 
 
     \begin{figure}[H]
       \centering
-        \begin{subfigure}[t]{0.81\textwidth}
+        \begin{subfigure}[t]{0.75\textwidth}
           \includegraphics[width=\textwidth]{../../../output/image/coef-interviewer-adult30-votoMaturita.eps}       
 \caption{Outcome: High School Grade}        
         \end{subfigure}
-        \begin{subfigure}[t]{0.81\textwidth}
+        \begin{subfigure}[t]{0.75\textwidth}
           \includegraphics[width=\textwidth]{../../../output/image/coef-interviewer-adult30-BMI_obese.eps}       
  \caption{Outcome: Not Obese}        
         \end{subfigure}
-      \caption{Adult-30 Cohort: Droping Each Interviewer}  \label{fig:adult30-sensitivity-interviewer}
+      \caption{Adult-30 Cohort: Droping Each Interviewer, Within Reggio Emilia Analysis}  \label{fig:adult30-sensitivity-interviewer}
     \end{figure}
 
 
     \begin{figure}[H]
       \centering
-        \begin{subfigure}[t]{0.81\textwidth}
+        \begin{subfigure}[t]{0.75\textwidth}
           \includegraphics[width=\textwidth]{../../../output/image/coef-interviewer-adult40-votoMaturita.eps}       
 \caption{Outcome: High School Grade}        
         \end{subfigure}
-        \begin{subfigure}[t]{0.81\textwidth}
+        \begin{subfigure}[t]{0.75\textwidth}
           \includegraphics[width=\textwidth]{../../../output/image/coef-interviewer-adult40-BMI_obese.eps}       
  \caption{Outcome: Not Obese}        
         \end{subfigure}
-      \caption{Adult-40 Cohort: Droping Each Interviewer}  \label{fig:adult40-sensitivity-interviewer}
+      \caption{Adult-40 Cohort: Droping Each Interviewer, Within Reggio Emilia Analysis}  \label{fig:adult40-sensitivity-interviewer}
+    \end{figure}
+
+
+\subsubsection{More Detailed Analysis}
+
+\ref{sec:within-RE-analysis} shows some interviewers that show different trend than other interviewers. For child and adolescent cohort, interviewers 2526 and 4018 show different results for outcomes examined. In order to examine this more closely, we estimate treatment effects excluding those interviewers on all main outcomes presented in the paper. 
+
+\begin{table}[H] \caption{Estimation Results for Main Outcomes, Child Cohort} \label{ols-M-child-sensitivity}
+\scalebox{0.7}{\input{../../../output/multiple-methods/combinedanalysis/ols_sens_child_M_Other.tex}}
+\vspace{1ex} \\
+\footnotesize\raggedright{\underline{Note 1:} This table shows the estimates of the coefficient for attending Reggio Approach preschools, checking for sensitivity regarding questionable interviewers. Column names indicate the interviewers being dropped. ``DropAll" columns drop all interviewers identified as questionable interviewers in the previous columns.}
+
+\footnotesize\raggedright{\underline{Note 2:} Both unadjusted p-value and stepdown p-value are reported. Bold indicates that the estimate is significant at 10\% level.}
+\end{table}
+
+
+\begin{table}[H] \caption{Estimation Results for Main Outcomes, Adolescent Cohort} \label{ols-M-adol-sensitivity}
+\scalebox{0.7}{\input{../../../output/multiple-methods/combinedanalysis/ols_sens_adol_M_Other.tex}}
+\vspace{1ex} \\
+\footnotesize\raggedright{\underline{Note 1:} This table shows the estimates of the coefficient for attending Reggio Approach preschools, checking for sensitivity regarding questionable interviewers. Column names indicate the interviewers being dropped. ``DropAll" columns drop all interviewers identified as questionable interviewers in the previous columns.}
+
+\footnotesize\raggedright{\underline{Note 2:} Both unadjusted p-value and stepdown p-value are reported. Bold indicates that the estimate is significant at 10\% level.}
+\end{table}
+
+
+
+
+% =========================================== %
+\subsection{Reggio-Parma DiD Analysis} \label{sec:ParmaDiD-analysis}
+
+    \begin{figure}[H]
+      \centering
+        \begin{subfigure}[t]{0.75\textwidth}
+          \includegraphics[width=\textwidth]{../../../output/image/coef-interviewer-child-pos_childSDQ_score_PmDiD.eps}       
+\caption{Outcome: Positive SDQ Score}        
+        \end{subfigure}
+        \begin{subfigure}[t]{0.75\textwidth}
+          \includegraphics[width=\textwidth]{../../../output/image/coef-interviewer-child-BMI_obese_PmDiD.eps}       
+ \caption{Outcome: Not Obese}        
+        \end{subfigure}
+      \caption{Child Cohort: Droping Each Interviewer}  \label{fig:child-sensitivity-interviewer_PmDiD}
+    \end{figure}
+
+    \begin{figure}[H]
+      \centering
+        \begin{subfigure}[t]{0.75\textwidth}
+          \includegraphics[width=\textwidth]{../../../output/image/coef-interviewer-adol-pos_childSDQ_score_PmDiD.eps}       
+\caption{Outcome: Positive SDQ Score}        
+        \end{subfigure}
+        \begin{subfigure}[t]{0.75\textwidth}
+          \includegraphics[width=\textwidth]{../../../output/image/coef-interviewer-adol-BMI_obese_PmDiD.eps}       
+ \caption{Outcome: Not Obese}        
+        \end{subfigure}
+      \caption{Adolescent Cohort: Droping Each Interviewer}  \label{fig:adol-sensitivity-interviewer_PmDiD}
+    \end{figure}
+
+
+    \begin{figure}[H]
+      \centering
+        \begin{subfigure}[t]{0.75\textwidth}
+          \includegraphics[width=\textwidth]{../../../output/image/coef-interviewer-adult30-votoMaturita_PmDiD.eps}       
+\caption{Outcome: High School Grade}        
+        \end{subfigure}
+        \begin{subfigure}[t]{0.75\textwidth}
+          \includegraphics[width=\textwidth]{../../../output/image/coef-interviewer-adult30-BMI_obese_PmDiD.eps}       
+ \caption{Outcome: Not Obese}        
+        \end{subfigure}
+      \caption{Adult-30 Cohort: Droping Each Interviewer}  \label{fig:adult30-sensitivity-interviewer_PmDiD}
+    \end{figure}
+
+
+    \begin{figure}[H]
+      \centering
+        \begin{subfigure}[t]{0.75\textwidth}
+          \includegraphics[width=\textwidth]{../../../output/image/coef-interviewer-adult40-votoMaturita_PmDiD.eps}       
+\caption{Outcome: High School Grade}        
+        \end{subfigure}
+        \begin{subfigure}[t]{0.75\textwidth}
+          \includegraphics[width=\textwidth]{../../../output/image/coef-interviewer-adult40-BMI_obese_PmDiD.eps}       
+ \caption{Outcome: Not Obese}        
+        \end{subfigure}
+      \caption{Adult-40 Cohort: Droping Each Interviewer}  \label{fig:adult40-sensitivity-interviewer_PmDiD}
     \end{figure}
 
 
 
+\subsubsection{More Detailed Analysis}
+
+\ref{sec:ParmaDiD-analysis} shows some interviewers that show different trend than other interviewers. For child cohort, interviewers 2526 and 4018 show different results for outcomes examined. For adolescent cohort, interviewers 2526, 4018, 4073, and 4091 show some different trends than other interviewers. For adult-30 and adult-40 cohorts, interviewers 187, 4018, and 4073 show some different trends than other interviewers.  In order to examine this more closely, we estimate treatment effects excluding those interviewers on all main outcomes presented in the paper. 
+
+
+
+
+\begin{table}[H] \caption{Estimation Results for Main Outcomes, Child Cohort, DiD with Parma} \label{didpm-M-child-sensitivity}
+\scalebox{0.7}{\input{../../../output/multiple-methods/combinedanalysis/didpm_sens_child_M_Other.tex}}
+\vspace{1ex} \\
+\footnotesize\raggedright{\underline{Note 1:} This table shows the estimates of the coefficient for attending Reggio Approach preschools, checking for sensitivity regarding questionable interviewers. Column names indicate the interviewers being dropped. ``DropAll" columns drop all interviewers identified as questionable interviewers in the previous columns.}
+
+\footnotesize\raggedright{\underline{Note 2:} Both unadjusted p-value and stepdown p-value are reported. Bold indicates that the estimate is significant at 10\% level.}
+\end{table}
+
+
+
+
+\begin{table}[H] \caption{Estimation Results for Main Outcomes, Adolescent Cohort, DiD with Parma} \label{didpm-M-adol-sensitivity}
+\scalebox{0.7}{\input{../../../output/multiple-methods/combinedanalysis/didpm_sens_adol_M_Other.tex}}
+\vspace{1ex} \\
+\footnotesize\raggedright{\underline{Note 1:} This table shows the estimates of the coefficient for attending Reggio Approach preschools, checking for sensitivity regarding questionable interviewers. Column names indicate the interviewers being dropped. ``DropAll" columns drop all interviewers identified as questionable interviewers in the previous columns.}
+
+\footnotesize\raggedright{\underline{Note 2:} Both unadjusted p-value and stepdown p-value are reported. Bold indicates that the estimate is significant at 10\% level.}
+\end{table}
+
+
+
+
+\begin{table}[H] \caption{Estimation Results for Main Outcomes, Adult-30 Cohort, DiD with Parma} \label{didpm-M-adult30-sensitivity}
+\scalebox{0.7}{\input{../../../output/multiple-methods/combinedanalysis/didpm_sens_adult30_M_Other.tex}}
+\vspace{1ex} \\
+\footnotesize\raggedright{\underline{Note 1:} This table shows the estimates of the coefficient for attending Reggio Approach preschools, checking for sensitivity regarding questionable interviewers. Column names indicate the interviewers being dropped. ``DropAll" columns drop all interviewers identified as questionable interviewers in the previous columns.}
+
+\footnotesize\raggedright{\underline{Note 2:} Both unadjusted p-value and stepdown p-value are reported. Bold indicates that the estimate is significant at 10\% level.}
+\end{table}
+
+
+\begin{table}[H] \caption{Estimation Results for Main Outcomes, Adult-40 Cohort, DiD with Parma} \label{didpm-M-adult40-sensitivity}
+\scalebox{0.7}{\input{../../../output/multiple-methods/combinedanalysis/didpm_sens_adult40_M_Other.tex}}
+\vspace{1ex} \\
+\footnotesize\raggedright{\underline{Note 1:} This table shows the estimates of the coefficient for attending Reggio Approach preschools, checking for sensitivity regarding questionable interviewers. Column names indicate the interviewers being dropped. ``DropAll" columns drop all interviewers identified as questionable interviewers in the previous columns.}
+
+\footnotesize\raggedright{\underline{Note 2:} Both unadjusted p-value and stepdown p-value are reported. Bold indicates that the estimate is significant at 10\% level.}
+\end{table}
 
 
 

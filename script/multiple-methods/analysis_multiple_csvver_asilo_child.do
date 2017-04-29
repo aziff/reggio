@@ -57,21 +57,22 @@ local adult_cohorts		Adult30 Adult40 Adult50
 local nido_var			ReggioAsilo
 local materna_var		ReggioMaterna
 
-
+* Generate the interaction variable
+generate xaReggioMuni = Reggio * asiloMuni
 
 * ---------------------------------------------------------------------------- *
 * 					Reggio Muni vs. None:	Children 						   *
 * ---------------------------------------------------------------------------- *
 ** Keep only the adult cohorts
 preserve
-keep if (Cohort == 1) | (Cohort == 2) 
+keep if (Cohort == 1) 
 
 local stype_switch = 1
 foreach stype in Other None {
 	
 	* Set necessary global variables
 	global X					asiloMuni
-	global reglist				NoneIt BICIt FullIt // It => Italians, Mg => Migrants
+	global reglist				NoneIt BICIt FullIt DidPmIt DidPvIt // It => Italians, Mg => Migrants
 	global psmlist				PSMIt
 	global aipwlist				AIPWIt 
 
@@ -79,6 +80,7 @@ foreach stype in Other None {
 	global XBICIt				asiloMuni		
 	global XFullIt				asiloMuni	
 	global XPSMIt				asiloMuni
+	global XDidPmIt				xaReggioMuni
 
 
 	global controlsNoneIt
@@ -88,18 +90,17 @@ foreach stype in Other None {
 	global controlsFullIt		${child_baseline_vars}
 	global controlsFull			${child_baseline_vars}
 	global controlsPSMIt		${bic_child_baseline_vars}
-	global controlsDidPmIt		${bic_child_baseline_vars}
-	global controlsDidPvIt		${bic_child_baseline_vars}
+	global controlsDidPmIt		Reggio asiloMuni ${bic_asilo_child_baseline_vars}
+	global controlsDidPvIt		Reggio asiloMuni ${bic_asilo_child_baseline_vars}
 
-	global ifconditionNoneIt 	(Reggio == 1) & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
+	global ifconditionNoneIt 	(Reggio == 1) & ((asiloNone == 1) & (materna`stype' == 1)) | ((asiloMuni == 1) & (materna`stype' == 1))
 	global ifconditionBICIt		${ifconditionNoneIt}
 	global ifconditionFullIt	${ifconditionNoneIt}
 	global ifconditionPSMIt		${ifconditionNoneIt}
-	global ifconditionDidPmIt	(Reggio == 1 | Parma == 1)    & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
-	global ifconditionDidPvIt	(Reggio == 1 | Padova == 1)    & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
-	global ifconditionAIPWIt 	(Reggio == 1)  & ((asilo`stype' == 1) & (maternaMuni == 1)) | ((asiloMuni == 1) & (maternaMuni == 1))
+	global ifconditionDidPmIt	(Reggio == 1 | Parma == 1)    & ((asiloNone == 1) & (materna`stype' == 1)) | ((asiloMuni == 1) & (materna`stype' == 1))
+	global ifconditionDidPvIt	(Reggio == 1 | Padova == 1)    & ((asiloNone == 1) & (materna`stype' == 1)) | ((asiloMuni == 1) & (materna`stype' == 1))
 	
-	foreach type in  M  {
+	foreach type in  M CN S H B {
 
 		* ----------------------- *
 		* For Regression Analysis *
