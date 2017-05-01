@@ -28,15 +28,17 @@
 	  - Outputs for each script should be stored in the corresponding subfolder in "reggio/output"
 	    For example, outputs for IV analysis should be stored in "reggio/output/iv" folder. 
 
-	  - "function" folder in each subfolder for methodology stores functions programmed to do corresponding
-	    analysis. For example, "diffindiff.do" inside "reggio/scripts/did/function" is the
-	    function for the diff-in-diff-in-diff for Reggio analysis. This function will be brought in do files 
-	    that execute the diff-in-diff analysis.
+	  - "function" folder in each subfolder for methodology stores functions programmed to do 
+	    corresponding analysis. For example, "diffindiff.do" inside "reggio/scripts/did/function" is
+	    the function for the diff-in-diff-in-diff for Reggio analysis. This function will be brought 
+	    in do files that execute the diff-in-diff analysis.
 	
 	
 * The results presented in the "Results" section of the final paper are derived from "step-down" subfolder. 
-	- The do files that start with "stepdown_csvver_*" carry out the regressions and store results into the csv files mentioned in each do file.
-	- The do files that start with "combine_tex*" brings in the csv result files and make them into LaTeX tables presented in the 
-	  final paper and appendix. In order to see where the LaTeX tables are store, see the directories in each do file. 
+	- The do files that start with "stepdown_csvver_*" carry out the regressions and store results into 
+	  the csv files mentioned in each do file.
+	- The do files that start with "combine_tex*" brings in the csv result files and make them into LaTeX
+	  tables presented in the final paper and appendix. In order to see where the LaTeX tables are store, 
+          see the directories in each do file. 
 
 		
