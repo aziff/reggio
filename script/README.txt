@@ -11,9 +11,13 @@
 	  - Do files or scripts for a methodology should be stored in a corresponding subfolder 
 	   (for example, IV scripts should be in "iv" subfolder).
 	   
-	  - prepare-data.do file creates Reggio_prepared.dta, which should be used as a 
-		data file in scripts for all analysis. When changes are made to the prepare-data.do,
-		it should be ran again to create an updated Reggio_prepared.dta.
+	  - prepare-data.do file creates Reggio_prepared.dta. After generating Reggio_prepared.dta,
+	    driver.do in "reggio/data-construction/dataClean_namesManual_revised" should be run to 
+	    generate Reggio_reassigned.dta. The purpose of this driver do file is to modify the wrong
+	    school categorization, which is detected by CEHD researchers in the autumn of the year 2016.
+	    Reggio_reassigned.dta should be used as a data file in scripts for all analysis. 
+	    When changes are made to the prepare-data.do, prepare-data.do and driver.do should be ran again 
+	    to create an updated Reggio_prepared.dta and Reggio_reassigned.dta.
 		
 	  - macro.do has all necessary local and global variables that will be used in the 
 		analysis do files. For example, locals for baseline variables and outcome variables 
