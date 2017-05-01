@@ -20,18 +20,18 @@
 	    to create an updated Reggio_prepared.dta and Reggio_reassigned.dta.
 		
 	  - macro.do has all necessary local and global variables that will be used in the 
-		analysis do files. For example, locals for baseline variables and outcome variables 
-		are stored in this do file. Hence, this file MUST be included in the beginning of all scripts.
+	    analysis do files. For example, locals for baseline variables and outcome variables 
+	    are stored in this do file. Hence, this file MUST be included in the beginning of all scripts.
 		
 	  - All scripts MUST use global or local variables as defined in the "macro.do"	
 	  
 	  - Outputs for each script should be stored in the corresponding subfolder in "reggio/output"
-		For example, outputs for IV analysis should be stored in "reggio/output/iv" folder. 
+	    For example, outputs for IV analysis should be stored in "reggio/output/iv" folder. 
 
 	  - "function" folder in each subfolder for methodology stores functions programmed to do corresponding
-		analysis. For example, "diffindiff.do" inside "reggio/scripts/did/function" is the
-		function for the diff-in-diff-in-diff for Reggio analysis. This function will be brought in do files 
-		that execute the diff-in-diff analysis.
+	    analysis. For example, "diffindiff.do" inside "reggio/scripts/did/function" is the
+	    function for the diff-in-diff-in-diff for Reggio analysis. This function will be brought in do files 
+	    that execute the diff-in-diff analysis.
 	
 	
 * The results presented in the "Results" section of the final paper are derived from "step-down" subfolder. 
