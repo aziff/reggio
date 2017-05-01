@@ -37,8 +37,8 @@
 * The results presented in the "Results" section of the final paper are derived from "step-down" subfolder. 
 	- The do files that start with "stepdown_csvver_*" carry out the regressions and store results into 
 	  the csv files mentioned in each do file.
-	- The do files that start with "combine_tex*" brings in the csv result files and make them into LaTeX
-	  tables presented in the final paper and appendix. In order to see where the LaTeX tables are store, 
-          see the directories in each do file. 
+	- The do files that start with "combine_tex*" brings in the csv result files and make them into 
+	  LaTeX tables presented in the final paper and appendix. In order to see where the LaTeX tables 
+	  are stored, see the directories in each do file. 
 
 		
