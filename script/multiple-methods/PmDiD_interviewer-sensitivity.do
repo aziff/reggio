@@ -34,7 +34,7 @@ include "${here}/function/ivanalysis"
 * ---------------------------------------------------------------------------- *
 * 					Reggio Muni vs. Parma Muni:	Children 					   *
 * ---------------------------------------------------------------------------- *
-** Keep only the child cohorts
+** Keep only the child cohort
 preserve
 keep if (Cohort == 1)
 
