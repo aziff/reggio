@@ -1,11 +1,11 @@
 # ============================================================== #
 # Description of Folder Structure of reggio/script
 # Author: Jessica Yu Kyung Koh
-# Date: 2016/08/29
+# Updated: 2017/05/01
 # ============================================================== #
 
 # This txt file describes how folders are structure in this repository and 
-  gives instructions on how to write / store a script in this directory.
+  gives instructions on how to write/store a script in this directory.
   PLEASE read the below instructions closely before writing a script.
 
   - Do files or scripts for a methodology should be stored in a corresponding subfolder 
