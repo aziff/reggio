@@ -23,7 +23,13 @@ include "${here}/../macros"
 * ---------- *
 * Set Macros *
 * ---------- *
-local switch40 = 1
+local switch40 = 1				
+/* PLEASE READ:
+	- This switch is needed as some age-40 outputs use different methods, and there cannot be a clean loop that runs through everything.
+	(1) Run the code with switch40 = 1 first
+	(2) Then manually change the switch40 = 0 and then run the code again.
+
+*/
 
 global cohort					/*child adol adult30 adult40*/ adult30
 global groupchild				Other Stat Reli
