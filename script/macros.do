@@ -55,6 +55,7 @@ global bic_child_baseline_vars					Male CAPI asilo momMaxEdu_Uni houseOwn cgRedd
 global bic_adol_baseline_vars					Male CAPI asilo dadMaxEdu_HS dadMaxEdu_Uni int_cgCatFaith
 global bic_adult_baseline_vars		    		Male CAPI dadMaxEdu_Uni numSibling_2 numSibling_more
 
+** Note: We decided not to use DID vars as the results are not different from using the baseline vars
 global bic_child_baseline_did_vars				maternaMuni##Male maternaMuni##CAPI maternaMuni##asilo maternaMuni##momMaxEdu_Uni maternaMuni##houseOwn maternaMuni##cgReddito_3
 global bic_adol_baseline_did_vars				maternaMuni##Male maternaMuni##CAPI maternaMuni##asilo maternaMuni##dadMaxEdu_HS maternaMuni##dadMaxEdu_Uni maternaMuni##int_cgCatFaith
 global bic_adult_baseline_did_vars		    	maternaMuni##Male maternaMuni##CAPI maternaMuni##dadMaxEdu_Uni maternaMuni##numSibling_2 maternaMuni##numSibling_more
@@ -66,6 +67,7 @@ global bic_asilo_adol_baseline_vars				Male CAPI dadMaxEdu_HS dadMaxEdu_Uni int_
 global bic_asilo_adult_baseline_vars		    Male CAPI dadMaxEdu_Uni numSibling_2 numSibling_more
 global bic_asilo_adult30_baseline_vars			Male CAPI dadMaxEdu_Uni numSibling_2
 
+** Note: We decided not to use DID vars as the results are not different from using the baseline vars
 global bic_asilo_child_baseline_did				maternaMuni##Male maternaMuni##CAPI maternaMuni##momMaxEdu_Uni maternaMuni##houseOwn maternaMuni##cgReddito_3
 global bic_asilo_adol_baseline_did				maternaMuni##Male maternaMuni##CAPI maternaMuni##dadMaxEdu_HS maternaMuni##dadMaxEdu_Uni maternaMuni##int_cgCatFaith
 global bic_asilo_adult_baseline_did				maternaMuni##Male maternaMuni##CAPI maternaMuni##dadMaxEdu_Uni maternaMuni##numSibling_2 maternaMuni##numSibling_more
