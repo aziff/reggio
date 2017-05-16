@@ -127,8 +127,8 @@ foreach stype in Other Stat Reli {
 	global controlsNone
 	global controlsBIC			${bic_adol_baseline_vars}
 	global controlsFull			${adol_baseline_vars}
-	global controlsDidPm		maternaMuni Reggio ${bic_adol_baseline_did_vars}
-	global controlsDidPv		maternaMuni Reggio ${bic_adol_baseline_did_vars}
+	global controlsDidPm		maternaMuni Reggio ${bic_adol_baseline_vars}
+	global controlsDidPv		maternaMuni Reggio ${bic_adol_baseline_vars}
 	global controlsAIPW			${bic_adol_baseline_vars}
 	global controlsPSMR			${bic_adol_baseline_vars}
 	global controlsPSMPm		${bic_adol_baseline_vars}

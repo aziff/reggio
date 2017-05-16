@@ -104,8 +104,8 @@ foreach stype in /*Other Stat*/ Reli {
 	global controlsNone
 	global controlsBIC			${bic_child_baseline_vars}
 	global controlsFull			${child_baseline_vars}
-	global controlsDidPm		maternaMuni Reggio ${bic_child_baseline_did_vars}
-	global controlsDidPv		maternaMuni Reggio ${bic_child_baseline_did_vars}
+	global controlsDidPm		maternaMuni Reggio ${bic_child_baseline_vars}
+	global controlsDidPv		maternaMuni Reggio ${bic_child_baseline_vars}
 	global controlsPSMR			${bic_child_baseline_vars}
 	global controlsPSMPm		${bic_child_baseline_vars}
 	global controlsPSMPv		${bic_child_baseline_vars}

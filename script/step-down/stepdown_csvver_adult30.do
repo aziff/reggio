@@ -137,8 +137,8 @@ foreach stype in /*Other*/ None  {
 	global controlsKM30R		${bic_adult_baseline_vars}
 	global controlsKM30Pm		${bic_adult_baseline_vars}
 	global controlsKM30Pv		${bic_adult_baseline_vars}	
-	global controlsDidPm30		maternaMuni Reggio ${bic_adult_baseline_did_vars}
-	global controlsDidPv30		maternaMuni Reggio ${bic_adult_baseline_did_vars}
+	global controlsDidPm30		maternaMuni Reggio ${bic_adult_baseline_vars}
+	global controlsDidPv30		maternaMuni Reggio ${bic_adult_baseline_vars}
 	global controlsAIPW30		${bic_adult_baseline_vars}	
 
 	local  Other_psm			materna
