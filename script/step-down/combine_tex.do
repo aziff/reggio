@@ -260,7 +260,14 @@ foreach coh in $cohort {
 							local sd`item'`outcome' 	"`sd`item'`outcome''*"
 						}					
 					}
+					
+					* If p-value is missing (the estimate failed), make sure point estimates and standard p-values are missing values. Sometimes they are shown as weird numbers.
+					if missing("`pv`item'`outcome''") {
+						local p`item'`outcome'
+						local sd`item'`outcome'
+					}
 				}
+				
 				di "regression done"
 				
 			
@@ -311,6 +318,13 @@ foreach coh in $cohort {
 								local sd`item'`outcome' 	"`sd`item'`outcome''*"
 							}						
 						}
+						
+						* If p-value is missing (the estimate failed), make sure point estimates and standard p-values are missing values. Sometimes they are shown as weird numbers.
+						if missing("`pv`item'`outcome''") {
+							local p`item'`outcome'
+							local sd`item'`outcome'
+						}
+						
 					}
 				}
 				di "psm done `gr' `coh'"
@@ -363,6 +377,12 @@ foreach coh in $cohort {
 								local sd`item'`outcome' 	"`sd`item'`outcome''*"
 							}					
 						}
+						
+						* If p-value is missing (the estimate failed), make sure point estimates and standard p-values are missing values. Sometimes they are shown as weird numbers.
+						if missing("`pv`item'`outcome''") {
+							local p`item'`outcome'
+							local sd`item'`outcome'
+						}
 					}
 				}
 				di "psm done `gr' `coh'"
@@ -412,9 +432,18 @@ foreach coh in $cohort {
 								local sd`item'`outcome' 	"`sd`item'`outcome''*"
 							}					
 						}
+						
+						* If p-value is missing (the estimate failed), make sure point estimates and standard p-values are missing values. Sometimes they are shown as weird numbers.
+						if missing("`pv`item'`outcome''") {
+							local p`item'`outcome'
+							local sd`item'`outcome'
+						}
+								
 					}
 				}
 				di "did matching done `gr' `coh'"
+				
+
 				
 				* Tex file Point Estimate
 				local `outcome'tex_p 	${`outcome'_lab}
