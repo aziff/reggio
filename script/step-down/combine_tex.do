@@ -31,14 +31,14 @@ local switch40 = 1
 
 */
 
-global cohort					/*child adol adult30 adult40*/ adult30
+global cohort					child adol adult30 adult40
 global groupchild				Other Stat Reli
 global groupadol				Other Stat Reli
-global groupadult30		   		Stat Reli /*None Other Stat Reli*/
+global groupadult30		   		None Other Stat Reli
 global groupadult40				None
 global outcomechild				M CN S H B
 global outcomeadol				M CN S H B
-global outcomeadult30			/*M E W L H N S*/ M
+global outcomeadult30			/M E W L H N S 
 global outcomeadult40			M E W L H N S
 	
 
@@ -224,7 +224,13 @@ foreach coh in $cohort {
 					levelsof itt_`item'_sdp if rowname == "`outcome'", local(sd`item'`outcome')
 					levelsof itt_`item'_p if rowname == "`outcome'", local(pv`item'`outcome')
 					levelsof itt_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
-				
+					
+					* If p-value is missing (the estimate failed), make sure point estimates and standard p-values are missing values. Sometimes they are shown as weird numbers.
+					if missing("`pv`item'`outcome''") {
+						local p`item'`outcome'
+						local sd`item'`outcome'
+					}
+					
 					* Format decimal points
 					if !missing("`p`item'`outcome''")  & !missing("`pv`item'`outcome''") {
 						* Store p-values into another macro
@@ -260,12 +266,6 @@ foreach coh in $cohort {
 							local sd`item'`outcome' 	"`sd`item'`outcome''*"
 						}					
 					}
-					
-					* If p-value is missing (the estimate failed), make sure point estimates and standard p-values are missing values. Sometimes they are shown as weird numbers.
-					if missing("`pv`item'`outcome''") {
-						local p`item'`outcome'
-						local sd`item'`outcome'
-					}
 				}
 				
 				di "regression done"
@@ -282,6 +282,12 @@ foreach coh in $cohort {
 						levelsof psm_`item'_sdp if rowname == "`outcome'", local(sd`item'`outcome')
 						levelsof psm_`item'_p if rowname == "`outcome'", local(pv`item'`outcome')
 						levelsof psm_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
+						
+						* If p-value is missing (the estimate failed), make sure point estimates and standard p-values are missing values. Sometimes they are shown as weird numbers.
+						if missing("`pv`item'`outcome''") {
+							local p`item'`outcome'
+							local sd`item'`outcome'
+						}
 						
 						* Format decimal points
 						if !missing("`p`item'`outcome''")  & !missing("`pv`item'`outcome''") {
@@ -319,12 +325,6 @@ foreach coh in $cohort {
 							}						
 						}
 						
-						* If p-value is missing (the estimate failed), make sure point estimates and standard p-values are missing values. Sometimes they are shown as weird numbers.
-						if missing("`pv`item'`outcome''") {
-							local p`item'`outcome'
-							local sd`item'`outcome'
-						}
-						
 					}
 				}
 				di "psm done `gr' `coh'"
@@ -342,6 +342,12 @@ foreach coh in $cohort {
 						levelsof kn_`item'_p if rowname == "`outcome'", local(pv`item'`outcome')
 						levelsof kn_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
 						
+						* If p-value is missing (the estimate failed), make sure point estimates and standard p-values are missing values. Sometimes they are shown as weird numbers.
+						if missing("`pv`item'`outcome''") {
+							local p`item'`outcome'
+							local sd`item'`outcome'
+						}
+						
 						* Format decimal points
 						if !missing("`p`item'`outcome''")  & !missing("`pv`item'`outcome''") {
 							* Store p-values into another macro
@@ -376,12 +382,6 @@ foreach coh in $cohort {
 							if `sdn`item'`outcome'' <= 0.05 & `sdn`item'`outcome'' > 0.10 {			
 								local sd`item'`outcome' 	"`sd`item'`outcome''*"
 							}					
-						}
-						
-						* If p-value is missing (the estimate failed), make sure point estimates and standard p-values are missing values. Sometimes they are shown as weird numbers.
-						if missing("`pv`item'`outcome''") {
-							local p`item'`outcome'
-							local sd`item'`outcome'
 						}
 					}
 				}
@@ -397,6 +397,12 @@ foreach coh in $cohort {
 						levelsof mdid_`item'_p if rowname == "`outcome'", local(pv`item'`outcome')
 						levelsof mdid_`item'_n if rowname == "`outcome'", local(n`item'`outcome')
 						
+						* If p-value is missing (the estimate failed), make sure point estimates and standard p-values are missing values. Sometimes they are shown as weird numbers.
+						if missing("`pv`item'`outcome''") {
+							local p`item'`outcome'
+							local sd`item'`outcome'
+						}
+						
 						* Format decimal points
 						if !missing("`p`item'`outcome''")  & !missing("`pv`item'`outcome''") {
 							* Store p-values into another macro
@@ -431,12 +437,6 @@ foreach coh in $cohort {
 							if `sdn`item'`outcome'' <= 0.05 & `sdn`item'`outcome'' > 0.10 {			
 								local sd`item'`outcome' 	"`sd`item'`outcome''*"
 							}					
-						}
-						
-						* If p-value is missing (the estimate failed), make sure point estimates and standard p-values are missing values. Sometimes they are shown as weird numbers.
-						if missing("`pv`item'`outcome''") {
-							local p`item'`outcome'
-							local sd`item'`outcome'
 						}
 								
 					}
