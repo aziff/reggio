@@ -1,0 +1,133 @@
+The challenges confronting the evaluation of the Reggio Approach are formidable. We do not have access to data from a randomized control trial. Using the comparison groups we have collected, we show in Section~\ref{sec:ece-italy} that there is a lot of commonality in the features of the preschools in Reggio Emilia with those in the comparison group cities. Such comparisons do not evaluate the benefit of the Reggio Approach compared to non-participation in any program. Instead, they estimate the effect of the Reggio Approach compared to other approaches. The best we can hope to learn from such comparisons is whether the additional features of the Reggio Approach enhance treatment effects.
+
+In addition, parents choose to send their children to different preschools and this has potential consequences for selection bias on estimated outcomes. The response rate of the survey is low (56\%) and restriction of the survey to non-emigrant populations likely biases downward the mean levels of outcomes observed, although the effects on treatment effects for comparisons across cities is far from obvious and may be negligible. Our analysis addresses the issue of selection bias in terms of parental choices. However, due to data limitations, it does not address other sources of selection bias.
+
+Since no single analytic approach is best, we consider several methodologies to evaluate the effect of the Reggio Approach using the survey data just described. These methodologies invoke different identifying assumptions and leverage different control groups. Any treatment effect robustly estimated across these methodologies provides strong evidence in favor of the validity of the assumption of no selection bias.
+
+We make two types of comparisons. First, we compare the Reggio Approach with other childcare systems within the city of Reggio Emilia, including the default value of no childcare at all. Section~\ref{sec:within-city-analysis} presents various methodologies used to estimate the treatment effects of the Reggio Approach with a restriction of the sample to individuals within the city of Reggio Emilia. Second, we estimate the effect of the Reggio Approach relative to other childcare systems across cities. Section~\ref{sec:across-city-analysis} presents methodologies used for the across-city analysis.
+
+The Reggio Approach includes interventions at two different age ranges: (i) infant-toddler centers between ages 0-3, and (ii) preschool between ages 3--6. Our analysis of the infant-toddler centers is limited compared to our preschool analysis because attendance of infant-toddler centers was very low in the adult cohorts, even in Reggio Emilia. However, the differential provision of infant-toddler centers outside of the Reggio Emilia Approach affords us with a clean control group which we exploit. Infant-toddler centers in Parma and Padova had relatively poorer provision for the older cohorts.\footnote{Among adults in Padova and Parma, only the age 30 cohorts were exposed to municipal infant-toddler centers.} We next describe our methodology.
+
+\subsection{Within-City Analysis} \label{sec:within-city-analysis}
+
+\subsubsection{Framework to Evaluate Preschool}
+\label{subsubsection:OLS-Preschool}
+
+We perform within-Reggio Emilia comparisons using OLS and matching models. We compare individuals from Reggio Emilia who attended a Reggio Approach preschool to those in Reggio Emilia who attended (i) any other type of preschool (state, religious, municipal-affiliated, and other), (ii) no preschool at all, (iii) state preschool, and (iv) religious preschool. We focus on estimates of the first two comparisons in the main paper to focus on the main hypotheses of the effectiveness of the Reggio Approach. The estimates of comparisons to specific school types are reported in Appendix~\ref{app:comparison-reli-stat} and summarized in Section~\ref{sec:result}. For the child cohort (age 6), it is not possible to compare Reggio Approach preschools with no preschool because the sample of individuals who did not attend preschool is so small (See Table~\ref{tab:sample}).
+
+Our OLS model takes the form for outcome $Y$ for individual $i$,
+\begin{equation}\label{eq:ra-v-none}
+Y_i = \alpha_0 + \alpha_1 D_i + \bm{X}_i \bm{\gamma} + \varepsilon_i
+\end{equation}
+where $i$ indexes individuals, $D_i$ is an indicator for whether individual $i$ attended municipal preschool, $\bm{X}_i$ is a vector of baseline control variables, and $\varepsilon_i$ is a random disturbance. Estimates from three specifications for $\bm{X}_i$ are reported: (i) no baseline control, (ii) baseline variables selected by the Bayesian Information Criterion (BIC),\footnote{Since the set of baseline variables are different for child, adolescent, and adult cohorts, we use separate model selections. For the \emph{child cohort}, the \emph{a priori} designated control variables are male, CAPI  (computer-assisted personal interview), infant-toddler center attendance, and migrant indicators, and the BIC-selected variables are (i) mother graduated university, (2) family owns house, and (3) family income 10,000--25,000. For the \emph{adolescent cohort}, the fixed variables are male, CAPI, infant-toddler center attendance indicators and BIC-selected variables are (i) high school is father's maximum education, (ii) university is father's maximum education, and (iii) caregiver is catholic and faithful. For \emph{adult cohorts}, the fixed variables are male and CAPI indicators, and BIC-selected variables are (i) university is father's maximum education and (ii) number of siblings.} and (iii) the full set of available baseline variables. In Equation~\eqref{eq:ra-v-none}, $\alpha_1$ represents the mean differences in outcomes between the Reggio Approach and the other preschool types in Reggio Emilia, controlling for $\bm{X}$. Under the assumption that, conditional on $\bm{X}$, there is no systematic selection of individuals into the treatment $D_i$, this parameter estimates the causal treatment effect of the Reggio Approach on outcome $Y$.
+
+In order to complement the OLS analysis, we also estimate two matching models: (i) a propensity score matching model that implements nearest-neighbor matching on an estimated propensity score based on a BIC-selected set of observed baseline characteristics $\boldsymbol{X}_i$ and (ii) a  matching model using Epanechnikov kernel weight and $\boldsymbol{X}_i$. These matching models are versions of non-parametric OLS and condition on the same set of $\bm{X}$ variables as OLS. These approaches match people who attended Reggio Approach preschools with people who did not attend Reggio Approach preschools based on similarities in observed baseline characteristics.
+
+The average treatment effect (ATE) under the assumption for propensity score matching is written as:
+\begin{equation} \label{eq:ATE-PSM}
+E[Y(1)-Y(0)] = E\bigg[E\big[Y_i|D_i=1, \pi(\boldsymbol{X}_i)\big] - E\big[Y_i|D_i=0, \pi(\boldsymbol{X}_i)\big]\bigg].
+\end{equation}
+where the propensity score $\pi(\boldsymbol{X}_i) = Pr(D_i=1|\boldsymbol{X}_i)$ (the probability of selection) is predicted for each individual $i$ using the estimated coefficients obtained from a probit model. We average over sample $\bm{X}$ to evaluate the average treatment effect.
+
+The $k$-nearest neighbor matching estimator is defined as
+\begin{equation} \label{eq:PSM-estimator}
+\widehat{E[Y(1)-Y(0)]_{PSM}} = \frac{1}{n} \sum_{i=1}^{n} (2D_i -1)(Y_i - \frac{1}{M}\sum_{j \in \mathcal{J}_M(i)}Y_j )
+\end{equation}
+where $M$ is a fixed number of matches per individual based on the propensity score and $\mathcal{J}_M(i)$ is a set of matches for individual $i$.\footnote{We specify $M = 3$ in our analysis.} The kernel matching estimator constructs a match for each treated individual using the weighted average over multiple people in the comparison group based on Mahalanobis distance and Epanechnikov kernel weight. The standard errors for both nearest neighbor matching estimator and the kernel matching estimator are derived by \cite{Abadie_Imbens_2006_Econometrica} and we apply their analysis. We examine the robustness of the estimates across methods in the results section.
+
+\subsubsection{Framework to Evaluate Infant-Toddler Care}
+\label{subsubsection:itc}
+
+We analyze the effectiveness of Reggio Approach infant-toddler care within the city of Reggio Emilia accounting for subsequent preschool experiences. Table~\ref{tab:cases-treat} shows the four possible combinations of interventions that a child could receive, where 1 indicates attending the designated category and 0 indicates non-attendance.
+
+\begin{table}[H]
+\caption{Possible Cases of Treatment} \label{tab:cases-treat}
+\begin{tabular}{C{1.8cm} R{0.7cm} C{2cm} C{2cm}}
+
+		& & \multicolumn{2}{c}{Preschool (Ages 3-6)} \\
+		& & 0 & 1 \\ \cline{3-4}
+        								 &  & \multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{} \\
+        							& 0 & \multicolumn{1}{|c|}{(0,0)} & \multicolumn{1}{c|}{(0,1)} \\
+        				ITC				&  & \multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{} \\ \cline{3-4}
+                        (Age 0-3)  		&  & \multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{} \\
+        								& 1 & \multicolumn{1}{|c|}{(1,0)} & \multicolumn{1}{c|}{(1,1)} \\
+        								&  & \multicolumn{1}{|c|}{} & \multicolumn{1}{c|}{} \\ \cline{3-4}
+\end{tabular}
+\begin{flushleft}
+\footnotesize{Note:} We only consider municipal infant-toddler-centers (ages 0-3) and preschools (ages 3-6). (0,0): did not attend any municipal school for both ages 0-3 and 3-6; (1,0): attended a municipal school for ages 0-3 but did \textit{not} attend for ages 3-6; (0,1): did \textit{not} attend a municipal school for ages 0-3 but did attend for ages 3-6; (1,1): attended a municipal school for both ages 0-3 and 3-6.
+\end{flushleft}
+\end{table}
+
+There are two main methods for testing the effect of attending infant-toddler centers. The first is to compare people who did not attend infant-toddler care or preschool with people who only attended municipal infant-toddler care. Using the notation in Table~\ref{tab:cases-treat}, this comparison is between (0,0) and (1,0). The second method is to compare people who only attended municipal preschool with people who attended both municipal infant-toddler centers and preschools. That is, to compare (0,1) and (1,1). The hypotheses are formally written as
+\begin{eqnarray}
+H_1: &  Y_{0,0} = Y_{1,0} &\text{\quad Effect of infant-toddler care with no subsequent preschool}\\
+H_2: &  Y_{0,1} = Y_{1,1} &\text{\quad Effect of infant-toddler care with subsequent preschool}
+\end{eqnarray}
+\noindent where $Y_{i,j}$ is the outcome of the individuals who attended $i \in \{0,1\}$ infant-toddler care and $j \in \{0,1\}$ preschool.
+
+For each of the two hypotheses above, we limit the sample to include only those individuals from Reggio Emilia who received the treatment combinations that are relevant to testing the hypothesis in question. Furthermore, we restrict the sample to include only one cohort at a time to see if treatment effects change over cohorts. To test these hypotheses, we estimate $\beta_{0}$ in the following equation:
+\begin{equation}
+Y_{i}^{c,h} = \alpha + \beta_{0}R_i^{ITC,h} + \mathbf{X}_i \bm{\gamma} + \varepsilon_{i}^{Reggio,h}
+\end{equation}
+where $R_i^{ITC,h}$ is an indicator for attending municipal infant-toddler center for members of cohort $h$ and $\mathbf{X}_i$ is the vector of baseline variables for individual $i$. To test $H_1$, we estimate $\beta_0$ on a sample consisting of all individuals from cohort $h$ in Reggio Emilia who received either the (0,0) or (1,0) combination of childcare. We remind the reader that (0,0) and (1,0) is composed of those individuals who did not attend preschool. To test $H_2$, we would estimate $\beta_0$ for all cohort-$h$ individuals in Reggio Emilia who were in groups (0,1) or (1,1).
+
+The samples are small. As a result, these hypotheses cannot be tested for many groups. Table~\ref{tab:num-group-2} shows the number of individuals available in each group necessary for this strategy. It is impossible to test $H_1$ in our data, because there are almost no individuals who attended municipal infant-toddler care without attending preschool (group (1,0)). While it is possible to test $H_2$ for several groups, the number of observations for the group (1,1) is small for the adult cohorts. The shaded regions of Table~\ref{tab:num-group-2} highlight the groups that we use for estimation.
+
+
+\begin{table}[H] \caption{Number of Individuals in Each Group} \label{tab:num-group-2}
+\resizebox{\columnwidth}{!}{
+\begin{tabular}{l|ccccc|ccccc|ccccc}
+\toprule
+			& 		\multicolumn{5}{c}{\textbf{Reggio}}		& 	\multicolumn{5}{|c|}{\textbf{Parma}}	& 			\multicolumn{5}{c}{\textbf{Padova}}				\\
+			& (0,0) & (1,0) & (0,1) & (1,1) & Total & (0,0) & (1,0) & (0,1) & (1,1) & Total  & (0,0) & (1,0) & (0,1) & (1,1) & Total \\ \midrule
+Child		& 6 & 0 & \cellcolor{blue!25}66 & \cellcolor{blue!25}94 & \textbf{419} & 5 & 1 & \cellcolor{blue!25}26 & \cellcolor{blue!25}52 & \textbf{291} & 2 & 0 & \cellcolor{blue!25}27 & \cellcolor{blue!25}22 & \textbf{278} \\
+Adolescent 	& 7 & 0 & \cellcolor{blue!25}45 &	\cellcolor{blue!25}116 & \textbf{300} & 4 & 0 & \cellcolor{blue!25}40 & \cellcolor{blue!25}39 & \textbf{254} & 1 & 0 & \cellcolor{blue!25}52 & \cellcolor{blue!25}32 & \textbf{282} \\
+Age-30		& 57 & 0 & \cellcolor{blue!25}95 &	\cellcolor{blue!25}53 & \textbf{280} & 43 & 0 & \cellcolor{blue!25}58 & \cellcolor{blue!25}23 & \textbf{251} & 47 & 0 & 19 & 10 & \textbf{251} \\
+Age-40		& 80 & 0 & \cellcolor{blue!25}97 &	\cellcolor{blue!25}28 & \textbf{285} & 115 & 0 & 0 & 0 & \textbf{254} & 75 & 0 & 0 & 0 & \textbf{252} \\ \bottomrule
+\end{tabular}
+}
+\begin{flushleft}
+\footnotesize{Note:} We only consider municipal infant-toddler-centers (ages 0-3) and preschools (ages 3-6). (0,0): did not attend any preschool for both ages 0-3 and 3-6; (1,0): attended a municipal school for ages 0-3 but did \textit{not} attend preschool for ages 3-6; (0,1): did \textit{not} attend a municipal school for ages 0-3 but did attend for ages 3-6; (1,1): attended a municipal school for both ages 0-3 and 3-6. Column ``Total" shows the total number of people in specified city and cohort.
+\end{flushleft}
+\end{table}
+
+Analogous to what we do in Section~\ref{subsubsection:OLS-Preschool}, we also estimate (i) a propensity score matching model that implements nearest-neighbor matching on an estimated propensity score based on a BIC-selected set of observed baseline characteristics $\boldsymbol{X}_i$ and (ii) a matching model using Epanechnikov kernel weight and $\boldsymbol{X}_i$, in addition to OLS analysis for infant-toddler centers.
+
+%\subsubsection{Propensity Score Matching}  \label{subsubsection:psm}
+
+%In order to complement the OLS analysis, we also estimate a propensity score matching model that implements nearest-neighbor matching on an estimated propensity score based on a BIC-selected set of observed baseline characteristics $\boldsymbol{X}_i$. Propensity score analysis is a version of non-parametric OLS and conditions on the same set of $\bm{X}$ variables as OLS. This approach is based on the assumption that two individuals with a very similar propensity score have the same level of unobservable characteristics, so that selection into treatment is determined solely by the estimated propensity score. \textbf{[Team: Our discussion of effects on outcomes in the results and discussion sections only takes into account outcomes that are robust across different regressions.  We have added text in the results section to make this more explicit.] [JJH: What does ``robust'' mean? OLS and propensity score should have the same outcomes.][Yes, we use the same outcomes. We highlight the robustness of the estimates across methods in the results section and have included kernel density matching for additional robustness checking.]}
+
+\subsection{Across-City Comparisons} \label{sec:across-city-analysis}
+\subsubsection{Difference-in-Differences}  \label{subsubsection:DID}
+
+We first estimate a difference-in-differences (DiD) model that allows for cross-city comparisons of municipal preschools while controlling for permanent differences in characteristics across cities. We estimate the parameters separately for each cohort. We present comparisons between municipal schools and (i) all other types of preschools pooled together, and (ii) no preschool. We present comparisons to specific school types in Appendix~\ref{app:comparison-reli-stat} and summarize the results in Section~\ref{sec:result}.
+
+For the age-40 cohort, we compare individuals who attended Reggio Approach preschools with those in Parma or Padova who attended any type of preschool. This is because municipal childcare systems were not available in Parma and Padova for the age-40 cohort.
+
+To illustrate, we present the comparison between between Reggio Emilia and Parma for those who either attended municipal preschool or no preschool at all. The estimation equation for this case as follows:
+\begin{eqnarray}\label{eq:specific2}
+Y_i & = \beta_0 + \beta_1 Reggio_i + \beta_2 D_i + \beta_3 Reggio_i * D_i + \bm{X}_i \bm{\delta} + \epsilon_i\footnotemark
+\end{eqnarray}
+\footnotetext{We tested the significance on interaction terms with $D$, but most of them were not significant. Moreover, there is no consistent trend on interaction terms across different outcome variables and comparison group specification.}
+\hspace{-1.25mm}where $Reggio_i$ is the indicator for individual $i$ having attended preschool in Reggio Emilia and $D_i$ is the indicator for attending municipal preschool. $\beta_3$ is interpreted as the difference that remains between individuals from Reggio Emilia who attended municipal schools and those from the city who didn't attend any preschool after adjusting for city-invariant differences in characteristics of individuals who received the different early childhood experiences. In other words, $\beta_3$ is the DiD treatment effect estimator that amounts to (Reggio Emilia municipal - Reggio Emilia none) - (Parma municipal - Parma none), where the first difference captures the unadjusted difference between individuals who attended municipal and no preschool in Reggio Emilia, and the second difference captures city-invariant differences in characteristics of individuals who attended municipal and no preschool. Analogous interpretations are applied to DiD comparisons between Reggio Emilia and Padova and comparisons between municipal schools and other school types. This approach is valid under the assumption that individuals select into early childhood experiences in a manner that is comparable across the three cities, and that the difference in the outcomes between municipal and non-municipal schools would have been the same in all three cities in the absence of the Reggio Approach.
+
+For cross-city comparisons of municipal infant-toddler care across cities, we compare people who did not attend any infant-toddler care centers but attended municipal preschool with people who attended both municipal infant-toddler care centers and preschools across Reggio and Parma or Padova. We estimate the DiD models for infant-toddler care using the highlighted group in Table \ref{tab:num-group-2}.
+
+\subsubsection{Matching}
+
+The DiD model presented in Section \ref{subsubsection:DID} estimates the effect of municipal preschools relative to other types of preschool or no preschool across cities. However, selection into municipal preschools in Parma and Padova may not be analogous to selection into Reggio Approach preschools. In order to complement the DiD analysis, we estimate a propensity score matching model and a kernel matching model using Epanechnikov kernel weight to match people who attended the Reggio Approach preschools with people in Parma or Padova who attended (i) all types of preschools pooled together, including municipal preschools, or (ii) no preschool. Following \cite{Heckman_Ichimura_etal_1998_Econometrica}, we also do difference in differences matching.
+
+To illustrate, the comparison group for the matching models is limited to (i) individuals in Reggio Emilia who attended Reggio Approach preschools and (ii) individuals in Parma who attended any preschool. The purpose is to match Reggio Approach individuals with individuals who have similar propensity scores but have attended preschool in Parma. We assume that the latter group is similar to the Reggio Approach individuals except that they are not exposed to the Reggio Approach. By comparing the outcomes across the matches, the propensity score matching model estimates the effect of the Reggio Approach. Analogous interpretations are applied to comparisons for different control group specifications, including people in Padova.\footnote{We attempted IV and selection bias corrections but the instruments were too weak to be effective. See the discussion in Appendix~\ref{sec:iv}.}
+
+For cross-city comparisons of infant-toddler care, we compare individuals who attended municipal preschool and municipal infant-toddler care in Reggio Emilia against individuals from Parma and Padova who attended municipal preschool but did not attend infant-toddler care. As above, we report estimates from both a propensity score matching model and a kernel matching model using Epanechnikov kernel weights.
+
+\subsubsection{Difference-in-Differences Matching} \label{subsubsection:matchedDID}
+In our final cross-city comparison strategy, we use the difference-in-differences matching estimator developed in \cite{Heckman_Ichimura_etal_1998_Econometrica}. Specifically, we use the repeated cross-section version of the estimator that is also explicitly specified in \cite{Smith_Todd_2005_JOE}. To illustrate, we present the comparison between Reggio Emilia and Parma for those who either attended municipal preschool or no preschool at all. The analysis involves estimating the following estimator:
+
+\begin{tiny}
+\begin{align} \label{eq:kernelDID}
+\widehat{ATE}_{DID-Kernel} = \underbrace{\frac{1}{n_{RM}} \cdot \sum_{i \in RM} \bigg\{ Y_i - \sum_{j \in RN} W(i,j) \cdot Y_j \bigg\}}_{\bm{A}} - \overbrace{\frac{1}{n_{PM}} \cdot \sum_{k \in PN} \bigg\{ Y_k - \sum_{l \in PN} W(k,l) \cdot Y_l \bigg\}}^{\bm{B}}
+\end{align}
+\end{tiny}
+
+where the subscripts $RM$, $RN$, $PM$, and $PN$ correspond to Reggio Emilia municipal, Reggio Emilia none, Parma municipal, and Parma none respectively; \textit{n} represents the sample size for the indexed group; and $W(\cdot,\cdot)$ are Epanechnikov kernel weights based on the Mahalanobis distance between the indexed individuals constructed using baseline characteristics $\bm{X}$. The first matched-difference, $\bm{A}$, captures the difference in outcomes between individuals from Reggio Emilia who attended municipal preschool and those from the city who did not attend any preschool. The second matched-difference, $\bm{B}$, captures the analogous difference in Parma. This strategy assumes that conditional on baseline characteristics $\bm{X}$, the second matched-difference $\bm{B}$ captures average city-invariant differences between individuals who attended municipal preschool and those who didn't attend any preschool. To the extent that this assumption holds, subtracting $\bm{B}$ from the matched-difference in Reggio Emilia, $\bm{A}$, removes the bias stemming from city-invariant differences in characteristics of individuals across preschool treatment categories. This allows us to interpret the DiD-Matching estimate as capturing the effect of attending Reggio Approach schools relative to not attending any preschool. Analogous interpretations are applied to comparisons between Reggio Emilia and Padova and comparisons between municipal schools and other school types.

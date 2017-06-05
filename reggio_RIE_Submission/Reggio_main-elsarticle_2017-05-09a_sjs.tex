@@ -1,0 +1,253 @@
+\documentclass[review]{elsarticle}
+
+\usepackage{adjustbox}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{amssymb}
+\usepackage{bm}
+\usepackage{bbold}
+\usepackage[table]{xcolor}
+\usepackage{tabu}
+\usepackage{makecell}
+\usepackage{longtable}
+\usepackage{rotating}
+\usepackage{multirow}
+\usepackage[normalem]{ulem}
+\usepackage{etoolbox}
+\usepackage[inline]{enumitem}
+\usepackage{graphicx}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{booktabs}
+\usepackage{caption}
+\usepackage{fixltx2e}
+\usepackage[para, flushleft]{threeparttablex}
+\usepackage[capposition=top]{floatrow}
+\usepackage{subcaption}
+\usepackage{pdfpages}
+\usepackage{pdflscape}
+\usepackage{natbib}
+\usepackage{bibunits}
+\definecolor{maroon}{HTML}{990012}
+\usepackage{marvosym}
+\usepackage{makeidx}
+\usepackage{tikz}
+\usetikzlibrary{shapes}
+\usepackage{setspace}
+\usepackage{enumerate}
+\usepackage{rotating}
+\usepackage{epstopdf}
+\usepackage[titletoc]{appendix}
+\usepackage{framed}
+\usepackage{comment}
+\usepackage{xr}
+\usepackage{color, soul}
+\usepackage{titlesec}
+\usepackage{footnote}
+\usepackage{longtable}
+\newlength{\tablewidth}
+\setlength{\tablewidth}{9.3in}
+\setcounter{secnumdepth}{4}
+\usepackage[T1]{fontenc}
+\usepackage{calc}
+\usepackage[multiple]{footmisc}
+\usepackage{url}
+
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+\makeatletter
+\pretocmd\start@align
+{%
+  \let\everycr\CT@everycr
+  \CT@start
+}{}{}
+\apptocmd{\endalign}{\CT@end}{}{}
+\makeatother
+%Watermark
+\usepackage[printwatermark]{xwatermark}
+\usepackage{lipsum}
+\definecolor{lightgray}{RGB}{220,220,220}
+%\newwatermark[allpages,color=lightgray,angle=45,scale=3,xpos=0,ypos=0]{Preliminary Draft}
+
+% Allow line breaks with \\ in specialcells
+\newcommand{\specialcell}[2][c]{%
+\begin{tabular}[#1]{@{}l@{}}#2\end{tabular}
+                   %%%
+}
+
+
+
+%Further subsection level
+\usepackage{titlesec}
+\setcounter{secnumdepth}{4}
+\titleformat{\paragraph}
+{\normalfont\normalsize\bfseries}{\theparagraph}{1em}{}
+\titlespacing*{\paragraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\setcounter{secnumdepth}{5}
+\titleformat{\subparagraph}
+{\normalfont\normalsize\bfseries}{\thesubparagraph}{1em}{}
+\titlespacing*{\subparagraph}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+%Functions
+\DeclareMathOperator{\cov}{Cov}
+\DeclareMathOperator{\var}{Var}
+\DeclareMathOperator{\plim}{plim}
+\DeclareMathOperator*{\argmin}{arg\,min}
+\DeclareMathOperator*{\argmax}{arg\,max}
+
+%Math Environments
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{assumption}[theorem]{Assumption}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{hypothesis}[theorem]{Hypothesis}
+\newtheorem{property}[theorem]{Property}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{result}[theorem]{Result}
+\newenvironment{proof}{\paragraph{Proof:}}{\hfill$\square$}
+
+%Commands
+\newcommand\independent{\protect\mathpalette{\protect\independenT}{\perp}}
+\def\independenT#1#2{\mathrel{\rlap{$#1#2$}\mkern2mu{#1#2}}}
+\newcommand{\overbar}[1]{\mkern 1.5mu\overline{\mkern-1.5mu#1\mkern-1.5mu}\mkern 1.5mu}
+\newcommand{\equald}{\ensuremath{\overset{d}{=}}}
+\captionsetup[table]{skip=10pt}
+%\makeindex
+
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+
+
+%Logo
+%\AddToShipoutPictureBG{%
+%  \AtPageUpperLeft{\raisebox{-\height}{\includegraphics[width=1.5cm]{uchicago.png}}}
+%}
+
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+
+\newcommand{\mr}{\multirow}
+\newcommand{\mc}{\multicolumn}
+\usepackage{lineno,hyperref}
+\modulolinenumbers[5]
+
+\journal{Journal of \LaTeX\ Templates}
+
+\externaldocument{reggioEvaluation_appendix}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Elsevier bibliography styles
+%%%%%%%%%%%%%%%%%%%%%%%
+%% To change the style, put a % in front of the second line of the current style and
+%% remove the % from the second line of the style you would like to use.
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Numbered
+%\bibliographystyle{model1-num-names}
+
+%% Numbered without titles
+%\bibliographystyle{model1a-num-names}
+
+%% Harvard
+%\bibliographystyle{model2-names.bst}\biboptions{authoryear}
+
+%% Vancouver numbered
+%\usepackage{numcompress}\bibliographystyle{model3-num-names}
+
+%% Vancouver name/year
+%\usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
+
+%% APA style
+%\bibliographystyle{model5-names}\biboptions{authoryear}
+
+%% AMA style
+%\usepackage{numcompress}\bibliographystyle{model6-num-names}
+
+%% `Elsevier LaTeX' style
+\bibliographystyle{elsarticle-num}
+%%%%%%%%%%%%%%%%%%%%%%%
+\externaldocument{reggioEvaluation_appendix}
+
+\begin{document}
+
+
+\begin{frontmatter}
+
+\title{Evaluation of the Reggio Approach to Early Education\tnoteref{thanks}}
+
+\tnotetext[thanks]{This research was supported by a generous grant from the Jacobs Foundation. The views expressed in this paper are solely those of the authors and do not necessarily represent those of the funders. The authors would like to thank Claudia Guidici, Moira Nicolosi, Fondazione Reggio Children Centro Loris Malaguzzi, and L'Istituzione del Comune di Reggio Emilia: Scuole e Nidi d'Infanzia for their cooperation with this study. We are grateful to Carolyn Pope Edwards and William Corsaro for their guidance on our survey of early childhood programs in northern Italy: 1950-2010;  to Emilia Restiglian, Marina de Rossi, and Lerida Cisotto for data collection and guidance on the early childhood systems of Padova, Italy; to Elisabetta Musi for data on Scuole FISM, Parma, Italy; to Sandra Rompianesi and Sergio Govi for data on Scuole Statali e FISM, Reggio Emilia, Italy; and Sharon Palsha and Rebecca New, for guidance on the municipal early childhood schools of Reggio Emilia, Italy. We would like to acknowledge Gabriella Conti's role in developing this project. We thank Chiara Baldelli, Chase Corbin, Linor Kiknadze, and Nirali Trivedi for their excellent research assistance. We also thank Stephanie Maras for the diligent administrative management of the international collaboration. Code used for the analysis can be found at \url{https://github.com/aziff/reggio}. The Web Appendix for this paper is posted at: \url{https://cehd.uchicago.edu/wp-content/uploads/2017/04/reggioEvaluation_appendix.pdf}.}
+
+\author[JJH]{James J. Heckman\corref{cor1}}
+\ead{jjh@uchicago.edu}
+\author[PB]{Pietro Biroli}
+\author[DDB]{Daniela Del Boca}
+\author[LPH]{Lynne Pettler Heckman}
+\author[YKK]{Yu Kyung Koh}
+\author[SK]{Sylvi Kuperman}
+\author[SM]{Sidharth Moktan}
+\author[CDP]{Chiara D. Pronzato}
+\author[ALZ]{Anna L. Ziff}
+
+
+\cortext[cor1]{Corresponding author}
+\address[JJH]{The American Bar Foundation and the Department of Economics, University of Chicago}
+
+\address[PB]{Department of Economics, University of Zurich}
+\address[DDB]{Department of Economics and Statistics, University of Turin, Collegio Carlo Alberto}
+\address[LPH]{Center for the Economics of Human Development and The University of Chicago }
+\address[YKK]{Center for the Economics of Human Development and The University of Chicago }
+\address[SK]{Center for the Economics of Human Development and The University of Chicago }
+\address[SM]{Center for the Economics of Human Development and The University of Chicago }
+\address[CDP]{Department of Economics and Statistics, University of Turin, Collegio Carlo Alberto}
+\address[ALZ]{Center for the Economics of Human Development and The University of Chicago }
+
+\begin{abstract}
+We evaluate the Reggio Approach using non-experimental data on individuals from the cities of Reggio Emilia, Parma and Padova belonging to one of five age cohorts: ages 50, 40, 30, 18, and 6 as of 2012. The treated were exposed to municipally offered infant-toddler (ages 0-3) and preschool (ages 3-6) programs. The control group either did not receive formal childcare or were exposed to programs offered by the state or religious systems. We exploit the city-cohort structure of the data to estimate treatment effects using three strategies: difference-in-differences, matching, and matched-difference-in-differences. Most positive and significant effects are generated from comparisons of the treated with individuals who did not receive formal childcare. Relative to not receiving formal care, the Reggio Approach significantly boosts outcomes related to employment, socio-emotional skills, high school graduation, election participation, and obesity. Comparisons with individuals exposed to alternative forms of childcare do not yield strong patterns of positive and significant effects. This suggests that differences between the Reggio Approach and other alternatives are not sufficiently large to result in significant differences in outcomes. This interpretation is supported by our survey, which documents increasing similarities in the administrative and pedagogical practices of childcare systems in the three cities over time.
+\end{abstract}
+
+\begin{keyword}
+Reggio approach, early childhood education, childcare, evaluation, Italian education\\
+\emph{JEL Codes:} I21, I26,  I28, J13
+\end{keyword}
+
+\end{frontmatter}
+
+\linenumbers
+
+\section{Introduction}\label{sec:introduction}
+\input{section/reggioEvaluation_introduction_commented}
+
+\section{Early Childhood Programs in Northern Italy}\label{sec:ece-italy}
+\input{section/reggioEvaluation_background_commented}
+
+\section{Research Design}\label{sec:data}
+\input{section/reggioEvaluation_cities_commented}
+\input{section/reggioEvaluation_data_commented}
+
+
+\section{Analysis}\label{sec:methodology}
+%\input{section/reggioEvaluation_methodology}
+\input{section/reggioEvaluation_methodology_concise_commented}
+
+\section{Results}\label{sec:result}
+\input{section/reggioEvaluation_results_commented}
+\clearpage
+
+\section{Discussion}\label{sec:discussion}
+\input{section/reggioEvaluation_discussion_commented}
+
+\section*{References}
+
+\bibliography{heckman}
+
+\end{document} 
