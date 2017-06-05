@@ -42,5 +42,8 @@
 	- "auxiliary" subfolder stores auxiliary files, such as "preamble.tex"
 	- "docs" contains the actual documents written by the Reggio team. This folder is again
 	  divided into different subfolders depending on the purpose of the document. 
-	
+
+7. reggio_RIE_Submission
+	- This folder is a cleaner version of this whole repository, and this folder only
+	  contains files that are needed to submit to RIE Journal.	
 	
