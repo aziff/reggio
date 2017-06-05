@@ -18,32 +18,32 @@
 	  See README.txt inside reggio/script subfolder to see the instruction on when to run 
 	  driver.do in "dataClean_namesManual_revised". 
 
-2. old
+3. old
 	- This folder contains old do files + documentations + outputs created in the past.
 	- "2016-summer-analysis" subfolder shows all the previous work done in the summer of 2016.
 
-3. outcome	
+4. outcome	
 	- This folder contains the list of outcomes analyzed for each cohort in the format of csv.
 	- These csv files are necessary for conducting BIC-AIC in "script" folder.
 
-4. output
+5. output
 	- This folder stores outputs from the analysis do files. 
 	- The subfolders are structured in a way that shows which analysis the outputs are for. 
 	  For example, "did" subfolder shows the outputs from the did codes.
 
-5. script
+6. script
 	- This folder stores the scripts used to perform various analysis. 
 	- Each subfolder shows the scripts used for a particular method / purporse.
 	- "macros.do" should be included in the beginning of all analysis do files. 
 	  They are the prepatory materials. 
 
-6. writeup
+7. writeup
 	- This folder shows all the documentation / writeups for the Reggio project. 
 	- "auxiliary" subfolder stores auxiliary files, such as "preamble.tex"
 	- "docs" contains the actual documents written by the Reggio team. This folder is again
 	  divided into different subfolders depending on the purpose of the document. 
 
-7. reggio_RIE_Submission
+8. reggio_RIE_Submission
 	- This folder is a cleaner version of this whole repository, and this folder only
 	  contains files that are needed to submit to RIE Journal.	
 	
