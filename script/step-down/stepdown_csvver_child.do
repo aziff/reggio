@@ -71,7 +71,7 @@ preserve
 keep if (Cohort == 1)  //| (Cohort == 2)  check if I need to include migrant cohort
 
 local stype_switch = 1
-foreach stype in /*Other Stat*/ Reli {
+foreach stype in Other Stat Reli {
 	
 	* Set necessary global variables
 	global X					maternaMuni
@@ -128,7 +128,7 @@ foreach stype in /*Other Stat*/ Reli {
 	global ifconditionKMR		${ifconditionNone}
 	global ifconditionKMPm		((Reggio == 1) & (maternaMuni == 1)) | ((Parma == 1) & (``stype'_psm' == 1))
 	global ifconditionKMPv		((Reggio == 1) & (maternaMuni == 1)) | ((Padova == 1) & (``stype'_psm' == 1))
-	global ifconditionDidPm		(Reggio == 1 | Parma == 1)    
+	global ifconditionDidPm		(Reggio == 1 | Parma == 1)     & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionDidPv		(Reggio == 1 | Padova == 1)    & (maternaMuni == 1 | materna`stype' == 1)
 	global ifconditionAIPW	 	(Reggio == 1)  & (maternaMuni == 1 | materna`stype' == 1)
 
