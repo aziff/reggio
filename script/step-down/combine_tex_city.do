@@ -133,21 +133,15 @@ foreach city in /*Parma Padova*/ Reggio {
 						
 							*Put stars according to the significance level 
 							if `pvn`item'`outcome'' <= 0.05 {			
-								local pv`item'`outcome' 	"`pv`item'`outcome''***"
-							}
-							if `pvn`item'`outcome'' <= 0.10 & `pvn`item'`outcome'' > 0.05 {			
 								local pv`item'`outcome' 	"`pv`item'`outcome''**"
 							}
-							if `pvn`item'`outcome'' <= 0.15 & `pvn`item'`outcome'' > 0.10 {			
+							if `pvn`item'`outcome'' <= 0.10 & `pvn`item'`outcome'' > 0.05 {			
 								local pv`item'`outcome' 	"`pv`item'`outcome''*"
 							}
 							if `sdn`item'`outcome'' <= 0.05 {			
-								local sd`item'`outcome' 	"`sd`item'`outcome''***"
-							}
-							if `sdn`item'`outcome'' <= 0.10 & `sdn`item'`outcome'' > 0.05 {			
 								local sd`item'`outcome' 	"`sd`item'`outcome''**"
 							}
-							if `sdn`item'`outcome'' <= 0.05 & `sdn`item'`outcome'' > 0.10 {			
+							if `sdn`item'`outcome'' <= 0.10 & `sdn`item'`outcome'' > 0.05 {			
 								local sd`item'`outcome' 	"`sd`item'`outcome''*"
 							}	
 							
@@ -185,23 +179,17 @@ foreach city in /*Parma Padova*/ Reggio {
 								
 								*Put stars according to the significance level 
 								if `pvn`item'`outcome'' <= 0.05 {			
-									local pv`item'`outcome' 	"`pv`item'`outcome''***"
-								}
-								if `pvn`item'`outcome'' <= 0.10 & `pvn`item'`outcome'' > 0.05 {			
 									local pv`item'`outcome' 	"`pv`item'`outcome''**"
 								}
-								if `pvn`item'`outcome'' <= 0.15 & `pvn`item'`outcome'' > 0.10 {			
+								if `pvn`item'`outcome'' <= 0.10 & `pvn`item'`outcome'' > 0.05 {			
 									local pv`item'`outcome' 	"`pv`item'`outcome''*"
 								}
 								if `sdn`item'`outcome'' <= 0.05 {			
-									local sd`item'`outcome' 	"`sd`item'`outcome''***"
-								}
-								if `sdn`item'`outcome'' <= 0.10 & `sdn`item'`outcome'' > 0.05 {			
 									local sd`item'`outcome' 	"`sd`item'`outcome''**"
 								}
-								if `sdn`item'`outcome'' <= 0.05 & `sdn`item'`outcome'' > 0.10 {			
+								if `sdn`item'`outcome'' <= 0.10 & `sdn`item'`outcome'' > 0.05 {			
 									local sd`item'`outcome' 	"`sd`item'`outcome''*"
-								}						
+								}					
 							}
 						}
 					}
@@ -237,23 +225,17 @@ foreach city in /*Parma Padova*/ Reggio {
 								
 								*Put stars according to the significance level 
 								if `pvn`item'`outcome'' <= 0.05 {			
-									local pv`item'`outcome' 	"`pv`item'`outcome''***"
-								}
-								if `pvn`item'`outcome'' <= 0.10 & `pvn`item'`outcome'' > 0.05 {			
 									local pv`item'`outcome' 	"`pv`item'`outcome''**"
 								}
-								if `pvn`item'`outcome'' <= 0.15 & `pvn`item'`outcome'' > 0.10 {			
+								if `pvn`item'`outcome'' <= 0.10 & `pvn`item'`outcome'' > 0.05 {			
 									local pv`item'`outcome' 	"`pv`item'`outcome''*"
 								}
 								if `sdn`item'`outcome'' <= 0.05 {			
-									local sd`item'`outcome' 	"`sd`item'`outcome''***"
-								}
-								if `sdn`item'`outcome'' <= 0.10 & `sdn`item'`outcome'' > 0.05 {			
 									local sd`item'`outcome' 	"`sd`item'`outcome''**"
 								}
-								if `sdn`item'`outcome'' <= 0.05 & `sdn`item'`outcome'' > 0.10 {			
+								if `sdn`item'`outcome'' <= 0.10 & `sdn`item'`outcome'' > 0.05 {			
 									local sd`item'`outcome' 	"`sd`item'`outcome''*"
-								}					
+								}				
 							}
 						}
 					}
